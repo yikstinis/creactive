@@ -1,4 +1,4 @@
-const { name, version } = require('./package.json')
+import { name, version } from './package.json'
 
 module.exports = {
   expo: {

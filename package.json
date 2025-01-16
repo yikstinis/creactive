@@ -1,12 +1,17 @@
 {
   "name": "creactive",
-  "version": "0.0.1",
-  "main": ".storybook/index.ts",
+  "version": "0.0.2",
+  "main": ".storybook",
+  "files": [
+    "components/**/*"
+  ],
   "scripts": {
-    "prestart": "sb-rn-get-stories",
+    "prestart": "sb-rn-get-stories && node scripts/update-package-main.js .storybook",
     "start": "expo start",
     "test": "jest --watchAll",
-    "lint": "expo lint"
+    "lint": "expo lint",
+    "prepublishOnly": "node scripts/update-package-main.js index.ts",
+    "postpublish": "node scripts/update-package-main.js .storybook"
   },
   "jest": {
     "preset": "jest-expo"
