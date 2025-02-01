@@ -3,9 +3,6 @@
   "compilerOptions": {
     "paths": {
       "@/components/*": ["./components/*"]
-    },
-    "strict": true,
-    "jsx": "react-native"
-  },
-  "exclude": ["node_modules"]
+    }
+  }
 }

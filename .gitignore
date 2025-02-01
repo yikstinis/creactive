@@ -37,4 +37,8 @@ yarn-error.*
 
 app-example
 
+# storybook
 .storybook/storybook.requires.ts
+
+# output
+build/

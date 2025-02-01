@@ -50,4 +50,5 @@ module.exports = {
       },
     ],
   },
+  ignorePatterns: ['build', 'node_modules'],
 }
