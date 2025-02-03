@@ -50,5 +50,23 @@ module.exports = {
       },
     ],
   },
+  overrides: [
+    // We want to see only typisation inside *.types.ts files..
+    {
+      files: ['*.types.ts'],
+      rules: {
+        'no-restricted-syntax': [
+          'error',
+          "ImportDeclaration[importKind='value']",
+          'VariableDeclaration',
+          'FunctionDeclaration',
+          'ClassDeclaration',
+          'CallExpression',
+          'NewExpression',
+          'AssignmentExpression',
+        ],
+      },
+    },
+  ],
   ignorePatterns: ['build', 'node_modules'],
 }

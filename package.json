@@ -10,7 +10,7 @@
     "start": "expo start",
     "test": "jest --watchAll",
     "lint": "expo lint",
-    "build": "webpack --mode production",
+    "build": "webpack --mode production && tsc source/index.ts --jsx react-native --declaration --emitDeclarationOnly --noEmit false --skipLibCheck true --outDir build/web",
     "prepublishOnly": "node scripts/update-package-main.js build/web/index.js",
     "postpublish": "node scripts/update-package-main.js .storybook"
   },

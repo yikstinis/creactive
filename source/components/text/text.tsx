@@ -1,5 +1,5 @@
 import { Text as ReactNativeText, StyleSheet } from 'react-native'
-import type { TextComponent } from './types'
+import type { TextComponent } from './text.types'
 
 const styleSheet = StyleSheet.create({
   element: {
