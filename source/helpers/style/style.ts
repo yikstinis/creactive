@@ -5,7 +5,6 @@ import type { RenderStyleHelper } from './style.types'
 
 export const renderStyle: RenderStyleHelper = (component, key = 'main') => {
   // Converting types to be able to use web specific methods..
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const WebAppRegistry = AppRegistry as unknown as WebAppRegistryType
   WebAppRegistry.registerComponent(key, () => component)
   // If someone use this function on native platform it will throw an error..
