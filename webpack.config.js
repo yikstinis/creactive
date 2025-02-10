@@ -4,7 +4,10 @@ const path = require('path')
 module.exports = {
   entry: path.join(__dirname, 'source', 'index.ts'),
   output: {
-    path: path.join(__dirname, 'build', 'web'),
+    path:
+      process.env.npm_lifecycle_event === 'build:web'
+        ? path.join(__dirname, 'build', 'web')
+        : path.join(__dirname, 'build'),
     filename: 'index.js',
     globalObject: 'this',
     libraryTarget: 'umd',
@@ -18,9 +21,10 @@ module.exports = {
     'react-native-web': 'react-native-web',
   },
   resolve: {
-    alias: {
-      'react-native$': 'react-native-web',
-    },
+    alias:
+      process.env.npm_lifecycle_event === 'build:web'
+        ? { 'react-native$': 'react-native-web' }
+        : undefined,
     extensions: ['.js', '.jsx', '.ts', '.tsx'],
   },
   module: {

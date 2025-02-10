@@ -1,7 +1,7 @@
 {
   "name": "creactive",
-  "version": "0.0.17",
-  "main": "build/web/index.js",
+  "version": "0.0.19",
+  "main": ".storybook",
   "files": [
     "build/**"
   ],
@@ -10,8 +10,10 @@
     "start": "expo start",
     "test": "jest --watchAll",
     "lint": "expo lint",
-    "build": "webpack --mode production && tsc source/index.ts --jsx react-native --declaration --emitDeclarationOnly --noEmit false --skipLibCheck true --outDir build/web",
-    "prepublishOnly": "node scripts/update-package-main.js build/web/index.js",
+    "build": "npm run build:default && npm run build:web",
+    "build:default": "webpack --mode production && tsc source/index.ts --jsx react-native --declaration --emitDeclarationOnly --noEmit false --skipLibCheck true --outDir build",
+    "build:web": "webpack --mode production && tsc source/index.ts --jsx react-native --declaration --emitDeclarationOnly --noEmit false --skipLibCheck true --outDir build/web",
+    "prepublishOnly": "node scripts/update-package-main.js build/index.js",
     "postpublish": "node scripts/update-package-main.js .storybook"
   },
   "jest": {

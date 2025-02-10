@@ -7,9 +7,6 @@ import type { ComponentType, JSX } from 'react'
  *
  * @see https://necolas.github.io/react-native-web/docs/rendering/
  * @see https://docs.expo.dev/guides/using-nextjs/
- *
- * @param component - your root component which uses library inside
- * @param key - identifies component in the registry if you have multiple
  */
 export type RenderStyleHelper = (
   component: ComponentType,
