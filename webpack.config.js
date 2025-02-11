@@ -1,13 +1,34 @@
 const { name } = require('./package.json')
 const path = require('path')
 
+// Saying that build "is web", we mean that we are going to compile the package:
+// * for projects, that are not using react-native or expo inside
+// * replacing react-native with react-native-web everywhere
+const isWeb = process.env.npm_lifecycle_event === 'build:web'
+
+const getOutputPath = () => {
+  if (isWeb) return path.join(__dirname, 'build', 'web')
+  return path.join(__dirname, 'build', 'default')
+}
+
+const getAlias = () => {
+  if (isWeb) {
+    return {
+      'react-native$': 'react-native-web',
+    }
+  }
+}
+
+const getBabelPlugins = () => {
+  if (isWeb) {
+    return ['react-native-web']
+  }
+}
+
 module.exports = {
   entry: path.join(__dirname, 'source', 'index.ts'),
   output: {
-    path:
-      process.env.npm_lifecycle_event === 'build:web'
-        ? path.join(__dirname, 'build', 'web')
-        : path.join(__dirname, 'build'),
+    path: getOutputPath(),
     filename: 'index.js',
     globalObject: 'this',
     libraryTarget: 'umd',
@@ -21,10 +42,7 @@ module.exports = {
     'react-native-web': 'react-native-web',
   },
   resolve: {
-    alias:
-      process.env.npm_lifecycle_event === 'build:web'
-        ? { 'react-native$': 'react-native-web' }
-        : undefined,
+    alias: getAlias(),
     extensions: ['.js', '.jsx', '.ts', '.tsx'],
   },
   module: {
@@ -44,7 +62,7 @@ module.exports = {
                 },
               ],
             ],
-            plugins: ['react-native-web'],
+            plugins: getBabelPlugins(),
           },
         },
         exclude: /node_modules/,
