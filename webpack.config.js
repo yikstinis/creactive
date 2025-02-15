@@ -12,11 +12,11 @@ const getOutputPath = () => {
 }
 
 const getAlias = () => {
-  if (isWeb) {
-    return {
-      'react-native$': 'react-native-web',
-    }
+  const alias = {
+    '@': path.resolve(__dirname, 'source'),
   }
+  if (isWeb) alias['react-native$'] = 'react-native-web'
+  return alias
 }
 
 const getBabelPlugins = () => {
