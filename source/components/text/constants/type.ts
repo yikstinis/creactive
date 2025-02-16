@@ -26,12 +26,3 @@ export const TEXT_TYPE_HEADING = [
   TextType.H5,
   TextType.H6,
 ]
-
-/**
- * Text role enum (for inner usage).
- * A part of react-native role type, used by text.
- */
-export const enum TextRole {
-  HEADING = 'heading',
-  PARAGRAPH = 'paragraph',
-}
