@@ -1,16 +1,22 @@
 import { StorybookControl } from '@/helpers'
-import { faker } from '@faker-js/faker'
-import type { StoryObj } from '@storybook/react'
+import type { Meta, StoryObj } from '@storybook/react'
 import { Text } from './text'
 
-export default {
+const typeControl = StorybookControl.fromNumericEnum(Text.Type, true)
+const childrenControl = StorybookControl.forChildren()
+
+const meta: Meta<typeof Text> = {
   component: Text,
+  decorators: [StorybookControl.getDecorator()],
   argTypes: {
-    type: StorybookControl.fromNumericEnum(Text.Type, true),
+    type: typeControl,
+    children: childrenControl,
   },
   args: {
-    children: faker.lorem.words(2),
+    type: typeControl.defaultValue,
+    children: childrenControl.defaultValue,
   },
 }
+export default meta
 
 export const DefaultState: StoryObj<typeof Text> = {}
