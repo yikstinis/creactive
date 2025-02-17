@@ -6,14 +6,17 @@
     "build/**"
   ],
   "scripts": {
+    "preinstall": "node scripts/update-package-dependencies.js dependencies",
+    "postinstall": "node scripts/update-package-dependencies.js peerDependencies",
     "prestart": "sb-rn-get-stories && node scripts/update-package-main.js .storybook",
     "start": "expo start",
+    "start:clear": "expo start --clear",
     "test": "jest --watchAll",
     "lint": "expo lint",
     "build": "npm run build:default && npm run build:web",
     "build:default": "webpack --mode production && tsc -p tsconfig.default.json && tsc-alias -p tsconfig.default.json",
     "build:web": "webpack --mode production && tsc -p tsconfig.web.json && tsc-alias -p tsconfig.web.json",
-    "prepublishOnly": "node scripts/update-package-main.js build/default/index.js",
+    "prepublishOnly": "node scripts/update-package-main.js build/default/index.js && node scripts/update-package-dependencies.js peerDependencies",
     "postpublish": "node scripts/update-package-main.js .storybook"
   },
   "jest": {
@@ -22,9 +25,10 @@
   "peerDependencies": {
     "react": "18.3.1",
     "react-dom": "18.3.1",
-    "react-native": "0.76 || 0.77",
-    "react-native-web": "0.19"
+    "react-native": "0.76.7",
+    "react-native-web": "0.19.13"
   },
+  "dependencies": {},
   "devDependencies": {
     "@babel/core": "^7.25.2",
     "@babel/preset-env": "^7.26.7",
@@ -44,9 +48,9 @@
     "babel-loader": "^8.4.1",
     "eslint-config-standard": "^17.1.0",
     "eslint-plugin-jest": "^28.9.0",
-    "expo": "^52.0.33",
+    "expo": "^52.0.35",
     "jest": "^29.2.1",
-    "jest-expo": "^52.0.3",
+    "jest-expo": "^52.0.4",
     "prettier-plugin-organize-imports": "^4.1.0",
     "tsc-alias": "^1.8.10",
     "typescript": "^5.3.3",

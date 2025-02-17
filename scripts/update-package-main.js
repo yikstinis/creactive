@@ -10,4 +10,4 @@ const { writeFileSync } = require('fs')
  * @see package.json scripts section for more information.
  */
 package.main = process.argv[2] || package.main || '.storybook'
-writeFileSync('package.json', JSON.stringify(package, null, 2))
+writeFileSync('package.json', JSON.stringify(package, null, 2) + '\n')
