@@ -42,3 +42,7 @@ app-example
 
 # output
 build/
+
+# package temporary files
+
+package-temp.json
