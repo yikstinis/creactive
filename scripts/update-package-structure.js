@@ -12,6 +12,7 @@ if (process.argv[2] === TYPE_PREPUBLIISH) {
       {
         name: package.name,
         version: package.version,
+        main: package.main,
         files: package.files,
         scripts: {
           postpublish: package.scripts.postpublish,

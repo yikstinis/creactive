@@ -1,7 +1,7 @@
 {
   "name": "creactive",
-  "version": "0.0.26",
-  "main": "build/default/index.js",
+  "version": "0.0.27",
+  "main": ".storybook",
   "files": [
     "build/**"
   ],
