@@ -16,7 +16,7 @@
     "build": "npm run build:default && npm run build:web",
     "build:default": "webpack --mode production && tsc -p tsconfig.default.json && tsc-alias -p tsconfig.default.json",
     "build:web": "webpack --mode production && tsc -p tsconfig.web.json && tsc-alias -p tsconfig.web.json",
-    "prepublishOnly": "npm run prepublish:update-main && npm run prepublish:update-dependencies",
+    "prepublishOnly": "npm run prepublish:update-main && npm run prepublish:update-dependencies && npm run prepublish:update-structure",
     "prepublish:update-main": "node scripts/update-package-main.js build/default/index.js",
     "prepublish:update-dependencies": "node scripts/update-package-dependencies.js peerDependencies",
     "prepublish:update-structure": "node scripts/update-package-structure.js prepublish",
