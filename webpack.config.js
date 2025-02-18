@@ -19,12 +19,6 @@ const getAlias = () => {
   return alias
 }
 
-const getBabelPlugins = () => {
-  if (isWeb) {
-    return ['react-native-web']
-  }
-}
-
 module.exports = {
   entry: path.join(__dirname, 'source', 'index.ts'),
   output: {
@@ -49,22 +43,7 @@ module.exports = {
     rules: [
       {
         test: /\.tsx?$/,
-        use: {
-          loader: 'babel-loader',
-          options: {
-            presets: [
-              '@babel/preset-env',
-              '@babel/preset-typescript',
-              [
-                '@babel/preset-react',
-                {
-                  runtime: 'automatic',
-                },
-              ],
-            ],
-            plugins: getBabelPlugins(),
-          },
-        },
+        use: 'babel-loader',
         exclude: /node_modules/,
       },
     ],

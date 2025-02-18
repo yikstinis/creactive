@@ -1,12 +1,12 @@
 {
   "name": "creactive",
-  "version": "0.0.29",
+  "version": "0.0.30",
   "main": ".storybook",
   "files": [
     "build/**"
   ],
   "scripts": {
-    "prestart": "sb-rn-get-stories && node scripts/update-package-main.js .storybook",
+    "prestart": "sb-rn-get-stories && node scripts/update-package.js .storybook",
     "start": "expo start",
     "start:clear": "expo start --clear",
     "test": "jest --watchAll",
@@ -28,8 +28,6 @@
   },
   "devDependencies": {
     "@babel/core": "^7.25.2",
-    "@babel/preset-env": "^7.26.7",
-    "@babel/preset-react": "^7.26.3",
     "@faker-js/faker": "^9.2.0",
     "@react-native-async-storage/async-storage": "^1.23.1",
     "@storybook/addon-ondevice-actions": "^8.4.2",
