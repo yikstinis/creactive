@@ -1,6 +1,6 @@
 {
   "name": "creactive",
-  "version": "0.0.30",
+  "version": "0.0.31",
   "main": ".storybook",
   "files": [
     "build/**"
@@ -9,7 +9,10 @@
     "prestart": "sb-rn-get-stories && node scripts/update-package.js .storybook",
     "start": "expo start",
     "start:clear": "expo start --clear",
-    "test": "jest --watchAll",
+    "test": "npm run test:android && npm run test:ios && npm run test:web",
+    "test:android": "jest",
+    "test:ios": "jest",
+    "test:web": "jest",
     "lint": "expo lint",
     "build": "npm run build:default && npm run build:web",
     "build:default": "webpack --mode production && tsc -p tsconfig.default.json && tsc-alias -p tsconfig.default.json",
@@ -17,14 +20,11 @@
     "prepublishOnly": "npm run build && node scripts/update-package.js build/default/index.js",
     "postpublish": "node scripts/update-package.js .storybook"
   },
-  "jest": {
-    "preset": "jest-expo"
-  },
   "peerDependencies": {
-    "react": "18.3.1",
-    "react-dom": "18.3.1",
-    "react-native": "0.76.7",
-    "react-native-web": "0.19.13"
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-native": "^0.76.7",
+    "react-native-web": "^0.19.13"
   },
   "devDependencies": {
     "@babel/core": "^7.25.2",
@@ -33,6 +33,7 @@
     "@storybook/addon-ondevice-actions": "^8.4.2",
     "@storybook/addon-ondevice-controls": "^8.4.2",
     "@storybook/react-native": "^8.4.2",
+    "@testing-library/react": "^16.2.0",
     "@testing-library/react-native": "^12.9.0",
     "@types/jest": "^29.5.12",
     "@types/react": "~18.3.12",
@@ -45,7 +46,7 @@
     "eslint-plugin-jest": "^28.9.0",
     "expo": "^52.0.35",
     "jest": "^29.2.1",
-    "jest-expo": "^52.0.4",
+    "jest-expo": "^52.0.2",
     "prettier-plugin-organize-imports": "^4.1.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
