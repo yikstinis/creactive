@@ -9,12 +9,10 @@ import type { BaseStyleSheetParameters, TextComponent } from './text.types'
  * We should put here as much styles as possible to improve performance.
  * Syles, created here can't be changed during component lifecycle.
  */
-const createBaseStyleSheet = ({
-  fontFamilyDefault,
-}: BaseStyleSheetParameters) =>
+const createBaseStyleSheet = ({ fontFamilyBase }: BaseStyleSheetParameters) =>
   StyleSheet.create({
-    fontFamilyDefault: {
-      fontFamily: fontFamilyDefault,
+    fontFamilyBase: {
+      fontFamily: fontFamilyBase,
     },
   })
 
@@ -40,14 +38,14 @@ export const Text: TextComponent = ({ type, children }) => {
   }
 
   const baseStyleSheet = createBaseStyleSheet({
-    fontFamilyDefault: themeContext.fontFamilyDefault,
+    fontFamilyBase: themeContext.fontFamilyBase,
   })
 
   return (
     <ReactNativeText
       role={getRole()}
       aria-level={getAriaLevel()}
-      style={[baseStyleSheet.fontFamilyDefault]}
+      style={[baseStyleSheet.fontFamilyBase]}
     >
       {children}
     </ReactNativeText>
