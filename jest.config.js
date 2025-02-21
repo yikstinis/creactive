@@ -40,6 +40,21 @@ const resolveModulenameMapper = () => {
 }
 
 /**
+ * Resolving setup files after env helper.
+ * We need to have setup files for both web and native.
+ * In web environment we need to have setup file for web.
+ * In native (default) environment we need to have setup file for native.
+ *
+ * @returns {Array<string>} - setup files after env
+ */
+const resolveSetupFilesAfterEnv = () => {
+  const result = ['<rootDir>/jest-setup.ts']
+  if (isWeb) result.push('<rootDir>/jest-setup.web.ts')
+  else result.push('<rootDir>/jest-setup.native.ts')
+  return result
+}
+
+/**
  * Resolving test match pattern helper.
  * In web environment we need to have additional pattern for web tests.
  * In native (default) environment we need only one pattern.
@@ -71,7 +86,7 @@ module.exports = {
     '^.+\\.(ts|tsx)$': 'babel-jest',
   },
   moduleNameMapper: resolveModulenameMapper(),
-  setupFilesAfterEnv: [],
+  setupFilesAfterEnv: resolveSetupFilesAfterEnv(),
   testMatch: resolveTestMatch(),
   testEnvironment: resolveEnvironment(),
 }

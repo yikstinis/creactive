@@ -1,14 +1,26 @@
+import { useThemeContext } from '@/contexts'
 import type { Role } from 'react-native'
 import { Text as ReactNativeText, StyleSheet } from 'react-native'
 import { TEXT_TYPE_HEADING, TextRole, TextType } from './constants'
-import type { TextComponent } from './text.types'
+import type { BaseStyleSheetParameters, TextComponent } from './text.types'
 
-const styleSheet = StyleSheet.create({
-  element: {
-    color: 'red',
-  },
-})
+/**
+ * Creates optimized static stylesheet for component.
+ * We should put here as much styles as possible to improve performance.
+ * Syles, created here can't be changed during component lifecycle.
+ */
+const createBaseStyleSheet = ({
+  fontFamilyDefault,
+}: BaseStyleSheetParameters) =>
+  StyleSheet.create({
+    fontFamilyDefault: {
+      fontFamily: fontFamilyDefault,
+    },
+  })
+
 export const Text: TextComponent = ({ type, children }) => {
+  const themeContext = useThemeContext()
+
   const getRole = () => {
     // Casting paragraph role type because it is supported by react-native-web.
     // As a result - text would be rendered to paragraph tag...
@@ -27,11 +39,15 @@ export const Text: TextComponent = ({ type, children }) => {
     }
   }
 
+  const baseStyleSheet = createBaseStyleSheet({
+    fontFamilyDefault: themeContext.fontFamilyDefault,
+  })
+
   return (
     <ReactNativeText
       role={getRole()}
       aria-level={getAriaLevel()}
-      style={styleSheet.element}
+      style={[baseStyleSheet.fontFamilyDefault]}
     >
       {children}
     </ReactNativeText>

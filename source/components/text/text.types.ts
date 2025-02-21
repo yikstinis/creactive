@@ -1,6 +1,9 @@
 import type { FunctionComponent, PropsWithChildren } from 'react'
 import type { TextType } from './constants'
 
+export type BaseStyleSheetParameters = {
+  fontFamilyDefault: string
+}
 export interface TextProps extends PropsWithChildren {
   /**
    * Specific text type if required.
