@@ -8,6 +8,16 @@ import type { FunctionComponent, PropsWithChildren } from 'react'
  */
 export interface ThemeContextValue {
   fontFamilyBase: string
+  fontSizeBaseX2S: number
+  fontSizeBaseXS: number
+  fontSizeBaseSM: number
+  fontSizeBaseMD: number
+  fontSizeBaseLG: number
+  fontSizeBaseXL: number
+  fontSizeBaseX2L: number
+  fontSizeBaseX3L: number
+  fontSizeBaseX4L: number
+  fontSizeBaseX5L: number
 }
 export type ThemeContextProviderProps = PropsWithChildren<
   Partial<ThemeContextValue>
