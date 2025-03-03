@@ -10,6 +10,7 @@ export type {
   ThemeContextProviderComponent,
   ThemeContextProviderProps,
   ThemeContextValue,
+  ThemeFontWeight,
 } from '@/contexts/theme'
 export { renderStyle } from '@/helpers/style'
 export type { RenderStyleHelper } from '@/helpers/style'

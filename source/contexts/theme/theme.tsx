@@ -10,6 +10,14 @@ import {
   FONT_SIZE_BASE_X5L,
   FONT_SIZE_BASE_XL,
   FONT_SIZE_BASE_XS,
+  FONT_WEIGHT_BASE_BLACK,
+  FONT_WEIGHT_BASE_BOLD,
+  FONT_WEIGHT_BASE_EXTRABOLD,
+  FONT_WEIGHT_BASE_EXTRALIGHT,
+  FONT_WEIGHT_BASE_LIGHT,
+  FONT_WEIGHT_BASE_REGULAR,
+  FONT_WEIGHT_BASE_SEMIBOLD,
+  FONT_WEIGHT_BASE_THIN,
 } from '@/constants'
 import { createContext, useContext, useMemo } from 'react'
 import type {
@@ -21,6 +29,14 @@ import type {
 // This can be helpful for testing and storybook.
 const ThemeContext = createContext<ThemeContextValue>({
   fontFamilyBase: FONT_FAMILY_BASE,
+  fontWeightBaseThin: FONT_WEIGHT_BASE_THIN,
+  fontWeightBaseExtraLight: FONT_WEIGHT_BASE_EXTRALIGHT,
+  fontWeightBaseLight: FONT_WEIGHT_BASE_LIGHT,
+  fontWeightBaseRegular: FONT_WEIGHT_BASE_REGULAR,
+  fontWeightBaseSemibold: FONT_WEIGHT_BASE_SEMIBOLD,
+  fontWeightBaseBold: FONT_WEIGHT_BASE_BOLD,
+  fontWeightBaseExtraBold: FONT_WEIGHT_BASE_EXTRABOLD,
+  fontWeightBaseBlack: FONT_WEIGHT_BASE_BLACK,
   fontSizeBaseX2S: FONT_SIZE_BASE_X2S,
   fontSizeBaseXS: FONT_SIZE_BASE_XS,
   fontSizeBaseSM: FONT_SIZE_BASE_SM,
@@ -35,6 +51,14 @@ const ThemeContext = createContext<ThemeContextValue>({
 
 export const ThemeContextProvider: ThemeContextProviderComponent = ({
   fontFamilyBase,
+  fontWeightBaseThin,
+  fontWeightBaseExtraLight,
+  fontWeightBaseLight,
+  fontWeightBaseRegular,
+  fontWeightBaseSemibold,
+  fontWeightBaseBold,
+  fontWeightBaseExtraBold,
+  fontWeightBaseBlack,
   fontSizeBaseX2S,
   fontSizeBaseXS,
   fontSizeBaseSM,
@@ -53,6 +77,17 @@ export const ThemeContextProvider: ThemeContextProviderComponent = ({
   const value = useMemo(
     () => ({
       fontFamilyBase: fontFamilyBase ?? FONT_FAMILY_BASE,
+      fontWeightBaseThin: fontWeightBaseThin ?? FONT_WEIGHT_BASE_THIN,
+      fontWeightBaseExtraLight:
+        fontWeightBaseExtraLight ?? FONT_WEIGHT_BASE_EXTRALIGHT,
+      fontWeightBaseLight: fontWeightBaseLight ?? FONT_WEIGHT_BASE_LIGHT,
+      fontWeightBaseRegular: fontWeightBaseRegular ?? FONT_WEIGHT_BASE_REGULAR,
+      fontWeightBaseSemibold:
+        fontWeightBaseSemibold ?? FONT_WEIGHT_BASE_SEMIBOLD,
+      fontWeightBaseBold: fontWeightBaseBold ?? FONT_WEIGHT_BASE_BOLD,
+      fontWeightBaseExtraBold:
+        fontWeightBaseExtraBold ?? FONT_WEIGHT_BASE_EXTRABOLD,
+      fontWeightBaseBlack: fontWeightBaseBlack ?? FONT_WEIGHT_BASE_BLACK,
       fontSizeBaseX2S: fontSizeBaseX2S ?? FONT_SIZE_BASE_X2S,
       fontSizeBaseXS: fontSizeBaseXS ?? FONT_SIZE_BASE_XS,
       fontSizeBaseSM: fontSizeBaseSM ?? FONT_SIZE_BASE_SM,
@@ -66,6 +101,14 @@ export const ThemeContextProvider: ThemeContextProviderComponent = ({
     }),
     [
       fontFamilyBase,
+      fontWeightBaseThin,
+      fontWeightBaseExtraLight,
+      fontWeightBaseLight,
+      fontWeightBaseRegular,
+      fontWeightBaseSemibold,
+      fontWeightBaseBold,
+      fontWeightBaseExtraBold,
+      fontWeightBaseBlack,
       fontSizeBaseX2S,
       fontSizeBaseXS,
       fontSizeBaseSM,

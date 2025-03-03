@@ -10,6 +10,14 @@ import {
   FONT_SIZE_BASE_X5L,
   FONT_SIZE_BASE_XL,
   FONT_SIZE_BASE_XS,
+  FONT_WEIGHT_BASE_BLACK,
+  FONT_WEIGHT_BASE_BOLD,
+  FONT_WEIGHT_BASE_EXTRABOLD,
+  FONT_WEIGHT_BASE_EXTRALIGHT,
+  FONT_WEIGHT_BASE_LIGHT,
+  FONT_WEIGHT_BASE_REGULAR,
+  FONT_WEIGHT_BASE_SEMIBOLD,
+  FONT_WEIGHT_BASE_THIN,
 } from '@/constants'
 import { faker } from '@faker-js/faker'
 import { render, screen } from '@testing-library/react-native'
@@ -27,6 +35,78 @@ describe('@/components/text', () => {
     render(<Text>{text}</Text>)
     expect(screen.getByText(text)).toHaveStyle({
       fontFamily: FONT_FAMILY_BASE,
+    })
+  })
+
+  it('renders with REGULAR font weight style by default', () => {
+    const text = faker.lorem.words(2)
+    render(<Text>{text}</Text>)
+    expect(screen.getByText(text)).toHaveStyle({
+      fontWeight: FONT_WEIGHT_BASE_REGULAR,
+    })
+  })
+
+  it('renders with THIN font weight style when provided', () => {
+    const text = faker.lorem.words(2)
+    render(<Text fontWeight={Text.FontWeight.THIN}>{text}</Text>)
+    expect(screen.getByText(text)).toHaveStyle({
+      fontWeight: FONT_WEIGHT_BASE_THIN,
+    })
+  })
+
+  it('renders with EXTRA_LIGHT font weight style when provided', () => {
+    const text = faker.lorem.words(2)
+    render(<Text fontWeight={Text.FontWeight.EXTRA_LIGHT}>{text}</Text>)
+    expect(screen.getByText(text)).toHaveStyle({
+      fontWeight: FONT_WEIGHT_BASE_EXTRALIGHT,
+    })
+  })
+
+  it('renders with LIGHT font weight style when provided', () => {
+    const text = faker.lorem.words(2)
+    render(<Text fontWeight={Text.FontWeight.LIGHT}>{text}</Text>)
+    expect(screen.getByText(text)).toHaveStyle({
+      fontWeight: FONT_WEIGHT_BASE_LIGHT,
+    })
+  })
+
+  it('renders with REGULAR font weight style when provided', () => {
+    const text = faker.lorem.words(2)
+    render(<Text fontWeight={Text.FontWeight.REGULAR}>{text}</Text>)
+    expect(screen.getByText(text)).toHaveStyle({
+      fontWeight: FONT_WEIGHT_BASE_REGULAR,
+    })
+  })
+
+  it('renders with SEMIBOLD font weight style when provided', () => {
+    const text = faker.lorem.words(2)
+    render(<Text fontWeight={Text.FontWeight.SEMIBOLD}>{text}</Text>)
+    expect(screen.getByText(text)).toHaveStyle({
+      fontWeight: FONT_WEIGHT_BASE_SEMIBOLD,
+    })
+  })
+
+  it('renders with BOLD font weight style when provided', () => {
+    const text = faker.lorem.words(2)
+    render(<Text fontWeight={Text.FontWeight.BOLD}>{text}</Text>)
+    expect(screen.getByText(text)).toHaveStyle({
+      fontWeight: FONT_WEIGHT_BASE_BOLD,
+    })
+  })
+
+  it('renders with EXTRA_BOLD font weight style when provided', () => {
+    const text = faker.lorem.words(2)
+    render(<Text fontWeight={Text.FontWeight.EXTRA_BOLD}>{text}</Text>)
+    expect(screen.getByText(text)).toHaveStyle({
+      fontWeight: FONT_WEIGHT_BASE_EXTRABOLD,
+    })
+  })
+
+  it('renders with BLACK font weight style when provided', () => {
+    const text = faker.lorem.words(2)
+    render(<Text fontWeight={Text.FontWeight.BLACK}>{text}</Text>)
+    expect(screen.getByText(text)).toHaveStyle({
+      fontWeight: FONT_WEIGHT_BASE_BLACK,
     })
   })
 

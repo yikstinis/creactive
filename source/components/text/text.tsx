@@ -4,6 +4,7 @@ import { Text as ReactNativeText, StyleSheet } from 'react-native'
 import {
   TEXT_TYPE_HEADING,
   TextFontSize,
+  TextFontWeight,
   TextRole,
   TextType,
 } from './constants'
@@ -16,6 +17,14 @@ import type { BaseStyleSheetParameters, TextComponent } from './text.types'
  */
 const createBaseStyleSheet = ({
   fontFamilyBase,
+  fontWeightBaseThin,
+  fontWeightBaseExtraLight,
+  fontWeightBaseLight,
+  fontWeightBaseRegular,
+  fontWeightBaseSemibold,
+  fontWeightBaseBold,
+  fontWeightBaseExtraBold,
+  fontWeightBaseBlack,
   fontSizeBaseX2S,
   fontSizeBaseXS,
   fontSizeBaseSM,
@@ -30,6 +39,30 @@ const createBaseStyleSheet = ({
   StyleSheet.create({
     fontFamilyBase: {
       fontFamily: fontFamilyBase,
+    },
+    fontWeightThin: {
+      fontWeight: fontWeightBaseThin,
+    },
+    fontWeightExtraLight: {
+      fontWeight: fontWeightBaseExtraLight,
+    },
+    fontWeightLight: {
+      fontWeight: fontWeightBaseLight,
+    },
+    fontWeightBaseRegular: {
+      fontWeight: fontWeightBaseRegular,
+    },
+    fontWeightBaseSemibold: {
+      fontWeight: fontWeightBaseSemibold,
+    },
+    fontWeightBaseBold: {
+      fontWeight: fontWeightBaseBold,
+    },
+    fontWeightBaseExtraBold: {
+      fontWeight: fontWeightBaseExtraBold,
+    },
+    fontWeightBaseBlack: {
+      fontWeight: fontWeightBaseBlack,
     },
     fontSizeBaseX2S: {
       fontSize: fontSizeBaseX2S,
@@ -65,6 +98,7 @@ const createBaseStyleSheet = ({
 
 export const Text: TextComponent = ({
   type,
+  fontWeight = TextFontWeight.REGULAR,
   fontSize = TextFontSize.MD,
   children,
 }) => {
@@ -90,6 +124,14 @@ export const Text: TextComponent = ({
 
   const baseStyleSheet = createBaseStyleSheet({
     fontFamilyBase: themeContext.fontFamilyBase,
+    fontWeightBaseThin: themeContext.fontWeightBaseThin,
+    fontWeightBaseExtraLight: themeContext.fontWeightBaseExtraLight,
+    fontWeightBaseLight: themeContext.fontWeightBaseLight,
+    fontWeightBaseRegular: themeContext.fontWeightBaseRegular,
+    fontWeightBaseSemibold: themeContext.fontWeightBaseSemibold,
+    fontWeightBaseBold: themeContext.fontWeightBaseBold,
+    fontWeightBaseExtraBold: themeContext.fontWeightBaseExtraBold,
+    fontWeightBaseBlack: themeContext.fontWeightBaseBlack,
     fontSizeBaseX2S: themeContext.fontSizeBaseX2S,
     fontSizeBaseXS: themeContext.fontSizeBaseXS,
     fontSizeBaseSM: themeContext.fontSizeBaseSM,
@@ -101,6 +143,27 @@ export const Text: TextComponent = ({
     fontSizeBaseX4L: themeContext.fontSizeBaseX4L,
     fontSizeBaseX5L: themeContext.fontSizeBaseX5L,
   })
+
+  const getFontWeightStyles = () => {
+    switch (fontWeight) {
+      case TextFontWeight.THIN:
+        return baseStyleSheet.fontWeightThin
+      case TextFontWeight.EXTRA_LIGHT:
+        return baseStyleSheet.fontWeightExtraLight
+      case TextFontWeight.LIGHT:
+        return baseStyleSheet.fontWeightLight
+      case TextFontWeight.REGULAR:
+        return baseStyleSheet.fontWeightBaseRegular
+      case TextFontWeight.SEMIBOLD:
+        return baseStyleSheet.fontWeightBaseSemibold
+      case TextFontWeight.BOLD:
+        return baseStyleSheet.fontWeightBaseBold
+      case TextFontWeight.EXTRA_BOLD:
+        return baseStyleSheet.fontWeightBaseExtraBold
+      case TextFontWeight.BLACK:
+        return baseStyleSheet.fontWeightBaseBlack
+    }
+  }
 
   const getFontSizeStyles = () => {
     switch (fontSize) {
@@ -131,11 +194,16 @@ export const Text: TextComponent = ({
     <ReactNativeText
       role={getRole()}
       aria-level={getAriaLevel()}
-      style={[baseStyleSheet.fontFamilyBase, getFontSizeStyles()]}
+      style={[
+        baseStyleSheet.fontFamilyBase,
+        getFontWeightStyles(),
+        getFontSizeStyles(),
+      ]}
     >
       {children}
     </ReactNativeText>
   )
 }
 Text.Type = TextType
+Text.FontWeight = TextFontWeight
 Text.FontSize = TextFontSize
