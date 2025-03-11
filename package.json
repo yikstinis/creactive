@@ -1,6 +1,6 @@
 {
   "name": "creactive",
-  "version": "0.0.35",
+  "version": "0.0.36",
   "main": ".storybook",
   "files": [
     "build/**"
@@ -14,10 +14,8 @@
     "test:ios": "jest",
     "test:web": "jest",
     "lint": "expo lint",
-    "build": "npm run build:default && npm run build:web",
-    "build:default": "webpack --mode production && tsc -p tsconfig.default.json && tsc-alias -p tsconfig.default.json",
-    "build:web": "webpack --mode production && tsc -p tsconfig.web.json && tsc-alias -p tsconfig.web.json",
-    "prepublishOnly": "npm run build && node scripts/update-package.js build/default/index.js",
+    "build": "webpack --mode production && tsc -p tsconfig.types.json && tsc-alias -p tsconfig.types.json",
+    "prepublishOnly": "npm run build && node scripts/update-package.js build/index.js",
     "postpublish": "node scripts/update-package.js .storybook"
   },
   "peerDependencies": {
