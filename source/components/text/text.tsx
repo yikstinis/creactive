@@ -1,6 +1,6 @@
-import { useThemeContext } from '@/contexts'
+import { useThemeStyleSheet } from '@/hooks'
 import type { Role } from 'react-native'
-import { Text as ReactNativeText, StyleSheet } from 'react-native'
+import { Text as ReactNativeText } from 'react-native'
 import {
   TEXT_TYPE_HEADING,
   TextFontSize,
@@ -8,93 +8,7 @@ import {
   TextRole,
   TextType,
 } from './constants'
-import type { BaseStyleSheetParameters, TextComponent } from './text.types'
-
-/**
- * Creates optimized static stylesheet for component.
- * We should put here as much styles as possible to improve performance.
- * Syles, created here can't be changed during component lifecycle.
- */
-const createBaseStyleSheet = ({
-  fontFamilyBase,
-  fontWeightBaseThin,
-  fontWeightBaseExtraLight,
-  fontWeightBaseLight,
-  fontWeightBaseRegular,
-  fontWeightBaseSemibold,
-  fontWeightBaseBold,
-  fontWeightBaseExtraBold,
-  fontWeightBaseBlack,
-  fontSizeBaseX2S,
-  fontSizeBaseXS,
-  fontSizeBaseSM,
-  fontSizeBaseMD,
-  fontSizeBaseLG,
-  fontSizeBaseXL,
-  fontSizeBaseX2L,
-  fontSizeBaseX3L,
-  fontSizeBaseX4L,
-  fontSizeBaseX5L,
-}: BaseStyleSheetParameters) =>
-  StyleSheet.create({
-    fontFamilyBase: {
-      fontFamily: fontFamilyBase,
-    },
-    fontWeightThin: {
-      fontWeight: fontWeightBaseThin,
-    },
-    fontWeightExtraLight: {
-      fontWeight: fontWeightBaseExtraLight,
-    },
-    fontWeightLight: {
-      fontWeight: fontWeightBaseLight,
-    },
-    fontWeightBaseRegular: {
-      fontWeight: fontWeightBaseRegular,
-    },
-    fontWeightBaseSemibold: {
-      fontWeight: fontWeightBaseSemibold,
-    },
-    fontWeightBaseBold: {
-      fontWeight: fontWeightBaseBold,
-    },
-    fontWeightBaseExtraBold: {
-      fontWeight: fontWeightBaseExtraBold,
-    },
-    fontWeightBaseBlack: {
-      fontWeight: fontWeightBaseBlack,
-    },
-    fontSizeBaseX2S: {
-      fontSize: fontSizeBaseX2S,
-    },
-    fontSizeBaseXS: {
-      fontSize: fontSizeBaseXS,
-    },
-    fontSizeBaseSM: {
-      fontSize: fontSizeBaseSM,
-    },
-    fontSizeBaseMD: {
-      fontSize: fontSizeBaseMD,
-    },
-    fontSizeBaseLG: {
-      fontSize: fontSizeBaseLG,
-    },
-    fontSizeBaseXL: {
-      fontSize: fontSizeBaseXL,
-    },
-    fontSizeBaseX2L: {
-      fontSize: fontSizeBaseX2L,
-    },
-    fontSizeBaseX3L: {
-      fontSize: fontSizeBaseX3L,
-    },
-    fontSizeBaseX4L: {
-      fontSize: fontSizeBaseX4L,
-    },
-    fontSizeBaseX5L: {
-      fontSize: fontSizeBaseX5L,
-    },
-  })
+import type { TextComponent } from './text.types'
 
 export const Text: TextComponent = ({
   type,
@@ -102,7 +16,7 @@ export const Text: TextComponent = ({
   fontSize = TextFontSize.MD,
   children,
 }) => {
-  const themeContext = useThemeContext()
+  const themeStyleSheet = useThemeStyleSheet()
 
   const getRole = () => {
     // Casting paragraph role type because it is supported by react-native-web.
@@ -122,71 +36,49 @@ export const Text: TextComponent = ({
     }
   }
 
-  const baseStyleSheet = createBaseStyleSheet({
-    fontFamilyBase: themeContext.fontFamilyBase,
-    fontWeightBaseThin: themeContext.fontWeightBaseThin,
-    fontWeightBaseExtraLight: themeContext.fontWeightBaseExtraLight,
-    fontWeightBaseLight: themeContext.fontWeightBaseLight,
-    fontWeightBaseRegular: themeContext.fontWeightBaseRegular,
-    fontWeightBaseSemibold: themeContext.fontWeightBaseSemibold,
-    fontWeightBaseBold: themeContext.fontWeightBaseBold,
-    fontWeightBaseExtraBold: themeContext.fontWeightBaseExtraBold,
-    fontWeightBaseBlack: themeContext.fontWeightBaseBlack,
-    fontSizeBaseX2S: themeContext.fontSizeBaseX2S,
-    fontSizeBaseXS: themeContext.fontSizeBaseXS,
-    fontSizeBaseSM: themeContext.fontSizeBaseSM,
-    fontSizeBaseMD: themeContext.fontSizeBaseMD,
-    fontSizeBaseLG: themeContext.fontSizeBaseLG,
-    fontSizeBaseXL: themeContext.fontSizeBaseXL,
-    fontSizeBaseX2L: themeContext.fontSizeBaseX2L,
-    fontSizeBaseX3L: themeContext.fontSizeBaseX3L,
-    fontSizeBaseX4L: themeContext.fontSizeBaseX4L,
-    fontSizeBaseX5L: themeContext.fontSizeBaseX5L,
-  })
-
-  const getFontWeightStyles = () => {
+  const getFontWeightStyle = () => {
     switch (fontWeight) {
       case TextFontWeight.THIN:
-        return baseStyleSheet.fontWeightThin
+        return themeStyleSheet.fontWeightBaseThin
       case TextFontWeight.EXTRA_LIGHT:
-        return baseStyleSheet.fontWeightExtraLight
+        return themeStyleSheet.fontWeightBaseExtraLight
       case TextFontWeight.LIGHT:
-        return baseStyleSheet.fontWeightLight
+        return themeStyleSheet.fontWeightBaseLight
       case TextFontWeight.REGULAR:
-        return baseStyleSheet.fontWeightBaseRegular
+        return themeStyleSheet.fontWeightBaseRegular
       case TextFontWeight.SEMIBOLD:
-        return baseStyleSheet.fontWeightBaseSemibold
+        return themeStyleSheet.fontWeightBaseSemibold
       case TextFontWeight.BOLD:
-        return baseStyleSheet.fontWeightBaseBold
+        return themeStyleSheet.fontWeightBaseBold
       case TextFontWeight.EXTRA_BOLD:
-        return baseStyleSheet.fontWeightBaseExtraBold
+        return themeStyleSheet.fontWeightBaseExtraBold
       case TextFontWeight.BLACK:
-        return baseStyleSheet.fontWeightBaseBlack
+        return themeStyleSheet.fontWeightBaseBlack
     }
   }
 
-  const getFontSizeStyles = () => {
+  const getFontSizeStyle = () => {
     switch (fontSize) {
       case TextFontSize.X2S:
-        return baseStyleSheet.fontSizeBaseX2S
+        return themeStyleSheet.fontSizeBaseX2S
       case TextFontSize.XS:
-        return baseStyleSheet.fontSizeBaseXS
+        return themeStyleSheet.fontSizeBaseXS
       case TextFontSize.SM:
-        return baseStyleSheet.fontSizeBaseSM
+        return themeStyleSheet.fontSizeBaseSM
       case TextFontSize.MD:
-        return baseStyleSheet.fontSizeBaseMD
+        return themeStyleSheet.fontSizeBaseMD
       case TextFontSize.LG:
-        return baseStyleSheet.fontSizeBaseLG
+        return themeStyleSheet.fontSizeBaseLG
       case TextFontSize.XL:
-        return baseStyleSheet.fontSizeBaseXL
+        return themeStyleSheet.fontSizeBaseXL
       case TextFontSize.X2L:
-        return baseStyleSheet.fontSizeBaseX2L
+        return themeStyleSheet.fontSizeBaseX2L
       case TextFontSize.X3L:
-        return baseStyleSheet.fontSizeBaseX3L
+        return themeStyleSheet.fontSizeBaseX3L
       case TextFontSize.X4L:
-        return baseStyleSheet.fontSizeBaseX4L
+        return themeStyleSheet.fontSizeBaseX4L
       case TextFontSize.X5L:
-        return baseStyleSheet.fontSizeBaseX5L
+        return themeStyleSheet.fontSizeBaseX5L
     }
   }
 
@@ -195,9 +87,9 @@ export const Text: TextComponent = ({
       role={getRole()}
       aria-level={getAriaLevel()}
       style={[
-        baseStyleSheet.fontFamilyBase,
-        getFontWeightStyles(),
-        getFontSizeStyles(),
+        themeStyleSheet.fontFamilyBase,
+        getFontWeightStyle(),
+        getFontSizeStyle(),
       ]}
     >
       {children}

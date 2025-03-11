@@ -1,28 +1,6 @@
-import type { ThemeFontWeight } from '@/contexts'
 import type { FunctionComponent, PropsWithChildren } from 'react'
 import type { TextFontSize, TextFontWeight, TextType } from './constants'
 
-export type BaseStyleSheetParameters = {
-  fontFamilyBase: string
-  fontWeightBaseThin: ThemeFontWeight
-  fontWeightBaseExtraLight: ThemeFontWeight
-  fontWeightBaseLight: ThemeFontWeight
-  fontWeightBaseRegular: ThemeFontWeight
-  fontWeightBaseSemibold: ThemeFontWeight
-  fontWeightBaseBold: ThemeFontWeight
-  fontWeightBaseExtraBold: ThemeFontWeight
-  fontWeightBaseBlack: ThemeFontWeight
-  fontSizeBaseX2S: number
-  fontSizeBaseXS: number
-  fontSizeBaseSM: number
-  fontSizeBaseMD: number
-  fontSizeBaseLG: number
-  fontSizeBaseXL: number
-  fontSizeBaseX2L: number
-  fontSizeBaseX3L: number
-  fontSizeBaseX4L: number
-  fontSizeBaseX5L: number
-}
 export interface TextProps extends PropsWithChildren {
   /**
    * Specific text type if required.

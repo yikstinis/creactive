@@ -14,3 +14,4 @@ export type {
 } from '@/contexts/theme'
 export { renderStyle } from '@/helpers/style'
 export type { RenderStyleHelper } from '@/helpers/style'
+export { useThemeStyleSheet } from '@/hooks/use-theme-style-sheet'

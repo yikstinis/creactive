@@ -1,5 +1,5 @@
 /**
- * Supported text font weights enum.
+ * Supported by text component font weights enum.
  * Should be used to control the weight of the text.
  * This enum is not exported, use Text.FontWeight to access available types.
  */

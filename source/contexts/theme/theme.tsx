@@ -25,7 +25,7 @@ import type {
   ThemeContextValue,
 } from './theme.types'
 
-// We can use this context even outside provider.
+// We can use context even outside provider.
 // This can be helpful for testing and storybook.
 const ThemeContext = createContext<ThemeContextValue>({
   fontFamilyBase: FONT_FAMILY_BASE,
@@ -50,7 +50,9 @@ const ThemeContext = createContext<ThemeContextValue>({
 })
 
 export const ThemeContextProvider: ThemeContextProviderComponent = ({
+  // Font family tokens.
   fontFamilyBase,
+  // Font weight tokens.
   fontWeightBaseThin,
   fontWeightBaseExtraLight,
   fontWeightBaseLight,
@@ -59,6 +61,7 @@ export const ThemeContextProvider: ThemeContextProviderComponent = ({
   fontWeightBaseBold,
   fontWeightBaseExtraBold,
   fontWeightBaseBlack,
+  // Font size tokens.
   fontSizeBaseX2S,
   fontSizeBaseXS,
   fontSizeBaseSM,
@@ -76,7 +79,9 @@ export const ThemeContextProvider: ThemeContextProviderComponent = ({
   // Context consumers will re-render only if value changes.
   const value = useMemo(
     () => ({
+      // Font family tokens.
       fontFamilyBase: fontFamilyBase ?? FONT_FAMILY_BASE,
+      // Base font weight tokens.
       fontWeightBaseThin: fontWeightBaseThin ?? FONT_WEIGHT_BASE_THIN,
       fontWeightBaseExtraLight:
         fontWeightBaseExtraLight ?? FONT_WEIGHT_BASE_EXTRALIGHT,
@@ -88,6 +93,7 @@ export const ThemeContextProvider: ThemeContextProviderComponent = ({
       fontWeightBaseExtraBold:
         fontWeightBaseExtraBold ?? FONT_WEIGHT_BASE_EXTRABOLD,
       fontWeightBaseBlack: fontWeightBaseBlack ?? FONT_WEIGHT_BASE_BLACK,
+      // Base font size tokens.
       fontSizeBaseX2S: fontSizeBaseX2S ?? FONT_SIZE_BASE_X2S,
       fontSizeBaseXS: fontSizeBaseXS ?? FONT_SIZE_BASE_XS,
       fontSizeBaseSM: fontSizeBaseSM ?? FONT_SIZE_BASE_SM,
