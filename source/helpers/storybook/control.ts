@@ -25,7 +25,12 @@ export const modifyContextNumericEnumControls = (context: StoryContext) => {
         [key: string | number | symbol]: unknown
       }
       if (control[STORYBOOK_CONTROL_NUMERIC_ENUM_FLAG]) {
-        if (typeof args[key] === 'string') args[key] = Number(args[key])
+        if (typeof args[key] === 'string') {
+          args[key] =
+            args[key] === STORYBOOK_CONTROL_UNDEFINED_OPTION
+              ? undefined
+              : Number(args[key])
+        }
       }
     }
   }

@@ -87,6 +87,38 @@ describe('@/helpers/storybook/control.modifyContextNumericEnumControls', () => {
     expect(modifiedContext.args.testField).toEqual(0)
   })
 
+  it('handles undefined control label when provided as value', () => {
+    // Storybook provides this label as a value for some reason when select it.
+    // This only happens, when some value was selected before.
+    // Our helper also handles this case inside (modifies value to undefined).
+    const testContext: Pick<StoryContext, 'argTypes' | 'args'> = {
+      argTypes: {
+        testField: {
+          control: {
+            [STORYBOOK_CONTROL_NUMERIC_ENUM_FLAG]: true,
+            type: 'select',
+            labels: {
+              undefined: '-',
+              0: 'A',
+              1: 'B',
+              2: 'C',
+            },
+          },
+          defaultValue: undefined,
+          options: [undefined, 0, 1, 2],
+          name: 'testField',
+        },
+      },
+      args: {
+        testField: '-',
+      },
+    }
+    const modifiedContext = modifyContextNumericEnumControls(
+      testContext as StoryContext
+    )
+    expect(modifiedContext.args.testField).toEqual(undefined)
+  })
+
   it('does nothing with controls without numeric enum flag', () => {
     const testContext: Pick<StoryContext, 'argTypes' | 'args'> = {
       argTypes: {
