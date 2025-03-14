@@ -1,13 +1,13 @@
 /**
  * Supported by text component font weights enum.
  * Should be used to control the weight of the text.
- * This enum is not exported, use Text.FontWeight to access available types.
  */
 export enum TextFontWeight {
   THIN,
   EXTRA_LIGHT,
   LIGHT,
   REGULAR,
+  MEDIUM,
   SEMIBOLD,
   BOLD,
   EXTRA_BOLD,
@@ -17,7 +17,6 @@ export enum TextFontWeight {
 /**
  * Supported text font sizes enum.
  * Should be used to control the size of the text.
- * This enum is not exported, use Text.FontSize to access available types.
  */
 export enum TextFontSize {
   X2S,

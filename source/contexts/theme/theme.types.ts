@@ -48,13 +48,18 @@ export interface ThemeContextValue {
   /**
    * Base regular font weight token.
    * For the most common text elements of your interface.
-   * If you dont't known what font weight to use - use this one.
+   * If you don't known what font weight to use - use this one.
    */
   fontWeightBaseRegular: ThemeFontWeight
   /**
-   * Base semi-bold font weight token.
+   * Base medium font weight token.
    * Variant for highlit regular text a bit.
-   * Not as strong as bold, but still more noticeable.
+   * Not as strong as semibold, but still more noticeable.
+   */
+  fontWeightBaseMedium: ThemeFontWeight
+  /**
+   * Base semi-bold font weight token.
+   * Suits for titles and headings when font size is smaller.
    */
   fontWeightBaseSemibold: ThemeFontWeight
   /**
@@ -70,7 +75,7 @@ export interface ThemeContextValue {
   /**
    * Base black font wieght token.
    * The heaviest font weight variant.
-   * Should be used for hudge text elements like hero title and etc.
+   * Should be used for huge text elements like hero title and etc.
    */
   fontWeightBaseBlack: ThemeFontWeight
   /**
@@ -130,6 +135,13 @@ export interface ThemeContextValue {
    * Supposed to be the largest font size in your interface.
    */
   fontSizeBaseX5L: number
+
+  lineHeightBaseNone: number
+  lineHeightBaseTight: number
+  lineHeightBaseSnug: number
+  lineHeightBaseNormal: number
+  lineHeightBaseRelaxed: number
+  lineHeightBaseLoose: number
 }
 export type ThemeContextProviderProps = PropsWithChildren<
   Partial<ThemeContextValue>

@@ -1,7 +1,6 @@
 /**
  * Supported specific text types enum.
  * Responsible for text appearance, accessibility and semantics.
- * This enum is not exported, use Text.Type to access available types.
  */
 export enum TextType {
   H1,
@@ -16,7 +15,7 @@ export enum TextType {
 /**
  * Types, that are considered as heading types.
  * We convert them into heading text role.
- * With This types we also use aria-levels
+ * This types comes with aria-level attribute.
  */
 export const TEXT_TYPE_HEADING = [
   TextType.H1,

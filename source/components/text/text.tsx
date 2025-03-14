@@ -1,21 +1,55 @@
+import { useThemeContext } from '@/contexts'
 import { useThemeStyleSheet } from '@/hooks'
+import { useMemo } from 'react'
 import type { Role } from 'react-native'
-import { Text as ReactNativeText } from 'react-native'
+import { Text as ReactNativeText, StyleSheet } from 'react-native'
 import {
   TEXT_TYPE_HEADING,
+  TextAlign,
   TextFontSize,
   TextFontWeight,
+  TextLineHeight,
   TextRole,
   TextType,
 } from './constants'
 import type { TextComponent } from './text.types'
 
+const textStyleSheet = StyleSheet.create({
+  textAlignLeft: {
+    textAlign: 'left',
+  },
+  textAlignCenter: {
+    textAlign: 'center',
+  },
+  textAlignRight: {
+    textAlign: 'right',
+  },
+})
+
+const lineHeightStyleSheetCache = new Map()
+const getLineHeightStyleSheet = (fontSize: number, lineHeight: number) => {
+  const cacheKey = [fontSize, lineHeight].join('-')
+  if (lineHeightStyleSheetCache.has(cacheKey)) {
+    return lineHeightStyleSheetCache.get(cacheKey)
+  }
+  const lineHeightStyleSheet = StyleSheet.create({
+    textLineHeight: {
+      lineHeight: fontSize * lineHeight,
+    },
+  })
+  lineHeightStyleSheetCache.set(cacheKey, lineHeightStyleSheet)
+  return lineHeightStyleSheet
+}
+
 export const Text: TextComponent = ({
   type,
+  align = TextAlign.LEFT,
   fontWeight = TextFontWeight.REGULAR,
   fontSize = TextFontSize.MD,
+  lineHeight = TextLineHeight.NONE,
   children,
 }) => {
+  const themeContext = useThemeContext()
   const themeStyleSheet = useThemeStyleSheet()
 
   const getRole = () => {
@@ -36,6 +70,17 @@ export const Text: TextComponent = ({
     }
   }
 
+  const getAlignStyle = () => {
+    switch (align) {
+      case TextAlign.LEFT:
+        return textStyleSheet.textAlignLeft
+      case TextAlign.CENTER:
+        return textStyleSheet.textAlignCenter
+      case TextAlign.RIGHT:
+        return textStyleSheet.textAlignRight
+    }
+  }
+
   const getFontWeightStyle = () => {
     switch (fontWeight) {
       case TextFontWeight.THIN:
@@ -46,6 +91,8 @@ export const Text: TextComponent = ({
         return themeStyleSheet.fontWeightBaseLight
       case TextFontWeight.REGULAR:
         return themeStyleSheet.fontWeightBaseRegular
+      case TextFontWeight.MEDIUM:
+        return themeStyleSheet.fontWeightBaseMedium
       case TextFontWeight.SEMIBOLD:
         return themeStyleSheet.fontWeightBaseSemibold
       case TextFontWeight.BOLD:
@@ -82,14 +129,66 @@ export const Text: TextComponent = ({
     }
   }
 
+  const lineHeightStyle = useMemo(() => {
+    const getFontSizeTokenValue = () => {
+      switch (fontSize) {
+        case TextFontSize.X2S:
+          return themeContext.fontSizeBaseX2S
+        case TextFontSize.XS:
+          return themeContext.fontSizeBaseXS
+        case TextFontSize.SM:
+          return themeContext.fontSizeBaseSM
+        case TextFontSize.MD:
+          return themeContext.fontSizeBaseMD
+        case TextFontSize.LG:
+          return themeContext.fontSizeBaseLG
+        case TextFontSize.XL:
+          return themeContext.fontSizeBaseXL
+        case TextFontSize.X2L:
+          return themeContext.fontSizeBaseX2L
+        case TextFontSize.X3L:
+          return themeContext.fontSizeBaseX3L
+        case TextFontSize.X4L:
+          return themeContext.fontSizeBaseX4L
+        case TextFontSize.X5L:
+          return themeContext.fontSizeBaseX5L
+      }
+    }
+
+    const getLineHeightTokenValue = () => {
+      switch (lineHeight) {
+        case TextLineHeight.NONE:
+          return themeContext.lineHeightBaseNone
+        case TextLineHeight.TIGHT:
+          return themeContext.lineHeightBaseTight
+        case TextLineHeight.SNUG:
+          return themeContext.lineHeightBaseSnug
+        case TextLineHeight.NORMAL:
+          return themeContext.lineHeightBaseNormal
+        case TextLineHeight.RELAXED:
+          return themeContext.lineHeightBaseRelaxed
+        case TextLineHeight.LOOSE:
+          return themeContext.lineHeightBaseLoose
+      }
+    }
+
+    const lineHeightStyleSheet = getLineHeightStyleSheet(
+      getFontSizeTokenValue(),
+      getLineHeightTokenValue()
+    )
+    return lineHeightStyleSheet.textLineHeight
+  }, [fontSize, lineHeight, themeContext])
+
   return (
     <ReactNativeText
       role={getRole()}
       aria-level={getAriaLevel()}
       style={[
         themeStyleSheet.fontFamilyBase,
+        getAlignStyle(),
         getFontWeightStyle(),
         getFontSizeStyle(),
+        lineHeightStyle,
       ]}
     >
       {children}
@@ -97,5 +196,7 @@ export const Text: TextComponent = ({
   )
 }
 Text.Type = TextType
+Text.Align = TextAlign
 Text.FontWeight = TextFontWeight
 Text.FontSize = TextFontSize
+Text.LineHeight = TextLineHeight

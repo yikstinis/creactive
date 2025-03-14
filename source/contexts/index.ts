@@ -4,4 +4,5 @@ export type {
   ThemeContextProviderProps,
   ThemeContextValue,
   ThemeFontWeight,
+  ThemeLineHeight,
 } from '@/contexts/theme'

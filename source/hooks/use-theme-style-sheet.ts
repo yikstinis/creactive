@@ -28,6 +28,9 @@ export const useThemeStyleSheet = () => {
         fontWeightBaseRegular: {
           fontWeight: themeContext.fontWeightBaseRegular,
         },
+        fontWeightBaseMedium: {
+          fontWeight: themeContext.fontWeightBaseMedium,
+        },
         fontWeightBaseSemibold: {
           fontWeight: themeContext.fontWeightBaseSemibold,
         },
@@ -40,7 +43,7 @@ export const useThemeStyleSheet = () => {
         fontWeightBaseBlack: {
           fontWeight: themeContext.fontWeightBaseBlack,
         },
-        // Base font size tokens.
+        // Base font size styles.
         fontSizeBaseX2S: {
           fontSize: themeContext.fontSizeBaseX2S,
         },
