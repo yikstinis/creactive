@@ -30,117 +30,144 @@ export interface ThemeContextValue {
   fontFamilyBase: string
   /**
    * Base thin font weight token.
-   * For the most delicate and subtle elements.
-   * It should be kind of sleek and lightweight text.
+   * Ideal for very delicate and decorative, large, elegant hero text.
    */
   fontWeightBaseThin: ThemeFontWeight
   /**
    * Base extra-light font weight token.
-   * Slightly heavier than thin but still very light.
-   * Suitable for subtle text elements that require a bit more presence.
+   * Use for large, airy headings or subtle interface elements.
+   * Slightly more readable than extra-thin, but still decorative.
    */
   fontWeightBaseExtraLight: ThemeFontWeight
   /**
    * Base light font weight token.
-   * Can be used for secondary text for example.
+   * Suitable for subheadings, muted captions, and soft labels.
    */
   fontWeightBaseLight: ThemeFontWeight
   /**
    * Base regular font weight token.
-   * For the most common text elements of your interface.
-   * If you don't known what font weight to use - use this one.
+   * For the most common text elements in your interface.
+   * When unsure about font weight, this is the default option.
    */
   fontWeightBaseRegular: ThemeFontWeight
   /**
    * Base medium font weight token.
-   * Variant for highlit regular text a bit.
-   * Not as strong as semibold, but still more noticeable.
+   * Suitable for labels, buttons, and small subheadings.
+   * Slightly emphasized, providing better readability.
    */
   fontWeightBaseMedium: ThemeFontWeight
   /**
    * Base semi-bold font weight token.
-   * Suits for titles and headings when font size is smaller.
+   * Provides stronger emphasis without being overwhelming.
+   * Ideal for section headers, emphasized text, and card titles.
    */
   fontWeightBaseSemibold: ThemeFontWeight
   /**
    * Base bold font weight token.
-   * Supposed to be used for titles and headings.
+   * For high emphasis on important elements.
+   * Use for main headings and strong call-to-action buttons.
    */
   fontWeightBaseBold: ThemeFontWeight
   /**
    * Extra-bold font weight token.
-   * Maybe if you need to highlight something inside title or heading.
+   * Perfect for promo banners and large impactful headings.
    */
   fontWeightBaseExtraBold: ThemeFontWeight
   /**
-   * Base black font wieght token.
-   * The heaviest font weight variant.
-   * Should be used for huge text elements like hero title and etc.
+   * Base black font weight token.
+   * Extreme emphasis for rare, dramatic cases.
+   * Great for headlines in posters and highly attention-grabbing elements.
    */
   fontWeightBaseBlack: ThemeFontWeight
   /**
    * Base 2 times extra-small font size token.
    * Use this size for tiny text elements like captions.
-   * It is like the smallest readable text in your interface.
+   * It represents the smallest readable text in your interface.
    */
   fontSizeBaseX2S: number
   /**
    * Base extra-small font size token.
-   * Can be a kind of subtitle for smallest readable text for example.
+   * Suitable for subtitles or the smallest readable text, for example.
    */
   fontSizeBaseXS: number
   /**
    * Base small font size token.
    * Can be used for smaller labels or captions among medium text.
-   * It also can be used as a title font size for smaller 2 times small text.
+   * Also suitable for titles in smaller 2x small text.
    */
   fontSizeBaseSM: number
   /**
    * Base medium font size token.
-   * Supposed to be used for most of the text elements.
-   * If you don't known what font size to use - use this one.
+   * Intended for most text elements.
+   * If unsure about which font size to use, this is the default option.
    */
   fontSizeBaseMD: number
   /**
    * Base large font size token.
-   * Can be used for fourth-level page title.
-   * Can be used for some larger labels or captions among medium text.
+   * Suitable for fourth-level page titles.
+   * Can also be used for larger labels or captions among medium text.
    */
   fontSizeBaseLG: number
   /**
    * Base extra-large font size token.
-   * Can be used for third-level page title.
-   * Also can be used for some larger labels or captions among medium text.
+   * Ideal for third-level page titles.
+   * Can also be used for larger labels or captions within medium text.
    */
   fontSizeBaseXL: number
   /**
    * Base 2 times extra-large font size token.
-   * Supposed to be used for second-level page title.
+   * Typically used for second-level page titles.
    */
   fontSizeBaseX2L: number
   /**
    * Base 3 times extra-large font size token.
-   * Supposed to be used for first-level page title.
-   * Can be also used for labels or captions among hudge text.
+   * Designed for first-level page titles.
+   * Can also be used for labels or captions within huge text.
    */
   fontSizeBaseX3L: number
   /**
    * Base 4 times extra-large font size token.
-   * Can be used for hudge text labels and captions.
+   * Ideal for huge text labels and captions.
    */
   fontSizeBaseX4L: number
   /**
    * Base 5 times extra-large font size token.
-   * Use this size for huge text elements like hero title.
-   * Supposed to be the largest font size in your interface.
+   * Use this size for enormous text elements like hero titles.
+   * It should be the largest font size in your interface.
    */
   fontSizeBaseX5L: number
-
+  /**
+   * Base none line height token.
+   * Use for elements with no line height, like buttons, badges, and tags.
+   */
   lineHeightBaseNone: number
+  /**
+   * Base tight line height token.
+   * For compact text elements with closely packed lines.
+   */
   lineHeightBaseTight: number
+  /**
+   * Base snug line height token.
+   * Ideal for compact text that still needs some breathing room.
+   */
   lineHeightBaseSnug: number
+  /**
+   * Base normal line height token.
+   * Standard line height for most text elements.
+   * Use for general content in your interface.
+   */
   lineHeightBaseNormal: number
+  /**
+   * Base relaxed line height token.
+   * Provides more space between lines.
+   * Ideal for body text or large blocks of content.
+   */
   lineHeightBaseRelaxed: number
+  /**
+   * Base loose line height token.
+   * Very spacious and airy, great for large headings.
+   * Suitable for text elements that need a lot of breathing room.
+   */
   lineHeightBaseLoose: number
 }
 export type ThemeContextProviderProps = PropsWithChildren<
