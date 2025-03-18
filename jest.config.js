@@ -65,7 +65,7 @@ const resolveTestMatch = () => {
   if (isWeb) {
     return ['**/?(*.)+(spec).(ts|tsx)', '**/?(*.)+(spec).web.(ts|tsx)']
   }
-  return ['**/?(*.)+(spec).(ts|tsx)']
+  return ['**/?(*.)+(spec).(ts|tsx)', '**/?(*.)+(spec).native.(ts|tsx)']
 }
 
 /**
