@@ -1,6 +1,13 @@
 import type { FunctionComponent, PropsWithChildren } from 'react'
 
 /**
+ * Theme RGB color type.
+ * Should be used to specify theme colors.
+ * Number instead of 0-255 union to avoid too complex union type.
+ */
+export type ThemeColorRGB = `rgb(${number},${number},${number})`
+
+/**
  * Theme font weight type.
  * Should be used to specify theme font weight.
  */
@@ -22,6 +29,56 @@ export type ThemeFontWeight =
  * This tokens can be also accesed via theme context outside.
  */
 export interface ThemeContextValue {
+  /**
+   * Base foreground 100 color token.
+   * The least contrast color in the foreground palette.
+   * You are supposed to use it for almost invisible elements.
+   */
+  colorForegroundBase100: ThemeColorRGB
+  /**
+   * Base foreground 200 color token.
+   * Still supposed to be almost invisible.
+   * Can be used to create som ierarchy illusion maybe.
+   */
+  colorForegroundBase200: ThemeColorRGB
+  /**
+   * Base foreground 300 color token.
+   * For slightly readable text or elements.
+   */
+  colorForegroundBase300: ThemeColorRGB
+  /**
+   * Base foreground 400 color token.
+   * A kind of secondary color for secondary elements.
+   * If your secondary element has two levels this color is for the second one.
+   */
+  colorForegroundBase400: ThemeColorRGB
+  /**
+   * Base foreground 500 color token.
+   * Also good for secondary elements on less contrast background.
+   */
+  colorForegroundBase500: ThemeColorRGB
+  /**
+   * Base foreground 600 color token.
+   * Ideal for secondary elements and less important text.
+   */
+  colorForegroundBase600: ThemeColorRGB
+  /**
+   * Base foreground 700 color token.
+   * For default elements, placed on more contrast background.
+   * Is also suitable for just a little bit less contrast elements.
+   */
+  colorForegroundBase700: ThemeColorRGB
+  /**
+   * Base foreground 800 color token.
+   * Used as default value for text component.
+   * Ideal for high-contrast text and key elements.
+   */
+  colorForegroundBase800: ThemeColorRGB
+  /**
+   * Base foreground 900 color token.
+   * Almost the same sense as 800, but for less contrast backgrounds.
+   */
+  colorForegroundBase900: ThemeColorRGB
   /**
    * Base font family token.
    * Supposed to be used by most components.

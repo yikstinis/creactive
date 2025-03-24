@@ -7,6 +7,7 @@ export type { TextComponent, TextProps } from '@/components/text'
 export { FONT_FAMILY_BASE } from '@/constants/theme'
 export { ThemeContextProvider, useThemeContext } from '@/contexts/theme'
 export type {
+  ThemeColorRGB,
   ThemeContextProviderComponent,
   ThemeContextProviderProps,
   ThemeContextValue,

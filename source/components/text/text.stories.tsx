@@ -13,6 +13,7 @@ const lineHeightControl = StorybookControl.fromNumericEnum(
   Text.LineHeight,
   true
 )
+const colorControl = StorybookControl.fromNumericEnum(Text.Color, true)
 const childrenControl = StorybookControl.forChildren()
 
 const meta: Meta<typeof Text> = {
@@ -24,6 +25,7 @@ const meta: Meta<typeof Text> = {
     fontWeight: fontWeightControl,
     fontSize: fontSizeControl,
     lineHeight: lineHeightControl,
+    color: colorControl,
     children: childrenControl,
   },
   args: {
@@ -32,6 +34,7 @@ const meta: Meta<typeof Text> = {
     fontWeight: fontWeightControl.defaultValue,
     fontSize: fontSizeControl.defaultValue,
     lineHeight: lineHeightControl.defaultValue,
+    color: colorControl.defaultValue,
     children: childrenControl.defaultValue,
   },
 }

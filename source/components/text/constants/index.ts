@@ -1,3 +1,4 @@
+export { TextColor } from './color'
 export { TextFontSize, TextFontWeight } from './font'
 export { TextRole } from './role'
 export { TextAlign, TextLineHeight } from './text'

@@ -6,6 +6,7 @@ import { Text as ReactNativeText, StyleSheet } from 'react-native'
 import {
   TEXT_TYPE_HEADING,
   TextAlign,
+  TextColor,
   TextFontSize,
   TextFontWeight,
   TextLineHeight,
@@ -23,6 +24,11 @@ const textStyleSheet = StyleSheet.create({
   },
   textAlignRight: {
     textAlign: 'right',
+  },
+  textColorTransparent: {
+    // Is a shortcut for rgba(0,0,0,0) in React Native, same like in CSS3.
+    // We don't use this style when animating, so it is won't be a problem.
+    color: 'transparent',
   },
 })
 
@@ -47,6 +53,7 @@ export const Text: TextComponent = ({
   fontWeight = TextFontWeight.REGULAR,
   fontSize = TextFontSize.MD,
   lineHeight = TextLineHeight.NONE,
+  color = TextColor.FOREGROUND_800,
   children,
 }) => {
   const themeContext = useThemeContext()
@@ -179,6 +186,31 @@ export const Text: TextComponent = ({
     return lineHeightStyleSheet.textLineHeight
   }, [fontSize, lineHeight, themeContext])
 
+  const getColorStyle = () => {
+    switch (color) {
+      case TextColor.TRANSPARENT:
+        return textStyleSheet.textColorTransparent
+      case TextColor.FOREGROUND_100:
+        return themeStyleSheet.colorForegroundBase100
+      case TextColor.FOREGROUND_200:
+        return themeStyleSheet.colorForegroundBase200
+      case TextColor.FOREGROUND_300:
+        return themeStyleSheet.colorForegroundBase300
+      case TextColor.FOREGROUND_400:
+        return themeStyleSheet.colorForegroundBase400
+      case TextColor.FOREGROUND_500:
+        return themeStyleSheet.colorForegroundBase500
+      case TextColor.FOREGROUND_600:
+        return themeStyleSheet.colorForegroundBase600
+      case TextColor.FOREGROUND_700:
+        return themeStyleSheet.colorForegroundBase700
+      case TextColor.FOREGROUND_800:
+        return themeStyleSheet.colorForegroundBase800
+      case TextColor.FOREGROUND_900:
+        return themeStyleSheet.colorForegroundBase900
+    }
+  }
+
   return (
     <ReactNativeText
       role={getRole()}
@@ -189,6 +221,7 @@ export const Text: TextComponent = ({
         getFontWeightStyle(),
         getFontSizeStyle(),
         lineHeightStyle,
+        getColorStyle(),
       ]}
     >
       {children}
@@ -200,3 +233,4 @@ Text.Align = TextAlign
 Text.FontWeight = TextFontWeight
 Text.FontSize = TextFontSize
 Text.LineHeight = TextLineHeight
+Text.Color = TextColor

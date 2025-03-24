@@ -1,4 +1,13 @@
 import {
+  COLOR_FOREGROUND_BASE_100,
+  COLOR_FOREGROUND_BASE_200,
+  COLOR_FOREGROUND_BASE_300,
+  COLOR_FOREGROUND_BASE_400,
+  COLOR_FOREGROUND_BASE_500,
+  COLOR_FOREGROUND_BASE_600,
+  COLOR_FOREGROUND_BASE_700,
+  COLOR_FOREGROUND_BASE_800,
+  COLOR_FOREGROUND_BASE_900,
   FONT_FAMILY_BASE,
   FONT_SIZE_BASE_LG,
   FONT_SIZE_BASE_MD,
@@ -35,6 +44,15 @@ import type {
 // We can use context even outside provider.
 // This can be helpful for testing and storybook.
 const ThemeContext = createContext<ThemeContextValue>({
+  colorForegroundBase100: COLOR_FOREGROUND_BASE_100,
+  colorForegroundBase200: COLOR_FOREGROUND_BASE_200,
+  colorForegroundBase300: COLOR_FOREGROUND_BASE_300,
+  colorForegroundBase400: COLOR_FOREGROUND_BASE_400,
+  colorForegroundBase500: COLOR_FOREGROUND_BASE_500,
+  colorForegroundBase600: COLOR_FOREGROUND_BASE_600,
+  colorForegroundBase700: COLOR_FOREGROUND_BASE_700,
+  colorForegroundBase800: COLOR_FOREGROUND_BASE_800,
+  colorForegroundBase900: COLOR_FOREGROUND_BASE_900,
   fontFamilyBase: FONT_FAMILY_BASE,
   fontWeightBaseThin: FONT_WEIGHT_BASE_THIN,
   fontWeightBaseExtraLight: FONT_WEIGHT_BASE_EXTRALIGHT,
@@ -64,6 +82,16 @@ const ThemeContext = createContext<ThemeContextValue>({
 })
 
 export const ThemeContextProvider: ThemeContextProviderComponent = ({
+  // Foreground color tokens.
+  colorForegroundBase100,
+  colorForegroundBase200,
+  colorForegroundBase300,
+  colorForegroundBase400,
+  colorForegroundBase500,
+  colorForegroundBase600,
+  colorForegroundBase700,
+  colorForegroundBase800,
+  colorForegroundBase900,
   // Font family tokens.
   fontFamilyBase,
   // Font weight tokens.
@@ -102,6 +130,25 @@ export const ThemeContextProvider: ThemeContextProviderComponent = ({
   // Context consumers will re-render only if value changes.
   const value = useMemo(
     () => ({
+      // Foreground color tokens.
+      colorForegroundBase100:
+        colorForegroundBase100 ?? COLOR_FOREGROUND_BASE_100,
+      colorForegroundBase200:
+        colorForegroundBase200 ?? COLOR_FOREGROUND_BASE_200,
+      colorForegroundBase300:
+        colorForegroundBase300 ?? COLOR_FOREGROUND_BASE_300,
+      colorForegroundBase400:
+        colorForegroundBase400 ?? COLOR_FOREGROUND_BASE_400,
+      colorForegroundBase500:
+        colorForegroundBase500 ?? COLOR_FOREGROUND_BASE_500,
+      colorForegroundBase600:
+        colorForegroundBase600 ?? COLOR_FOREGROUND_BASE_600,
+      colorForegroundBase700:
+        colorForegroundBase700 ?? COLOR_FOREGROUND_BASE_700,
+      colorForegroundBase800:
+        colorForegroundBase800 ?? COLOR_FOREGROUND_BASE_800,
+      colorForegroundBase900:
+        colorForegroundBase900 ?? COLOR_FOREGROUND_BASE_900,
       // Font family tokens.
       fontFamilyBase: fontFamilyBase ?? FONT_FAMILY_BASE,
       // Base font weight tokens.
@@ -137,6 +184,15 @@ export const ThemeContextProvider: ThemeContextProviderComponent = ({
       lineHeightBaseLoose: lineHeightBaseLoose ?? LINE_HEIGHT_BASE_LOOSE,
     }),
     [
+      colorForegroundBase100,
+      colorForegroundBase200,
+      colorForegroundBase300,
+      colorForegroundBase400,
+      colorForegroundBase500,
+      colorForegroundBase600,
+      colorForegroundBase700,
+      colorForegroundBase800,
+      colorForegroundBase900,
       fontFamilyBase,
       fontWeightBaseThin,
       fontWeightBaseExtraLight,

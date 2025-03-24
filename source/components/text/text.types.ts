@@ -1,6 +1,7 @@
 import type { FunctionComponent, PropsWithChildren } from 'react'
 import type {
   TextAlign,
+  TextColor,
   TextFontSize,
   TextFontWeight,
   TextLineHeight,
@@ -42,6 +43,13 @@ export interface TextProps extends PropsWithChildren {
    * @default Text.LineHeight.NONE
    */
   lineHeight?: TextLineHeight
+  /**
+   * Specifying text color property.
+   * Allows to change color, depending on theme.
+   * Theme independent colors and values may be also available.
+   * @default Text.Color.FOREGROUND_800
+   */
+  color?: TextColor
 }
 export type TextComponent = FunctionComponent<TextProps> & {
   Type: Record<keyof typeof TextType, TextType>
@@ -49,4 +57,5 @@ export type TextComponent = FunctionComponent<TextProps> & {
   FontWeight: Record<keyof typeof TextFontWeight, TextFontWeight>
   FontSize: Record<keyof typeof TextFontSize, TextFontSize>
   LineHeight: Record<keyof typeof TextLineHeight, TextLineHeight>
+  Color: Record<keyof typeof TextColor, TextColor>
 }
