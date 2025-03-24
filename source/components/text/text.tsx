@@ -16,6 +16,9 @@ import {
 import type { TextComponent } from './text.types'
 
 const textStyleSheet = StyleSheet.create({
+  textPositionStatic: {
+    position: 'static',
+  },
   textAlignLeft: {
     textAlign: 'left',
   },
@@ -216,6 +219,7 @@ export const Text: TextComponent = ({
       role={getRole()}
       aria-level={getAriaLevel()}
       style={[
+        textStyleSheet.textPositionStatic,
         themeStyleSheet.fontFamilyBase,
         getAlignStyle(),
         getFontWeightStyle(),
