@@ -47,7 +47,7 @@ export interface TextProps extends PropsWithChildren {
    * Specifying text color property.
    * Allows to change color, depending on theme.
    * Theme independent colors and values may be also available.
-   * @default Text.Color.FOREGROUND_800
+   * @default Text.Color.BASE_800
    */
   color?: TextColor
 }

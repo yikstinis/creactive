@@ -16,6 +16,8 @@ import {
 import type { TextComponent } from './text.types'
 
 const textStyleSheet = StyleSheet.create({
+  // To override default position style.
+  // Better match with web default behavior.
   textPositionStatic: {
     position: 'static',
   },
@@ -56,7 +58,7 @@ export const Text: TextComponent = ({
   fontWeight = TextFontWeight.REGULAR,
   fontSize = TextFontSize.MD,
   lineHeight = TextLineHeight.NONE,
-  color = TextColor.FOREGROUND_800,
+  color = TextColor.BASE_800,
   children,
 }) => {
   const themeContext = useThemeContext()
@@ -193,24 +195,42 @@ export const Text: TextComponent = ({
     switch (color) {
       case TextColor.TRANSPARENT:
         return textStyleSheet.textColorTransparent
-      case TextColor.FOREGROUND_100:
+      case TextColor.BASE_100:
         return themeStyleSheet.colorForegroundBase100
-      case TextColor.FOREGROUND_200:
+      case TextColor.BASE_200:
         return themeStyleSheet.colorForegroundBase200
-      case TextColor.FOREGROUND_300:
+      case TextColor.BASE_300:
         return themeStyleSheet.colorForegroundBase300
-      case TextColor.FOREGROUND_400:
+      case TextColor.BASE_400:
         return themeStyleSheet.colorForegroundBase400
-      case TextColor.FOREGROUND_500:
+      case TextColor.BASE_500:
         return themeStyleSheet.colorForegroundBase500
-      case TextColor.FOREGROUND_600:
+      case TextColor.BASE_600:
         return themeStyleSheet.colorForegroundBase600
-      case TextColor.FOREGROUND_700:
+      case TextColor.BASE_700:
         return themeStyleSheet.colorForegroundBase700
-      case TextColor.FOREGROUND_800:
+      case TextColor.BASE_800:
         return themeStyleSheet.colorForegroundBase800
-      case TextColor.FOREGROUND_900:
+      case TextColor.BASE_900:
         return themeStyleSheet.colorForegroundBase900
+      case TextColor.INVERSE_100:
+        return themeStyleSheet.colorForegroundInverse100
+      case TextColor.INVERSE_200:
+        return themeStyleSheet.colorForegroundInverse200
+      case TextColor.INVERSE_300:
+        return themeStyleSheet.colorForegroundInverse300
+      case TextColor.INVERSE_400:
+        return themeStyleSheet.colorForegroundInverse400
+      case TextColor.INVERSE_500:
+        return themeStyleSheet.colorForegroundInverse500
+      case TextColor.INVERSE_600:
+        return themeStyleSheet.colorForegroundInverse600
+      case TextColor.INVERSE_700:
+        return themeStyleSheet.colorForegroundInverse700
+      case TextColor.INVERSE_800:
+        return themeStyleSheet.colorForegroundInverse800
+      case TextColor.INVERSE_900:
+        return themeStyleSheet.colorForegroundInverse900
     }
   }
 

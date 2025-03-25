@@ -39,6 +39,33 @@ export const useThemeStyleSheet = () => {
         colorForegroundBase900: {
           color: themeContext.colorForegroundBase900,
         },
+        colorForegroundInverse100: {
+          color: themeContext.colorForegroundInverse100,
+        },
+        colorForegroundInverse200: {
+          color: themeContext.colorForegroundInverse200,
+        },
+        colorForegroundInverse300: {
+          color: themeContext.colorForegroundInverse300,
+        },
+        colorForegroundInverse400: {
+          color: themeContext.colorForegroundInverse400,
+        },
+        colorForegroundInverse500: {
+          color: themeContext.colorForegroundInverse500,
+        },
+        colorForegroundInverse600: {
+          color: themeContext.colorForegroundInverse600,
+        },
+        colorForegroundInverse700: {
+          color: themeContext.colorForegroundInverse700,
+        },
+        colorForegroundInverse800: {
+          color: themeContext.colorForegroundInverse800,
+        },
+        colorForegroundInverse900: {
+          color: themeContext.colorForegroundInverse900,
+        },
         // Font family styles.
         fontFamilyBase: {
           fontFamily: themeContext.fontFamilyBase,

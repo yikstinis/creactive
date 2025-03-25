@@ -8,6 +8,15 @@ import {
   COLOR_FOREGROUND_BASE_700,
   COLOR_FOREGROUND_BASE_800,
   COLOR_FOREGROUND_BASE_900,
+  COLOR_FOREGROUND_INVERSE_100,
+  COLOR_FOREGROUND_INVERSE_200,
+  COLOR_FOREGROUND_INVERSE_300,
+  COLOR_FOREGROUND_INVERSE_400,
+  COLOR_FOREGROUND_INVERSE_500,
+  COLOR_FOREGROUND_INVERSE_600,
+  COLOR_FOREGROUND_INVERSE_700,
+  COLOR_FOREGROUND_INVERSE_800,
+  COLOR_FOREGROUND_INVERSE_900,
   FONT_FAMILY_BASE,
   FONT_SIZE_BASE_LG,
   FONT_SIZE_BASE_MD,
@@ -53,6 +62,15 @@ const ThemeContext = createContext<ThemeContextValue>({
   colorForegroundBase700: COLOR_FOREGROUND_BASE_700,
   colorForegroundBase800: COLOR_FOREGROUND_BASE_800,
   colorForegroundBase900: COLOR_FOREGROUND_BASE_900,
+  colorForegroundInverse100: COLOR_FOREGROUND_INVERSE_100,
+  colorForegroundInverse200: COLOR_FOREGROUND_INVERSE_200,
+  colorForegroundInverse300: COLOR_FOREGROUND_INVERSE_300,
+  colorForegroundInverse400: COLOR_FOREGROUND_INVERSE_400,
+  colorForegroundInverse500: COLOR_FOREGROUND_INVERSE_500,
+  colorForegroundInverse600: COLOR_FOREGROUND_INVERSE_600,
+  colorForegroundInverse700: COLOR_FOREGROUND_INVERSE_700,
+  colorForegroundInverse800: COLOR_FOREGROUND_INVERSE_800,
+  colorForegroundInverse900: COLOR_FOREGROUND_INVERSE_900,
   fontFamilyBase: FONT_FAMILY_BASE,
   fontWeightBaseThin: FONT_WEIGHT_BASE_THIN,
   fontWeightBaseExtraLight: FONT_WEIGHT_BASE_EXTRALIGHT,
@@ -92,6 +110,15 @@ export const ThemeContextProvider: ThemeContextProviderComponent = ({
   colorForegroundBase700,
   colorForegroundBase800,
   colorForegroundBase900,
+  colorForegroundInverse100,
+  colorForegroundInverse200,
+  colorForegroundInverse300,
+  colorForegroundInverse400,
+  colorForegroundInverse500,
+  colorForegroundInverse600,
+  colorForegroundInverse700,
+  colorForegroundInverse800,
+  colorForegroundInverse900,
   // Font family tokens.
   fontFamilyBase,
   // Font weight tokens.
@@ -149,6 +176,24 @@ export const ThemeContextProvider: ThemeContextProviderComponent = ({
         colorForegroundBase800 ?? COLOR_FOREGROUND_BASE_800,
       colorForegroundBase900:
         colorForegroundBase900 ?? COLOR_FOREGROUND_BASE_900,
+      colorForegroundInverse100:
+        colorForegroundInverse100 ?? COLOR_FOREGROUND_INVERSE_100,
+      colorForegroundInverse200:
+        colorForegroundInverse200 ?? COLOR_FOREGROUND_INVERSE_200,
+      colorForegroundInverse300:
+        colorForegroundInverse300 ?? COLOR_FOREGROUND_INVERSE_300,
+      colorForegroundInverse400:
+        colorForegroundInverse400 ?? COLOR_FOREGROUND_INVERSE_400,
+      colorForegroundInverse500:
+        colorForegroundInverse500 ?? COLOR_FOREGROUND_INVERSE_500,
+      colorForegroundInverse600:
+        colorForegroundInverse600 ?? COLOR_FOREGROUND_INVERSE_600,
+      colorForegroundInverse700:
+        colorForegroundInverse700 ?? COLOR_FOREGROUND_INVERSE_700,
+      colorForegroundInverse800:
+        colorForegroundInverse800 ?? COLOR_FOREGROUND_INVERSE_800,
+      colorForegroundInverse900:
+        colorForegroundInverse900 ?? COLOR_FOREGROUND_INVERSE_900,
       // Font family tokens.
       fontFamilyBase: fontFamilyBase ?? FONT_FAMILY_BASE,
       // Base font weight tokens.
@@ -193,6 +238,15 @@ export const ThemeContextProvider: ThemeContextProviderComponent = ({
       colorForegroundBase700,
       colorForegroundBase800,
       colorForegroundBase900,
+      colorForegroundInverse100,
+      colorForegroundInverse200,
+      colorForegroundInverse300,
+      colorForegroundInverse400,
+      colorForegroundInverse500,
+      colorForegroundInverse600,
+      colorForegroundInverse700,
+      colorForegroundInverse800,
+      colorForegroundInverse900,
       fontFamilyBase,
       fontWeightBaseThin,
       fontWeightBaseExtraLight,

@@ -31,54 +31,104 @@ export type ThemeFontWeight =
 export interface ThemeContextValue {
   /**
    * Base foreground 100 color token.
-   * The least contrast color in the foreground palette.
-   * You are supposed to use it for almost invisible elements.
+   * The least contrasting color in the foreground palette.
+   * Intended for nearly invisible elements.
    */
   colorForegroundBase100: ThemeColorRGB
   /**
    * Base foreground 200 color token.
-   * Still supposed to be almost invisible.
-   * Can be used to create som ierarchy illusion maybe.
+   * Still meant to be barely visible.
+   * Can help create a subtle sense of hierarchy.
    */
   colorForegroundBase200: ThemeColorRGB
   /**
    * Base foreground 300 color token.
-   * For slightly readable text or elements.
+   * Suitable for slightly readable text or elements.
    */
   colorForegroundBase300: ThemeColorRGB
   /**
    * Base foreground 400 color token.
-   * A kind of secondary color for secondary elements.
-   * If your secondary element has two levels this color is for the second one.
+   * A secondary color for secondary elements.
+   * If a secondary element has multiple levels, this is for the lower one.
    */
   colorForegroundBase400: ThemeColorRGB
   /**
    * Base foreground 500 color token.
-   * Also good for secondary elements on less contrast background.
+   * Also useful for secondary elements on low-contrast backgrounds.
    */
   colorForegroundBase500: ThemeColorRGB
   /**
    * Base foreground 600 color token.
-   * Ideal for secondary elements and less important text.
+   * Ideal for secondary elements and less prominent text.
    */
   colorForegroundBase600: ThemeColorRGB
   /**
    * Base foreground 700 color token.
-   * For default elements, placed on more contrast background.
-   * Is also suitable for just a little bit less contrast elements.
+   * Used for default elements on higher contrast backgrounds.
+   * Also suitable for slightly subdued elements.
    */
   colorForegroundBase700: ThemeColorRGB
   /**
    * Base foreground 800 color token.
-   * Used as default value for text component.
+   * The default value for the text component.
    * Ideal for high-contrast text and key elements.
    */
   colorForegroundBase800: ThemeColorRGB
   /**
    * Base foreground 900 color token.
-   * Almost the same sense as 800, but for less contrast backgrounds.
+   * Similar to 800 but better suited for lower-contrast backgrounds.
    */
   colorForegroundBase900: ThemeColorRGB
+  /**
+   * Inverse foreground 100 color token.
+   * The least contrasting color in the inverse foreground palette.
+   * Intended for nearly invisible elements on inverse backgrounds.
+   */
+  colorForegroundInverse100: ThemeColorRGB
+  /**
+   * Inverse foreground 200 color token.
+   * Can help create a subtle sense of hierarchy on inverse backgrounds.
+   * Also almost invisible, but a bit more contrasting than 100.
+   */
+  colorForegroundInverse200: ThemeColorRGB
+  /**
+   * Inverse foreground 300 color token.
+   * Suitable for slightly readable text or elements on inverse backgrounds.
+   */
+  colorForegroundInverse300: ThemeColorRGB
+  /**
+   * Inverse foreground 400 color token.
+   * A secondary color for secondary elements on inverse backgrounds.
+   * If a secondary element has multiple levels, this is for the lower one.
+   */
+  colorForegroundInverse400: ThemeColorRGB
+  /**
+   * Inverse foreground 500 color token.
+   * Also useful for secondary elements on low-contrast inverse backgrounds.
+   */
+  colorForegroundInverse500: ThemeColorRGB
+  /**
+   * Inverse foreground 600 color token.
+   * Ideal for secondary elements on inverse backgrounds.
+   */
+  colorForegroundInverse600: ThemeColorRGB
+  /**
+   * Inverse foreground 700 color token.
+   * Used for default elements on higher contrast inverse backgrounds.
+   * Also suitable for slightly subdued elements.
+   */
+  colorForegroundInverse700: ThemeColorRGB
+  /**
+   * Inverse foreground 800 color token.
+   * Ideal for high-contrast text on inverse background.
+   */
+  colorForegroundInverse800: ThemeColorRGB
+  /**
+   * Inverse foreground 900 color token.
+   * Similar to 800 but can be a bit more contrasting.
+   * Suitable when you need even more contrast on inverse background.
+   */
+  colorForegroundInverse900: ThemeColorRGB
   /**
    * Base font family token.
    * Supposed to be used by most components.
