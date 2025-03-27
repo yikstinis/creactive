@@ -6,6 +6,7 @@
 export const enum StorybookControlType {
   SELECT = 'select',
   TEXT = 'text',
+  NUMBER = 'number',
 }
 
 /**

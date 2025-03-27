@@ -75,6 +75,21 @@ export const StorybookControl = new (class {
   }
 
   /**
+   * Builds a story object for numeric input control.
+   * Numeric input will be mapped to storybook number control.
+   *
+   * @param defaultValue - can be provided to set default value
+   */
+  public forNumber(defaultValue?: number) {
+    return {
+      control: {
+        type: StorybookControlType.NUMBER,
+      },
+      defaultValue,
+    }
+  }
+
+  /**
    * Returns default children control.
    * Keeps storybook control factory logic together.
    * Also allows to avoid faker import in every story file.

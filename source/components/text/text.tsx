@@ -58,6 +58,7 @@ export const Text: TextComponent = ({
   fontWeight = TextFontWeight.REGULAR,
   fontSize = TextFontSize.MD,
   lineHeight = TextLineHeight.NONE,
+  maxLines,
   color = TextColor.BASE_800,
   children,
 }) => {
@@ -247,6 +248,7 @@ export const Text: TextComponent = ({
         lineHeightStyle,
         getColorStyle(),
       ]}
+      numberOfLines={maxLines}
     >
       {children}
     </ReactNativeText>

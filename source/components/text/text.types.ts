@@ -44,6 +44,12 @@ export interface TextProps extends PropsWithChildren {
    */
   lineHeight?: TextLineHeight
   /**
+   * Limiting text lines count.
+   * Text will be truncated with an ellipsis after specified lines count.
+   * @default undefined
+   */
+  maxLines?: number
+  /**
    * Specifying text color property.
    * Allows to change color, depending on theme.
    * Theme independent colors and values may be also available.
