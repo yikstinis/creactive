@@ -1,1 +1,1 @@
-export { useThemeStyleSheet } from './use-theme-style-sheet'
+export { useThemeStyleSheet } from '@/hooks/use-theme-style-sheet'

@@ -1,6 +1,6 @@
 {
   "name": "creactive",
-  "version": "0.0.40",
+  "version": "0.0.41",
   "main": ".storybook",
   "files": [
     "build/**"

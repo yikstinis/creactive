@@ -4,7 +4,13 @@
  */
 export { Text } from '@/components/text'
 export type { TextComponent, TextProps } from '@/components/text'
-export { FONT_FAMILY_BASE } from '@/constants/theme'
+export { Media, MediaContextProvider, useMediaContext } from '@/contexts/media'
+export type {
+  MediaComponent,
+  MediaContextProviderComponent,
+  MediaContextValue,
+  MediaProps,
+} from '@/contexts/media'
 export { ThemeContextProvider, useThemeContext } from '@/contexts/theme'
 export type {
   ThemeColorRGB,
