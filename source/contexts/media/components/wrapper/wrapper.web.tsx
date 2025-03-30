@@ -1,33 +1,37 @@
-import { useEffect, useMemo, useRef } from 'react'
+import type { CSSProperties } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 import type { WrapperComponent } from './wrapper.types'
+
 // We need a wrapper for hiding content blinking.
 // Server side rendered result is allways matching mobile media.
 // Client side effects may decide to render something different.
 // This wrapper helps us to handle this situation gracefully.
 export const Wrapper: WrapperComponent = ({ children }) => {
   const ref = useRef<HTMLDivElement>()
-
-  // We are on client and rendered something.
-  // All media components also rendered their client side content.
-  // We can show wrapped content without any blinking now.
+  // Hydration flag, allows to detect server and first client render.
+  const [isHydrated, setHydrated] = useState(false)
+  // Update hydration flag after first render.
   useEffect(() => {
-    if (ref.current) {
-      ref.current.style.display = 'flex'
-    }
+    setHydrated(true)
   }, [])
-
   // Memorized wrapper style.
   const style = useMemo(() => {
-    // Return visible wrapper styles when rendering on server.
-    if (typeof window === 'undefined') {
+    // Return visible wrapper styles during hydrated client render.
+    // Return visible wrapper styles during server side rendering also.
+    if (
+      isHydrated ||
+      typeof window === 'undefined' ||
+      typeof document === 'undefined'
+    ) {
       return {
         display: 'flex',
         flexGrow: 1,
         flexShrink: 1,
         flexBasis: '100%',
+        flexDirection: 'column',
       }
     }
-    // Return hidden wrapper styles when rendering on client.
+    // Return hidden wrapper styles during first client render.
     // Display style will be already modified by inline script to be onest.
     // But anyway, we want this object to be consistent with final state later.
     return {
@@ -35,14 +39,15 @@ export const Wrapper: WrapperComponent = ({ children }) => {
       flexGrow: 1,
       flexShrink: 1,
       flexBasis: '100%',
+      flexDirection: 'column',
     }
-  }, [])
+  }, [isHydrated])
 
   return (
     <>
       <div
         ref={ref}
-        style={style}
+        style={style as CSSProperties}
         // We don't want to see hydration warning on this element.
         // We'll set display none in the script below.
         // This will allow us to hide wrapped content during first render.

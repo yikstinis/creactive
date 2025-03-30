@@ -6,13 +6,12 @@ import type { MediaComponent } from './media.types'
 // Web media component with server side rendering support.
 export const Media: MediaComponent = ({ isDefault, breakpoint, children }) => {
   const mediaContext = useMediaContext()
+  // Hydration flag, allows to detect server and first client render.
   const [isHydrated, setHydrated] = useState(false)
-
-  // Updating hydration flag
+  // Update hydration flag after first render.
   useEffect(() => {
     setHydrated(true)
   }, [])
-
   // Hydration completed, we have window object and we already rendered once.
   // Server and client first renders matched (but hidden by wrapper).
   // We can switch to correct media content now safely.
