@@ -1,4 +1,5 @@
 import { createContext, useContext, useMemo } from 'react'
+import { Wrapper } from './components'
 import { BREAKPOINT_LG, BREAKPOINT_MD, BREAKPOINT_XL } from './constants'
 import { useMediaBreakpoint } from './hooks'
 import type {
@@ -26,6 +27,10 @@ export const MediaContextProvider: MediaContextProviderComponent = ({
     }),
     [breakpoint]
   )
-  return <MediaContext.Provider value={value}>{children}</MediaContext.Provider>
+  return (
+    <MediaContext.Provider value={value}>
+      <Wrapper>{children}</Wrapper>
+    </MediaContext.Provider>
+  )
 }
 export const useMediaContext = () => useContext(MediaContext)
