@@ -4,7 +4,7 @@ import type { WrapperComponent } from './wrapper.types'
 // Server side rendered result is allways matching mobile media.
 // Client side effects may decide to render something different.
 // This wrapper helps us to handle this situation gracefully.
-export const Wrapper: WrapperComponent = ({ children }) => {
+const Wrapper: WrapperComponent = ({ children }) => {
   const ref = useRef<HTMLDivElement>()
 
   // We are on client and rendered something.
@@ -61,3 +61,4 @@ export const Wrapper: WrapperComponent = ({ children }) => {
     </>
   )
 }
+export default Wrapper

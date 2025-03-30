@@ -3,9 +3,10 @@ import { useMediaContext } from '../../media'
 import type { MediaComponent } from './media.types'
 
 // Native media component whithout any tricks.
-export const Media: MediaComponent = ({ isDefault, breakpoint, children }) => {
+const Media: MediaComponent = ({ isDefault, breakpoint, children }) => {
   const mediaContext = useMediaContext()
   if (isDefault && mediaContext.breakpoint === undefined) return children
   if (mediaContext.breakpoint === breakpoint) return children
 }
 Media.Breakpoint = MediaBreakpoint
+export default Media
