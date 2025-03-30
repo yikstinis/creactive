@@ -1,13 +1,30 @@
 const { name } = require('./package.json')
 const path = require('path')
 
+const isWeb = process.env.npm_lifecycle_event.endsWith('web')
+
+const getOutputFileName = () => {
+  if (isWeb) return 'browser.js'
+  return 'node.js'
+}
+
+const getResolveAlias = () => {
+  if (isWeb) {
+    return {
+      '@': path.resolve(__dirname, 'source'),
+      'react-native': 'react-native-web',
+    }
+  }
+  return {
+    '@': path.resolve(__dirname, 'source'),
+  }
+}
+
 module.exports = {
   entry: path.join(__dirname, 'source', 'index.ts'),
   output: {
     path: path.join(__dirname, 'build'),
-    filename: process.env.npm_lifecycle_event.endsWith('web')
-      ? 'web.js'
-      : 'index.js',
+    filename: getOutputFileName(),
     globalObject: 'this',
     libraryTarget: 'umd',
     library: name,
@@ -20,9 +37,7 @@ module.exports = {
     'react-native-web': 'react-native-web',
   },
   resolve: {
-    alias: {
-      '@': path.resolve(__dirname, 'source'),
-    },
+    alias: getResolveAlias(),
     extensions: ['.js', '.jsx', '.ts', '.tsx'],
   },
   module: {
