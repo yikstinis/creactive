@@ -1,10 +1,8 @@
-import { Platform } from 'react-native'
-import { Media as MediaNative } from './media.native'
+import { MediaBreakpoint } from '../../constants'
+import { Media } from './media'
 import type { MediaComponent } from './media.types'
-import { Media as MediaWeb } from './media.web'
 
-export const Media: MediaComponent = Platform.select({
-  web: MediaWeb,
-  default: MediaNative,
-})
-export type { MediaComponent, MediaProps } from './media.types'
+const MediaWithStatic = Media as MediaComponent
+MediaWithStatic.Breakpoint = MediaBreakpoint
+
+export { MediaWithStatic as MediaComponent }
