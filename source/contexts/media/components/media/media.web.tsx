@@ -4,7 +4,7 @@ import { useMediaContext } from '../../media'
 import type { MediaComponent } from './media.types'
 
 // Web media component with server side rendering support.
-const Media: MediaComponent = ({ isDefault, breakpoint, children }) => {
+export const Media: MediaComponent = ({ isDefault, breakpoint, children }) => {
   const mediaContext = useMediaContext()
   const [isHydrated, setHydrated] = useState(false)
 
@@ -25,4 +25,3 @@ const Media: MediaComponent = ({ isDefault, breakpoint, children }) => {
   }
 }
 Media.Breakpoint = MediaBreakpoint
-export default Media

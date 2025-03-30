@@ -1,8 +1,10 @@
 import { Platform } from 'react-native'
+import { Media as MediaNative } from './media.native'
 import type { MediaComponent } from './media.types'
+import { Media as MediaWeb } from './media.web'
 
 export const Media: MediaComponent = Platform.select({
-  web: require('./media.web').default,
-  default: require('./media.native').default,
+  web: MediaWeb,
+  default: MediaNative,
 })
 export type { MediaComponent, MediaProps } from './media.types'

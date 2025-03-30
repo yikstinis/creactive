@@ -1,7 +1,9 @@
 import { Platform } from 'react-native'
+import { Wrapper as WrapperNative } from './wrapper.native'
 import type { WrapperComponent } from './wrapper.types'
+import { Wrapper as WrapperWeb } from './wrapper.web'
 
 export const Wrapper: WrapperComponent = Platform.select({
-  web: require('./wrapper.web').default,
-  default: require('./wrapper.native').default,
+  web: WrapperWeb,
+  default: WrapperNative,
 })
