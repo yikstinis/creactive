@@ -5,7 +5,9 @@ module.exports = {
   entry: path.join(__dirname, 'source', 'index.ts'),
   output: {
     path: path.join(__dirname, 'build'),
-    filename: 'index.js',
+    filename: process.env.npm_lifecycle_event.endsWith('web')
+      ? 'web.js'
+      : 'index.js',
     globalObject: 'this',
     libraryTarget: 'umd',
     library: name,

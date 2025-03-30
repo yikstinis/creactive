@@ -5,5 +5,5 @@
     "declaration": true,
     "emitDeclarationOnly": true
   },
-  "include": ["source/index.ts"]
+  "include": ["source/index.ts", "source/web.ts"]
 }

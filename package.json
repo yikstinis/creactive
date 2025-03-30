@@ -1,6 +1,6 @@
 {
   "name": "creactive",
-  "version": "0.0.55",
+  "version": "0.0.57",
   "main": ".storybook",
   "files": [
     "build/**"
@@ -14,7 +14,10 @@
     "test:ios": "jest",
     "test:web": "jest",
     "lint": "expo lint",
-    "build": "webpack --mode production && tsc -p tsconfig.types.json && tsc-alias -p tsconfig.types.json",
+    "build": "npm run build:default && npm run build:web && npm run build:types",
+    "build:default": "webpack --mode production",
+    "build:web": "webpack --mode production",
+    "build:types": "tsc -p tsconfig.types.json && tsc-alias -p tsconfig.types.json",
     "prepublishOnly": "npm run build && node scripts/update-package.js build/index.js",
     "postpublish": "node scripts/update-package.js .storybook"
   },
@@ -26,6 +29,9 @@
   },
   "devDependencies": {
     "@babel/core": "^7.25.2",
+    "@babel/preset-env": "^7.26.9",
+    "@babel/preset-react": "^7.26.3",
+    "@babel/preset-typescript": "^7.27.0",
     "@faker-js/faker": "^9.2.0",
     "@react-native-async-storage/async-storage": "^1.23.1",
     "@storybook/addon-ondevice-actions": "^8.4.2",
