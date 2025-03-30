@@ -1,2 +1,3 @@
 import type { FunctionComponent, PropsWithChildren } from 'react'
-export type WrapperComponent = FunctionComponent<PropsWithChildren>
+export interface WrapperProps extends PropsWithChildren {}
+export type WrapperComponent = FunctionComponent<WrapperProps>
