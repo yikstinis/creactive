@@ -1,9 +1,10 @@
 import { useEffect, useState } from 'react'
 import { Platform } from 'react-native'
+import { MediaBreakpoint } from '../../constants'
 import { useMediaContext } from '../../media'
-import type { MediaProps } from './media.types'
+import type { MediaComponent, MediaProps } from './media.types'
 
-export const Media = Platform.select({
+const MediaBase = Platform.select({
   // Web media component with server side rendering support.
   web: ({ isDefault, breakpoint, children }: MediaProps) => {
     const mediaContext = useMediaContext()
@@ -31,3 +32,6 @@ export const Media = Platform.select({
     if (mediaContext.breakpoint === breakpoint) return children
   },
 })
+
+export const Media = MediaBase as MediaComponent
+Media.Breakpoint = MediaBreakpoint
