@@ -1,6 +1,6 @@
 {
   "name": "creactive",
-  "version": "0.0.59",
+  "version": "0.0.62",
   "main": ".storybook",
   "browser": "build/browser.js",
   "files": [

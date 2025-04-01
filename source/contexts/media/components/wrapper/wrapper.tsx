@@ -46,26 +46,23 @@ export const Wrapper = Platform.select({
     }, [isHydrated])
 
     return (
-      <>
-        <div
-          ref={ref}
-          style={style as CSSProperties}
-          // We don't want to see hydration warning on this element.
-          // We'll set display none in the script below.
-          // This will allow us to hide wrapped content during first render.
-          suppressHydrationWarning
-        >
-          {children}
-        </div>
-
+      <div
+        ref={ref}
+        style={style as CSSProperties}
+        // We don't want to see hydration warning on this element.
+        // We'll set display none in the script below.
+        // This will allow us to hide wrapped content during first render.
+        suppressHydrationWarning
+      >
         <script
           // Hide wrapper content immediately during first render.
           dangerouslySetInnerHTML={{
-            __html:
-              'document.currentScript.previousSibling.style.display="none"',
+            __html: 'document.currentScript.parentElement.style.display="none"',
           }}
         />
-      </>
+
+        {children}
+      </div>
     )
   },
   // We don't need any wrapping on native platfrom.

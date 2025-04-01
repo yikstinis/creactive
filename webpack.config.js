@@ -8,18 +8,6 @@ const getOutputFileName = () => {
   return 'node.js'
 }
 
-const getResolveAlias = () => {
-  if (isWeb) {
-    return {
-      '@': path.resolve(__dirname, 'source'),
-      'react-native': 'react-native-web',
-    }
-  }
-  return {
-    '@': path.resolve(__dirname, 'source'),
-  }
-}
-
 module.exports = {
   entry: path.join(__dirname, 'source', 'index.ts'),
   output: {
@@ -37,7 +25,9 @@ module.exports = {
     'react-native-web': 'react-native-web',
   },
   resolve: {
-    alias: getResolveAlias(),
+    alias: {
+      '@': path.resolve(__dirname, 'source'),
+    },
     extensions: ['.js', '.jsx', '.ts', '.tsx'],
   },
   module: {

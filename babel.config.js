@@ -1,7 +1,8 @@
 const isWeb = process.env.npm_lifecycle_event.endsWith('web')
+const isTest = process.env.npm_lifecycle_event.startsWith('test')
 
 const getPresets = () => {
-  if (isWeb) {
+  if (isWeb || isTest) {
     return ['babel-preset-expo']
   }
   return [
