@@ -1,11 +1,11 @@
 const { name } = require('./package.json')
 const path = require('path')
 
-const isWeb = process.env.npm_lifecycle_event.endsWith('web')
+const isDefaultBuild = process.env.npm_lifecycle_event === 'build:default'
 
 const getOutputFileName = () => {
-  if (isWeb) return 'browser.js'
-  return 'node.js'
+  if (isDefaultBuild) return 'default.js'
+  return 'classic.js'
 }
 
 module.exports = {
