@@ -4,9 +4,22 @@ import { MediaBreakpoint } from '../../constants'
 import { useMediaContext } from '../../media'
 import type { MediaComponent, MediaProps } from './media.types'
 
+// Breakpoint index object for optimized comparing.
+const breakpointIndex = {
+  [MediaBreakpoint.MD]: 1,
+  [MediaBreakpoint.LG]: 2,
+  [MediaBreakpoint.XL]: 3,
+}
+// Simple comparing breakpoints helper.
+// Checks that provided current is greater than provided otherwise breakpoint.
+const isGreater = (
+  currentBreakpoint: MediaBreakpoint,
+  otherwiseBreakpoint: MediaBreakpoint
+) => breakpointIndex[currentBreakpoint] > breakpointIndex[otherwiseBreakpoint]
+
 const MediaBase = Platform.select({
   // Web media component with server side rendering support.
-  web: ({ isDefault, breakpoint, children }: MediaProps) => {
+  web: ({ isDefault, isOtherwise, breakpoint, children }: MediaProps) => {
     const mediaContext = useMediaContext()
     // Hydration flag, allows to detect server and first client render.
     const [isHydrated, setHydrated] = useState(false)
@@ -20,16 +33,22 @@ const MediaBase = Platform.select({
     if (isHydrated) {
       if (isDefault && mediaContext.breakpoint === undefined) return children
       if (mediaContext.breakpoint === breakpoint) return children
+      if (isOtherwise && isGreater(mediaContext.breakpoint, breakpoint)) {
+        return children
+      }
     } else if (isDefault) {
       // During first or server render we return default media children only.
       return children
     }
   },
   // Native media component whithout any tricks.
-  default: ({ isDefault, breakpoint, children }: MediaProps) => {
+  default: ({ isDefault, isOtherwise, breakpoint, children }: MediaProps) => {
     const mediaContext = useMediaContext()
     if (isDefault && mediaContext.breakpoint === undefined) return children
     if (mediaContext.breakpoint === breakpoint) return children
+    if (isOtherwise && isGreater(mediaContext.breakpoint, breakpoint)) {
+      return children
+    }
   },
 })
 
