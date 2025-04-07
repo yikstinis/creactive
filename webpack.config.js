@@ -19,6 +19,7 @@ module.exports = {
     umdNamedDefine: true,
   },
   externals: {
+    '@emotion/styled': '@emotion/styled',
     react: 'react',
     'react-dom': 'react-dom',
     'react-native': 'react-native',

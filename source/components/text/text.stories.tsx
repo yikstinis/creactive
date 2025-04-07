@@ -1,4 +1,4 @@
-import { StorybookControl } from '@/helpers'
+import { StorybookControl } from '@/helpers/storybook'
 import type { Meta, StoryObj } from '@storybook/react'
 import { Text } from './text'
 
@@ -42,5 +42,4 @@ const meta: Meta<typeof Text> = {
   },
 }
 export default meta
-
 export const DefaultState: StoryObj<typeof Text> = {}

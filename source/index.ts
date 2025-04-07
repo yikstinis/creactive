@@ -4,6 +4,8 @@
  */
 export { Text } from '@/components/text'
 export type { TextComponent, TextProps } from '@/components/text'
+export { View } from '@/components/view'
+export type { ViewComponent, ViewProps } from '@/components/view'
 export { Media, MediaContextProvider, useMediaContext } from '@/contexts/media'
 export type {
   MediaComponent,
@@ -19,6 +21,4 @@ export type {
   ThemeContextValue,
   ThemeFontWeight,
 } from '@/contexts/theme'
-export { renderStyle } from '@/helpers/style'
-export type { RenderStyleHelper } from '@/helpers/style'
 export { useThemeStyleSheet } from '@/hooks/use-theme-style-sheet'
