@@ -43,6 +43,18 @@ import {
   LINE_HEIGHT_BASE_RELAXED,
   LINE_HEIGHT_BASE_SNUG,
   LINE_HEIGHT_BASE_TIGHT,
+  SPACING_BASE_LG,
+  SPACING_BASE_MD,
+  SPACING_BASE_SM,
+  SPACING_BASE_X2L,
+  SPACING_BASE_X2S,
+  SPACING_BASE_X3L,
+  SPACING_BASE_X4L,
+  SPACING_BASE_X5L,
+  SPACING_BASE_X6L,
+  SPACING_BASE_X7L,
+  SPACING_BASE_XL,
+  SPACING_BASE_XS,
 } from '@/constants'
 import { createContext, useContext, useMemo } from 'react'
 import type {
@@ -97,6 +109,18 @@ const ThemeContext = createContext<ThemeContextValue>({
   lineHeightBaseNormal: LINE_HEIGHT_BASE_NORMAL,
   lineHeightBaseRelaxed: LINE_HEIGHT_BASE_RELAXED,
   lineHeightBaseLoose: LINE_HEIGHT_BASE_LOOSE,
+  spacingBaseX2S: SPACING_BASE_X2S,
+  spacingBaseXS: SPACING_BASE_XS,
+  spacingBaseSM: SPACING_BASE_SM,
+  spacingBaseMD: SPACING_BASE_MD,
+  spacingBaseLG: SPACING_BASE_LG,
+  spacingBaseXL: SPACING_BASE_XL,
+  spacingBaseX2L: SPACING_BASE_X2L,
+  spacingBaseX3L: SPACING_BASE_X3L,
+  spacingBaseX4L: SPACING_BASE_X4L,
+  spacingBaseX5L: SPACING_BASE_X5L,
+  spacingBaseX6L: SPACING_BASE_X6L,
+  spacingBaseX7L: SPACING_BASE_X7L,
 })
 
 export const ThemeContextProvider: ThemeContextProviderComponent = ({
@@ -149,6 +173,19 @@ export const ThemeContextProvider: ThemeContextProviderComponent = ({
   lineHeightBaseNormal,
   lineHeightBaseRelaxed,
   lineHeightBaseLoose,
+  // Base spacing tokens.
+  spacingBaseX2S,
+  spacingBaseXS,
+  spacingBaseSM,
+  spacingBaseMD,
+  spacingBaseLG,
+  spacingBaseXL,
+  spacingBaseX2L,
+  spacingBaseX3L,
+  spacingBaseX4L,
+  spacingBaseX5L,
+  spacingBaseX6L,
+  spacingBaseX7L,
   // And at least.. :)
   children,
 }) => {
@@ -227,6 +264,19 @@ export const ThemeContextProvider: ThemeContextProviderComponent = ({
       lineHeightBaseNormal: lineHeightBaseNormal ?? LINE_HEIGHT_BASE_NORMAL,
       lineHeightBaseRelaxed: lineHeightBaseRelaxed ?? LINE_HEIGHT_BASE_RELAXED,
       lineHeightBaseLoose: lineHeightBaseLoose ?? LINE_HEIGHT_BASE_LOOSE,
+      // Base spacing tokens.
+      spacingBaseX2S: spacingBaseX2S ?? SPACING_BASE_X2S,
+      spacingBaseXS: spacingBaseXS ?? SPACING_BASE_XS,
+      spacingBaseSM: spacingBaseSM ?? SPACING_BASE_SM,
+      spacingBaseMD: spacingBaseMD ?? SPACING_BASE_MD,
+      spacingBaseLG: spacingBaseLG ?? SPACING_BASE_LG,
+      spacingBaseXL: spacingBaseXL ?? SPACING_BASE_XL,
+      spacingBaseX2L: spacingBaseX2L ?? SPACING_BASE_X2L,
+      spacingBaseX3L: spacingBaseX3L ?? SPACING_BASE_X3L,
+      spacingBaseX4L: spacingBaseX4L ?? SPACING_BASE_X4L,
+      spacingBaseX5L: spacingBaseX5L ?? SPACING_BASE_X5L,
+      spacingBaseX6L: spacingBaseX6L ?? SPACING_BASE_X6L,
+      spacingBaseX7L: spacingBaseX7L ?? SPACING_BASE_X7L,
     }),
     [
       colorForegroundBase100,
@@ -273,6 +323,18 @@ export const ThemeContextProvider: ThemeContextProviderComponent = ({
       lineHeightBaseNormal,
       lineHeightBaseRelaxed,
       lineHeightBaseLoose,
+      spacingBaseX2S,
+      spacingBaseXS,
+      spacingBaseSM,
+      spacingBaseMD,
+      spacingBaseLG,
+      spacingBaseXL,
+      spacingBaseX2L,
+      spacingBaseX3L,
+      spacingBaseX4L,
+      spacingBaseX5L,
+      spacingBaseX6L,
+      spacingBaseX7L,
     ]
   )
   return <ThemeContext.Provider value={value}>{children}</ThemeContext.Provider>
