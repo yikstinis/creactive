@@ -5,4 +5,16 @@ export {
   ViewFlexDirection,
   ViewJustifyContent,
 } from './flex'
-export { HTMLTag, ViewTag } from './tag'
+export {
+  ViewMarginBottomThemeStyleSheetKey,
+  ViewMarginLeftThemeStyleSheetKey,
+  ViewMarginRightThemeStyleSheetKey,
+  ViewMarginTopThemeStyleSheetKey,
+  ViewPaddingBottomThemeStyleSheetKey,
+  ViewPaddingLeftThemeStyleSheetKey,
+  ViewPaddingRightThemeStyleSheetKey,
+  ViewPaddingTopThemeStyleSheetKey,
+  ViewSpacing,
+  ViewSpacingThemeTokenKey,
+} from './spacing'
+export { ViewHTMLTag, ViewTag } from './tag'

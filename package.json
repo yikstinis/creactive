@@ -1,6 +1,6 @@
 {
   "name": "creactive",
-  "version": "0.0.79",
+  "version": "0.0.80",
   "main": ".storybook",
   "files": [
     "build/**"
@@ -15,8 +15,8 @@
     "test:web": "jest",
     "lint": "expo lint",
     "build": "npm run build:default && npm run build:classic && npm run build:types",
-    "build:default": "webpack --mode development",
-    "build:classic": "webpack --mode development",
+    "build:default": "webpack --mode production",
+    "build:classic": "webpack --mode production",
     "build:types": "tsc -p tsconfig.types.json && tsc-alias -p tsconfig.types.json",
     "prepublishOnly": "npm run build && node scripts/update-package.js build/default.js",
     "postpublish": "node scripts/update-package.js .storybook"
