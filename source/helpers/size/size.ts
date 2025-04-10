@@ -1,3 +1,4 @@
+import { Platform } from 'react-native'
 import type { SizeValue } from './size.types'
 
 /**
@@ -27,7 +28,12 @@ export class Size {
   }
 
   toValue(): SizeValue {
-    if (this.dimension === Size.Dimension.PIXEL) return this.amount
+    if (this.dimension === Size.Dimension.PIXEL) {
+      return Platform.select({
+        web: `${this.amount}px` as SizeValue,
+        default: this.amount,
+      })
+    }
     return `${this.amount}%`
   }
 }
