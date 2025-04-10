@@ -5,6 +5,7 @@ export {
   useViewFlexDirectionStyle,
   useViewJustifyContentStyle,
 } from './use-flex'
+export { useViewSizeValue } from './use-size'
 export {
   useViewMarginBottomStyle,
   useViewMarginLeftStyle,

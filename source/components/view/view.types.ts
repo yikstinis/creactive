@@ -1,3 +1,4 @@
+import type { Size, SizeValue } from '@/helpers'
 import type { FunctionComponent, PropsWithChildren } from 'react'
 import type {
   ViewAlignContent,
@@ -100,6 +101,42 @@ export interface ViewProps extends PropsWithChildren {
    * @default undefined
    */
   paddingBottom?: ViewSpacing
+  /**
+   * Minimum width of the component.
+   * @see Size
+   * @default undefined
+   */
+  minWidth?: Size
+  /**
+   * Width of the component.
+   * @see Size
+   * @default undefined
+   */
+  width?: Size
+  /**
+   * Maximum width of the component.
+   * @see Size
+   * @default undefined
+   */
+  maxWidth?: Size
+  /**
+   * Minimum height of the component.
+   * @see Size
+   * @default undefined
+   */
+  minHeight?: Size
+  /**
+   * Height of the component.
+   * @see Size
+   * @default undefined
+   */
+  height?: Size
+  /**
+   * Maximum height of the component.
+   * @see Size
+   * @default undefined
+   */
+  maxHeight?: Size
 }
 export type ViewComponent = FunctionComponent<ViewProps> & {
   Tag: Record<keyof typeof ViewTag, ViewTag>
@@ -119,6 +156,7 @@ export type StyledViewProps = Pick<
   | 'alignSelf'
   | 'alignContent'
 > & {
+  // Spacing.
   marginTop?: number
   paddingTop?: number
   marginLeft?: number
@@ -127,4 +165,11 @@ export type StyledViewProps = Pick<
   paddingRight?: number
   marginBottom?: number
   paddingBottom?: number
+  // Size.
+  minWidth?: SizeValue
+  width?: SizeValue
+  maxWidth?: SizeValue
+  minHeight?: SizeValue
+  height?: SizeValue
+  maxHeight?: SizeValue
 }

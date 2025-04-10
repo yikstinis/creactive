@@ -21,4 +21,5 @@ export type {
   ThemeContextValue,
   ThemeFontWeight,
 } from '@/contexts/theme'
+export { Size } from '@/helpers/size'
 export { useThemeStyleSheet } from '@/hooks/use-theme-style-sheet'

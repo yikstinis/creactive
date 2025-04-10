@@ -22,6 +22,7 @@ import {
   useViewPaddingLeftStyle,
   useViewPaddingRightStyle,
   useViewPaddingTopStyle,
+  useViewSizeValue,
 } from './hooks'
 import type { ViewComponent } from './view.types'
 
@@ -51,6 +52,12 @@ const View: ViewComponent = ({
   paddingRight,
   marginBottom,
   paddingBottom,
+  minWidth,
+  width,
+  maxWidth,
+  minHeight,
+  height,
+  maxHeight,
   children,
 }) => {
   return (
@@ -70,6 +77,14 @@ const View: ViewComponent = ({
         useViewPaddingRightStyle(paddingRight),
         useViewMarginBottomStyle(marginBottom),
         useViewPaddingBottomStyle(paddingBottom),
+        {
+          minWidth: useViewSizeValue(minWidth),
+          width: useViewSizeValue(width),
+          maxWidth: useViewSizeValue(maxWidth),
+          minHeight: useViewSizeValue(minHeight),
+          height: useViewSizeValue(height),
+          maxHeight: useViewSizeValue(maxHeight),
+        },
       ]}
     >
       {children}

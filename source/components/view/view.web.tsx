@@ -9,7 +9,7 @@ import {
   ViewSpacing,
   ViewTag,
 } from './constants'
-import { useViewSpacingTokenValue } from './hooks'
+import { useViewSizeValue, useViewSpacingTokenValue } from './hooks'
 import type { ViewComponent } from './view.types'
 
 const View: ViewComponent = ({
@@ -27,6 +27,12 @@ const View: ViewComponent = ({
   paddingRight,
   marginBottom,
   paddingBottom,
+  minWidth,
+  width,
+  maxWidth,
+  minHeight,
+  height,
+  maxHeight,
   children,
 }) => {
   return (
@@ -45,6 +51,12 @@ const View: ViewComponent = ({
       paddingRight={useViewSpacingTokenValue(paddingRight)}
       marginBottom={useViewSpacingTokenValue(marginBottom)}
       paddingBottom={useViewSpacingTokenValue(paddingBottom)}
+      minWidth={useViewSizeValue(minWidth)}
+      width={useViewSizeValue(width)}
+      maxWidth={useViewSizeValue(maxWidth)}
+      minHeight={useViewSizeValue(minHeight)}
+      height={useViewSizeValue(height)}
+      maxHeight={useViewSizeValue(maxHeight)}
     >
       {children}
     </StyledView>

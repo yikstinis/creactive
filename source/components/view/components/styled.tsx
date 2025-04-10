@@ -75,4 +75,10 @@ export const StyledView = styled.div<StyledViewProps>`
   padding-right: ${({ paddingRight }) => paddingRight}px;
   margin-bottom: ${({ marginBottom }) => marginBottom}px;
   padding-bottom: ${({ paddingBottom }) => paddingBottom}px;
+  min-width: ${({ minWidth }) => minWidth};
+  width: ${({ width }) => width};
+  max-width: ${({ maxWidth }) => maxWidth};
+  min-height: ${({ minHeight }) => minHeight};
+  height: ${({ height }) => height};
+  max-height: ${({ maxHeight }) => maxHeight};
 `
