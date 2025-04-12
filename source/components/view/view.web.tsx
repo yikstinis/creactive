@@ -7,6 +7,7 @@ import {
   ViewFlexDirection,
   ViewHTMLTag,
   ViewJustifyContent,
+  ViewOverflow,
   ViewSpacing,
   ViewTag,
 } from './constants'
@@ -19,6 +20,7 @@ import type { ViewComponent } from './view.types'
 
 const View: ViewComponent = ({
   tag = ViewTag.DIV,
+  overflow = ViewOverflow.VISIBLE,
   flexDirection = ViewFlexDirection.COLUMN,
   justifyContent = ViewJustifyContent.FLEX_START,
   alignItems = ViewAlignItems.STRETCH,
@@ -44,6 +46,7 @@ const View: ViewComponent = ({
   return (
     <StyledView
       as={ViewHTMLTag[tag]}
+      overflow={overflow}
       flexDirection={flexDirection}
       justifyContent={justifyContent}
       alignItems={alignItems}
@@ -70,6 +73,7 @@ const View: ViewComponent = ({
   )
 }
 View.Tag = ViewTag
+View.Overflow = ViewOverflow
 View.FlexDirection = ViewFlexDirection
 View.JustifyContent = ViewJustifyContent
 View.AlignItems = ViewAlignItems

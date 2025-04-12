@@ -5,12 +5,19 @@ import {
   ViewAlignSelf,
   ViewFlexDirection,
   ViewJustifyContent,
+  ViewOverflow,
 } from '../constants'
 import type { StyledViewProps } from '../view.types'
 
 // View component web version styling maps.
 // Leaving it here to keep all web view styles in one place.
 // It seems like a good idea, feeling no conflict with the native styling.
+
+// Overflow.
+const OverflowStyle = {
+  [ViewOverflow.VISIBLE]: 'visible',
+  [ViewOverflow.HIDDEN]: 'hidden',
+}
 
 // Flex direction.
 const FlexDirectionStyle = {
@@ -61,6 +68,7 @@ export const StyledView = styled.div<StyledViewProps>`
   list-style: none;
   text-decoration: none;
   box-sizing: border-box;
+  overflow: ${({ overflow }) => OverflowStyle[overflow]};
   flex-direction: ${({ flexDirection }) => FlexDirectionStyle[flexDirection]};
   justify-content: ${({ justifyContent }) =>
     JustifyContentStyle[justifyContent]};

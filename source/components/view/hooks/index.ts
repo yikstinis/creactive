@@ -9,6 +9,7 @@ export {
   useViewFlexDirectionStyle,
   useViewJustifyContentStyle,
 } from './use-flex'
+export { useViewOverflowStyle } from './use-overflow'
 export { useViewSizeValue } from './use-size'
 export {
   useViewMarginBottomStyle,

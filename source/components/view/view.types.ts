@@ -7,6 +7,7 @@ import type {
   ViewBorderRadius,
   ViewFlexDirection,
   ViewJustifyContent,
+  ViewOverflow,
   ViewSpacing,
   ViewTag,
 } from './constants'
@@ -19,6 +20,13 @@ export interface ViewProps extends PropsWithChildren {
    * @default View.Tag.DIV
    */
   tag?: ViewTag
+  /**
+   * View overflow behavior.
+   * Controls how children are measured and displayed.
+   * @see View.Overflow
+   * @default View.Overflow.VISIBLE
+   */
+  overflow?: ViewOverflow
   /**
    * Flex direction of the component.
    * Defines the main axis along which children are laid out.
@@ -147,6 +155,7 @@ export interface ViewProps extends PropsWithChildren {
 }
 export type ViewComponent = FunctionComponent<ViewProps> & {
   Tag: Record<keyof typeof ViewTag, ViewTag>
+  Overflow: Record<keyof typeof ViewOverflow, ViewOverflow>
   FlexDirection: Record<keyof typeof ViewFlexDirection, ViewFlexDirection>
   JustifyContent: Record<keyof typeof ViewJustifyContent, ViewJustifyContent>
   AlignItems: Record<keyof typeof ViewAlignItems, ViewAlignItems>
@@ -158,6 +167,7 @@ export type ViewComponent = FunctionComponent<ViewProps> & {
 // For web version styled component.
 export type StyledViewProps = Pick<
   ViewProps,
+  | 'overflow'
   | 'flexDirection'
   | 'justifyContent'
   | 'alignItems'
