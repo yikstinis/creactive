@@ -1,4 +1,9 @@
 import {
+  BORDER_RADIUS_BASE_LG,
+  BORDER_RADIUS_BASE_MD,
+  BORDER_RADIUS_BASE_SM,
+  BORDER_RADIUS_BASE_XL,
+  BORDER_RADIUS_BASE_XS,
   COLOR_FOREGROUND_BASE_100,
   COLOR_FOREGROUND_BASE_200,
   COLOR_FOREGROUND_BASE_300,
@@ -121,6 +126,11 @@ const ThemeContext = createContext<ThemeContextValue>({
   spacingBaseX5L: SPACING_BASE_X5L,
   spacingBaseX6L: SPACING_BASE_X6L,
   spacingBaseX7L: SPACING_BASE_X7L,
+  borderRadiusBaseXS: BORDER_RADIUS_BASE_XS,
+  borderRadiusBaseSM: BORDER_RADIUS_BASE_SM,
+  borderRadiusBaseMD: BORDER_RADIUS_BASE_MD,
+  borderRadiusBaseLG: BORDER_RADIUS_BASE_LG,
+  borderRadiusBaseXL: BORDER_RADIUS_BASE_XL,
 })
 
 export const ThemeContextProvider: ThemeContextProviderComponent = ({
@@ -186,6 +196,12 @@ export const ThemeContextProvider: ThemeContextProviderComponent = ({
   spacingBaseX5L,
   spacingBaseX6L,
   spacingBaseX7L,
+  // Border radius.
+  borderRadiusBaseXS,
+  borderRadiusBaseSM,
+  borderRadiusBaseMD,
+  borderRadiusBaseLG,
+  borderRadiusBaseXL,
   // And at least.. :)
   children,
 }) => {
@@ -277,6 +293,12 @@ export const ThemeContextProvider: ThemeContextProviderComponent = ({
       spacingBaseX5L: spacingBaseX5L ?? SPACING_BASE_X5L,
       spacingBaseX6L: spacingBaseX6L ?? SPACING_BASE_X6L,
       spacingBaseX7L: spacingBaseX7L ?? SPACING_BASE_X7L,
+      // Border radius.
+      borderRadiusBaseXS: borderRadiusBaseXS ?? BORDER_RADIUS_BASE_XS,
+      borderRadiusBaseSM: borderRadiusBaseSM ?? BORDER_RADIUS_BASE_SM,
+      borderRadiusBaseMD: borderRadiusBaseMD ?? BORDER_RADIUS_BASE_MD,
+      borderRadiusBaseLG: borderRadiusBaseLG ?? BORDER_RADIUS_BASE_LG,
+      borderRadiusBaseXL: borderRadiusBaseXL ?? BORDER_RADIUS_BASE_XL,
     }),
     [
       colorForegroundBase100,
@@ -335,6 +357,12 @@ export const ThemeContextProvider: ThemeContextProviderComponent = ({
       spacingBaseX5L,
       spacingBaseX6L,
       spacingBaseX7L,
+      // Border radius.
+      borderRadiusBaseXS,
+      borderRadiusBaseSM,
+      borderRadiusBaseMD,
+      borderRadiusBaseLG,
+      borderRadiusBaseXL,
     ]
   )
   return <ThemeContext.Provider value={value}>{children}</ThemeContext.Provider>

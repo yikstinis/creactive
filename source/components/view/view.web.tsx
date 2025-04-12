@@ -3,13 +3,18 @@ import {
   ViewAlignContent,
   ViewAlignItems,
   ViewAlignSelf,
+  ViewBorderRadius,
   ViewFlexDirection,
   ViewHTMLTag,
   ViewJustifyContent,
   ViewSpacing,
   ViewTag,
 } from './constants'
-import { useViewSizeValue, useViewSpacingTokenValue } from './hooks'
+import {
+  useViewBorderRadiusCSSValue,
+  useViewSizeValue,
+  useViewSpacingTokenValue,
+} from './hooks'
 import type { ViewComponent } from './view.types'
 
 const View: ViewComponent = ({
@@ -33,6 +38,7 @@ const View: ViewComponent = ({
   minHeight,
   height,
   maxHeight,
+  borderRadius,
   children,
 }) => {
   return (
@@ -57,6 +63,7 @@ const View: ViewComponent = ({
       minHeight={useViewSizeValue(minHeight)}
       height={useViewSizeValue(height)}
       maxHeight={useViewSizeValue(maxHeight)}
+      borderRadius={useViewBorderRadiusCSSValue(borderRadius)}
     >
       {children}
     </StyledView>
@@ -69,4 +76,5 @@ View.AlignItems = ViewAlignItems
 View.AlignSelf = ViewAlignSelf
 View.AlignContent = ViewAlignContent
 View.Spacing = ViewSpacing
+View.BorderRadius = ViewBorderRadius
 export default View

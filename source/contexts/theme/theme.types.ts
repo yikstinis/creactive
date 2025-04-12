@@ -336,6 +336,32 @@ export interface ThemeContextValue {
    * Used for large layout sections or when significant whitespace is needed.
    */
   spacingBaseX7L: number
+  /**
+   * Extra small border radius token.
+   * @default 2
+   */
+  borderRadiusBaseXS: number
+  /**
+   * Small border radius token.
+   * @default 4
+   */
+  borderRadiusBaseSM: number
+  /**
+   * Medium border radius token.
+   * Default border radius when you need it.
+   * @default 6
+   */
+  borderRadiusBaseMD: number
+  /**
+   * Large border radius token.
+   * @default 8
+   */
+  borderRadiusBaseLG: number
+  /**
+   * Extra large border radius token.
+   * @default 10
+   */
+  borderRadiusBaseXL: number
 }
 export type ThemeContextProviderProps = PropsWithChildren<
   Partial<ThemeContextValue>

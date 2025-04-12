@@ -1,4 +1,9 @@
 export {
+  ViewBorderRadius,
+  ViewBorderRadiusThemeStyleSheetKey,
+  ViewBorderRadiusThemeTokenKey,
+} from './border'
+export {
   ViewAlignContent,
   ViewAlignItems,
   ViewAlignSelf,

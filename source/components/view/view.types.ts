@@ -4,6 +4,7 @@ import type {
   ViewAlignContent,
   ViewAlignItems,
   ViewAlignSelf,
+  ViewBorderRadius,
   ViewFlexDirection,
   ViewJustifyContent,
   ViewSpacing,
@@ -137,6 +138,12 @@ export interface ViewProps extends PropsWithChildren {
    * @default undefined
    */
   maxHeight?: Size
+  /**
+   * View border radius.
+   * @see View.BorderRadius
+   * @default undefined
+   */
+  borderRadius?: ViewBorderRadius
 }
 export type ViewComponent = FunctionComponent<ViewProps> & {
   Tag: Record<keyof typeof ViewTag, ViewTag>
@@ -146,6 +153,7 @@ export type ViewComponent = FunctionComponent<ViewProps> & {
   AlignSelf: Record<keyof typeof ViewAlignSelf, ViewAlignSelf>
   AlignContent: Record<keyof typeof ViewAlignContent, ViewAlignContent>
   Spacing: Record<keyof typeof ViewSpacing, ViewSpacing>
+  BorderRadius: Record<keyof typeof ViewBorderRadius, ViewBorderRadius>
 }
 // For web version styled component.
 export type StyledViewProps = Pick<
@@ -172,4 +180,6 @@ export type StyledViewProps = Pick<
   minHeight?: SizeValue
   height?: SizeValue
   maxHeight?: SizeValue
+  // Border radius.
+  borderRadius?: `${number}px` | '50%'
 }

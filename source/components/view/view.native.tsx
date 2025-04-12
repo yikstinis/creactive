@@ -3,6 +3,7 @@ import {
   ViewAlignContent,
   ViewAlignItems,
   ViewAlignSelf,
+  ViewBorderRadius,
   ViewFlexDirection,
   ViewJustifyContent,
   ViewSpacing,
@@ -12,6 +13,7 @@ import {
   useViewAlignContentStyle,
   useViewAlignItemsStyle,
   useViewAlignSelfStyle,
+  useViewBorderRadiusStyle,
   useViewFlexDirectionStyle,
   useViewJustifyContentStyle,
   useViewMarginBottomStyle,
@@ -58,6 +60,7 @@ const View: ViewComponent = ({
   minHeight,
   height,
   maxHeight,
+  borderRadius,
   children,
 }) => {
   return (
@@ -85,6 +88,7 @@ const View: ViewComponent = ({
           height: useViewSizeValue(height),
           maxHeight: useViewSizeValue(maxHeight),
         },
+        useViewBorderRadiusStyle(borderRadius),
       ]}
     >
       {children}
@@ -98,4 +102,5 @@ View.AlignItems = ViewAlignItems
 View.AlignSelf = ViewAlignSelf
 View.AlignContent = ViewAlignContent
 View.Spacing = ViewSpacing
+View.BorderRadius = ViewBorderRadius
 export default View
