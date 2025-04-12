@@ -430,6 +430,16 @@ export const useThemeStyleSheet = () => {
         paddingBottomBaseX7L: {
           paddingBottom: themeContext.spacingBaseX7L,
         },
+        // Border width.
+        borderWidthBaseSM: {
+          borderWidth: themeContext.borderWidthBaseSM,
+        },
+        borderWidthBaseMD: {
+          borderWidth: themeContext.borderWidthBaseMD,
+        },
+        borderWidthBaseLG: {
+          borderWidth: themeContext.borderWidthBaseLG,
+        },
         // Border radius.
         borderRadiusBaseXS: {
           borderRadius: themeContext.borderRadiusBaseXS,

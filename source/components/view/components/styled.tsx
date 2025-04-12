@@ -101,5 +101,6 @@ export const StyledView = styled.div<StyledViewProps>`
   min-height: ${({ minHeight }) => minHeight};
   height: ${({ height }) => height};
   max-height: ${({ maxHeight }) => maxHeight};
+  border-width: ${({ borderWidth }) => borderWidth}px;
   border-radius: ${({ borderRadius }) => borderRadius};
 `

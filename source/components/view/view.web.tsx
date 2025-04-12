@@ -4,6 +4,7 @@ import {
   ViewAlignItems,
   ViewAlignSelf,
   ViewBorderRadius,
+  ViewBorderWidth,
   ViewFlexDirection,
   ViewHTMLTag,
   ViewJustifyContent,
@@ -14,6 +15,7 @@ import {
 } from './constants'
 import {
   useViewBorderRadiusCSSValue,
+  useViewBorderWidthTokenValue,
   useViewPositionValue,
   useViewSizeValue,
   useViewSpacingTokenValue,
@@ -47,6 +49,7 @@ const View: ViewComponent = ({
   minHeight,
   height,
   maxHeight,
+  borderWidth,
   borderRadius,
   children,
 }) => {
@@ -78,6 +81,7 @@ const View: ViewComponent = ({
       minHeight={useViewSizeValue(minHeight)}
       height={useViewSizeValue(height)}
       maxHeight={useViewSizeValue(maxHeight)}
+      borderWidth={useViewBorderWidthTokenValue(borderWidth)}
       borderRadius={useViewBorderRadiusCSSValue(borderRadius)}
     >
       {children}
@@ -93,5 +97,6 @@ View.AlignItems = ViewAlignItems
 View.AlignSelf = ViewAlignSelf
 View.AlignContent = ViewAlignContent
 View.Spacing = ViewSpacing
+View.BorderWidth = ViewBorderWidth
 View.BorderRadius = ViewBorderRadius
 export default View

@@ -2,6 +2,9 @@ export {
   ViewBorderRadius,
   ViewBorderRadiusThemeStyleSheetKey,
   ViewBorderRadiusThemeTokenKey,
+  ViewBorderWidth,
+  ViewBorderWidthThemeStyleSheetKey,
+  ViewBorderWidthThemeTokenKey,
 } from './border'
 export {
   ViewAlignContent,

@@ -1,6 +1,8 @@
 export {
   useViewBorderRadiusCSSValue,
   useViewBorderRadiusStyle,
+  useViewBorderWidthStyle,
+  useViewBorderWidthTokenValue,
 } from './use-border'
 export {
   useViewAlignContentStyle,

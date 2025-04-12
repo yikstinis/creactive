@@ -5,7 +5,18 @@ import {
   ViewBorderRadius,
   ViewBorderRadiusThemeStyleSheetKey,
   ViewBorderRadiusThemeTokenKey,
+  ViewBorderWidth,
+  ViewBorderWidthThemeStyleSheetKey,
+  ViewBorderWidthThemeTokenKey,
 } from '../constants'
+
+// Border width native style hook.
+export const useViewBorderWidthStyle = (borderWidth?: ViewBorderWidth) =>
+  useThemeStyleSheet()[ViewBorderWidthThemeStyleSheetKey[borderWidth]]
+
+// Spacing token value.
+export const useViewBorderWidthTokenValue = (borderWidth?: ViewBorderWidth) =>
+  useThemeContext()[ViewBorderWidthThemeTokenKey[borderWidth]] ?? 0
 
 // Non-themed border style sheet.
 const viewBorderStyleSheet = StyleSheet.create({
