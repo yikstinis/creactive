@@ -1,14 +1,14 @@
 import { Dimension } from '@/constants'
 import { Platform } from 'react-native'
-import type { SizeValue } from './size.types'
+import type { PositionValue } from './position.types'
 
 /**
- * Don't want to accept non-themed literal size values inside component.
- * This helper is an attempt to avoid magic numbers and strings when sizing.
- * Components are supposed to accept this class instances for sizing.
- * This may force us to create optimized and named global size constants.
+ * Don't want to accept non-themed literal position values inside component.
+ * This class may help to avoid magic numbers and strings when positioning.
+ * Components are supposed to accept this class instances for positioning.
+ * This may force us to create optimized and named global position constants.
  */
-export class Size {
+export class Position {
   public static readonly Dimension = Dimension
 
   private readonly amount: number
@@ -19,10 +19,10 @@ export class Size {
     this.dimension = dimension
   }
 
-  toValue(): SizeValue {
+  toValue(): PositionValue {
     if (this.dimension === Dimension.PIXEL) {
       return Platform.select({
-        web: `${this.amount}px` as SizeValue,
+        web: `${this.amount}px` as PositionValue,
         default: this.amount,
       })
     }

@@ -6,6 +6,7 @@ export { Text } from '@/components/text'
 export type { TextComponent, TextProps } from '@/components/text'
 export { View } from '@/components/view'
 export type { ViewComponent, ViewProps } from '@/components/view'
+export { Dimension } from '@/constants/dimension'
 export { Media, MediaContextProvider, useMediaContext } from '@/contexts/media'
 export type {
   MediaComponent,
@@ -21,5 +22,8 @@ export type {
   ThemeContextValue,
   ThemeFontWeight,
 } from '@/contexts/theme'
+export { Position } from '@/helpers/position'
+export type { PositionValue } from '@/helpers/position'
 export { Size } from '@/helpers/size'
+export type { SizeValue } from '@/helpers/size'
 export { useThemeStyleSheet } from '@/hooks/use-theme-style-sheet'

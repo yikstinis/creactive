@@ -1,1 +1,1 @@
-export type SizeValue = number | `${number}%`
+export type SizeValue = number | `${number}px` | `${number}%`

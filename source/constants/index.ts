@@ -1,3 +1,4 @@
+export { Dimension } from '@/constants/dimension'
 export {
   BORDER_RADIUS_BASE_LG,
   BORDER_RADIUS_BASE_MD,
