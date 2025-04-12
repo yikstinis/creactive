@@ -4,6 +4,9 @@ import {
   BORDER_RADIUS_BASE_SM,
   BORDER_RADIUS_BASE_XL,
   BORDER_RADIUS_BASE_XS,
+  BORDER_WIDTH_BASE_LG,
+  BORDER_WIDTH_BASE_MD,
+  BORDER_WIDTH_BASE_SM,
   COLOR_FOREGROUND_BASE_100,
   COLOR_FOREGROUND_BASE_200,
   COLOR_FOREGROUND_BASE_300,
@@ -126,6 +129,9 @@ const ThemeContext = createContext<ThemeContextValue>({
   spacingBaseX5L: SPACING_BASE_X5L,
   spacingBaseX6L: SPACING_BASE_X6L,
   spacingBaseX7L: SPACING_BASE_X7L,
+  borderWidthBaseSM: BORDER_WIDTH_BASE_SM,
+  borderWidthBaseMD: BORDER_WIDTH_BASE_MD,
+  borderWidthBaseLG: BORDER_WIDTH_BASE_LG,
   borderRadiusBaseXS: BORDER_RADIUS_BASE_XS,
   borderRadiusBaseSM: BORDER_RADIUS_BASE_SM,
   borderRadiusBaseMD: BORDER_RADIUS_BASE_MD,
@@ -196,6 +202,10 @@ export const ThemeContextProvider: ThemeContextProviderComponent = ({
   spacingBaseX5L,
   spacingBaseX6L,
   spacingBaseX7L,
+  // Border width.
+  borderWidthBaseSM,
+  borderWidthBaseMD,
+  borderWidthBaseLG,
   // Border radius.
   borderRadiusBaseXS,
   borderRadiusBaseSM,
@@ -293,6 +303,10 @@ export const ThemeContextProvider: ThemeContextProviderComponent = ({
       spacingBaseX5L: spacingBaseX5L ?? SPACING_BASE_X5L,
       spacingBaseX6L: spacingBaseX6L ?? SPACING_BASE_X6L,
       spacingBaseX7L: spacingBaseX7L ?? SPACING_BASE_X7L,
+      // Border width.
+      borderWidthBaseSM: borderWidthBaseSM ?? BORDER_WIDTH_BASE_SM,
+      borderWidthBaseMD: borderWidthBaseMD ?? BORDER_WIDTH_BASE_MD,
+      borderWidthBaseLG: borderWidthBaseLG ?? BORDER_WIDTH_BASE_LG,
       // Border radius.
       borderRadiusBaseXS: borderRadiusBaseXS ?? BORDER_RADIUS_BASE_XS,
       borderRadiusBaseSM: borderRadiusBaseSM ?? BORDER_RADIUS_BASE_SM,
@@ -357,6 +371,10 @@ export const ThemeContextProvider: ThemeContextProviderComponent = ({
       spacingBaseX5L,
       spacingBaseX6L,
       spacingBaseX7L,
+      // Border width.
+      borderWidthBaseSM,
+      borderWidthBaseMD,
+      borderWidthBaseLG,
       // Border radius.
       borderRadiusBaseXS,
       borderRadiusBaseSM,

@@ -337,6 +337,21 @@ export interface ThemeContextValue {
    */
   spacingBaseX7L: number
   /**
+   * Small base border width token.
+   * @default 0.5
+   */
+  borderWidthBaseSM: number
+  /**
+   * Medium base border width token.
+   * @default 1
+   */
+  borderWidthBaseMD: number
+  /**
+   * Large base border width token.
+   * @default 1.5
+   */
+  borderWidthBaseLG: number
+  /**
    * Extra small border radius token.
    * @default 2
    */
