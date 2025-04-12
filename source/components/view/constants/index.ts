@@ -11,6 +11,7 @@ export {
   ViewJustifyContent,
 } from './flex'
 export { ViewOverflow } from './overflow'
+export { ViewPosition } from './position'
 export {
   ViewMarginBottomThemeStyleSheetKey,
   ViewMarginLeftThemeStyleSheetKey,

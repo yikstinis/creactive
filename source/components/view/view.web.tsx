@@ -8,11 +8,13 @@ import {
   ViewHTMLTag,
   ViewJustifyContent,
   ViewOverflow,
+  ViewPosition,
   ViewSpacing,
   ViewTag,
 } from './constants'
 import {
   useViewBorderRadiusCSSValue,
+  useViewPositionValue,
   useViewSizeValue,
   useViewSpacingTokenValue,
 } from './hooks'
@@ -20,6 +22,11 @@ import type { ViewComponent } from './view.types'
 
 const View: ViewComponent = ({
   tag = ViewTag.DIV,
+  position = ViewPosition.RELATIVE,
+  top,
+  left,
+  right,
+  bottom,
   overflow = ViewOverflow.VISIBLE,
   flexDirection = ViewFlexDirection.COLUMN,
   justifyContent = ViewJustifyContent.FLEX_START,
@@ -46,6 +53,11 @@ const View: ViewComponent = ({
   return (
     <StyledView
       as={ViewHTMLTag[tag]}
+      position={position}
+      top={useViewPositionValue(top)}
+      left={useViewPositionValue(left)}
+      right={useViewPositionValue(right)}
+      bottom={useViewPositionValue(bottom)}
       overflow={overflow}
       flexDirection={flexDirection}
       justifyContent={justifyContent}
@@ -73,6 +85,7 @@ const View: ViewComponent = ({
   )
 }
 View.Tag = ViewTag
+View.Position = ViewPosition
 View.Overflow = ViewOverflow
 View.FlexDirection = ViewFlexDirection
 View.JustifyContent = ViewJustifyContent

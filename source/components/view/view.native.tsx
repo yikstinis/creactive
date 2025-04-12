@@ -7,6 +7,7 @@ import {
   ViewFlexDirection,
   ViewJustifyContent,
   ViewOverflow,
+  ViewPosition,
   ViewSpacing,
   ViewTag,
 } from './constants'
@@ -26,6 +27,8 @@ import {
   useViewPaddingLeftStyle,
   useViewPaddingRightStyle,
   useViewPaddingTopStyle,
+  useViewPositionStyle,
+  useViewPositionValue,
   useViewSizeValue,
 } from './hooks'
 import type { ViewComponent } from './view.types'
@@ -43,6 +46,11 @@ const viewStyleSheet = StyleSheet.create({
   },
 })
 const View: ViewComponent = ({
+  position = ViewPosition.RELATIVE,
+  top,
+  left,
+  right,
+  bottom,
   overflow = ViewOverflow.VISIBLE,
   flexDirection = ViewFlexDirection.COLUMN,
   justifyContent = ViewJustifyContent.FLEX_START,
@@ -70,6 +78,13 @@ const View: ViewComponent = ({
     <ReactNativeView
       style={[
         viewStyleSheet.default,
+        useViewPositionStyle(position),
+        {
+          top: useViewPositionValue(top),
+          left: useViewPositionValue(left),
+          right: useViewPositionValue(right),
+          bottom: useViewPositionValue(bottom),
+        },
         useViewOverflowStyle(overflow),
         useViewFlexDirectionStyle(flexDirection),
         useViewJustifyContentStyle(justifyContent),
@@ -100,6 +115,7 @@ const View: ViewComponent = ({
   )
 }
 View.Tag = ViewTag
+View.Position = ViewPosition
 View.Overflow = ViewOverflow
 View.FlexDirection = ViewFlexDirection
 View.JustifyContent = ViewJustifyContent

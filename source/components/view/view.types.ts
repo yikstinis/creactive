@@ -1,4 +1,4 @@
-import type { Size, SizeValue } from '@/helpers'
+import type { Position, PositionValue, Size, SizeValue } from '@/helpers'
 import type { FunctionComponent, PropsWithChildren } from 'react'
 import type {
   ViewAlignContent,
@@ -8,6 +8,7 @@ import type {
   ViewFlexDirection,
   ViewJustifyContent,
   ViewOverflow,
+  ViewPosition,
   ViewSpacing,
   ViewTag,
 } from './constants'
@@ -20,6 +21,37 @@ export interface ViewProps extends PropsWithChildren {
    * @default View.Tag.DIV
    */
   tag?: ViewTag
+  /**
+   * View position property.
+   * Allows to controle how view is positioned in layout.
+   * @see View.Position
+   * @default View.Position.RELATIVE
+   */
+  position?: ViewPosition
+  /**
+   * Top position.
+   * @see Position
+   * @default undefined
+   */
+  top?: Position
+  /**
+   * Left position.
+   * @see Position
+   * @default undefined
+   */
+  left?: Position
+  /**
+   * Right position.
+   * @see Position
+   * @default undefined
+   */
+  right?: Position
+  /**
+   * Bottom position.
+   * @see Position
+   * @default undefined
+   */
+  bottom?: Position
   /**
    * View overflow behavior.
    * Controls how children are measured and displayed.
@@ -155,6 +187,7 @@ export interface ViewProps extends PropsWithChildren {
 }
 export type ViewComponent = FunctionComponent<ViewProps> & {
   Tag: Record<keyof typeof ViewTag, ViewTag>
+  Position: Record<keyof typeof ViewPosition, ViewPosition>
   Overflow: Record<keyof typeof ViewOverflow, ViewOverflow>
   FlexDirection: Record<keyof typeof ViewFlexDirection, ViewFlexDirection>
   JustifyContent: Record<keyof typeof ViewJustifyContent, ViewJustifyContent>
@@ -167,6 +200,7 @@ export type ViewComponent = FunctionComponent<ViewProps> & {
 // For web version styled component.
 export type StyledViewProps = Pick<
   ViewProps,
+  | 'position'
   | 'overflow'
   | 'flexDirection'
   | 'justifyContent'
@@ -174,6 +208,11 @@ export type StyledViewProps = Pick<
   | 'alignSelf'
   | 'alignContent'
 > & {
+  // Position.
+  top?: PositionValue
+  left?: PositionValue
+  right?: PositionValue
+  bottom?: PositionValue
   // Spacing.
   marginTop?: number
   paddingTop?: number
@@ -190,6 +229,6 @@ export type StyledViewProps = Pick<
   minHeight?: SizeValue
   height?: SizeValue
   maxHeight?: SizeValue
-  // Border radius.
+  // Border.
   borderRadius?: `${number}px` | '50%'
 }

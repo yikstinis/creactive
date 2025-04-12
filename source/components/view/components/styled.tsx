@@ -6,12 +6,19 @@ import {
   ViewFlexDirection,
   ViewJustifyContent,
   ViewOverflow,
+  ViewPosition,
 } from '../constants'
 import type { StyledViewProps } from '../view.types'
 
 // View component web version styling maps.
 // Leaving it here to keep all web view styles in one place.
 // It seems like a good idea, feeling no conflict with the native styling.
+
+// Position.
+const PositionStyle = {
+  [ViewPosition.RELATIVE]: 'relative',
+  [ViewPosition.ABSOLUTE]: 'absolute',
+}
 
 // Overflow.
 const OverflowStyle = {
@@ -68,6 +75,11 @@ export const StyledView = styled.div<StyledViewProps>`
   list-style: none;
   text-decoration: none;
   box-sizing: border-box;
+  position: ${({ position }) => PositionStyle[position]};
+  top: ${({ top }) => top};
+  left: ${({ left }) => left};
+  right: ${({ right }) => right};
+  bottom: ${({ bottom }) => bottom};
   overflow: ${({ overflow }) => OverflowStyle[overflow]};
   flex-direction: ${({ flexDirection }) => FlexDirectionStyle[flexDirection]};
   justify-content: ${({ justifyContent }) =>

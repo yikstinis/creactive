@@ -10,6 +10,7 @@ export {
   useViewJustifyContentStyle,
 } from './use-flex'
 export { useViewOverflowStyle } from './use-overflow'
+export { useViewPositionStyle, useViewPositionValue } from './use-position'
 export { useViewSizeValue } from './use-size'
 export {
   useViewMarginBottomStyle,
