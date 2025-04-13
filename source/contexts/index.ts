@@ -7,7 +7,6 @@ export type {
 } from '@/contexts/media'
 export { ThemeContextProvider, useThemeContext } from '@/contexts/theme'
 export type {
-  ThemeColorRGB,
   ThemeContextProviderComponent,
   ThemeContextProviderProps,
   ThemeContextValue,

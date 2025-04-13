@@ -16,7 +16,6 @@ export type {
 } from '@/contexts/media'
 export { ThemeContextProvider, useThemeContext } from '@/contexts/theme'
 export type {
-  ThemeColorRGB,
   ThemeContextProviderComponent,
   ThemeContextProviderProps,
   ThemeContextValue,
@@ -27,3 +26,4 @@ export type { PositionValue } from '@/helpers/position'
 export { Size } from '@/helpers/size'
 export type { SizeValue } from '@/helpers/size'
 export { useThemeStyleSheet } from '@/hooks/use-theme-style-sheet'
+export type { Color } from '@/types'
