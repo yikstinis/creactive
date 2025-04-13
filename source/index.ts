@@ -7,6 +7,8 @@ export type { TextComponent, TextProps } from '@/components/text'
 export { View } from '@/components/view'
 export type { ViewComponent, ViewProps } from '@/components/view'
 export { Dimension } from '@/constants/dimension'
+export { POSITION_MAX, POSITION_ZERO } from '@/constants/position'
+export { SIZE_FULL } from '@/constants/size'
 export { Media, MediaContextProvider, useMediaContext } from '@/contexts/media'
 export type {
   MediaComponent,

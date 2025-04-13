@@ -1,4 +1,6 @@
 export { Dimension } from '@/constants/dimension'
+export { POSITION_MAX, POSITION_ZERO } from '@/constants/position'
+export { SIZE_FULL } from '@/constants/size'
 export {
   BORDER_RADIUS_BASE_LG,
   BORDER_RADIUS_BASE_MD,
