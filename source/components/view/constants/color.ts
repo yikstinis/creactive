@@ -1,3 +1,7 @@
+/**
+ * View border color enumerated constants.
+ * Should be used to controle view border color with properties.
+ */
 export enum ViewBorderColor {
   BASE_100,
   BASE_200,
@@ -9,7 +13,7 @@ export enum ViewBorderColor {
   BASE_800,
   BASE_900,
 }
-
+// Mapped to native style sheet keys view border color constants.
 export const ViewBorderColorStyleSheetKey = {
   [ViewBorderColor.BASE_100]: 'colorBorderBase100' as const,
   [ViewBorderColor.BASE_200]: 'colorBorderBase200' as const,
@@ -21,7 +25,7 @@ export const ViewBorderColorStyleSheetKey = {
   [ViewBorderColor.BASE_800]: 'colorBorderBase800' as const,
   [ViewBorderColor.BASE_900]: 'colorBorderBase900' as const,
 }
-
+// Mapped to theme token keys view border color constants.
 export const ViewBorderColorThemeTokenKey = {
   [ViewBorderColor.BASE_100]: 'colorBorderBase100' as const,
   [ViewBorderColor.BASE_200]: 'colorBorderBase200' as const,
@@ -34,6 +38,10 @@ export const ViewBorderColorThemeTokenKey = {
   [ViewBorderColor.BASE_900]: 'colorBorderBase900' as const,
 }
 
+/**
+ * View themed background color enumerated constants.
+ * Allows to pass theme background colors as component property.
+ */
 export enum ViewBackgroundColor {
   BASE_100,
   BASE_200,
@@ -45,7 +53,7 @@ export enum ViewBackgroundColor {
   BASE_800,
   BASE_900,
 }
-
+// Mapped to native style sheet keys view background color constants.
 export const ViewBackgroundColorStyleSheetKey = {
   [ViewBackgroundColor.BASE_100]: 'colorBackgroundBase100' as const,
   [ViewBackgroundColor.BASE_200]: 'colorBackgroundBase200' as const,
@@ -57,7 +65,7 @@ export const ViewBackgroundColorStyleSheetKey = {
   [ViewBackgroundColor.BASE_800]: 'colorBackgroundBase800' as const,
   [ViewBackgroundColor.BASE_900]: 'colorBackgroundBase900' as const,
 }
-
+// Mapped to theme token keys view background color constants.
 export const ViewBackgroundColorThemeTokenKey = {
   [ViewBackgroundColor.BASE_100]: 'colorBackgroundBase100' as const,
   [ViewBackgroundColor.BASE_200]: 'colorBackgroundBase200' as const,
