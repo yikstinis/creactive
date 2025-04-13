@@ -47,6 +47,7 @@ const viewStyleSheet = StyleSheet.create({
     zIndex: 0,
     position: 'relative',
     listStyle: 'none',
+    borderWidth: 0,
     borderStyle: 'solid',
     textDecoration: 'none',
     boxSizing: 'border-box',
