@@ -1,4 +1,4 @@
-import { Position } from '@/helpers'
+import type { Position } from '@/helpers'
 import { StyleSheet } from 'react-native'
 import { ViewPosition } from '../constants'
 
