@@ -9,6 +9,17 @@ export const COLOR_BACKGROUND_BASE_700 = 'rgb(212,212,216)'
 export const COLOR_BACKGROUND_BASE_800 = 'rgb(228,228,231)'
 export const COLOR_BACKGROUND_BASE_900 = 'rgb(244,244,245)'
 
+// Base border color constants.
+export const COLOR_BORDER_BASE_100 = 'rgb(253,252,254)'
+export const COLOR_BORDER_BASE_200 = 'rgb(249,249,250)'
+export const COLOR_BORDER_BASE_300 = 'rgb(247,247,249)'
+export const COLOR_BORDER_BASE_400 = 'rgb(244,244,245)'
+export const COLOR_BORDER_BASE_500 = 'rgb(224,224,238)'
+export const COLOR_BORDER_BASE_600 = 'rgb(216,216,228)'
+export const COLOR_BORDER_BASE_700 = 'rgb(216,216,228)'
+export const COLOR_BORDER_BASE_800 = 'rgb(212,212,216)'
+export const COLOR_BORDER_BASE_900 = 'rgb(198,198,202)'
+
 // Base foreground color constants.
 export const COLOR_FOREGROUND_BASE_100 = 'rgb(244,244,245)'
 export const COLOR_FOREGROUND_BASE_200 = 'rgb(228,228,231)'

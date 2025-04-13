@@ -39,6 +39,34 @@ export const useThemeStyleSheet = () => {
         colorBackgroundBase900: {
           backgroundColor: themeContext.colorBackgroundBase900,
         },
+        // Base border colors.
+        colorBorderBase100: {
+          borderColor: themeContext.colorBorderBase100,
+        },
+        colorBorderBase200: {
+          borderColor: themeContext.colorBorderBase200,
+        },
+        colorBorderBase300: {
+          borderColor: themeContext.colorBorderBase300,
+        },
+        colorBorderBase400: {
+          borderColor: themeContext.colorBorderBase400,
+        },
+        colorBorderBase500: {
+          borderColor: themeContext.colorBorderBase500,
+        },
+        colorBorderBase600: {
+          borderColor: themeContext.colorBorderBase600,
+        },
+        colorBorderBase700: {
+          borderColor: themeContext.colorBorderBase700,
+        },
+        colorBorderBase800: {
+          borderColor: themeContext.colorBorderBase800,
+        },
+        colorBorderBase900: {
+          borderColor: themeContext.colorBorderBase900,
+        },
         // Foreground color styles.
         colorForegroundBase100: {
           color: themeContext.colorForegroundBase100,

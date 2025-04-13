@@ -70,6 +70,53 @@ export interface ThemeContextValue {
    */
   colorBackgroundBase900: Color
   /**
+   * Base border 100 color token.
+   * The lightest shade for borders.
+   * Useful for subtle dividers or low-emphasis elements.
+   */
+  colorBorderBase100: Color
+  /**
+   * Base border 200 color token.
+   * Slightly more visible than 100.
+   * Suitable for very soft separators or outlines.
+   */
+  colorBorderBase200: Color
+  /**
+   * Base border 300 color token.
+   * A light neutral border color for gentle outlines.
+   */
+  colorBorderBase300: Color
+  /**
+   * Base border 400 color token.
+   * Can be used for low-contrast interface borders or containers.
+   */
+  colorBorderBase400: Color
+  /**
+   * Base border 500 color token.
+   * A medium-light border tone for secondary elements.
+   */
+  colorBorderBase500: Color
+  /**
+   * Base border 600 color token.
+   * A neutral border tone with moderate contrast.
+   */
+  colorBorderBase600: Color
+  /**
+   * Base border 700 color token.
+   * Little bit less contrast background color.
+   */
+  colorBorderBase700: Color
+  /**
+   * Base border 800 color token.
+   * Supposed to be default border color.
+   */
+  colorBorderBase800: Color
+  /**
+   * Base border 900 color token.
+   * More contrast than default border color shade.
+   */
+  colorBorderBase900: Color
+  /**
    * Base foreground 100 color token.
    * The least contrasting color in the foreground palette.
    * Intended for nearly invisible elements.

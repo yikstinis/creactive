@@ -16,6 +16,15 @@ import {
   COLOR_BACKGROUND_BASE_700,
   COLOR_BACKGROUND_BASE_800,
   COLOR_BACKGROUND_BASE_900,
+  COLOR_BORDER_BASE_100,
+  COLOR_BORDER_BASE_200,
+  COLOR_BORDER_BASE_300,
+  COLOR_BORDER_BASE_400,
+  COLOR_BORDER_BASE_500,
+  COLOR_BORDER_BASE_600,
+  COLOR_BORDER_BASE_700,
+  COLOR_BORDER_BASE_800,
+  COLOR_BORDER_BASE_900,
   COLOR_FOREGROUND_BASE_100,
   COLOR_FOREGROUND_BASE_200,
   COLOR_FOREGROUND_BASE_300,
@@ -82,6 +91,7 @@ import type {
 // We can use context even outside provider.
 // This can be helpful for testing and storybook.
 const ThemeContext = createContext<ThemeContextValue>({
+  // Base background colors.
   colorBackgroundBase100: COLOR_BACKGROUND_BASE_100,
   colorBackgroundBase200: COLOR_BACKGROUND_BASE_200,
   colorBackgroundBase300: COLOR_BACKGROUND_BASE_300,
@@ -91,6 +101,17 @@ const ThemeContext = createContext<ThemeContextValue>({
   colorBackgroundBase700: COLOR_BACKGROUND_BASE_700,
   colorBackgroundBase800: COLOR_BACKGROUND_BASE_800,
   colorBackgroundBase900: COLOR_BACKGROUND_BASE_900,
+  // Base border colors.
+  colorBorderBase100: COLOR_BORDER_BASE_100,
+  colorBorderBase200: COLOR_BORDER_BASE_200,
+  colorBorderBase300: COLOR_BORDER_BASE_300,
+  colorBorderBase400: COLOR_BORDER_BASE_400,
+  colorBorderBase500: COLOR_BORDER_BASE_500,
+  colorBorderBase600: COLOR_BORDER_BASE_600,
+  colorBorderBase700: COLOR_BORDER_BASE_700,
+  colorBorderBase800: COLOR_BORDER_BASE_800,
+  colorBorderBase900: COLOR_BORDER_BASE_900,
+  // Base foreground colors.
   colorForegroundBase100: COLOR_FOREGROUND_BASE_100,
   colorForegroundBase200: COLOR_FOREGROUND_BASE_200,
   colorForegroundBase300: COLOR_FOREGROUND_BASE_300,
@@ -100,6 +121,7 @@ const ThemeContext = createContext<ThemeContextValue>({
   colorForegroundBase700: COLOR_FOREGROUND_BASE_700,
   colorForegroundBase800: COLOR_FOREGROUND_BASE_800,
   colorForegroundBase900: COLOR_FOREGROUND_BASE_900,
+  // Inverse foreground colors.
   colorForegroundInverse100: COLOR_FOREGROUND_INVERSE_100,
   colorForegroundInverse200: COLOR_FOREGROUND_INVERSE_200,
   colorForegroundInverse300: COLOR_FOREGROUND_INVERSE_300,
@@ -109,6 +131,7 @@ const ThemeContext = createContext<ThemeContextValue>({
   colorForegroundInverse700: COLOR_FOREGROUND_INVERSE_700,
   colorForegroundInverse800: COLOR_FOREGROUND_INVERSE_800,
   colorForegroundInverse900: COLOR_FOREGROUND_INVERSE_900,
+  // Base font family.
   fontFamilyBase: FONT_FAMILY_BASE,
   fontWeightBaseThin: FONT_WEIGHT_BASE_THIN,
   fontWeightBaseExtraLight: FONT_WEIGHT_BASE_EXTRALIGHT,
@@ -168,6 +191,16 @@ export const ThemeContextProvider: ThemeContextProviderComponent = ({
   colorBackgroundBase700,
   colorBackgroundBase800,
   colorBackgroundBase900,
+  // Base border colors.
+  colorBorderBase100,
+  colorBorderBase200,
+  colorBorderBase300,
+  colorBorderBase400,
+  colorBorderBase500,
+  colorBorderBase600,
+  colorBorderBase700,
+  colorBorderBase800,
+  colorBorderBase900,
   // Bace foreground color.
   colorForegroundBase100,
   colorForegroundBase200,
@@ -267,6 +300,16 @@ export const ThemeContextProvider: ThemeContextProviderComponent = ({
         colorBackgroundBase800 ?? COLOR_BACKGROUND_BASE_800,
       colorBackgroundBase900:
         colorBackgroundBase900 ?? COLOR_BACKGROUND_BASE_900,
+      // Base border colors.
+      colorBorderBase100: colorBorderBase100 ?? COLOR_BORDER_BASE_100,
+      colorBorderBase200: colorBorderBase200 ?? COLOR_BORDER_BASE_200,
+      colorBorderBase300: colorBorderBase300 ?? COLOR_BORDER_BASE_300,
+      colorBorderBase400: colorBorderBase400 ?? COLOR_BORDER_BASE_400,
+      colorBorderBase500: colorBorderBase500 ?? COLOR_BORDER_BASE_500,
+      colorBorderBase600: colorBorderBase600 ?? COLOR_BORDER_BASE_600,
+      colorBorderBase700: colorBorderBase700 ?? COLOR_BORDER_BASE_700,
+      colorBorderBase800: colorBorderBase800 ?? COLOR_BORDER_BASE_800,
+      colorBorderBase900: colorBorderBase900 ?? COLOR_BORDER_BASE_900,
       // Foreground color tokens.
       colorForegroundBase100:
         colorForegroundBase100 ?? COLOR_FOREGROUND_BASE_100,
@@ -372,6 +415,16 @@ export const ThemeContextProvider: ThemeContextProviderComponent = ({
       colorBackgroundBase700,
       colorBackgroundBase800,
       colorBackgroundBase900,
+      // Base border colors.
+      colorBorderBase100,
+      colorBorderBase200,
+      colorBorderBase300,
+      colorBorderBase400,
+      colorBorderBase500,
+      colorBorderBase600,
+      colorBorderBase700,
+      colorBorderBase800,
+      colorBorderBase900,
       // Base foreground colors.
       colorForegroundBase100,
       colorForegroundBase200,

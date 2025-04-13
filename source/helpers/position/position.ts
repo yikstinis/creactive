@@ -1,4 +1,4 @@
-import { Dimension } from '@/constants'
+import { Dimension } from '@/constants/dimension'
 import { Platform } from 'react-native'
 import type { PositionValue } from './position.types'
 
