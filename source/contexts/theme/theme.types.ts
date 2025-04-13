@@ -30,6 +30,52 @@ export type ThemeFontWeight =
  */
 export interface ThemeContextValue {
   /**
+   * Base background 100 color token.
+   * Least contrast color in the background palette.
+   */
+  colorBackgroundBase100: ThemeColorRGB
+  /**
+   * Base background 200 color token.
+   * Almost non-contrasting base background color.
+   */
+  colorBackgroundBase200: ThemeColorRGB
+  /**
+   * Base background 300 color token.
+   * Slightly more contrasting, useful for subtle depth or layering.
+   */
+  colorBackgroundBase300: ThemeColorRGB
+  /**
+   * Base background 400 color token.
+   * Even less contrasting background color.
+   */
+  colorBackgroundBase400: ThemeColorRGB
+  /**
+   * Base background 500 color token.
+   * When you need some layering between less contrast backgrounds.
+   */
+  colorBackgroundBase500: ThemeColorRGB
+  /**
+   * Base background 600 color token.
+   * A kind of secondary base background color.
+   * It is also less contrast than default background.
+   */
+  colorBackgroundBase600: ThemeColorRGB
+  /**
+   * Base background 700 color token.
+   * Less contrast than default background color shade.
+   */
+  colorBackgroundBase700: ThemeColorRGB
+  /**
+   * Base background 800 color token.
+   * Supposed to be default interface background color.
+   */
+  colorBackgroundBase800: ThemeColorRGB
+  /**
+   * Base background 900 color token.
+   * More contrast than default background color shade.
+   */
+  colorBackgroundBase900: ThemeColorRGB
+  /**
    * Base foreground 100 color token.
    * The least contrasting color in the foreground palette.
    * Intended for nearly invisible elements.

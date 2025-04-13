@@ -7,6 +7,15 @@ import {
   BORDER_WIDTH_BASE_LG,
   BORDER_WIDTH_BASE_MD,
   BORDER_WIDTH_BASE_SM,
+  COLOR_BACKGROUND_BASE_100,
+  COLOR_BACKGROUND_BASE_200,
+  COLOR_BACKGROUND_BASE_300,
+  COLOR_BACKGROUND_BASE_400,
+  COLOR_BACKGROUND_BASE_500,
+  COLOR_BACKGROUND_BASE_600,
+  COLOR_BACKGROUND_BASE_700,
+  COLOR_BACKGROUND_BASE_800,
+  COLOR_BACKGROUND_BASE_900,
   COLOR_FOREGROUND_BASE_100,
   COLOR_FOREGROUND_BASE_200,
   COLOR_FOREGROUND_BASE_300,
@@ -73,6 +82,15 @@ import type {
 // We can use context even outside provider.
 // This can be helpful for testing and storybook.
 const ThemeContext = createContext<ThemeContextValue>({
+  colorBackgroundBase100: COLOR_BACKGROUND_BASE_100,
+  colorBackgroundBase200: COLOR_BACKGROUND_BASE_200,
+  colorBackgroundBase300: COLOR_BACKGROUND_BASE_300,
+  colorBackgroundBase400: COLOR_BACKGROUND_BASE_400,
+  colorBackgroundBase500: COLOR_BACKGROUND_BASE_500,
+  colorBackgroundBase600: COLOR_BACKGROUND_BASE_600,
+  colorBackgroundBase700: COLOR_BACKGROUND_BASE_700,
+  colorBackgroundBase800: COLOR_BACKGROUND_BASE_800,
+  colorBackgroundBase900: COLOR_BACKGROUND_BASE_900,
   colorForegroundBase100: COLOR_FOREGROUND_BASE_100,
   colorForegroundBase200: COLOR_FOREGROUND_BASE_200,
   colorForegroundBase300: COLOR_FOREGROUND_BASE_300,
@@ -140,7 +158,17 @@ const ThemeContext = createContext<ThemeContextValue>({
 })
 
 export const ThemeContextProvider: ThemeContextProviderComponent = ({
-  // Foreground color tokens.
+  // Base background colors.
+  colorBackgroundBase100,
+  colorBackgroundBase200,
+  colorBackgroundBase300,
+  colorBackgroundBase400,
+  colorBackgroundBase500,
+  colorBackgroundBase600,
+  colorBackgroundBase700,
+  colorBackgroundBase800,
+  colorBackgroundBase900,
+  // Bace foreground color.
   colorForegroundBase100,
   colorForegroundBase200,
   colorForegroundBase300,
@@ -220,6 +248,25 @@ export const ThemeContextProvider: ThemeContextProviderComponent = ({
   // Context consumers will re-render only if value changes.
   const value = useMemo(
     () => ({
+      // Base background colors.
+      colorBackgroundBase100:
+        colorBackgroundBase100 ?? COLOR_BACKGROUND_BASE_100,
+      colorBackgroundBase200:
+        colorBackgroundBase200 ?? COLOR_BACKGROUND_BASE_200,
+      colorBackgroundBase300:
+        colorBackgroundBase300 ?? COLOR_BACKGROUND_BASE_300,
+      colorBackgroundBase400:
+        colorBackgroundBase400 ?? COLOR_BACKGROUND_BASE_400,
+      colorBackgroundBase500:
+        colorBackgroundBase500 ?? COLOR_BACKGROUND_BASE_500,
+      colorBackgroundBase600:
+        colorBackgroundBase600 ?? COLOR_BACKGROUND_BASE_600,
+      colorBackgroundBase700:
+        colorBackgroundBase700 ?? COLOR_BACKGROUND_BASE_700,
+      colorBackgroundBase800:
+        colorBackgroundBase800 ?? COLOR_BACKGROUND_BASE_800,
+      colorBackgroundBase900:
+        colorBackgroundBase900 ?? COLOR_BACKGROUND_BASE_900,
       // Foreground color tokens.
       colorForegroundBase100:
         colorForegroundBase100 ?? COLOR_FOREGROUND_BASE_100,
@@ -315,6 +362,17 @@ export const ThemeContextProvider: ThemeContextProviderComponent = ({
       borderRadiusBaseXL: borderRadiusBaseXL ?? BORDER_RADIUS_BASE_XL,
     }),
     [
+      // Base background colors.
+      colorBackgroundBase100,
+      colorBackgroundBase200,
+      colorBackgroundBase300,
+      colorBackgroundBase400,
+      colorBackgroundBase500,
+      colorBackgroundBase600,
+      colorBackgroundBase700,
+      colorBackgroundBase800,
+      colorBackgroundBase900,
+      // Base foreground colors.
       colorForegroundBase100,
       colorForegroundBase200,
       colorForegroundBase300,
@@ -324,6 +382,7 @@ export const ThemeContextProvider: ThemeContextProviderComponent = ({
       colorForegroundBase700,
       colorForegroundBase800,
       colorForegroundBase900,
+      // Inverse foreground colors.
       colorForegroundInverse100,
       colorForegroundInverse200,
       colorForegroundInverse300,
