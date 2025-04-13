@@ -4,6 +4,7 @@ import {
   ViewAlignItems,
   ViewAlignSelf,
   ViewBackgroundColor,
+  ViewBorderColor,
   ViewBorderRadius,
   ViewBorderWidth,
   ViewFlexDirection,
@@ -15,6 +16,7 @@ import {
   ViewTag,
 } from './constants'
 import {
+  useViewBorderColorCSSValue,
   useViewBorderRadiusCSSValue,
   useViewBorderWidthTokenValue,
   useViewPositionValue,
@@ -51,6 +53,7 @@ const View: ViewComponent = ({
   minHeight,
   height,
   maxHeight,
+  borderColor,
   borderWidth,
   borderRadius,
   backgroundColor = ViewBackgroundColor.TRANSPARENT,
@@ -84,6 +87,7 @@ const View: ViewComponent = ({
       minHeight={useViewSizeValue(minHeight)}
       height={useViewSizeValue(height)}
       maxHeight={useViewSizeValue(maxHeight)}
+      borderColor={useViewBorderColorCSSValue(borderColor)}
       borderWidth={useViewBorderWidthTokenValue(borderWidth)}
       borderRadius={useViewBorderRadiusCSSValue(borderRadius)}
       backgroundColor={useViewBackgroundColorCSSValue(backgroundColor)}
@@ -101,6 +105,7 @@ View.AlignItems = ViewAlignItems
 View.AlignSelf = ViewAlignSelf
 View.AlignContent = ViewAlignContent
 View.Spacing = ViewSpacing
+View.BorderColor = ViewBorderColor
 View.BorderWidth = ViewBorderWidth
 View.BorderRadius = ViewBorderRadius
 View.BackgroundColor = ViewBackgroundColor

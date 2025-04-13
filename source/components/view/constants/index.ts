@@ -10,6 +10,9 @@ export {
   ViewBackgroundColor,
   ViewBackgroundColorStyleSheetKey,
   ViewBackgroundColorThemeTokenKey,
+  ViewBorderColor,
+  ViewBorderColorStyleSheetKey,
+  ViewBorderColorThemeTokenKey,
 } from './color'
 export {
   ViewAlignContent,

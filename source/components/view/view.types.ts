@@ -6,6 +6,7 @@ import type {
   ViewAlignItems,
   ViewAlignSelf,
   ViewBackgroundColor,
+  ViewBorderColor,
   ViewBorderRadius,
   ViewBorderWidth,
   ViewFlexDirection,
@@ -182,6 +183,12 @@ export interface ViewProps extends PropsWithChildren {
    */
   maxHeight?: Size
   /**
+   * View border color.
+   * @see View.BorderColor
+   * @default undefined
+   */
+  borderColor?: ViewBorderColor
+  /**
    * View border width.
    * @see View.BorderWidth
    * @default undefined
@@ -210,6 +217,7 @@ export type ViewComponent = FunctionComponent<ViewProps> & {
   AlignSelf: Record<keyof typeof ViewAlignSelf, ViewAlignSelf>
   AlignContent: Record<keyof typeof ViewAlignContent, ViewAlignContent>
   Spacing: Record<keyof typeof ViewSpacing, ViewSpacing>
+  BorderColor: Record<keyof typeof ViewBorderColor, ViewBorderColor>
   BorderWidth: Record<keyof typeof ViewBorderWidth, ViewBorderWidth>
   BorderRadius: Record<keyof typeof ViewBorderRadius, ViewBorderRadius>
   BackgroundColor: Record<keyof typeof ViewBackgroundColor, ViewBackgroundColor>
@@ -247,6 +255,7 @@ export type StyledViewProps = Pick<
   height?: SizeValue
   maxHeight?: SizeValue
   // Border.
+  borderColor?: Color
   borderWidth?: number
   borderRadius?: `${number}px` | '50%'
   // Color.

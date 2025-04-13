@@ -6,7 +6,18 @@ import {
   ViewBackgroundColor,
   ViewBackgroundColorStyleSheetKey,
   ViewBackgroundColorThemeTokenKey,
+  ViewBorderColor,
+  ViewBorderColorStyleSheetKey,
+  ViewBorderColorThemeTokenKey,
 } from '../constants'
+
+// View border color hook.
+export const useViewBorderColorStyle = (borderColor?: ViewBorderColor) =>
+  useThemeStyleSheet()[ViewBorderColorStyleSheetKey[borderColor]]
+
+// View border color CSS value hook.
+export const useViewBorderColorCSSValue = (borderColor?: ViewBorderColor) =>
+  useThemeContext()[ViewBorderColorThemeTokenKey[borderColor]]
 
 // View background color style sheet.
 const viewBackgroundColorStyleSheet = StyleSheet.create({
