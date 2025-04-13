@@ -47,6 +47,7 @@ const viewStyleSheet = StyleSheet.create({
     zIndex: 0,
     position: 'relative',
     listStyle: 'none',
+    borderStyle: 'solid',
     textDecoration: 'none',
     boxSizing: 'border-box',
   },
@@ -80,7 +81,7 @@ const View: ViewComponent = ({
   borderColor,
   borderWidth,
   borderRadius,
-  backgroundColor = ViewBackgroundColor.TRANSPARENT,
+  backgroundColor,
   children,
 }) => {
   return (

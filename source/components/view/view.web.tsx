@@ -56,7 +56,7 @@ const View: ViewComponent = ({
   borderColor,
   borderWidth,
   borderRadius,
-  backgroundColor = ViewBackgroundColor.TRANSPARENT,
+  backgroundColor,
   children,
 }) => {
   return (

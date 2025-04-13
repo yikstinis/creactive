@@ -73,6 +73,7 @@ export const StyledView = styled.div<StyledViewProps>`
   z-index: 0;
   position: relative;
   list-style: none;
+  border-style: solid;
   text-decoration: none;
   box-sizing: border-box;
   position: ${({ position }) => PositionStyle[position]};
@@ -101,6 +102,7 @@ export const StyledView = styled.div<StyledViewProps>`
   min-height: ${({ minHeight }) => minHeight};
   height: ${({ height }) => height};
   max-height: ${({ maxHeight }) => maxHeight};
+  border-color: ${({ borderColor }) => borderColor};
   border-width: ${({ borderWidth }) => borderWidth}px;
   border-radius: ${({ borderRadius }) => borderRadius};
   background-color: ${({ backgroundColor }) => backgroundColor};

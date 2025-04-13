@@ -35,7 +35,6 @@ export const ViewBorderColorThemeTokenKey = {
 }
 
 export enum ViewBackgroundColor {
-  TRANSPARENT,
   BASE_100,
   BASE_200,
   BASE_300,

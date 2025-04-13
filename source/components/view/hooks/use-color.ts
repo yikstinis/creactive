@@ -1,7 +1,6 @@
 import { useThemeContext } from '@/contexts'
 import { useThemeStyleSheet } from '@/hooks'
 import type { Color } from '@/types'
-import { StyleSheet } from 'react-native'
 import {
   ViewBackgroundColor,
   ViewBackgroundColorStyleSheetKey,
@@ -14,26 +13,16 @@ import {
 // View border color hook.
 export const useViewBorderColorStyle = (borderColor?: ViewBorderColor) =>
   useThemeStyleSheet()[ViewBorderColorStyleSheetKey[borderColor]]
-
 // View border color CSS value hook.
 export const useViewBorderColorCSSValue = (borderColor?: ViewBorderColor) =>
   useThemeContext()[ViewBorderColorThemeTokenKey[borderColor]]
-
-// View background color style sheet.
-const viewBackgroundColorStyleSheet = StyleSheet.create({
-  backgroundColorTransparent: {
-    backgroundColor: 'transparent',
-  },
-})
 // Use native background color hook.
 export const useViewBackgroundColorStyle = (
   backgroundColor: ViewBackgroundColor | Color
 ) => {
   const themeStyleSheet = useThemeStyleSheet()
+  if (backgroundColor === undefined) return undefined
   if (backgroundColor in ViewBackgroundColor) {
-    if (backgroundColor === ViewBackgroundColor.TRANSPARENT) {
-      return viewBackgroundColorStyleSheet.backgroundColorTransparent
-    }
     return themeStyleSheet[
       ViewBackgroundColorStyleSheetKey[
         backgroundColor as
@@ -58,10 +47,8 @@ export const useViewBackgroundColorCSSValue = (
   backgroundColor: ViewBackgroundColor | Color
 ) => {
   const themeContext = useThemeContext()
+  if (backgroundColor === undefined) return undefined
   if (backgroundColor in ViewBackgroundColor) {
-    if (backgroundColor === ViewBackgroundColor.TRANSPARENT) {
-      return 'transparent'
-    }
     return themeContext[
       ViewBackgroundColorThemeTokenKey[
         backgroundColor as

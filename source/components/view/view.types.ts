@@ -259,5 +259,5 @@ export type StyledViewProps = Pick<
   borderWidth?: number
   borderRadius?: `${number}px` | '50%'
   // Color.
-  backgroundColor: 'transparent' | Color
+  backgroundColor?: Color
 }
