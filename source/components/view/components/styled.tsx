@@ -103,4 +103,5 @@ export const StyledView = styled.div<StyledViewProps>`
   max-height: ${({ maxHeight }) => maxHeight};
   border-width: ${({ borderWidth }) => borderWidth}px;
   border-radius: ${({ borderRadius }) => borderRadius};
+  background-color: ${({ backgroundColor }) => backgroundColor};
 `

@@ -1,9 +1,11 @@
 import type { Position, PositionValue, Size, SizeValue } from '@/helpers'
+import type { Color } from '@/types'
 import type { FunctionComponent, PropsWithChildren } from 'react'
 import type {
   ViewAlignContent,
   ViewAlignItems,
   ViewAlignSelf,
+  ViewBackgroundColor,
   ViewBorderRadius,
   ViewBorderWidth,
   ViewFlexDirection,
@@ -191,6 +193,12 @@ export interface ViewProps extends PropsWithChildren {
    * @default undefined
    */
   borderRadius?: ViewBorderRadius
+  /**
+   * View background color.
+   * @see View.BackgroundColor
+   * @default View.BackgroundColor.TRANSPARENT
+   */
+  backgroundColor?: ViewBackgroundColor | Color
 }
 export type ViewComponent = FunctionComponent<ViewProps> & {
   Tag: Record<keyof typeof ViewTag, ViewTag>
@@ -204,6 +212,7 @@ export type ViewComponent = FunctionComponent<ViewProps> & {
   Spacing: Record<keyof typeof ViewSpacing, ViewSpacing>
   BorderWidth: Record<keyof typeof ViewBorderWidth, ViewBorderWidth>
   BorderRadius: Record<keyof typeof ViewBorderRadius, ViewBorderRadius>
+  BackgroundColor: Record<keyof typeof ViewBackgroundColor, ViewBackgroundColor>
 }
 // For web version styled component.
 export type StyledViewProps = Pick<
@@ -240,4 +249,6 @@ export type StyledViewProps = Pick<
   // Border.
   borderWidth?: number
   borderRadius?: `${number}px` | '50%'
+  // Color.
+  backgroundColor: 'transparent' | Color
 }

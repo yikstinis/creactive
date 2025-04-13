@@ -4,6 +4,7 @@ export {
   useViewBorderWidthStyle,
   useViewBorderWidthTokenValue,
 } from './use-border'
+export { useViewBackgroundColorStyle } from './use-color'
 export {
   useViewAlignContentStyle,
   useViewAlignItemsStyle,

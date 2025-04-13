@@ -3,6 +3,7 @@ import {
   ViewAlignContent,
   ViewAlignItems,
   ViewAlignSelf,
+  ViewBackgroundColor,
   ViewBorderRadius,
   ViewBorderWidth,
   ViewFlexDirection,
@@ -20,6 +21,7 @@ import {
   useViewSizeValue,
   useViewSpacingTokenValue,
 } from './hooks'
+import { useViewBackgroundColorCSSValue } from './hooks/use-color'
 import type { ViewComponent } from './view.types'
 
 const View: ViewComponent = ({
@@ -51,6 +53,7 @@ const View: ViewComponent = ({
   maxHeight,
   borderWidth,
   borderRadius,
+  backgroundColor = ViewBackgroundColor.TRANSPARENT,
   children,
 }) => {
   return (
@@ -83,6 +86,7 @@ const View: ViewComponent = ({
       maxHeight={useViewSizeValue(maxHeight)}
       borderWidth={useViewBorderWidthTokenValue(borderWidth)}
       borderRadius={useViewBorderRadiusCSSValue(borderRadius)}
+      backgroundColor={useViewBackgroundColorCSSValue(backgroundColor)}
     >
       {children}
     </StyledView>
@@ -99,4 +103,5 @@ View.AlignContent = ViewAlignContent
 View.Spacing = ViewSpacing
 View.BorderWidth = ViewBorderWidth
 View.BorderRadius = ViewBorderRadius
+View.BackgroundColor = ViewBackgroundColor
 export default View

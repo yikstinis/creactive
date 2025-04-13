@@ -1,11 +1,5 @@
+import type { Color } from '@/types'
 import type { FunctionComponent, PropsWithChildren } from 'react'
-
-/**
- * Theme RGB color type.
- * Should be used to specify theme colors.
- * Number instead of 0-255 union to avoid too complex union type.
- */
-export type ThemeColorRGB = `rgb(${number},${number},${number})`
 
 /**
  * Theme font weight type.
@@ -33,148 +27,148 @@ export interface ThemeContextValue {
    * Base background 100 color token.
    * Least contrast color in the background palette.
    */
-  colorBackgroundBase100: ThemeColorRGB
+  colorBackgroundBase100: Color
   /**
    * Base background 200 color token.
    * Almost non-contrasting base background color.
    */
-  colorBackgroundBase200: ThemeColorRGB
+  colorBackgroundBase200: Color
   /**
    * Base background 300 color token.
    * Slightly more contrasting, useful for subtle depth or layering.
    */
-  colorBackgroundBase300: ThemeColorRGB
+  colorBackgroundBase300: Color
   /**
    * Base background 400 color token.
    * Even less contrasting background color.
    */
-  colorBackgroundBase400: ThemeColorRGB
+  colorBackgroundBase400: Color
   /**
    * Base background 500 color token.
    * When you need some layering between less contrast backgrounds.
    */
-  colorBackgroundBase500: ThemeColorRGB
+  colorBackgroundBase500: Color
   /**
    * Base background 600 color token.
    * A kind of secondary base background color.
    * It is also less contrast than default background.
    */
-  colorBackgroundBase600: ThemeColorRGB
+  colorBackgroundBase600: Color
   /**
    * Base background 700 color token.
    * Less contrast than default background color shade.
    */
-  colorBackgroundBase700: ThemeColorRGB
+  colorBackgroundBase700: Color
   /**
    * Base background 800 color token.
    * Supposed to be default interface background color.
    */
-  colorBackgroundBase800: ThemeColorRGB
+  colorBackgroundBase800: Color
   /**
    * Base background 900 color token.
    * More contrast than default background color shade.
    */
-  colorBackgroundBase900: ThemeColorRGB
+  colorBackgroundBase900: Color
   /**
    * Base foreground 100 color token.
    * The least contrasting color in the foreground palette.
    * Intended for nearly invisible elements.
    */
-  colorForegroundBase100: ThemeColorRGB
+  colorForegroundBase100: Color
   /**
    * Base foreground 200 color token.
    * Still meant to be barely visible.
    * Can help create a subtle sense of hierarchy.
    */
-  colorForegroundBase200: ThemeColorRGB
+  colorForegroundBase200: Color
   /**
    * Base foreground 300 color token.
    * Suitable for slightly readable text or elements.
    */
-  colorForegroundBase300: ThemeColorRGB
+  colorForegroundBase300: Color
   /**
    * Base foreground 400 color token.
    * A secondary color for secondary elements.
    * If a secondary element has multiple levels, this is for the lower one.
    */
-  colorForegroundBase400: ThemeColorRGB
+  colorForegroundBase400: Color
   /**
    * Base foreground 500 color token.
    * Also useful for secondary elements on low-contrast backgrounds.
    */
-  colorForegroundBase500: ThemeColorRGB
+  colorForegroundBase500: Color
   /**
    * Base foreground 600 color token.
    * Ideal for secondary elements and less prominent text.
    */
-  colorForegroundBase600: ThemeColorRGB
+  colorForegroundBase600: Color
   /**
    * Base foreground 700 color token.
    * Used for default elements on higher contrast backgrounds.
    * Also suitable for slightly subdued elements.
    */
-  colorForegroundBase700: ThemeColorRGB
+  colorForegroundBase700: Color
   /**
    * Base foreground 800 color token.
    * The default value for the text component.
    * Ideal for high-contrast text and key elements.
    */
-  colorForegroundBase800: ThemeColorRGB
+  colorForegroundBase800: Color
   /**
    * Base foreground 900 color token.
    * Similar to 800 but better suited for lower-contrast backgrounds.
    */
-  colorForegroundBase900: ThemeColorRGB
+  colorForegroundBase900: Color
   /**
    * Inverse foreground 100 color token.
    * The least contrasting color in the inverse foreground palette.
    * Intended for nearly invisible elements on inverse backgrounds.
    */
-  colorForegroundInverse100: ThemeColorRGB
+  colorForegroundInverse100: Color
   /**
    * Inverse foreground 200 color token.
    * Can help create a subtle sense of hierarchy on inverse backgrounds.
    * Also almost invisible, but a bit more contrasting than 100.
    */
-  colorForegroundInverse200: ThemeColorRGB
+  colorForegroundInverse200: Color
   /**
    * Inverse foreground 300 color token.
    * Suitable for slightly readable text or elements on inverse backgrounds.
    */
-  colorForegroundInverse300: ThemeColorRGB
+  colorForegroundInverse300: Color
   /**
    * Inverse foreground 400 color token.
    * A secondary color for secondary elements on inverse backgrounds.
    * If a secondary element has multiple levels, this is for the lower one.
    */
-  colorForegroundInverse400: ThemeColorRGB
+  colorForegroundInverse400: Color
   /**
    * Inverse foreground 500 color token.
    * Also useful for secondary elements on low-contrast inverse backgrounds.
    */
-  colorForegroundInverse500: ThemeColorRGB
+  colorForegroundInverse500: Color
   /**
    * Inverse foreground 600 color token.
    * Ideal for secondary elements on inverse backgrounds.
    */
-  colorForegroundInverse600: ThemeColorRGB
+  colorForegroundInverse600: Color
   /**
    * Inverse foreground 700 color token.
    * Used for default elements on higher contrast inverse backgrounds.
    * Also suitable for slightly subdued elements.
    */
-  colorForegroundInverse700: ThemeColorRGB
+  colorForegroundInverse700: Color
   /**
    * Inverse foreground 800 color token.
    * Ideal for high-contrast text on inverse background.
    */
-  colorForegroundInverse800: ThemeColorRGB
+  colorForegroundInverse800: Color
   /**
    * Inverse foreground 900 color token.
    * Similar to 800 but can be a bit more contrasting.
    * Suitable when you need even more contrast on inverse background.
    */
-  colorForegroundInverse900: ThemeColorRGB
+  colorForegroundInverse900: Color
   /**
    * Base font family token.
    * Supposed to be used by most components.

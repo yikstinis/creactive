@@ -11,6 +11,34 @@ export const useThemeStyleSheet = () => {
   return useMemo(
     () =>
       StyleSheet.create({
+        // Base background color styles.
+        colorBackgroundBase100: {
+          backgroundColor: themeContext.colorBackgroundBase100,
+        },
+        colorBackgroundBase200: {
+          backgroundColor: themeContext.colorBackgroundBase200,
+        },
+        colorBackgroundBase300: {
+          backgroundColor: themeContext.colorBackgroundBase300,
+        },
+        colorBackgroundBase400: {
+          backgroundColor: themeContext.colorBackgroundBase400,
+        },
+        colorBackgroundBase500: {
+          backgroundColor: themeContext.colorBackgroundBase500,
+        },
+        colorBackgroundBase600: {
+          backgroundColor: themeContext.colorBackgroundBase600,
+        },
+        colorBackgroundBase700: {
+          backgroundColor: themeContext.colorBackgroundBase700,
+        },
+        colorBackgroundBase800: {
+          backgroundColor: themeContext.colorBackgroundBase800,
+        },
+        colorBackgroundBase900: {
+          backgroundColor: themeContext.colorBackgroundBase900,
+        },
         // Foreground color styles.
         colorForegroundBase100: {
           color: themeContext.colorForegroundBase100,

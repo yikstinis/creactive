@@ -7,6 +7,11 @@ export {
   ViewBorderWidthThemeTokenKey,
 } from './border'
 export {
+  ViewBackgroundColor,
+  ViewBackgroundColorStyleSheetKey,
+  ViewBackgroundColorThemeTokenKey,
+} from './color'
+export {
   ViewAlignContent,
   ViewAlignItems,
   ViewAlignSelf,

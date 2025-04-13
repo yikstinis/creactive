@@ -3,6 +3,7 @@ import {
   ViewAlignContent,
   ViewAlignItems,
   ViewAlignSelf,
+  ViewBackgroundColor,
   ViewBorderRadius,
   ViewBorderWidth,
   ViewFlexDirection,
@@ -16,6 +17,7 @@ import {
   useViewAlignContentStyle,
   useViewAlignItemsStyle,
   useViewAlignSelfStyle,
+  useViewBackgroundColorStyle,
   useViewBorderRadiusStyle,
   useViewBorderWidthStyle,
   useViewFlexDirectionStyle,
@@ -75,6 +77,7 @@ const View: ViewComponent = ({
   maxHeight,
   borderWidth,
   borderRadius,
+  backgroundColor = ViewBackgroundColor.TRANSPARENT,
   children,
 }) => {
   return (
@@ -112,6 +115,7 @@ const View: ViewComponent = ({
         },
         useViewBorderWidthStyle(borderWidth),
         useViewBorderRadiusStyle(borderRadius),
+        useViewBackgroundColorStyle(backgroundColor),
       ]}
     >
       {children}
@@ -129,4 +133,5 @@ View.AlignContent = ViewAlignContent
 View.Spacing = ViewSpacing
 View.BorderWidth = ViewBorderWidth
 View.BorderRadius = ViewBorderRadius
+View.BackgroundColor = ViewBackgroundColor
 export default View
