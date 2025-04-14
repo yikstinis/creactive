@@ -1,4 +1,10 @@
-import type { Position, PositionValue, Size, SizeValue } from '@/helpers'
+import type {
+  Opacity,
+  Position,
+  PositionValue,
+  Size,
+  SizeValue,
+} from '@/helpers'
 import type { Color } from '@/types'
 import type { FunctionComponent, PropsWithChildren } from 'react'
 import type {
@@ -9,6 +15,7 @@ import type {
   ViewBorderColor,
   ViewBorderRadius,
   ViewBorderWidth,
+  ViewBoxShadow,
   ViewFlexDirection,
   ViewJustifyContent,
   ViewOverflow,
@@ -56,6 +63,13 @@ export interface ViewProps extends PropsWithChildren {
    * @default undefined
    */
   bottom?: Position
+  /**
+   * View opacity.
+   * Controls the transparency of the view.
+   * @see Opacity
+   * @default undefined
+   */
+  opacity?: Opacity
   /**
    * View overflow behavior.
    * Controls how children are measured and displayed.
@@ -183,6 +197,12 @@ export interface ViewProps extends PropsWithChildren {
    */
   maxHeight?: Size
   /**
+   * View box shadow.
+   * @see View.BoxShadow
+   * @default undefined
+   */
+  boxShadow?: ViewBoxShadow
+  /**
    * View border color.
    * @see View.BorderColor
    * @default undefined
@@ -217,6 +237,7 @@ export type ViewComponent = FunctionComponent<ViewProps> & {
   AlignSelf: Record<keyof typeof ViewAlignSelf, ViewAlignSelf>
   AlignContent: Record<keyof typeof ViewAlignContent, ViewAlignContent>
   Spacing: Record<keyof typeof ViewSpacing, ViewSpacing>
+  BoxShadow: Record<keyof typeof ViewBoxShadow, ViewBoxShadow>
   BorderColor: Record<keyof typeof ViewBorderColor, ViewBorderColor>
   BorderWidth: Record<keyof typeof ViewBorderWidth, ViewBorderWidth>
   BorderRadius: Record<keyof typeof ViewBorderRadius, ViewBorderRadius>
@@ -238,6 +259,8 @@ export type StyledViewProps = Pick<
   left?: PositionValue
   right?: PositionValue
   bottom?: PositionValue
+  // Opacity.
+  opacity?: number
   // Spacing.
   marginTop?: number
   paddingTop?: number
@@ -254,6 +277,8 @@ export type StyledViewProps = Pick<
   minHeight?: SizeValue
   height?: SizeValue
   maxHeight?: SizeValue
+  // Shadow.
+  boxShadow?: string
   // Border.
   borderColor?: Color
   borderWidth?: number

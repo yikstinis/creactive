@@ -7,6 +7,7 @@ import {
   ViewBorderColor,
   ViewBorderRadius,
   ViewBorderWidth,
+  ViewBoxShadow,
   ViewFlexDirection,
   ViewHTMLTag,
   ViewJustifyContent,
@@ -19,6 +20,8 @@ import {
   useViewBorderColorCSSValue,
   useViewBorderRadiusCSSValue,
   useViewBorderWidthTokenValue,
+  useViewBoxShadowCSSValue,
+  useViewOpacityValue,
   useViewPositionValue,
   useViewSizeValue,
   useViewSpacingTokenValue,
@@ -33,6 +36,7 @@ const View: ViewComponent = ({
   left,
   right,
   bottom,
+  opacity,
   overflow = ViewOverflow.VISIBLE,
   flexDirection = ViewFlexDirection.COLUMN,
   justifyContent = ViewJustifyContent.FLEX_START,
@@ -53,6 +57,7 @@ const View: ViewComponent = ({
   minHeight,
   height,
   maxHeight,
+  boxShadow,
   borderColor,
   borderWidth,
   borderRadius,
@@ -67,6 +72,7 @@ const View: ViewComponent = ({
       left={useViewPositionValue(left)}
       right={useViewPositionValue(right)}
       bottom={useViewPositionValue(bottom)}
+      opacity={useViewOpacityValue(opacity)}
       overflow={overflow}
       flexDirection={flexDirection}
       justifyContent={justifyContent}
@@ -87,6 +93,7 @@ const View: ViewComponent = ({
       minHeight={useViewSizeValue(minHeight)}
       height={useViewSizeValue(height)}
       maxHeight={useViewSizeValue(maxHeight)}
+      boxShadow={useViewBoxShadowCSSValue(boxShadow)}
       borderColor={useViewBorderColorCSSValue(borderColor)}
       borderWidth={useViewBorderWidthTokenValue(borderWidth)}
       borderRadius={useViewBorderRadiusCSSValue(borderRadius)}
@@ -105,6 +112,7 @@ View.AlignItems = ViewAlignItems
 View.AlignSelf = ViewAlignSelf
 View.AlignContent = ViewAlignContent
 View.Spacing = ViewSpacing
+View.BoxShadow = ViewBoxShadow
 View.BorderColor = ViewBorderColor
 View.BorderWidth = ViewBorderWidth
 View.BorderRadius = ViewBorderRadius

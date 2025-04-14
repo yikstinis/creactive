@@ -23,6 +23,7 @@ export {
 } from './flex'
 export { ViewOverflow } from './overflow'
 export { ViewPosition } from './position'
+export { ViewBoxShadow } from './shadow'
 export {
   ViewMarginBottomThemeStyleSheetKey,
   ViewMarginLeftThemeStyleSheetKey,

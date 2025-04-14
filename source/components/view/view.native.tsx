@@ -7,6 +7,7 @@ import {
   ViewBorderColor,
   ViewBorderRadius,
   ViewBorderWidth,
+  ViewBoxShadow,
   ViewFlexDirection,
   ViewJustifyContent,
   ViewOverflow,
@@ -28,6 +29,7 @@ import {
   useViewMarginLeftStyle,
   useViewMarginRightStyle,
   useViewMarginTopStyle,
+  useViewOpacityValue,
   useViewOverflowStyle,
   useViewPaddingBottomStyle,
   useViewPaddingLeftStyle,
@@ -37,6 +39,7 @@ import {
   useViewPositionValue,
   useViewSizeValue,
 } from './hooks'
+import { useViewBoxShadowStyle } from './hooks/use-shadow'
 import type { ViewComponent } from './view.types'
 
 const viewStyleSheet = StyleSheet.create({
@@ -59,6 +62,7 @@ const View: ViewComponent = ({
   left,
   right,
   bottom,
+  opacity,
   overflow = ViewOverflow.VISIBLE,
   flexDirection = ViewFlexDirection.COLUMN,
   justifyContent = ViewJustifyContent.FLEX_START,
@@ -79,6 +83,7 @@ const View: ViewComponent = ({
   minHeight,
   height,
   maxHeight,
+  boxShadow,
   borderColor,
   borderWidth,
   borderRadius,
@@ -95,6 +100,9 @@ const View: ViewComponent = ({
           left: useViewPositionValue(left),
           right: useViewPositionValue(right),
           bottom: useViewPositionValue(bottom),
+        },
+        {
+          opacity: useViewOpacityValue(opacity),
         },
         useViewOverflowStyle(overflow),
         useViewFlexDirectionStyle(flexDirection),
@@ -118,6 +126,7 @@ const View: ViewComponent = ({
           height: useViewSizeValue(height),
           maxHeight: useViewSizeValue(maxHeight),
         },
+        useViewBoxShadowStyle(boxShadow),
         useViewBorderColorStyle(borderColor),
         useViewBorderWidthStyle(borderWidth),
         useViewBorderRadiusStyle(borderRadius),
@@ -137,6 +146,7 @@ View.AlignItems = ViewAlignItems
 View.AlignSelf = ViewAlignSelf
 View.AlignContent = ViewAlignContent
 View.Spacing = ViewSpacing
+View.BoxShadow = ViewBoxShadow
 View.BorderColor = ViewBorderColor
 View.BorderWidth = ViewBorderWidth
 View.BorderRadius = ViewBorderRadius
