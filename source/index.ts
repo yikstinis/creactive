@@ -7,7 +7,7 @@ export type { TextComponent, TextProps } from '@/components/text'
 export { View } from '@/components/view'
 export type { ViewComponent, ViewProps } from '@/components/view'
 export { Dimension } from '@/constants/dimension'
-export { POSITION_MAX, POSITION_ZERO } from '@/constants/position'
+export { POSITION_MAX, POSITION_MIN } from '@/constants/position'
 export { SIZE_FULL } from '@/constants/size'
 export { Media, MediaContextProvider, useMediaContext } from '@/contexts/media'
 export type {
@@ -23,6 +23,7 @@ export type {
   ThemeContextValue,
   ThemeFontWeight,
 } from '@/contexts/theme'
+export { Opacity } from '@/helpers/opacity'
 export { Position } from '@/helpers/position'
 export type { PositionValue } from '@/helpers/position'
 export { Size } from '@/helpers/size'

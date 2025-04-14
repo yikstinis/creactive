@@ -1,3 +1,4 @@
+export { Opacity } from '@/helpers/opacity'
 export { Position } from '@/helpers/position'
 export type { PositionValue } from '@/helpers/position'
 export { Size } from '@/helpers/size'
