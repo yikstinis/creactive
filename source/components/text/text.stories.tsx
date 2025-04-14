@@ -2,19 +2,13 @@ import { StorybookControl } from '@/helpers/storybook'
 import type { Meta, StoryObj } from '@storybook/react'
 import { Text } from './text'
 
-const typeControl = StorybookControl.fromNumericEnum(Text.Type, true)
-const alignControl = StorybookControl.fromNumericEnum(Text.Align, true)
-const fontWeightControl = StorybookControl.fromNumericEnum(
-  Text.FontWeight,
-  true
-)
-const fontSizeControl = StorybookControl.fromNumericEnum(Text.FontSize, true)
-const lineHeightControl = StorybookControl.fromNumericEnum(
-  Text.LineHeight,
-  true
-)
+const typeControl = StorybookControl.fromNumericEnum(Text.Type)
+const alignControl = StorybookControl.fromNumericEnum(Text.Align)
+const fontWeightControl = StorybookControl.fromNumericEnum(Text.FontWeight)
+const fontSizeControl = StorybookControl.fromNumericEnum(Text.FontSize)
+const lineHeightControl = StorybookControl.fromNumericEnum(Text.LineHeight)
 const maxLinesControl = StorybookControl.forNumber()
-const colorControl = StorybookControl.fromNumericEnum(Text.Color, true)
+const colorControl = StorybookControl.fromNumericEnum(Text.Color)
 const childrenControl = StorybookControl.forChildren()
 
 const meta: Meta<typeof Text> = {

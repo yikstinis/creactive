@@ -16,10 +16,10 @@ export const enum StorybookControlType {
  */
 export const STORYBOOK_CONTROL_UNDEFINED_OPTION = '-'
 
-/**
- * Storybook control numeric enum flag.
- * We pass this flag throug storybook inside control object.
- * Allows to handle this flag later, inside decorator if we need.
- */
 export const STORYBOOK_CONTROL_NUMERIC_ENUM_FLAG =
-  'isCreactiveStorybookNumericEnum'
+  'IS_STORYBOOK_CONTROL_NUMERIC_ENUM_CONTROL'
+export const STORYBOOK_CONTROL_POSITION_FLAG =
+  'IS_STORYBOOK_CONTROL_POSITION_CONTROL'
+export const STORYBOOK_CONTROL_OPACITY_FLAG =
+  'IS_STORYBOOK_CONTROL_OPACITY_CONTROL'
+export const STORYBOOK_CONTROL_SIZE_FLAG = 'IS_STORYBOOK_CONTROL_SIZE_CONTROL'
