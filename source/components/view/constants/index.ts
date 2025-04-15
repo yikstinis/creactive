@@ -1,10 +1,8 @@
 export {
+  VIEW_THEME_BORDER_RADIUS_KEY,
+  VIEW_THEME_BORDER_WIDTH_KEY,
   ViewBorderRadius,
-  ViewBorderRadiusThemeStyleSheetKey,
-  ViewBorderRadiusThemeTokenKey,
   ViewBorderWidth,
-  ViewBorderWidthThemeStyleSheetKey,
-  ViewBorderWidthThemeTokenKey,
 } from './border'
 export {
   ViewBackgroundColor,

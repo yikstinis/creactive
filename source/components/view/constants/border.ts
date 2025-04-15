@@ -8,14 +8,8 @@ export enum ViewBorderWidth {
   MD,
   LG,
 }
-// Mapped to themed native style sheet keys view border width constants.
-export const ViewBorderWidthThemeStyleSheetKey = {
-  [ViewBorderWidth.SM]: 'borderWidthBaseSM' as const,
-  [ViewBorderWidth.MD]: 'borderWidthBaseMD' as const,
-  [ViewBorderWidth.LG]: 'borderWidthBaseLG' as const,
-}
-// Mapped to theme token keys view border width constants.
-export const ViewBorderWidthThemeTokenKey = {
+// Theme border width key map.
+export const VIEW_THEME_BORDER_WIDTH_KEY = {
   [ViewBorderWidth.SM]: 'borderWidthBaseSM' as const,
   [ViewBorderWidth.MD]: 'borderWidthBaseMD' as const,
   [ViewBorderWidth.LG]: 'borderWidthBaseLG' as const,
@@ -33,16 +27,8 @@ export enum ViewBorderRadius {
   XL,
   MAX,
 }
-// Mapped to themed native style sheet keys view border radius constants.
-export const ViewBorderRadiusThemeStyleSheetKey = {
-  [ViewBorderRadius.XS]: 'borderRadiusBaseXS' as const,
-  [ViewBorderRadius.SM]: 'borderRadiusBaseSM' as const,
-  [ViewBorderRadius.MD]: 'borderRadiusBaseMD' as const,
-  [ViewBorderRadius.LG]: 'borderRadiusBaseLG' as const,
-  [ViewBorderRadius.XL]: 'borderRadiusBaseXL' as const,
-}
-// Mapped to theme token keys view border radius constants.
-export const ViewBorderRadiusThemeTokenKey = {
+// Theme border radius key map.
+export const VIEW_THEME_BORDER_RADIUS_KEY = {
   [ViewBorderRadius.XS]: 'borderRadiusBaseXS' as const,
   [ViewBorderRadius.SM]: 'borderRadiusBaseSM' as const,
   [ViewBorderRadius.MD]: 'borderRadiusBaseMD' as const,
