@@ -21,7 +21,6 @@ export type {
   ThemeContextProviderComponent,
   ThemeContextProviderProps,
   ThemeContextValue,
-  ThemeFontWeight,
 } from '@/contexts/theme'
 export { Opacity } from '@/helpers/opacity'
 export { Position } from '@/helpers/position'
@@ -29,4 +28,4 @@ export type { PositionValue } from '@/helpers/position'
 export { Size } from '@/helpers/size'
 export type { SizeValue } from '@/helpers/size'
 export { useThemeStyleSheet } from '@/hooks/use-theme-style-sheet'
-export type { Color } from '@/types'
+export type { Color, FontWeight } from '@/types'

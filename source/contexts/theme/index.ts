@@ -3,5 +3,4 @@ export type {
   ThemeContextProviderComponent,
   ThemeContextProviderProps,
   ThemeContextValue,
-  ThemeFontWeight,
 } from './theme.types'

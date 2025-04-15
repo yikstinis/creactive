@@ -1,121 +1,105 @@
-import type { Color } from '@/types'
+import type { Color, FontWeight } from '@/types'
 import type { FunctionComponent, PropsWithChildren } from 'react'
 
 /**
- * Theme font weight type.
- * Should be used to specify theme font weight.
- */
-export type ThemeFontWeight =
-  | 100
-  | 200
-  | 300
-  | 400
-  | 500
-  | 600
-  | 700
-  | 800
-  | 900
-
-/**
  * Theme context value interface.
- * Contains all theme tokens you may need.
- * This tokens are used inside components for styling.
- * This tokens can be also accesed via theme context outside.
+ * Provides access to all themable tokens.
+ * Library components use this tokens for styling.
+ * Can be accessed via theme context outside when need.
  */
 export interface ThemeContextValue {
   /**
-   * Base background 100 color token.
-   * Least contrast color in the background palette.
+   * Least contrast base background color.
+   * @default rgb(198,198,202)
    */
   colorBackgroundBase100: Color
   /**
-   * Base background 200 color token.
-   * Almost non-contrasting base background color.
+   * Dim base background color.
+   * @default rgb(212,212,216)
    */
   colorBackgroundBase200: Color
   /**
-   * Base background 300 color token.
-   * Slightly more contrasting, useful for subtle depth or layering.
+   * Mix of dim and muted base background color.
+   * @default rgb(216,216,228)
    */
   colorBackgroundBase300: Color
   /**
-   * Base background 400 color token.
-   * Even less contrasting background color.
+   * Muted base background color.
+   * @default rgb(218,218,234)
    */
   colorBackgroundBase400: Color
   /**
-   * Base background 500 color token.
-   * When you need some layering between less contrast backgrounds.
+   * Mix of muted and subtle base background color.
+   * @default rgb(224,224,238)
    */
   colorBackgroundBase500: Color
   /**
-   * Base background 600 color token.
-   * A kind of secondary base background color.
-   * It is also less contrast than default background.
+   * Subtle base background color.
+   * @default rgb(244,244,245)
    */
   colorBackgroundBase600: Color
   /**
-   * Base background 700 color token.
-   * Less contrast than default background color shade.
+   * Mix of subtle and default base background color.
+   * @default rgb(247,247,249)
    */
   colorBackgroundBase700: Color
   /**
-   * Base background 800 color token.
-   * Supposed to be default interface background color.
+   * Base default interface background color.
+   * @default rgb(249,249,250)
    */
   colorBackgroundBase800: Color
   /**
-   * Base background 900 color token.
-   * More contrast than default background color shade.
+   * Most contrast base background color.
+   * @default rgb(254,254,255)
    */
   colorBackgroundBase900: Color
+
   /**
-   * Base border 100 color token.
-   * The lightest shade for borders.
-   * Useful for subtle dividers or low-emphasis elements.
+   * Least contrast base border color.
+   * @default rgb(253,252,254)
    */
   colorBorderBase100: Color
   /**
-   * Base border 200 color token.
-   * Slightly more visible than 100.
-   * Suitable for very soft separators or outlines.
+   * Dim base border color.
+   * @default rgb(249,249,250)
    */
   colorBorderBase200: Color
   /**
-   * Base border 300 color token.
-   * A light neutral border color for gentle outlines.
+   * Mix of dim and muted base border color.
+   * @default rgb(247,247,249)
    */
   colorBorderBase300: Color
   /**
-   * Base border 400 color token.
-   * Can be used for low-contrast interface borders or containers.
+   * Muted base border color.
+   * @default rgb(244,244,245)
    */
   colorBorderBase400: Color
   /**
-   * Base border 500 color token.
-   * A medium-light border tone for secondary elements.
+   * Mix of muted and subtle base border color.
+   * @default rgb(224,224,238)
    */
   colorBorderBase500: Color
   /**
-   * Base border 600 color token.
-   * A neutral border tone with moderate contrast.
+   * Subtle base border color.
+   * @default rgb(218,218,234)
    */
   colorBorderBase600: Color
   /**
-   * Base border 700 color token.
-   * Little bit less contrast background color.
+   * Mix of subtle and default base border color.
+   * @default rgb(216,216,228)
    */
   colorBorderBase700: Color
   /**
-   * Base border 800 color token.
-   * Supposed to be default border color.
+   * Base default border color.
+   * @default rgb(212,212,216)
    */
   colorBorderBase800: Color
   /**
-   * Base border 900 color token.
-   * More contrast than default border color shade.
+   * Most contrast base border color.
+   * @default rgb(198,198,202)
    */
   colorBorderBase900: Color
+
   /**
    * Base foreground 100 color token.
    * The least contrasting color in the foreground palette.
@@ -226,53 +210,53 @@ export interface ThemeContextValue {
    * Base thin font weight token.
    * Ideal for very delicate and decorative, large, elegant hero text.
    */
-  fontWeightBaseThin: ThemeFontWeight
+  fontWeightBaseThin: FontWeight
   /**
    * Base extra-light font weight token.
    * Use for large, airy headings or subtle interface elements.
    * Slightly more readable than extra-thin, but still decorative.
    */
-  fontWeightBaseExtraLight: ThemeFontWeight
+  fontWeightBaseExtraLight: FontWeight
   /**
    * Base light font weight token.
    * Suitable for subheadings, muted captions, and soft labels.
    */
-  fontWeightBaseLight: ThemeFontWeight
+  fontWeightBaseLight: FontWeight
   /**
    * Base regular font weight token.
    * For the most common text elements in your interface.
    * When unsure about font weight, this is the default option.
    */
-  fontWeightBaseRegular: ThemeFontWeight
+  fontWeightBaseRegular: FontWeight
   /**
    * Base medium font weight token.
    * Suitable for labels, buttons, and small subheadings.
    * Slightly emphasized, providing better readability.
    */
-  fontWeightBaseMedium: ThemeFontWeight
+  fontWeightBaseMedium: FontWeight
   /**
    * Base semi-bold font weight token.
    * Provides stronger emphasis without being overwhelming.
    * Ideal for section headers, emphasized text, and card titles.
    */
-  fontWeightBaseSemibold: ThemeFontWeight
+  fontWeightBaseSemibold: FontWeight
   /**
    * Base bold font weight token.
    * For high emphasis on important elements.
    * Use for main headings and strong call-to-action buttons.
    */
-  fontWeightBaseBold: ThemeFontWeight
+  fontWeightBaseBold: FontWeight
   /**
    * Extra-bold font weight token.
    * Perfect for promo banners and large impactful headings.
    */
-  fontWeightBaseExtraBold: ThemeFontWeight
+  fontWeightBaseExtraBold: FontWeight
   /**
    * Base black font weight token.
    * Extreme emphasis for rare, dramatic cases.
    * Great for headlines in posters and highly attention-grabbing elements.
    */
-  fontWeightBaseBlack: ThemeFontWeight
+  fontWeightBaseBlack: FontWeight
   /**
    * Base 2 times extra-small font size token.
    * Use this size for tiny text elements like captions.
