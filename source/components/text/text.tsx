@@ -1,5 +1,4 @@
-import { useThemeContext } from '@/contexts'
-import { useThemeStyleSheet } from '@/hooks'
+import { useThemeContext, useThemeStyleSheet } from '@/contexts'
 import { useMemo } from 'react'
 import type { Role } from 'react-native'
 import { Text as ReactNativeText, StyleSheet } from 'react-native'

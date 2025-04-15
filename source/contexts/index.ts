@@ -5,7 +5,11 @@ export type {
   MediaContextValue,
   MediaProps,
 } from '@/contexts/media'
-export { ThemeContextProvider, useThemeContext } from '@/contexts/theme'
+export {
+  ThemeContextProvider,
+  useThemeContext,
+  useThemeStyleSheet,
+} from '@/contexts/theme'
 export type {
   ThemeContextProviderComponent,
   ThemeContextProviderProps,

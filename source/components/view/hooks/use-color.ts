@@ -1,5 +1,4 @@
-import { useThemeContext } from '@/contexts'
-import { useThemeStyleSheet } from '@/hooks'
+import { useThemeContext, useThemeStyleSheet } from '@/contexts'
 import type { Color } from '@/types'
 import {
   ViewBackgroundColor,

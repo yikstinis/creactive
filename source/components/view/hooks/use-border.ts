@@ -1,5 +1,4 @@
-import { useThemeContext } from '@/contexts'
-import { useThemeStyleSheet } from '@/hooks'
+import { useThemeContext, useThemeStyleSheet } from '@/contexts'
 import { StyleSheet } from 'react-native'
 import {
   ViewBorderRadius,

@@ -11,7 +11,7 @@ export const useThemeStyleSheet = () => {
   return useMemo(
     () =>
       StyleSheet.create({
-        // Base background color styles.
+        // Base background colors.
         colorBackgroundBase100: {
           backgroundColor: themeContext.colorBackgroundBase100,
         },
@@ -67,7 +67,7 @@ export const useThemeStyleSheet = () => {
         colorBorderBase900: {
           borderColor: themeContext.colorBorderBase900,
         },
-        // Foreground color styles.
+        // Base foreground colors.
         colorForegroundBase100: {
           color: themeContext.colorForegroundBase100,
         },
@@ -95,6 +95,7 @@ export const useThemeStyleSheet = () => {
         colorForegroundBase900: {
           color: themeContext.colorForegroundBase900,
         },
+        // Inverse foreground colors.
         colorForegroundInverse100: {
           color: themeContext.colorForegroundInverse100,
         },
@@ -122,11 +123,11 @@ export const useThemeStyleSheet = () => {
         colorForegroundInverse900: {
           color: themeContext.colorForegroundInverse900,
         },
-        // Font family styles.
+        // Base font family.
         fontFamilyBase: {
           fontFamily: themeContext.fontFamilyBase,
         },
-        // Base font weight styles.
+        // Base font weights.
         fontWeightBaseThin: {
           fontWeight: themeContext.fontWeightBaseThin,
         },
@@ -154,7 +155,7 @@ export const useThemeStyleSheet = () => {
         fontWeightBaseBlack: {
           fontWeight: themeContext.fontWeightBaseBlack,
         },
-        // Base font size styles.
+        // Base font sizes.
         fontSizeBaseX2S: {
           fontSize: themeContext.fontSizeBaseX2S,
         },
@@ -185,8 +186,103 @@ export const useThemeStyleSheet = () => {
         fontSizeBaseX5L: {
           fontSize: themeContext.fontSizeBaseX5L,
         },
-        // Base spacing styles.
-        // Base X2S spacing styles.
+        // Base spacings.
+        marginTopBaseX6S: {
+          marginTop: themeContext.spacingBaseX6S,
+        },
+        paddingTopBaseX6S: {
+          paddingTop: themeContext.spacingBaseX6S,
+        },
+        marginLeftBaseX6S: {
+          marginLeft: themeContext.spacingBaseX6S,
+        },
+        paddingLeftBaseX6S: {
+          paddingLeft: themeContext.spacingBaseX6S,
+        },
+        marginRightBaseX6S: {
+          marginRight: themeContext.spacingBaseX6S,
+        },
+        paddingRightBaseX6S: {
+          paddingRight: themeContext.spacingBaseX6S,
+        },
+        marginBottomBaseX6S: {
+          marginBottom: themeContext.spacingBaseX6S,
+        },
+        paddingBottomBaseX6S: {
+          paddingBottom: themeContext.spacingBaseX6S,
+        },
+        marginTopBaseX5S: {
+          marginTop: themeContext.spacingBaseX5S,
+        },
+        paddingTopBaseX5S: {
+          paddingTop: themeContext.spacingBaseX5S,
+        },
+        marginLeftBaseX5S: {
+          marginLeft: themeContext.spacingBaseX5S,
+        },
+        paddingLeftBaseX5S: {
+          paddingLeft: themeContext.spacingBaseX5S,
+        },
+        marginRightBaseX5S: {
+          marginRight: themeContext.spacingBaseX5S,
+        },
+        paddingRightBaseX5S: {
+          paddingRight: themeContext.spacingBaseX5S,
+        },
+        marginBottomBaseX5S: {
+          marginBottom: themeContext.spacingBaseX5S,
+        },
+        paddingBottomBaseX5S: {
+          paddingBottom: themeContext.spacingBaseX5S,
+        },
+        marginTopBaseX4S: {
+          marginTop: themeContext.spacingBaseX4S,
+        },
+        paddingTopBaseX4S: {
+          paddingTop: themeContext.spacingBaseX4S,
+        },
+        marginLeftBaseX4S: {
+          marginLeft: themeContext.spacingBaseX4S,
+        },
+        paddingLeftBaseX4S: {
+          paddingLeft: themeContext.spacingBaseX4S,
+        },
+        marginRightBaseX4S: {
+          marginRight: themeContext.spacingBaseX4S,
+        },
+        paddingRightBaseX4S: {
+          paddingRight: themeContext.spacingBaseX4S,
+        },
+        marginBottomBaseX4S: {
+          marginBottom: themeContext.spacingBaseX4S,
+        },
+        paddingBottomBaseX4S: {
+          paddingBottom: themeContext.spacingBaseX4S,
+        },
+        marginTopBaseX3S: {
+          marginTop: themeContext.spacingBaseX3S,
+        },
+        paddingTopBaseX3S: {
+          paddingTop: themeContext.spacingBaseX3S,
+        },
+        marginLeftBaseX3S: {
+          marginLeft: themeContext.spacingBaseX3S,
+        },
+        paddingLeftBaseX3S: {
+          paddingLeft: themeContext.spacingBaseX3S,
+        },
+        marginRightBaseX3S: {
+          marginRight: themeContext.spacingBaseX3S,
+        },
+        paddingRightBaseX3S: {
+          paddingRight: themeContext.spacingBaseX3S,
+        },
+        marginBottomBaseX3S: {
+          marginBottom: themeContext.spacingBaseX3S,
+        },
+        paddingBottomBaseX3S: {
+          paddingBottom: themeContext.spacingBaseX3S,
+        },
         marginTopBaseX2S: {
           marginTop: themeContext.spacingBaseX2S,
         },
@@ -211,7 +307,6 @@ export const useThemeStyleSheet = () => {
         paddingBottomBaseX2S: {
           paddingBottom: themeContext.spacingBaseX2S,
         },
-        // Base XS spacing styles.
         marginTopBaseXS: {
           marginTop: themeContext.spacingBaseXS,
         },
@@ -236,7 +331,6 @@ export const useThemeStyleSheet = () => {
         paddingBottomBaseXS: {
           paddingBottom: themeContext.spacingBaseXS,
         },
-        // Base SM spacing styles.
         marginTopBaseSM: {
           marginTop: themeContext.spacingBaseSM,
         },
@@ -261,7 +355,6 @@ export const useThemeStyleSheet = () => {
         paddingBottomBaseSM: {
           paddingBottom: themeContext.spacingBaseSM,
         },
-        // Base MD spacing styles.
         marginTopBaseMD: {
           marginTop: themeContext.spacingBaseMD,
         },
@@ -286,7 +379,6 @@ export const useThemeStyleSheet = () => {
         paddingBottomBaseMD: {
           paddingBottom: themeContext.spacingBaseMD,
         },
-        // Base LG spacing styles.
         marginTopBaseLG: {
           marginTop: themeContext.spacingBaseLG,
         },
@@ -311,7 +403,6 @@ export const useThemeStyleSheet = () => {
         paddingBottomBaseLG: {
           paddingBottom: themeContext.spacingBaseLG,
         },
-        // Base XL spacing styles.
         marginTopBaseXL: {
           marginTop: themeContext.spacingBaseXL,
         },
@@ -336,7 +427,6 @@ export const useThemeStyleSheet = () => {
         paddingBottomBaseXL: {
           paddingBottom: themeContext.spacingBaseXL,
         },
-        // Base X2L spacing styles.
         marginTopBaseX2L: {
           marginTop: themeContext.spacingBaseX2L,
         },
@@ -361,7 +451,6 @@ export const useThemeStyleSheet = () => {
         paddingBottomBaseX2L: {
           paddingBottom: themeContext.spacingBaseX2L,
         },
-        // Base X3L spacing styles.
         marginTopBaseX3L: {
           marginTop: themeContext.spacingBaseX3L,
         },
@@ -386,7 +475,6 @@ export const useThemeStyleSheet = () => {
         paddingBottomBaseX3L: {
           paddingBottom: themeContext.spacingBaseX3L,
         },
-        // Base X4L spacing styles.
         marginTopBaseX4L: {
           marginTop: themeContext.spacingBaseX4L,
         },
@@ -411,7 +499,6 @@ export const useThemeStyleSheet = () => {
         paddingBottomBaseX4L: {
           paddingBottom: themeContext.spacingBaseX4L,
         },
-        // Base X5L spacing styles.
         marginTopBaseX5L: {
           marginTop: themeContext.spacingBaseX5L,
         },
@@ -436,7 +523,6 @@ export const useThemeStyleSheet = () => {
         paddingBottomBaseX5L: {
           paddingBottom: themeContext.spacingBaseX5L,
         },
-        // Base X6L spacing styles.
         marginTopBaseX6L: {
           marginTop: themeContext.spacingBaseX6L,
         },
@@ -461,32 +547,7 @@ export const useThemeStyleSheet = () => {
         paddingBottomBaseX6L: {
           paddingBottom: themeContext.spacingBaseX6L,
         },
-        // Base X7L spacing styles.
-        marginTopBaseX7L: {
-          marginTop: themeContext.spacingBaseX7L,
-        },
-        paddingTopBaseX7L: {
-          paddingTop: themeContext.spacingBaseX7L,
-        },
-        marginLeftBaseX7L: {
-          marginLeft: themeContext.spacingBaseX7L,
-        },
-        paddingLeftBaseX7L: {
-          paddingLeft: themeContext.spacingBaseX7L,
-        },
-        marginRightBaseX7L: {
-          marginRight: themeContext.spacingBaseX7L,
-        },
-        paddingRightBaseX7L: {
-          paddingRight: themeContext.spacingBaseX7L,
-        },
-        marginBottomBaseX7L: {
-          marginBottom: themeContext.spacingBaseX7L,
-        },
-        paddingBottomBaseX7L: {
-          paddingBottom: themeContext.spacingBaseX7L,
-        },
-        // Border width.
+        // Base border widths.
         borderWidthBaseSM: {
           borderWidth: themeContext.borderWidthBaseSM,
         },
@@ -496,7 +557,7 @@ export const useThemeStyleSheet = () => {
         borderWidthBaseLG: {
           borderWidth: themeContext.borderWidthBaseLG,
         },
-        // Border radius.
+        // Base border radiuses.
         borderRadiusBaseXS: {
           borderRadius: themeContext.borderRadiusBaseXS,
         },

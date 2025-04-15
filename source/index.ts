@@ -16,7 +16,11 @@ export type {
   MediaContextValue,
   MediaProps,
 } from '@/contexts/media'
-export { ThemeContextProvider, useThemeContext } from '@/contexts/theme'
+export {
+  ThemeContextProvider,
+  useThemeContext,
+  useThemeStyleSheet,
+} from '@/contexts/theme'
 export type {
   ThemeContextProviderComponent,
   ThemeContextProviderProps,
@@ -27,5 +31,4 @@ export { Position } from '@/helpers/position'
 export type { PositionValue } from '@/helpers/position'
 export { Size } from '@/helpers/size'
 export type { SizeValue } from '@/helpers/size'
-export { useThemeStyleSheet } from '@/hooks/use-theme-style-sheet'
 export type { Color, FontWeight } from '@/types'
