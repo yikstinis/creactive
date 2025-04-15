@@ -352,65 +352,96 @@ export interface ThemeContextValue {
   lineHeightBaseLoose: number
 
   /**
-   * Base 2 times extra-small spacing token.
-   * Rarely used – best for tight icon/text gaps or hairline adjustments.
+   * Base 6 times extra-small spacing.
+   * @see SPACING_BASE_X6S
+   * @default 2
+   */
+  spacingBaseX6S: number
+  /**
+   * Base 5 times extra-small spacing.
+   * @see SPACING_BASE_X5S
+   * @default 4
+   */
+  spacingBaseX5S: number
+  /**
+   * Base 4 times extra-small spacing.
+   * @see SPACING_BASE_X4S
+   * @default 6
+   */
+  spacingBaseX4S: number
+  /**
+   * Base 3 times extra-small spacing.
+   * @see SPACING_BASE_X3S
+   * @default 8
+   */
+  spacingBaseX3S: number
+  /**
+   * Base 2 times extra-small spacing.
+   * @see SPACING_BASE_X2S
+   * @default 10
    */
   spacingBaseX2S: number
   /**
-   * Extra-small base spacing token.
-   * Ideal for compact elements like tag paddings or small icon separation.
+   * Base extra-small spacing.
+   * @see SPACING_BASE_XS
+   * @default 12
    */
   spacingBaseXS: number
   /**
-   * Small base spacing token.
-   * Great for dense layouts, or minor gaps.
+   * Base small spacing.
+   * @see SPACING_BASE_SM
+   * @default 14
    */
   spacingBaseSM: number
   /**
-   * Base medium spacing token.
-   * Good default for most components like cards, inputs, or buttons.
+   * Base medium spacing.
+   * @see SPACING_BASE_MD
+   * @default 16
    */
   spacingBaseMD: number
   /**
-   * Large base spacing token.
-   * Nice for separating grouped elements or setting consistent gaps.
+   * Base large spacing.
+   * @see SPACING_BASE_LG
+   * @default 18
    */
   spacingBaseLG: number
   /**
-   * Extra-large base spacing token.
-   * Useful between sections or to give components more breathing.
+   * Base extra-large spacing.
+   * @see SPACING_BASE_XL
+   * @default 20
    */
   spacingBaseXL: number
   /**
-   * Base 2 times extra-large spacing token.
-   * Fits well in modals or larger layout divisions.
+   * Base 2 times extra-large spacing.
+   * @see SPACING_BASE_X2L
+   * @default 24
    */
   spacingBaseX2L: number
   /**
-   * Base 3 times extra-large spacing token.
-   * Helps emphasize hierarchy between layout blocks.
+   * Base 3 times extra-large spacing.
+   * @see SPACING_BASE_X3L
+   * @default 28
    */
   spacingBaseX3L: number
   /**
-   * Base 4 times extra-large spacing token.
-   * Ideal for responsive paddings, section and outer margins.
+   * Base 4 times extra-large spacing.
+   * @see SPACING_BASE_X4L
+   * @default 32
    */
   spacingBaseX4L: number
   /**
-   * Base 5 times extra-large spacing token.
-   * Great for container paddings, grid gaps, or large components.
+   * Base 5 times extra-large spacing.
+   * @see SPACING_BASE_X5L
+   * @default 36
    */
   spacingBaseX5L: number
   /**
-   * Base 6 times extra-large spacing token.
-   * Works well in modal layouts or for generous top-level spacing.
+   * Base 6 times extra-large spacing.
+   * @see SPACING_BASE_X6L
+   * @default 40
    */
   spacingBaseX6L: number
-  /**
-   * Base 7 times extra-large spacing token.
-   * Used for large layout sections or when significant whitespace is needed.
-   */
-  spacingBaseX7L: number
+
   /**
    * Small base border width token.
    * @default 0.5

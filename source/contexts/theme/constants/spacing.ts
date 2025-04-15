@@ -1,0 +1,16 @@
+// Theme base spacing constants.
+export const SPACING_BASE_X6S = 2
+export const SPACING_BASE_X5S = 4
+export const SPACING_BASE_X4S = 6
+export const SPACING_BASE_X3S = 8
+export const SPACING_BASE_X2S = 10
+export const SPACING_BASE_XS = 12
+export const SPACING_BASE_SM = 14
+export const SPACING_BASE_MD = 16
+export const SPACING_BASE_LG = 18
+export const SPACING_BASE_XL = 20
+export const SPACING_BASE_X2L = 24
+export const SPACING_BASE_X3L = 28
+export const SPACING_BASE_X4L = 32
+export const SPACING_BASE_X5L = 36
+export const SPACING_BASE_X6L = 40

@@ -1,17 +1,3 @@
-import {
-  SPACING_BASE_LG,
-  SPACING_BASE_MD,
-  SPACING_BASE_SM,
-  SPACING_BASE_X2L,
-  SPACING_BASE_X2S,
-  SPACING_BASE_X3L,
-  SPACING_BASE_X4L,
-  SPACING_BASE_X5L,
-  SPACING_BASE_X6L,
-  SPACING_BASE_X7L,
-  SPACING_BASE_XL,
-  SPACING_BASE_XS,
-} from '@/constants'
 import { createContext, useContext, useMemo } from 'react'
 import {
   BORDER_RADIUS_BASE_LG,
@@ -84,6 +70,21 @@ import {
   LINE_HEIGHT_BASE_RELAXED,
   LINE_HEIGHT_BASE_SNUG,
   LINE_HEIGHT_BASE_TIGHT,
+  SPACING_BASE_LG,
+  SPACING_BASE_MD,
+  SPACING_BASE_SM,
+  SPACING_BASE_X2L,
+  SPACING_BASE_X2S,
+  SPACING_BASE_X3L,
+  SPACING_BASE_X3S,
+  SPACING_BASE_X4L,
+  SPACING_BASE_X4S,
+  SPACING_BASE_X5L,
+  SPACING_BASE_X5S,
+  SPACING_BASE_X6L,
+  SPACING_BASE_X6S,
+  SPACING_BASE_XL,
+  SPACING_BASE_XS,
 } from './constants'
 import type {
   ThemeContextProviderComponent,
@@ -163,6 +164,11 @@ const ThemeContext = createContext<ThemeContextValue>({
   lineHeightBaseNormal: LINE_HEIGHT_BASE_NORMAL,
   lineHeightBaseRelaxed: LINE_HEIGHT_BASE_RELAXED,
   lineHeightBaseLoose: LINE_HEIGHT_BASE_LOOSE,
+  // Base spacings.
+  spacingBaseX6S: SPACING_BASE_X6S,
+  spacingBaseX5S: SPACING_BASE_X5S,
+  spacingBaseX4S: SPACING_BASE_X4S,
+  spacingBaseX3S: SPACING_BASE_X3S,
   spacingBaseX2S: SPACING_BASE_X2S,
   spacingBaseXS: SPACING_BASE_XS,
   spacingBaseSM: SPACING_BASE_SM,
@@ -174,7 +180,6 @@ const ThemeContext = createContext<ThemeContextValue>({
   spacingBaseX4L: SPACING_BASE_X4L,
   spacingBaseX5L: SPACING_BASE_X5L,
   spacingBaseX6L: SPACING_BASE_X6L,
-  spacingBaseX7L: SPACING_BASE_X7L,
   // Base border widths.
   borderWidthBaseSM: BORDER_WIDTH_BASE_SM,
   borderWidthBaseMD: BORDER_WIDTH_BASE_MD,
@@ -258,7 +263,11 @@ export const ThemeContextProvider: ThemeContextProviderComponent = ({
   lineHeightBaseNormal,
   lineHeightBaseRelaxed,
   lineHeightBaseLoose,
-  // Base spacing tokens.
+  // Base spacings.
+  spacingBaseX6S,
+  spacingBaseX5S,
+  spacingBaseX4S,
+  spacingBaseX3S,
   spacingBaseX2S,
   spacingBaseXS,
   spacingBaseSM,
@@ -270,7 +279,6 @@ export const ThemeContextProvider: ThemeContextProviderComponent = ({
   spacingBaseX4L,
   spacingBaseX5L,
   spacingBaseX6L,
-  spacingBaseX7L,
   // Base border widths.
   borderWidthBaseSM,
   borderWidthBaseMD,
@@ -389,7 +397,11 @@ export const ThemeContextProvider: ThemeContextProviderComponent = ({
       lineHeightBaseNormal: lineHeightBaseNormal ?? LINE_HEIGHT_BASE_NORMAL,
       lineHeightBaseRelaxed: lineHeightBaseRelaxed ?? LINE_HEIGHT_BASE_RELAXED,
       lineHeightBaseLoose: lineHeightBaseLoose ?? LINE_HEIGHT_BASE_LOOSE,
-      // Base spacing tokens.
+      // Base spacings.
+      spacingBaseX6S: spacingBaseX6S ?? SPACING_BASE_X6S,
+      spacingBaseX5S: spacingBaseX5S ?? SPACING_BASE_X5S,
+      spacingBaseX4S: spacingBaseX4S ?? SPACING_BASE_X4S,
+      spacingBaseX3S: spacingBaseX3S ?? SPACING_BASE_X3S,
       spacingBaseX2S: spacingBaseX2S ?? SPACING_BASE_X2S,
       spacingBaseXS: spacingBaseXS ?? SPACING_BASE_XS,
       spacingBaseSM: spacingBaseSM ?? SPACING_BASE_SM,
@@ -401,7 +413,6 @@ export const ThemeContextProvider: ThemeContextProviderComponent = ({
       spacingBaseX4L: spacingBaseX4L ?? SPACING_BASE_X4L,
       spacingBaseX5L: spacingBaseX5L ?? SPACING_BASE_X5L,
       spacingBaseX6L: spacingBaseX6L ?? SPACING_BASE_X6L,
-      spacingBaseX7L: spacingBaseX7L ?? SPACING_BASE_X7L,
       // Base border widths.
       borderWidthBaseSM: borderWidthBaseSM ?? BORDER_WIDTH_BASE_SM,
       borderWidthBaseMD: borderWidthBaseMD ?? BORDER_WIDTH_BASE_MD,
@@ -484,6 +495,11 @@ export const ThemeContextProvider: ThemeContextProviderComponent = ({
       lineHeightBaseNormal,
       lineHeightBaseRelaxed,
       lineHeightBaseLoose,
+      // Base spacings.
+      spacingBaseX6S,
+      spacingBaseX5S,
+      spacingBaseX4S,
+      spacingBaseX3S,
       spacingBaseX2S,
       spacingBaseXS,
       spacingBaseSM,
@@ -495,7 +511,6 @@ export const ThemeContextProvider: ThemeContextProviderComponent = ({
       spacingBaseX4L,
       spacingBaseX5L,
       spacingBaseX6L,
-      spacingBaseX7L,
       // Base border widths.
       borderWidthBaseSM,
       borderWidthBaseMD,
