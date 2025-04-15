@@ -193,119 +193,127 @@ export interface ThemeContextValue {
   colorForegroundInverse900: Color
 
   /**
-   * Base font family token.
-   * Supposed to be used by most components.
-   * If you don't known what font family to use - use this one.
+   * Base font family.
+   * @see FONT_FAMILY_BASE
    */
   fontFamilyBase: string
+
   /**
-   * Base thin font weight token.
-   * Ideal for very delicate and decorative, large, elegant hero text.
+   * Base thin font weight.
+   * @see FONT_WEIGHT_BASE_THIN
+   * @default 100
    */
   fontWeightBaseThin: FontWeight
   /**
-   * Base extra-light font weight token.
-   * Use for large, airy headings or subtle interface elements.
-   * Slightly more readable than extra-thin, but still decorative.
+   * Base extra-light font weight.
+   * @see FONT_WEIGHT_BASE_EXTRALIGHT
+   * @default 200
    */
   fontWeightBaseExtraLight: FontWeight
   /**
-   * Base light font weight token.
-   * Suitable for subheadings, muted captions, and soft labels.
+   * Base light font weight.
+   * @see FONT_WEIGHT_BASE_LIGHT
+   * @default 300
    */
   fontWeightBaseLight: FontWeight
   /**
-   * Base regular font weight token.
-   * For the most common text elements in your interface.
-   * When unsure about font weight, this is the default option.
+   * Base regular font weight.
+   * @see FONT_WEIGHT_BASE_REGULAR
+   * @default 400
    */
   fontWeightBaseRegular: FontWeight
   /**
-   * Base medium font weight token.
-   * Suitable for labels, buttons, and small subheadings.
-   * Slightly emphasized, providing better readability.
+   * Base medium font weight.
+   * @see FONT_WEIGHT_BASE_MEDIUM
+   * @default 500
    */
   fontWeightBaseMedium: FontWeight
   /**
-   * Base semi-bold font weight token.
-   * Provides stronger emphasis without being overwhelming.
-   * Ideal for section headers, emphasized text, and card titles.
+   * Base semi-bold font weight.
+   * @see FONT_WEIGHT_BASE_SEMIBOLD
+   * @default 600
    */
   fontWeightBaseSemibold: FontWeight
   /**
-   * Base bold font weight token.
-   * For high emphasis on important elements.
-   * Use for main headings and strong call-to-action buttons.
+   * Base bold font weight.
+   * @see FONT_WEIGHT_BASE_BOLD
+   * @default 700
    */
   fontWeightBaseBold: FontWeight
   /**
-   * Extra-bold font weight token.
-   * Perfect for promo banners and large impactful headings.
+   * Extra-bold font weight.
+   * @see FONT_WEIGHT_BASE_EXTRABOLD
+   * @default 800
    */
   fontWeightBaseExtraBold: FontWeight
   /**
-   * Base black font weight token.
-   * Extreme emphasis for rare, dramatic cases.
-   * Great for headlines in posters and highly attention-grabbing elements.
+   * Base black font weight.
+   * @see FONT_WEIGHT_BASE_BLACK
+   * @default 900
    */
   fontWeightBaseBlack: FontWeight
+
   /**
-   * Base 2 times extra-small font size token.
-   * Use this size for tiny text elements like captions.
-   * It represents the smallest readable text in your interface.
+   * Base 2 times extra-small font size.
+   * @see FONT_SIZE_BASE_X2S
+   * @default 12
    */
   fontSizeBaseX2S: number
   /**
-   * Base extra-small font size token.
-   * Suitable for subtitles or the smallest readable text, for example.
+   * Base extra-small font size.
+   * @see FONT_SIZE_BASE_XS
+   * @default 14
    */
   fontSizeBaseXS: number
   /**
-   * Base small font size token.
-   * Can be used for smaller labels or captions among medium text.
-   * Also suitable for titles in smaller 2x small text.
+   * Base small font size.
+   * @see FONT_SIZE_BASE_SM
+   * @default 16
    */
   fontSizeBaseSM: number
   /**
-   * Base medium font size token.
-   * Intended for most text elements.
-   * If unsure about which font size to use, this is the default option.
+   * Base medium font size.
+   * @see FONT_SIZE_BASE_MD
+   * @default 18
    */
   fontSizeBaseMD: number
   /**
-   * Base large font size token.
-   * Suitable for fourth-level page titles.
-   * Can also be used for larger labels or captions among medium text.
+   * Base large font size.
+   * @see FONT_SIZE_BASE_LG
+   * @default 20
    */
   fontSizeBaseLG: number
   /**
-   * Base extra-large font size token.
-   * Ideal for third-level page titles.
-   * Can also be used for larger labels or captions within medium text.
+   * Base extra-large font size.
+   * @see FONT_SIZE_BASE_XL
+   * @default 24
    */
   fontSizeBaseXL: number
   /**
-   * Base 2 times extra-large font size token.
-   * Typically used for second-level page titles.
+   * Base 2 times extra-large font size.
+   * @see FONT_SIZE_BASE_X2L
+   * @default 30
    */
   fontSizeBaseX2L: number
   /**
-   * Base 3 times extra-large font size token.
-   * Designed for first-level page titles.
-   * Can also be used for labels or captions within huge text.
+   * Base 3 times extra-large font size.
+   * @see FONT_SIZE_BASE_X3L
+   * @default 36
    */
   fontSizeBaseX3L: number
   /**
-   * Base 4 times extra-large font size token.
-   * Ideal for huge text labels and captions.
+   * Base 4 times extra-large font size.
+   * @see FONT_SIZE_BASE_X4L
+   * @default 48
    */
   fontSizeBaseX4L: number
   /**
-   * Base 5 times extra-large font size token.
-   * Use this size for enormous text elements like hero titles.
-   * It should be the largest font size in your interface.
+   * Base 5 times extra-large font size.
+   * @see FONT_SIZE_BASE_X5L
+   * @default 60
    */
   fontSizeBaseX5L: number
+
   /**
    * Base none line height token.
    * Use for elements with no line height, like buttons, badges, and tags.
