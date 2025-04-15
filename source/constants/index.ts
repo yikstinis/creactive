@@ -2,14 +2,6 @@ export { Dimension } from '@/constants/dimension'
 export { POSITION_MAX, POSITION_MIN } from '@/constants/position'
 export { SIZE_FULL } from '@/constants/size'
 export {
-  BORDER_RADIUS_BASE_LG,
-  BORDER_RADIUS_BASE_MD,
-  BORDER_RADIUS_BASE_SM,
-  BORDER_RADIUS_BASE_XL,
-  BORDER_RADIUS_BASE_XS,
-  BORDER_WIDTH_BASE_LG,
-  BORDER_WIDTH_BASE_MD,
-  BORDER_WIDTH_BASE_SM,
   FONT_FAMILY_BASE,
   FONT_SIZE_BASE_LG,
   FONT_SIZE_BASE_MD,
