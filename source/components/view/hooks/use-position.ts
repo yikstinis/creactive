@@ -21,5 +21,6 @@ export const useViewPositionStyle = (position: ViewPosition) =>
   ViewPositionStyle[position]
 
 // Safe converting to size value.
-export const useViewPositionValue = (position?: Position) =>
-  position?.toValue && position.toValue()
+export const useViewPositionValue = (position?: Position) => {
+  if (position) return position.toValue()
+}

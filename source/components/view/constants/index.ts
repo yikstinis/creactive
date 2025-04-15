@@ -32,4 +32,4 @@ export {
   VIEW_THEME_PADDING_TOP_SPACING_STYLE_KEY,
   ViewSpacing,
 } from './spacing'
-export { ViewHTMLTag, ViewTag } from './tag'
+export { VIEW_HTML_TAG, ViewTag } from './tag'

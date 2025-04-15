@@ -1,5 +1,6 @@
 import { StyledView } from './components'
 import {
+  VIEW_HTML_TAG,
   ViewAlignContent,
   ViewAlignItems,
   ViewAlignSelf,
@@ -9,7 +10,6 @@ import {
   ViewBorderWidth,
   ViewBoxShadow,
   ViewFlexDirection,
-  ViewHTMLTag,
   ViewJustifyContent,
   ViewOverflow,
   ViewPosition,
@@ -66,7 +66,7 @@ const View: ViewComponent = ({
 }) => {
   return (
     <StyledView
-      as={ViewHTMLTag[tag]}
+      as={VIEW_HTML_TAG[tag]}
       position={position}
       top={useViewPositionValue(top)}
       left={useViewPositionValue(left)}

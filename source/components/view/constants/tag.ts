@@ -12,12 +12,8 @@ export enum ViewTag {
   MAIN,
   FOOTER,
 }
-
-/**
- * Mapping tags to its string constants.
- * This is used to render correct HTML tags in web.
- */
-export const ViewHTMLTag = {
+// HTML tag map.
+export const VIEW_HTML_TAG = {
   [ViewTag.DIV]: 'div' as const,
   [ViewTag.FIGURE]: 'figure' as const,
   [ViewTag.FIGCAPTION]: 'figcaption' as const,
