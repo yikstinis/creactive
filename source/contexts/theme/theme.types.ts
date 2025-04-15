@@ -147,55 +147,51 @@ export interface ThemeContextValue {
   colorForegroundBase900: Color
 
   /**
-   * Inverse foreground 100 color token.
-   * The least contrasting color in the inverse foreground palette.
-   * Intended for nearly invisible elements on inverse backgrounds.
+   * Least contrast inverse foreground color.
+   * @default rgb(198,198,202)
    */
   colorForegroundInverse100: Color
   /**
-   * Inverse foreground 200 color token.
-   * Can help create a subtle sense of hierarchy on inverse backgrounds.
-   * Also almost invisible, but a bit more contrasting than 100.
+   * Dim inverse foreground color.
+   * @default rgb(212,212,216)
    */
   colorForegroundInverse200: Color
   /**
-   * Inverse foreground 300 color token.
-   * Suitable for slightly readable text or elements on inverse backgrounds.
+   * Mix of dim and muted inverse foreground color.
+   * @default rgb(216,216,228)
    */
   colorForegroundInverse300: Color
   /**
-   * Inverse foreground 400 color token.
-   * A secondary color for secondary elements on inverse backgrounds.
-   * If a secondary element has multiple levels, this is for the lower one.
+   * Muted inverse foreground color.
+   * @default rgb(218,218,234)
    */
   colorForegroundInverse400: Color
   /**
-   * Inverse foreground 500 color token.
-   * Also useful for secondary elements on low-contrast inverse backgrounds.
+   * Mix of muted and subtle inverse foreground color.
+   * @default rgb(224,224,238)
    */
   colorForegroundInverse500: Color
   /**
-   * Inverse foreground 600 color token.
-   * Ideal for secondary elements on inverse backgrounds.
+   * Subtle inverse foreground color.
+   * @default rgb(244,244,245)
    */
   colorForegroundInverse600: Color
   /**
-   * Inverse foreground 700 color token.
-   * Used for default elements on higher contrast inverse backgrounds.
-   * Also suitable for slightly subdued elements.
+   * Mix of subtle and default inverse foreground color.
+   * @default rgb(247,247,249)
    */
   colorForegroundInverse700: Color
   /**
-   * Inverse foreground 800 color token.
-   * Ideal for high-contrast text on inverse background.
+   * Inverse default foreground color.
+   * @default rgb(249,249,250)
    */
   colorForegroundInverse800: Color
   /**
-   * Inverse foreground 900 color token.
-   * Similar to 800 but can be a bit more contrasting.
-   * Suitable when you need even more contrast on inverse background.
+   * Most contrast inverse foreground color.
+   * @default rgb(254,254,255)
    */
   colorForegroundInverse900: Color
+
   /**
    * Base font family token.
    * Supposed to be used by most components.

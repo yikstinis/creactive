@@ -7,15 +7,6 @@ import {
   BORDER_WIDTH_BASE_LG,
   BORDER_WIDTH_BASE_MD,
   BORDER_WIDTH_BASE_SM,
-  COLOR_FOREGROUND_INVERSE_100,
-  COLOR_FOREGROUND_INVERSE_200,
-  COLOR_FOREGROUND_INVERSE_300,
-  COLOR_FOREGROUND_INVERSE_400,
-  COLOR_FOREGROUND_INVERSE_500,
-  COLOR_FOREGROUND_INVERSE_600,
-  COLOR_FOREGROUND_INVERSE_700,
-  COLOR_FOREGROUND_INVERSE_800,
-  COLOR_FOREGROUND_INVERSE_900,
   FONT_FAMILY_BASE,
   FONT_SIZE_BASE_LG,
   FONT_SIZE_BASE_MD,
@@ -84,6 +75,15 @@ import {
   COLOR_FOREGROUND_BASE_700,
   COLOR_FOREGROUND_BASE_800,
   COLOR_FOREGROUND_BASE_900,
+  COLOR_FOREGROUND_INVERSE_100,
+  COLOR_FOREGROUND_INVERSE_200,
+  COLOR_FOREGROUND_INVERSE_300,
+  COLOR_FOREGROUND_INVERSE_400,
+  COLOR_FOREGROUND_INVERSE_500,
+  COLOR_FOREGROUND_INVERSE_600,
+  COLOR_FOREGROUND_INVERSE_700,
+  COLOR_FOREGROUND_INVERSE_800,
+  COLOR_FOREGROUND_INVERSE_900,
 } from './constants'
 import type {
   ThemeContextProviderComponent,
@@ -203,7 +203,7 @@ export const ThemeContextProvider: ThemeContextProviderComponent = ({
   colorBorderBase700,
   colorBorderBase800,
   colorBorderBase900,
-  // Bace foreground color.
+  // Base foreground colors.
   colorForegroundBase100,
   colorForegroundBase200,
   colorForegroundBase300,
@@ -213,6 +213,7 @@ export const ThemeContextProvider: ThemeContextProviderComponent = ({
   colorForegroundBase700,
   colorForegroundBase800,
   colorForegroundBase900,
+  // Inverse foreground colors.
   colorForegroundInverse100,
   colorForegroundInverse200,
   colorForegroundInverse300,
@@ -331,7 +332,7 @@ export const ThemeContextProvider: ThemeContextProviderComponent = ({
         colorForegroundBase800 ?? COLOR_FOREGROUND_BASE_800,
       colorForegroundBase900:
         colorForegroundBase900 ?? COLOR_FOREGROUND_BASE_900,
-      //
+      // Inverse foreground colors.
       colorForegroundInverse100:
         colorForegroundInverse100 ?? COLOR_FOREGROUND_INVERSE_100,
       colorForegroundInverse200:
