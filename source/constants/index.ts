@@ -2,12 +2,6 @@ export { Dimension } from '@/constants/dimension'
 export { POSITION_MAX, POSITION_MIN } from '@/constants/position'
 export { SIZE_FULL } from '@/constants/size'
 export {
-  LINE_HEIGHT_BASE_LOOSE,
-  LINE_HEIGHT_BASE_NONE,
-  LINE_HEIGHT_BASE_NORMAL,
-  LINE_HEIGHT_BASE_RELAXED,
-  LINE_HEIGHT_BASE_SNUG,
-  LINE_HEIGHT_BASE_TIGHT,
   SPACING_BASE_LG,
   SPACING_BASE_MD,
   SPACING_BASE_SM,

@@ -1,10 +1,4 @@
 import {
-  LINE_HEIGHT_BASE_LOOSE,
-  LINE_HEIGHT_BASE_NONE,
-  LINE_HEIGHT_BASE_NORMAL,
-  LINE_HEIGHT_BASE_RELAXED,
-  LINE_HEIGHT_BASE_SNUG,
-  LINE_HEIGHT_BASE_TIGHT,
   SPACING_BASE_LG,
   SPACING_BASE_MD,
   SPACING_BASE_SM,
@@ -84,6 +78,12 @@ import {
   FONT_WEIGHT_BASE_REGULAR,
   FONT_WEIGHT_BASE_SEMIBOLD,
   FONT_WEIGHT_BASE_THIN,
+  LINE_HEIGHT_BASE_LOOSE,
+  LINE_HEIGHT_BASE_NONE,
+  LINE_HEIGHT_BASE_NORMAL,
+  LINE_HEIGHT_BASE_RELAXED,
+  LINE_HEIGHT_BASE_SNUG,
+  LINE_HEIGHT_BASE_TIGHT,
 } from './constants'
 import type {
   ThemeContextProviderComponent,
@@ -156,6 +156,7 @@ const ThemeContext = createContext<ThemeContextValue>({
   fontSizeBaseX3L: FONT_SIZE_BASE_X3L,
   fontSizeBaseX4L: FONT_SIZE_BASE_X4L,
   fontSizeBaseX5L: FONT_SIZE_BASE_X5L,
+  // Base line heights.
   lineHeightBaseNone: LINE_HEIGHT_BASE_NONE,
   lineHeightBaseTight: LINE_HEIGHT_BASE_TIGHT,
   lineHeightBaseSnug: LINE_HEIGHT_BASE_SNUG,
@@ -250,7 +251,7 @@ export const ThemeContextProvider: ThemeContextProviderComponent = ({
   fontSizeBaseX3L,
   fontSizeBaseX4L,
   fontSizeBaseX5L,
-  // Line height tokens.
+  // Base line heights.
   lineHeightBaseNone,
   lineHeightBaseTight,
   lineHeightBaseSnug,
@@ -381,7 +382,7 @@ export const ThemeContextProvider: ThemeContextProviderComponent = ({
       fontSizeBaseX3L: fontSizeBaseX3L ?? FONT_SIZE_BASE_X3L,
       fontSizeBaseX4L: fontSizeBaseX4L ?? FONT_SIZE_BASE_X4L,
       fontSizeBaseX5L: fontSizeBaseX5L ?? FONT_SIZE_BASE_X5L,
-      // Base line height tokens.
+      // Base line heights.
       lineHeightBaseNone: lineHeightBaseNone ?? LINE_HEIGHT_BASE_NONE,
       lineHeightBaseTight: lineHeightBaseTight ?? LINE_HEIGHT_BASE_TIGHT,
       lineHeightBaseSnug: lineHeightBaseSnug ?? LINE_HEIGHT_BASE_SNUG,
@@ -476,6 +477,7 @@ export const ThemeContextProvider: ThemeContextProviderComponent = ({
       fontSizeBaseX3L,
       fontSizeBaseX4L,
       fontSizeBaseX5L,
+      // Base line heights.
       lineHeightBaseNone,
       lineHeightBaseTight,
       lineHeightBaseSnug,

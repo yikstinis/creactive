@@ -315,38 +315,42 @@ export interface ThemeContextValue {
   fontSizeBaseX5L: number
 
   /**
-   * Base none line height token.
-   * Use for elements with no line height, like buttons, badges, and tags.
+   * Base none line height.
+   * @see LINE_HEIGHT_BASE_NONE
+   * @default 1
    */
   lineHeightBaseNone: number
   /**
-   * Base tight line height token.
-   * For compact text elements with closely packed lines.
+   * Base tight line height.
+   * @see LINE_HEIGHT_BASE_TIGHT
+   * @default 1.25
    */
   lineHeightBaseTight: number
   /**
-   * Base snug line height token.
-   * Ideal for compact text that still needs some breathing room.
+   * Base snug line height.
+   * @see LINE_HEIGHT_BASE_SNUG
+   * @default 1.375
    */
   lineHeightBaseSnug: number
   /**
-   * Base normal line height token.
-   * Standard line height for most text elements.
-   * Use for general content in your interface.
+   * Base normal line height.
+   * @see LINE_HEIGHT_BASE_NORMAL
+   * @default 1.5
    */
   lineHeightBaseNormal: number
   /**
-   * Base relaxed line height token.
-   * Provides more space between lines.
-   * Ideal for body text or large blocks of content.
+   * Base relaxed line height.
+   * @see LINE_HEIGHT_BASE_RELAXED
+   * @default 1.625
    */
   lineHeightBaseRelaxed: number
   /**
-   * Base loose line height token.
-   * Very spacious and airy, great for large headings.
-   * Suitable for text elements that need a lot of breathing room.
+   * Base loose line height.
+   * @see LINE_HEIGHT_BASE_LOOSE
+   * @default 2
    */
   lineHeightBaseLoose: number
+
   /**
    * Base 2 times extra-small spacing token.
    * Rarely used – best for tight icon/text gaps or hairline adjustments.
