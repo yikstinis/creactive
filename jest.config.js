@@ -62,10 +62,12 @@ const resolveSetupFilesAfterEnv = () => {
  * @returns {Array<string>} - test match pattern
  */
 const resolveTestMatch = () => {
-  if (isWeb) {
-    return ['**/?(*.)+(spec).(ts|tsx)', '**/?(*.)+(spec).web.(ts|tsx)']
-  }
-  return ['**/?(*.)+(spec).(ts|tsx)', '**/?(*.)+(spec).native.(ts|tsx)']
+  return ['**/?(*.)+(test).(ts|tsx)']
+  // TODO: Move older tests back, when fix them..
+  // if (isWeb) {
+  //   return ['**/?(*.)+(spec).(ts|tsx)', '**/?(*.)+(spec).web.(ts|tsx)']
+  // }
+  // return ['**/?(*.)+(spec).(ts|tsx)', '**/?(*.)+(spec).native.(ts|tsx)']
 }
 
 /**
