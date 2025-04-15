@@ -5,12 +5,10 @@ export {
   ViewBorderWidth,
 } from './border'
 export {
+  VIEW_THEME_BACKGROUND_COLOR_KEY,
+  VIEW_THEME_BORDER_COLOR_KEY,
   ViewBackgroundColor,
-  ViewBackgroundColorStyleSheetKey,
-  ViewBackgroundColorThemeTokenKey,
   ViewBorderColor,
-  ViewBorderColorStyleSheetKey,
-  ViewBorderColorThemeTokenKey,
 } from './color'
 export {
   ViewAlignContent,

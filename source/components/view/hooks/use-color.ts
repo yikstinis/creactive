@@ -1,20 +1,18 @@
 import { useThemeContext, useThemeStyleSheet } from '@/contexts'
 import type { Color } from '@/types'
 import {
+  VIEW_THEME_BACKGROUND_COLOR_KEY,
+  VIEW_THEME_BORDER_COLOR_KEY,
   ViewBackgroundColor,
-  ViewBackgroundColorStyleSheetKey,
-  ViewBackgroundColorThemeTokenKey,
   ViewBorderColor,
-  ViewBorderColorStyleSheetKey,
-  ViewBorderColorThemeTokenKey,
 } from '../constants'
 
-// View border color hook.
+// Border color style.
 export const useViewBorderColorStyle = (borderColor?: ViewBorderColor) =>
-  useThemeStyleSheet()[ViewBorderColorStyleSheetKey[borderColor]]
-// View border color CSS value hook.
+  useThemeStyleSheet()[VIEW_THEME_BORDER_COLOR_KEY[borderColor]]
+// Vorder color CSS value.
 export const useViewBorderColorCSSValue = (borderColor?: ViewBorderColor) =>
-  useThemeContext()[ViewBorderColorThemeTokenKey[borderColor]]
+  useThemeContext()[VIEW_THEME_BORDER_COLOR_KEY[borderColor]]
 // Use native background color hook.
 export const useViewBackgroundColorStyle = (
   backgroundColor: ViewBackgroundColor | Color
@@ -23,7 +21,7 @@ export const useViewBackgroundColorStyle = (
   if (backgroundColor === undefined) return undefined
   if (backgroundColor in ViewBackgroundColor) {
     return themeStyleSheet[
-      ViewBackgroundColorStyleSheetKey[
+      VIEW_THEME_BACKGROUND_COLOR_KEY[
         backgroundColor as
           | ViewBackgroundColor.BASE_100
           | ViewBackgroundColor.BASE_200
@@ -49,7 +47,7 @@ export const useViewBackgroundColorCSSValue = (
   if (backgroundColor === undefined) return undefined
   if (backgroundColor in ViewBackgroundColor) {
     return themeContext[
-      ViewBackgroundColorThemeTokenKey[
+      VIEW_THEME_BACKGROUND_COLOR_KEY[
         backgroundColor as
           | ViewBackgroundColor.BASE_100
           | ViewBackgroundColor.BASE_200
