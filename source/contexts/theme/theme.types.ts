@@ -101,55 +101,51 @@ export interface ThemeContextValue {
   colorBorderBase900: Color
 
   /**
-   * Base foreground 100 color token.
-   * The least contrasting color in the foreground palette.
-   * Intended for nearly invisible elements.
+   * Least contrast base foreground color token.
+   * @default rgb(102,102,116)
    */
   colorForegroundBase100: Color
   /**
-   * Base foreground 200 color token.
-   * Still meant to be barely visible.
-   * Can help create a subtle sense of hierarchy.
+   * Dim base foreground color.
+   * @default rgb(82,82,92)
    */
   colorForegroundBase200: Color
   /**
-   * Base foreground 300 color token.
-   * Suitable for slightly readable text or elements.
+   * Mix of dim and muted base foreground color.
+   * @default rgb(74,74,88)
    */
   colorForegroundBase300: Color
   /**
-   * Base foreground 400 color token.
-   * A secondary color for secondary elements.
-   * If a secondary element has multiple levels, this is for the lower one.
+   * Muted base foreground color.
+   * @default rgb(63,63,70)
    */
   colorForegroundBase400: Color
   /**
-   * Base foreground 500 color token.
-   * Also useful for secondary elements on low-contrast backgrounds.
+   * Mix of muted and subtle base foreground color.
+   * @default rgb(49,49,56)
    */
   colorForegroundBase500: Color
   /**
-   * Base foreground 600 color token.
-   * Ideal for secondary elements and less prominent text.
+   * Subtle base foreground color.
+   * @default rgb(39,39,42)
    */
   colorForegroundBase600: Color
   /**
-   * Base foreground 700 color token.
-   * Used for default elements on higher contrast backgrounds.
-   * Also suitable for slightly subdued elements.
+   * Mix of subtle and default base foreground color.
+   * @default rgb(30,30,34)
    */
   colorForegroundBase700: Color
   /**
-   * Base foreground 800 color token.
-   * The default value for the text component.
-   * Ideal for high-contrast text and key elements.
+   * Base default foreground color.
+   * @default rgb(24,24,27)
    */
   colorForegroundBase800: Color
   /**
-   * Base foreground 900 color token.
-   * Similar to 800 but better suited for lower-contrast backgrounds.
+   * Most contrast base foreground color.
+   * @default rgb(6,6,14)
    */
   colorForegroundBase900: Color
+
   /**
    * Inverse foreground 100 color token.
    * The least contrasting color in the inverse foreground palette.

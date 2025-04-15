@@ -7,15 +7,6 @@ import {
   BORDER_WIDTH_BASE_LG,
   BORDER_WIDTH_BASE_MD,
   BORDER_WIDTH_BASE_SM,
-  COLOR_FOREGROUND_BASE_100,
-  COLOR_FOREGROUND_BASE_200,
-  COLOR_FOREGROUND_BASE_300,
-  COLOR_FOREGROUND_BASE_400,
-  COLOR_FOREGROUND_BASE_500,
-  COLOR_FOREGROUND_BASE_600,
-  COLOR_FOREGROUND_BASE_700,
-  COLOR_FOREGROUND_BASE_800,
-  COLOR_FOREGROUND_BASE_900,
   COLOR_FOREGROUND_INVERSE_100,
   COLOR_FOREGROUND_INVERSE_200,
   COLOR_FOREGROUND_INVERSE_300,
@@ -84,6 +75,15 @@ import {
   COLOR_BORDER_BASE_700,
   COLOR_BORDER_BASE_800,
   COLOR_BORDER_BASE_900,
+  COLOR_FOREGROUND_BASE_100,
+  COLOR_FOREGROUND_BASE_200,
+  COLOR_FOREGROUND_BASE_300,
+  COLOR_FOREGROUND_BASE_400,
+  COLOR_FOREGROUND_BASE_500,
+  COLOR_FOREGROUND_BASE_600,
+  COLOR_FOREGROUND_BASE_700,
+  COLOR_FOREGROUND_BASE_800,
+  COLOR_FOREGROUND_BASE_900,
 } from './constants'
 import type {
   ThemeContextProviderComponent,
@@ -312,7 +312,7 @@ export const ThemeContextProvider: ThemeContextProviderComponent = ({
       colorBorderBase700: colorBorderBase700 ?? COLOR_BORDER_BASE_700,
       colorBorderBase800: colorBorderBase800 ?? COLOR_BORDER_BASE_800,
       colorBorderBase900: colorBorderBase900 ?? COLOR_BORDER_BASE_900,
-      // Foreground color tokens.
+      // Base foreground colors.
       colorForegroundBase100:
         colorForegroundBase100 ?? COLOR_FOREGROUND_BASE_100,
       colorForegroundBase200:
@@ -331,6 +331,7 @@ export const ThemeContextProvider: ThemeContextProviderComponent = ({
         colorForegroundBase800 ?? COLOR_FOREGROUND_BASE_800,
       colorForegroundBase900:
         colorForegroundBase900 ?? COLOR_FOREGROUND_BASE_900,
+      //
       colorForegroundInverse100:
         colorForegroundInverse100 ?? COLOR_FOREGROUND_INVERSE_100,
       colorForegroundInverse200:
