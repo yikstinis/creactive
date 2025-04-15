@@ -3,6 +3,10 @@
  * Allows to control view margin and padding with properties.
  */
 export enum ViewSpacing {
+  X6S,
+  X5S,
+  X4S,
+  X3S,
   X2S,
   XS,
   SM,
@@ -14,15 +18,13 @@ export enum ViewSpacing {
   X4L,
   X5L,
   X6L,
-  X7L,
 }
-
-// View component native version theme style sheet map.
-// This contsants map spacing properties to theme style sheet keys.
-// We keep this mappings separated from using them hooks to keep it clear.
-
-// Margin top.
-export const ViewMarginTopThemeStyleSheetKey = {
+// Margin top spacing key map.
+export const VIEW_MARGIN_TOP_SPACING_STYLE_KEY = {
+  [ViewSpacing.X6S]: 'marginTopBaseX6S' as const,
+  [ViewSpacing.X5S]: 'marginTopBaseX5S' as const,
+  [ViewSpacing.X4S]: 'marginTopBaseX4S' as const,
+  [ViewSpacing.X3S]: 'marginTopBaseX3S' as const,
   [ViewSpacing.X2S]: 'marginTopBaseX2S' as const,
   [ViewSpacing.XS]: 'marginTopBaseXS' as const,
   [ViewSpacing.SM]: 'marginTopBaseSM' as const,
@@ -34,10 +36,13 @@ export const ViewMarginTopThemeStyleSheetKey = {
   [ViewSpacing.X4L]: 'marginTopBaseX4L' as const,
   [ViewSpacing.X5L]: 'marginTopBaseX5L' as const,
   [ViewSpacing.X6L]: 'marginTopBaseX6L' as const,
-  [ViewSpacing.X7L]: 'marginTopBaseX7L' as const,
 }
-// Padding top.
-export const ViewPaddingTopThemeStyleSheetKey = {
+// Padding top spacing key map.
+export const VIEW_PADDING_TOP_SPACING_STYLE_KEY = {
+  [ViewSpacing.X6S]: 'paddingTopBaseX6S' as const,
+  [ViewSpacing.X5S]: 'paddingTopBaseX5S' as const,
+  [ViewSpacing.X4S]: 'paddingTopBaseX4S' as const,
+  [ViewSpacing.X3S]: 'paddingTopBaseX3S' as const,
   [ViewSpacing.X2S]: 'paddingTopBaseX2S' as const,
   [ViewSpacing.XS]: 'paddingTopBaseXS' as const,
   [ViewSpacing.SM]: 'paddingTopBaseSM' as const,
@@ -49,10 +54,13 @@ export const ViewPaddingTopThemeStyleSheetKey = {
   [ViewSpacing.X4L]: 'paddingTopBaseX4L' as const,
   [ViewSpacing.X5L]: 'paddingTopBaseX5L' as const,
   [ViewSpacing.X6L]: 'paddingTopBaseX6L' as const,
-  [ViewSpacing.X7L]: 'paddingTopBaseX7L' as const,
 }
-// Margin left.
-export const ViewMarginLeftThemeStyleSheetKey = {
+// Margin left spacing key map.
+export const VIEW_MARGIN_LEFT_SPACING_STYLE_KEY = {
+  [ViewSpacing.X6S]: 'marginLeftBaseX6S' as const,
+  [ViewSpacing.X5S]: 'marginLeftBaseX5S' as const,
+  [ViewSpacing.X4S]: 'marginLeftBaseX4S' as const,
+  [ViewSpacing.X3S]: 'marginLeftBaseX3S' as const,
   [ViewSpacing.X2S]: 'marginLeftBaseX2S' as const,
   [ViewSpacing.XS]: 'marginLeftBaseXS' as const,
   [ViewSpacing.SM]: 'marginLeftBaseSM' as const,
@@ -64,10 +72,13 @@ export const ViewMarginLeftThemeStyleSheetKey = {
   [ViewSpacing.X4L]: 'marginLeftBaseX4L' as const,
   [ViewSpacing.X5L]: 'marginLeftBaseX5L' as const,
   [ViewSpacing.X6L]: 'marginLeftBaseX6L' as const,
-  [ViewSpacing.X7L]: 'marginLeftBaseX7L' as const,
 }
-// Padding left.
-export const ViewPaddingLeftThemeStyleSheetKey = {
+// Padding left spacing key map.
+export const VIEW_PADDING_LEFT_SPACING_STYLE_KEY = {
+  [ViewSpacing.X6S]: 'paddingLeftBaseX6S' as const,
+  [ViewSpacing.X5S]: 'paddingLeftBaseX5S' as const,
+  [ViewSpacing.X4S]: 'paddingLeftBaseX4S' as const,
+  [ViewSpacing.X3S]: 'paddingLeftBaseX3S' as const,
   [ViewSpacing.X2S]: 'paddingLeftBaseX2S' as const,
   [ViewSpacing.XS]: 'paddingLeftBaseXS' as const,
   [ViewSpacing.SM]: 'paddingLeftBaseSM' as const,
@@ -79,10 +90,13 @@ export const ViewPaddingLeftThemeStyleSheetKey = {
   [ViewSpacing.X4L]: 'paddingLeftBaseX4L' as const,
   [ViewSpacing.X5L]: 'paddingLeftBaseX5L' as const,
   [ViewSpacing.X6L]: 'paddingLeftBaseX6L' as const,
-  [ViewSpacing.X7L]: 'paddingLeftBaseX7L' as const,
 }
-// Margin right.
-export const ViewMarginRightThemeStyleSheetKey = {
+// Margin right spacing key map.
+export const VIEW_MARGIN_RIGHT_SPACING_STYLE_KEY = {
+  [ViewSpacing.X6S]: 'marginRightBaseX6S' as const,
+  [ViewSpacing.X5S]: 'marginRightBaseX5S' as const,
+  [ViewSpacing.X4S]: 'marginRightBaseX4S' as const,
+  [ViewSpacing.X3S]: 'marginRightBaseX3S' as const,
   [ViewSpacing.X2S]: 'marginRightBaseX2S' as const,
   [ViewSpacing.XS]: 'marginRightBaseXS' as const,
   [ViewSpacing.SM]: 'marginRightBaseSM' as const,
@@ -94,10 +108,13 @@ export const ViewMarginRightThemeStyleSheetKey = {
   [ViewSpacing.X4L]: 'marginRightBaseX4L' as const,
   [ViewSpacing.X5L]: 'marginRightBaseX5L' as const,
   [ViewSpacing.X6L]: 'marginRightBaseX6L' as const,
-  [ViewSpacing.X7L]: 'marginRightBaseX7L' as const,
 }
-// Padding right.
-export const ViewPaddingRightThemeStyleSheetKey = {
+// Padding right spacing key map.
+export const VIEW_PADDING_RIGHT_SPACING_STYLE_KEY = {
+  [ViewSpacing.X6S]: 'paddingRightBaseX6S' as const,
+  [ViewSpacing.X5S]: 'paddingRightBaseX5S' as const,
+  [ViewSpacing.X4S]: 'paddingRightBaseX4S' as const,
+  [ViewSpacing.X3S]: 'paddingRightBaseX3S' as const,
   [ViewSpacing.X2S]: 'paddingRightBaseX2S' as const,
   [ViewSpacing.XS]: 'paddingRightBaseXS' as const,
   [ViewSpacing.SM]: 'paddingRightBaseSM' as const,
@@ -109,10 +126,13 @@ export const ViewPaddingRightThemeStyleSheetKey = {
   [ViewSpacing.X4L]: 'paddingRightBaseX4L' as const,
   [ViewSpacing.X5L]: 'paddingRightBaseX5L' as const,
   [ViewSpacing.X6L]: 'paddingRightBaseX6L' as const,
-  [ViewSpacing.X7L]: 'paddingRightBaseX7L' as const,
 }
-// Margin bottom.
-export const ViewMarginBottomThemeStyleSheetKey = {
+// Margin bottom spacing key map.
+export const VIEW_MARGIN_BOTTOM_SPACING_STYLE_KEY = {
+  [ViewSpacing.X6S]: 'marginBottomBaseX6S' as const,
+  [ViewSpacing.X5S]: 'marginBottomBaseX5S' as const,
+  [ViewSpacing.X4S]: 'marginBottomBaseX4S' as const,
+  [ViewSpacing.X3S]: 'marginBottomBaseX3S' as const,
   [ViewSpacing.X2S]: 'marginBottomBaseX2S' as const,
   [ViewSpacing.XS]: 'marginBottomBaseXS' as const,
   [ViewSpacing.SM]: 'marginBottomBaseSM' as const,
@@ -124,10 +144,13 @@ export const ViewMarginBottomThemeStyleSheetKey = {
   [ViewSpacing.X4L]: 'marginBottomBaseX4L' as const,
   [ViewSpacing.X5L]: 'marginBottomBaseX5L' as const,
   [ViewSpacing.X6L]: 'marginBottomBaseX6L' as const,
-  [ViewSpacing.X7L]: 'marginBottomBaseX7L' as const,
 }
-// Padding bottom.
-export const ViewPaddingBottomThemeStyleSheetKey = {
+// Padding bottom spacing key map.
+export const VIEW_PADDING_BOTTOM_SPACING_STYLE_KEY = {
+  [ViewSpacing.X6S]: 'paddingBottomBaseX6S' as const,
+  [ViewSpacing.X5S]: 'paddingBottomBaseX5S' as const,
+  [ViewSpacing.X4S]: 'paddingBottomBaseX4S' as const,
+  [ViewSpacing.X3S]: 'paddingBottomBaseX3S' as const,
   [ViewSpacing.X2S]: 'paddingBottomBaseX2S' as const,
   [ViewSpacing.XS]: 'paddingBottomBaseXS' as const,
   [ViewSpacing.SM]: 'paddingBottomBaseSM' as const,
@@ -139,14 +162,13 @@ export const ViewPaddingBottomThemeStyleSheetKey = {
   [ViewSpacing.X4L]: 'paddingBottomBaseX4L' as const,
   [ViewSpacing.X5L]: 'paddingBottomBaseX5L' as const,
   [ViewSpacing.X6L]: 'paddingBottomBaseX6L' as const,
-  [ViewSpacing.X7L]: 'paddingBottomBaseX7L' as const,
 }
-
-// View spacing theme token key.
-// Maps view spacing property to theme spacing token.
-// For web version we use theme spacing tokens directly.
-// This map is used inside spacing hook, moved here to keep it a bit more clear.
-export const ViewSpacingThemeTokenKey = {
+// Spacing theme token key map.
+export const VIEW_SPACING_THEME_TOKEN_KEY = {
+  [ViewSpacing.X6S]: 'spacingBaseX6S' as const,
+  [ViewSpacing.X5S]: 'spacingBaseX5S' as const,
+  [ViewSpacing.X4S]: 'spacingBaseX4S' as const,
+  [ViewSpacing.X3S]: 'spacingBaseX3S' as const,
   [ViewSpacing.X2S]: 'spacingBaseX2S' as const,
   [ViewSpacing.XS]: 'spacingBaseXS' as const,
   [ViewSpacing.SM]: 'spacingBaseSM' as const,
@@ -158,5 +180,4 @@ export const ViewSpacingThemeTokenKey = {
   [ViewSpacing.X4L]: 'spacingBaseX4L' as const,
   [ViewSpacing.X5L]: 'spacingBaseX5L' as const,
   [ViewSpacing.X6L]: 'spacingBaseX6L' as const,
-  [ViewSpacing.X7L]: 'spacingBaseX7L' as const,
 }

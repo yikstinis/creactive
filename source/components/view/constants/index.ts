@@ -25,15 +25,15 @@ export { ViewOverflow } from './overflow'
 export { ViewPosition } from './position'
 export { ViewBoxShadow } from './shadow'
 export {
-  ViewMarginBottomThemeStyleSheetKey,
-  ViewMarginLeftThemeStyleSheetKey,
-  ViewMarginRightThemeStyleSheetKey,
-  ViewMarginTopThemeStyleSheetKey,
-  ViewPaddingBottomThemeStyleSheetKey,
-  ViewPaddingLeftThemeStyleSheetKey,
-  ViewPaddingRightThemeStyleSheetKey,
-  ViewPaddingTopThemeStyleSheetKey,
+  VIEW_MARGIN_BOTTOM_SPACING_STYLE_KEY,
+  VIEW_MARGIN_LEFT_SPACING_STYLE_KEY,
+  VIEW_MARGIN_RIGHT_SPACING_STYLE_KEY,
+  VIEW_MARGIN_TOP_SPACING_STYLE_KEY,
+  VIEW_PADDING_BOTTOM_SPACING_STYLE_KEY,
+  VIEW_PADDING_LEFT_SPACING_STYLE_KEY,
+  VIEW_PADDING_RIGHT_SPACING_STYLE_KEY,
+  VIEW_PADDING_TOP_SPACING_STYLE_KEY,
+  VIEW_SPACING_THEME_TOKEN_KEY,
   ViewSpacing,
-  ViewSpacingThemeTokenKey,
 } from './spacing'
 export { ViewHTMLTag, ViewTag } from './tag'

@@ -1,46 +1,41 @@
 import { useThemeContext, useThemeStyleSheet } from '@/contexts'
 import {
-  ViewMarginBottomThemeStyleSheetKey,
-  ViewMarginLeftThemeStyleSheetKey,
-  ViewMarginRightThemeStyleSheetKey,
-  ViewMarginTopThemeStyleSheetKey,
-  ViewPaddingBottomThemeStyleSheetKey,
-  ViewPaddingLeftThemeStyleSheetKey,
-  ViewPaddingRightThemeStyleSheetKey,
-  ViewPaddingTopThemeStyleSheetKey,
+  VIEW_MARGIN_BOTTOM_SPACING_STYLE_KEY,
+  VIEW_MARGIN_LEFT_SPACING_STYLE_KEY,
+  VIEW_MARGIN_RIGHT_SPACING_STYLE_KEY,
+  VIEW_MARGIN_TOP_SPACING_STYLE_KEY,
+  VIEW_PADDING_BOTTOM_SPACING_STYLE_KEY,
+  VIEW_PADDING_LEFT_SPACING_STYLE_KEY,
+  VIEW_PADDING_RIGHT_SPACING_STYLE_KEY,
+  VIEW_PADDING_TOP_SPACING_STYLE_KEY,
+  VIEW_SPACING_THEME_TOKEN_KEY,
   ViewSpacing,
-  ViewSpacingThemeTokenKey,
 } from '../constants'
-
-// View component spacing hooks.
-// Native versions return native styles.
-// Web version returns theme spacing token value.
 
 // Margin top.
 export const useViewMarginTopStyle = (marginTop?: ViewSpacing) =>
-  useThemeStyleSheet()[ViewMarginTopThemeStyleSheetKey[marginTop]]
+  useThemeStyleSheet()[VIEW_MARGIN_TOP_SPACING_STYLE_KEY[marginTop]]
 // Padding top.
 export const useViewPaddingTopStyle = (paddingTop?: ViewSpacing) =>
-  useThemeStyleSheet()[ViewPaddingTopThemeStyleSheetKey[paddingTop]]
+  useThemeStyleSheet()[VIEW_PADDING_TOP_SPACING_STYLE_KEY[paddingTop]]
 // Margin left.
 export const useViewMarginLeftStyle = (marginLeft?: ViewSpacing) =>
-  useThemeStyleSheet()[ViewMarginLeftThemeStyleSheetKey[marginLeft]]
+  useThemeStyleSheet()[VIEW_MARGIN_LEFT_SPACING_STYLE_KEY[marginLeft]]
 // Padding left.
 export const useViewPaddingLeftStyle = (paddingLeft?: ViewSpacing) =>
-  useThemeStyleSheet()[ViewPaddingLeftThemeStyleSheetKey[paddingLeft]]
+  useThemeStyleSheet()[VIEW_PADDING_LEFT_SPACING_STYLE_KEY[paddingLeft]]
 // Margin right.
 export const useViewMarginRightStyle = (marginRight?: ViewSpacing) =>
-  useThemeStyleSheet()[ViewMarginRightThemeStyleSheetKey[marginRight]]
+  useThemeStyleSheet()[VIEW_MARGIN_RIGHT_SPACING_STYLE_KEY[marginRight]]
 // Padding right.
 export const useViewPaddingRightStyle = (paddingRight?: ViewSpacing) =>
-  useThemeStyleSheet()[ViewPaddingRightThemeStyleSheetKey[paddingRight]]
+  useThemeStyleSheet()[VIEW_PADDING_RIGHT_SPACING_STYLE_KEY[paddingRight]]
 // Margin bottom.
 export const useViewMarginBottomStyle = (marginBottom?: ViewSpacing) =>
-  useThemeStyleSheet()[ViewMarginBottomThemeStyleSheetKey[marginBottom]]
-// Padding Bottom.
+  useThemeStyleSheet()[VIEW_MARGIN_BOTTOM_SPACING_STYLE_KEY[marginBottom]]
+// Padding bottom.
 export const useViewPaddingBottomStyle = (paddingBottom?: ViewSpacing) =>
-  useThemeStyleSheet()[ViewPaddingBottomThemeStyleSheetKey[paddingBottom]]
-
+  useThemeStyleSheet()[VIEW_PADDING_BOTTOM_SPACING_STYLE_KEY[paddingBottom]]
 // Spacing token value.
 export const useViewSpacingTokenValue = (viewSpacing?: ViewSpacing) =>
-  useThemeContext()[ViewSpacingThemeTokenKey[viewSpacing]] ?? 0
+  useThemeContext()[VIEW_SPACING_THEME_TOKEN_KEY[viewSpacing]] ?? 0
