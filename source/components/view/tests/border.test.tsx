@@ -193,7 +193,7 @@ describe('@/components/view', () => {
       render(
         <View
           testId={testId}
-          borderWidth={ViewBorderWidth.SM}
+          borderWidth={View.BorderWidth.SM}
         />
       )
       expect(screen.getByTestId(testId)).toHaveStyle({
@@ -206,7 +206,7 @@ describe('@/components/view', () => {
       render(
         <View
           testId={testId}
-          borderWidth={ViewBorderWidth.MD}
+          borderWidth={View.BorderWidth.MD}
         />
       )
       expect(screen.getByTestId(testId)).toHaveStyle({
@@ -219,7 +219,7 @@ describe('@/components/view', () => {
       render(
         <View
           testId={testId}
-          borderWidth={ViewBorderWidth.LG}
+          borderWidth={View.BorderWidth.LG}
         />
       )
       expect(screen.getByTestId(testId)).toHaveStyle({
@@ -234,7 +234,7 @@ describe('@/components/view', () => {
       render(
         <View
           testId={testId}
-          borderRadius={ViewBorderRadius.XS}
+          borderRadius={View.BorderRadius.XS}
         />
       )
       expect(screen.getByTestId(testId)).toHaveStyle({
@@ -247,7 +247,7 @@ describe('@/components/view', () => {
       render(
         <View
           testId={testId}
-          borderRadius={ViewBorderRadius.SM}
+          borderRadius={View.BorderRadius.SM}
         />
       )
       expect(screen.getByTestId(testId)).toHaveStyle({
@@ -260,7 +260,7 @@ describe('@/components/view', () => {
       render(
         <View
           testId={testId}
-          borderRadius={ViewBorderRadius.MD}
+          borderRadius={View.BorderRadius.MD}
         />
       )
       expect(screen.getByTestId(testId)).toHaveStyle({
@@ -273,7 +273,7 @@ describe('@/components/view', () => {
       render(
         <View
           testId={testId}
-          borderRadius={ViewBorderRadius.LG}
+          borderRadius={View.BorderRadius.LG}
         />
       )
       expect(screen.getByTestId(testId)).toHaveStyle({
@@ -286,7 +286,7 @@ describe('@/components/view', () => {
       render(
         <View
           testId={testId}
-          borderRadius={ViewBorderRadius.XL}
+          borderRadius={View.BorderRadius.XL}
         />
       )
       expect(screen.getByTestId(testId)).toHaveStyle({
@@ -299,7 +299,7 @@ describe('@/components/view', () => {
       render(
         <View
           testId={testId}
-          borderRadius={ViewBorderRadius.MAX}
+          borderRadius={View.BorderRadius.MAX}
         />
       )
       expect(screen.getByTestId(testId)).toHaveStyle({
