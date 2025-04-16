@@ -54,20 +54,15 @@ const resolveSetupFilesAfterEnv = () => {
   return result
 }
 
-/**
- * Resolving test match pattern helper.
- * In web environment we need to have additional pattern for web tests.
- * In native (default) environment we need only one pattern.
- *
- * @returns {Array<string>} - test match pattern
- */
-const resolveTestMatch = () => {
-  return ['**/?(*.)+(test).(ts|tsx)']
-  // TODO: Move older tests back, when fix them..
-  // if (isWeb) {
-  //   return ['**/?(*.)+(spec).(ts|tsx)', '**/?(*.)+(spec).web.(ts|tsx)']
-  // }
-  // return ['**/?(*.)+(spec).(ts|tsx)', '**/?(*.)+(spec).native.(ts|tsx)']
+const resolveTestPathIgnorePatterns = () => {
+  if (isWeb) {
+    return [
+      '.native.test.(ts|tsx)$',
+      '.android.test.(ts|tsx)$',
+      '.ios.test.(ts|tsx)$',
+    ]
+  }
+  return ['.web.test.(ts|tsx)$']
 }
 
 /**
@@ -89,6 +84,7 @@ module.exports = {
   },
   moduleNameMapper: resolveModulenameMapper(),
   setupFilesAfterEnv: resolveSetupFilesAfterEnv(),
-  testMatch: resolveTestMatch(),
+  testMatch: ['**/*.test.(ts|tsx)'],
+  testPathIgnorePatterns: resolveTestPathIgnorePatterns(),
   testEnvironment: resolveEnvironment(),
 }
