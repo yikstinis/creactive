@@ -7,7 +7,7 @@ import {
   ViewJustifyContent,
 } from '../constants'
 
-// Flex direction native style sheet.
+// Flex direction style sheet.
 const viewFlexDirectionStyleSheet = StyleSheet.create({
   flexDirectionColumn: {
     flexDirection: 'column',
@@ -16,16 +16,16 @@ const viewFlexDirectionStyleSheet = StyleSheet.create({
     flexDirection: 'row',
   },
 })
-// Flex direction native style map.
-const ViewFlexDirectionStyle = {
+// Flex direction style map.
+const FLEX_DIRECTION_STYLE = {
   [ViewFlexDirection.COLUMN]: viewFlexDirectionStyleSheet.flexDirectionColumn,
   [ViewFlexDirection.ROW]: viewFlexDirectionStyleSheet.flexDirectionRow,
 }
-// Flex direction native hook.
+// Flex direction hook.
 export const useViewFlexDirectionStyle = (flexDirection: ViewFlexDirection) =>
-  ViewFlexDirectionStyle[flexDirection]
+  FLEX_DIRECTION_STYLE[flexDirection]
 
-// Justify content native style sheet.
+// Justify content style sheet.
 const viewJustifyContentStyleSheet = StyleSheet.create({
   justifuContentFlexStart: {
     justifyContent: 'flex-start',
@@ -46,8 +46,8 @@ const viewJustifyContentStyleSheet = StyleSheet.create({
     justifyContent: 'space-evenly',
   },
 })
-// Justify content native style map.
-const ViewJustifyContentStyle = {
+// Justify content style map.
+const JUSTIFY_CONTENT_STYLE = {
   [ViewJustifyContent.FLEX_START]:
     viewJustifyContentStyleSheet.justifuContentFlexStart,
   [ViewJustifyContent.FLEX_END]:
@@ -61,12 +61,12 @@ const ViewJustifyContentStyle = {
   [ViewJustifyContent.SPACE_EVENLY]:
     viewJustifyContentStyleSheet.justifuContentSpaceEvenly,
 }
-// Justify content native hook.
+// Justify content hook.
 export const useViewJustifyContentStyle = (
   justifyContent: ViewJustifyContent
-) => ViewJustifyContentStyle[justifyContent]
+) => JUSTIFY_CONTENT_STYLE[justifyContent]
 
-// Align items native style sheet.
+// Align items style sheet.
 const viewAlignItemsStyleSheet = StyleSheet.create({
   alignItemsFlexStart: {
     alignItems: 'flex-start',
@@ -84,19 +84,19 @@ const viewAlignItemsStyleSheet = StyleSheet.create({
     alignItems: 'baseline',
   },
 })
-// Align items native style map.
-const ViewAlignItemsStyle = {
+// Align items style map.
+const ALIGN_ITEMS_STYLE = {
   [ViewAlignItems.FLEX_START]: viewAlignItemsStyleSheet.alignItemsFlexStart,
   [ViewAlignItems.FLEX_END]: viewAlignItemsStyleSheet.alignItemsFlexEnd,
   [ViewAlignItems.CENTER]: viewAlignItemsStyleSheet.alignItemsCenter,
   [ViewAlignItems.STRETCH]: viewAlignItemsStyleSheet.alignItemsStretch,
   [ViewAlignItems.BASELINE]: viewAlignItemsStyleSheet.alignItemsBaseline,
 }
-// Align items native hook.
+// Align items hook.
 export const useViewAlignItemsStyle = (alignItems: ViewAlignItems) =>
-  ViewAlignItemsStyle[alignItems]
+  ALIGN_ITEMS_STYLE[alignItems]
 
-// Align self native style sheet.
+// Align self style sheet.
 const viewAlignSelfStyleSheet = StyleSheet.create({
   alignSelfFlexStart: {
     alignSelf: 'flex-start',
@@ -114,19 +114,19 @@ const viewAlignSelfStyleSheet = StyleSheet.create({
     alignSelf: 'baseline',
   },
 })
-// Align self native style map.
-const ViewAlignSelfStyle = {
+// Align self style map.
+const ALIGN_SELF_STYLE = {
   [ViewAlignSelf.FLEX_START]: viewAlignSelfStyleSheet.alignSelfFlexStart,
   [ViewAlignSelf.FLEX_END]: viewAlignSelfStyleSheet.alignSelfFlexEnd,
   [ViewAlignSelf.CENTER]: viewAlignSelfStyleSheet.alignSelfCenter,
   [ViewAlignSelf.STRETCH]: viewAlignSelfStyleSheet.alignSelfStretch,
   [ViewAlignSelf.BASELINE]: viewAlignSelfStyleSheet.alignSelfBaseline,
 }
-// Align self native hook.
+// Align self hook.
 export const useViewAlignSelfStyle = (alignSelf?: ViewAlignSelf) =>
-  ViewAlignSelfStyle[alignSelf]
+  ALIGN_SELF_STYLE[alignSelf]
 
-// Align content native style sheet.
+// Align content style sheet.
 const viewAlignContentStyleSheet = StyleSheet.create({
   alignContentFlexStart: {
     alignContent: 'flex-start',
@@ -150,8 +150,8 @@ const viewAlignContentStyleSheet = StyleSheet.create({
     alignContent: 'space-evenly',
   },
 })
-// Align content native style map.
-const ViewAlignContentStyle = {
+// Align content style map.
+const ALIGN_CONTENT_STYLE = {
   [ViewAlignContent.FLEX_START]:
     viewAlignContentStyleSheet.alignContentFlexStart,
   [ViewAlignContent.FLEX_END]: viewAlignContentStyleSheet.alignContentFlexEnd,
@@ -162,6 +162,6 @@ const ViewAlignContentStyle = {
   [ViewAlignContent.SPACE_AROUND]:
     viewAlignContentStyleSheet.alignContentSpaceAround,
 }
-// Align content native hook.
+// Align content hook.
 export const useViewAlignContentStyle = (alignContent: ViewAlignContent) =>
-  ViewAlignContentStyle[alignContent]
+  ALIGN_CONTENT_STYLE[alignContent]

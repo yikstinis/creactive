@@ -13,6 +13,7 @@ export const useViewBorderColorStyle = (borderColor?: ViewBorderColor) =>
 // Vorder color CSS value.
 export const useViewBorderColorCSSValue = (borderColor?: ViewBorderColor) =>
   useThemeContext()[VIEW_THEME_BORDER_COLOR_KEY[borderColor]]
+
 // Use native background color hook.
 export const useViewBackgroundColorStyle = (
   backgroundColor: ViewBackgroundColor | Color
