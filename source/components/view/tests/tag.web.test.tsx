@@ -4,13 +4,13 @@ import { View } from '..'
 
 describe('@/components/view', () => {
   describe('view tag', () => {
-    it('renders DIV tag by default', () => {
+    it('renders undefined tag', () => {
       const testId = faker.string.uuid()
       render(<View testId={testId} />)
       expect(screen.getByTestId(testId).tagName).toEqual('DIV')
     })
 
-    it('renders DIV tag', () => {
+    it('renders div tag', () => {
       const testId = faker.string.uuid()
       render(
         <View
@@ -21,7 +21,7 @@ describe('@/components/view', () => {
       expect(screen.getByTestId(testId).tagName).toEqual('DIV')
     })
 
-    it('redners FIGURE tag', () => {
+    it('redners figure tag', () => {
       const testId = faker.string.uuid()
       render(
         <View
@@ -32,7 +32,7 @@ describe('@/components/view', () => {
       expect(screen.getByTestId(testId).tagName).toEqual('FIGURE')
     })
 
-    it('renders FIGCAPTION tag', () => {
+    it('renders figcaption tag', () => {
       const testId = faker.string.uuid()
       render(
         <View
@@ -43,7 +43,7 @@ describe('@/components/view', () => {
       expect(screen.getByTestId(testId).tagName).toEqual('FIGCAPTION')
     })
 
-    it('renders ARTICLE tag', () => {
+    it('renders article tag', () => {
       const testId = faker.string.uuid()
       render(
         <View
@@ -54,7 +54,7 @@ describe('@/components/view', () => {
       expect(screen.getByTestId(testId).tagName).toEqual('ARTICLE')
     })
 
-    it('renders SECTION tag', () => {
+    it('renders section tag', () => {
       const testId = faker.string.uuid()
       render(
         <View
@@ -65,7 +65,7 @@ describe('@/components/view', () => {
       expect(screen.getByTestId(testId).tagName).toEqual('SECTION')
     })
 
-    it('renders HEADER tag', () => {
+    it('renders header tag', () => {
       const testId = faker.string.uuid()
       render(
         <View
@@ -76,7 +76,7 @@ describe('@/components/view', () => {
       expect(screen.getByTestId(testId).tagName).toEqual('HEADER')
     })
 
-    it('renders MAIN tag', () => {
+    it('renders main tag', () => {
       const testId = faker.string.uuid()
       render(
         <View
@@ -87,7 +87,7 @@ describe('@/components/view', () => {
       expect(screen.getByTestId(testId).tagName).toEqual('MAIN')
     })
 
-    it('renders FOOTER tag', () => {
+    it('renders footer tag', () => {
       const testId = faker.string.uuid()
       render(
         <View

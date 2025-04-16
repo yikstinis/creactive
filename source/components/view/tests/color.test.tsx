@@ -16,7 +16,7 @@ describe('@/components/view', () => {
       expect(result.current).toEqual(undefined)
     })
 
-    it('returns BASE_100 border color style', () => {
+    it('returns base 100 border color style', () => {
       const { result } = renderHook(() =>
         useViewBorderColorStyle(ViewBorderColor.BASE_100)
       )
@@ -25,7 +25,7 @@ describe('@/components/view', () => {
       })
     })
 
-    it('returns BASE_200 border color style', () => {
+    it('returns base 200 border color style', () => {
       const { result } = renderHook(() =>
         useViewBorderColorStyle(ViewBorderColor.BASE_200)
       )
@@ -34,7 +34,7 @@ describe('@/components/view', () => {
       })
     })
 
-    it('returns BASE_300 border color style', () => {
+    it('returns base 300 border color style', () => {
       const { result } = renderHook(() =>
         useViewBorderColorStyle(ViewBorderColor.BASE_300)
       )
@@ -43,7 +43,7 @@ describe('@/components/view', () => {
       })
     })
 
-    it('returns BASE_400 border color style', () => {
+    it('returns base 400 border color style', () => {
       const { result } = renderHook(() =>
         useViewBorderColorStyle(ViewBorderColor.BASE_400)
       )
@@ -52,7 +52,7 @@ describe('@/components/view', () => {
       })
     })
 
-    it('returns BASE_500 border color style', () => {
+    it('returns base 500 border color style', () => {
       const { result } = renderHook(() =>
         useViewBorderColorStyle(ViewBorderColor.BASE_500)
       )
@@ -61,7 +61,7 @@ describe('@/components/view', () => {
       })
     })
 
-    it('returns BASE_600 border color style', () => {
+    it('returns base 600 border color style', () => {
       const { result } = renderHook(() =>
         useViewBorderColorStyle(ViewBorderColor.BASE_600)
       )
@@ -70,7 +70,7 @@ describe('@/components/view', () => {
       })
     })
 
-    it('returns BASE_700 border color style', () => {
+    it('returns base 700 border color style', () => {
       const { result } = renderHook(() =>
         useViewBorderColorStyle(ViewBorderColor.BASE_700)
       )
@@ -79,7 +79,7 @@ describe('@/components/view', () => {
       })
     })
 
-    it('returns BASE_800 border color style', () => {
+    it('returns base 800 border color style', () => {
       const { result } = renderHook(() =>
         useViewBorderColorStyle(ViewBorderColor.BASE_800)
       )
@@ -88,7 +88,7 @@ describe('@/components/view', () => {
       })
     })
 
-    it('returns BASE_900 border color style', () => {
+    it('returns base 900 border color style', () => {
       const { result } = renderHook(() =>
         useViewBorderColorStyle(ViewBorderColor.BASE_900)
       )
@@ -104,63 +104,63 @@ describe('@/components/view', () => {
       expect(result.current).toEqual(undefined)
     })
 
-    it('returns BASE_100 border color CSS value', () => {
+    it('returns base 100 border color CSS value', () => {
       const { result } = renderHook(() =>
         useViewBorderColorCSSValue(ViewBorderColor.BASE_100)
       )
       expect(result.current).toEqual('rgb(253,252,254)')
     })
 
-    it('returns BASE_200 border color CSS value', () => {
+    it('returns base 200 border color CSS value', () => {
       const { result } = renderHook(() =>
         useViewBorderColorCSSValue(ViewBorderColor.BASE_200)
       )
       expect(result.current).toEqual('rgb(249,249,250)')
     })
 
-    it('returns BASE_300 border color CSS value', () => {
+    it('returns base 300 border color CSS value', () => {
       const { result } = renderHook(() =>
         useViewBorderColorCSSValue(ViewBorderColor.BASE_300)
       )
       expect(result.current).toEqual('rgb(247,247,249)')
     })
 
-    it('returns BASE_400 border color CSS value', () => {
+    it('returns base 400 border color CSS value', () => {
       const { result } = renderHook(() =>
         useViewBorderColorCSSValue(ViewBorderColor.BASE_400)
       )
       expect(result.current).toEqual('rgb(244,244,245)')
     })
 
-    it('returns BASE_500 border color CSS value', () => {
+    it('returns base 500 border color CSS value', () => {
       const { result } = renderHook(() =>
         useViewBorderColorCSSValue(ViewBorderColor.BASE_500)
       )
       expect(result.current).toEqual('rgb(224,224,238)')
     })
 
-    it('returns BASE_600 border color CSS value', () => {
+    it('returns base 600 border color CSS value', () => {
       const { result } = renderHook(() =>
         useViewBorderColorCSSValue(ViewBorderColor.BASE_600)
       )
       expect(result.current).toEqual('rgb(218,218,234)')
     })
 
-    it('returns BASE_700 border color CSS value', () => {
+    it('returns base 700 border color CSS value', () => {
       const { result } = renderHook(() =>
         useViewBorderColorCSSValue(ViewBorderColor.BASE_700)
       )
       expect(result.current).toEqual('rgb(216,216,228)')
     })
 
-    it('returns BASE_800 border color CSS value', () => {
+    it('returns base 800 border color CSS value', () => {
       const { result } = renderHook(() =>
         useViewBorderColorCSSValue(ViewBorderColor.BASE_800)
       )
       expect(result.current).toEqual('rgb(212,212,216)')
     })
 
-    it('returns BASE_900 border color CSS value', () => {
+    it('returns base 900 border color CSS value', () => {
       const { result } = renderHook(() =>
         useViewBorderColorCSSValue(ViewBorderColor.BASE_900)
       )
@@ -176,7 +176,7 @@ describe('@/components/view', () => {
       expect(result.current).toEqual(undefined)
     })
 
-    it('returns BASE_100 background color style', () => {
+    it('returns base 100 background color style', () => {
       const { result } = renderHook(() =>
         useViewBackgroundColorStyle(ViewBackgroundColor.BASE_100)
       )
@@ -185,7 +185,7 @@ describe('@/components/view', () => {
       })
     })
 
-    it('returns BASE_200 background color style', () => {
+    it('returns base 200 background color style', () => {
       const { result } = renderHook(() =>
         useViewBackgroundColorStyle(ViewBackgroundColor.BASE_200)
       )
@@ -194,7 +194,7 @@ describe('@/components/view', () => {
       })
     })
 
-    it('returns BASE_300 background color style', () => {
+    it('returns base 300 background color style', () => {
       const { result } = renderHook(() =>
         useViewBackgroundColorStyle(ViewBackgroundColor.BASE_300)
       )
@@ -203,7 +203,7 @@ describe('@/components/view', () => {
       })
     })
 
-    it('returns BASE_400 background color style', () => {
+    it('returns base 400 background color style', () => {
       const { result } = renderHook(() =>
         useViewBackgroundColorStyle(ViewBackgroundColor.BASE_400)
       )
@@ -212,7 +212,7 @@ describe('@/components/view', () => {
       })
     })
 
-    it('returns BASE_500 background color style', () => {
+    it('returns base 500 background color style', () => {
       const { result } = renderHook(() =>
         useViewBackgroundColorStyle(ViewBackgroundColor.BASE_500)
       )
@@ -221,7 +221,7 @@ describe('@/components/view', () => {
       })
     })
 
-    it('returns BASE_600 background color style', () => {
+    it('returns base 600 background color style', () => {
       const { result } = renderHook(() =>
         useViewBackgroundColorStyle(ViewBackgroundColor.BASE_600)
       )
@@ -230,7 +230,7 @@ describe('@/components/view', () => {
       })
     })
 
-    it('returns BASE_700 background color style', () => {
+    it('returns base 700 background color style', () => {
       const { result } = renderHook(() =>
         useViewBackgroundColorStyle(ViewBackgroundColor.BASE_700)
       )
@@ -239,7 +239,7 @@ describe('@/components/view', () => {
       })
     })
 
-    it('returns BASE_800 background color style', () => {
+    it('returns base 800 background color style', () => {
       const { result } = renderHook(() =>
         useViewBackgroundColorStyle(ViewBackgroundColor.BASE_800)
       )
@@ -248,7 +248,7 @@ describe('@/components/view', () => {
       })
     })
 
-    it('returns BASE_900 background color style', () => {
+    it('returns base 900 background color style', () => {
       const { result } = renderHook(() =>
         useViewBackgroundColorStyle(ViewBackgroundColor.BASE_900)
       )
@@ -266,63 +266,63 @@ describe('@/components/view', () => {
       expect(result.current).toEqual(undefined)
     })
 
-    it('returns BASE_100 background color CSS value', () => {
+    it('returns base 100 background color CSS value', () => {
       const { result } = renderHook(() =>
         useViewBackgroundColorCSSValue(ViewBackgroundColor.BASE_100)
       )
       expect(result.current).toEqual('rgb(198,198,202)')
     })
 
-    it('returns BASE_200 background color CSS value', () => {
+    it('returns base 200 background color CSS value', () => {
       const { result } = renderHook(() =>
         useViewBackgroundColorCSSValue(ViewBackgroundColor.BASE_200)
       )
       expect(result.current).toEqual('rgb(212,212,216)')
     })
 
-    it('returns BASE_300 background color CSS value', () => {
+    it('returns base 300 background color CSS value', () => {
       const { result } = renderHook(() =>
         useViewBackgroundColorCSSValue(ViewBackgroundColor.BASE_300)
       )
       expect(result.current).toEqual('rgb(216,216,228)')
     })
 
-    it('returns BASE_400 background color CSS value', () => {
+    it('returns base 400 background color CSS value', () => {
       const { result } = renderHook(() =>
         useViewBackgroundColorCSSValue(ViewBackgroundColor.BASE_400)
       )
       expect(result.current).toEqual('rgb(218,218,234)')
     })
 
-    it('returns BASE_500 background color CSS value', () => {
+    it('returns base 500 background color CSS value', () => {
       const { result } = renderHook(() =>
         useViewBackgroundColorCSSValue(ViewBackgroundColor.BASE_500)
       )
       expect(result.current).toEqual('rgb(224,224,238)')
     })
 
-    it('returns BASE_600 background color CSS value', () => {
+    it('returns base 600 background color CSS value', () => {
       const { result } = renderHook(() =>
         useViewBackgroundColorCSSValue(ViewBackgroundColor.BASE_600)
       )
       expect(result.current).toEqual('rgb(244,244,245)')
     })
 
-    it('returns BASE_700 background color CSS value', () => {
+    it('returns base 700 background color CSS value', () => {
       const { result } = renderHook(() =>
         useViewBackgroundColorCSSValue(ViewBackgroundColor.BASE_700)
       )
       expect(result.current).toEqual('rgb(247,247,249)')
     })
 
-    it('returns BASE_800 background color CSS value', () => {
+    it('returns base 800 background color CSS value', () => {
       const { result } = renderHook(() =>
         useViewBackgroundColorCSSValue(ViewBackgroundColor.BASE_800)
       )
       expect(result.current).toEqual('rgb(249,249,250)')
     })
 
-    it('returns BASE_900 background color CSS value', () => {
+    it('returns base 900 background color CSS value', () => {
       const { result } = renderHook(() =>
         useViewBackgroundColorCSSValue(ViewBackgroundColor.BASE_900)
       )
@@ -339,7 +339,7 @@ describe('@/components/view', () => {
       })
     })
 
-    it('renders BASE_100 border color', () => {
+    it('renders base 100 border color', () => {
       const testId = faker.string.uuid()
       render(
         <View
@@ -352,7 +352,7 @@ describe('@/components/view', () => {
       })
     })
 
-    it('renders BASE_200 border color', () => {
+    it('renders base 200 border color', () => {
       const testId = faker.string.uuid()
       render(
         <View
@@ -365,7 +365,7 @@ describe('@/components/view', () => {
       })
     })
 
-    it('renders BASE_300 border color', () => {
+    it('renders base 300 border color', () => {
       const testId = faker.string.uuid()
       render(
         <View
@@ -378,7 +378,7 @@ describe('@/components/view', () => {
       })
     })
 
-    it('renders BASE_400 border color', () => {
+    it('renders base 400 border color', () => {
       const testId = faker.string.uuid()
       render(
         <View
@@ -391,7 +391,7 @@ describe('@/components/view', () => {
       })
     })
 
-    it('renders BASE_500 border color', () => {
+    it('renders base 500 border color', () => {
       const testId = faker.string.uuid()
       render(
         <View
@@ -404,7 +404,7 @@ describe('@/components/view', () => {
       })
     })
 
-    it('renders BASE_600 border color', () => {
+    it('renders base 600 border color', () => {
       const testId = faker.string.uuid()
       render(
         <View
@@ -417,7 +417,7 @@ describe('@/components/view', () => {
       })
     })
 
-    it('renders BASE_700 border color', () => {
+    it('renders base 700 border color', () => {
       const testId = faker.string.uuid()
       render(
         <View
@@ -430,7 +430,7 @@ describe('@/components/view', () => {
       })
     })
 
-    it('renders BASE_800 border color', () => {
+    it('renders base 800 border color', () => {
       const testId = faker.string.uuid()
       render(
         <View
@@ -443,7 +443,7 @@ describe('@/components/view', () => {
       })
     })
 
-    it('renders BASE_900 border color', () => {
+    it('renders base 900 border color', () => {
       const testId = faker.string.uuid()
       render(
         <View
@@ -466,7 +466,7 @@ describe('@/components/view', () => {
       })
     })
 
-    it('renders BASE_100 background color', () => {
+    it('renders base 100 background color', () => {
       const testId = faker.string.uuid()
       render(
         <View
@@ -479,7 +479,7 @@ describe('@/components/view', () => {
       })
     })
 
-    it('renders BASE_200 background color', () => {
+    it('renders base 200 background color', () => {
       const testId = faker.string.uuid()
       render(
         <View
@@ -492,7 +492,7 @@ describe('@/components/view', () => {
       })
     })
 
-    it('renders BASE_300 background color', () => {
+    it('renders base 300 background color', () => {
       const testId = faker.string.uuid()
       render(
         <View
@@ -505,7 +505,7 @@ describe('@/components/view', () => {
       })
     })
 
-    it('renders BASE_400 background color', () => {
+    it('renders base 400 background color', () => {
       const testId = faker.string.uuid()
       render(
         <View
@@ -518,7 +518,7 @@ describe('@/components/view', () => {
       })
     })
 
-    it('renders BASE_500 background color', () => {
+    it('renders base 500 background color', () => {
       const testId = faker.string.uuid()
       render(
         <View
@@ -531,7 +531,7 @@ describe('@/components/view', () => {
       })
     })
 
-    it('renders BASE_600 background color', () => {
+    it('renders base 600 background color', () => {
       const testId = faker.string.uuid()
       render(
         <View
@@ -544,7 +544,7 @@ describe('@/components/view', () => {
       })
     })
 
-    it('renders BASE_700 background color', () => {
+    it('renders base 700 background color', () => {
       const testId = faker.string.uuid()
       render(
         <View
@@ -557,7 +557,7 @@ describe('@/components/view', () => {
       })
     })
 
-    it('renders BASE_800 background color', () => {
+    it('renders base 800 background color', () => {
       const testId = faker.string.uuid()
       render(
         <View
@@ -570,7 +570,7 @@ describe('@/components/view', () => {
       })
     })
 
-    it('renders BASE_900 background color', () => {
+    it('renders base 900 background color', () => {
       const testId = faker.string.uuid()
       render(
         <View

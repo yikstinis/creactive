@@ -17,7 +17,7 @@ describe('@/components/view', () => {
       expect(result.current).toEqual(undefined)
     })
 
-    it('returns SM border width style', () => {
+    it('returns small border width style', () => {
       const { result } = renderHook(() =>
         useViewBorderWidthStyle(ViewBorderWidth.SM)
       )
@@ -26,7 +26,7 @@ describe('@/components/view', () => {
       })
     })
 
-    it('returns MD border width style', () => {
+    it('returns medium border width style', () => {
       const { result } = renderHook(() =>
         useViewBorderWidthStyle(ViewBorderWidth.MD)
       )
@@ -35,7 +35,7 @@ describe('@/components/view', () => {
       })
     })
 
-    it('returns LG border width style', () => {
+    it('returns large border width style', () => {
       const { result } = renderHook(() =>
         useViewBorderWidthStyle(ViewBorderWidth.LG)
       )
@@ -53,21 +53,21 @@ describe('@/components/view', () => {
       expect(result.current).toEqual(0)
     })
 
-    it('returns SM border width token value', () => {
+    it('returns small border width token value', () => {
       const { result } = renderHook(() =>
         useViewBorderWidthTokenValue(ViewBorderWidth.SM)
       )
       expect(result.current).toEqual(0.5)
     })
 
-    it('returns MD border width token value', () => {
+    it('returns medium border width token value', () => {
       const { result } = renderHook(() =>
         useViewBorderWidthTokenValue(ViewBorderWidth.MD)
       )
       expect(result.current).toEqual(1)
     })
 
-    it('returns LG border width token value', () => {
+    it('returns large border width token value', () => {
       const { result } = renderHook(() =>
         useViewBorderWidthTokenValue(ViewBorderWidth.LG)
       )
@@ -81,7 +81,7 @@ describe('@/components/view', () => {
       expect(result.current).toEqual(undefined)
     })
 
-    it('returns XS border radius style', () => {
+    it('returns extra-small border radius style', () => {
       const { result } = renderHook(() =>
         useViewBorderRadiusStyle(ViewBorderRadius.XS)
       )
@@ -90,7 +90,7 @@ describe('@/components/view', () => {
       })
     })
 
-    it('returns SM border radius style', () => {
+    it('returns small border radius style', () => {
       const { result } = renderHook(() =>
         useViewBorderRadiusStyle(ViewBorderRadius.SM)
       )
@@ -99,7 +99,7 @@ describe('@/components/view', () => {
       })
     })
 
-    it('returns MD border radius style', () => {
+    it('returns medium border radius style', () => {
       const { result } = renderHook(() =>
         useViewBorderRadiusStyle(ViewBorderRadius.MD)
       )
@@ -108,7 +108,7 @@ describe('@/components/view', () => {
       })
     })
 
-    it('returns LG border radius style', () => {
+    it('returns large border radius style', () => {
       const { result } = renderHook(() =>
         useViewBorderRadiusStyle(ViewBorderRadius.LG)
       )
@@ -117,7 +117,7 @@ describe('@/components/view', () => {
       })
     })
 
-    it('returns XL border radius style', () => {
+    it('returns extra-large border radius style', () => {
       const { result } = renderHook(() =>
         useViewBorderRadiusStyle(ViewBorderRadius.XL)
       )
@@ -126,7 +126,7 @@ describe('@/components/view', () => {
       })
     })
 
-    it('returns MAX border radius style', () => {
+    it('returns maximum border radius style', () => {
       const { result } = renderHook(() =>
         useViewBorderRadiusStyle(ViewBorderRadius.MAX)
       )
@@ -144,42 +144,42 @@ describe('@/components/view', () => {
       expect(result.current).toEqual(undefined)
     })
 
-    it('returns XS border radius CSS value', () => {
+    it('returns extra-small border radius CSS value', () => {
       const { result } = renderHook(() =>
         useViewBorderRadiusCSSValue(ViewBorderRadius.XS)
       )
       expect(result.current).toEqual('2px')
     })
 
-    it('returns SM border radius CSS value', () => {
+    it('returns small border radius CSS value', () => {
       const { result } = renderHook(() =>
         useViewBorderRadiusCSSValue(ViewBorderRadius.SM)
       )
       expect(result.current).toEqual('4px')
     })
 
-    it('returns MD border radius CSS value', () => {
+    it('returns medium border radius CSS value', () => {
       const { result } = renderHook(() =>
         useViewBorderRadiusCSSValue(ViewBorderRadius.MD)
       )
       expect(result.current).toEqual('6px')
     })
 
-    it('returns LG border radius CSS value', () => {
+    it('returns large border radius CSS value', () => {
       const { result } = renderHook(() =>
         useViewBorderRadiusCSSValue(ViewBorderRadius.LG)
       )
       expect(result.current).toEqual('8px')
     })
 
-    it('returns XL border radius CSS value', () => {
+    it('returns extra-large border radius CSS value', () => {
       const { result } = renderHook(() =>
         useViewBorderRadiusCSSValue(ViewBorderRadius.XL)
       )
       expect(result.current).toEqual('10px')
     })
 
-    it('returns MAX border radius CSS value', () => {
+    it('returns maximum border radius CSS value', () => {
       const { result } = renderHook(() =>
         useViewBorderRadiusCSSValue(ViewBorderRadius.MAX)
       )
@@ -196,7 +196,7 @@ describe('@/components/view', () => {
       })
     })
 
-    it('renders SM border width', () => {
+    it('renders small border width', () => {
       const testId = faker.string.uuid()
       render(
         <View
@@ -209,7 +209,7 @@ describe('@/components/view', () => {
       })
     })
 
-    it('renders MD border width', () => {
+    it('renders medium border width', () => {
       const testId = faker.string.uuid()
       render(
         <View
@@ -222,7 +222,7 @@ describe('@/components/view', () => {
       })
     })
 
-    it('renders LG border width', () => {
+    it('renders large border width', () => {
       const testId = faker.string.uuid()
       render(
         <View
@@ -245,7 +245,7 @@ describe('@/components/view', () => {
       })
     })
 
-    it('renders XS border radius', () => {
+    it('renders extra-small border radius', () => {
       const testId = faker.string.uuid()
       render(
         <View
@@ -258,7 +258,7 @@ describe('@/components/view', () => {
       })
     })
 
-    it('renders SM border radius', () => {
+    it('renders small border radius', () => {
       const testId = faker.string.uuid()
       render(
         <View
@@ -271,7 +271,7 @@ describe('@/components/view', () => {
       })
     })
 
-    it('renders MD border radius', () => {
+    it('renders medium border radius', () => {
       const testId = faker.string.uuid()
       render(
         <View
@@ -284,7 +284,7 @@ describe('@/components/view', () => {
       })
     })
 
-    it('renders LG border radius', () => {
+    it('renders large border radius', () => {
       const testId = faker.string.uuid()
       render(
         <View
@@ -297,7 +297,7 @@ describe('@/components/view', () => {
       })
     })
 
-    it('renders XL border radius', () => {
+    it('renders extra-large border radius', () => {
       const testId = faker.string.uuid()
       render(
         <View
@@ -310,7 +310,7 @@ describe('@/components/view', () => {
       })
     })
 
-    it('renders MAX border radius', () => {
+    it('renders maximum border radius', () => {
       const testId = faker.string.uuid()
       render(
         <View
