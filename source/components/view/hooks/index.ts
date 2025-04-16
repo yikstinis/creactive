@@ -5,6 +5,7 @@ export {
   useViewBorderWidthTokenValue,
 } from './use-border'
 export {
+  useViewBackgroundColorCSSValue,
   useViewBackgroundColorStyle,
   useViewBorderColorCSSValue,
   useViewBorderColorStyle,

@@ -17,6 +17,7 @@ import {
   ViewTag,
 } from './constants'
 import {
+  useViewBackgroundColorCSSValue,
   useViewBorderColorCSSValue,
   useViewBorderRadiusCSSValue,
   useViewBorderWidthTokenValue,
@@ -26,7 +27,6 @@ import {
   useViewSizeValue,
   useViewSpacingTokenValue,
 } from './hooks'
-import { useViewBackgroundColorCSSValue } from './hooks/use-color'
 import type { ViewComponent } from './view.types'
 
 const View: ViewComponent = ({
