@@ -1,6 +1,6 @@
 import { StorybookControl } from '@/helpers/storybook'
 import type { Meta, StoryObj } from '@storybook/react'
-import { View } from './view'
+import { View } from '..'
 
 const tagControl = StorybookControl.fromNumericEnum(View.Tag)
 const positionControl = StorybookControl.fromNumericEnum(View.Position)

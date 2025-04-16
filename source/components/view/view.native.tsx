@@ -57,6 +57,7 @@ const viewStyleSheet = StyleSheet.create({
   },
 })
 const View: ViewComponent = ({
+  testId,
   position = ViewPosition.RELATIVE,
   top,
   left,
@@ -92,6 +93,7 @@ const View: ViewComponent = ({
 }) => {
   return (
     <ReactNativeView
+      testID={testId}
       style={[
         viewStyleSheet.default,
         useViewPositionStyle(position),

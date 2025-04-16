@@ -26,6 +26,11 @@ import type {
 
 export interface ViewProps extends PropsWithChildren {
   /**
+   * Allows to select view in tests.
+   * @default undefined
+   */
+  testId?: string
+  /**
    * Allows to control HTML tag to render.
    * Makes no sense on native platforms.
    * @see View.Tag

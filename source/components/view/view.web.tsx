@@ -30,6 +30,7 @@ import { useViewBackgroundColorCSSValue } from './hooks/use-color'
 import type { ViewComponent } from './view.types'
 
 const View: ViewComponent = ({
+  testId,
   tag = ViewTag.DIV,
   position = ViewPosition.RELATIVE,
   top,
@@ -66,6 +67,7 @@ const View: ViewComponent = ({
 }) => {
   return (
     <StyledView
+      data-testid={testId}
       as={VIEW_HTML_TAG[tag]}
       position={position}
       top={useViewPositionValue(top)}

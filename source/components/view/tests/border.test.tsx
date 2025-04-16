@@ -1,4 +1,7 @@
-import { renderHook } from '@testing-library/react-native'
+import { TestPlatfrom } from '@/utilities'
+import { faker } from '@faker-js/faker'
+import { render, renderHook, screen } from '@testing-library/react-native'
+import { View } from '..'
 import { ViewBorderRadius, ViewBorderWidth } from '../constants'
 import {
   useViewBorderRadiusCSSValue,
@@ -8,7 +11,7 @@ import {
 } from '../hooks'
 
 describe('@/components/view', () => {
-  describe('use view border width style hook', () => {
+  describe('use view border width style', () => {
     it('returns undefined border width style', () => {
       const { result } = renderHook(() => useViewBorderWidthStyle(undefined))
       expect(result.current).toEqual(undefined)
@@ -42,7 +45,7 @@ describe('@/components/view', () => {
     })
   })
 
-  describe('use view border width token value hook', () => {
+  describe('use view border width token value', () => {
     it('returns undefined border width token value', () => {
       const { result } = renderHook(() =>
         useViewBorderWidthTokenValue(undefined)
@@ -72,7 +75,7 @@ describe('@/components/view', () => {
     })
   })
 
-  describe('use view border radius style hook', () => {
+  describe('use view border radius style', () => {
     it('returns undefined border radius style', () => {
       const { result } = renderHook(() => useViewBorderRadiusStyle(undefined))
       expect(result.current).toEqual(undefined)
@@ -133,7 +136,7 @@ describe('@/components/view', () => {
     })
   })
 
-  describe('use view border radius CSS value hook', () => {
+  describe('use view border radius CSS value', () => {
     it('returns undefined border radius CSS value', () => {
       const { result } = renderHook(() =>
         useViewBorderRadiusCSSValue(undefined)
@@ -181,6 +184,127 @@ describe('@/components/view', () => {
         useViewBorderRadiusCSSValue(ViewBorderRadius.MAX)
       )
       expect(result.current).toEqual('50%')
+    })
+  })
+
+  describe('view border width', () => {
+    it('renders SM border width', () => {
+      const testId = faker.string.uuid()
+      render(
+        <View
+          testId={testId}
+          borderWidth={ViewBorderWidth.SM}
+        />
+      )
+      expect(screen.getByTestId(testId)).toHaveStyle({
+        borderWidth: 0.5,
+      })
+    })
+
+    it('renders MD border width', () => {
+      const testId = faker.string.uuid()
+      render(
+        <View
+          testId={testId}
+          borderWidth={ViewBorderWidth.MD}
+        />
+      )
+      expect(screen.getByTestId(testId)).toHaveStyle({
+        borderWidth: 1,
+      })
+    })
+
+    it('renders LG border width', () => {
+      const testId = faker.string.uuid()
+      render(
+        <View
+          testId={testId}
+          borderWidth={ViewBorderWidth.LG}
+        />
+      )
+      expect(screen.getByTestId(testId)).toHaveStyle({
+        borderWidth: 1.5,
+      })
+    })
+  })
+
+  describe('view border radius', () => {
+    it('renders XS border radius', () => {
+      const testId = faker.string.uuid()
+      render(
+        <View
+          testId={testId}
+          borderRadius={ViewBorderRadius.XS}
+        />
+      )
+      expect(screen.getByTestId(testId)).toHaveStyle({
+        borderRadius: TestPlatfrom.toPixels(2),
+      })
+    })
+
+    it('renders SM border radius', () => {
+      const testId = faker.string.uuid()
+      render(
+        <View
+          testId={testId}
+          borderRadius={ViewBorderRadius.SM}
+        />
+      )
+      expect(screen.getByTestId(testId)).toHaveStyle({
+        borderRadius: TestPlatfrom.toPixels(4),
+      })
+    })
+
+    it('renders MD border radius', () => {
+      const testId = faker.string.uuid()
+      render(
+        <View
+          testId={testId}
+          borderRadius={ViewBorderRadius.MD}
+        />
+      )
+      expect(screen.getByTestId(testId)).toHaveStyle({
+        borderRadius: TestPlatfrom.toPixels(6),
+      })
+    })
+
+    it('renders LG border radius', () => {
+      const testId = faker.string.uuid()
+      render(
+        <View
+          testId={testId}
+          borderRadius={ViewBorderRadius.LG}
+        />
+      )
+      expect(screen.getByTestId(testId)).toHaveStyle({
+        borderRadius: TestPlatfrom.toPixels(8),
+      })
+    })
+
+    it('renders XL border radius', () => {
+      const testId = faker.string.uuid()
+      render(
+        <View
+          testId={testId}
+          borderRadius={ViewBorderRadius.XL}
+        />
+      )
+      expect(screen.getByTestId(testId)).toHaveStyle({
+        borderRadius: TestPlatfrom.toPixels(10),
+      })
+    })
+
+    it('renders MAX border radius', () => {
+      const testId = faker.string.uuid()
+      render(
+        <View
+          testId={testId}
+          borderRadius={ViewBorderRadius.MAX}
+        />
+      )
+      expect(screen.getByTestId(testId)).toHaveStyle({
+        borderRadius: '50%',
+      })
     })
   })
 })

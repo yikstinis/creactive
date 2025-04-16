@@ -1,0 +1,1 @@
+export { TestPlatfrom } from './platfrom'
