@@ -188,6 +188,14 @@ describe('@/components/view', () => {
   })
 
   describe('view border width', () => {
+    it('renders undefined border width', () => {
+      const testId = faker.string.uuid()
+      render(<View testId={testId} />)
+      expect(screen.getByTestId(testId)).toHaveStyle({
+        borderWidth: 0,
+      })
+    })
+
     it('renders SM border width', () => {
       const testId = faker.string.uuid()
       render(
@@ -229,6 +237,14 @@ describe('@/components/view', () => {
   })
 
   describe('view border radius', () => {
+    it('renders undefined border radius', () => {
+      const testId = faker.string.uuid()
+      render(<View testId={testId} />)
+      expect(screen.getByTestId(testId)).toHaveStyle({
+        borderRadius: undefined,
+      })
+    })
+
     it('renders XS border radius', () => {
       const testId = faker.string.uuid()
       render(

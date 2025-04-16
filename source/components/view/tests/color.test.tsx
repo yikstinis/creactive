@@ -331,6 +331,14 @@ describe('@/components/view', () => {
   })
 
   describe('view border color', () => {
+    it('renders undefined border color', () => {
+      const testId = faker.string.uuid()
+      render(<View testId={testId} />)
+      expect(screen.getByTestId(testId)).toHaveStyle({
+        borderColor: undefined,
+      })
+    })
+
     it('renders BASE_100 border color', () => {
       const testId = faker.string.uuid()
       render(
@@ -450,6 +458,14 @@ describe('@/components/view', () => {
   })
 
   describe('view background color', () => {
+    it('renders undefined background color', () => {
+      const testId = faker.string.uuid()
+      render(<View testId={testId} />)
+      expect(screen.getByTestId(testId)).toHaveStyle({
+        backgroundColor: undefined,
+      })
+    })
+
     it('renders BASE_100 background color', () => {
       const testId = faker.string.uuid()
       render(
