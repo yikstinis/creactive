@@ -23,6 +23,7 @@ import {
   useViewBorderColorStyle,
   useViewBorderRadiusStyle,
   useViewBorderWidthStyle,
+  useViewBoxShadowStyle,
   useViewFlexDirectionStyle,
   useViewJustifyContentStyle,
   useViewMarginBottomStyle,
@@ -39,7 +40,6 @@ import {
   useViewPositionValue,
   useViewSizeValue,
 } from './hooks'
-import { useViewBoxShadowStyle } from './hooks/use-shadow'
 import type { ViewComponent } from './view.types'
 
 const viewStyleSheet = StyleSheet.create({

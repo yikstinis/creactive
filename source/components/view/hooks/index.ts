@@ -20,7 +20,7 @@ export {
 export { useViewOpacityValue } from './use-opacity'
 export { useViewOverflowStyle } from './use-overflow'
 export { useViewPositionStyle, useViewPositionValue } from './use-position'
-export { useViewBoxShadowCSSValue } from './use-shadow'
+export { useViewBoxShadowCSSValue, useViewBoxShadowStyle } from './use-shadow'
 export { useViewSizeValue } from './use-size'
 export {
   useViewMarginBottomStyle,
