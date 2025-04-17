@@ -14,25 +14,22 @@ import type { StyledViewProps } from '../view.types'
 // Leaving it here to keep all web view styles in one place.
 // It seems like a good idea, feeling no conflict with the native styling.
 
-// Position.
-const PositionStyle = {
+const POSITION_CSS_VALUE = {
   [ViewPosition.RELATIVE]: 'relative',
   [ViewPosition.ABSOLUTE]: 'absolute',
 }
 
-// Overflow.
-const OverflowStyle = {
+const OVERFLOW_CSS_VALUE = {
   [ViewOverflow.VISIBLE]: 'visible',
   [ViewOverflow.HIDDEN]: 'hidden',
 }
 
-// Flex direction.
-const FlexDirectionStyle = {
+const FLEX_DIRECTION_CSS_VALUE = {
   [ViewFlexDirection.COLUMN]: 'column',
   [ViewFlexDirection.ROW]: 'row',
 }
-// Justify content.
-const JustifyContentStyle = {
+
+const JUSTUFY_CONTENT_CSS_VALUE = {
   [ViewJustifyContent.FLEX_START]: 'flex-start',
   [ViewJustifyContent.FLEX_END]: 'flex-end',
   [ViewJustifyContent.CENTER]: 'center',
@@ -40,24 +37,24 @@ const JustifyContentStyle = {
   [ViewJustifyContent.SPACE_AROUND]: 'space-around',
   [ViewJustifyContent.SPACE_EVENLY]: 'space-evenly',
 }
-// Align items.
-const AlignItemsStyle = {
+
+const ALIGN_ITEMS_CSS_VALUE = {
   [ViewAlignItems.FLEX_START]: 'flex-start',
   [ViewAlignItems.FLEX_END]: 'flex-end',
   [ViewAlignItems.STRETCH]: 'stretch',
   [ViewAlignItems.CENTER]: 'center',
   [ViewAlignItems.BASELINE]: 'baseline',
 }
-// Align self.
-const AlignSelfStyle = {
+
+const ALIGN_SELF_CSS_VALUE = {
   [ViewAlignSelf.FLEX_START]: 'flex-start',
   [ViewAlignSelf.FLEX_END]: 'flex-end',
   [ViewAlignSelf.CENTER]: 'center',
   [ViewAlignSelf.STRETCH]: 'stretch',
   [ViewAlignSelf.BASELINE]: 'baseline',
 }
-// Align content.
-const AlignContentStyle = {
+
+const ALIGN_CONTENT_CSS_VALUE = {
   [ViewAlignContent.FLEX_START]: 'flex-start',
   [ViewAlignContent.FLEX_END]: 'flex-end',
   [ViewAlignContent.CENTER]: 'center',
@@ -76,27 +73,28 @@ export const StyledView = styled.div<StyledViewProps>`
   border-style: solid;
   text-decoration: none;
   box-sizing: border-box;
-  position: ${({ position }) => PositionStyle[position]};
+  position: ${({ position }) => POSITION_CSS_VALUE[position]};
   top: ${({ top }) => top};
   left: ${({ left }) => left};
   right: ${({ right }) => right};
   bottom: ${({ bottom }) => bottom};
   opacity: ${({ opacity }) => opacity};
-  overflow: ${({ overflow }) => OverflowStyle[overflow]};
-  flex-direction: ${({ flexDirection }) => FlexDirectionStyle[flexDirection]};
+  overflow: ${({ overflow }) => OVERFLOW_CSS_VALUE[overflow]};
+  flex-direction: ${({ flexDirection }) =>
+    FLEX_DIRECTION_CSS_VALUE[flexDirection]};
   justify-content: ${({ justifyContent }) =>
-    JustifyContentStyle[justifyContent]};
-  align-items: ${({ alignItems }) => AlignItemsStyle[alignItems]};
-  align-self: ${({ alignSelf }) => AlignSelfStyle[alignSelf]};
-  align-content: ${({ alignContent }) => AlignContentStyle[alignContent]};
-  margin-top: ${({ marginTop }) => marginTop}px;
-  padding-top: ${({ paddingTop }) => paddingTop}px;
-  margin-left: ${({ marginLeft }) => marginLeft}px;
-  padding-left: ${({ paddingLeft }) => paddingLeft}px;
-  margin-right: ${({ marginRight }) => marginRight}px;
-  padding-right: ${({ paddingRight }) => paddingRight}px;
-  margin-bottom: ${({ marginBottom }) => marginBottom}px;
-  padding-bottom: ${({ paddingBottom }) => paddingBottom}px;
+    JUSTUFY_CONTENT_CSS_VALUE[justifyContent]};
+  align-items: ${({ alignItems }) => ALIGN_ITEMS_CSS_VALUE[alignItems]};
+  align-self: ${({ alignSelf }) => ALIGN_SELF_CSS_VALUE[alignSelf]};
+  align-content: ${({ alignContent }) => ALIGN_CONTENT_CSS_VALUE[alignContent]};
+  margin-top: ${({ marginTop }) => marginTop};
+  padding-top: ${({ paddingTop }) => paddingTop};
+  margin-left: ${({ marginLeft }) => marginLeft};
+  padding-left: ${({ paddingLeft }) => paddingLeft};
+  margin-right: ${({ marginRight }) => marginRight};
+  padding-right: ${({ paddingRight }) => paddingRight};
+  margin-bottom: ${({ marginBottom }) => marginBottom};
+  padding-bottom: ${({ paddingBottom }) => paddingBottom};
   min-width: ${({ minWidth }) => minWidth};
   width: ${({ width }) => width};
   max-width: ${({ maxWidth }) => maxWidth};

@@ -31,5 +31,5 @@ export {
   useViewPaddingLeftStyle,
   useViewPaddingRightStyle,
   useViewPaddingTopStyle,
-  useViewSpacingTokenValue,
+  useViewSpacingCSSValue,
 } from './use-spacing'

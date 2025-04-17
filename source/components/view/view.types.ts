@@ -267,14 +267,14 @@ export type StyledViewProps = Pick<
   // Opacity.
   opacity?: number
   // Spacing.
-  marginTop?: number
-  paddingTop?: number
-  marginLeft?: number
-  paddingLeft?: number
-  marginRight?: number
-  paddingRight?: number
-  marginBottom?: number
-  paddingBottom?: number
+  marginTop?: string
+  paddingTop?: string
+  marginLeft?: string
+  paddingLeft?: string
+  marginRight?: string
+  paddingRight?: string
+  marginBottom?: string
+  paddingBottom?: string
   // Size.
   minWidth?: SizeValue
   width?: SizeValue

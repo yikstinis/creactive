@@ -25,7 +25,7 @@ import {
   useViewOpacityValue,
   useViewPositionValue,
   useViewSizeValue,
-  useViewSpacingTokenValue,
+  useViewSpacingCSSValue,
 } from './hooks'
 import type { ViewComponent } from './view.types'
 
@@ -81,14 +81,14 @@ const View: ViewComponent = ({
       alignItems={alignItems}
       alignSelf={alignSelf}
       alignContent={alignContent}
-      marginTop={useViewSpacingTokenValue(marginTop)}
-      paddingTop={useViewSpacingTokenValue(paddingTop)}
-      marginLeft={useViewSpacingTokenValue(marginLeft)}
-      paddingLeft={useViewSpacingTokenValue(paddingLeft)}
-      marginRight={useViewSpacingTokenValue(marginRight)}
-      paddingRight={useViewSpacingTokenValue(paddingRight)}
-      marginBottom={useViewSpacingTokenValue(marginBottom)}
-      paddingBottom={useViewSpacingTokenValue(paddingBottom)}
+      marginTop={useViewSpacingCSSValue(marginTop)}
+      paddingTop={useViewSpacingCSSValue(paddingTop)}
+      marginLeft={useViewSpacingCSSValue(marginLeft)}
+      paddingLeft={useViewSpacingCSSValue(paddingLeft)}
+      marginRight={useViewSpacingCSSValue(marginRight)}
+      paddingRight={useViewSpacingCSSValue(paddingRight)}
+      marginBottom={useViewSpacingCSSValue(marginBottom)}
+      paddingBottom={useViewSpacingCSSValue(paddingBottom)}
       minWidth={useViewSizeValue(minWidth)}
       width={useViewSizeValue(width)}
       maxWidth={useViewSizeValue(maxWidth)}
