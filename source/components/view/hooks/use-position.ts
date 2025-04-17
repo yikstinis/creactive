@@ -12,13 +12,13 @@ const viewPositionStyleSheet = StyleSheet.create({
   },
 })
 // Position native style map.
-const ViewPositionStyle = {
+const VIEW_POSITION_STYLE = {
   [ViewPosition.RELATIVE]: viewPositionStyleSheet.positionRelative,
   [ViewPosition.ABSOLUTE]: viewPositionStyleSheet.positionAbsolute,
 }
 // Position native hook.
 export const useViewPositionStyle = (position: ViewPosition) =>
-  ViewPositionStyle[position]
+  VIEW_POSITION_STYLE[position]
 
 // Safe converting to size value.
 export const useViewPositionValue = (position?: Position) => {

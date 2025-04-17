@@ -1,7 +1,7 @@
 import { StyleSheet } from 'react-native'
 import { ViewBoxShadow } from '../constants'
 
-// View box shadow mapped to CSS value.
+// Box shadow mapped to CSS value.
 const BOX_SHADOW_CSS_VALUE = {
   [ViewBoxShadow.SM]:
     '0 1px 3px 0 rgba(0,0,0,0.1), 0 1px 2px -1px rgba(0,0,0,0.1)',
@@ -11,7 +11,8 @@ const BOX_SHADOW_CSS_VALUE = {
     '0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -4px rgba(0,0,0,0.1)',
 }
 export const useViewBoxShadowCSSValue = (boxShadow?: ViewBoxShadow) =>
-  BOX_SHADOW_CSS_VALUE[boxShadow] ?? undefined
+  // Return undefined value for undefined argument.
+  BOX_SHADOW_CSS_VALUE[boxShadow]
 
 const viewBoxShadowStyleSheet = StyleSheet.create({
   boxShadowSM: {
@@ -30,4 +31,5 @@ const BOX_SHADOW_STYLE = {
   [ViewBoxShadow.LG]: viewBoxShadowStyleSheet.boxShadowLG,
 }
 export const useViewBoxShadowStyle = (boxShadow?: ViewBoxShadow) =>
-  BOX_SHADOW_STYLE[boxShadow] ?? undefined
+  // Return undefined value for undefined argument.
+  BOX_SHADOW_STYLE[boxShadow]

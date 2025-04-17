@@ -11,10 +11,10 @@ const viewOverflowStyleSheet = StyleSheet.create({
   },
 })
 // Ovefloww native style map.
-const ViewOverflowStyle = {
+const OVERFLOW_STYLE = {
   [ViewOverflow.VISIBLE]: viewOverflowStyleSheet.overflowVisible,
   [ViewOverflow.HIDDEN]: viewOverflowStyleSheet.overflowHidden,
 }
 // Overflow native hook.
 export const useViewOverflowStyle = (overflow: ViewOverflow) =>
-  ViewOverflowStyle[overflow]
+  OVERFLOW_STYLE[overflow]
