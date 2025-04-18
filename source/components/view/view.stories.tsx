@@ -36,6 +36,16 @@ const maxHeightControl = StorybookControl.forSize()
 const boxShadowControl = StorybookControl.fromNumericEnum(View.BoxShadow)
 const borderColorControl = StorybookControl.fromNumericEnum(View.BorderColor)
 const borderWidthControl = StorybookControl.fromNumericEnum(View.BorderWidth)
+const borderWidthTopControl = StorybookControl.fromNumericEnum(View.BorderWidth)
+const borderWidthLeftControl = StorybookControl.fromNumericEnum(
+  View.BorderWidth
+)
+const borderWidthRightControl = StorybookControl.fromNumericEnum(
+  View.BorderWidth
+)
+const borderWidthBottomControl = StorybookControl.fromNumericEnum(
+  View.BorderWidth
+)
 const borderRadiusControl = StorybookControl.fromNumericEnum(View.BorderRadius)
 const backgroundColorControl = StorybookControl.fromNumericEnum(
   View.BackgroundColor
@@ -75,6 +85,10 @@ const meta: Meta<typeof View> = {
     boxShadow: boxShadowControl,
     borderColor: borderColorControl,
     borderWidth: borderWidthControl,
+    borderWidthTop: borderWidthTopControl,
+    borderWidthLeft: borderWidthLeftControl,
+    borderWidthRight: borderWidthRightControl,
+    borderWidthBottom: borderWidthBottomControl,
     borderRadius: borderRadiusControl,
     backgroundColor: backgroundColorControl,
   },
@@ -109,6 +123,10 @@ const meta: Meta<typeof View> = {
     boxShadow: boxShadowControl.defaultValue,
     borderColor: borderColorControl.defaultValue,
     borderWidth: borderWidthControl.defaultValue,
+    borderWidthTop: borderWidthTopControl.defaultValue,
+    borderWidthLeft: borderWidthLeftControl.defaultValue,
+    borderWidthRight: borderWidthRightControl.defaultValue,
+    borderWidthBottom: borderWidthBottomControl.defaultValue,
     borderRadius: borderRadiusControl.defaultValue,
     backgroundColor: backgroundColorControl.defaultValue,
   },

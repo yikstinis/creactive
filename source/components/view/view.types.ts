@@ -220,6 +220,30 @@ export interface ViewProps extends PropsWithChildren {
    */
   borderWidth?: ViewBorderWidth
   /**
+   * View border top width.
+   * @see View.BorderWidth
+   * @default undefined
+   */
+  borderWidthTop?: ViewBorderWidth
+  /**
+   * View border left width.
+   * @see View.BorderWidth
+   * @default undefined
+   */
+  borderWidthLeft?: ViewBorderWidth
+  /**
+   * View border right width.
+   * @see View.BorderWidth
+   * @default undefined
+   */
+  borderWidthRight?: ViewBorderWidth
+  /**
+   * View border bottom width.
+   * @see View.BorderWidth
+   * @default undefined
+   */
+  borderWidthBottom?: ViewBorderWidth
+  /**
    * View border radius.
    * @see View.BorderRadius
    * @default undefined
@@ -286,7 +310,11 @@ export type StyledViewProps = Pick<
   boxShadow?: string
   // Border.
   borderColor?: Color
-  borderWidth?: number
+  borderWidth: string
+  borderWidthTop?: string
+  borderWidthLeft?: string
+  borderWidthRight?: string
+  borderWidthBottom?: string
   borderRadius?: `${number}px` | '50%'
   // Color.
   backgroundColor?: Color

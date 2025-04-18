@@ -14,6 +14,30 @@ export const VIEW_THEME_BORDER_WIDTH_KEY = {
   [ViewBorderWidth.MD]: 'borderWidthBaseMD' as const,
   [ViewBorderWidth.LG]: 'borderWidthBaseLG' as const,
 }
+// Theme border top width style key map.
+export const VIEW_THEME_BORDER_WIDTH_TOP_STYLE_KEY = {
+  [ViewBorderWidth.SM]: 'borderWidthTopBaseSM' as const,
+  [ViewBorderWidth.MD]: 'borderWidthTopBaseMD' as const,
+  [ViewBorderWidth.LG]: 'borderWidthTopBaseLG' as const,
+}
+// Theme border left width style key map.
+export const VIEW_THEME_BORDER_WIDTH_LEFT_STYLE_KEY = {
+  [ViewBorderWidth.SM]: 'borderWidthLeftBaseSM' as const,
+  [ViewBorderWidth.MD]: 'borderWidthLeftBaseMD' as const,
+  [ViewBorderWidth.LG]: 'borderWidthLeftBaseLG' as const,
+}
+// Theme border right width style key map.
+export const VIEW_THEME_BORDER_WIDTH_RIGHT_STYLE_KEY = {
+  [ViewBorderWidth.SM]: 'borderWidthRightBaseSM' as const,
+  [ViewBorderWidth.MD]: 'borderWidthRightBaseMD' as const,
+  [ViewBorderWidth.LG]: 'borderWidthRightBaseLG' as const,
+}
+// Theme border bottom width style key map.
+export const VIEW_THEME_BORDER_WIDTH_BOTTOM_STYLE_KEY = {
+  [ViewBorderWidth.SM]: 'borderWidthBottomBaseSM' as const,
+  [ViewBorderWidth.MD]: 'borderWidthBottomBaseMD' as const,
+  [ViewBorderWidth.LG]: 'borderWidthBottomBaseLG' as const,
+}
 
 /**
  * View component supported border radius enumerated constants.

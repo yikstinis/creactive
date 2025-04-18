@@ -103,7 +103,11 @@ export const StyledView = styled.div<StyledViewProps>`
   max-height: ${({ maxHeight }) => maxHeight};
   box-shadow: ${({ boxShadow }) => boxShadow};
   border-color: ${({ borderColor }) => borderColor};
-  border-width: ${({ borderWidth }) => borderWidth}px;
+  border-width: ${({ borderWidth }) => borderWidth};
+  border-top-width: ${({ borderWidthTop }) => borderWidthTop};
+  border-left-width: ${({ borderWidthLeft }) => borderWidthLeft};
+  border-right-width: ${({ borderWidthRight }) => borderWidthRight};
+  border-bottom-width: ${({ borderWidthBottom }) => borderWidthBottom};
   border-radius: ${({ borderRadius }) => borderRadius};
   background-color: ${({ backgroundColor }) => backgroundColor};
 `

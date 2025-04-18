@@ -53,6 +53,202 @@ describe('@/components/view', () => {
     })
   })
 
+  describe('view border width top', () => {
+    it('renders undefined border width top', () => {
+      const testId = faker.string.uuid()
+      render(<View testId={testId} />)
+      expect(screen.getByTestId(testId)).toHaveStyle({
+        borderTopWidth: undefined,
+      })
+    })
+
+    it('renders small border width top', () => {
+      const testId = faker.string.uuid()
+      render(
+        <View
+          testId={testId}
+          borderWidthTop={View.BorderWidth.SM}
+        />
+      )
+      expect(screen.getByTestId(testId)).toHaveStyle({
+        borderTopWidth: 0.5,
+      })
+    })
+
+    it('renders medium border width top', () => {
+      const testId = faker.string.uuid()
+      render(
+        <View
+          testId={testId}
+          borderWidthTop={View.BorderWidth.MD}
+        />
+      )
+      expect(screen.getByTestId(testId)).toHaveStyle({
+        borderTopWidth: 1,
+      })
+    })
+
+    it('renders large border width top', () => {
+      const testId = faker.string.uuid()
+      render(
+        <View
+          testId={testId}
+          borderWidthTop={View.BorderWidth.LG}
+        />
+      )
+      expect(screen.getByTestId(testId)).toHaveStyle({
+        borderTopWidth: 1.5,
+      })
+    })
+  })
+
+  describe('view border width left', () => {
+    it('renders undefined border width left', () => {
+      const testId = faker.string.uuid()
+      render(<View testId={testId} />)
+      expect(screen.getByTestId(testId)).toHaveStyle({
+        borderLeftWidth: undefined,
+      })
+    })
+
+    it('renders small border width left', () => {
+      const testId = faker.string.uuid()
+      render(
+        <View
+          testId={testId}
+          borderWidthLeft={View.BorderWidth.SM}
+        />
+      )
+      expect(screen.getByTestId(testId)).toHaveStyle({
+        borderLeftWidth: 0.5,
+      })
+    })
+
+    it('renders medium border width left', () => {
+      const testId = faker.string.uuid()
+      render(
+        <View
+          testId={testId}
+          borderWidthLeft={View.BorderWidth.MD}
+        />
+      )
+      expect(screen.getByTestId(testId)).toHaveStyle({
+        borderLeftWidth: 1,
+      })
+    })
+
+    it('renders large border width left', () => {
+      const testId = faker.string.uuid()
+      render(
+        <View
+          testId={testId}
+          borderWidthLeft={View.BorderWidth.LG}
+        />
+      )
+      expect(screen.getByTestId(testId)).toHaveStyle({
+        borderLeftWidth: 1.5,
+      })
+    })
+  })
+
+  describe('view border width right', () => {
+    it('renders undefined border width right', () => {
+      const testId = faker.string.uuid()
+      render(<View testId={testId} />)
+      expect(screen.getByTestId(testId)).toHaveStyle({
+        borderRightWidth: undefined,
+      })
+    })
+
+    it('renders small border width right', () => {
+      const testId = faker.string.uuid()
+      render(
+        <View
+          testId={testId}
+          borderWidthRight={View.BorderWidth.SM}
+        />
+      )
+      expect(screen.getByTestId(testId)).toHaveStyle({
+        borderRightWidth: 0.5,
+      })
+    })
+
+    it('renders medium border width right', () => {
+      const testId = faker.string.uuid()
+      render(
+        <View
+          testId={testId}
+          borderWidthRight={View.BorderWidth.MD}
+        />
+      )
+      expect(screen.getByTestId(testId)).toHaveStyle({
+        borderRightWidth: 1,
+      })
+    })
+
+    it('renders large border width right', () => {
+      const testId = faker.string.uuid()
+      render(
+        <View
+          testId={testId}
+          borderWidthRight={View.BorderWidth.LG}
+        />
+      )
+      expect(screen.getByTestId(testId)).toHaveStyle({
+        borderRightWidth: 1.5,
+      })
+    })
+  })
+
+  describe('view border width bottom', () => {
+    it('renders undefined border width bottom', () => {
+      const testId = faker.string.uuid()
+      render(<View testId={testId} />)
+      expect(screen.getByTestId(testId)).toHaveStyle({
+        borderBottomWidth: undefined,
+      })
+    })
+
+    it('renders small border width bottom', () => {
+      const testId = faker.string.uuid()
+      render(
+        <View
+          testId={testId}
+          borderWidthBottom={View.BorderWidth.SM}
+        />
+      )
+      expect(screen.getByTestId(testId)).toHaveStyle({
+        borderBottomWidth: 0.5,
+      })
+    })
+
+    it('renders medium border width bottom', () => {
+      const testId = faker.string.uuid()
+      render(
+        <View
+          testId={testId}
+          borderWidthBottom={View.BorderWidth.MD}
+        />
+      )
+      expect(screen.getByTestId(testId)).toHaveStyle({
+        borderBottomWidth: 1,
+      })
+    })
+
+    it('renders large border width bottom', () => {
+      const testId = faker.string.uuid()
+      render(
+        <View
+          testId={testId}
+          borderWidthBottom={View.BorderWidth.LG}
+        />
+      )
+      expect(screen.getByTestId(testId)).toHaveStyle({
+        borderBottomWidth: 1.5,
+      })
+    })
+  })
+
   describe('view border radius', () => {
     it('renders undefined border radius', () => {
       const testId = faker.string.uuid()

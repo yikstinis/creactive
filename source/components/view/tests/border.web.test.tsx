@@ -2,37 +2,35 @@ import { renderHook } from '@testing-library/react-native'
 import { ViewBorderRadius, ViewBorderWidth } from '../constants'
 import {
   useViewBorderRadiusCSSValue,
-  useViewBorderWidthTokenValue,
+  useViewBorderWidthCSSValue,
 } from '../hooks'
 
 describe('@/components/view', () => {
-  describe('use view border width token value', () => {
-    it('returns undefined border width token value', () => {
-      const { result } = renderHook(() =>
-        useViewBorderWidthTokenValue(undefined)
-      )
-      expect(result.current).toEqual(0)
+  describe('use view border width css value', () => {
+    it('returns undefined border width css value', () => {
+      const { result } = renderHook(() => useViewBorderWidthCSSValue(undefined))
+      expect(result.current).toEqual('0px')
     })
 
     it('returns small border width token value', () => {
       const { result } = renderHook(() =>
-        useViewBorderWidthTokenValue(ViewBorderWidth.SM)
+        useViewBorderWidthCSSValue(ViewBorderWidth.SM)
       )
-      expect(result.current).toEqual(0.5)
+      expect(result.current).toEqual('0.5px')
     })
 
     it('returns medium border width token value', () => {
       const { result } = renderHook(() =>
-        useViewBorderWidthTokenValue(ViewBorderWidth.MD)
+        useViewBorderWidthCSSValue(ViewBorderWidth.MD)
       )
-      expect(result.current).toEqual(1)
+      expect(result.current).toEqual('1px')
     })
 
     it('returns large border width token value', () => {
       const { result } = renderHook(() =>
-        useViewBorderWidthTokenValue(ViewBorderWidth.LG)
+        useViewBorderWidthCSSValue(ViewBorderWidth.LG)
       )
-      expect(result.current).toEqual(1.5)
+      expect(result.current).toEqual('1.5px')
     })
   })
 

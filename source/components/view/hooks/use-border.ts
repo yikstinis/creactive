@@ -2,17 +2,51 @@ import { useThemeContext, useThemeStyleSheet } from '@/contexts'
 import { StyleSheet } from 'react-native'
 import {
   VIEW_THEME_BORDER_RADIUS_KEY,
+  VIEW_THEME_BORDER_WIDTH_BOTTOM_STYLE_KEY,
   VIEW_THEME_BORDER_WIDTH_KEY,
+  VIEW_THEME_BORDER_WIDTH_LEFT_STYLE_KEY,
+  VIEW_THEME_BORDER_WIDTH_RIGHT_STYLE_KEY,
+  VIEW_THEME_BORDER_WIDTH_TOP_STYLE_KEY,
   ViewBorderRadius,
   ViewBorderWidth,
 } from '../constants'
 
 // Border width style.
 export const useViewBorderWidthStyle = (borderWidth?: ViewBorderWidth) =>
-  useThemeStyleSheet()[VIEW_THEME_BORDER_WIDTH_KEY[borderWidth]]
-// Border widht token value.
-export const useViewBorderWidthTokenValue = (borderWidth?: ViewBorderWidth) =>
-  useThemeContext()[VIEW_THEME_BORDER_WIDTH_KEY[borderWidth]] ?? 0
+  useThemeStyleSheet()[VIEW_THEME_BORDER_WIDTH_KEY[borderWidth]] ?? {
+    borderWidth: 0,
+  }
+// Border width top style.
+export const useViewBorderWidthTopStyle = (borderWidth?: ViewBorderWidth) =>
+  useThemeStyleSheet()[VIEW_THEME_BORDER_WIDTH_TOP_STYLE_KEY[borderWidth]] ?? {
+    borderTopWidth: undefined,
+  }
+// Border width left style.
+export const useViewBorderWidthLeftStyle = (borderWidth?: ViewBorderWidth) =>
+  useThemeStyleSheet()[VIEW_THEME_BORDER_WIDTH_LEFT_STYLE_KEY[borderWidth]] ?? {
+    borderLeftWidth: undefined,
+  }
+// Border width right style.
+export const useViewBorderWidthRightStyle = (borderWidth?: ViewBorderWidth) =>
+  useThemeStyleSheet()[
+    VIEW_THEME_BORDER_WIDTH_RIGHT_STYLE_KEY[borderWidth]
+  ] ?? {
+    borderRightWidth: undefined,
+  }
+// Border width bottom style.
+export const useViewBorderWidthBottomStyle = (borderWidth?: ViewBorderWidth) =>
+  useThemeStyleSheet()[
+    VIEW_THEME_BORDER_WIDTH_BOTTOM_STYLE_KEY[borderWidth]
+  ] ?? {
+    borderBottomWidth: undefined,
+  }
+
+// Border width token value.
+export const useViewBorderWidthCSSValue = (borderWidth?: ViewBorderWidth) => {
+  const themeContext = useThemeContext()
+  if (borderWidth === undefined) return '0px'
+  return `${themeContext[VIEW_THEME_BORDER_WIDTH_KEY[borderWidth]]}px`
+}
 
 // Non-themed border style.
 const viewBorderStyleSheet = StyleSheet.create({

@@ -557,6 +557,42 @@ export const useThemeStyleSheet = () => {
         borderWidthBaseLG: {
           borderWidth: themeContext.borderWidthBaseLG,
         },
+        borderWidthTopBaseSM: {
+          borderTopWidth: themeContext.borderWidthBaseSM,
+        },
+        borderWidthTopBaseMD: {
+          borderTopWidth: themeContext.borderWidthBaseMD,
+        },
+        borderWidthTopBaseLG: {
+          borderTopWidth: themeContext.borderWidthBaseLG,
+        },
+        borderWidthLeftBaseSM: {
+          borderLeftWidth: themeContext.borderWidthBaseSM,
+        },
+        borderWidthLeftBaseMD: {
+          borderLeftWidth: themeContext.borderWidthBaseMD,
+        },
+        borderWidthLeftBaseLG: {
+          borderLeftWidth: themeContext.borderWidthBaseLG,
+        },
+        borderWidthRightBaseSM: {
+          borderRightWidth: themeContext.borderWidthBaseSM,
+        },
+        borderWidthRightBaseMD: {
+          borderRightWidth: themeContext.borderWidthBaseMD,
+        },
+        borderWidthRightBaseLG: {
+          borderRightWidth: themeContext.borderWidthBaseLG,
+        },
+        borderWidthBottomBaseSM: {
+          borderBottomWidth: themeContext.borderWidthBaseSM,
+        },
+        borderWidthBottomBaseMD: {
+          borderBottomWidth: themeContext.borderWidthBaseMD,
+        },
+        borderWidthBottomBaseLG: {
+          borderBottomWidth: themeContext.borderWidthBaseLG,
+        },
         // Base border radiuses.
         borderRadiusBaseXS: {
           borderRadius: themeContext.borderRadiusBaseXS,

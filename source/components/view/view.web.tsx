@@ -20,7 +20,7 @@ import {
   useViewBackgroundColorCSSValue,
   useViewBorderColorCSSValue,
   useViewBorderRadiusCSSValue,
-  useViewBorderWidthTokenValue,
+  useViewBorderWidthCSSValue,
   useViewBoxShadowCSSValue,
   useViewOpacityValue,
   useViewPositionValue,
@@ -61,6 +61,10 @@ const View: ViewComponent = ({
   boxShadow,
   borderColor,
   borderWidth,
+  borderWidthTop,
+  borderWidthLeft,
+  borderWidthRight,
+  borderWidthBottom,
   borderRadius,
   backgroundColor,
   children,
@@ -97,7 +101,11 @@ const View: ViewComponent = ({
       maxHeight={useViewSizeValue(maxHeight)}
       boxShadow={useViewBoxShadowCSSValue(boxShadow)}
       borderColor={useViewBorderColorCSSValue(borderColor)}
-      borderWidth={useViewBorderWidthTokenValue(borderWidth)}
+      borderWidth={useViewBorderWidthCSSValue(borderWidth)}
+      borderWidthTop={useViewBorderWidthCSSValue(borderWidthTop)}
+      borderWidthLeft={useViewBorderWidthCSSValue(borderWidthLeft)}
+      borderWidthRight={useViewBorderWidthCSSValue(borderWidthRight)}
+      borderWidthBottom={useViewBorderWidthCSSValue(borderWidthBottom)}
       borderRadius={useViewBorderRadiusCSSValue(borderRadius)}
       backgroundColor={useViewBackgroundColorCSSValue(backgroundColor)}
     >

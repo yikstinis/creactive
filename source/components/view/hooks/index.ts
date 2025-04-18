@@ -1,8 +1,12 @@
 export {
   useViewBorderRadiusCSSValue,
   useViewBorderRadiusStyle,
+  useViewBorderWidthBottomStyle,
+  useViewBorderWidthCSSValue,
+  useViewBorderWidthLeftStyle,
+  useViewBorderWidthRightStyle,
   useViewBorderWidthStyle,
-  useViewBorderWidthTokenValue,
+  useViewBorderWidthTopStyle,
 } from './use-border'
 export {
   useViewBackgroundColorCSSValue,
