@@ -4,29 +4,9 @@ import { faker } from '@faker-js/faker'
 import { render, renderHook, screen } from '@testing-library/react-native'
 import { View } from '..'
 import { ViewPosition } from '../constants'
-import { useViewPositionStyle, useViewPositionValue } from '../hooks'
+import { useViewPositionValue } from '../hooks'
 
 describe('@/components/view', () => {
-  describe('use view position style', () => {
-    it('returns relative position style', () => {
-      const { result } = renderHook(() =>
-        useViewPositionStyle(ViewPosition.RELATIVE)
-      )
-      expect(result.current).toEqual({
-        position: 'relative',
-      })
-    })
-
-    it('returns absolute position style', () => {
-      const { result } = renderHook(() =>
-        useViewPositionStyle(ViewPosition.ABSOLUTE)
-      )
-      expect(result.current).toEqual({
-        position: 'absolute',
-      })
-    })
-  })
-
   describe('use view position value', () => {
     it('returns undefined position value', () => {
       const { result } = renderHook(() => useViewPositionValue())
