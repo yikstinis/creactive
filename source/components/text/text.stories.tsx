@@ -1,4 +1,4 @@
-import { StorybookControl } from '@/helpers/storybook'
+import { StorybookControl } from '@/utilities'
 import type { Meta, StoryObj } from '@storybook/react'
 import { Text } from './text'
 

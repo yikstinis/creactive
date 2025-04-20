@@ -1,7 +1,6 @@
 /**
  * Storybook control type enum for control helper.
  * Should be used to build control instead of literal values.
- * Feel free to extend this enum with new control types if required.
  */
 export const enum StorybookControlType {
   SELECT = 'select',
@@ -9,13 +8,10 @@ export const enum StorybookControlType {
   NUMBER = 'number',
 }
 
-/**
- * Storybook control undefined option.
- * Optional enum controls are supposed to have undefined value option.
- * This option is supposed to be mapped to undefined value in control mapping.
- */
+// Undefined control option.
 export const STORYBOOK_CONTROL_UNDEFINED_OPTION = '-'
 
+// Flags to identify specific control in modifier.
 export const STORYBOOK_CONTROL_NUMERIC_ENUM_FLAG =
   'IS_STORYBOOK_CONTROL_NUMERIC_ENUM_CONTROL'
 export const STORYBOOK_CONTROL_POSITION_FLAG =

@@ -3,7 +3,6 @@ import { Position } from '@/helpers/position'
 import { Size } from '@/helpers/size'
 import { faker } from '@faker-js/faker'
 import type { Decorator, StoryContext } from '@storybook/react'
-import { renderLayout } from './components'
 import {
   STORYBOOK_CONTROL_NUMERIC_ENUM_FLAG,
   STORYBOOK_CONTROL_OPACITY_FLAG,
@@ -12,6 +11,7 @@ import {
   STORYBOOK_CONTROL_UNDEFINED_OPTION,
   StorybookControlType,
 } from './constants'
+import { renderLayout } from './helpers'
 
 export const modifyContext = (context: StoryContext) => {
   const args = {
@@ -66,7 +66,7 @@ export const modifyContext = (context: StoryContext) => {
 }
 
 /**
- * Storybook control helpers.
+ * Storybook control utilities.
  * Collected into a single class for convenient import.
  * Helps to build storybook control objects for components stories.
  */
