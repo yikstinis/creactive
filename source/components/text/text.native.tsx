@@ -24,7 +24,6 @@ const textStyleSheet = StyleSheet.create({
     display: 'inline',
     margin: 0,
     padding: 0,
-    zIndex: 0,
     position: 'static',
     listStyle: 'none',
     borderStyle: 'solid',
