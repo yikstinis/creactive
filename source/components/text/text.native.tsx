@@ -1,0 +1,73 @@
+import { Text as ReactNativeText, StyleSheet } from 'react-native'
+import {
+  TextAlign,
+  TextColor,
+  TextFontSize,
+  TextFontWeight,
+  TextLineHeight,
+  TextTag,
+} from './constants'
+import { getLineHeightStyleSheet } from './helpers'
+import {
+  useTextAlignStyle,
+  useTextColorStyle,
+  useTextFontSizeStyle,
+  useTextFontSizeTokenValue,
+  useTextFontWeightStyle,
+  useTextFountFamilyStyle,
+  useTextLineHeightTokenValue,
+} from './hooks'
+import type { TextComponent } from './text.types'
+
+const textStyleSheet = StyleSheet.create({
+  default: {
+    display: 'inline',
+    margin: 0,
+    padding: 0,
+    zIndex: 0,
+    position: 'relative',
+    listStyle: 'none',
+    borderStyle: 'solid',
+    boxSizing: 'border-box',
+    textDecoration: 'none',
+    whiteSpace: 'pre-wrap',
+    overflowWrap: 'break-word',
+    borderWidth: 0,
+  },
+})
+const Text: TextComponent = ({
+  align = TextAlign.LEFT,
+  fontWeight = TextFontWeight.REGULAR,
+  fontSize = TextFontSize.MD,
+  lineHeight = TextLineHeight.NORMAL,
+  maxLines,
+  color = TextColor.BASE_800,
+  children,
+}) => {
+  return (
+    <ReactNativeText
+      style={[
+        textStyleSheet.default,
+        useTextAlignStyle(align),
+        useTextFountFamilyStyle(),
+        useTextFontWeightStyle(fontWeight),
+        useTextFontSizeStyle(fontSize),
+        getLineHeightStyleSheet(
+          useTextFontSizeTokenValue(fontSize),
+          useTextLineHeightTokenValue(lineHeight)
+        ),
+        useTextColorStyle(color),
+      ]}
+      numberOfLines={maxLines}
+    >
+      {children}
+    </ReactNativeText>
+  )
+}
+Text.Tag = TextTag
+Text.Align = TextAlign
+Text.FontWeight = TextFontWeight
+Text.FontSize = TextFontSize
+Text.LineHeight = TextLineHeight
+Text.Color = TextColor
+export default Text

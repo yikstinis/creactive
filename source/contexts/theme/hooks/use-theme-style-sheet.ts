@@ -143,8 +143,8 @@ export const useThemeStyleSheet = () => {
         fontWeightBaseMedium: {
           fontWeight: themeContext.fontWeightBaseMedium,
         },
-        fontWeightBaseSemibold: {
-          fontWeight: themeContext.fontWeightBaseSemibold,
+        fontWeightBaseSemiBold: {
+          fontWeight: themeContext.fontWeightBaseSemiBold,
         },
         fontWeightBaseBold: {
           fontWeight: themeContext.fontWeightBaseBold,

@@ -142,7 +142,7 @@ const ThemeContext = createContext<ThemeContextValue>({
   fontWeightBaseLight: FONT_WEIGHT_BASE_LIGHT,
   fontWeightBaseRegular: FONT_WEIGHT_BASE_REGULAR,
   fontWeightBaseMedium: FONT_WEIGHT_BASE_MEDIUM,
-  fontWeightBaseSemibold: FONT_WEIGHT_BASE_SEMIBOLD,
+  fontWeightBaseSemiBold: FONT_WEIGHT_BASE_SEMIBOLD,
   fontWeightBaseBold: FONT_WEIGHT_BASE_BOLD,
   fontWeightBaseExtraBold: FONT_WEIGHT_BASE_EXTRABOLD,
   fontWeightBaseBlack: FONT_WEIGHT_BASE_BLACK,
@@ -241,7 +241,7 @@ export const ThemeContextProvider: ThemeContextProviderComponent = ({
   fontWeightBaseLight,
   fontWeightBaseRegular,
   fontWeightBaseMedium,
-  fontWeightBaseSemibold,
+  fontWeightBaseSemiBold,
   fontWeightBaseBold,
   fontWeightBaseExtraBold,
   fontWeightBaseBlack,
@@ -373,8 +373,8 @@ export const ThemeContextProvider: ThemeContextProviderComponent = ({
       fontWeightBaseLight: fontWeightBaseLight ?? FONT_WEIGHT_BASE_LIGHT,
       fontWeightBaseRegular: fontWeightBaseRegular ?? FONT_WEIGHT_BASE_REGULAR,
       fontWeightBaseMedium: fontWeightBaseMedium ?? FONT_WEIGHT_BASE_MEDIUM,
-      fontWeightBaseSemibold:
-        fontWeightBaseSemibold ?? FONT_WEIGHT_BASE_SEMIBOLD,
+      fontWeightBaseSemiBold:
+        fontWeightBaseSemiBold ?? FONT_WEIGHT_BASE_SEMIBOLD,
       fontWeightBaseBold: fontWeightBaseBold ?? FONT_WEIGHT_BASE_BOLD,
       fontWeightBaseExtraBold:
         fontWeightBaseExtraBold ?? FONT_WEIGHT_BASE_EXTRABOLD,
@@ -473,7 +473,7 @@ export const ThemeContextProvider: ThemeContextProviderComponent = ({
       fontWeightBaseLight,
       fontWeightBaseRegular,
       fontWeightBaseMedium,
-      fontWeightBaseSemibold,
+      fontWeightBaseSemiBold,
       fontWeightBaseBold,
       fontWeightBaseExtraBold,
       fontWeightBaseBlack,

@@ -233,7 +233,7 @@ export interface ThemeContextValue {
    * @see FONT_WEIGHT_BASE_SEMIBOLD
    * @default 600
    */
-  fontWeightBaseSemibold: FontWeight
+  fontWeightBaseSemiBold: FontWeight
   /**
    * Base bold font weight.
    * @see FONT_WEIGHT_BASE_BOLD
@@ -352,7 +352,7 @@ export interface ThemeContextValue {
   lineHeightBaseLoose: number
 
   /**
-   * Base 6 times extra-small spacing.
+   * Base f spacing.
    * @see SPACING_BASE_X6S
    * @default 2
    */

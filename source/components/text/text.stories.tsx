@@ -1,8 +1,8 @@
 import { StorybookControl } from '@/utilities'
 import type { Meta, StoryObj } from '@storybook/react'
-import { Text } from './text'
+import { Text } from '..'
 
-const typeControl = StorybookControl.fromNumericEnum(Text.Type)
+const tagControl = StorybookControl.fromNumericEnum(Text.Tag)
 const alignControl = StorybookControl.fromNumericEnum(Text.Align)
 const fontWeightControl = StorybookControl.fromNumericEnum(Text.FontWeight)
 const fontSizeControl = StorybookControl.fromNumericEnum(Text.FontSize)
@@ -15,7 +15,7 @@ const meta: Meta<typeof Text> = {
   component: Text,
   decorators: [StorybookControl.getDecorator()],
   argTypes: {
-    type: typeControl,
+    tag: tagControl,
     align: alignControl,
     fontWeight: fontWeightControl,
     fontSize: fontSizeControl,
@@ -25,7 +25,7 @@ const meta: Meta<typeof Text> = {
     children: childrenControl,
   },
   args: {
-    type: typeControl.defaultValue,
+    tag: tagControl.defaultValue,
     align: alignControl.defaultValue,
     fontWeight: fontWeightControl.defaultValue,
     fontSize: fontSizeControl.defaultValue,

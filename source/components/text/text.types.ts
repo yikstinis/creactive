@@ -1,3 +1,4 @@
+import type { Color, FontWeight } from '@/types'
 import type { FunctionComponent, PropsWithChildren } from 'react'
 import type {
   TextAlign,
@@ -5,63 +6,66 @@ import type {
   TextFontSize,
   TextFontWeight,
   TextLineHeight,
-  TextType,
+  TextTag,
 } from './constants'
 
 export interface TextProps extends PropsWithChildren {
   /**
-   * Specific text type if required.
-   * Affects appearance, accessibility and semantics.
-   * Allows to control HTML element, that will be to rendered.
+   * Allows to control HTML tag to render.
+   * Makes no sense on native platforms.
+   * @see Text.Tag
    * @default undefined - renders into DIV element
    */
-  type?: TextType
+  tag?: TextTag
   /**
-   * Text component align control property.
    * Inner text will be aligned according to this value.
+   * @see Text.Align
    * @default Text.Align.LEFT
    */
   align?: TextAlign
   /**
-   * Font weight property.
-   * Changes font weight, depending on theme.
-   * Uses base font weight tokens for mapping.
+   * Themed font weight.
+   * @see Text.FontWeight
    * @default Text.FontWeight.REGULAR
    */
   fontWeight?: TextFontWeight
   /**
-   * Specific text size if required.
-   * Will change text size, depending on theme.
-   * Uses base font size tokens for mapping.
+   * Themed font size.
+   * @see Text.FontSize
    * @default Text.FontSize.MD
    */
   fontSize?: TextFontSize
   /**
-   * Text line height property.
-   * Depends on configured theme token.
-   * Calculates using base font size and base line height ratio.
-   * @default Text.LineHeight.NONE
+   * Themed line heidht.
+   * @see Text.LineHeight
+   * @default Text.LineHeight.NORMAL
    */
   lineHeight?: TextLineHeight
   /**
-   * Limiting text lines count.
-   * Text will be truncated with an ellipsis after specified lines count.
+   * Maximum number of lines to display.
    * @default undefined
    */
   maxLines?: number
   /**
-   * Specifying text color property.
-   * Allows to change color, depending on theme.
-   * Theme independent colors and values may be also available.
+   * Themed or transparent color.
+   * @see Text.Color
    * @default Text.Color.BASE_800
    */
   color?: TextColor
 }
 export type TextComponent = FunctionComponent<TextProps> & {
-  Type: Record<keyof typeof TextType, TextType>
+  Tag: Record<keyof typeof TextTag, TextTag>
   Align: Record<keyof typeof TextAlign, TextAlign>
   FontWeight: Record<keyof typeof TextFontWeight, TextFontWeight>
   FontSize: Record<keyof typeof TextFontSize, TextFontSize>
   LineHeight: Record<keyof typeof TextLineHeight, TextLineHeight>
   Color: Record<keyof typeof TextColor, TextColor>
+}
+// For web version styled component.
+export type StyledTextrops = Pick<TextProps, 'align' | 'maxLines'> & {
+  fontFamily: string
+  fontWeight: FontWeight
+  fontSize: number
+  lineHeight: number
+  color: Color | 'transparent'
 }

@@ -202,7 +202,10 @@ export interface ViewProps extends PropsWithChildren {
    */
   maxHeight?: Size
   /**
-   * View box shadow.
+   * View component box shadow.
+   * React Native's "New Architecture" is required on native.
+   * @see https://reactnative.dev/architecture/landing-page
+   * @see https://docs.expo.dev/guides/new-architecture/
    * @see View.BoxShadow
    * @default undefined
    */
