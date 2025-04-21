@@ -25,7 +25,7 @@ const textStyleSheet = StyleSheet.create({
     margin: 0,
     padding: 0,
     zIndex: 0,
-    position: 'relative',
+    position: 'static',
     listStyle: 'none',
     borderStyle: 'solid',
     boxSizing: 'border-box',

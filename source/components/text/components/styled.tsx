@@ -14,7 +14,7 @@ export const StyledText = styled.span<StyledTextrops>`
   margin: 0;
   padding: 0;
   z-index: 0;
-  position: relative;
+  position: static;
   list-style: none;
   border-style: solid;
   box-sizing: border-box;
