@@ -8,6 +8,14 @@ const getOutputFileName = () => {
   return 'classic.js'
 }
 
+const getResolveAlias = () => {
+  const alias = {
+    '@': path.resolve(__dirname, 'source'),
+  }
+  if (isDefaultBuild) alias['react-native-svg'] = 'react-native-svg-web'
+  return alias
+}
+
 module.exports = {
   entry: path.join(__dirname, 'source', 'index.ts'),
   output: {
@@ -20,15 +28,17 @@ module.exports = {
   },
   externals: {
     '@emotion/styled': '@emotion/styled',
-    react: 'react',
+    // prettier-ignore
+    // eslint-disable-next-line
+    'react': 'react',
     'react-dom': 'react-dom',
     'react-native': 'react-native',
     'react-native-web': 'react-native-web',
+    'react-native-svg': 'react-native-svg',
+    'react-native-svg-web': 'react-native-svg-web',
   },
   resolve: {
-    alias: {
-      '@': path.resolve(__dirname, 'source'),
-    },
+    alias: getResolveAlias(),
     extensions: ['.js', '.jsx', '.ts', '.tsx'],
   },
   module: {
