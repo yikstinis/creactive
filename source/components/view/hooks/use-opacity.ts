@@ -1,6 +1,6 @@
-import type { Opacity } from '@/helpers'
+import type { Fraction } from '@/helpers'
 
 // Safe converting to opacity value.
-export const useViewOpacityValue = (opacity?: Opacity) => {
+export const useViewOpacityValue = (opacity?: Fraction) => {
   if (opacity) return opacity.toValue()
 }

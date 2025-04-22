@@ -1,5 +1,5 @@
 import type {
-  Opacity,
+  Fraction,
   Position,
   PositionValue,
   Size,
@@ -71,10 +71,10 @@ export interface ViewProps extends PropsWithChildren {
   /**
    * View opacity.
    * Controls the transparency of the view.
-   * @see Opacity
+   * @see Fraction
    * @default undefined
    */
-  opacity?: Opacity
+  opacity?: Fraction
   /**
    * View overflow behavior.
    * Controls how children are measured and displayed.

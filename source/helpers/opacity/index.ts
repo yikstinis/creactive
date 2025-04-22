@@ -1,1 +1,0 @@
-export { Opacity } from './opacity'

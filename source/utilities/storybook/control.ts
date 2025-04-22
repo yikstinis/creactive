@@ -1,11 +1,9 @@
-import { Opacity } from '@/helpers/opacity'
-import { Position } from '@/helpers/position'
-import { Size } from '@/helpers/size'
+import { Fraction, Position, Size } from '@/helpers'
 import { faker } from '@faker-js/faker'
 import type { Decorator, StoryContext } from '@storybook/react'
 import {
+  STORYBOOK_CONTROL_FRACTION_FLAG,
   STORYBOOK_CONTROL_NUMERIC_ENUM_FLAG,
-  STORYBOOK_CONTROL_OPACITY_FLAG,
   STORYBOOK_CONTROL_POSITION_FLAG,
   STORYBOOK_CONTROL_SIZE_FLAG,
   STORYBOOK_CONTROL_UNDEFINED_OPTION,
@@ -23,7 +21,7 @@ export const modifyContext = (context: StoryContext) => {
         // The only flag, we are interested in..
         [STORYBOOK_CONTROL_NUMERIC_ENUM_FLAG]?: boolean
         [STORYBOOK_CONTROL_POSITION_FLAG]?: boolean
-        [STORYBOOK_CONTROL_OPACITY_FLAG]?: boolean
+        [STORYBOOK_CONTROL_FRACTION_FLAG]?: boolean
         [STORYBOOK_CONTROL_SIZE_FLAG]?: boolean
         // We don't care about everything else inside this type..
         [key: string | number | symbol]: unknown
@@ -44,11 +42,11 @@ export const modifyContext = (context: StoryContext) => {
             Position.Dimension.PIXEL
           )
         }
-      } else if (control[STORYBOOK_CONTROL_OPACITY_FLAG]) {
+      } else if (control[STORYBOOK_CONTROL_FRACTION_FLAG]) {
         if (isNaN(Number(args[key]))) {
           args[key] = undefined
         } else {
-          args[key] = new Opacity(args[key] as number)
+          args[key] = new Fraction(args[key] as number)
         }
       } else if (control[STORYBOOK_CONTROL_SIZE_FLAG]) {
         if (isNaN(Number(args[key]))) {
@@ -112,16 +110,16 @@ export const StorybookControl = new (class {
     }
   }
 
-  public forOpacity(defaultValue?: number) {
+  public forFraction(defaultValue?: number) {
     return {
       control: {
-        [STORYBOOK_CONTROL_OPACITY_FLAG]: true,
+        [STORYBOOK_CONTROL_FRACTION_FLAG]: true,
         // We are using text type instead of number.
         // There are unsetting issues with number type.
         // When clear the field it passes 0 instead of undefined when numeric.
         type: StorybookControlType.TEXT,
       },
-      defaultValue: defaultValue as unknown as Opacity,
+      defaultValue: defaultValue as unknown as Fraction,
     }
   }
 

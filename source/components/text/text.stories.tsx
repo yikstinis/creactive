@@ -1,6 +1,6 @@
 import { StorybookControl } from '@/utilities'
 import type { Meta, StoryObj } from '@storybook/react'
-import { Text } from '..'
+import { Text } from '.'
 
 const tagControl = StorybookControl.fromNumericEnum(Text.Tag)
 const alignControl = StorybookControl.fromNumericEnum(Text.Align)

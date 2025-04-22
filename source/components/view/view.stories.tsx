@@ -1,6 +1,6 @@
 import { StorybookControl } from '@/utilities'
 import type { Meta, StoryObj } from '@storybook/react'
-import { View } from '..'
+import { View } from '.'
 
 const tagControl = StorybookControl.fromNumericEnum(View.Tag)
 const positionControl = StorybookControl.fromNumericEnum(View.Position)
@@ -8,7 +8,7 @@ const topControl = StorybookControl.forPosition()
 const leftControl = StorybookControl.forPosition()
 const rightControl = StorybookControl.forPosition()
 const bottomControl = StorybookControl.forPosition()
-const opacityControl = StorybookControl.forOpacity()
+const opacityControl = StorybookControl.forFraction()
 const overflowControl = StorybookControl.fromNumericEnum(View.Overflow)
 const flexDirectionControl = StorybookControl.fromNumericEnum(
   View.FlexDirection

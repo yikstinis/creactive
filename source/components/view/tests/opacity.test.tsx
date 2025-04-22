@@ -1,4 +1,4 @@
-import { Opacity } from '@/helpers'
+import { Fraction } from '@/helpers'
 import { faker } from '@faker-js/faker'
 import { render, renderHook, screen } from '@testing-library/react-native'
 import { View } from '..'
@@ -17,7 +17,7 @@ describe('@/components/view', () => {
         max: 1,
       })
       const { result } = renderHook(() =>
-        useViewOpacityValue(new Opacity(opactiy))
+        useViewOpacityValue(new Fraction(opactiy))
       )
       expect(result.current).toEqual(opactiy)
     })
@@ -41,7 +41,7 @@ describe('@/components/view', () => {
       render(
         <View
           testId={testId}
-          opacity={new Opacity(opacity)}
+          opacity={new Fraction(opacity)}
         />
       )
       expect(screen.getByTestId(testId)).toHaveStyle({
