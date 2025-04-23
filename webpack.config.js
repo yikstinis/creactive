@@ -2,6 +2,7 @@ const { name } = require('./package.json')
 const path = require('path')
 
 const isDefaultBuild = process.env.npm_lifecycle_event === 'build:default'
+const isClassicBuild = process.env.npm_lifecycle_event === 'build:classic'
 
 const getOutputFileName = () => {
   if (isDefaultBuild) return 'default.js'
@@ -12,8 +13,28 @@ const getResolveAlias = () => {
   const alias = {
     '@': path.resolve(__dirname, 'source'),
   }
-  if (isDefaultBuild) alias['react-native-svg'] = 'react-native-svg-web'
+  if (isClassicBuild) {
+    alias['react-native'] = 'react-native-web'
+    alias['react-native-svg'] = 'react-native-svg-web'
+  }
   return alias
+}
+
+const getExternals = () => {
+  const externals = {
+    '@emotion/styled': '@emotion/styled',
+    // prettier-ignore
+    // eslint-disable-next-line
+    'react': 'react',
+    'react-dom': 'react-dom',
+  }
+  externals['react-native'] = isClassicBuild
+    ? 'react-native-web'
+    : 'react-native'
+  externals['react-native-svg'] = isClassicBuild
+    ? 'react-native-svg-web'
+    : 'react-native-svg'
+  return externals
 }
 
 module.exports = {
@@ -26,17 +47,7 @@ module.exports = {
     library: name,
     umdNamedDefine: true,
   },
-  externals: {
-    '@emotion/styled': '@emotion/styled',
-    // prettier-ignore
-    // eslint-disable-next-line
-    'react': 'react',
-    'react-dom': 'react-dom',
-    'react-native': 'react-native',
-    'react-native-web': 'react-native-web',
-    'react-native-svg': 'react-native-svg',
-    'react-native-svg-web': 'react-native-svg-web',
-  },
+  externals: getExternals(),
   resolve: {
     alias: getResolveAlias(),
     extensions: ['.js', '.jsx', '.ts', '.tsx'],
