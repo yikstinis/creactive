@@ -1,4 +1,3 @@
-const { name } = require('./package.json')
 const path = require('path')
 
 const isDefaultBuild = process.env.npm_lifecycle_event === 'build:default'
@@ -42,10 +41,15 @@ module.exports = {
   output: {
     path: path.join(__dirname, 'build'),
     filename: getOutputFileName(),
-    globalObject: 'this',
-    libraryTarget: 'umd',
-    library: name,
-    umdNamedDefine: true,
+    library: {
+      type: 'module',
+    },
+    environment: {
+      module: true,
+    },
+  },
+  experiments: {
+    outputModule: true,
   },
   externals: getExternals(),
   resolve: {
