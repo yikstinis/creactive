@@ -1,3 +1,4 @@
+const { name } = require('./package.json')
 const path = require('path')
 
 const isDefaultBuild = process.env.npm_lifecycle_event === 'build:default'
@@ -25,6 +26,8 @@ const getExternals = () => {
     // prettier-ignore
     // eslint-disable-next-line
     'react': 'react',
+    'react/jsx-runtime': 'react/jsx-runtime',
+    'react/jsx-dev-runtime': 'react/jsx-dev-runtime',
     'react-dom': 'react-dom',
   }
   externals['react-native'] = isClassicBuild
@@ -41,15 +44,10 @@ module.exports = {
   output: {
     path: path.join(__dirname, 'build'),
     filename: getOutputFileName(),
-    library: {
-      type: 'module',
-    },
-    environment: {
-      module: true,
-    },
-  },
-  experiments: {
-    outputModule: true,
+    globalObject: 'this',
+    libraryTarget: 'umd',
+    library: name,
+    umdNamedDefine: true,
   },
   externals: getExternals(),
   resolve: {
@@ -65,4 +63,5 @@ module.exports = {
       },
     ],
   },
+  devtool: false,
 }
