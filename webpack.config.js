@@ -49,11 +49,11 @@ module.exports = {
     library: name,
     umdNamedDefine: true,
   },
-  externals: getExternals(),
   resolve: {
     alias: getResolveAlias(),
     extensions: ['.js', '.jsx', '.ts', '.tsx'],
   },
+  externals: getExternals(),
   module: {
     rules: [
       {
