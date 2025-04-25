@@ -1,22 +1,23 @@
 {
   "name": "creactive",
-  "version": "0.0.110",
+  "version": "0.0.111",
   "main": ".storybook",
   "files": [
     "build/**"
   ],
   "scripts": {
     "prestart": "sb-rn-get-stories && node scripts/update-package.js .storybook",
-    "start": "expo start",
+    "start": "expo start --tunnel",
     "start:clear": "expo start --clear",
     "test": "npm run test:android && npm run test:ios && npm run test:web",
     "test:android": "jest",
     "test:ios": "jest",
     "test:web": "jest",
     "lint": "expo lint",
-    "build": "npm run build:default && npm run build:classic && npm run build:types",
+    "build": "npm run build:default && npm run build:classic && npm run build:server && npm run build:types",
     "build:default": "webpack --mode production",
     "build:classic": "webpack --mode production",
+    "build:server": "webpack --mode production",
     "build:types": "tsc -p tsconfig.types.json && tsc-alias -p tsconfig.types.json",
     "prepublishOnly": "npm run build && node scripts/update-package.js build/default.js",
     "postpublish": "node scripts/update-package.js .storybook"
@@ -36,6 +37,7 @@
     "@babel/preset-react": "^7.26.3",
     "@babel/preset-typescript": "^7.27.0",
     "@emotion/styled": "^11.14.0",
+    "@expo/ngrok": "^4.1.3",
     "@faker-js/faker": "^9.2.0",
     "@react-native-async-storage/async-storage": "^1.23.1",
     "@storybook/addon-ondevice-actions": "^8.4.2",

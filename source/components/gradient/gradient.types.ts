@@ -8,7 +8,7 @@ import type { GradientDirection } from './constants'
  * Describes possible gradient stop component customization.
  * @see Gradient.Stop
  */
-export interface StopProps {
+export interface GradientStopProps {
   /**
    * Should be used to control gradient stop offset.
    * @see Fraction
@@ -27,7 +27,7 @@ export interface StopProps {
  * Should be used as a child of gradient component.
  * @see Gradient.Stop
  */
-export type StopComponent = FunctionComponent<StopProps>
+export type GradientStopComponent = FunctionComponent<GradientStopProps>
 
 /**
  * Linear gradient component properties.
@@ -66,5 +66,5 @@ export type GradientLinearComponent = FunctionComponent<GradientLinearProps> & {
  */
 export type GradientObject = {
   Linear: GradientLinearComponent
-  Stop: StopComponent
+  Stop: GradientStopComponent
 }

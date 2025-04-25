@@ -3,8 +3,8 @@ export type {
   GradientLinearComponent,
   GradientLinearProps,
   GradientObject,
-  StopComponent,
-  StopProps,
+  GradientStopComponent,
+  GradientStopProps,
 } from '@/components/gradient'
 export { Text } from '@/components/text'
 export type { TextComponent, TextProps } from '@/components/text'
@@ -36,6 +36,4 @@ export { Position } from '@/helpers/position'
 export type { PositionValue } from '@/helpers/position'
 export { Size } from '@/helpers/size'
 export type { SizeValue } from '@/helpers/size'
-export { renderReactNativeInitialStyle } from '@/helpers/style'
-export type { RenderReactNativeInitialStyleHelper } from '@/helpers/style'
 export type { Color, FontWeight } from '@/types'

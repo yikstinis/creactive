@@ -5,7 +5,6 @@
     "paths": {
       "@/*": ["source/*"]
     },
-    "outDir": "build",
     "noImplicitAny": true
   }
 }

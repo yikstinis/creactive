@@ -1,7 +1,12 @@
+import { isValidElement } from 'react'
 import { StyleSheet, View } from 'react-native'
-import Svg, { Defs, LinearGradient, Rect } from 'react-native-svg'
+import Svg, { Defs, LinearGradient, Rect, Stop } from 'react-native-svg'
 import { GradientDirection } from '../constants'
-import type { GradientLinearComponent } from '../gradient.types'
+import type {
+  GradientLinearComponent,
+  GradientStopProps,
+} from '../gradient.types'
+import { GradientStop } from './stop'
 
 // Mapping gradient direction to its second coordinates.
 const DIRECTION_X2 = {
@@ -32,7 +37,21 @@ export const GradientLinear: GradientLinearComponent = ({
             x2={DIRECTION_X2[direction]}
             y2={DIRECTION_Y2[direction]}
           >
-            {children}
+            {children
+              // eslint-disable-next-line array-callback-return
+              .map((child, index) => {
+                if (isValidElement(child) && child.type === GradientStop) {
+                  const props = child.props as GradientStopProps
+                  return (
+                    <Stop
+                      key={[index, props.offset.toValue(), props.color].join()}
+                      offset={props.offset.toValue()}
+                      stopColor={props.color}
+                    />
+                  )
+                }
+              })
+              .filter((child) => child !== undefined)}
           </LinearGradient>
         </Defs>
 

@@ -1,9 +1,11 @@
 import { Stop } from 'react-native-svg'
-import type { StopComponent } from '../gradient.types'
+import type { GradientStopComponent } from '../gradient.types'
 
-export const GradientStop: StopComponent = ({ offset, color }) => (
-  <Stop
-    offset={offset.toValue()}
-    stopColor={color}
-  />
-)
+export const GradientStop: GradientStopComponent = ({ offset, color }) => {
+  return (
+    <Stop
+      offset={offset.toValue()}
+      stopColor={color}
+    />
+  )
+}

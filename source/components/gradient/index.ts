@@ -3,6 +3,6 @@ export type {
   GradientLinearComponent,
   GradientLinearProps,
   GradientObject,
-  StopComponent,
-  StopProps,
+  GradientStopComponent,
+  GradientStopProps,
 } from './gradient.types'
