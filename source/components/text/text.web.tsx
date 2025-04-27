@@ -14,6 +14,7 @@ import {
   useTextFontWeightCSSValue,
   useTextFountFamilyCSSValue,
   useTextLineHeightTokenValue,
+  useTextOpacityValue,
 } from './hooks'
 import type { TextComponent } from './text.types'
 
@@ -25,6 +26,7 @@ const Text: TextComponent = ({
   lineHeight = TextLineHeight.NORMAL,
   maxLines,
   color = TextColor.BASE_800,
+  opacity,
   children,
 }) => {
   const fontSizeValue = useTextFontSizeTokenValue(fontSize)
@@ -37,8 +39,9 @@ const Text: TextComponent = ({
       fontWeight={useTextFontWeightCSSValue(fontWeight)}
       fontSize={fontSizeValue}
       lineHeight={fontSizeValue * lineHeightValue}
-      color={useTextColorCSSValue(color)}
       maxLines={maxLines}
+      color={useTextColorCSSValue(color)}
+      opacity={useTextOpacityValue(opacity)}
     >
       {children}
     </StyledText>

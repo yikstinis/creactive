@@ -7,4 +7,5 @@ export {
   useTextFountFamilyCSSValue,
   useTextFountFamilyStyle,
 } from './use-font'
+export { useTextOpacityValue } from './use-opacity'
 export { useTextAlignStyle, useTextLineHeightTokenValue } from './use-text'

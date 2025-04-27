@@ -1,3 +1,4 @@
+import type { Fraction } from '@/helpers'
 import type { Color, FontWeight } from '@/types'
 import type { FunctionComponent, PropsWithChildren } from 'react'
 import type {
@@ -52,6 +53,12 @@ export interface TextProps extends PropsWithChildren {
    * @default Text.Color.BASE_800
    */
   color?: TextColor
+  /**
+   * Text opacity.
+   * @see Fraction
+   * @default undefined
+   */
+  opacity?: Fraction
 }
 export type TextComponent = FunctionComponent<TextProps> & {
   Tag: Record<keyof typeof TextTag, TextTag>
@@ -68,4 +75,5 @@ export type StyledTextrops = Pick<TextProps, 'align' | 'maxLines'> & {
   fontSize: number
   lineHeight: number
   color: Color | 'transparent'
+  opacity?: number
 }

@@ -16,6 +16,7 @@ import {
   useTextFontWeightStyle,
   useTextFountFamilyStyle,
   useTextLineHeightTokenValue,
+  useTextOpacityValue,
 } from './hooks'
 import type { TextComponent } from './text.types'
 
@@ -41,6 +42,7 @@ const Text: TextComponent = ({
   lineHeight = TextLineHeight.NORMAL,
   maxLines,
   color = TextColor.BASE_800,
+  opacity,
   children,
 }) => {
   return (
@@ -56,6 +58,9 @@ const Text: TextComponent = ({
           useTextLineHeightTokenValue(lineHeight)
         ),
         useTextColorStyle(color),
+        {
+          opacity: useTextOpacityValue(opacity),
+        },
       ]}
       numberOfLines={maxLines}
     >

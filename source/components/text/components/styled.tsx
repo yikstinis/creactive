@@ -30,5 +30,6 @@ export const StyledText = styled.span<StyledTextrops>`
   -webkit-box-orient: vertical;
   -webkit-line-clamp: ${({ maxLines }) => maxLines};
   color: ${({ color }) => color};
+  opacity: ${({ opacity }) => opacity};
   border-width: 0;
 `
