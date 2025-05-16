@@ -1,3 +1,4 @@
+import { Fraction, Size } from '@/helpers'
 import { StyleSheet } from 'react-native'
 import {
   ViewAlignContent,
@@ -6,6 +7,31 @@ import {
   ViewFlexDirection,
   ViewJustifyContent,
 } from '../constants'
+
+export const useFlexGrowStyle = (flexGrow?: Fraction) => {
+  if (flexGrow) {
+    return {
+      flexGrow: flexGrow.toValue(),
+    }
+  }
+}
+
+export const useFlexShrinkStyle = (flexShrink?: Fraction) => {
+  if (flexShrink) {
+    return {
+      flexShrink: flexShrink.toValue(),
+    }
+  }
+}
+
+// TODO: This is native only hook, so we convert type to native type..
+export const useFlexBasisStyle = (flexBasis?: Size) => {
+  if (flexBasis) {
+    return {
+      flexBasis: flexBasis.toValue() as number | `${number}%`,
+    }
+  }
+}
 
 // Flex direction style sheet.
 const viewFlexDirectionStyleSheet = StyleSheet.create({

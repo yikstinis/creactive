@@ -16,6 +16,9 @@ import {
   ViewTag,
 } from './constants'
 import {
+  useFlexBasisStyle,
+  useFlexGrowStyle,
+  useFlexShrinkStyle,
   useViewAlignContentStyle,
   useViewAlignItemsStyle,
   useViewAlignSelfStyle,
@@ -68,6 +71,9 @@ const View: ViewComponent = ({
   bottom,
   opacity,
   overflow = ViewOverflow.VISIBLE,
+  flexGrow,
+  flexShrink,
+  flexBasis,
   flexDirection = ViewFlexDirection.COLUMN,
   justifyContent = ViewJustifyContent.FLEX_START,
   alignItems = ViewAlignItems.STRETCH,
@@ -114,6 +120,11 @@ const View: ViewComponent = ({
           opacity: useViewOpacityValue(opacity),
         },
         useViewOverflowStyle(overflow),
+        // TODO: Make this styles consistent..
+        useFlexGrowStyle(flexGrow),
+        useFlexShrinkStyle(flexShrink),
+        useFlexBasisStyle(flexBasis),
+
         useViewFlexDirectionStyle(flexDirection),
         useViewJustifyContentStyle(justifyContent),
         useViewAlignItemsStyle(alignItems),

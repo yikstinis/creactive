@@ -15,6 +15,9 @@ export {
   useViewBorderColorStyle,
 } from './use-color'
 export {
+  useFlexBasisStyle,
+  useFlexGrowStyle,
+  useFlexShrinkStyle,
   useViewAlignContentStyle,
   useViewAlignItemsStyle,
   useViewAlignSelfStyle,

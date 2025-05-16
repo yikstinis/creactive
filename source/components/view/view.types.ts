@@ -83,6 +83,27 @@ export interface ViewProps extends PropsWithChildren {
    */
   overflow?: ViewOverflow
   /**
+   * View flex grow property.
+   * Controls how much space a component should take up in the flex container.
+   * @see Fraction
+   * @default undefined
+   */
+  flexGrow?: Fraction
+  /**
+   * View flex shrink property.
+   * Controls how much space a component should give up in the flex container.
+   * @see Fraction
+   * @default undefined
+   */
+  flexShrink?: Fraction
+  /**
+   * View flex basis property.
+   * Controls the initial size of a component before space distribution.
+   * @see Size
+   * @default undefined
+   */
+  flexBasis?: Size
+  /**
    * Flex direction of the component.
    * Defines the main axis along which children are laid out.
    * @see View.FlexDirection
