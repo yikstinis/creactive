@@ -2,6 +2,7 @@ export { TEXT_COLOR_THEME_KEY, TextColor } from './color'
 export {
   TEXT_THEME_FONT_SIZE_KEY,
   TEXT_THEME_FONT_WEIGHT_KEY,
+  TextFontFamily,
   TextFontSize,
   TextFontWeight,
 } from './font'

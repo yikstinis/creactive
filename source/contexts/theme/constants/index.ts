@@ -48,6 +48,7 @@ export {
 } from './color'
 export {
   FONT_FAMILY_BASE,
+  FONT_FAMILY_TYPOGRAPHIC,
   FONT_SIZE_BASE_LG,
   FONT_SIZE_BASE_MD,
   FONT_SIZE_BASE_SM,

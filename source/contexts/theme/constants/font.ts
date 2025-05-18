@@ -1,14 +1,26 @@
+import { Platform } from 'react-native'
+
 // Theme base font family constant.
-export const FONT_FAMILY_BASE = [
-  'ui-sans-serif',
-  '-apple-system',
-  'BlinkMacSystemFont',
-  '"Segoe UI"',
-  'Roboto',
-  'Helvetica',
-  'Arial',
-  'sans-serif',
-].join(',')
+export const FONT_FAMILY_BASE = Platform.select({
+  web: [
+    'ui-sans-serif',
+    '-apple-system',
+    'BlinkMacSystemFont',
+    '"Segoe UI"',
+    'Roboto',
+    'Helvetica',
+    'Arial',
+    'sans-serif',
+  ].join(','),
+  default: 'System',
+})
+
+// Theme typographic font family constant.
+export const FONT_FAMILY_TYPOGRAPHIC = Platform.select({
+  web: ['"Times New Roman"', 'Times', 'Georgia', 'serif'].join(','),
+  ios: 'Times New Roman',
+  default: 'serif',
+})
 
 // Theme base font weight constants.
 export const FONT_WEIGHT_BASE_THIN = 100

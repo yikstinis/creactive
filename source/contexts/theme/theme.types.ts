@@ -197,6 +197,11 @@ export interface ThemeContextValue {
    * @see FONT_FAMILY_BASE
    */
   fontFamilyBase: string
+  /**
+   * Typographic font family.
+   * @see FONT_FAMILY_TYPOGRAPHIC
+   */
+  fontFamilyTypographic: string
 
   /**
    * Base thin font weight.

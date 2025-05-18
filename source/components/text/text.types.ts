@@ -4,6 +4,7 @@ import type { FunctionComponent, PropsWithChildren } from 'react'
 import type {
   TextAlign,
   TextColor,
+  TextFontFamily,
   TextFontSize,
   TextFontWeight,
   TextLineHeight,
@@ -24,6 +25,12 @@ export interface TextProps extends PropsWithChildren {
    * @default Text.Align.LEFT
    */
   align?: TextAlign
+  /**
+   * Themed font family.
+   * @see Text.FontFamily
+   * @default Text.FontFamily.BASE
+   */
+  fontFamily?: TextFontFamily
   /**
    * Themed font weight.
    * @see Text.FontWeight
@@ -63,6 +70,7 @@ export interface TextProps extends PropsWithChildren {
 export type TextComponent = FunctionComponent<TextProps> & {
   Tag: Record<keyof typeof TextTag, TextTag>
   Align: Record<keyof typeof TextAlign, TextAlign>
+  FontFamily: Record<keyof typeof TextFontFamily, TextFontFamily>
   FontWeight: Record<keyof typeof TextFontWeight, TextFontWeight>
   FontSize: Record<keyof typeof TextFontSize, TextFontSize>
   LineHeight: Record<keyof typeof TextLineHeight, TextLineHeight>

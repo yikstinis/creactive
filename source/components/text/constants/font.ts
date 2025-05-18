@@ -1,3 +1,8 @@
+export enum TextFontFamily {
+  BASE,
+  TYPOGRAPHIC,
+}
+
 /**
  * Supported by text component font weights enum.
  * Should be used to control the weight of the text.

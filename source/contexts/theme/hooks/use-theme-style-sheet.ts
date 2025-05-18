@@ -127,6 +127,9 @@ export const useThemeStyleSheet = () => {
         fontFamilyBase: {
           fontFamily: themeContext.fontFamilyBase,
         },
+        fontFamilyTypographic: {
+          fontFamily: themeContext.fontFamilyTypographic,
+        },
         // Base font weights.
         fontWeightBaseThin: {
           fontWeight: themeContext.fontWeightBaseThin,
