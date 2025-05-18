@@ -17,6 +17,9 @@ import {
   ViewTag,
 } from './constants'
 import {
+  useFlexBasisiCSSValue,
+  useFlexGrowCSSValue,
+  useFlexShrinkCSSValue,
   useViewBackgroundColorCSSValue,
   useViewBorderColorCSSValue,
   useViewBorderRadiusCSSValue,
@@ -39,6 +42,9 @@ const View: ViewComponent = ({
   bottom,
   opacity,
   overflow = ViewOverflow.VISIBLE,
+  flexGrow,
+  flexShrink,
+  flexBasis,
   flexDirection = ViewFlexDirection.COLUMN,
   justifyContent = ViewJustifyContent.FLEX_START,
   alignItems = ViewAlignItems.STRETCH,
@@ -80,6 +86,9 @@ const View: ViewComponent = ({
       bottom={useViewPositionValue(bottom)}
       opacity={useViewOpacityValue(opacity)}
       overflow={overflow}
+      flexGrow={useFlexGrowCSSValue(flexGrow)}
+      flexShrink={useFlexShrinkCSSValue(flexShrink)}
+      flexBasis={useFlexBasisiCSSValue(flexBasis)}
       flexDirection={flexDirection}
       justifyContent={justifyContent}
       alignItems={alignItems}

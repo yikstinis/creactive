@@ -10,6 +10,9 @@ const rightControl = StorybookControl.forPosition()
 const bottomControl = StorybookControl.forPosition()
 const opacityControl = StorybookControl.forFraction()
 const overflowControl = StorybookControl.fromNumericEnum(View.Overflow)
+const flexGrowControl = StorybookControl.forFraction()
+const flexShrinkControl = StorybookControl.forFraction()
+const flexBasisControl = StorybookControl.forSize()
 const flexDirectionControl = StorybookControl.fromNumericEnum(
   View.FlexDirection
 )
@@ -63,6 +66,9 @@ const meta: Meta<typeof View> = {
     bottom: bottomControl,
     opacity: opacityControl,
     overflow: overflowControl,
+    flexGrow: flexGrowControl,
+    flexShrink: flexShrinkControl,
+    flexBasis: flexBasisControl,
     flexDirection: flexDirectionControl,
     justifyContent: justifyContentControl,
     alignItems: alignItemsControl,
@@ -101,6 +107,9 @@ const meta: Meta<typeof View> = {
     bottom: bottomControl.defaultValue,
     opacity: opacityControl.defaultValue,
     overflow: overflowControl.defaultValue,
+    flexGrow: flexGrowControl.defaultValue,
+    flexShrink: flexShrinkControl.defaultValue,
+    flexBasis: flexBasisControl.defaultValue,
     flexDirection: flexDirectionControl.defaultValue,
     justifyContent: justifyContentControl.defaultValue,
     alignItems: alignItemsControl.defaultValue,

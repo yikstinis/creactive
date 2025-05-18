@@ -16,7 +16,10 @@ export {
 } from './use-color'
 export {
   useFlexBasisStyle,
+  useFlexBasisiCSSValue,
+  useFlexGrowCSSValue,
   useFlexGrowStyle,
+  useFlexShrinkCSSValue,
   useFlexShrinkStyle,
   useViewAlignContentStyle,
   useViewAlignItemsStyle,

@@ -80,6 +80,9 @@ export const StyledView = styled.div<StyledViewProps>`
   bottom: ${({ bottom }) => bottom};
   opacity: ${({ opacity }) => opacity};
   overflow: ${({ overflow }) => OVERFLOW_CSS_VALUE[overflow]};
+  flex-grow: ${({ flexGrow }) => flexGrow};
+  flex-shrink: ${({ flexShrink }) => flexShrink};
+  flex-basis: ${({ flexBasis }) => flexBasis};
   flex-direction: ${({ flexDirection }) =>
     FLEX_DIRECTION_CSS_VALUE[flexDirection]};
   justify-content: ${({ justifyContent }) =>

@@ -15,6 +15,9 @@ export const useFlexGrowStyle = (flexGrow?: Fraction) => {
     }
   }
 }
+export const useFlexGrowCSSValue = (flexGrow?: Fraction) => {
+  if (flexGrow) return flexGrow.toValue()
+}
 
 export const useFlexShrinkStyle = (flexShrink?: Fraction) => {
   if (flexShrink) {
@@ -22,6 +25,9 @@ export const useFlexShrinkStyle = (flexShrink?: Fraction) => {
       flexShrink: flexShrink.toValue(),
     }
   }
+}
+export const useFlexShrinkCSSValue = (flexShrink?: Fraction) => {
+  if (flexShrink) return flexShrink.toValue()
 }
 
 // TODO: This is native only hook, so we convert type to native type..
@@ -31,6 +37,10 @@ export const useFlexBasisStyle = (flexBasis?: Size) => {
       flexBasis: flexBasis.toValue() as number | `${number}%`,
     }
   }
+}
+
+export const useFlexBasisiCSSValue = (flexBasis?: Size) => {
+  if (flexBasis) return flexBasis.toValue()
 }
 
 // Flex direction style sheet.

@@ -312,6 +312,10 @@ export type StyledViewProps = Pick<
   left?: PositionValue
   right?: PositionValue
   bottom?: PositionValue
+  // Flex.
+  flexGrow?: number
+  flexShrink?: number
+  flexBasis?: SizeValue
   // Opacity.
   opacity?: number
   // Spacing.
