@@ -2,7 +2,7 @@ import type { FunctionComponent, PropsWithChildren } from 'react'
 import type { OverlayBackgroundColor } from './constants'
 
 export interface OverlayProps extends PropsWithChildren {
-  isPressable?: boolean
+  isPressable: boolean
   isVisible: boolean
   backgroundColor?: OverlayBackgroundColor
   onPress?(): void
