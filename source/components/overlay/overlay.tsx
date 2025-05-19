@@ -1,5 +1,5 @@
 import { useLayoutEffect, useRef } from 'react'
-import { Animated, Pressable, StyleSheet } from 'react-native'
+import { Animated, Pressable, StyleSheet, View } from 'react-native'
 import type { OverlayComponent } from './overlay.types'
 
 const overlayStyleSheet = StyleSheet.create({
@@ -25,6 +25,11 @@ export const Overlay: OverlayComponent = ({
     }).start()
   }, [isVisible])
 
+  const pointerEvents = (() => {
+    if (isVisible) return 'auto'
+    return 'none'
+  })()
+
   return (
     <Animated.View
       style={[
@@ -36,14 +41,32 @@ export const Overlay: OverlayComponent = ({
     >
       {isPressable && (
         <Pressable
-          style={[StyleSheet.absoluteFill, overlayStyleSheet.backgroundColor]}
+          style={[
+            StyleSheet.absoluteFill,
+            overlayStyleSheet.backgroundColor,
+            {
+              pointerEvents,
+            },
+          ]}
           onPress={onPress}
         >
           {children}
         </Pressable>
       )}
 
-      {isPressable === false && children}
+      {isPressable === false && (
+        <View
+          style={[
+            StyleSheet.absoluteFill,
+            overlayStyleSheet.backgroundColor,
+            {
+              pointerEvents,
+            },
+          ]}
+        >
+          {children}
+        </View>
+      )}
     </Animated.View>
   )
 }
