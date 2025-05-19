@@ -6,6 +6,8 @@ export type {
   GradientStopComponent,
   GradientStopProps,
 } from '@/components/gradient'
+export { Overlay } from '@/components/overlay'
+export type { OverlayComponent, OverlayProps } from '@/components/overlay'
 export { Text } from '@/components/text'
 export type { TextComponent, TextProps } from '@/components/text'
 export { View } from '@/components/view'
