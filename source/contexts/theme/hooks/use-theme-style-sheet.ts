@@ -123,6 +123,34 @@ export const useThemeStyleSheet = () => {
         colorForegroundInverse900: {
           color: themeContext.colorForegroundInverse900,
         },
+        // Failure foreground colors.
+        colorForegroundFailure100: {
+          color: themeContext.colorForegroundFailure100,
+        },
+        colorForegroundFailure200: {
+          color: themeContext.colorForegroundFailure200,
+        },
+        colorForegroundFailure300: {
+          color: themeContext.colorForegroundFailure300,
+        },
+        colorForegroundFailure400: {
+          color: themeContext.colorForegroundFailure400,
+        },
+        colorForegroundFailure500: {
+          color: themeContext.colorForegroundFailure500,
+        },
+        colorForegroundFailure600: {
+          color: themeContext.colorForegroundFailure600,
+        },
+        colorForegroundFailure700: {
+          color: themeContext.colorForegroundFailure700,
+        },
+        colorForegroundFailure800: {
+          color: themeContext.colorForegroundFailure800,
+        },
+        colorForegroundFailure900: {
+          color: themeContext.colorForegroundFailure900,
+        },
         // Base font family.
         fontFamilyBase: {
           fontFamily: themeContext.fontFamilyBase,

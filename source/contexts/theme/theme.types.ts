@@ -193,6 +193,52 @@ export interface ThemeContextValue {
   colorForegroundInverse900: Color
 
   /**
+   * Least contrast failure foreground color.
+   * @default rgb(254,226,226)
+   */
+  colorForegroundFailure100: Color
+  /**
+   * Dim failure foreground color.
+   * @default rgb(254,202,202)
+   */
+  colorForegroundFailure200: Color
+  /**
+   * Mix of dim and muted failure foreground color.
+   * @default rgb(252,165,165)
+   */
+  colorForegroundFailure300: Color
+  /**
+   * Muted failure foreground color.
+   * @default rgb(248,113,113)
+   */
+  colorForegroundFailure400: Color
+  /**
+   * Mix of muted and subtle failure foreground color.
+   * @default rgb(239,68,68)
+   */
+  colorForegroundFailure500: Color
+  /**
+   * Subtle failure foreground color.
+   * @default rgb(220,38,38)
+   */
+  colorForegroundFailure600: Color
+  /**
+   * Mix of subtle and default failure foreground color.
+   * @default rgb(185,28,28)
+   */
+  colorForegroundFailure700: Color
+  /**
+   * Failure default foreground color.
+   * @default rgb(153,27,27)
+   */
+  colorForegroundFailure800: Color
+  /**
+   * Most contrast failure foreground color.
+   * @default rgb(127,29,29)
+   */
+  colorForegroundFailure900: Color
+
+  /**
    * Base font family.
    * @see FONT_FAMILY_BASE
    */

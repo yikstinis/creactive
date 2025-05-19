@@ -35,6 +35,15 @@ import {
   COLOR_FOREGROUND_BASE_700,
   COLOR_FOREGROUND_BASE_800,
   COLOR_FOREGROUND_BASE_900,
+  COLOR_FOREGROUND_FAILURE_100,
+  COLOR_FOREGROUND_FAILURE_200,
+  COLOR_FOREGROUND_FAILURE_300,
+  COLOR_FOREGROUND_FAILURE_400,
+  COLOR_FOREGROUND_FAILURE_500,
+  COLOR_FOREGROUND_FAILURE_600,
+  COLOR_FOREGROUND_FAILURE_700,
+  COLOR_FOREGROUND_FAILURE_800,
+  COLOR_FOREGROUND_FAILURE_900,
   COLOR_FOREGROUND_INVERSE_100,
   COLOR_FOREGROUND_INVERSE_200,
   COLOR_FOREGROUND_INVERSE_300,
@@ -135,6 +144,16 @@ const ThemeContext = createContext<ThemeContextValue>({
   colorForegroundInverse700: COLOR_FOREGROUND_INVERSE_700,
   colorForegroundInverse800: COLOR_FOREGROUND_INVERSE_800,
   colorForegroundInverse900: COLOR_FOREGROUND_INVERSE_900,
+  // Failure foreground colors.
+  colorForegroundFailure100: COLOR_FOREGROUND_FAILURE_100,
+  colorForegroundFailure200: COLOR_FOREGROUND_FAILURE_200,
+  colorForegroundFailure300: COLOR_FOREGROUND_FAILURE_300,
+  colorForegroundFailure400: COLOR_FOREGROUND_FAILURE_400,
+  colorForegroundFailure500: COLOR_FOREGROUND_FAILURE_500,
+  colorForegroundFailure600: COLOR_FOREGROUND_FAILURE_600,
+  colorForegroundFailure700: COLOR_FOREGROUND_FAILURE_700,
+  colorForegroundFailure800: COLOR_FOREGROUND_FAILURE_800,
+  colorForegroundFailure900: COLOR_FOREGROUND_FAILURE_900,
   // Base font family.
   fontFamilyBase: FONT_FAMILY_BASE,
   fontFamilyTypographic: FONT_FAMILY_TYPOGRAPHIC,
@@ -235,6 +254,16 @@ export const ThemeContextProvider: ThemeContextProviderComponent = ({
   colorForegroundInverse700,
   colorForegroundInverse800,
   colorForegroundInverse900,
+  // Failure foreground colors.
+  colorForegroundFailure100,
+  colorForegroundFailure200,
+  colorForegroundFailure300,
+  colorForegroundFailure400,
+  colorForegroundFailure500,
+  colorForegroundFailure600,
+  colorForegroundFailure700,
+  colorForegroundFailure800,
+  colorForegroundFailure900,
   // Base font family.
   fontFamilyBase,
   fontFamilyTypographic,
@@ -367,6 +396,25 @@ export const ThemeContextProvider: ThemeContextProviderComponent = ({
         colorForegroundInverse800 ?? COLOR_FOREGROUND_INVERSE_800,
       colorForegroundInverse900:
         colorForegroundInverse900 ?? COLOR_FOREGROUND_INVERSE_900,
+      // Failure foreground colors.
+      colorForegroundFailure100:
+        colorForegroundFailure100 ?? COLOR_FOREGROUND_FAILURE_100,
+      colorForegroundFailure200:
+        colorForegroundFailure200 ?? COLOR_FOREGROUND_FAILURE_200,
+      colorForegroundFailure300:
+        colorForegroundFailure300 ?? COLOR_FOREGROUND_FAILURE_300,
+      colorForegroundFailure400:
+        colorForegroundFailure400 ?? COLOR_FOREGROUND_FAILURE_400,
+      colorForegroundFailure500:
+        colorForegroundFailure500 ?? COLOR_FOREGROUND_FAILURE_500,
+      colorForegroundFailure600:
+        colorForegroundFailure600 ?? COLOR_FOREGROUND_FAILURE_600,
+      colorForegroundFailure700:
+        colorForegroundFailure700 ?? COLOR_FOREGROUND_FAILURE_700,
+      colorForegroundFailure800:
+        colorForegroundFailure800 ?? COLOR_FOREGROUND_FAILURE_800,
+      colorForegroundFailure900:
+        colorForegroundFailure900 ?? COLOR_FOREGROUND_FAILURE_900,
       // Base font family.
       fontFamilyBase: fontFamilyBase ?? FONT_FAMILY_BASE,
       fontFamilyTypographic: fontFamilyTypographic ?? FONT_FAMILY_TYPOGRAPHIC,
@@ -469,6 +517,16 @@ export const ThemeContextProvider: ThemeContextProviderComponent = ({
       colorForegroundInverse700,
       colorForegroundInverse800,
       colorForegroundInverse900,
+      // Failure foreground colors.
+      colorForegroundFailure100,
+      colorForegroundFailure200,
+      colorForegroundFailure300,
+      colorForegroundFailure400,
+      colorForegroundFailure500,
+      colorForegroundFailure600,
+      colorForegroundFailure700,
+      colorForegroundFailure800,
+      colorForegroundFailure900,
       // Base font family.
       fontFamilyBase,
       fontFamilyTypographic,
