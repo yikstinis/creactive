@@ -23,6 +23,15 @@ export enum TextColor {
   INVERSE_700,
   INVERSE_800,
   INVERSE_900,
+  FAILURE_100,
+  FAILURE_200,
+  FAILURE_300,
+  FAILURE_400,
+  FAILURE_500,
+  FAILURE_600,
+  FAILURE_700,
+  FAILURE_800,
+  FAILURE_900,
 }
 
 export const TEXT_COLOR_THEME_KEY = {
@@ -44,4 +53,13 @@ export const TEXT_COLOR_THEME_KEY = {
   [TextColor.INVERSE_700]: 'colorForegroundInverse700' as const,
   [TextColor.INVERSE_800]: 'colorForegroundInverse800' as const,
   [TextColor.INVERSE_900]: 'colorForegroundInverse900' as const,
+  [TextColor.FAILURE_100]: 'colorForegroundFailure100' as const,
+  [TextColor.FAILURE_200]: 'colorForegroundFailure200' as const,
+  [TextColor.FAILURE_300]: 'colorForegroundFailure300' as const,
+  [TextColor.FAILURE_400]: 'colorForegroundFailure400' as const,
+  [TextColor.FAILURE_500]: 'colorForegroundFailure500' as const,
+  [TextColor.FAILURE_600]: 'colorForegroundFailure600' as const,
+  [TextColor.FAILURE_700]: 'colorForegroundFailure700' as const,
+  [TextColor.FAILURE_800]: 'colorForegroundFailure800' as const,
+  [TextColor.FAILURE_900]: 'colorForegroundFailure900' as const,
 }
