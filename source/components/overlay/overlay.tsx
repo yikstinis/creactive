@@ -1,16 +1,26 @@
 import { useLayoutEffect, useRef } from 'react'
 import { Animated, Pressable, StyleSheet, View } from 'react-native'
+import { OverlayBackgroundColor } from './constants'
 import type { OverlayComponent } from './overlay.types'
 
 const overlayStyleSheet = StyleSheet.create({
-  backgroundColor: {
-    backgroundColor: 'rgb(0, 0, 0)',
+  backgroundColorDark: {
+    backgroundColor: 'rgb(0,0,0)',
+  },
+  backgroundColorLight: {
+    backgroundColor: 'rgb(255,255,255)',
   },
 })
+
+const BACKGROUND_COLOR_STYLE = {
+  [OverlayBackgroundColor.DARK]: overlayStyleSheet.backgroundColorDark,
+  [OverlayBackgroundColor.LIGHT]: overlayStyleSheet.backgroundColorLight,
+}
 
 export const Overlay: OverlayComponent = ({
   isPressable,
   isVisible,
+  backgroundColor = OverlayBackgroundColor.DARK,
   children,
   onPress,
 }) => {
@@ -43,7 +53,7 @@ export const Overlay: OverlayComponent = ({
         <Pressable
           style={[
             StyleSheet.absoluteFill,
-            overlayStyleSheet.backgroundColor,
+            [BACKGROUND_COLOR_STYLE[backgroundColor]],
             {
               pointerEvents,
             },
@@ -58,7 +68,7 @@ export const Overlay: OverlayComponent = ({
         <View
           style={[
             StyleSheet.absoluteFill,
-            overlayStyleSheet.backgroundColor,
+            [BACKGROUND_COLOR_STYLE[backgroundColor]],
             {
               pointerEvents,
             },
@@ -70,3 +80,4 @@ export const Overlay: OverlayComponent = ({
     </Animated.View>
   )
 }
+Overlay.BackgroundColor = OverlayBackgroundColor
