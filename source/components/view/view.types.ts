@@ -274,6 +274,30 @@ export interface ViewProps extends PropsWithChildren {
    */
   borderRadius?: ViewBorderRadius
   /**
+   * View border top left radius.
+   * @see View.BorderRadius
+   * @default undefined
+   */
+  borderRadiusTopLeft?: ViewBorderRadius
+  /**
+   * View border top right radius.
+   * @see View.BorderRadius
+   * @default undefined
+   */
+  borderRadiusTopRight?: ViewBorderRadius
+  /**
+   * View border bottom left radius.
+   * @see View.BorderRadius
+   * @default undefined
+   */
+  borderRadiusBottomLeft?: ViewBorderRadius
+  /**
+   * View border bottom right radius.
+   * @see View.BorderRadius
+   * @default undefined
+   */
+  borderRadiusBottomRight?: ViewBorderRadius
+  /**
    * View background color.
    * @see View.BackgroundColor
    * @default View.BackgroundColor.TRANSPARENT
@@ -344,6 +368,10 @@ export type StyledViewProps = Pick<
   borderWidthRight?: string
   borderWidthBottom?: string
   borderRadius?: `${number}px` | '50%'
+  borderRadiusTopLeft?: `${number}px` | '50%'
+  borderRadiusTopRight?: `${number}px` | '50%'
+  borderRadiusBottomLeft?: `${number}px` | '50%'
+  borderRadiusBottomRight?: `${number}px` | '50%'
   // Color.
   backgroundColor?: Color
 }

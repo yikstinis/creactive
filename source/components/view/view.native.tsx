@@ -24,7 +24,11 @@ import {
   useViewAlignSelfStyle,
   useViewBackgroundColorStyle,
   useViewBorderColorStyle,
+  useViewBorderRadiusBottomLeftStyle,
+  useViewBorderRadiusBottomRightStyle,
   useViewBorderRadiusStyle,
+  useViewBorderRadiusTopLeftStyle,
+  useViewBorderRadiusTopRightStyle,
   useViewBorderWidthBottomStyle,
   useViewBorderWidthLeftStyle,
   useViewBorderWidthRightStyle,
@@ -101,6 +105,10 @@ const View: ViewComponent = ({
   borderWidthRight,
   borderWidthBottom,
   borderRadius,
+  borderRadiusTopLeft,
+  borderRadiusTopRight,
+  borderRadiusBottomLeft,
+  borderRadiusBottomRight,
   backgroundColor,
   children,
 }) => {
@@ -154,6 +162,10 @@ const View: ViewComponent = ({
         useViewBorderWidthRightStyle(borderWidthRight),
         useViewBorderWidthBottomStyle(borderWidthBottom),
         useViewBorderRadiusStyle(borderRadius),
+        useViewBorderRadiusTopLeftStyle(borderRadiusTopLeft),
+        useViewBorderRadiusTopRightStyle(borderRadiusTopRight),
+        useViewBorderRadiusBottomLeftStyle(borderRadiusBottomLeft),
+        useViewBorderRadiusBottomRightStyle(borderRadiusBottomRight),
         useViewBackgroundColorStyle(backgroundColor),
       ]}
     >

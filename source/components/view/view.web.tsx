@@ -72,6 +72,10 @@ const View: ViewComponent = ({
   borderWidthRight,
   borderWidthBottom,
   borderRadius,
+  borderRadiusTopLeft,
+  borderRadiusTopRight,
+  borderRadiusBottomLeft,
+  borderRadiusBottomRight,
   backgroundColor,
   children,
 }) => {
@@ -116,6 +120,14 @@ const View: ViewComponent = ({
       borderWidthRight={useViewBorderWidthCSSValue(borderWidthRight)}
       borderWidthBottom={useViewBorderWidthCSSValue(borderWidthBottom)}
       borderRadius={useViewBorderRadiusCSSValue(borderRadius)}
+      borderRadiusTopLeft={useViewBorderRadiusCSSValue(borderRadiusTopLeft)}
+      borderRadiusTopRight={useViewBorderRadiusCSSValue(borderRadiusTopRight)}
+      borderRadiusBottomLeft={useViewBorderRadiusCSSValue(
+        borderRadiusBottomLeft
+      )}
+      borderRadiusBottomRight={useViewBorderRadiusCSSValue(
+        borderRadiusBottomRight
+      )}
       backgroundColor={useViewBackgroundColorCSSValue(backgroundColor)}
     >
       {children}

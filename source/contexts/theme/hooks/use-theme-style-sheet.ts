@@ -640,6 +640,66 @@ export const useThemeStyleSheet = () => {
         borderRadiusBaseXL: {
           borderRadius: themeContext.borderRadiusBaseXL,
         },
+        borderRadiusTopLeftBaseXS: {
+          borderTopLeftRadius: themeContext.borderRadiusBaseXS,
+        },
+        borderRadiusTopLeftBaseSM: {
+          borderTopLeftRadius: themeContext.borderRadiusBaseSM,
+        },
+        borderRadiusTopLeftBaseMD: {
+          borderTopLeftRadius: themeContext.borderRadiusBaseMD,
+        },
+        borderRadiusTopLeftBaseLG: {
+          borderTopLeftRadius: themeContext.borderRadiusBaseLG,
+        },
+        borderRadiusTopLeftBaseXL: {
+          borderTopLeftRadius: themeContext.borderRadiusBaseXL,
+        },
+        borderRadiusTopRightBaseXS: {
+          borderTopRightRadius: themeContext.borderRadiusBaseXS,
+        },
+        borderRadiusTopRightBaseSM: {
+          borderTopRightRadius: themeContext.borderRadiusBaseSM,
+        },
+        borderRadiusTopRightBaseMD: {
+          borderTopRightRadius: themeContext.borderRadiusBaseMD,
+        },
+        borderRadiusTopRightBaseLG: {
+          borderTopRightRadius: themeContext.borderRadiusBaseLG,
+        },
+        borderRadiusTopRightBaseXL: {
+          borderTopRightRadius: themeContext.borderRadiusBaseXL,
+        },
+        borderRadiusBottomLeftBaseXS: {
+          borderBottomLeftRadius: themeContext.borderRadiusBaseXS,
+        },
+        borderRadiusBottomLeftBaseSM: {
+          borderBottomLeftRadius: themeContext.borderRadiusBaseSM,
+        },
+        borderRadiusBottomLeftBaseMD: {
+          borderBottomLeftRadius: themeContext.borderRadiusBaseMD,
+        },
+        borderRadiusBottomLeftBaseLG: {
+          borderBottomLeftRadius: themeContext.borderRadiusBaseLG,
+        },
+        borderRadiusBottomLeftBaseXL: {
+          borderBottomLeftRadius: themeContext.borderRadiusBaseXL,
+        },
+        borderRadiusBottomRightBaseXS: {
+          borderBottomRightRadius: themeContext.borderRadiusBaseXS,
+        },
+        borderRadiusBottomRightBaseSM: {
+          borderBottomRightRadius: themeContext.borderRadiusBaseSM,
+        },
+        borderRadiusBottomRightBaseMD: {
+          borderBottomRightRadius: themeContext.borderRadiusBaseMD,
+        },
+        borderRadiusBottomRightBaseLG: {
+          borderBottomRightRadius: themeContext.borderRadiusBaseLG,
+        },
+        borderRadiusBottomRightBaseXL: {
+          borderBottomRightRadius: themeContext.borderRadiusBaseXL,
+        },
       }),
     [themeContext]
   )

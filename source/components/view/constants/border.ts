@@ -59,3 +59,32 @@ export const VIEW_THEME_BORDER_RADIUS_KEY = {
   [ViewBorderRadius.LG]: 'borderRadiusBaseLG' as const,
   [ViewBorderRadius.XL]: 'borderRadiusBaseXL' as const,
 }
+// Theme style sheet border radius style key map.
+export const VIEW_THEME_BORDER_RADIUS_TOP_LEFT_KEY = {
+  [ViewBorderRadius.XS]: 'borderRadiusTopLeftBaseXS' as const,
+  [ViewBorderRadius.SM]: 'borderRadiusTopLeftBaseSM' as const,
+  [ViewBorderRadius.MD]: 'borderRadiusTopLeftBaseMD' as const,
+  [ViewBorderRadius.LG]: 'borderRadiusTopLeftBaseLG' as const,
+  [ViewBorderRadius.XL]: 'borderRadiusTopLeftBaseXL' as const,
+}
+export const VIEW_THEME_BORDER_RADIUS_TOP_RIGHT_KEY = {
+  [ViewBorderRadius.XS]: 'borderRadiusTopRightBaseXS' as const,
+  [ViewBorderRadius.SM]: 'borderRadiusTopRightBaseSM' as const,
+  [ViewBorderRadius.MD]: 'borderRadiusTopRightBaseMD' as const,
+  [ViewBorderRadius.LG]: 'borderRadiusTopRightBaseLG' as const,
+  [ViewBorderRadius.XL]: 'borderRadiusTopRightBaseXL' as const,
+}
+export const VIEW_THEME_BORDER_RADIUS_BOTTOM_LEFT_KEY = {
+  [ViewBorderRadius.XS]: 'borderRadiusBottomLeftBaseXS' as const,
+  [ViewBorderRadius.SM]: 'borderRadiusBottomLeftBaseSM' as const,
+  [ViewBorderRadius.MD]: 'borderRadiusBottomLeftBaseMD' as const,
+  [ViewBorderRadius.LG]: 'borderRadiusBottomLeftBaseLG' as const,
+  [ViewBorderRadius.XL]: 'borderRadiusBottomLeftBaseXL' as const,
+}
+export const VIEW_THEME_BORDER_RADIUS_BOTTOM_RIGHT_KEY = {
+  [ViewBorderRadius.XS]: 'borderRadiusBottomRightBaseXS' as const,
+  [ViewBorderRadius.SM]: 'borderRadiusBottomRightBaseSM' as const,
+  [ViewBorderRadius.MD]: 'borderRadiusBottomRightBaseMD' as const,
+  [ViewBorderRadius.LG]: 'borderRadiusBottomRightBaseLG' as const,
+  [ViewBorderRadius.XL]: 'borderRadiusBottomRightBaseXL' as const,
+}

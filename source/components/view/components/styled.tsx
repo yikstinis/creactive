@@ -112,5 +112,12 @@ export const StyledView = styled.div<StyledViewProps>`
   border-right-width: ${({ borderWidthRight }) => borderWidthRight};
   border-bottom-width: ${({ borderWidthBottom }) => borderWidthBottom};
   border-radius: ${({ borderRadius }) => borderRadius};
+  border-top-left-radius: ${({ borderRadiusTopLeft }) => borderRadiusTopLeft};
+  border-top-right-radius: ${({ borderRadiusTopRight }) =>
+    borderRadiusTopRight};
+  border-bottom-left-radius: ${({ borderRadiusBottomLeft }) =>
+    borderRadiusBottomLeft};
+  border-bottom-right-radius: ${({ borderRadiusBottomRight }) =>
+    borderRadiusBottomRight};
   background-color: ${({ backgroundColor }) => backgroundColor};
 `
