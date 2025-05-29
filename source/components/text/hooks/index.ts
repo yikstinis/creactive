@@ -8,4 +8,8 @@ export {
   useTextFountFamilyStyle,
 } from './use-font'
 export { useTextOpacityValue } from './use-opacity'
-export { useTextAlignStyle, useTextLineHeightTokenValue } from './use-text'
+export {
+  useTextAlignStyle,
+  useTextDecorationStyle,
+  useTextLineHeightTokenValue,
+} from './use-text'

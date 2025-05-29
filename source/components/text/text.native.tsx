@@ -2,6 +2,7 @@ import { Text as ReactNativeText, StyleSheet } from 'react-native'
 import {
   TextAlign,
   TextColor,
+  TextDecoration,
   TextFontFamily,
   TextFontSize,
   TextFontWeight,
@@ -12,6 +13,7 @@ import { getLineHeightStyleSheet } from './helpers'
 import {
   useTextAlignStyle,
   useTextColorStyle,
+  useTextDecorationStyle,
   useTextFontSizeStyle,
   useTextFontSizeTokenValue,
   useTextFontWeightStyle,
@@ -38,6 +40,7 @@ const textStyleSheet = StyleSheet.create({
 })
 const Text: TextComponent = ({
   align = TextAlign.LEFT,
+  decoration = TextDecoration.NONE,
   fontFamily = TextFontFamily.BASE,
   fontWeight = TextFontWeight.REGULAR,
   fontSize = TextFontSize.MD,
@@ -52,6 +55,7 @@ const Text: TextComponent = ({
       style={[
         textStyleSheet.default,
         useTextAlignStyle(align),
+        useTextDecorationStyle(decoration),
         useTextFountFamilyStyle(fontFamily),
         useTextFontWeightStyle(fontWeight),
         useTextFontSizeStyle(fontSize),
@@ -72,6 +76,7 @@ const Text: TextComponent = ({
 }
 Text.Tag = TextTag
 Text.Align = TextAlign
+Text.Decoration = TextDecoration
 Text.FontFamily = TextFontFamily
 Text.FontWeight = TextFontWeight
 Text.FontSize = TextFontSize

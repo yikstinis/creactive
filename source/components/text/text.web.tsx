@@ -3,6 +3,7 @@ import {
   TEXT_HTML_TAG,
   TextAlign,
   TextColor,
+  TextDecoration,
   TextFontFamily,
   TextFontSize,
   TextFontWeight,
@@ -22,6 +23,7 @@ import type { TextComponent } from './text.types'
 const Text: TextComponent = ({
   tag,
   align = TextAlign.LEFT,
+  decoration = TextDecoration.NONE,
   fontFamily = TextFontFamily.BASE,
   fontWeight = TextFontWeight.REGULAR,
   fontSize = TextFontSize.MD,
@@ -37,6 +39,7 @@ const Text: TextComponent = ({
     <StyledText
       as={TEXT_HTML_TAG[tag]}
       align={align}
+      decoration={decoration}
       fontFamily={useTextFountFamilyCSSValue(fontFamily)}
       fontWeight={useTextFontWeightCSSValue(fontWeight)}
       fontSize={fontSizeValue}
@@ -51,6 +54,7 @@ const Text: TextComponent = ({
 }
 Text.Tag = TextTag
 Text.Align = TextAlign
+Text.Decoration = TextDecoration
 Text.FontFamily = TextFontFamily
 Text.FontWeight = TextFontWeight
 Text.FontSize = TextFontSize

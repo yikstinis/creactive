@@ -7,4 +7,9 @@ export {
   TextFontWeight,
 } from './font'
 export { TEXT_HTML_TAG, TextTag } from './tag'
-export { TEXT_THEME_LINE_HEIGHT_KEY, TextAlign, TextLineHeight } from './text'
+export {
+  TEXT_THEME_LINE_HEIGHT_KEY,
+  TextAlign,
+  TextDecoration,
+  TextLineHeight,
+} from './text'

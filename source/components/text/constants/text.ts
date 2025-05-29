@@ -9,6 +9,15 @@ export enum TextAlign {
 }
 
 /**
+ * Available text color enum.
+ * Should be used to control the color of the text.
+ */
+export enum TextDecoration {
+  NONE,
+  UNDERLINE,
+}
+
+/**
  * Available text line height enum.
  * Should be used to control the line height of the text.
  */
