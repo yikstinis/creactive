@@ -23,6 +23,7 @@ export {
   ViewAlignItems,
   ViewAlignSelf,
   ViewFlexDirection,
+  ViewFlexWrap,
   ViewJustifyContent,
 } from './flex'
 export { ViewOverflow } from './overflow'

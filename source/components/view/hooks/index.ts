@@ -29,6 +29,7 @@ export {
   useViewAlignItemsStyle,
   useViewAlignSelfStyle,
   useViewFlexDirectionStyle,
+  useViewFlexWrapStyle,
   useViewJustifyContentStyle,
 } from './use-flex'
 export { useViewOpacityValue } from './use-opacity'

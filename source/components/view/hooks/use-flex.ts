@@ -5,6 +5,7 @@ import {
   ViewAlignItems,
   ViewAlignSelf,
   ViewFlexDirection,
+  ViewFlexWrap,
   ViewJustifyContent,
 } from '../constants'
 
@@ -42,6 +43,22 @@ export const useFlexBasisStyle = (flexBasis?: Size) => {
 export const useFlexBasisiCSSValue = (flexBasis?: Size) => {
   if (flexBasis) return flexBasis.toValue()
 }
+
+// Flex wrap style sheet.
+const viewFlexWrapStyleSheet = StyleSheet.create({
+  flexWrapNone: {
+    flexWrap: 'nowrap',
+  },
+  flexWrap: {
+    flexWrap: 'wrap',
+  },
+})
+export const FLEX_WRAP_STYLE = {
+  [ViewFlexWrap.NONE]: viewFlexWrapStyleSheet.flexWrapNone,
+  [ViewFlexWrap.WRAP]: viewFlexWrapStyleSheet.flexWrap,
+}
+export const useViewFlexWrapStyle = (flexWrap: ViewFlexWrap) =>
+  FLEX_WRAP_STYLE[flexWrap]
 
 // Flex direction style sheet.
 const viewFlexDirectionStyleSheet = StyleSheet.create({

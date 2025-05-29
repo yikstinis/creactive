@@ -1,4 +1,13 @@
 /**
+ * View flex wrap enumerated constants.
+ * Should be used to control how children are wrapped in the flex container.
+ */
+export enum ViewFlexWrap {
+  NONE,
+  WRAP,
+}
+
+/**
  * View flex direction enumerated constants.
  * Should be used to define flex container primary axis.
  */

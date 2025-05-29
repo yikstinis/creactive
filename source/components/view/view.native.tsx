@@ -9,6 +9,7 @@ import {
   ViewBorderWidth,
   ViewBoxShadow,
   ViewFlexDirection,
+  ViewFlexWrap,
   ViewJustifyContent,
   ViewOverflow,
   ViewPosition,
@@ -36,6 +37,7 @@ import {
   useViewBorderWidthTopStyle,
   useViewBoxShadowStyle,
   useViewFlexDirectionStyle,
+  useViewFlexWrapStyle,
   useViewJustifyContentStyle,
   useViewMarginBottomStyle,
   useViewMarginLeftStyle,
@@ -78,6 +80,7 @@ const View: ViewComponent = ({
   flexGrow,
   flexShrink,
   flexBasis,
+  flexWrap = ViewFlexWrap.NONE,
   flexDirection = ViewFlexDirection.COLUMN,
   justifyContent = ViewJustifyContent.FLEX_START,
   alignItems = ViewAlignItems.STRETCH,
@@ -133,6 +136,7 @@ const View: ViewComponent = ({
         useFlexShrinkStyle(flexShrink),
         useFlexBasisStyle(flexBasis),
 
+        useViewFlexWrapStyle(flexWrap),
         useViewFlexDirectionStyle(flexDirection),
         useViewJustifyContentStyle(justifyContent),
         useViewAlignItemsStyle(alignItems),
@@ -176,6 +180,7 @@ const View: ViewComponent = ({
 View.Tag = ViewTag
 View.Position = ViewPosition
 View.Overflow = ViewOverflow
+View.FlexWrap = ViewFlexWrap
 View.FlexDirection = ViewFlexDirection
 View.JustifyContent = ViewJustifyContent
 View.AlignItems = ViewAlignItems

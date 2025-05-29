@@ -4,6 +4,7 @@ import {
   ViewAlignItems,
   ViewAlignSelf,
   ViewFlexDirection,
+  ViewFlexWrap,
   ViewJustifyContent,
   ViewOverflow,
   ViewPosition,
@@ -24,6 +25,10 @@ const OVERFLOW_CSS_VALUE = {
   [ViewOverflow.HIDDEN]: 'hidden',
 }
 
+const FLEX_WRAP_CSS_VALUE = {
+  [ViewFlexWrap.NONE]: 'nowrap',
+  [ViewFlexWrap.WRAP]: 'wrap',
+}
 const FLEX_DIRECTION_CSS_VALUE = {
   [ViewFlexDirection.COLUMN]: 'column',
   [ViewFlexDirection.ROW]: 'row',
@@ -83,6 +88,7 @@ export const StyledView = styled.div<StyledViewProps>`
   flex-grow: ${({ flexGrow }) => flexGrow};
   flex-shrink: ${({ flexShrink }) => flexShrink};
   flex-basis: ${({ flexBasis }) => flexBasis};
+  flex-wrap: ${({ flexWrap }) => FLEX_WRAP_CSS_VALUE[flexWrap]};
   flex-direction: ${({ flexDirection }) =>
     FLEX_DIRECTION_CSS_VALUE[flexDirection]};
   justify-content: ${({ justifyContent }) =>

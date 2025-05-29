@@ -17,6 +17,7 @@ import type {
   ViewBorderWidth,
   ViewBoxShadow,
   ViewFlexDirection,
+  ViewFlexWrap,
   ViewJustifyContent,
   ViewOverflow,
   ViewPosition,
@@ -103,6 +104,13 @@ export interface ViewProps extends PropsWithChildren {
    * @default undefined
    */
   flexBasis?: Size
+  /**
+   * View flex wrap property.
+   * Controls whether children should wrap onto multiple lines.
+   * @see View.FlexWrap
+   * @default View.FlexWrap.NOWRAP
+   */
+  flexWrap?: ViewFlexWrap
   /**
    * Flex direction of the component.
    * Defines the main axis along which children are laid out.
@@ -308,6 +316,7 @@ export type ViewComponent = FunctionComponent<ViewProps> & {
   Tag: Record<keyof typeof ViewTag, ViewTag>
   Position: Record<keyof typeof ViewPosition, ViewPosition>
   Overflow: Record<keyof typeof ViewOverflow, ViewOverflow>
+  FlexWrap: Record<keyof typeof ViewFlexWrap, ViewFlexWrap>
   FlexDirection: Record<keyof typeof ViewFlexDirection, ViewFlexDirection>
   JustifyContent: Record<keyof typeof ViewJustifyContent, ViewJustifyContent>
   AlignItems: Record<keyof typeof ViewAlignItems, ViewAlignItems>
@@ -325,6 +334,7 @@ export type StyledViewProps = Pick<
   ViewProps,
   | 'position'
   | 'overflow'
+  | 'flexWrap'
   | 'flexDirection'
   | 'justifyContent'
   | 'alignItems'
