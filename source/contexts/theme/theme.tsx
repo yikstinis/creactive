@@ -17,6 +17,15 @@ import {
   COLOR_BACKGROUND_BASE_700,
   COLOR_BACKGROUND_BASE_800,
   COLOR_BACKGROUND_BASE_900,
+  COLOR_BACKGROUND_PRIMARY_100,
+  COLOR_BACKGROUND_PRIMARY_200,
+  COLOR_BACKGROUND_PRIMARY_300,
+  COLOR_BACKGROUND_PRIMARY_400,
+  COLOR_BACKGROUND_PRIMARY_500,
+  COLOR_BACKGROUND_PRIMARY_600,
+  COLOR_BACKGROUND_PRIMARY_700,
+  COLOR_BACKGROUND_PRIMARY_800,
+  COLOR_BACKGROUND_PRIMARY_900,
   COLOR_BORDER_BASE_100,
   COLOR_BORDER_BASE_200,
   COLOR_BORDER_BASE_300,
@@ -114,6 +123,16 @@ const ThemeContext = createContext<ThemeContextValue>({
   colorBackgroundBase700: COLOR_BACKGROUND_BASE_700,
   colorBackgroundBase800: COLOR_BACKGROUND_BASE_800,
   colorBackgroundBase900: COLOR_BACKGROUND_BASE_900,
+  // Primary background colors.
+  colorBackgroundPrimary100: COLOR_BACKGROUND_PRIMARY_100,
+  colorBackgroundPrimary200: COLOR_BACKGROUND_PRIMARY_200,
+  colorBackgroundPrimary300: COLOR_BACKGROUND_PRIMARY_300,
+  colorBackgroundPrimary400: COLOR_BACKGROUND_PRIMARY_400,
+  colorBackgroundPrimary500: COLOR_BACKGROUND_PRIMARY_500,
+  colorBackgroundPrimary600: COLOR_BACKGROUND_PRIMARY_600,
+  colorBackgroundPrimary700: COLOR_BACKGROUND_PRIMARY_700,
+  colorBackgroundPrimary800: COLOR_BACKGROUND_PRIMARY_800,
+  colorBackgroundPrimary900: COLOR_BACKGROUND_PRIMARY_900,
   // Base border colors.
   colorBorderBase100: COLOR_BORDER_BASE_100,
   colorBorderBase200: COLOR_BORDER_BASE_200,
@@ -224,6 +243,16 @@ export const ThemeContextProvider: ThemeContextProviderComponent = ({
   colorBackgroundBase700,
   colorBackgroundBase800,
   colorBackgroundBase900,
+  // Primary background colors.
+  colorBackgroundPrimary100,
+  colorBackgroundPrimary200,
+  colorBackgroundPrimary300,
+  colorBackgroundPrimary400,
+  colorBackgroundPrimary500,
+  colorBackgroundPrimary600,
+  colorBackgroundPrimary700,
+  colorBackgroundPrimary800,
+  colorBackgroundPrimary900,
   // Base border colors.
   colorBorderBase100,
   colorBorderBase200,
@@ -348,6 +377,25 @@ export const ThemeContextProvider: ThemeContextProviderComponent = ({
         colorBackgroundBase800 ?? COLOR_BACKGROUND_BASE_800,
       colorBackgroundBase900:
         colorBackgroundBase900 ?? COLOR_BACKGROUND_BASE_900,
+      // Primary background colors.
+      colorBackgroundPrimary100:
+        colorBackgroundPrimary100 ?? COLOR_BACKGROUND_PRIMARY_100,
+      colorBackgroundPrimary200:
+        colorBackgroundPrimary200 ?? COLOR_BACKGROUND_PRIMARY_200,
+      colorBackgroundPrimary300:
+        colorBackgroundPrimary300 ?? COLOR_BACKGROUND_PRIMARY_300,
+      colorBackgroundPrimary400:
+        colorBackgroundPrimary400 ?? COLOR_BACKGROUND_PRIMARY_400,
+      colorBackgroundPrimary500:
+        colorBackgroundPrimary500 ?? COLOR_BACKGROUND_PRIMARY_500,
+      colorBackgroundPrimary600:
+        colorBackgroundPrimary600 ?? COLOR_BACKGROUND_PRIMARY_600,
+      colorBackgroundPrimary700:
+        colorBackgroundPrimary700 ?? COLOR_BACKGROUND_PRIMARY_700,
+      colorBackgroundPrimary800:
+        colorBackgroundPrimary800 ?? COLOR_BACKGROUND_PRIMARY_800,
+      colorBackgroundPrimary900:
+        colorBackgroundPrimary900 ?? COLOR_BACKGROUND_PRIMARY_900,
       // Base border colors.
       colorBorderBase100: colorBorderBase100 ?? COLOR_BORDER_BASE_100,
       colorBorderBase200: colorBorderBase200 ?? COLOR_BORDER_BASE_200,
@@ -487,6 +535,16 @@ export const ThemeContextProvider: ThemeContextProviderComponent = ({
       colorBackgroundBase700,
       colorBackgroundBase800,
       colorBackgroundBase900,
+      // Primary background colors.
+      colorBackgroundPrimary100,
+      colorBackgroundPrimary200,
+      colorBackgroundPrimary300,
+      colorBackgroundPrimary400,
+      colorBackgroundPrimary500,
+      colorBackgroundPrimary600,
+      colorBackgroundPrimary700,
+      colorBackgroundPrimary800,
+      colorBackgroundPrimary900,
       // Base border colors.
       colorBorderBase100,
       colorBorderBase200,

@@ -40,6 +40,15 @@ export enum ViewBackgroundColor {
   BASE_700,
   BASE_800,
   BASE_900,
+  PRIMARY_100,
+  PRIMARY_200,
+  PRIMARY_300,
+  PRIMARY_400,
+  PRIMARY_500,
+  PRIMARY_600,
+  PRIMARY_700,
+  PRIMARY_800,
+  PRIMARY_900,
 }
 // Theme background color key map.
 export const VIEW_THEME_BACKGROUND_COLOR_KEY = {
@@ -52,4 +61,13 @@ export const VIEW_THEME_BACKGROUND_COLOR_KEY = {
   [ViewBackgroundColor.BASE_700]: 'colorBackgroundBase700' as const,
   [ViewBackgroundColor.BASE_800]: 'colorBackgroundBase800' as const,
   [ViewBackgroundColor.BASE_900]: 'colorBackgroundBase900' as const,
+  [ViewBackgroundColor.PRIMARY_100]: 'colorBackgroundPrimary100' as const,
+  [ViewBackgroundColor.PRIMARY_200]: 'colorBackgroundPrimary200' as const,
+  [ViewBackgroundColor.PRIMARY_300]: 'colorBackgroundPrimary300' as const,
+  [ViewBackgroundColor.PRIMARY_400]: 'colorBackgroundPrimary400' as const,
+  [ViewBackgroundColor.PRIMARY_500]: 'colorBackgroundPrimary500' as const,
+  [ViewBackgroundColor.PRIMARY_600]: 'colorBackgroundPrimary600' as const,
+  [ViewBackgroundColor.PRIMARY_700]: 'colorBackgroundPrimary700' as const,
+  [ViewBackgroundColor.PRIMARY_800]: 'colorBackgroundPrimary800' as const,
+  [ViewBackgroundColor.PRIMARY_900]: 'colorBackgroundPrimary900' as const,
 }

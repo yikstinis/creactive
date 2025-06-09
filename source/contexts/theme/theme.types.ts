@@ -55,6 +55,52 @@ export interface ThemeContextValue {
   colorBackgroundBase900: Color
 
   /**
+   * Least contrast primary background color.
+   * @default rgb(102,102,116)
+   */
+  colorBackgroundPrimary100: Color
+  /**
+   * Dim primary background color.
+   * @default rgb(82,82,92)
+   */
+  colorBackgroundPrimary200: Color
+  /**
+   * Mix of dim and muted primary background color.
+   * @default rgb(74,74,88)
+   */
+  colorBackgroundPrimary300: Color
+  /**
+   * Muted primary background color.
+   * @default rgb(63,63,70)
+   */
+  colorBackgroundPrimary400: Color
+  /**
+   * Mix of muted and subtle primary background color.
+   * @default rgb(49,49,56)
+   */
+  colorBackgroundPrimary500: Color
+  /**
+   * Subtle primary background color.
+   * @default rgb(39,39,42)
+   */
+  colorBackgroundPrimary600: Color
+  /**
+   * Mix of subtle and default primary background color.
+   * @default rgb(30,30,34)
+   */
+  colorBackgroundPrimary700: Color
+  /**
+   * Primary default background color.
+   * @default rgb(24,24,27)
+   */
+  colorBackgroundPrimary800: Color
+  /**
+   * Most contrast primary background color.
+   * @default rgb(6,6,14)
+   */
+  colorBackgroundPrimary900: Color
+
+  /**
    * Least contrast base border color.
    * @default rgb(253,252,254)
    */
