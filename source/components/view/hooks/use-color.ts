@@ -33,6 +33,15 @@ export const useViewBackgroundColorStyle = (
           | ViewBackgroundColor.BASE_700
           | ViewBackgroundColor.BASE_800
           | ViewBackgroundColor.BASE_900
+          | ViewBackgroundColor.PRIMARY_100
+          | ViewBackgroundColor.PRIMARY_200
+          | ViewBackgroundColor.PRIMARY_300
+          | ViewBackgroundColor.PRIMARY_400
+          | ViewBackgroundColor.PRIMARY_500
+          | ViewBackgroundColor.PRIMARY_600
+          | ViewBackgroundColor.PRIMARY_700
+          | ViewBackgroundColor.PRIMARY_800
+          | ViewBackgroundColor.PRIMARY_900
       ]
     ]
   }
@@ -59,6 +68,15 @@ export const useViewBackgroundColorCSSValue = (
           | ViewBackgroundColor.BASE_700
           | ViewBackgroundColor.BASE_800
           | ViewBackgroundColor.BASE_900
+          | ViewBackgroundColor.PRIMARY_100
+          | ViewBackgroundColor.PRIMARY_200
+          | ViewBackgroundColor.PRIMARY_300
+          | ViewBackgroundColor.PRIMARY_400
+          | ViewBackgroundColor.PRIMARY_500
+          | ViewBackgroundColor.PRIMARY_600
+          | ViewBackgroundColor.PRIMARY_700
+          | ViewBackgroundColor.PRIMARY_800
+          | ViewBackgroundColor.PRIMARY_900
       ]
     ]
   }

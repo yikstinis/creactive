@@ -39,6 +39,34 @@ export const useThemeStyleSheet = () => {
         colorBackgroundBase900: {
           backgroundColor: themeContext.colorBackgroundBase900,
         },
+        // Primary background colors.
+        colorBackgroundPrimary100: {
+          backgroundColor: themeContext.colorBackgroundPrimary100,
+        },
+        colorBackgroundPrimary200: {
+          backgroundColor: themeContext.colorBackgroundPrimary200,
+        },
+        colorBackgroundPrimary300: {
+          backgroundColor: themeContext.colorBackgroundPrimary300,
+        },
+        colorBackgroundPrimary400: {
+          backgroundColor: themeContext.colorBackgroundPrimary400,
+        },
+        colorBackgroundPrimary500: {
+          backgroundColor: themeContext.colorBackgroundPrimary500,
+        },
+        colorBackgroundPrimary600: {
+          backgroundColor: themeContext.colorBackgroundPrimary600,
+        },
+        colorBackgroundPrimary700: {
+          backgroundColor: themeContext.colorBackgroundPrimary700,
+        },
+        colorBackgroundPrimary800: {
+          backgroundColor: themeContext.colorBackgroundPrimary800,
+        },
+        colorBackgroundPrimary900: {
+          backgroundColor: themeContext.colorBackgroundPrimary900,
+        },
         // Base border colors.
         colorBorderBase100: {
           borderColor: themeContext.colorBorderBase100,
