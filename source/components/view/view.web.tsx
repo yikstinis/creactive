@@ -84,6 +84,7 @@ const View: ViewComponent = ({
 }) => {
   const ref = useRef<HTMLDivElement | undefined>(undefined)
 
+  // TODO: Add resize event listener and layout callback..
   useLayoutEffect(() => {
     if (ref.current && onLayout) {
       const clientRect = ref.current.getBoundingClientRect()
