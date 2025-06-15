@@ -11,7 +11,11 @@ export type { OverlayComponent, OverlayProps } from '@/components/overlay'
 export { Text } from '@/components/text'
 export type { TextComponent, TextProps } from '@/components/text'
 export { View } from '@/components/view'
-export type { ViewComponent, ViewProps } from '@/components/view'
+export type {
+  ViewComponent,
+  ViewLayoutEvent,
+  ViewProps,
+} from '@/components/view'
 export { Dimension } from '@/constants/dimension'
 export { FRACTION_MAX, FRACTION_MIN } from '@/constants/fraction'
 export { POSITION_MAX, POSITION_MIN } from '@/constants/position'
