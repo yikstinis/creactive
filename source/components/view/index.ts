@@ -1,5 +1,5 @@
 import { Platform } from 'react-native'
-import type { ViewComponent, ViewProps } from './view.types'
+import type { ViewComponent, ViewLayoutEvent, ViewProps } from './view.types'
 
 // Export platform-specific component version.
 export const View: ViewComponent = Platform.select({
@@ -7,4 +7,4 @@ export const View: ViewComponent = Platform.select({
   web: () => require('./view.web').default,
 })()
 
-export type { ViewComponent, ViewProps }
+export type { ViewComponent, ViewLayoutEvent, ViewProps }

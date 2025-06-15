@@ -25,6 +25,15 @@ import type {
   ViewTag,
 } from './constants'
 
+/**
+ * View layout event interface.
+ * Contains width and height of the view.
+ */
+export interface ViewLayoutEvent {
+  width: number
+  height: number
+}
+
 export interface ViewProps extends PropsWithChildren {
   /**
    * Allows to select view in tests.
@@ -311,6 +320,12 @@ export interface ViewProps extends PropsWithChildren {
    * @default View.BackgroundColor.TRANSPARENT
    */
   backgroundColor?: ViewBackgroundColor | Color
+
+  /**
+   * Callback function that is called when the layout of the view changes.
+   * @param event Event containing the width and height of the view.
+   */
+  onLayout?(event: ViewLayoutEvent): void
 }
 export type ViewComponent = FunctionComponent<ViewProps> & {
   Tag: Record<keyof typeof ViewTag, ViewTag>

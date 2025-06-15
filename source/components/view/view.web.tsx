@@ -1,3 +1,4 @@
+import { useLayoutEffect, useRef } from 'react'
 import { StyledView } from './components'
 import {
   VIEW_HTML_TAG,
@@ -10,6 +11,7 @@ import {
   ViewBorderWidth,
   ViewBoxShadow,
   ViewFlexDirection,
+  ViewFlexWrap,
   ViewJustifyContent,
   ViewOverflow,
   ViewPosition,
@@ -78,10 +80,24 @@ const View: ViewComponent = ({
   borderRadiusBottomRight,
   backgroundColor,
   children,
+  onLayout,
 }) => {
+  const ref = useRef<HTMLDivElement | undefined>(undefined)
+
+  useLayoutEffect(() => {
+    if (ref.current && onLayout) {
+      const clientRect = ref.current.getBoundingClientRect()
+      onLayout({
+        width: clientRect.width,
+        height: clientRect.height,
+      })
+    }
+  }, [])
+
   return (
     <StyledView
       data-testid={testId}
+      ref={ref}
       as={VIEW_HTML_TAG[tag]}
       position={position}
       top={useViewPositionValue(top)}
@@ -137,6 +153,7 @@ const View: ViewComponent = ({
 View.Tag = ViewTag
 View.Position = ViewPosition
 View.Overflow = ViewOverflow
+View.FlexWrap = ViewFlexWrap
 View.FlexDirection = ViewFlexDirection
 View.JustifyContent = ViewJustifyContent
 View.AlignItems = ViewAlignItems

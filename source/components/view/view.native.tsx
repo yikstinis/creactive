@@ -1,4 +1,9 @@
-import { View as ReactNativeView, StyleSheet } from 'react-native'
+import { useCallback } from 'react'
+import {
+  LayoutChangeEvent,
+  View as ReactNativeView,
+  StyleSheet,
+} from 'react-native'
 import {
   ViewAlignContent,
   ViewAlignItems,
@@ -114,7 +119,22 @@ const View: ViewComponent = ({
   borderRadiusBottomRight,
   backgroundColor,
   children,
+  onLayout,
 }) => {
+  const handleLayout = useCallback(
+    (event: LayoutChangeEvent) => {
+      if (onLayout) {
+        const height = event.nativeEvent.layout.height
+        const width = event.nativeEvent.layout.width
+        onLayout({
+          width,
+          height,
+        })
+      }
+    },
+    [onLayout]
+  )
+
   return (
     <ReactNativeView
       testID={testId}
@@ -172,6 +192,7 @@ const View: ViewComponent = ({
         useViewBorderRadiusBottomRightStyle(borderRadiusBottomRight),
         useViewBackgroundColorStyle(backgroundColor),
       ]}
+      onLayout={handleLayout}
     >
       {children}
     </ReactNativeView>
