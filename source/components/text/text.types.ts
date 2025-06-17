@@ -1,6 +1,11 @@
 import type { Fraction } from '@/helpers'
 import type { Color, FontWeight } from '@/types'
-import type { FunctionComponent, PropsWithChildren } from 'react'
+import type {
+  ForwardRefExoticComponent,
+  PropsWithChildren,
+  PropsWithoutRef,
+  RefAttributes,
+} from 'react'
 import type {
   TextAlign,
   TextColor,
@@ -11,6 +16,21 @@ import type {
   TextLineHeight,
   TextTag,
 } from './constants'
+
+export type TextMeasureCallback = (
+  x: number,
+  y: number,
+  width: number,
+  height: number
+) => void
+
+/**
+ * Text component reference object.
+ * Allows to access text measurement method.
+ */
+export interface TextRef {
+  measure(callback: TextMeasureCallback): void
+}
 
 export interface TextProps extends PropsWithChildren {
   /**
@@ -74,7 +94,9 @@ export interface TextProps extends PropsWithChildren {
    */
   opacity?: Fraction
 }
-export type TextComponent = FunctionComponent<TextProps> & {
+export type TextComponent = ForwardRefExoticComponent<
+  PropsWithoutRef<TextProps> & RefAttributes<TextRef>
+> & {
   Tag: Record<keyof typeof TextTag, TextTag>
   Align: Record<keyof typeof TextAlign, TextAlign>
   Decoration: Record<keyof typeof TextDecoration, TextDecoration>

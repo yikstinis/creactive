@@ -1,3 +1,4 @@
+import { forwardRef, useImperativeHandle, useRef } from 'react'
 import { Text as ReactNativeText, StyleSheet } from 'react-native'
 import {
   TextAlign,
@@ -21,7 +22,12 @@ import {
   useTextLineHeightTokenValue,
   useTextOpacityValue,
 } from './hooks'
-import type { TextComponent } from './text.types'
+import type {
+  TextComponent,
+  TextMeasureCallback,
+  TextProps,
+  TextRef,
+} from './text.types'
 
 const textStyleSheet = StyleSheet.create({
   default: {
@@ -38,48 +44,64 @@ const textStyleSheet = StyleSheet.create({
     borderWidth: 0,
   },
 })
-const Text: TextComponent = ({
-  align = TextAlign.LEFT,
-  decoration = TextDecoration.NONE,
-  fontFamily = TextFontFamily.BASE,
-  fontWeight = TextFontWeight.REGULAR,
-  fontSize = TextFontSize.MD,
-  lineHeight = TextLineHeight.NORMAL,
-  maxLines,
-  color = TextColor.BASE_800,
-  opacity,
-  children,
-}) => {
-  return (
-    <ReactNativeText
-      style={[
-        textStyleSheet.default,
-        useTextAlignStyle(align),
-        useTextDecorationStyle(decoration),
-        useTextFountFamilyStyle(fontFamily),
-        useTextFontWeightStyle(fontWeight),
-        useTextFontSizeStyle(fontSize),
-        getLineHeightStyleSheet(
-          useTextFontSizeTokenValue(fontSize),
-          useTextLineHeightTokenValue(lineHeight)
-        ),
-        useTextColorStyle(color),
-        {
-          opacity: useTextOpacityValue(opacity),
-        },
-      ]}
-      numberOfLines={maxLines}
-    >
-      {children}
-    </ReactNativeText>
-  )
-}
-Text.Tag = TextTag
-Text.Align = TextAlign
-Text.Decoration = TextDecoration
-Text.FontFamily = TextFontFamily
-Text.FontWeight = TextFontWeight
-Text.FontSize = TextFontSize
-Text.LineHeight = TextLineHeight
-Text.Color = TextColor
-export default Text
+const Text = forwardRef<TextRef, TextProps>(
+  (
+    {
+      align = TextAlign.LEFT,
+      decoration = TextDecoration.NONE,
+      fontFamily = TextFontFamily.BASE,
+      fontWeight = TextFontWeight.REGULAR,
+      fontSize = TextFontSize.MD,
+      lineHeight = TextLineHeight.NORMAL,
+      maxLines,
+      color = TextColor.BASE_800,
+      opacity,
+      children,
+    },
+    ref
+  ) => {
+    const nativeTextRef = useRef<ReactNativeText | undefined>(undefined)
+
+    useImperativeHandle(ref, () => ({
+      measure: (callback: TextMeasureCallback) => {
+        nativeTextRef.current?.measure((x, y, width, height) => {
+          callback(x, y, width, height)
+        })
+      },
+    }))
+
+    return (
+      <ReactNativeText
+        ref={nativeTextRef}
+        style={[
+          textStyleSheet.default,
+          useTextAlignStyle(align),
+          useTextDecorationStyle(decoration),
+          useTextFountFamilyStyle(fontFamily),
+          useTextFontWeightStyle(fontWeight),
+          useTextFontSizeStyle(fontSize),
+          getLineHeightStyleSheet(
+            useTextFontSizeTokenValue(fontSize),
+            useTextLineHeightTokenValue(lineHeight)
+          ),
+          useTextColorStyle(color),
+          {
+            opacity: useTextOpacityValue(opacity),
+          },
+        ]}
+        numberOfLines={maxLines}
+      >
+        {children}
+      </ReactNativeText>
+    )
+  }
+)
+;(Text as TextComponent).Tag = TextTag
+;(Text as TextComponent).Align = TextAlign
+;(Text as TextComponent).Decoration = TextDecoration
+;(Text as TextComponent).FontFamily = TextFontFamily
+;(Text as TextComponent).FontWeight = TextFontWeight
+;(Text as TextComponent).FontSize = TextFontSize
+;(Text as TextComponent).LineHeight = TextLineHeight
+;(Text as TextComponent).Color = TextColor
+export default Text as TextComponent

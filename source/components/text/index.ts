@@ -1,5 +1,5 @@
 import { Platform } from 'react-native'
-import type { TextComponent, TextProps } from './text.types'
+import type { TextComponent, TextProps, TextRef } from './text.types'
 
 // Export platform-specific component version.
 export const Text: TextComponent = Platform.select({
@@ -7,4 +7,4 @@ export const Text: TextComponent = Platform.select({
   web: () => require('./text.web').default,
 })()
 
-export type { TextComponent, TextProps }
+export type { TextComponent, TextProps, TextRef }
