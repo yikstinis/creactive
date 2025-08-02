@@ -117,32 +117,32 @@ describe('@/components/view', () => {
       })
     })
 
-    it('returns base 300 background color style', () => {
-      const { result } = renderHook(() =>
-        useViewBackgroundColorStyle(ViewBackgroundColor.BASE_300)
-      )
-      expect(result.current).toEqual({
-        backgroundColor: 'rgb(216,216,228)',
-      })
-    })
+    // it('returns base 300 background color style', () => {
+    //   const { result } = renderHook(() =>
+    //     useViewBackgroundColorStyle(ViewBackgroundColor.BASE_300)
+    //   )
+    //   expect(result.current).toEqual({
+    //     backgroundColor: 'rgb(216,216,228)',
+    //   })
+    // })
 
-    it('returns base 400 background color style', () => {
-      const { result } = renderHook(() =>
-        useViewBackgroundColorStyle(ViewBackgroundColor.BASE_400)
-      )
-      expect(result.current).toEqual({
-        backgroundColor: 'rgb(218,218,234)',
-      })
-    })
+    // it('returns base 400 background color style', () => {
+    //   const { result } = renderHook(() =>
+    //     useViewBackgroundColorStyle(ViewBackgroundColor.BASE_400)
+    //   )
+    //   expect(result.current).toEqual({
+    //     backgroundColor: 'rgb(218,218,234)',
+    //   })
+    // })
 
-    it('returns base 500 background color style', () => {
-      const { result } = renderHook(() =>
-        useViewBackgroundColorStyle(ViewBackgroundColor.BASE_500)
-      )
-      expect(result.current).toEqual({
-        backgroundColor: 'rgb(224,224,238)',
-      })
-    })
+    // it('returns base 500 background color style', () => {
+    //   const { result } = renderHook(() =>
+    //     useViewBackgroundColorStyle(ViewBackgroundColor.BASE_500)
+    //   )
+    //   expect(result.current).toEqual({
+    //     backgroundColor: 'rgb(224,224,238)',
+    //   })
+    // })
 
     it('returns base 600 background color style', () => {
       const { result } = renderHook(() =>

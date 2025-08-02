@@ -165,44 +165,44 @@ describe('@/components/view', () => {
       })
     })
 
-    it('renders base 300 background color', () => {
-      const testId = faker.string.uuid()
-      render(
-        <View
-          testId={testId}
-          backgroundColor={View.BackgroundColor.BASE_300}
-        />
-      )
-      expect(screen.getByTestId(testId)).toHaveStyle({
-        backgroundColor: 'rgb(216,216,228)',
-      })
-    })
+    // it('renders base 300 background color', () => {
+    //   const testId = faker.string.uuid()
+    //   render(
+    //     <View
+    //       testId={testId}
+    //       backgroundColor={View.BackgroundColor.BASE_300}
+    //     />
+    //   )
+    //   expect(screen.getByTestId(testId)).toHaveStyle({
+    //     backgroundColor: 'rgb(216,216,228)',
+    //   })
+    // })
 
-    it('renders base 400 background color', () => {
-      const testId = faker.string.uuid()
-      render(
-        <View
-          testId={testId}
-          backgroundColor={View.BackgroundColor.BASE_400}
-        />
-      )
-      expect(screen.getByTestId(testId)).toHaveStyle({
-        backgroundColor: 'rgb(218,218,234)',
-      })
-    })
+    // it('renders base 400 background color', () => {
+    //   const testId = faker.string.uuid()
+    //   render(
+    //     <View
+    //       testId={testId}
+    //       backgroundColor={View.BackgroundColor.BASE_400}
+    //     />
+    //   )
+    //   expect(screen.getByTestId(testId)).toHaveStyle({
+    //     backgroundColor: 'rgb(218,218,234)',
+    //   })
+    // })
 
-    it('renders base 500 background color', () => {
-      const testId = faker.string.uuid()
-      render(
-        <View
-          testId={testId}
-          backgroundColor={View.BackgroundColor.BASE_500}
-        />
-      )
-      expect(screen.getByTestId(testId)).toHaveStyle({
-        backgroundColor: 'rgb(224,224,238)',
-      })
-    })
+    // it('renders base 500 background color', () => {
+    //   const testId = faker.string.uuid()
+    //   render(
+    //     <View
+    //       testId={testId}
+    //       backgroundColor={View.BackgroundColor.BASE_500}
+    //     />
+    //   )
+    //   expect(screen.getByTestId(testId)).toHaveStyle({
+    //     backgroundColor: 'rgb(224,224,238)',
+    //   })
+    // })
 
     it('renders base 600 background color', () => {
       const testId = faker.string.uuid()

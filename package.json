@@ -1,14 +1,14 @@
 {
   "name": "creactive",
-  "version": "0.0.132",
+  "version": "0.0.133",
   "main": ".storybook",
   "files": [
     "build/**"
   ],
   "scripts": {
     "prestart": "sb-rn-get-stories && node scripts/update-package.js .storybook",
-    "start": "expo start --tunnel",
-    "start:clear": "expo start --clear",
+    "start": "expo start",
+    "start:tunnel": "expo start --tunnel",
     "test": "npm run test:android && npm run test:ios && npm run test:web",
     "test:android": "jest",
     "test:ios": "jest",

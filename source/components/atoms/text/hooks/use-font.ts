@@ -1,24 +1,15 @@
-export enum TextFontFamily {
-  BASE,
-  TYPOGRAPHIC,
-}
+import { useThemeContext, useThemeStyleSheet } from '@/contexts'
+import { TextFontFamily, TextFontSize, TextFontWeight } from '../constants'
 
-/**
- * Supported by text component font weights enum.
- * Should be used to control the weight of the text.
- */
-export enum TextFontWeight {
-  THIN,
-  EXTRA_LIGHT,
-  LIGHT,
-  REGULAR,
-  MEDIUM,
-  SEMIBOLD,
-  BOLD,
-  EXTRA_BOLD,
-  BLACK,
+const TEXT_THEME_FONT_FAMILY_KEY = {
+  [TextFontFamily.BASE]: 'fontFamilyBase' as const,
+  [TextFontFamily.TYPOGRAPHIC]: 'fontFamilyTypographic' as const,
 }
-// Mappted to themed key font weight constants.
+export const useTextFontFamilyStyle = (fontFamily: TextFontFamily) =>
+  useThemeStyleSheet()[TEXT_THEME_FONT_FAMILY_KEY[fontFamily]]
+export const useTextFontFamilyValue = (fontFamily: TextFontFamily) =>
+  useThemeContext()[TEXT_THEME_FONT_FAMILY_KEY[fontFamily]]
+
 export const TEXT_THEME_FONT_WEIGHT_KEY = {
   [TextFontWeight.THIN]: 'fontWeightBaseThin' as const,
   [TextFontWeight.EXTRA_LIGHT]: 'fontWeightBaseExtraLight' as const,
@@ -30,24 +21,11 @@ export const TEXT_THEME_FONT_WEIGHT_KEY = {
   [TextFontWeight.EXTRA_BOLD]: 'fontWeightBaseExtraBold' as const,
   [TextFontWeight.BLACK]: 'fontWeightBaseBlack' as const,
 }
+export const useTextFontWeightStyle = (fontWeight: TextFontWeight) =>
+  useThemeStyleSheet()[TEXT_THEME_FONT_WEIGHT_KEY[fontWeight]]
+export const useTextFontWeightValue = (fontWeight: TextFontWeight) =>
+  useThemeContext()[TEXT_THEME_FONT_WEIGHT_KEY[fontWeight]]
 
-/**
- * Supported text font sizes enum.
- * Should be used to control the size of the text.
- */
-export enum TextFontSize {
-  X2S,
-  XS,
-  SM,
-  MD,
-  LG,
-  XL,
-  X2L,
-  X3L,
-  X4L,
-  X5L,
-}
-// Mappted to themed key font size constants.
 export const TEXT_THEME_FONT_SIZE_KEY = {
   [TextFontSize.X2S]: 'fontSizeBaseX2S' as const,
   [TextFontSize.XS]: 'fontSizeBaseXS' as const,
@@ -60,3 +38,7 @@ export const TEXT_THEME_FONT_SIZE_KEY = {
   [TextFontSize.X4L]: 'fontSizeBaseX4L' as const,
   [TextFontSize.X5L]: 'fontSizeBaseX5L' as const,
 }
+export const useTextFontSizeStyle = (fontSize: TextFontSize) =>
+  useThemeStyleSheet()[TEXT_THEME_FONT_SIZE_KEY[fontSize]]
+export const useTextFontSizeValue = (fontSize: TextFontSize) =>
+  useThemeContext()[TEXT_THEME_FONT_SIZE_KEY[fontSize]]

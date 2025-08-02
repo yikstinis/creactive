@@ -17,6 +17,11 @@ import type {
   TextTag,
 } from './constants'
 
+/**
+ * Provided by component reference object measure callback.
+ * Allows to access component layout element position and size.
+ * TODO: Comment arguments...
+ */
 export type TextMeasureCallback = (
   x: number,
   y: number,
@@ -28,16 +33,21 @@ export type TextMeasureCallback = (
  * Text component reference object.
  * Allows to access text measurement method.
  */
-export interface TextRef {
+export interface TextReference {
   measure(callback: TextMeasureCallback): void
 }
 
-export interface TextProps extends PropsWithChildren {
+export interface TextProperties extends PropsWithChildren {
+  /**
+   * Allows to select text component in tests.
+   * @default undefined
+   */
+  testId?: string
   /**
    * Allows to control HTML tag to render.
    * Makes no sense on native platforms.
    * @see Text.Tag
-   * @default undefined - renders into DIV element
+   * @default undefined - renders into SPAN element
    */
   tag?: TextTag
   /**
@@ -45,13 +55,13 @@ export interface TextProps extends PropsWithChildren {
    * @see Text.Align
    * @default Text.Align.LEFT
    */
-  align?: TextAlign
+  textAlign?: TextAlign
   /**
    * Text decoration.
    * @see Text.Decoration
    * @default Text.Decoration.NONE
    */
-  decoration?: TextDecoration
+  textDecoration?: TextDecoration
   /**
    * Themed font family.
    * @see Text.FontFamily
@@ -95,26 +105,31 @@ export interface TextProps extends PropsWithChildren {
   opacity?: Fraction
 }
 export type TextComponent = ForwardRefExoticComponent<
-  PropsWithoutRef<TextProps> & RefAttributes<TextRef>
+  PropsWithoutRef<TextProperties> & RefAttributes<TextReference>
 > & {
   Tag: Record<keyof typeof TextTag, TextTag>
-  Align: Record<keyof typeof TextAlign, TextAlign>
-  Decoration: Record<keyof typeof TextDecoration, TextDecoration>
+  TextAlign: Record<keyof typeof TextAlign, TextAlign>
+  TextDecoration: Record<keyof typeof TextDecoration, TextDecoration>
   FontFamily: Record<keyof typeof TextFontFamily, TextFontFamily>
   FontWeight: Record<keyof typeof TextFontWeight, TextFontWeight>
   FontSize: Record<keyof typeof TextFontSize, TextFontSize>
   LineHeight: Record<keyof typeof TextLineHeight, TextLineHeight>
   Color: Record<keyof typeof TextColor, TextColor>
 }
-// For web version styled component.
-export type StyledTextrops = Pick<
-  TextProps,
-  'align' | 'decoration' | 'maxLines'
-> & {
-  fontFamily: string
-  fontWeight: FontWeight
-  fontSize: number
-  lineHeight: number
-  color: Color | 'transparent'
-  opacity?: number
+/**
+ * Styled text properties type.
+ * Used to render text component on web.
+ */
+export type TextStyledProperties = {
+  css: {
+    textAlign: 'left' | 'center' | 'right'
+    textDecoration: 'none' | 'underline'
+    fontFamily: string
+    fontWeight: FontWeight
+    fontSize: number
+    lineHeight: number
+    maxLines: number
+    color: Color
+    opacity?: number
+  }
 }

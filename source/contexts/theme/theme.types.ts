@@ -148,139 +148,139 @@ export interface ThemeContextValue {
 
   /**
    * Least contrast base foreground color token.
-   * @default rgb(102,102,116)
+   * @default rgb(200,200,205)
    */
   colorForegroundBase100: Color
   /**
    * Dim base foreground color.
-   * @default rgb(82,82,92)
+   * @default rgb(175,175,180)
    */
   colorForegroundBase200: Color
   /**
    * Mix of dim and muted base foreground color.
-   * @default rgb(74,74,88)
+   * @default rgb(150,150,155)
    */
   colorForegroundBase300: Color
   /**
    * Muted base foreground color.
-   * @default rgb(63,63,70)
+   * @default rgb(125,125,130)
    */
   colorForegroundBase400: Color
   /**
    * Mix of muted and subtle base foreground color.
-   * @default rgb(49,49,56)
+   * @default rgb(100,100,105)
    */
   colorForegroundBase500: Color
   /**
    * Subtle base foreground color.
-   * @default rgb(39,39,42)
+   * @default rgb(75,75,80)
    */
   colorForegroundBase600: Color
   /**
    * Mix of subtle and default base foreground color.
-   * @default rgb(30,30,34)
+   * @default rgb(50,50,55)
    */
   colorForegroundBase700: Color
   /**
    * Base default foreground color.
-   * @default rgb(24,24,27)
+   * @default rgb(25,25,30)
    */
   colorForegroundBase800: Color
   /**
    * Most contrast base foreground color.
-   * @default rgb(6,6,14)
+   * @default rgb(0,0,5)
    */
   colorForegroundBase900: Color
 
   /**
    * Least contrast inverse foreground color.
-   * @default rgb(198,198,202)
+   * @default rgb(50,50,55)
    */
   colorForegroundInverse100: Color
   /**
    * Dim inverse foreground color.
-   * @default rgb(212,212,216)
+   * @default rgb(75,75,80)
    */
   colorForegroundInverse200: Color
   /**
    * Mix of dim and muted inverse foreground color.
-   * @default rgb(216,216,228)
+   * @default rgb(100,100,105)
    */
   colorForegroundInverse300: Color
   /**
    * Muted inverse foreground color.
-   * @default rgb(218,218,234)
+   * @default rgb(125,125,130)
    */
   colorForegroundInverse400: Color
   /**
    * Mix of muted and subtle inverse foreground color.
-   * @default rgb(224,224,238)
+   * @default rgb(150,150,155)
    */
   colorForegroundInverse500: Color
   /**
    * Subtle inverse foreground color.
-   * @default rgb(244,244,245)
+   * @default rgb(175,175,180)
    */
   colorForegroundInverse600: Color
   /**
    * Mix of subtle and default inverse foreground color.
-   * @default rgb(247,247,249)
+   * @default rgb(200,200,205)
    */
   colorForegroundInverse700: Color
   /**
    * Inverse default foreground color.
-   * @default rgb(249,249,250)
+   * @default rgb(225,225,230)
    */
   colorForegroundInverse800: Color
   /**
    * Most contrast inverse foreground color.
-   * @default rgb(254,254,255)
+   * @default rgb(250,250,255)
    */
   colorForegroundInverse900: Color
 
   /**
    * Least contrast failure foreground color.
-   * @default rgb(254,226,226)
+   * @default rgb(225,200,200)
    */
   colorForegroundFailure100: Color
   /**
    * Dim failure foreground color.
-   * @default rgb(254,202,202)
+   * @default rgb(220,175,175)
    */
   colorForegroundFailure200: Color
   /**
    * Mix of dim and muted failure foreground color.
-   * @default rgb(252,165,165)
+   * @default rgb(215,150,150)
    */
   colorForegroundFailure300: Color
   /**
    * Muted failure foreground color.
-   * @default rgb(248,113,113)
+   * @default rgb(210,125,125)
    */
   colorForegroundFailure400: Color
   /**
    * Mix of muted and subtle failure foreground color.
-   * @default rgb(239,68,68)
+   * @default rgb(205,100,100)
    */
   colorForegroundFailure500: Color
   /**
    * Subtle failure foreground color.
-   * @default rgb(220,38,38)
+   * @default rgb(200,75,75)
    */
   colorForegroundFailure600: Color
   /**
    * Mix of subtle and default failure foreground color.
-   * @default rgb(185,28,28)
+   * @default rgb(195,50,50)
    */
   colorForegroundFailure700: Color
   /**
    * Failure default foreground color.
-   * @default rgb(153,27,27)
+   * @default rgb(190,25,25)
    */
   colorForegroundFailure800: Color
   /**
    * Most contrast failure foreground color.
-   * @default rgb(127,29,29)
+   * @default rgb(185,0,0)
    */
   colorForegroundFailure900: Color
 

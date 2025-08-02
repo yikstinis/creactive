@@ -1,40 +1,8 @@
-/**
- * Supported text color constants.
- * Part of theme colors, suitable for text coloring.
- * Some extra constants like transparent for example are also included.
- */
-export enum TextColor {
-  TRANSPARENT,
-  BASE_100,
-  BASE_200,
-  BASE_300,
-  BASE_400,
-  BASE_500,
-  BASE_600,
-  BASE_700,
-  BASE_800,
-  BASE_900,
-  INVERSE_100,
-  INVERSE_200,
-  INVERSE_300,
-  INVERSE_400,
-  INVERSE_500,
-  INVERSE_600,
-  INVERSE_700,
-  INVERSE_800,
-  INVERSE_900,
-  FAILURE_100,
-  FAILURE_200,
-  FAILURE_300,
-  FAILURE_400,
-  FAILURE_500,
-  FAILURE_600,
-  FAILURE_700,
-  FAILURE_800,
-  FAILURE_900,
-}
+import { useThemeContext, useThemeStyleSheet } from '@/contexts'
+import { StyleSheet } from 'react-native'
+import { TextColor } from '../constants'
 
-export const TEXT_COLOR_THEME_KEY = {
+const TEXT_THEME_COLOR_KEY = {
   [TextColor.BASE_100]: 'colorForegroundBase100' as const,
   [TextColor.BASE_200]: 'colorForegroundBase200' as const,
   [TextColor.BASE_300]: 'colorForegroundBase300' as const,
@@ -62,4 +30,20 @@ export const TEXT_COLOR_THEME_KEY = {
   [TextColor.FAILURE_700]: 'colorForegroundFailure700' as const,
   [TextColor.FAILURE_800]: 'colorForegroundFailure800' as const,
   [TextColor.FAILURE_900]: 'colorForegroundFailure900' as const,
+}
+const textColorStylesheet = StyleSheet.create({
+  transparent: {
+    color: 'transparent',
+  },
+})
+export const useTextColorStyle = (color: TextColor) => {
+  const themeStyleSheet = useThemeStyleSheet()
+  if (color === TextColor.TRANSPARENT) return textColorStylesheet.transparent
+  return themeStyleSheet[TEXT_THEME_COLOR_KEY[color]]
+}
+
+export const useTextColorValue = (color: TextColor) => {
+  const themeContext = useThemeContext()
+  if (color === TextColor.TRANSPARENT) return 'transparent'
+  return themeContext[TEXT_THEME_COLOR_KEY[color]]
 }

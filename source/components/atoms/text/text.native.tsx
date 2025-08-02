@@ -15,18 +15,18 @@ import {
   useTextAlignStyle,
   useTextColorStyle,
   useTextDecorationStyle,
+  useTextFontFamilyStyle,
   useTextFontSizeStyle,
-  useTextFontSizeTokenValue,
+  useTextFontSizeValue,
   useTextFontWeightStyle,
-  useTextFountFamilyStyle,
-  useTextLineHeightTokenValue,
+  useTextLineHeightValue,
   useTextOpacityValue,
 } from './hooks'
 import type {
   TextComponent,
   TextMeasureCallback,
-  TextProps,
-  TextRef,
+  TextProperties,
+  TextReference,
 } from './text.types'
 
 const textStyleSheet = StyleSheet.create({
@@ -44,11 +44,12 @@ const textStyleSheet = StyleSheet.create({
     borderWidth: 0,
   },
 })
-const Text = forwardRef<TextRef, TextProps>(
+const Text = forwardRef<TextReference, TextProperties>(
   (
     {
-      align = TextAlign.LEFT,
-      decoration = TextDecoration.NONE,
+      testId,
+      textAlign = TextAlign.LEFT,
+      textDecoration = TextDecoration.NONE,
       fontFamily = TextFontFamily.BASE,
       fontWeight = TextFontWeight.REGULAR,
       fontSize = TextFontSize.MD,
@@ -72,17 +73,18 @@ const Text = forwardRef<TextRef, TextProps>(
 
     return (
       <ReactNativeText
+        testID={testId}
         ref={nativeTextRef}
         style={[
           textStyleSheet.default,
-          useTextAlignStyle(align),
-          useTextDecorationStyle(decoration),
-          useTextFountFamilyStyle(fontFamily),
+          useTextAlignStyle(textAlign),
+          useTextDecorationStyle(textDecoration),
+          useTextFontFamilyStyle(fontFamily),
           useTextFontWeightStyle(fontWeight),
           useTextFontSizeStyle(fontSize),
           getLineHeightStyleSheet(
-            useTextFontSizeTokenValue(fontSize),
-            useTextLineHeightTokenValue(lineHeight)
+            useTextFontSizeValue(fontSize),
+            useTextLineHeightValue(lineHeight)
           ),
           useTextColorStyle(color),
           {
@@ -97,8 +99,8 @@ const Text = forwardRef<TextRef, TextProps>(
   }
 )
 ;(Text as TextComponent).Tag = TextTag
-;(Text as TextComponent).Align = TextAlign
-;(Text as TextComponent).Decoration = TextDecoration
+;(Text as TextComponent).TextAlign = TextAlign
+;(Text as TextComponent).TextDecoration = TextDecoration
 ;(Text as TextComponent).FontFamily = TextFontFamily
 ;(Text as TextComponent).FontWeight = TextFontWeight
 ;(Text as TextComponent).FontSize = TextFontSize

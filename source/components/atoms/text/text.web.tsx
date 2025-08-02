@@ -1,7 +1,6 @@
 import { forwardRef, useImperativeHandle, useRef } from 'react'
-import { StyledText } from './components'
+import { TextStyled } from './components'
 import {
-  TEXT_HTML_TAG,
   TextAlign,
   TextColor,
   TextDecoration,
@@ -12,26 +11,30 @@ import {
   TextTag,
 } from './constants'
 import {
-  useTextColorCSSValue,
-  useTextFontSizeTokenValue,
-  useTextFontWeightCSSValue,
-  useTextFountFamilyCSSValue,
-  useTextLineHeightTokenValue,
+  useTextAlignValue,
+  useTextColorValue,
+  useTextDecorationValue,
+  useTextFontFamilyValue,
+  useTextFontSizeValue,
+  useTextFontWeightValue,
+  useTextLineHeightValue,
   useTextOpacityValue,
+  useTextTag,
 } from './hooks'
 import type {
   TextComponent,
   TextMeasureCallback,
-  TextProps,
-  TextRef,
+  TextProperties,
+  TextReference,
 } from './text.types'
 
-const Text = forwardRef<TextRef, TextProps>(
+const Text = forwardRef<TextReference, TextProperties>(
   (
     {
+      testId,
       tag,
-      align = TextAlign.LEFT,
-      decoration = TextDecoration.NONE,
+      textAlign = TextAlign.LEFT,
+      textDecoration = TextDecoration.NONE,
       fontFamily = TextFontFamily.BASE,
       fontWeight = TextFontWeight.REGULAR,
       fontSize = TextFontSize.MD,
@@ -59,31 +62,34 @@ const Text = forwardRef<TextRef, TextProps>(
       },
     }))
 
-    const fontSizeValue = useTextFontSizeTokenValue(fontSize)
-    const lineHeightValue = useTextLineHeightTokenValue(lineHeight)
+    const fontSizeValue = useTextFontSizeValue(fontSize)
+    const lineHeightValue = useTextLineHeightValue(lineHeight)
 
     return (
-      <StyledText
+      <TextStyled
+        data-testid={testId}
         ref={elementRef}
-        as={TEXT_HTML_TAG[tag]}
-        align={align}
-        decoration={decoration}
-        fontFamily={useTextFountFamilyCSSValue(fontFamily)}
-        fontWeight={useTextFontWeightCSSValue(fontWeight)}
-        fontSize={fontSizeValue}
-        lineHeight={fontSizeValue * lineHeightValue}
-        maxLines={maxLines}
-        color={useTextColorCSSValue(color)}
-        opacity={useTextOpacityValue(opacity)}
+        as={useTextTag(tag)}
+        css={{
+          textAlign: useTextAlignValue(textAlign),
+          textDecoration: useTextDecorationValue(textDecoration),
+          fontFamily: useTextFontFamilyValue(fontFamily),
+          fontWeight: useTextFontWeightValue(fontWeight),
+          fontSize: fontSizeValue,
+          lineHeight: fontSizeValue * lineHeightValue,
+          maxLines,
+          color: useTextColorValue(color),
+          opacity: useTextOpacityValue(opacity),
+        }}
       >
         {children}
-      </StyledText>
+      </TextStyled>
     )
   }
 )
 ;(Text as TextComponent).Tag = TextTag
-;(Text as TextComponent).Align = TextAlign
-;(Text as TextComponent).Decoration = TextDecoration
+;(Text as TextComponent).TextAlign = TextAlign
+;(Text as TextComponent).TextDecoration = TextDecoration
 ;(Text as TextComponent).FontFamily = TextFontFamily
 ;(Text as TextComponent).FontWeight = TextFontWeight
 ;(Text as TextComponent).FontSize = TextFontSize

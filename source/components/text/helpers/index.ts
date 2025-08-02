@@ -1,1 +1,0 @@
-export { getLineHeightStyleSheet } from './text'
