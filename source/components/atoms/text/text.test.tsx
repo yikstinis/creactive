@@ -86,6 +86,49 @@ describe('@/atoms/components/text', () => {
     })
   })
 
+  describe('text decoration property', () => {
+    it('renders with none text decoration by default', () => {
+      const testId = faker.string.uuid()
+      const text = faker.lorem.sentence()
+      render(<Text testId={testId}>{text}</Text>)
+      expect(screen.getByTestId(testId)).toHaveStyle({
+        textDecorationLine: 'none',
+      })
+    })
+
+    it('renders with none text decoration', () => {
+      const testId = faker.string.uuid()
+      const text = faker.lorem.sentence()
+      render(
+        <Text
+          testId={testId}
+          textDecoration={Text.TextDecoration.NONE}
+        >
+          {text}
+        </Text>
+      )
+      expect(screen.getByTestId(testId)).toHaveStyle({
+        textDecorationLine: 'none',
+      })
+    })
+
+    it('renders with underline text decoration', () => {
+      const testId = faker.string.uuid()
+      const text = faker.lorem.sentence()
+      render(
+        <Text
+          testId={testId}
+          textDecoration={Text.TextDecoration.UNDERLINE}
+        >
+          {text}
+        </Text>
+      )
+      expect(screen.getByTestId(testId)).toHaveStyle({
+        textDecorationLine: 'underline',
+      })
+    })
+  })
+
   describe('children property', () => {
     it('renders children as text', () => {
       const text = faker.lorem.sentence()
