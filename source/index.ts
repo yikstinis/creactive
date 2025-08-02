@@ -8,8 +8,6 @@ export type {
 } from '@/components/gradient'
 export { Overlay } from '@/components/overlay'
 export type { OverlayComponent, OverlayProps } from '@/components/overlay'
-export { Text } from '@/components/text'
-export type { TextComponent, TextProps, TextRef } from '@/components/text'
 export { View } from '@/components/view'
 export type {
   ViewComponent,
@@ -43,3 +41,5 @@ export type { PositionValue } from '@/helpers/position'
 export { Size } from '@/helpers/size'
 export type { SizeValue } from '@/helpers/size'
 export type { Color, FontWeight } from '@/types'
+export { Text } from './components'
+export type { TextComponent, TextProperties, TextReference } from './components'
