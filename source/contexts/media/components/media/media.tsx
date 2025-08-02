@@ -14,12 +14,17 @@ const breakpointIndex = {
 // Checks that provided current is greater than provided otherwise breakpoint.
 const isGreater = (
   currentBreakpoint: MediaBreakpoint,
-  otherwiseBreakpoint: MediaBreakpoint
+  otherwiseBreakpoint: MediaBreakpoint,
 ) => breakpointIndex[currentBreakpoint] > breakpointIndex[otherwiseBreakpoint]
 
 const MediaBase = Platform.select({
   // Web media component with server side rendering support.
-  web: ({ isDefault, isOtherwise, breakpoint, children }: MediaProps) => {
+  web: function MediaBaseWeb({
+    isDefault,
+    isOtherwise,
+    breakpoint,
+    children,
+  }: MediaProps) {
     const mediaContext = useMediaContext()
     // Hydration flag, allows to detect server and first client render.
     const [isHydrated, setHydrated] = useState(false)
@@ -42,7 +47,12 @@ const MediaBase = Platform.select({
     }
   },
   // Native media component whithout any tricks.
-  default: ({ isDefault, isOtherwise, breakpoint, children }: MediaProps) => {
+  default: function MediaBaseDefault({
+    isDefault,
+    isOtherwise,
+    breakpoint,
+    children,
+  }: MediaProps) {
     const mediaContext = useMediaContext()
     if (isDefault && mediaContext.breakpoint === undefined) return children
     if (mediaContext.breakpoint === breakpoint) return children

@@ -46,7 +46,7 @@ export interface GradientLinearProps {
    * @see Gradient.Stop
    * @default undefined
    */
-  children: Array<ReactElement>
+  children: ReactElement[]
 }
 /**
  * Linear gradient component.

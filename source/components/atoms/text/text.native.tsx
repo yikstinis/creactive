@@ -44,60 +44,58 @@ const textStyleSheet = StyleSheet.create({
     borderWidth: 0,
   },
 })
-const Text = forwardRef<TextReference, TextProperties>(
-  (
-    {
-      testId,
-      textAlign = TextAlign.LEFT,
-      textDecoration = TextDecoration.NONE,
-      fontFamily = TextFontFamily.BASE,
-      fontWeight = TextFontWeight.REGULAR,
-      fontSize = TextFontSize.MD,
-      lineHeight = TextLineHeight.NORMAL,
-      maxLines,
-      color = TextColor.BASE_800,
-      opacity,
-      children,
+const Text = forwardRef<TextReference, TextProperties>(function Text(
+  {
+    testId,
+    textAlign = TextAlign.LEFT,
+    textDecoration = TextDecoration.NONE,
+    fontFamily = TextFontFamily.BASE,
+    fontWeight = TextFontWeight.REGULAR,
+    fontSize = TextFontSize.MD,
+    lineHeight = TextLineHeight.NORMAL,
+    maxLines,
+    color = TextColor.BASE_800,
+    opacity,
+    children,
+  },
+  ref,
+) {
+  const nativeTextRef = useRef<ReactNativeText | undefined>(undefined)
+
+  useImperativeHandle(ref, () => ({
+    measure: (callback: TextMeasureCallback) => {
+      nativeTextRef.current?.measure((x, y, width, height) => {
+        callback(x, y, width, height)
+      })
     },
-    ref
-  ) => {
-    const nativeTextRef = useRef<ReactNativeText | undefined>(undefined)
+  }))
 
-    useImperativeHandle(ref, () => ({
-      measure: (callback: TextMeasureCallback) => {
-        nativeTextRef.current?.measure((x, y, width, height) => {
-          callback(x, y, width, height)
-        })
-      },
-    }))
-
-    return (
-      <ReactNativeText
-        testID={testId}
-        ref={nativeTextRef}
-        style={[
-          textStyleSheet.default,
-          useTextAlignStyle(textAlign),
-          useTextDecorationStyle(textDecoration),
-          useTextFontFamilyStyle(fontFamily),
-          useTextFontWeightStyle(fontWeight),
-          useTextFontSizeStyle(fontSize),
-          getLineHeightStyleSheet(
-            useTextFontSizeValue(fontSize),
-            useTextLineHeightValue(lineHeight)
-          ),
-          useTextColorStyle(color),
-          {
-            opacity: useTextOpacityValue(opacity),
-          },
-        ]}
-        numberOfLines={maxLines}
-      >
-        {children}
-      </ReactNativeText>
-    )
-  }
-)
+  return (
+    <ReactNativeText
+      testID={testId}
+      ref={nativeTextRef}
+      style={[
+        textStyleSheet.default,
+        useTextAlignStyle(textAlign),
+        useTextDecorationStyle(textDecoration),
+        useTextFontFamilyStyle(fontFamily),
+        useTextFontWeightStyle(fontWeight),
+        useTextFontSizeStyle(fontSize),
+        getLineHeightStyleSheet(
+          useTextFontSizeValue(fontSize),
+          useTextLineHeightValue(lineHeight),
+        ),
+        useTextColorStyle(color),
+        {
+          opacity: useTextOpacityValue(opacity),
+        },
+      ]}
+      numberOfLines={maxLines}
+    >
+      {children}
+    </ReactNativeText>
+  )
+})
 ;(Text as TextComponent).Tag = TextTag
 ;(Text as TextComponent).TextAlign = TextAlign
 ;(Text as TextComponent).TextDecoration = TextDecoration

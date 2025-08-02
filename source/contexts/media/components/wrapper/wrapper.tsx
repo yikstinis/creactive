@@ -8,7 +8,7 @@ export const Wrapper = Platform.select({
   // Server side rendered result is allways matching mobile media.
   // Client side effects may decide to render something different.
   // This wrapper helps us to handle this situation gracefully.
-  web: ({ children }: WrapperProps) => {
+  web: function WrapperWeb({ children }: WrapperProps) {
     const ref = useRef<HTMLDivElement>()
     // Hydration flag, allows to detect server and first client render.
     const [isHydrated, setHydrated] = useState(false)

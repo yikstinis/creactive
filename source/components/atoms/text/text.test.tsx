@@ -1,10 +1,8 @@
 import { faker } from '@faker-js/faker'
 import { render, screen } from '@testing-library/react'
 import { createRef } from 'react'
-import type { TextReference } from './text.types'
-// TODO: Need to update eslint and prettier to fix import order..
-// prettier-ignore
 import { Text } from '.'
+import type { TextReference } from './text.types'
 
 describe('@/atoms/components/text', () => {
   describe('forwarded reference', () => {
@@ -46,7 +44,7 @@ describe('@/atoms/components/text', () => {
           textAlign={Text.TextAlign.LEFT}
         >
           {text}
-        </Text>
+        </Text>,
       )
       expect(screen.getByTestId(testId)).toHaveStyle({
         textAlign: 'left',
@@ -62,7 +60,7 @@ describe('@/atoms/components/text', () => {
           textAlign={Text.TextAlign.CENTER}
         >
           {text}
-        </Text>
+        </Text>,
       )
       expect(screen.getByTestId(testId)).toHaveStyle({
         textAlign: 'center',
@@ -78,7 +76,7 @@ describe('@/atoms/components/text', () => {
           textAlign={Text.TextAlign.RIGHT}
         >
           {text}
-        </Text>
+        </Text>,
       )
       expect(screen.getByTestId(testId)).toHaveStyle({
         textAlign: 'right',
@@ -105,7 +103,7 @@ describe('@/atoms/components/text', () => {
           textDecoration={Text.TextDecoration.NONE}
         >
           {text}
-        </Text>
+        </Text>,
       )
       expect(screen.getByTestId(testId)).toHaveStyle({
         textDecorationLine: 'none',
@@ -121,7 +119,7 @@ describe('@/atoms/components/text', () => {
           textDecoration={Text.TextDecoration.UNDERLINE}
         >
           {text}
-        </Text>
+        </Text>,
       )
       expect(screen.getByTestId(testId)).toHaveStyle({
         textDecorationLine: 'underline',
