@@ -27,6 +27,65 @@ describe('@/atoms/components/text', () => {
     })
   })
 
+  describe('text align property', () => {
+    it('renders with default text align', () => {
+      const testId = faker.string.uuid()
+      const text = faker.lorem.sentence()
+      render(<Text testId={testId}>{text}</Text>)
+      expect(screen.getByTestId(testId)).toHaveStyle({
+        textAlign: 'left',
+      })
+    })
+
+    it('renders with left text align', () => {
+      const testId = faker.string.uuid()
+      const text = faker.lorem.sentence()
+      render(
+        <Text
+          testId={testId}
+          textAlign={Text.TextAlign.LEFT}
+        >
+          {text}
+        </Text>
+      )
+      expect(screen.getByTestId(testId)).toHaveStyle({
+        textAlign: 'left',
+      })
+    })
+
+    it('renders with center text align', () => {
+      const testId = faker.string.uuid()
+      const text = faker.lorem.sentence()
+      render(
+        <Text
+          testId={testId}
+          textAlign={Text.TextAlign.CENTER}
+        >
+          {text}
+        </Text>
+      )
+      expect(screen.getByTestId(testId)).toHaveStyle({
+        textAlign: 'center',
+      })
+    })
+
+    it('renders with right text align', () => {
+      const testId = faker.string.uuid()
+      const text = faker.lorem.sentence()
+      render(
+        <Text
+          testId={testId}
+          textAlign={Text.TextAlign.RIGHT}
+        >
+          {text}
+        </Text>
+      )
+      expect(screen.getByTestId(testId)).toHaveStyle({
+        textAlign: 'right',
+      })
+    })
+  })
+
   describe('children property', () => {
     it('renders children as text', () => {
       const text = faker.lorem.sentence()
