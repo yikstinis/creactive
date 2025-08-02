@@ -10,7 +10,7 @@ import {
   useTextFontWeightValue,
 } from './use-font'
 
-describe('@/components/text', () => {
+describe('@/components/atoms/text', () => {
   describe('hooks/use-font', () => {
     describe('text font family style hook', () => {
       it('returns base font family style', () => {

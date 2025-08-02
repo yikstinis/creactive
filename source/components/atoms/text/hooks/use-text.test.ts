@@ -14,7 +14,7 @@ import {
   useTextTag,
 } from './use-text'
 
-describe('@/components/text', () => {
+describe('@/components/atoms/text', () => {
   describe('hooks/use-text', () => {
     describe('text decoration style hook', () => {
       it('returns correct style for no decoration', () => {
