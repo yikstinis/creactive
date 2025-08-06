@@ -42,4 +42,9 @@ export { Size } from '@/helpers/size'
 export type { SizeValue } from '@/helpers/size'
 export type { Color, FontWeight } from '@/types'
 export { Text } from './components'
-export type { TextComponent, TextProperties, TextReference } from './components'
+export type {
+  TextComponent,
+  TextMeasureCallback,
+  TextProperties,
+  TextReference,
+} from './components'

@@ -15,4 +15,9 @@ export type {
   ViewProps,
 } from '@/components/view'
 export { Text } from './atoms'
-export type { TextComponent, TextProperties, TextReference } from './atoms'
+export type {
+  TextComponent,
+  TextMeasureCallback,
+  TextProperties,
+  TextReference,
+} from './atoms'

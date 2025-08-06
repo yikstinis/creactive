@@ -20,13 +20,13 @@ import type {
 /**
  * Provided by component reference object measure callback.
  * Allows to access component layout element position and size.
- * TODO: Comment arguments...
+ * TODO: Describe arguments...
  */
 export type TextMeasureCallback = (
   x: number,
   y: number,
   width: number,
-  height: number
+  height: number,
 ) => void
 
 /**
