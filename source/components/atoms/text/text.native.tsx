@@ -70,6 +70,11 @@ const Text = forwardRef<TextReference, TextProperties>(function Text(
     },
   }))
 
+  const lineHeightStyleSheet = getLineHeightStyleSheet(
+    useTextFontSizeValue(fontSize),
+    useTextLineHeightValue(lineHeight),
+  )
+
   return (
     <ReactNativeText
       testID={testId}
@@ -81,10 +86,7 @@ const Text = forwardRef<TextReference, TextProperties>(function Text(
         useTextFontFamilyStyle(fontFamily),
         useTextFontWeightStyle(fontWeight),
         useTextFontSizeStyle(fontSize),
-        getLineHeightStyleSheet(
-          useTextFontSizeValue(fontSize),
-          useTextLineHeightValue(lineHeight),
-        ),
+        lineHeightStyleSheet.textLineHeight,
         useTextColorStyle(color),
         {
           opacity: useTextOpacityValue(opacity),

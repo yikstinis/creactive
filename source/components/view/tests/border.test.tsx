@@ -1,4 +1,4 @@
-import { TestPlatfrom } from '@/utilities'
+import { TestPlatform } from '@/utilities'
 import { faker } from '@faker-js/faker'
 import { render, screen } from '@testing-library/react-native'
 import { View } from '..'
@@ -19,7 +19,7 @@ describe('@/components/view', () => {
         <View
           testId={testId}
           borderWidth={View.BorderWidth.SM}
-        />
+        />,
       )
       expect(screen.getByTestId(testId)).toHaveStyle({
         borderWidth: 0.5,
@@ -32,7 +32,7 @@ describe('@/components/view', () => {
         <View
           testId={testId}
           borderWidth={View.BorderWidth.MD}
-        />
+        />,
       )
       expect(screen.getByTestId(testId)).toHaveStyle({
         borderWidth: 1,
@@ -45,7 +45,7 @@ describe('@/components/view', () => {
         <View
           testId={testId}
           borderWidth={View.BorderWidth.LG}
-        />
+        />,
       )
       expect(screen.getByTestId(testId)).toHaveStyle({
         borderWidth: 1.5,
@@ -68,7 +68,7 @@ describe('@/components/view', () => {
         <View
           testId={testId}
           borderWidthTop={View.BorderWidth.SM}
-        />
+        />,
       )
       expect(screen.getByTestId(testId)).toHaveStyle({
         borderTopWidth: 0.5,
@@ -81,7 +81,7 @@ describe('@/components/view', () => {
         <View
           testId={testId}
           borderWidthTop={View.BorderWidth.MD}
-        />
+        />,
       )
       expect(screen.getByTestId(testId)).toHaveStyle({
         borderTopWidth: 1,
@@ -94,7 +94,7 @@ describe('@/components/view', () => {
         <View
           testId={testId}
           borderWidthTop={View.BorderWidth.LG}
-        />
+        />,
       )
       expect(screen.getByTestId(testId)).toHaveStyle({
         borderTopWidth: 1.5,
@@ -117,7 +117,7 @@ describe('@/components/view', () => {
         <View
           testId={testId}
           borderWidthLeft={View.BorderWidth.SM}
-        />
+        />,
       )
       expect(screen.getByTestId(testId)).toHaveStyle({
         borderLeftWidth: 0.5,
@@ -130,7 +130,7 @@ describe('@/components/view', () => {
         <View
           testId={testId}
           borderWidthLeft={View.BorderWidth.MD}
-        />
+        />,
       )
       expect(screen.getByTestId(testId)).toHaveStyle({
         borderLeftWidth: 1,
@@ -143,7 +143,7 @@ describe('@/components/view', () => {
         <View
           testId={testId}
           borderWidthLeft={View.BorderWidth.LG}
-        />
+        />,
       )
       expect(screen.getByTestId(testId)).toHaveStyle({
         borderLeftWidth: 1.5,
@@ -166,7 +166,7 @@ describe('@/components/view', () => {
         <View
           testId={testId}
           borderWidthRight={View.BorderWidth.SM}
-        />
+        />,
       )
       expect(screen.getByTestId(testId)).toHaveStyle({
         borderRightWidth: 0.5,
@@ -179,7 +179,7 @@ describe('@/components/view', () => {
         <View
           testId={testId}
           borderWidthRight={View.BorderWidth.MD}
-        />
+        />,
       )
       expect(screen.getByTestId(testId)).toHaveStyle({
         borderRightWidth: 1,
@@ -192,7 +192,7 @@ describe('@/components/view', () => {
         <View
           testId={testId}
           borderWidthRight={View.BorderWidth.LG}
-        />
+        />,
       )
       expect(screen.getByTestId(testId)).toHaveStyle({
         borderRightWidth: 1.5,
@@ -215,7 +215,7 @@ describe('@/components/view', () => {
         <View
           testId={testId}
           borderWidthBottom={View.BorderWidth.SM}
-        />
+        />,
       )
       expect(screen.getByTestId(testId)).toHaveStyle({
         borderBottomWidth: 0.5,
@@ -228,7 +228,7 @@ describe('@/components/view', () => {
         <View
           testId={testId}
           borderWidthBottom={View.BorderWidth.MD}
-        />
+        />,
       )
       expect(screen.getByTestId(testId)).toHaveStyle({
         borderBottomWidth: 1,
@@ -241,7 +241,7 @@ describe('@/components/view', () => {
         <View
           testId={testId}
           borderWidthBottom={View.BorderWidth.LG}
-        />
+        />,
       )
       expect(screen.getByTestId(testId)).toHaveStyle({
         borderBottomWidth: 1.5,
@@ -264,10 +264,10 @@ describe('@/components/view', () => {
         <View
           testId={testId}
           borderRadius={View.BorderRadius.XS}
-        />
+        />,
       )
       expect(screen.getByTestId(testId)).toHaveStyle({
-        borderRadius: TestPlatfrom.toPixels(2),
+        borderRadius: TestPlatform.toPixels(2),
       })
     })
 
@@ -277,10 +277,10 @@ describe('@/components/view', () => {
         <View
           testId={testId}
           borderRadius={View.BorderRadius.SM}
-        />
+        />,
       )
       expect(screen.getByTestId(testId)).toHaveStyle({
-        borderRadius: TestPlatfrom.toPixels(4),
+        borderRadius: TestPlatform.toPixels(4),
       })
     })
 
@@ -290,10 +290,10 @@ describe('@/components/view', () => {
         <View
           testId={testId}
           borderRadius={View.BorderRadius.MD}
-        />
+        />,
       )
       expect(screen.getByTestId(testId)).toHaveStyle({
-        borderRadius: TestPlatfrom.toPixels(6),
+        borderRadius: TestPlatform.toPixels(6),
       })
     })
 
@@ -303,10 +303,10 @@ describe('@/components/view', () => {
         <View
           testId={testId}
           borderRadius={View.BorderRadius.LG}
-        />
+        />,
       )
       expect(screen.getByTestId(testId)).toHaveStyle({
-        borderRadius: TestPlatfrom.toPixels(8),
+        borderRadius: TestPlatform.toPixels(8),
       })
     })
 
@@ -316,10 +316,10 @@ describe('@/components/view', () => {
         <View
           testId={testId}
           borderRadius={View.BorderRadius.XL}
-        />
+        />,
       )
       expect(screen.getByTestId(testId)).toHaveStyle({
-        borderRadius: TestPlatfrom.toPixels(10),
+        borderRadius: TestPlatform.toPixels(10),
       })
     })
 
@@ -329,7 +329,7 @@ describe('@/components/view', () => {
         <View
           testId={testId}
           borderRadius={View.BorderRadius.MAX}
-        />
+        />,
       )
       expect(screen.getByTestId(testId)).toHaveStyle({
         borderRadius: '50%',

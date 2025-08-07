@@ -4,9 +4,9 @@ import { Platform } from 'react-native'
  * Provides test-only platform-specific utilities.
  * This class is not supposed to be used in production code or exported.
  */
-export const TestPlatfrom = new (class {
+export const TestPlatform = new (class {
   /**
-   * Converts provided value to test platrofm pixels.
+   * Converts provided value to test platform pixels.
    * This is numeric device pixels value, that is expected by native platforms.
    * For web we are expecting px string value.
    * @param value - target value to be converted.

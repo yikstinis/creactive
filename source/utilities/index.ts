@@ -1,2 +1,2 @@
 export { StorybookControl } from '@/utilities/storybook'
-export { TestPlatfrom } from '@/utilities/test'
+export { TestPlatform } from '@/utilities/test'

@@ -1,4 +1,4 @@
-import { TestPlatfrom } from '@/utilities'
+import { TestPlatform } from '@/utilities'
 import { faker } from '@faker-js/faker'
 import { render, screen } from '@testing-library/react-native'
 import { View } from '..'
@@ -19,10 +19,10 @@ describe('@/components/view', () => {
         <View
           testId={testId}
           marginTop={View.Spacing.X6S}
-        />
+        />,
       )
       expect(screen.getByTestId(testId)).toHaveStyle({
-        marginTop: TestPlatfrom.toPixels(2),
+        marginTop: TestPlatform.toPixels(2),
       })
     })
 
@@ -32,10 +32,10 @@ describe('@/components/view', () => {
         <View
           testId={testId}
           marginTop={View.Spacing.X5S}
-        />
+        />,
       )
       expect(screen.getByTestId(testId)).toHaveStyle({
-        marginTop: TestPlatfrom.toPixels(4),
+        marginTop: TestPlatform.toPixels(4),
       })
     })
 
@@ -45,10 +45,10 @@ describe('@/components/view', () => {
         <View
           testId={testId}
           marginTop={View.Spacing.X4S}
-        />
+        />,
       )
       expect(screen.getByTestId(testId)).toHaveStyle({
-        marginTop: TestPlatfrom.toPixels(6),
+        marginTop: TestPlatform.toPixels(6),
       })
     })
 
@@ -58,10 +58,10 @@ describe('@/components/view', () => {
         <View
           testId={testId}
           marginTop={View.Spacing.X3S}
-        />
+        />,
       )
       expect(screen.getByTestId(testId)).toHaveStyle({
-        marginTop: TestPlatfrom.toPixels(8),
+        marginTop: TestPlatform.toPixels(8),
       })
     })
 
@@ -71,10 +71,10 @@ describe('@/components/view', () => {
         <View
           testId={testId}
           marginTop={View.Spacing.X2S}
-        />
+        />,
       )
       expect(screen.getByTestId(testId)).toHaveStyle({
-        marginTop: TestPlatfrom.toPixels(10),
+        marginTop: TestPlatform.toPixels(10),
       })
     })
 
@@ -84,10 +84,10 @@ describe('@/components/view', () => {
         <View
           testId={testId}
           marginTop={View.Spacing.XS}
-        />
+        />,
       )
       expect(screen.getByTestId(testId)).toHaveStyle({
-        marginTop: TestPlatfrom.toPixels(12),
+        marginTop: TestPlatform.toPixels(12),
       })
     })
 
@@ -97,10 +97,10 @@ describe('@/components/view', () => {
         <View
           testId={testId}
           marginTop={View.Spacing.SM}
-        />
+        />,
       )
       expect(screen.getByTestId(testId)).toHaveStyle({
-        marginTop: TestPlatfrom.toPixels(14),
+        marginTop: TestPlatform.toPixels(14),
       })
     })
 
@@ -110,10 +110,10 @@ describe('@/components/view', () => {
         <View
           testId={testId}
           marginTop={View.Spacing.MD}
-        />
+        />,
       )
       expect(screen.getByTestId(testId)).toHaveStyle({
-        marginTop: TestPlatfrom.toPixels(16),
+        marginTop: TestPlatform.toPixels(16),
       })
     })
 
@@ -123,10 +123,10 @@ describe('@/components/view', () => {
         <View
           testId={testId}
           marginTop={View.Spacing.LG}
-        />
+        />,
       )
       expect(screen.getByTestId(testId)).toHaveStyle({
-        marginTop: TestPlatfrom.toPixels(18),
+        marginTop: TestPlatform.toPixels(18),
       })
     })
 
@@ -136,10 +136,10 @@ describe('@/components/view', () => {
         <View
           testId={testId}
           marginTop={View.Spacing.XL}
-        />
+        />,
       )
       expect(screen.getByTestId(testId)).toHaveStyle({
-        marginTop: TestPlatfrom.toPixels(20),
+        marginTop: TestPlatform.toPixels(20),
       })
     })
 
@@ -149,10 +149,10 @@ describe('@/components/view', () => {
         <View
           testId={testId}
           marginTop={View.Spacing.X2L}
-        />
+        />,
       )
       expect(screen.getByTestId(testId)).toHaveStyle({
-        marginTop: TestPlatfrom.toPixels(24),
+        marginTop: TestPlatform.toPixels(24),
       })
     })
 
@@ -162,10 +162,10 @@ describe('@/components/view', () => {
         <View
           testId={testId}
           marginTop={View.Spacing.X3L}
-        />
+        />,
       )
       expect(screen.getByTestId(testId)).toHaveStyle({
-        marginTop: TestPlatfrom.toPixels(28),
+        marginTop: TestPlatform.toPixels(28),
       })
     })
 
@@ -175,10 +175,10 @@ describe('@/components/view', () => {
         <View
           testId={testId}
           marginTop={View.Spacing.X4L}
-        />
+        />,
       )
       expect(screen.getByTestId(testId)).toHaveStyle({
-        marginTop: TestPlatfrom.toPixels(32),
+        marginTop: TestPlatform.toPixels(32),
       })
     })
 
@@ -188,10 +188,10 @@ describe('@/components/view', () => {
         <View
           testId={testId}
           marginTop={View.Spacing.X5L}
-        />
+        />,
       )
       expect(screen.getByTestId(testId)).toHaveStyle({
-        marginTop: TestPlatfrom.toPixels(36),
+        marginTop: TestPlatform.toPixels(36),
       })
     })
 
@@ -201,10 +201,10 @@ describe('@/components/view', () => {
         <View
           testId={testId}
           marginTop={View.Spacing.X6L}
-        />
+        />,
       )
       expect(screen.getByTestId(testId)).toHaveStyle({
-        marginTop: TestPlatfrom.toPixels(40),
+        marginTop: TestPlatform.toPixels(40),
       })
     })
   })
