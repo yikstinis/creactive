@@ -20,7 +20,7 @@ describe('@/components/atoms/text', () => {
           tag={Text.Tag.H1}
         >
           {text}
-        </Text>
+        </Text>,
       )
       expect(screen.getByTestId(testId).tagName).toBe('H1')
     })
@@ -34,7 +34,7 @@ describe('@/components/atoms/text', () => {
           tag={Text.Tag.H2}
         >
           {text}
-        </Text>
+        </Text>,
       )
       expect(screen.getByTestId(testId).tagName).toBe('H2')
     })
@@ -48,7 +48,7 @@ describe('@/components/atoms/text', () => {
           tag={Text.Tag.H3}
         >
           {text}
-        </Text>
+        </Text>,
       )
       expect(screen.getByTestId(testId).tagName).toBe('H3')
     })
@@ -62,7 +62,7 @@ describe('@/components/atoms/text', () => {
           tag={Text.Tag.H4}
         >
           {text}
-        </Text>
+        </Text>,
       )
       expect(screen.getByTestId(testId).tagName).toBe('H4')
     })
@@ -76,7 +76,7 @@ describe('@/components/atoms/text', () => {
           tag={Text.Tag.H5}
         >
           {text}
-        </Text>
+        </Text>,
       )
       expect(screen.getByTestId(testId).tagName).toBe('H5')
     })
@@ -90,7 +90,7 @@ describe('@/components/atoms/text', () => {
           tag={Text.Tag.H6}
         >
           {text}
-        </Text>
+        </Text>,
       )
       expect(screen.getByTestId(testId).tagName).toBe('H6')
     })
@@ -104,9 +104,49 @@ describe('@/components/atoms/text', () => {
           tag={Text.Tag.P}
         >
           {text}
-        </Text>
+        </Text>,
       )
       expect(screen.getByTestId(testId).tagName).toBe('P')
+    })
+  })
+
+  describe('max lines property', () => {
+    it('renders without max lines limit by default', () => {
+      const testId = faker.string.uuid()
+      const text = faker.lorem.sentence()
+      render(<Text testId={testId}>{text}</Text>)
+      expect(screen.getByTestId(testId)).toHaveStyle({
+        display: 'inline',
+      })
+      expect(screen.getByTestId(testId)).not.toHaveStyleRule(
+        '-webkit-line-clamp',
+        expect.any(String),
+      )
+    })
+
+    it('renders with provided max lines limit', () => {
+      const testId = faker.string.uuid()
+      const text = faker.lorem.sentence()
+      const maxLines = faker.number.int()
+      render(
+        <Text
+          testId={testId}
+          maxLines={maxLines}
+        >
+          {text}
+        </Text>,
+      )
+      expect(screen.getByTestId(testId)).toHaveStyle({
+        display: '-webkit-box',
+      })
+      expect(screen.getByTestId(testId)).toHaveStyleRule(
+        '-webkit-box-orient',
+        'vertical',
+      )
+      expect(screen.getByTestId(testId)).toHaveStyleRule(
+        '-webkit-line-clamp',
+        maxLines.toString(),
+      )
     })
   })
 })

@@ -6,4 +6,7 @@
 // It has no support for react@19 yet, but later we can update I guess!
 
 // This file is used to setup tests that run in a native environment.
+import { matchers } from '@emotion/jest'
 import '@testing-library/jest-dom'
+
+expect.extend(matchers)
