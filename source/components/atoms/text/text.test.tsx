@@ -1833,6 +1833,506 @@ describe('@/components/atoms/text', () => {
     })
   })
 
+  describe('color property', () => {
+    it('renders with base 800 color by default', () => {
+      const testId = faker.string.uuid()
+      const text = faker.lorem.sentence()
+      render(
+        <Text
+          testId={testId}
+          fontSize={Text.FontSize.X2S}
+        >
+          {text}
+        </Text>,
+      )
+      expect(screen.getByTestId(testId)).toHaveStyle({
+        color: 'rgb(25,25,30)',
+      })
+    })
+
+    it('renders with transparent color', () => {
+      const testId = faker.string.uuid()
+      const text = faker.lorem.sentence()
+      render(
+        <Text
+          testId={testId}
+          fontSize={Text.FontSize.X2S}
+          color={Text.Color.TRANSPARENT}
+        >
+          {text}
+        </Text>,
+      )
+      expect(screen.getByTestId(testId)).toHaveStyle({
+        color: 'transparent',
+      })
+    })
+
+    describe('base colors', () => {
+      it('renders with base 100 color', () => {
+        const testId = faker.string.uuid()
+        const text = faker.lorem.sentence()
+        render(
+          <Text
+            testId={testId}
+            fontSize={Text.FontSize.X2S}
+            color={Text.Color.BASE_100}
+          >
+            {text}
+          </Text>,
+        )
+        expect(screen.getByTestId(testId)).toHaveStyle({
+          color: 'rgb(200,200,205)',
+        })
+      })
+
+      it('renders with base 200 color', () => {
+        const testId = faker.string.uuid()
+        const text = faker.lorem.sentence()
+        render(
+          <Text
+            testId={testId}
+            fontSize={Text.FontSize.X2S}
+            color={Text.Color.BASE_200}
+          >
+            {text}
+          </Text>,
+        )
+        expect(screen.getByTestId(testId)).toHaveStyle({
+          color: 'rgb(175,175,180)',
+        })
+      })
+
+      it('renders with base 300 color', () => {
+        const testId = faker.string.uuid()
+        const text = faker.lorem.sentence()
+        render(
+          <Text
+            testId={testId}
+            fontSize={Text.FontSize.X2S}
+            color={Text.Color.BASE_300}
+          >
+            {text}
+          </Text>,
+        )
+        expect(screen.getByTestId(testId)).toHaveStyle({
+          color: 'rgb(150,150,155)',
+        })
+      })
+
+      it('renders with base 400 color', () => {
+        const testId = faker.string.uuid()
+        const text = faker.lorem.sentence()
+        render(
+          <Text
+            testId={testId}
+            fontSize={Text.FontSize.X2S}
+            color={Text.Color.BASE_400}
+          >
+            {text}
+          </Text>,
+        )
+        expect(screen.getByTestId(testId)).toHaveStyle({
+          color: 'rgb(125,125,130)',
+        })
+      })
+
+      it('renders with base 500 color', () => {
+        const testId = faker.string.uuid()
+        const text = faker.lorem.sentence()
+        render(
+          <Text
+            testId={testId}
+            fontSize={Text.FontSize.X2S}
+            color={Text.Color.BASE_500}
+          >
+            {text}
+          </Text>,
+        )
+        expect(screen.getByTestId(testId)).toHaveStyle({
+          color: 'rgb(100,100,105)',
+        })
+      })
+
+      it('renders with base 600 color', () => {
+        const testId = faker.string.uuid()
+        const text = faker.lorem.sentence()
+        render(
+          <Text
+            testId={testId}
+            fontSize={Text.FontSize.X2S}
+            color={Text.Color.BASE_600}
+          >
+            {text}
+          </Text>,
+        )
+        expect(screen.getByTestId(testId)).toHaveStyle({
+          color: 'rgb(75,75,80)',
+        })
+      })
+
+      it('renders with base 700 color', () => {
+        const testId = faker.string.uuid()
+        const text = faker.lorem.sentence()
+        render(
+          <Text
+            testId={testId}
+            fontSize={Text.FontSize.X2S}
+            color={Text.Color.BASE_700}
+          >
+            {text}
+          </Text>,
+        )
+        expect(screen.getByTestId(testId)).toHaveStyle({
+          color: 'rgb(50,50,55)',
+        })
+      })
+
+      it('renders with base 800 color', () => {
+        const testId = faker.string.uuid()
+        const text = faker.lorem.sentence()
+        render(
+          <Text
+            testId={testId}
+            fontSize={Text.FontSize.X2S}
+            color={Text.Color.BASE_800}
+          >
+            {text}
+          </Text>,
+        )
+        expect(screen.getByTestId(testId)).toHaveStyle({
+          color: 'rgb(25,25,30)',
+        })
+      })
+
+      it('renders with base 900 color', () => {
+        const testId = faker.string.uuid()
+        const text = faker.lorem.sentence()
+        render(
+          <Text
+            testId={testId}
+            fontSize={Text.FontSize.X2S}
+            color={Text.Color.BASE_900}
+          >
+            {text}
+          </Text>,
+        )
+        expect(screen.getByTestId(testId)).toHaveStyle({
+          color: 'rgb(0,0,5)',
+        })
+      })
+    })
+
+    describe('inverse colors', () => {
+      it('renders with inverse 100 color', () => {
+        const testId = faker.string.uuid()
+        const text = faker.lorem.sentence()
+        render(
+          <Text
+            testId={testId}
+            fontSize={Text.FontSize.X2S}
+            color={Text.Color.INVERSE_100}
+          >
+            {text}
+          </Text>,
+        )
+        expect(screen.getByTestId(testId)).toHaveStyle({
+          color: 'rgb(50,50,55)',
+        })
+      })
+
+      it('renders with inverse 200 color', () => {
+        const testId = faker.string.uuid()
+        const text = faker.lorem.sentence()
+        render(
+          <Text
+            testId={testId}
+            fontSize={Text.FontSize.X2S}
+            color={Text.Color.INVERSE_200}
+          >
+            {text}
+          </Text>,
+        )
+        expect(screen.getByTestId(testId)).toHaveStyle({
+          color: 'rgb(75,75,80)',
+        })
+      })
+
+      it('renders with inverse 300 color', () => {
+        const testId = faker.string.uuid()
+        const text = faker.lorem.sentence()
+        render(
+          <Text
+            testId={testId}
+            fontSize={Text.FontSize.X2S}
+            color={Text.Color.INVERSE_300}
+          >
+            {text}
+          </Text>,
+        )
+        expect(screen.getByTestId(testId)).toHaveStyle({
+          color: 'rgb(100,100,105)',
+        })
+      })
+
+      it('renders with inverse 400 color', () => {
+        const testId = faker.string.uuid()
+        const text = faker.lorem.sentence()
+        render(
+          <Text
+            testId={testId}
+            fontSize={Text.FontSize.X2S}
+            color={Text.Color.INVERSE_400}
+          >
+            {text}
+          </Text>,
+        )
+        expect(screen.getByTestId(testId)).toHaveStyle({
+          color: 'rgb(125,125,130)',
+        })
+      })
+
+      it('renders with inverse 500 color', () => {
+        const testId = faker.string.uuid()
+        const text = faker.lorem.sentence()
+        render(
+          <Text
+            testId={testId}
+            fontSize={Text.FontSize.X2S}
+            color={Text.Color.INVERSE_500}
+          >
+            {text}
+          </Text>,
+        )
+        expect(screen.getByTestId(testId)).toHaveStyle({
+          color: 'rgb(150,150,155)',
+        })
+      })
+
+      it('renders with inverse 600 color', () => {
+        const testId = faker.string.uuid()
+        const text = faker.lorem.sentence()
+        render(
+          <Text
+            testId={testId}
+            fontSize={Text.FontSize.X2S}
+            color={Text.Color.INVERSE_600}
+          >
+            {text}
+          </Text>,
+        )
+        expect(screen.getByTestId(testId)).toHaveStyle({
+          color: 'rgb(175,175,180)',
+        })
+      })
+
+      it('renders with inverse 700 color', () => {
+        const testId = faker.string.uuid()
+        const text = faker.lorem.sentence()
+        render(
+          <Text
+            testId={testId}
+            fontSize={Text.FontSize.X2S}
+            color={Text.Color.INVERSE_700}
+          >
+            {text}
+          </Text>,
+        )
+        expect(screen.getByTestId(testId)).toHaveStyle({
+          color: 'rgb(200,200,205)',
+        })
+      })
+
+      it('renders with inverse 800 color', () => {
+        const testId = faker.string.uuid()
+        const text = faker.lorem.sentence()
+        render(
+          <Text
+            testId={testId}
+            fontSize={Text.FontSize.X2S}
+            color={Text.Color.INVERSE_800}
+          >
+            {text}
+          </Text>,
+        )
+        expect(screen.getByTestId(testId)).toHaveStyle({
+          color: 'rgb(225,225,230)',
+        })
+      })
+
+      it('renders with inverse 900 color', () => {
+        const testId = faker.string.uuid()
+        const text = faker.lorem.sentence()
+        render(
+          <Text
+            testId={testId}
+            fontSize={Text.FontSize.X2S}
+            color={Text.Color.INVERSE_900}
+          >
+            {text}
+          </Text>,
+        )
+        expect(screen.getByTestId(testId)).toHaveStyle({
+          color: 'rgb(250,250,255)',
+        })
+      })
+    })
+
+    describe('failure colors', () => {
+      it('renders with failure 100 color', () => {
+        const testId = faker.string.uuid()
+        const text = faker.lorem.sentence()
+        render(
+          <Text
+            testId={testId}
+            fontSize={Text.FontSize.X2S}
+            color={Text.Color.FAILURE_100}
+          >
+            {text}
+          </Text>,
+        )
+        expect(screen.getByTestId(testId)).toHaveStyle({
+          color: 'rgb(225,200,200)',
+        })
+      })
+
+      it('renders with failure 200 color', () => {
+        const testId = faker.string.uuid()
+        const text = faker.lorem.sentence()
+        render(
+          <Text
+            testId={testId}
+            fontSize={Text.FontSize.X2S}
+            color={Text.Color.FAILURE_200}
+          >
+            {text}
+          </Text>,
+        )
+        expect(screen.getByTestId(testId)).toHaveStyle({
+          color: 'rgb(220,175,175)',
+        })
+      })
+
+      it('renders with failure 300 color', () => {
+        const testId = faker.string.uuid()
+        const text = faker.lorem.sentence()
+        render(
+          <Text
+            testId={testId}
+            fontSize={Text.FontSize.X2S}
+            color={Text.Color.FAILURE_300}
+          >
+            {text}
+          </Text>,
+        )
+        expect(screen.getByTestId(testId)).toHaveStyle({
+          color: 'rgb(215,150,150)',
+        })
+      })
+
+      it('renders with failure 400 color', () => {
+        const testId = faker.string.uuid()
+        const text = faker.lorem.sentence()
+        render(
+          <Text
+            testId={testId}
+            fontSize={Text.FontSize.X2S}
+            color={Text.Color.FAILURE_400}
+          >
+            {text}
+          </Text>,
+        )
+        expect(screen.getByTestId(testId)).toHaveStyle({
+          color: 'rgb(210,125,125)',
+        })
+      })
+
+      it('renders with failure 500 color', () => {
+        const testId = faker.string.uuid()
+        const text = faker.lorem.sentence()
+        render(
+          <Text
+            testId={testId}
+            fontSize={Text.FontSize.X2S}
+            color={Text.Color.FAILURE_500}
+          >
+            {text}
+          </Text>,
+        )
+        expect(screen.getByTestId(testId)).toHaveStyle({
+          color: 'rgb(205,100,100)',
+        })
+      })
+
+      it('renders with failure 600 color', () => {
+        const testId = faker.string.uuid()
+        const text = faker.lorem.sentence()
+        render(
+          <Text
+            testId={testId}
+            fontSize={Text.FontSize.X2S}
+            color={Text.Color.FAILURE_600}
+          >
+            {text}
+          </Text>,
+        )
+        expect(screen.getByTestId(testId)).toHaveStyle({
+          color: 'rgb(200,75,75)',
+        })
+      })
+
+      it('renders with failure 700 color', () => {
+        const testId = faker.string.uuid()
+        const text = faker.lorem.sentence()
+        render(
+          <Text
+            testId={testId}
+            fontSize={Text.FontSize.X2S}
+            color={Text.Color.FAILURE_700}
+          >
+            {text}
+          </Text>,
+        )
+        expect(screen.getByTestId(testId)).toHaveStyle({
+          color: 'rgb(195,50,50)',
+        })
+      })
+
+      it('renders with failure 800 color', () => {
+        const testId = faker.string.uuid()
+        const text = faker.lorem.sentence()
+        render(
+          <Text
+            testId={testId}
+            fontSize={Text.FontSize.X2S}
+            color={Text.Color.FAILURE_800}
+          >
+            {text}
+          </Text>,
+        )
+        expect(screen.getByTestId(testId)).toHaveStyle({
+          color: 'rgb(190,25,25)',
+        })
+      })
+
+      it('renders with failure 900 color', () => {
+        const testId = faker.string.uuid()
+        const text = faker.lorem.sentence()
+        render(
+          <Text
+            testId={testId}
+            fontSize={Text.FontSize.X2S}
+            color={Text.Color.FAILURE_900}
+          >
+            {text}
+          </Text>,
+        )
+        expect(screen.getByTestId(testId)).toHaveStyle({
+          color: 'rgb(185,0,0)',
+        })
+      })
+    })
+  })
+
   describe('children property', () => {
     it('renders children as text', () => {
       const text = faker.lorem.sentence()
