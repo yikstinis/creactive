@@ -5,6 +5,7 @@ import { Text } from '.'
 const tagControl = StorybookControl.fromNumericEnum(Text.Tag)
 const alignControl = StorybookControl.fromNumericEnum(Text.TextAlign)
 const decorationControl = StorybookControl.fromNumericEnum(Text.TextDecoration)
+const fontFamilyControl = StorybookControl.fromNumericEnum(Text.FontFamily)
 const fontWeightControl = StorybookControl.fromNumericEnum(Text.FontWeight)
 const fontSizeControl = StorybookControl.fromNumericEnum(Text.FontSize)
 const lineHeightControl = StorybookControl.fromNumericEnum(Text.LineHeight)
@@ -20,6 +21,7 @@ const meta: Meta<typeof Text> = {
     tag: tagControl,
     textAlign: alignControl,
     textDecoration: decorationControl,
+    fontFamily: fontFamilyControl,
     fontWeight: fontWeightControl,
     fontSize: fontSizeControl,
     lineHeight: lineHeightControl,
@@ -32,6 +34,7 @@ const meta: Meta<typeof Text> = {
     tag: tagControl.defaultValue,
     textAlign: alignControl.defaultValue,
     textDecoration: decorationControl.defaultValue,
+    fontFamily: fontFamilyControl.defaultValue,
     fontWeight: fontWeightControl.defaultValue,
     fontSize: fontSizeControl.defaultValue,
     lineHeight: lineHeightControl.defaultValue,
