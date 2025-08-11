@@ -1,4 +1,4 @@
-import { Size } from '@/helpers'
+import { Dimension } from '@/helpers'
 import { TestPlatform } from '@/utilities'
 import { faker } from '@faker-js/faker'
 import { render, renderHook, screen } from '@testing-library/react-native'
@@ -15,7 +15,7 @@ describe('@/components/view', () => {
     it('returns numeric pixel size value', () => {
       const amount = faker.number.int()
       const { result } = renderHook(() =>
-        useViewSizeValue(new Size(amount, Size.Dimension.PIXEL)),
+        useViewSizeValue(new Dimension(amount, Dimension.Unit.PIXEL)),
       )
       expect(result.current).toEqual(TestPlatform.toPixels(amount))
     })
@@ -23,7 +23,7 @@ describe('@/components/view', () => {
     it('returns numeric percent size value', () => {
       const amount = faker.number.int()
       const { result } = renderHook(() =>
-        useViewSizeValue(new Size(amount, Size.Dimension.PERCENT)),
+        useViewSizeValue(new Dimension(amount, Dimension.Unit.PERCENT)),
       )
       expect(result.current).toEqual(`${amount}%`)
     })
@@ -44,7 +44,7 @@ describe('@/components/view', () => {
       render(
         <View
           testId={testId}
-          minWidth={new Size(amount, Size.Dimension.PIXEL)}
+          minWidth={new Dimension(amount, Dimension.Unit.PIXEL)}
         />,
       )
       expect(screen.getByTestId(testId)).toHaveStyle({
@@ -58,7 +58,7 @@ describe('@/components/view', () => {
       render(
         <View
           testId={testId}
-          minWidth={new Size(amount, Size.Dimension.PERCENT)}
+          minWidth={new Dimension(amount, Dimension.Unit.PERCENT)}
         />,
       )
       expect(screen.getByTestId(testId)).toHaveStyle({
@@ -82,7 +82,7 @@ describe('@/components/view', () => {
       render(
         <View
           testId={testId}
-          width={new Size(amount, Size.Dimension.PIXEL)}
+          width={new Dimension(amount, Dimension.Unit.PIXEL)}
         />,
       )
       expect(screen.getByTestId(testId)).toHaveStyle({
@@ -96,7 +96,7 @@ describe('@/components/view', () => {
       render(
         <View
           testId={testId}
-          width={new Size(amount, Size.Dimension.PERCENT)}
+          width={new Dimension(amount, Dimension.Unit.PERCENT)}
         />,
       )
       expect(screen.getByTestId(testId)).toHaveStyle({
@@ -120,7 +120,7 @@ describe('@/components/view', () => {
       render(
         <View
           testId={testId}
-          maxWidth={new Size(amount, Size.Dimension.PIXEL)}
+          maxWidth={new Dimension(amount, Dimension.Unit.PIXEL)}
         />,
       )
       expect(screen.getByTestId(testId)).toHaveStyle({
@@ -134,7 +134,7 @@ describe('@/components/view', () => {
       render(
         <View
           testId={testId}
-          maxWidth={new Size(amount, Size.Dimension.PERCENT)}
+          maxWidth={new Dimension(amount, Dimension.Unit.PERCENT)}
         />,
       )
       expect(screen.getByTestId(testId)).toHaveStyle({
@@ -158,7 +158,7 @@ describe('@/components/view', () => {
       render(
         <View
           testId={testId}
-          minHeight={new Size(amount, Size.Dimension.PIXEL)}
+          minHeight={new Dimension(amount, Dimension.Unit.PIXEL)}
         />,
       )
       expect(screen.getByTestId(testId)).toHaveStyle({
@@ -172,7 +172,7 @@ describe('@/components/view', () => {
       render(
         <View
           testId={testId}
-          minHeight={new Size(amount, Size.Dimension.PERCENT)}
+          minHeight={new Dimension(amount, Dimension.Unit.PERCENT)}
         />,
       )
       expect(screen.getByTestId(testId)).toHaveStyle({
@@ -196,7 +196,7 @@ describe('@/components/view', () => {
       render(
         <View
           testId={testId}
-          height={new Size(amount, Size.Dimension.PIXEL)}
+          height={new Dimension(amount, Dimension.Unit.PIXEL)}
         />,
       )
       expect(screen.getByTestId(testId)).toHaveStyle({
@@ -210,7 +210,7 @@ describe('@/components/view', () => {
       render(
         <View
           testId={testId}
-          height={new Size(amount, Size.Dimension.PERCENT)}
+          height={new Dimension(amount, Dimension.Unit.PERCENT)}
         />,
       )
       expect(screen.getByTestId(testId)).toHaveStyle({
@@ -234,7 +234,7 @@ describe('@/components/view', () => {
       render(
         <View
           testId={testId}
-          maxHeight={new Size(amount, Size.Dimension.PIXEL)}
+          maxHeight={new Dimension(amount, Dimension.Unit.PIXEL)}
         />,
       )
       expect(screen.getByTestId(testId)).toHaveStyle({
@@ -248,7 +248,7 @@ describe('@/components/view', () => {
       render(
         <View
           testId={testId}
-          maxHeight={new Size(amount, Size.Dimension.PERCENT)}
+          maxHeight={new Dimension(amount, Dimension.Unit.PERCENT)}
         />,
       )
       expect(screen.getByTestId(testId)).toHaveStyle({

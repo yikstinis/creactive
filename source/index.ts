@@ -14,7 +14,6 @@ export type {
   ViewLayoutEvent,
   ViewProps,
 } from '@/components/view'
-export { Dimension } from '@/constants/dimension'
 export { FRACTION_MAX, FRACTION_MIN } from '@/constants/fraction'
 export { POSITION_MAX, POSITION_MIN } from '@/constants/position'
 export { SIZE_FULL } from '@/constants/size'
@@ -35,11 +34,9 @@ export type {
   ThemeContextProviderProps,
   ThemeContextValue,
 } from '@/contexts/theme'
+export { Dimension } from '@/helpers/dimension'
+export type { DimensionValue } from '@/helpers/dimension'
 export { Fraction } from '@/helpers/fraction'
-export { Position } from '@/helpers/position'
-export type { PositionValue } from '@/helpers/position'
-export { Size } from '@/helpers/size'
-export type { SizeValue } from '@/helpers/size'
 export type { Color, FontWeight } from '@/types'
 export { Text } from './components'
 export type {

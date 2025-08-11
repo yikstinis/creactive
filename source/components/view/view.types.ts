@@ -1,10 +1,4 @@
-import type {
-  Fraction,
-  Position,
-  PositionValue,
-  Size,
-  SizeValue,
-} from '@/helpers'
+import type { Dimension, DimensionValue, Fraction } from '@/helpers'
 import type { Color } from '@/types'
 import type { FunctionComponent, PropsWithChildren } from 'react'
 import type {
@@ -56,28 +50,28 @@ export interface ViewProps extends PropsWithChildren {
   position?: ViewPosition
   /**
    * Top position.
-   * @see Position
+   * @see Dimension
    * @default undefined
    */
-  top?: Position
+  top?: Dimension
   /**
    * Left position.
-   * @see Position
+   * @see Dimension
    * @default undefined
    */
-  left?: Position
+  left?: Dimension
   /**
    * Right position.
-   * @see Position
+   * @see Dimension
    * @default undefined
    */
-  right?: Position
+  right?: Dimension
   /**
    * Bottom position.
-   * @see Position
+   * @see Dimension
    * @default undefined
    */
-  bottom?: Position
+  bottom?: Dimension
   /**
    * View opacity.
    * Controls the transparency of the view.
@@ -109,10 +103,10 @@ export interface ViewProps extends PropsWithChildren {
   /**
    * View flex basis property.
    * Controls the initial size of a component before space distribution.
-   * @see Size
+   * @see Dimension
    * @default undefined
    */
-  flexBasis?: Size
+  flexBasis?: Dimension
   /**
    * View flex wrap property.
    * Controls whether children should wrap onto multiple lines.
@@ -205,40 +199,40 @@ export interface ViewProps extends PropsWithChildren {
   paddingBottom?: ViewSpacing
   /**
    * Minimum width of the component.
-   * @see Size
+   * @see Dimension
    * @default undefined
    */
-  minWidth?: Size
+  minWidth?: Dimension
   /**
    * Width of the component.
-   * @see Size
+   * @see Dimension
    * @default undefined
    */
-  width?: Size
+  width?: Dimension
   /**
    * Maximum width of the component.
    * @see Size
    * @default undefined
    */
-  maxWidth?: Size
+  maxWidth?: Dimension
   /**
    * Minimum height of the component.
-   * @see Size
+   * @see Dimension
    * @default undefined
    */
-  minHeight?: Size
+  minHeight?: Dimension
   /**
    * Height of the component.
-   * @see Size
+   * @see Dimension
    * @default undefined
    */
-  height?: Size
+  height?: Dimension
   /**
    * Maximum height of the component.
-   * @see Size
+   * @see Dimension
    * @default undefined
    */
-  maxHeight?: Size
+  maxHeight?: Dimension
   /**
    * View component box shadow.
    * React Native's "New Architecture" is required on native.
@@ -357,14 +351,14 @@ export type StyledViewProps = Pick<
   | 'alignContent'
 > & {
   // Position.
-  top?: PositionValue
-  left?: PositionValue
-  right?: PositionValue
-  bottom?: PositionValue
+  top?: DimensionValue
+  left?: DimensionValue
+  right?: DimensionValue
+  bottom?: DimensionValue
   // Flex.
   flexGrow?: number
   flexShrink?: number
-  flexBasis?: SizeValue
+  flexBasis?: DimensionValue
   // Opacity.
   opacity?: number
   // Spacing.
@@ -377,12 +371,12 @@ export type StyledViewProps = Pick<
   marginBottom?: string
   paddingBottom?: string
   // Size.
-  minWidth?: SizeValue
-  width?: SizeValue
-  maxWidth?: SizeValue
-  minHeight?: SizeValue
-  height?: SizeValue
-  maxHeight?: SizeValue
+  minWidth?: DimensionValue
+  width?: DimensionValue
+  maxWidth?: DimensionValue
+  minHeight?: DimensionValue
+  height?: DimensionValue
+  maxHeight?: DimensionValue
   // Shadow.
   boxShadow?: string
   // Border.

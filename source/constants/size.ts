@@ -1,4 +1,3 @@
-import { Size } from '@/helpers/size'
+import { Dimension } from '@/helpers/dimension'
 
-// Export some common size constants.
-export const SIZE_FULL = new Size(100, Size.Dimension.PERCENT)
+export const SIZE_FULL = new Dimension(100, Dimension.Unit.PERCENT)

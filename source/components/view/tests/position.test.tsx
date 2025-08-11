@@ -1,4 +1,4 @@
-import { Position } from '@/helpers'
+import { Dimension } from '@/helpers'
 import { TestPlatform } from '@/utilities'
 import { faker } from '@faker-js/faker'
 import { render, renderHook, screen } from '@testing-library/react-native'
@@ -16,7 +16,7 @@ describe('@/components/view', () => {
     it('returns numeric pixel position value', () => {
       const amount = faker.number.int()
       const { result } = renderHook(() =>
-        useViewPositionValue(new Position(amount, Position.Dimension.PIXEL)),
+        useViewPositionValue(new Dimension(amount, Dimension.Unit.PIXEL)),
       )
       expect(result.current).toEqual(TestPlatform.toPixels(amount))
     })
@@ -24,7 +24,7 @@ describe('@/components/view', () => {
     it('returns numeric pecent position value', () => {
       const amount = faker.number.int()
       const { result } = renderHook(() =>
-        useViewPositionValue(new Position(amount, Position.Dimension.PERCENT)),
+        useViewPositionValue(new Dimension(amount, Dimension.Unit.PERCENT)),
       )
       expect(result.current).toEqual(`${amount}%`)
     })
@@ -81,7 +81,7 @@ describe('@/components/view', () => {
       render(
         <View
           testId={testId}
-          top={new Position(amount, Position.Dimension.PIXEL)}
+          top={new Dimension(amount, Dimension.Unit.PIXEL)}
         />,
       )
       expect(screen.getByTestId(testId)).toHaveStyle({
@@ -95,7 +95,7 @@ describe('@/components/view', () => {
       render(
         <View
           testId={testId}
-          top={new Position(amount, Position.Dimension.PERCENT)}
+          top={new Dimension(amount, Dimension.Unit.PERCENT)}
         />,
       )
       expect(screen.getByTestId(testId)).toHaveStyle({
@@ -119,7 +119,7 @@ describe('@/components/view', () => {
       render(
         <View
           testId={testId}
-          left={new Position(amount, Position.Dimension.PIXEL)}
+          left={new Dimension(amount, Dimension.Unit.PIXEL)}
         />,
       )
       expect(screen.getByTestId(testId)).toHaveStyle({
@@ -133,7 +133,7 @@ describe('@/components/view', () => {
       render(
         <View
           testId={testId}
-          left={new Position(amount, Position.Dimension.PERCENT)}
+          left={new Dimension(amount, Dimension.Unit.PERCENT)}
         />,
       )
       expect(screen.getByTestId(testId)).toHaveStyle({
@@ -157,7 +157,7 @@ describe('@/components/view', () => {
       render(
         <View
           testId={testId}
-          right={new Position(amount, Position.Dimension.PIXEL)}
+          right={new Dimension(amount, Dimension.Unit.PIXEL)}
         />,
       )
       expect(screen.getByTestId(testId)).toHaveStyle({
@@ -171,7 +171,7 @@ describe('@/components/view', () => {
       render(
         <View
           testId={testId}
-          right={new Position(amount, Position.Dimension.PERCENT)}
+          right={new Dimension(amount, Dimension.Unit.PERCENT)}
         />,
       )
       expect(screen.getByTestId(testId)).toHaveStyle({
@@ -195,7 +195,7 @@ describe('@/components/view', () => {
       render(
         <View
           testId={testId}
-          bottom={new Position(amount, Position.Dimension.PIXEL)}
+          bottom={new Dimension(amount, Dimension.Unit.PIXEL)}
         />,
       )
       expect(screen.getByTestId(testId)).toHaveStyle({
@@ -209,7 +209,7 @@ describe('@/components/view', () => {
       render(
         <View
           testId={testId}
-          bottom={new Position(amount, Position.Dimension.PERCENT)}
+          bottom={new Dimension(amount, Dimension.Unit.PERCENT)}
         />,
       )
       expect(screen.getByTestId(testId)).toHaveStyle({

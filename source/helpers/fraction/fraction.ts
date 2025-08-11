@@ -1,3 +1,5 @@
+import type { FractionValue } from './fraction.types'
+
 // Helps to keep fraction constants better organized.
 export class Fraction {
   private readonly value: number
@@ -6,7 +8,7 @@ export class Fraction {
     this.value = value
   }
 
-  toValue(): number {
+  toValue(): FractionValue {
     return this.value
   }
 }
