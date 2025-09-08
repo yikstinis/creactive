@@ -1,4 +1,4 @@
-import { Fraction, Position, Size } from '@/helpers'
+import { Dimension, Fraction } from '@/helpers'
 import { faker } from '@faker-js/faker'
 import type { Decorator, StoryContext } from '@storybook/react'
 import {
@@ -37,22 +37,19 @@ export const modifyContext = (context: StoryContext) => {
         if (isNaN(Number(args[key]))) {
           args[key] = undefined
         } else {
-          args[key] = new Position(
-            args[key] as number,
-            Position.Dimension.PIXEL
-          )
+          args[key] = new Dimension(Number(args[key]), Dimension.Unit.PIXEL)
         }
       } else if (control[STORYBOOK_CONTROL_FRACTION_FLAG]) {
         if (isNaN(Number(args[key]))) {
           args[key] = undefined
         } else {
-          args[key] = new Fraction(args[key] as number)
+          args[key] = new Fraction(Number(args[key]) as number)
         }
       } else if (control[STORYBOOK_CONTROL_SIZE_FLAG]) {
         if (isNaN(Number(args[key]))) {
           args[key] = undefined
         } else {
-          args[key] = new Size(args[key] as number, Size.Dimension.PIXEL)
+          args[key] = new Dimension(args[key] as number, Dimension.Unit.PIXEL)
         }
       }
     }
@@ -78,7 +75,7 @@ export const StorybookControl = new (class {
    */
   public fromNumericEnum(target: Record<string, number>, isOptional = true) {
     const options = Object.values(target).filter(
-      (value) => !isNaN(Number(value))
+      (value) => !isNaN(Number(value)),
     )
     const keys = Object.keys(target).filter((value) => isNaN(Number(value)))
     if (isOptional) options.unshift(undefined)
@@ -106,7 +103,7 @@ export const StorybookControl = new (class {
         // When clear the field it passes 0 instead of undefined when numeric.
         type: StorybookControlType.TEXT,
       },
-      defaultValue: defaultValue as unknown as Position,
+      defaultValue: defaultValue as unknown as Dimension,
     }
   }
 
@@ -132,7 +129,7 @@ export const StorybookControl = new (class {
         // When clear the field it passes 0 instead of undefined when numeric.
         type: StorybookControlType.TEXT,
       },
-      defaultValue: defaultValue as unknown as Size,
+      defaultValue: defaultValue as unknown as Dimension,
     }
   }
 

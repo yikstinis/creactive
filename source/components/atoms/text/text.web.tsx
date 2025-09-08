@@ -19,7 +19,7 @@ import {
   useTextFontWeightValue,
   useTextLineHeightValue,
   useTextOpacityValue,
-  useTextTag,
+  useTextTagValue,
 } from './hooks'
 import type {
   TextComponent,
@@ -68,8 +68,8 @@ const Text = forwardRef<TextReference, TextProperties>(function Text(
     <TextStyled
       data-testid={testId}
       ref={elementRef}
-      as={useTextTag(tag)}
-      css={{
+      as={useTextTagValue(tag)}
+      values={{
         textAlign: useTextAlignValue(textAlign),
         textDecoration: useTextDecorationValue(textDecoration),
         fontFamily: useTextFontFamilyValue(fontFamily),

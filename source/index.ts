@@ -8,15 +8,6 @@ export type {
 } from '@/components/gradient'
 export { Overlay } from '@/components/overlay'
 export type { OverlayComponent, OverlayProps } from '@/components/overlay'
-export { View } from '@/components/view'
-export type {
-  ViewComponent,
-  ViewLayoutEvent,
-  ViewProps,
-} from '@/components/view'
-export { FRACTION_MAX, FRACTION_MIN } from '@/constants/fraction'
-export { POSITION_MAX, POSITION_MIN } from '@/constants/position'
-export { SIZE_FULL } from '@/constants/size'
 export { Media, MediaContextProvider, useMediaContext } from '@/contexts/media'
 export type {
   MediaComponent,
@@ -34,14 +25,23 @@ export type {
   ThemeContextProviderProps,
   ThemeContextValue,
 } from '@/contexts/theme'
-export { Dimension } from '@/helpers/dimension'
-export type { DimensionValue } from '@/helpers/dimension'
-export { Fraction } from '@/helpers/fraction'
-export type { Color, FontWeight } from '@/types'
-export { Text } from './components'
+export { Text, View } from './components'
 export type {
   TextComponent,
   TextMeasureCallback,
   TextProperties,
   TextReference,
+  ViewComponent,
+  ViewLayoutEvent,
+  ViewProperties,
 } from './components'
+export {
+  DIMENSION_MAX,
+  DIMENSION_MIN,
+  Dimension,
+  FRACTION_MAX,
+  FRACTION_MIN,
+  Fraction,
+} from './helpers'
+export type { DimensionValue, FractionValue } from './helpers'
+export type { Color, FontWeight } from './types'

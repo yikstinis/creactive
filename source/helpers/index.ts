@@ -1,6 +1,6 @@
 export { renderReactNativeInitialStyle } from '@/helpers/style'
 export type { RenderReactNativeInitialStyleHelper } from '@/helpers/style'
-export { Dimension } from './dimension'
+export { DIMENSION_MAX, DIMENSION_MIN, Dimension } from './dimension'
 export type { DimensionValue } from './dimension'
-export { Fraction } from './fraction'
+export { FRACTION_MAX, FRACTION_MIN, Fraction } from './fraction'
 export type { FractionValue } from './fraction'

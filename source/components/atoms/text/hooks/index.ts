@@ -8,11 +8,11 @@ export {
   useTextFontWeightValue,
 } from './use-font'
 export { useTextOpacityValue } from './use-opacity'
+export { useTextTagValue } from './use-tag'
 export {
   useTextAlignStyle,
   useTextAlignValue,
   useTextDecorationStyle,
   useTextDecorationValue,
   useTextLineHeightValue,
-  useTextTag,
 } from './use-text'

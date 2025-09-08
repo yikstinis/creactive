@@ -1,0 +1,1 @@
+export { ViewStyled } from './styled'

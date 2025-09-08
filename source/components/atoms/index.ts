@@ -5,3 +5,5 @@ export type {
   TextProperties,
   TextReference,
 } from './text'
+export { View } from './view'
+export type { ViewComponent, ViewLayoutEvent, ViewProperties } from './view'

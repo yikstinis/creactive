@@ -8,6 +8,8 @@ import type { FunctionComponent, PropsWithChildren } from 'react'
  * Can be accessed via theme context outside when need.
  */
 export interface ThemeContextValue {
+  // TODO: Update default colors..
+
   /**
    * Least contrast base background color.
    * @default rgb(198,198,202)

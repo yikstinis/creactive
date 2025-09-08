@@ -3,7 +3,7 @@ import type { TextStyledProperties } from '../text.types'
 
 export const TextStyled = styled.span<TextStyledProperties>`
   display: ${(properties) =>
-    properties.css.maxLines === undefined ? 'inline' : '-webkit-box'};
+    properties.values.maxLines === undefined ? 'inline' : '-webkit-box'};
   margin: 0;
   padding: 0;
   position: static;
@@ -15,15 +15,15 @@ export const TextStyled = styled.span<TextStyledProperties>`
   overflow: hidden;
   overflow-wrap: break-word;
   text-overflow: ellipsis;
-  text-align: ${(properties) => properties.css.textAlign};
-  text-decoration-line: ${(properties) => properties.css.textDecoration};
-  font-family: ${(properties) => properties.css.fontFamily};
-  font-weight: ${(properties) => properties.css.fontWeight};
-  font-size: ${(properties) => properties.css.fontSize}px;
-  line-height: ${(properties) => properties.css.lineHeight}px;
+  text-align: ${(properties) => properties.values.textAlign};
+  text-decoration-line: ${(properties) => properties.values.textDecoration};
+  font-family: ${(properties) => properties.values.fontFamily};
+  font-weight: ${(properties) => properties.values.fontWeight};
+  font-size: ${(properties) => properties.values.fontSize}px;
+  line-height: ${(properties) => properties.values.lineHeight}px;
   -webkit-box-orient: vertical;
-  -webkit-line-clamp: ${(properties) => properties.css.maxLines};
-  color: ${(properties) => properties.css.color};
-  opacity: ${(properties) => properties.css.opacity};
+  -webkit-line-clamp: ${(properties) => properties.values.maxLines};
+  color: ${(properties) => properties.values.color};
+  opacity: ${(properties) => properties.values.opacity};
   border-width: 0;
 `

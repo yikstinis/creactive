@@ -1,1 +1,1 @@
-export type DimensionValue = number | `${number}%`
+export type DimensionValue = number | `${number}px` | `${number}%`

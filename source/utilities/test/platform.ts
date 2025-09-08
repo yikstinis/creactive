@@ -14,9 +14,9 @@ export const TestPlatform = new (class {
    */
   toPixels(value: number) {
     return Platform.select({
-      native: () => value,
+      native: value,
       // Specifying return type to avoid default string type..
-      web: () => `${value}px` as number | string,
-    })()
+      web: `${value}px` as number | string,
+    })
   }
 })()

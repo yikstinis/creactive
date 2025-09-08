@@ -1,11 +1,6 @@
 import { useThemeContext } from '@/contexts'
 import { StyleSheet } from 'react-native'
-import {
-  TextAlign,
-  TextDecoration,
-  TextLineHeight,
-  TextTag,
-} from '../constants'
+import { TextAlign, TextDecoration, TextLineHeight } from '../constants'
 
 const textDecorationStyleSheet = StyleSheet.create({
   textDecorationNone: {
@@ -64,15 +59,3 @@ export const TEXT_THEME_LINE_HEIGHT_KEY = {
 }
 export const useTextLineHeightValue = (lineHeight: TextLineHeight) =>
   useThemeContext()[TEXT_THEME_LINE_HEIGHT_KEY[lineHeight]]
-
-const TEXT_TAG_VALUE = {
-  [TextTag.SPAN]: 'span' as const,
-  [TextTag.P]: 'p' as const,
-  [TextTag.H1]: 'h1' as const,
-  [TextTag.H2]: 'h2' as const,
-  [TextTag.H3]: 'h3' as const,
-  [TextTag.H4]: 'h4' as const,
-  [TextTag.H5]: 'h5' as const,
-  [TextTag.H6]: 'h6' as const,
-}
-export const useTextTag = (tag: TextTag) => TEXT_TAG_VALUE[tag]

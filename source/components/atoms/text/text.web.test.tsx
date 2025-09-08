@@ -7,21 +7,17 @@ describe('@/components/atoms/text', () => {
   describe('tag property', () => {
     it('renders into span element by default', () => {
       const testId = faker.string.uuid()
-      const text = faker.lorem.sentence()
-      render(<Text testId={testId}>{text}</Text>)
+      render(<Text testId={testId} />)
       expect(screen.getByTestId(testId).tagName).toBe('SPAN')
     })
 
     it('renders into h1 tag element', () => {
       const testId = faker.string.uuid()
-      const text = faker.lorem.sentence()
       render(
         <Text
           testId={testId}
           tag={Text.Tag.H1}
-        >
-          {text}
-        </Text>,
+        />,
       )
       expect(screen.getByTestId(testId).tagName).toBe('H1')
     })
@@ -42,70 +38,55 @@ describe('@/components/atoms/text', () => {
 
     it('renders into h3 tag element', () => {
       const testId = faker.string.uuid()
-      const text = faker.lorem.sentence()
       render(
         <Text
           testId={testId}
           tag={Text.Tag.H3}
-        >
-          {text}
-        </Text>,
+        />,
       )
       expect(screen.getByTestId(testId).tagName).toBe('H3')
     })
 
     it('renders into h4 tag element', () => {
       const testId = faker.string.uuid()
-      const text = faker.lorem.sentence()
       render(
         <Text
           testId={testId}
           tag={Text.Tag.H4}
-        >
-          {text}
-        </Text>,
+        />,
       )
       expect(screen.getByTestId(testId).tagName).toBe('H4')
     })
 
     it('renders into h5 tag element', () => {
       const testId = faker.string.uuid()
-      const text = faker.lorem.sentence()
       render(
         <Text
           testId={testId}
           tag={Text.Tag.H5}
-        >
-          {text}
-        </Text>,
+        />,
       )
       expect(screen.getByTestId(testId).tagName).toBe('H5')
     })
 
     it('renders into h6 tag element', () => {
       const testId = faker.string.uuid()
-      const text = faker.lorem.sentence()
       render(
         <Text
           testId={testId}
           tag={Text.Tag.H6}
-        >
-          {text}
-        </Text>,
+        />,
       )
       expect(screen.getByTestId(testId).tagName).toBe('H6')
     })
 
     it('renders into p tag element', () => {
       const testId = faker.string.uuid()
-      const text = faker.lorem.sentence()
       render(
         <Text
           testId={testId}
           tag={Text.Tag.P}
-        >
-          {text}
-        </Text>,
+        />,
       )
       expect(screen.getByTestId(testId).tagName).toBe('P')
     })
@@ -114,8 +95,7 @@ describe('@/components/atoms/text', () => {
   describe('max lines property', () => {
     it('renders without max lines limit by default', () => {
       const testId = faker.string.uuid()
-      const text = faker.lorem.sentence()
-      render(<Text testId={testId}>{text}</Text>)
+      render(<Text testId={testId} />)
       expect(screen.getByTestId(testId)).toHaveStyle({
         display: 'inline',
       })
@@ -127,18 +107,14 @@ describe('@/components/atoms/text', () => {
 
     it('renders with provided max lines limit', () => {
       const testId = faker.string.uuid()
-      const text = faker.lorem.sentence()
       const maxLines = faker.number.int({
         min: 1,
-        max: 5,
       })
       render(
         <Text
           testId={testId}
           maxLines={maxLines}
-        >
-          {text}
-        </Text>,
+        />,
       )
       expect(screen.getByTestId(testId)).toHaveStyle({
         display: '-webkit-box',
@@ -157,8 +133,7 @@ describe('@/components/atoms/text', () => {
   describe('opacity property', () => {
     it('renders with undefined opacity by default', () => {
       const testId = faker.string.uuid()
-      const text = faker.lorem.sentence()
-      render(<Text testId={testId}>{text}</Text>)
+      render(<Text testId={testId} />)
       expect(screen.getByTestId(testId)).not.toHaveStyleRule(
         'opacity',
         expect.any(Number),
@@ -167,7 +142,6 @@ describe('@/components/atoms/text', () => {
 
     it('renders with provided opacity', () => {
       const testId = faker.string.uuid()
-      const text = faker.lorem.sentence()
       const opacity = faker.number.float({
         min: 0,
         max: 1,
@@ -176,9 +150,7 @@ describe('@/components/atoms/text', () => {
         <Text
           testId={testId}
           opacity={new Fraction(opacity)}
-        >
-          {text}
-        </Text>,
+        />,
       )
       expect(screen.getByTestId(testId)).toHaveStyle({
         opacity,
