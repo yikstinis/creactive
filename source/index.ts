@@ -6,8 +6,6 @@ export type {
   GradientStopComponent,
   GradientStopProps,
 } from '@/components/gradient'
-export { Overlay } from '@/components/overlay'
-export type { OverlayComponent, OverlayProps } from '@/components/overlay'
 export { Media, MediaContextProvider, useMediaContext } from '@/contexts/media'
 export type {
   MediaComponent,
