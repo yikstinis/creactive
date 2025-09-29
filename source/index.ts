@@ -1,11 +1,3 @@
-export { Gradient } from '@/components/gradient'
-export type {
-  GradientLinearComponent,
-  GradientLinearProps,
-  GradientObject,
-  GradientStopComponent,
-  GradientStopProps,
-} from '@/components/gradient'
 export { Media, MediaContextProvider, useMediaContext } from '@/contexts/media'
 export type {
   MediaComponent,
@@ -23,8 +15,13 @@ export type {
   ThemeContextProviderProps,
   ThemeContextValue,
 } from '@/contexts/theme'
-export { Text, View } from './components'
+export { Gradient, Text, View } from './components'
 export type {
+  GradientLinearComponent,
+  GradientLinearProperties,
+  GradientObject,
+  GradientStopComponent,
+  GradientStopProperties,
   TextComponent,
   TextMeasureCallback,
   TextProperties,

@@ -1,1 +1,0 @@
-export { GradientDirection } from './direction'

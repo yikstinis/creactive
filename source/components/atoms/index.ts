@@ -1,3 +1,11 @@
+export { Gradient } from './gradient'
+export type {
+  GradientLinearComponent,
+  GradientLinearProperties,
+  GradientObject,
+  GradientStopComponent,
+  GradientStopProperties,
+} from './gradient'
 export { Text } from './text'
 export type {
   TextComponent,

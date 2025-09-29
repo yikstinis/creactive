@@ -1,13 +1,10 @@
-export { Gradient } from '@/components/gradient'
+export { Gradient, Text, View } from './atoms'
 export type {
   GradientLinearComponent,
-  GradientLinearProps,
+  GradientLinearProperties,
   GradientObject,
   GradientStopComponent,
-  GradientStopProps,
-} from '@/components/gradient'
-export { Text, View } from './atoms'
-export type {
+  GradientStopProperties,
   TextComponent,
   TextMeasureCallback,
   TextProperties,

@@ -1,8 +1,8 @@
 export { Gradient } from './gradient'
 export type {
   GradientLinearComponent,
-  GradientLinearProps,
+  GradientLinearProperties,
   GradientObject,
   GradientStopComponent,
-  GradientStopProps,
+  GradientStopProperties,
 } from './gradient.types'
