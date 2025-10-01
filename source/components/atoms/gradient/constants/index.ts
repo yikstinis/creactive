@@ -1,1 +1,4 @@
-export { GRADIENT_DIRECTION_COORDINATES, GradientDirection } from './direction'
+export {
+  GRADIENT_LINEAR_DIRECTION_COORDINATES,
+  GradientLinearDirection,
+} from './direction'

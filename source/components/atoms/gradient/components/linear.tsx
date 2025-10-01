@@ -1,7 +1,10 @@
 import { isValidElement } from 'react'
 import { StyleSheet, View } from 'react-native'
 import Svg, { Defs, LinearGradient, Rect, Stop } from 'react-native-svg'
-import { GRADIENT_DIRECTION_COORDINATES, GradientDirection } from '../constants'
+import {
+  GRADIENT_LINEAR_DIRECTION_COORDINATES,
+  GradientLinearDirection,
+} from '../constants'
 import type {
   GradientLinearComponent,
   GradientStopProperties,
@@ -9,11 +12,15 @@ import type {
 import { GradientStop } from './stop'
 
 export const GradientLinear: GradientLinearComponent = ({
-  direction = GradientDirection.BOTTOM,
+  testId,
+  direction,
   children,
 }) => {
   return (
-    <View style={StyleSheet.absoluteFill}>
+    <View
+      testID={testId}
+      style={StyleSheet.absoluteFill}
+    >
       <Svg
         width='100%'
         height='100%'
@@ -22,10 +29,10 @@ export const GradientLinear: GradientLinearComponent = ({
           <LinearGradient
             // Lol, be careful.. Identifier 'gradient' does not work!
             id='gradient-linear'
-            x1={GRADIENT_DIRECTION_COORDINATES[direction].x1}
-            y1={GRADIENT_DIRECTION_COORDINATES[direction].y1}
-            x2={GRADIENT_DIRECTION_COORDINATES[direction].x2}
-            y2={GRADIENT_DIRECTION_COORDINATES[direction].y2}
+            x1={GRADIENT_LINEAR_DIRECTION_COORDINATES[direction].x1}
+            y1={GRADIENT_LINEAR_DIRECTION_COORDINATES[direction].y1}
+            x2={GRADIENT_LINEAR_DIRECTION_COORDINATES[direction].x2}
+            y2={GRADIENT_LINEAR_DIRECTION_COORDINATES[direction].y2}
           >
             {children
               // eslint-disable-next-line array-callback-return
@@ -56,4 +63,4 @@ export const GradientLinear: GradientLinearComponent = ({
     </View>
   )
 }
-GradientLinear.Direction = GradientDirection
+GradientLinear.Direction = GradientLinearDirection

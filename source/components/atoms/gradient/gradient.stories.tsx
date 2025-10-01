@@ -10,9 +10,24 @@ const meta: Meta<typeof Gradient.Linear> = {
   decorators: [StorybookControl.getDecorator()],
 }
 export default meta
-export const LinearDefault: StoryObj<typeof Gradient.Linear> = {
+export const LinearTop: StoryObj<typeof Gradient.Linear> = {
   render: () => (
-    <Gradient.Linear>
+    <Gradient.Linear direction={Gradient.Linear.Direction.TOP}>
+      <Gradient.Stop
+        offset={FRACTION_MIN}
+        color={faker.color.rgb() as Color}
+      />
+
+      <Gradient.Stop
+        offset={FRACTION_MAX}
+        color={faker.color.rgb() as Color}
+      />
+    </Gradient.Linear>
+  ),
+}
+export const LinearLeft: StoryObj<typeof Gradient.Linear> = {
+  render: () => (
+    <Gradient.Linear direction={Gradient.Linear.Direction.LEFT}>
       <Gradient.Stop
         offset={FRACTION_MIN}
         color={faker.color.rgb() as Color}
@@ -28,6 +43,21 @@ export const LinearDefault: StoryObj<typeof Gradient.Linear> = {
 export const LinearRight: StoryObj<typeof Gradient.Linear> = {
   render: () => (
     <Gradient.Linear direction={Gradient.Linear.Direction.RIGHT}>
+      <Gradient.Stop
+        offset={FRACTION_MIN}
+        color={faker.color.rgb() as Color}
+      />
+
+      <Gradient.Stop
+        offset={FRACTION_MAX}
+        color={faker.color.rgb() as Color}
+      />
+    </Gradient.Linear>
+  ),
+}
+export const LinearBottom: StoryObj<typeof Gradient.Linear> = {
+  render: () => (
+    <Gradient.Linear direction={Gradient.Linear.Direction.BOTTOM}>
       <Gradient.Stop
         offset={FRACTION_MIN}
         color={faker.color.rgb() as Color}

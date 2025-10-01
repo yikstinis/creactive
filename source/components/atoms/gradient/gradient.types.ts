@@ -1,7 +1,7 @@
 import type { Fraction } from '@/helpers'
 import type { Color } from '@/types'
 import type { FunctionComponent, ReactElement } from 'react'
-import type { GradientDirection } from './constants'
+import type { GradientLinearDirection } from './constants'
 
 /**
  * Gradient stop component properties.
@@ -36,11 +36,15 @@ export type GradientStopComponent = FunctionComponent<GradientStopProperties>
  */
 export interface GradientLinearProperties {
   /**
+   * Allows to select linear gradient component in tests.
+   * @default undefined
+   */
+  testId?: string
+  /**
    * One of supported gradient directions.
    * @see Gradient.Direction
-   * @default Gradient.Direction.BOTTOM
    */
-  direction?: GradientDirection
+  direction: GradientLinearDirection
   /**
    * Gradient children.
    * @see Gradient.Stop
@@ -57,7 +61,10 @@ export interface GradientLinearProperties {
  */
 export type GradientLinearComponent =
   FunctionComponent<GradientLinearProperties> & {
-    Direction: Record<keyof typeof GradientDirection, GradientDirection>
+    Direction: Record<
+      keyof typeof GradientLinearDirection,
+      GradientLinearDirection
+    >
   }
 
 /**
