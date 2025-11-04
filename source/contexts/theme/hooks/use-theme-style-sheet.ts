@@ -245,6 +245,9 @@ export const useThemeStyleSheet = () => {
         fontSizeBaseX5L: {
           fontSize: themeContext.fontSizeBaseX5L,
         },
+        fontSizeBaseX6L: {
+          fontSize: themeContext.fontSizeBaseX6L,
+        },
         // Base spacings.
         marginTopBaseX6S: {
           marginTop: themeContext.spacingBaseX6S,

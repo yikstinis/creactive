@@ -41,4 +41,5 @@ export enum TextFontSize {
   X3L,
   X4L,
   X5L,
+  X6L,
 }

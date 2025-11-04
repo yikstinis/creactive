@@ -355,63 +355,69 @@ export interface ThemeContextValue {
   /**
    * Base 2 times extra-small font size.
    * @see FONT_SIZE_BASE_X2S
-   * @default 12
+   * @default 10
    */
   fontSizeBaseX2S: number
   /**
    * Base extra-small font size.
    * @see FONT_SIZE_BASE_XS
-   * @default 14
+   * @default 12
    */
   fontSizeBaseXS: number
   /**
    * Base small font size.
    * @see FONT_SIZE_BASE_SM
-   * @default 16
+   * @default 14
    */
   fontSizeBaseSM: number
   /**
    * Base medium font size.
    * @see FONT_SIZE_BASE_MD
-   * @default 18
+   * @default 16
    */
   fontSizeBaseMD: number
   /**
    * Base large font size.
    * @see FONT_SIZE_BASE_LG
-   * @default 20
+   * @default 18
    */
   fontSizeBaseLG: number
   /**
    * Base extra-large font size.
    * @see FONT_SIZE_BASE_XL
-   * @default 24
+   * @default 20
    */
   fontSizeBaseXL: number
   /**
    * Base 2 times extra-large font size.
    * @see FONT_SIZE_BASE_X2L
-   * @default 30
+   * @default 24
    */
   fontSizeBaseX2L: number
   /**
    * Base 3 times extra-large font size.
    * @see FONT_SIZE_BASE_X3L
-   * @default 36
+   * @default 30
    */
   fontSizeBaseX3L: number
   /**
    * Base 4 times extra-large font size.
    * @see FONT_SIZE_BASE_X4L
-   * @default 48
+   * @default 36
    */
   fontSizeBaseX4L: number
   /**
    * Base 5 times extra-large font size.
    * @see FONT_SIZE_BASE_X5L
-   * @default 60
+   * @default 48
    */
   fontSizeBaseX5L: number
+  /**
+   * Base 6 times extra-large font size.
+   * @see FONT_SIZE_BASE_X6L
+   * @default 60  
+   */
+  fontSizeBaseX6L: number
 
   /**
    * Base none line height.

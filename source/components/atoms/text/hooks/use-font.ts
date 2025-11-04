@@ -37,6 +37,7 @@ export const TEXT_THEME_FONT_SIZE_KEY = {
   [TextFontSize.X3L]: 'fontSizeBaseX3L' as const,
   [TextFontSize.X4L]: 'fontSizeBaseX4L' as const,
   [TextFontSize.X5L]: 'fontSizeBaseX5L' as const,
+  [TextFontSize.X6L]: 'fontSizeBaseX6L' as const,
 }
 export const useTextFontSizeStyle = (fontSize: TextFontSize) =>
   useThemeStyleSheet()[TEXT_THEME_FONT_SIZE_KEY[fontSize]]

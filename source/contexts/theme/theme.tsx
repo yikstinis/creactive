@@ -72,6 +72,7 @@ import {
   FONT_SIZE_BASE_X3L,
   FONT_SIZE_BASE_X4L,
   FONT_SIZE_BASE_X5L,
+  FONT_SIZE_BASE_X6L,
   FONT_SIZE_BASE_XL,
   FONT_SIZE_BASE_XS,
   FONT_WEIGHT_BASE_BLACK,
@@ -197,6 +198,7 @@ const ThemeContext = createContext<ThemeContextValue>({
   fontSizeBaseX3L: FONT_SIZE_BASE_X3L,
   fontSizeBaseX4L: FONT_SIZE_BASE_X4L,
   fontSizeBaseX5L: FONT_SIZE_BASE_X5L,
+  fontSizeBaseX6L: FONT_SIZE_BASE_X6L,
   // Base line heights.
   lineHeightBaseNone: LINE_HEIGHT_BASE_NONE,
   lineHeightBaseTight: LINE_HEIGHT_BASE_TIGHT,
@@ -317,6 +319,7 @@ export const ThemeContextProvider: ThemeContextProviderComponent = ({
   fontSizeBaseX3L,
   fontSizeBaseX4L,
   fontSizeBaseX5L,
+  fontSizeBaseX6L,
   // Base line heights.
   lineHeightBaseNone,
   lineHeightBaseTight,
@@ -490,6 +493,7 @@ export const ThemeContextProvider: ThemeContextProviderComponent = ({
       fontSizeBaseX3L: fontSizeBaseX3L ?? FONT_SIZE_BASE_X3L,
       fontSizeBaseX4L: fontSizeBaseX4L ?? FONT_SIZE_BASE_X4L,
       fontSizeBaseX5L: fontSizeBaseX5L ?? FONT_SIZE_BASE_X5L,
+      fontSizeBaseX6L: fontSizeBaseX6L ?? FONT_SIZE_BASE_X6L,
       // Base line heights.
       lineHeightBaseNone: lineHeightBaseNone ?? LINE_HEIGHT_BASE_NONE,
       lineHeightBaseTight: lineHeightBaseTight ?? LINE_HEIGHT_BASE_TIGHT,
@@ -609,6 +613,7 @@ export const ThemeContextProvider: ThemeContextProviderComponent = ({
       fontSizeBaseX3L,
       fontSizeBaseX4L,
       fontSizeBaseX5L,
+      fontSizeBaseX6L,
       // Base line heights.
       lineHeightBaseNone,
       lineHeightBaseTight,

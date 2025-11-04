@@ -34,13 +34,14 @@ export const FONT_WEIGHT_BASE_EXTRABOLD = 800
 export const FONT_WEIGHT_BASE_BLACK = 900
 
 // Theme base font size constants.
-export const FONT_SIZE_BASE_X2S = 12
-export const FONT_SIZE_BASE_XS = 14
-export const FONT_SIZE_BASE_SM = 16
-export const FONT_SIZE_BASE_MD = 18
-export const FONT_SIZE_BASE_LG = 20
-export const FONT_SIZE_BASE_XL = 24
-export const FONT_SIZE_BASE_X2L = 30
-export const FONT_SIZE_BASE_X3L = 36
-export const FONT_SIZE_BASE_X4L = 48
-export const FONT_SIZE_BASE_X5L = 60
+export const FONT_SIZE_BASE_X2S = 10
+export const FONT_SIZE_BASE_XS = 12
+export const FONT_SIZE_BASE_SM = 14
+export const FONT_SIZE_BASE_MD = 16
+export const FONT_SIZE_BASE_LG = 18
+export const FONT_SIZE_BASE_XL = 20
+export const FONT_SIZE_BASE_X2L = 24
+export const FONT_SIZE_BASE_X3L = 30
+export const FONT_SIZE_BASE_X4L = 36
+export const FONT_SIZE_BASE_X5L = 48
+export const FONT_SIZE_BASE_X6L = 60

@@ -219,140 +219,154 @@ describe('@/components/atoms/text', () => {
         const { result } = renderHook(() =>
           useTextFontSizeStyle(TextFontSize.X2S)
         )
-        expect(result.current.fontSize).toBe(12)
+        expect(result.current.fontSize).toBe(10)
       })
 
       it('returns extra-small font size style', () => {
         const { result } = renderHook(() =>
           useTextFontSizeStyle(TextFontSize.XS)
         )
-        expect(result.current.fontSize).toBe(14)
+        expect(result.current.fontSize).toBe(12)
       })
 
       it('returns small font size style', () => {
         const { result } = renderHook(() =>
           useTextFontSizeStyle(TextFontSize.SM)
         )
-        expect(result.current.fontSize).toBe(16)
+        expect(result.current.fontSize).toBe(14)
       })
 
       it('returns medium font size style', () => {
         const { result } = renderHook(() =>
           useTextFontSizeStyle(TextFontSize.MD)
         )
-        expect(result.current.fontSize).toBe(18)
+        expect(result.current.fontSize).toBe(16)
       })
 
       it('returns large font size style', () => {
         const { result } = renderHook(() =>
           useTextFontSizeStyle(TextFontSize.LG)
         )
-        expect(result.current.fontSize).toBe(20)
+        expect(result.current.fontSize).toBe(18)
       })
 
       it('returns extra-large font size style', () => {
         const { result } = renderHook(() =>
           useTextFontSizeStyle(TextFontSize.XL)
         )
-        expect(result.current.fontSize).toBe(24)
+        expect(result.current.fontSize).toBe(20)
       })
 
       it('returns 2 times large font size style', () => {
         const { result } = renderHook(() =>
           useTextFontSizeStyle(TextFontSize.X2L)
         )
-        expect(result.current.fontSize).toBe(30)
+        expect(result.current.fontSize).toBe(24)
       })
 
       it('returns 3 times large font size style', () => {
         const { result } = renderHook(() =>
           useTextFontSizeStyle(TextFontSize.X3L)
         )
-        expect(result.current.fontSize).toBe(36)
+        expect(result.current.fontSize).toBe(30)
       })
 
       it('returns 4 times large font size style', () => {
         const { result } = renderHook(() =>
           useTextFontSizeStyle(TextFontSize.X4L)
         )
-        expect(result.current.fontSize).toBe(48)
+        expect(result.current.fontSize).toBe(36)
       })
 
       it('returns 5 times large font size style', () => {
         const { result } = renderHook(() =>
           useTextFontSizeStyle(TextFontSize.X5L)
         )
+        expect(result.current.fontSize).toBe(48)
+      })
+
+      it('returns 6 times large font size style', () => {
+        const { result } = renderHook(() =>
+          useTextFontSizeStyle(TextFontSize.X6L)
+        )
         expect(result.current.fontSize).toBe(60)
       })
     })
 
-    describe('text fontFamily value hook', () => {
+    describe('text font size value hook', () => {
       it('returns 2 times extra-small font size value', () => {
         const { result } = renderHook(() =>
           useTextFontSizeValue(TextFontSize.X2S)
         )
-        expect(result.current).toBe(12)
+        expect(result.current).toBe(10)
       })
 
       it('returns extra-small font size value', () => {
         const { result } = renderHook(() =>
           useTextFontSizeValue(TextFontSize.XS)
         )
-        expect(result.current).toBe(14)
+        expect(result.current).toBe(12)
       })
 
       it('returns small font size value', () => {
         const { result } = renderHook(() =>
           useTextFontSizeValue(TextFontSize.SM)
         )
-        expect(result.current).toBe(16)
+        expect(result.current).toBe(14)
       })
 
       it('returns medium font size value', () => {
         const { result } = renderHook(() =>
           useTextFontSizeValue(TextFontSize.MD)
         )
-        expect(result.current).toBe(18)
+        expect(result.current).toBe(16)
       })
 
       it('returns large font size value', () => {
         const { result } = renderHook(() =>
           useTextFontSizeValue(TextFontSize.LG)
         )
-        expect(result.current).toBe(20)
+        expect(result.current).toBe(18)
       })
 
       it('returns extra-large font size value', () => {
         const { result } = renderHook(() =>
           useTextFontSizeValue(TextFontSize.XL)
         )
-        expect(result.current).toBe(24)
+        expect(result.current).toBe(20)
       })
 
       it('returns 2 times large font size value', () => {
         const { result } = renderHook(() =>
           useTextFontSizeValue(TextFontSize.X2L)
         )
-        expect(result.current).toBe(30)
+        expect(result.current).toBe(24)
       })
 
       it('returns 3 times large font size value', () => {
         const { result } = renderHook(() =>
           useTextFontSizeValue(TextFontSize.X3L)
         )
-        expect(result.current).toBe(36)
+        expect(result.current).toBe(30)
       })
 
       it('returns 4 times large font size value', () => {
         const { result } = renderHook(() =>
           useTextFontSizeValue(TextFontSize.X4L)
         )
-        expect(result.current).toBe(48)
+        expect(result.current).toBe(36)
       })
 
       it('returns 5 times large font size value', () => {
         const { result } = renderHook(() =>
           useTextFontSizeValue(TextFontSize.X5L)
+        )
+        expect(result.current).toBe(48)
+      })
+
+      it('returns 6 times large font size value', () => {
+        const { result } = renderHook(() =>
+          useTextFontSizeValue(TextFontSize.X6L)
         )
         expect(result.current).toBe(60)
       })
