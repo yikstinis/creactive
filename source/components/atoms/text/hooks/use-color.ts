@@ -1,6 +1,6 @@
 import { useThemeContext, useThemeStyleSheet } from '@/contexts'
 import { StyleSheet } from 'react-native'
-import { TextColor } from '../constants'
+import { TextBackgroundColor, TextColor } from '../constants'
 
 const TEXT_THEME_COLOR_KEY = {
   [TextColor.BASE_100]: 'colorForegroundBase100' as const,
@@ -46,4 +46,28 @@ export const useTextColorValue = (color: TextColor) => {
   const themeContext = useThemeContext()
   if (color === TextColor.TRANSPARENT) return 'transparent'
   return themeContext[TEXT_THEME_COLOR_KEY[color]]
+}
+
+const TEXT_BACKGROUND_COLOR_THEME_KEY = {
+  [TextBackgroundColor.BASE_100]: 'colorBackgroundBase100' as const,
+  [TextBackgroundColor.BASE_200]: 'colorBackgroundBase200' as const,
+  [TextBackgroundColor.BASE_300]: 'colorBackgroundBase300' as const,
+  [TextBackgroundColor.BASE_400]: 'colorBackgroundBase400' as const,
+  [TextBackgroundColor.BASE_500]: 'colorBackgroundBase500' as const,
+  [TextBackgroundColor.BASE_600]: 'colorBackgroundBase600' as const,
+  [TextBackgroundColor.BASE_700]: 'colorBackgroundBase700' as const,
+  [TextBackgroundColor.BASE_800]: 'colorBackgroundBase800' as const,
+  [TextBackgroundColor.BASE_900]: 'colorBackgroundBase900' as const,
+}
+export const useTextBackgoundColorStyle = (
+  backgroundColor: TextBackgroundColor,
+) => {
+  const themeStyleSheet = useThemeStyleSheet()
+  return themeStyleSheet[TEXT_BACKGROUND_COLOR_THEME_KEY[backgroundColor]]
+}
+export const useTextBackgoundColorValue = (
+  backgroundColor: TextBackgroundColor,
+) => {
+  const themeContext = useThemeContext()
+  return themeContext[TEXT_BACKGROUND_COLOR_THEME_KEY[backgroundColor]]
 }

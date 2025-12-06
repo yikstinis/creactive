@@ -2469,6 +2469,8 @@ describe('@/components/atoms/text', () => {
     })
   })
 
+  // TODO: Add background color and opacity tests...
+
   describe('children property', () => {
     it('renders children as text', () => {
       const text = faker.lorem.sentence()

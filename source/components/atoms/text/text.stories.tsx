@@ -11,6 +11,9 @@ const fontSizeControl = StorybookControl.fromNumericEnum(Text.FontSize)
 const lineHeightControl = StorybookControl.fromNumericEnum(Text.LineHeight)
 const maxLinesControl = StorybookControl.forNumber()
 const colorControl = StorybookControl.fromNumericEnum(Text.Color)
+const backgroundColorControl = StorybookControl.fromNumericEnum(
+  Text.BackgroundColor,
+)
 const opacityControl = StorybookControl.forFraction()
 const childrenControl = StorybookControl.forChildren()
 
@@ -27,6 +30,7 @@ const meta: Meta<typeof Text> = {
     lineHeight: lineHeightControl,
     maxLines: maxLinesControl,
     color: colorControl,
+    backgroundColor: backgroundColorControl,
     opacity: opacityControl,
     children: childrenControl,
   },
@@ -40,6 +44,7 @@ const meta: Meta<typeof Text> = {
     lineHeight: lineHeightControl.defaultValue,
     maxLines: maxLinesControl.defaultValue,
     color: colorControl.defaultValue,
+    backgroundColor: backgroundColorControl.defaultValue,
     opacity: opacityControl.defaultValue,
     children: childrenControl.defaultValue,
   },

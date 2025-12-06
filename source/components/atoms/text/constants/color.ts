@@ -34,3 +34,20 @@ export enum TextColor {
   FAILURE_900,
   TRANSPARENT,
 }
+
+/**
+ * Supported text background color constants.
+ * Part of theme colors, suitable for text background.
+ * @see Text.BackgroundColor
+ */
+export enum TextBackgroundColor {
+  BASE_100,
+  BASE_200,
+  BASE_300,
+  BASE_400,
+  BASE_500,
+  BASE_600,
+  BASE_700,
+  BASE_800,
+  BASE_900,
+}

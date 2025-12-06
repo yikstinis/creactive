@@ -8,6 +8,7 @@ import type {
 } from 'react'
 import type {
   TextAlign,
+  TextBackgroundColor,
   TextColor,
   TextDecoration,
   TextFontFamily,
@@ -98,6 +99,12 @@ export interface TextProperties extends PropsWithChildren {
    */
   color?: TextColor
   /**
+   * Themed background color.
+   * @see Text.BackgroundColor
+   * @default undefined
+   */
+  backgroundColor?: TextBackgroundColor
+  /**
    * Text opacity.
    * @see Fraction
    * @default undefined
@@ -115,6 +122,7 @@ export type TextComponent = ForwardRefExoticComponent<
   FontSize: Record<keyof typeof TextFontSize, TextFontSize>
   LineHeight: Record<keyof typeof TextLineHeight, TextLineHeight>
   Color: Record<keyof typeof TextColor, TextColor>
+  BackgroundColor: Record<keyof typeof TextBackgroundColor, TextBackgroundColor>
 }
 /**
  * Styled text properties type.
@@ -130,6 +138,7 @@ export type TextStyledProperties = {
     lineHeight: number
     maxLines: number
     color: Color
+    backgroundColor?: Color
     opacity?: number
   }
 }

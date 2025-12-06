@@ -5,7 +5,7 @@ import { MediaBreakpoint } from '../constants'
 export const useMediaBreakpoint = (
   breakpointMD: number,
   breakpointLG: number,
-  breakpointXL: number
+  breakpointXL: number,
 ) => {
   const { width } = useWindowDimensions()
   // Returning memorized breakpoint, based on current width.

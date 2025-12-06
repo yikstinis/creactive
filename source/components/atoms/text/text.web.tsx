@@ -2,6 +2,7 @@ import { forwardRef, useImperativeHandle, useRef } from 'react'
 import { TextStyled } from './components'
 import {
   TextAlign,
+  TextBackgroundColor,
   TextColor,
   TextDecoration,
   TextFontFamily,
@@ -21,6 +22,7 @@ import {
   useTextOpacityValue,
   useTextTagValue,
 } from './hooks'
+import { useTextBackgoundColorValue } from './hooks/use-color'
 import type {
   TextComponent,
   TextMeasureCallback,
@@ -40,6 +42,7 @@ const Text = forwardRef<TextReference, TextProperties>(function Text(
     lineHeight = TextLineHeight.NORMAL,
     maxLines,
     color = TextColor.BASE_800,
+    backgroundColor,
     opacity,
     children,
   },
@@ -78,6 +81,7 @@ const Text = forwardRef<TextReference, TextProperties>(function Text(
         lineHeight: fontSizeValue * lineHeightValue,
         maxLines,
         color: useTextColorValue(color),
+        backgroundColor: useTextBackgoundColorValue(backgroundColor),
         opacity: useTextOpacityValue(opacity),
       }}
     >
@@ -93,4 +97,5 @@ const Text = forwardRef<TextReference, TextProperties>(function Text(
 ;(Text as TextComponent).FontSize = TextFontSize
 ;(Text as TextComponent).LineHeight = TextLineHeight
 ;(Text as TextComponent).Color = TextColor
+;(Text as TextComponent).BackgroundColor = TextBackgroundColor
 export default Text as TextComponent

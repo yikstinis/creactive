@@ -24,6 +24,7 @@ export const TextStyled = styled.span<TextStyledProperties>`
   -webkit-box-orient: vertical;
   -webkit-line-clamp: ${(properties) => properties.values.maxLines};
   color: ${(properties) => properties.values.color};
+  background-color: ${(properties) => properties.values.backgroundColor};
   opacity: ${(properties) => properties.values.opacity};
   border-width: 0;
 `

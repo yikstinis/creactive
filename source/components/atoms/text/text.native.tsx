@@ -2,6 +2,7 @@ import { forwardRef, useImperativeHandle, useRef } from 'react'
 import { Text as ReactNativeText, StyleSheet } from 'react-native'
 import {
   TextAlign,
+  TextBackgroundColor,
   TextColor,
   TextDecoration,
   TextFontFamily,
@@ -22,6 +23,7 @@ import {
   useTextLineHeightValue,
   useTextOpacityValue,
 } from './hooks'
+import { useTextBackgoundColorStyle } from './hooks/use-color'
 import type {
   TextComponent,
   TextMeasureCallback,
@@ -55,6 +57,7 @@ const Text = forwardRef<TextReference, TextProperties>(function Text(
     lineHeight = TextLineHeight.NORMAL,
     maxLines,
     color = TextColor.BASE_800,
+    backgroundColor,
     opacity,
     children,
   },
@@ -88,6 +91,7 @@ const Text = forwardRef<TextReference, TextProperties>(function Text(
         useTextFontSizeStyle(fontSize),
         lineHeightStyleSheet.textLineHeight,
         useTextColorStyle(color),
+        useTextBackgoundColorStyle(backgroundColor),
         {
           opacity: useTextOpacityValue(opacity),
         },
@@ -106,4 +110,5 @@ const Text = forwardRef<TextReference, TextProperties>(function Text(
 ;(Text as TextComponent).FontSize = TextFontSize
 ;(Text as TextComponent).LineHeight = TextLineHeight
 ;(Text as TextComponent).Color = TextColor
+;(Text as TextComponent).BackgroundColor = TextBackgroundColor
 export default Text as TextComponent
