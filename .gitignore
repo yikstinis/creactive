@@ -46,3 +46,6 @@ build/
 # package temporary files
 
 package-temp.json
+
+# package env files
+.env

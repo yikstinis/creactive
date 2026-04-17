@@ -1,6 +1,6 @@
 {
   "name": "creactive",
-  "version": "0.0.141",
+  "version": "0.0.149",
   "main": ".storybook",
   "files": [
     "build/**"
@@ -20,6 +20,7 @@
     "build:server": "webpack --mode production",
     "build:types": "tsc -p tsconfig.types.json && tsc-alias -p tsconfig.types.json",
     "prepublishOnly": "npm run build && node scripts/update-package.js build/default.js",
+    "release": "set -a && . ./.env && set +a && npm publish --access public",
     "postpublish": "node scripts/update-package.js .storybook"
   },
   "peerDependencies": {
