@@ -18,14 +18,15 @@ export const MediaContextProvider: MediaContextProviderComponent = ({
   const breakpoint = useMediaBreakpoint(
     breakpointMD ?? BREAKPOINT_MD,
     breakpointLG ?? BREAKPOINT_LG,
-    breakpointXL ?? BREAKPOINT_XL
+    breakpointXL ?? BREAKPOINT_XL,
   )
-  // Memorizing context value to avoid extra re-renders.
+  // We do support 18 React version without compiler.
+  // We have to memorize context values to avoid extra re-renders.
   const value = useMemo(
     () => ({
       breakpoint,
     }),
-    [breakpoint]
+    [breakpoint],
   )
   return (
     <MediaContext.Provider value={value}>

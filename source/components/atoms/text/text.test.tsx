@@ -1,4 +1,3 @@
-import { TestPlatform } from '@/utilities'
 import { faker } from '@faker-js/faker'
 import { render, screen } from '@testing-library/react'
 import { createRef } from 'react'
@@ -13,13 +12,13 @@ describe('@/components/atoms/text', () => {
       const text = faker.lorem.sentence()
       render(<Text ref={ref}>{text}</Text>)
       expect(ref.current).toBeDefined()
-      expect(typeof ref.current.measure).toBe('function')
+      expect(typeof ref.current?.measure).toBe('function')
       expect(() => ref.current?.measure(() => {})).not.toThrow()
       // This inner measure function is already mocked in native platforms.
       // Method implementation performed and works for web platform.
       // Callback will not be called on native platforms.
       // TODO: Find out, how to test this on native platforms..
-      ref.current.measure((x, y, width, height) => {
+      ref.current?.measure((x, y, width, height) => {
         expect(x).toBeGreaterThanOrEqual(0)
         expect(y).toBeGreaterThanOrEqual(0)
         expect(width).toBeGreaterThanOrEqual(0)
@@ -549,8 +548,8 @@ describe('@/components/atoms/text', () => {
         const testId = faker.string.uuid()
         const text = faker.lorem.sentence()
         render(<Text testId={testId}>{text}</Text>)
-        expect(screen.getByTestId(testId)).toHaveStyle({
-          lineHeight: TestPlatform.toPixels(24),
+        expect(screen.getByTestId(testId)).toHavePlatformStyle({
+          lineHeight: 24,
         })
       })
 
@@ -565,8 +564,8 @@ describe('@/components/atoms/text', () => {
             {text}
           </Text>,
         )
-        expect(screen.getByTestId(testId)).toHaveStyle({
-          lineHeight: TestPlatform.toPixels(16),
+        expect(screen.getByTestId(testId)).toHavePlatformStyle({
+          lineHeight: 16,
         })
       })
 
@@ -581,8 +580,8 @@ describe('@/components/atoms/text', () => {
             {text}
           </Text>,
         )
-        expect(screen.getByTestId(testId)).toHaveStyle({
-          lineHeight: TestPlatform.toPixels(20),
+        expect(screen.getByTestId(testId)).toHavePlatformStyle({
+          lineHeight: 20,
         })
       })
 
@@ -597,8 +596,8 @@ describe('@/components/atoms/text', () => {
             {text}
           </Text>,
         )
-        expect(screen.getByTestId(testId)).toHaveStyle({
-          lineHeight: TestPlatform.toPixels(22),
+        expect(screen.getByTestId(testId)).toHavePlatformStyle({
+          lineHeight: 22,
         })
       })
 
@@ -613,8 +612,8 @@ describe('@/components/atoms/text', () => {
             {text}
           </Text>,
         )
-        expect(screen.getByTestId(testId)).toHaveStyle({
-          lineHeight: TestPlatform.toPixels(24),
+        expect(screen.getByTestId(testId)).toHavePlatformStyle({
+          lineHeight: 24,
         })
       })
 
@@ -629,8 +628,8 @@ describe('@/components/atoms/text', () => {
             {text}
           </Text>,
         )
-        expect(screen.getByTestId(testId)).toHaveStyle({
-          lineHeight: TestPlatform.toPixels(26),
+        expect(screen.getByTestId(testId)).toHavePlatformStyle({
+          lineHeight: 26,
         })
       })
 
@@ -645,8 +644,8 @@ describe('@/components/atoms/text', () => {
             {text}
           </Text>,
         )
-        expect(screen.getByTestId(testId)).toHaveStyle({
-          lineHeight: TestPlatform.toPixels(32),
+        expect(screen.getByTestId(testId)).toHavePlatformStyle({
+          lineHeight: 32,
         })
       })
     })
@@ -663,8 +662,8 @@ describe('@/components/atoms/text', () => {
             {text}
           </Text>,
         )
-        expect(screen.getByTestId(testId)).toHaveStyle({
-          lineHeight: TestPlatform.toPixels(15),
+        expect(screen.getByTestId(testId)).toHavePlatformStyle({
+          lineHeight: 15,
         })
       })
 
@@ -680,8 +679,8 @@ describe('@/components/atoms/text', () => {
             {text}
           </Text>,
         )
-        expect(screen.getByTestId(testId)).toHaveStyle({
-          lineHeight: TestPlatform.toPixels(10),
+        expect(screen.getByTestId(testId)).toHavePlatformStyle({
+          lineHeight: 10,
         })
       })
 
@@ -697,8 +696,8 @@ describe('@/components/atoms/text', () => {
             {text}
           </Text>,
         )
-        expect(screen.getByTestId(testId)).toHaveStyle({
-          lineHeight: TestPlatform.toPixels(12.5),
+        expect(screen.getByTestId(testId)).toHavePlatformStyle({
+          lineHeight: 12.5,
         })
       })
 
@@ -714,8 +713,8 @@ describe('@/components/atoms/text', () => {
             {text}
           </Text>,
         )
-        expect(screen.getByTestId(testId)).toHaveStyle({
-          lineHeight: TestPlatform.toPixels(13.75),
+        expect(screen.getByTestId(testId)).toHavePlatformStyle({
+          lineHeight: 13.75,
         })
       })
 
@@ -745,8 +744,8 @@ describe('@/components/atoms/text', () => {
             {text}
           </Text>,
         )
-        expect(screen.getByTestId(testId)).toHaveStyle({
-          lineHeight: TestPlatform.toPixels(16.25),
+        expect(screen.getByTestId(testId)).toHavePlatformStyle({
+          lineHeight: 16.25,
         })
       })
 
@@ -762,8 +761,8 @@ describe('@/components/atoms/text', () => {
             {text}
           </Text>,
         )
-        expect(screen.getByTestId(testId)).toHaveStyle({
-          lineHeight: TestPlatform.toPixels(20),
+        expect(screen.getByTestId(testId)).toHavePlatformStyle({
+          lineHeight: 20,
         })
       })
     })
@@ -780,8 +779,8 @@ describe('@/components/atoms/text', () => {
             {text}
           </Text>,
         )
-        expect(screen.getByTestId(testId)).toHaveStyle({
-          lineHeight: TestPlatform.toPixels(18),
+        expect(screen.getByTestId(testId)).toHavePlatformStyle({
+          lineHeight: 18,
         })
       })
 
@@ -797,8 +796,8 @@ describe('@/components/atoms/text', () => {
             {text}
           </Text>,
         )
-        expect(screen.getByTestId(testId)).toHaveStyle({
-          lineHeight: TestPlatform.toPixels(12),
+        expect(screen.getByTestId(testId)).toHavePlatformStyle({
+          lineHeight: 12,
         })
       })
 
@@ -814,8 +813,8 @@ describe('@/components/atoms/text', () => {
             {text}
           </Text>,
         )
-        expect(screen.getByTestId(testId)).toHaveStyle({
-          lineHeight: TestPlatform.toPixels(15),
+        expect(screen.getByTestId(testId)).toHavePlatformStyle({
+          lineHeight: 15,
         })
       })
 
@@ -831,8 +830,8 @@ describe('@/components/atoms/text', () => {
             {text}
           </Text>,
         )
-        expect(screen.getByTestId(testId)).toHaveStyle({
-          lineHeight: TestPlatform.toPixels(16.5),
+        expect(screen.getByTestId(testId)).toHavePlatformStyle({
+          lineHeight: 16.5,
         })
       })
 
@@ -848,8 +847,8 @@ describe('@/components/atoms/text', () => {
             {text}
           </Text>,
         )
-        expect(screen.getByTestId(testId)).toHaveStyle({
-          lineHeight: TestPlatform.toPixels(18),
+        expect(screen.getByTestId(testId)).toHavePlatformStyle({
+          lineHeight: 18,
         })
       })
 
@@ -865,8 +864,8 @@ describe('@/components/atoms/text', () => {
             {text}
           </Text>,
         )
-        expect(screen.getByTestId(testId)).toHaveStyle({
-          lineHeight: TestPlatform.toPixels(19.5),
+        expect(screen.getByTestId(testId)).toHavePlatformStyle({
+          lineHeight: 19.5,
         })
       })
 
@@ -882,8 +881,8 @@ describe('@/components/atoms/text', () => {
             {text}
           </Text>,
         )
-        expect(screen.getByTestId(testId)).toHaveStyle({
-          lineHeight: TestPlatform.toPixels(24),
+        expect(screen.getByTestId(testId)).toHavePlatformStyle({
+          lineHeight: 24,
         })
       })
     })
@@ -900,8 +899,8 @@ describe('@/components/atoms/text', () => {
             {text}
           </Text>,
         )
-        expect(screen.getByTestId(testId)).toHaveStyle({
-          lineHeight: TestPlatform.toPixels(21),
+        expect(screen.getByTestId(testId)).toHavePlatformStyle({
+          lineHeight: 21,
         })
       })
 
@@ -917,8 +916,8 @@ describe('@/components/atoms/text', () => {
             {text}
           </Text>,
         )
-        expect(screen.getByTestId(testId)).toHaveStyle({
-          lineHeight: TestPlatform.toPixels(14),
+        expect(screen.getByTestId(testId)).toHavePlatformStyle({
+          lineHeight: 14,
         })
       })
 
@@ -934,8 +933,8 @@ describe('@/components/atoms/text', () => {
             {text}
           </Text>,
         )
-        expect(screen.getByTestId(testId)).toHaveStyle({
-          lineHeight: TestPlatform.toPixels(17.5),
+        expect(screen.getByTestId(testId)).toHavePlatformStyle({
+          lineHeight: 17.5,
         })
       })
 
@@ -951,8 +950,8 @@ describe('@/components/atoms/text', () => {
             {text}
           </Text>,
         )
-        expect(screen.getByTestId(testId)).toHaveStyle({
-          lineHeight: TestPlatform.toPixels(19.25),
+        expect(screen.getByTestId(testId)).toHavePlatformStyle({
+          lineHeight: 19.25,
         })
       })
 
@@ -968,8 +967,8 @@ describe('@/components/atoms/text', () => {
             {text}
           </Text>,
         )
-        expect(screen.getByTestId(testId)).toHaveStyle({
-          lineHeight: TestPlatform.toPixels(21),
+        expect(screen.getByTestId(testId)).toHavePlatformStyle({
+          lineHeight: 21,
         })
       })
 
@@ -985,8 +984,8 @@ describe('@/components/atoms/text', () => {
             {text}
           </Text>,
         )
-        expect(screen.getByTestId(testId)).toHaveStyle({
-          lineHeight: TestPlatform.toPixels(22.75),
+        expect(screen.getByTestId(testId)).toHavePlatformStyle({
+          lineHeight: 22.75,
         })
       })
 
@@ -1002,8 +1001,8 @@ describe('@/components/atoms/text', () => {
             {text}
           </Text>,
         )
-        expect(screen.getByTestId(testId)).toHaveStyle({
-          lineHeight: TestPlatform.toPixels(28),
+        expect(screen.getByTestId(testId)).toHavePlatformStyle({
+          lineHeight: 28,
         })
       })
     })
@@ -1020,8 +1019,8 @@ describe('@/components/atoms/text', () => {
             {text}
           </Text>,
         )
-        expect(screen.getByTestId(testId)).toHaveStyle({
-          lineHeight: TestPlatform.toPixels(24),
+        expect(screen.getByTestId(testId)).toHavePlatformStyle({
+          lineHeight: 24,
         })
       })
 
@@ -1037,8 +1036,8 @@ describe('@/components/atoms/text', () => {
             {text}
           </Text>,
         )
-        expect(screen.getByTestId(testId)).toHaveStyle({
-          lineHeight: TestPlatform.toPixels(16),
+        expect(screen.getByTestId(testId)).toHavePlatformStyle({
+          lineHeight: 16,
         })
       })
 
@@ -1054,8 +1053,8 @@ describe('@/components/atoms/text', () => {
             {text}
           </Text>,
         )
-        expect(screen.getByTestId(testId)).toHaveStyle({
-          lineHeight: TestPlatform.toPixels(20),
+        expect(screen.getByTestId(testId)).toHavePlatformStyle({
+          lineHeight: 20,
         })
       })
 
@@ -1071,8 +1070,8 @@ describe('@/components/atoms/text', () => {
             {text}
           </Text>,
         )
-        expect(screen.getByTestId(testId)).toHaveStyle({
-          lineHeight: TestPlatform.toPixels(22),
+        expect(screen.getByTestId(testId)).toHavePlatformStyle({
+          lineHeight: 22,
         })
       })
 
@@ -1088,8 +1087,8 @@ describe('@/components/atoms/text', () => {
             {text}
           </Text>,
         )
-        expect(screen.getByTestId(testId)).toHaveStyle({
-          lineHeight: TestPlatform.toPixels(24),
+        expect(screen.getByTestId(testId)).toHavePlatformStyle({
+          lineHeight: 24,
         })
       })
 
@@ -1105,8 +1104,8 @@ describe('@/components/atoms/text', () => {
             {text}
           </Text>,
         )
-        expect(screen.getByTestId(testId)).toHaveStyle({
-          lineHeight: TestPlatform.toPixels(26),
+        expect(screen.getByTestId(testId)).toHavePlatformStyle({
+          lineHeight: 26,
         })
       })
 
@@ -1122,8 +1121,8 @@ describe('@/components/atoms/text', () => {
             {text}
           </Text>,
         )
-        expect(screen.getByTestId(testId)).toHaveStyle({
-          lineHeight: TestPlatform.toPixels(32),
+        expect(screen.getByTestId(testId)).toHavePlatformStyle({
+          lineHeight: 32,
         })
       })
     })
@@ -1140,8 +1139,8 @@ describe('@/components/atoms/text', () => {
             {text}
           </Text>,
         )
-        expect(screen.getByTestId(testId)).toHaveStyle({
-          lineHeight: TestPlatform.toPixels(27),
+        expect(screen.getByTestId(testId)).toHavePlatformStyle({
+          lineHeight: 27,
         })
       })
 
@@ -1157,8 +1156,8 @@ describe('@/components/atoms/text', () => {
             {text}
           </Text>,
         )
-        expect(screen.getByTestId(testId)).toHaveStyle({
-          lineHeight: TestPlatform.toPixels(18),
+        expect(screen.getByTestId(testId)).toHavePlatformStyle({
+          lineHeight: 18,
         })
       })
 
@@ -1174,8 +1173,8 @@ describe('@/components/atoms/text', () => {
             {text}
           </Text>,
         )
-        expect(screen.getByTestId(testId)).toHaveStyle({
-          lineHeight: TestPlatform.toPixels(22.5),
+        expect(screen.getByTestId(testId)).toHavePlatformStyle({
+          lineHeight: 22.5,
         })
       })
 
@@ -1191,8 +1190,8 @@ describe('@/components/atoms/text', () => {
             {text}
           </Text>,
         )
-        expect(screen.getByTestId(testId)).toHaveStyle({
-          lineHeight: TestPlatform.toPixels(24.75),
+        expect(screen.getByTestId(testId)).toHavePlatformStyle({
+          lineHeight: 24.75,
         })
       })
 
@@ -1208,8 +1207,8 @@ describe('@/components/atoms/text', () => {
             {text}
           </Text>,
         )
-        expect(screen.getByTestId(testId)).toHaveStyle({
-          lineHeight: TestPlatform.toPixels(27),
+        expect(screen.getByTestId(testId)).toHavePlatformStyle({
+          lineHeight: 27,
         })
       })
 
@@ -1225,8 +1224,8 @@ describe('@/components/atoms/text', () => {
             {text}
           </Text>,
         )
-        expect(screen.getByTestId(testId)).toHaveStyle({
-          lineHeight: TestPlatform.toPixels(29.25),
+        expect(screen.getByTestId(testId)).toHavePlatformStyle({
+          lineHeight: 29.25,
         })
       })
 
@@ -1242,8 +1241,8 @@ describe('@/components/atoms/text', () => {
             {text}
           </Text>,
         )
-        expect(screen.getByTestId(testId)).toHaveStyle({
-          lineHeight: TestPlatform.toPixels(36),
+        expect(screen.getByTestId(testId)).toHavePlatformStyle({
+          lineHeight: 36,
         })
       })
     })
@@ -1260,8 +1259,8 @@ describe('@/components/atoms/text', () => {
             {text}
           </Text>,
         )
-        expect(screen.getByTestId(testId)).toHaveStyle({
-          lineHeight: TestPlatform.toPixels(30),
+        expect(screen.getByTestId(testId)).toHavePlatformStyle({
+          lineHeight: 30,
         })
       })
 
@@ -1277,8 +1276,8 @@ describe('@/components/atoms/text', () => {
             {text}
           </Text>,
         )
-        expect(screen.getByTestId(testId)).toHaveStyle({
-          lineHeight: TestPlatform.toPixels(20),
+        expect(screen.getByTestId(testId)).toHavePlatformStyle({
+          lineHeight: 20,
         })
       })
 
@@ -1294,8 +1293,8 @@ describe('@/components/atoms/text', () => {
             {text}
           </Text>,
         )
-        expect(screen.getByTestId(testId)).toHaveStyle({
-          lineHeight: TestPlatform.toPixels(25),
+        expect(screen.getByTestId(testId)).toHavePlatformStyle({
+          lineHeight: 25,
         })
       })
 
@@ -1311,8 +1310,8 @@ describe('@/components/atoms/text', () => {
             {text}
           </Text>,
         )
-        expect(screen.getByTestId(testId)).toHaveStyle({
-          lineHeight: TestPlatform.toPixels(27.5),
+        expect(screen.getByTestId(testId)).toHavePlatformStyle({
+          lineHeight: 27.5,
         })
       })
 
@@ -1328,8 +1327,8 @@ describe('@/components/atoms/text', () => {
             {text}
           </Text>,
         )
-        expect(screen.getByTestId(testId)).toHaveStyle({
-          lineHeight: TestPlatform.toPixels(30),
+        expect(screen.getByTestId(testId)).toHavePlatformStyle({
+          lineHeight: 30,
         })
       })
 
@@ -1345,8 +1344,8 @@ describe('@/components/atoms/text', () => {
             {text}
           </Text>,
         )
-        expect(screen.getByTestId(testId)).toHaveStyle({
-          lineHeight: TestPlatform.toPixels(32.5),
+        expect(screen.getByTestId(testId)).toHavePlatformStyle({
+          lineHeight: 32.5,
         })
       })
 
@@ -1362,8 +1361,8 @@ describe('@/components/atoms/text', () => {
             {text}
           </Text>,
         )
-        expect(screen.getByTestId(testId)).toHaveStyle({
-          lineHeight: TestPlatform.toPixels(40),
+        expect(screen.getByTestId(testId)).toHavePlatformStyle({
+          lineHeight: 40,
         })
       })
     })
@@ -1380,8 +1379,8 @@ describe('@/components/atoms/text', () => {
             {text}
           </Text>,
         )
-        expect(screen.getByTestId(testId)).toHaveStyle({
-          lineHeight: TestPlatform.toPixels(36),
+        expect(screen.getByTestId(testId)).toHavePlatformStyle({
+          lineHeight: 36,
         })
       })
 
@@ -1397,8 +1396,8 @@ describe('@/components/atoms/text', () => {
             {text}
           </Text>,
         )
-        expect(screen.getByTestId(testId)).toHaveStyle({
-          lineHeight: TestPlatform.toPixels(24),
+        expect(screen.getByTestId(testId)).toHavePlatformStyle({
+          lineHeight: 24,
         })
       })
 
@@ -1414,8 +1413,8 @@ describe('@/components/atoms/text', () => {
             {text}
           </Text>,
         )
-        expect(screen.getByTestId(testId)).toHaveStyle({
-          lineHeight: TestPlatform.toPixels(30),
+        expect(screen.getByTestId(testId)).toHavePlatformStyle({
+          lineHeight: 30,
         })
       })
 
@@ -1431,8 +1430,8 @@ describe('@/components/atoms/text', () => {
             {text}
           </Text>,
         )
-        expect(screen.getByTestId(testId)).toHaveStyle({
-          lineHeight: TestPlatform.toPixels(33),
+        expect(screen.getByTestId(testId)).toHavePlatformStyle({
+          lineHeight: 33,
         })
       })
 
@@ -1448,8 +1447,8 @@ describe('@/components/atoms/text', () => {
             {text}
           </Text>,
         )
-        expect(screen.getByTestId(testId)).toHaveStyle({
-          lineHeight: TestPlatform.toPixels(36),
+        expect(screen.getByTestId(testId)).toHavePlatformStyle({
+          lineHeight: 36,
         })
       })
 
@@ -1465,8 +1464,8 @@ describe('@/components/atoms/text', () => {
             {text}
           </Text>,
         )
-        expect(screen.getByTestId(testId)).toHaveStyle({
-          lineHeight: TestPlatform.toPixels(39),
+        expect(screen.getByTestId(testId)).toHavePlatformStyle({
+          lineHeight: 39,
         })
       })
 
@@ -1482,8 +1481,8 @@ describe('@/components/atoms/text', () => {
             {text}
           </Text>,
         )
-        expect(screen.getByTestId(testId)).toHaveStyle({
-          lineHeight: TestPlatform.toPixels(48),
+        expect(screen.getByTestId(testId)).toHavePlatformStyle({
+          lineHeight: 48,
         })
       })
     })
@@ -1500,8 +1499,8 @@ describe('@/components/atoms/text', () => {
             {text}
           </Text>,
         )
-        expect(screen.getByTestId(testId)).toHaveStyle({
-          lineHeight: TestPlatform.toPixels(45),
+        expect(screen.getByTestId(testId)).toHavePlatformStyle({
+          lineHeight: 45,
         })
       })
 
@@ -1517,8 +1516,8 @@ describe('@/components/atoms/text', () => {
             {text}
           </Text>,
         )
-        expect(screen.getByTestId(testId)).toHaveStyle({
-          lineHeight: TestPlatform.toPixels(30),
+        expect(screen.getByTestId(testId)).toHavePlatformStyle({
+          lineHeight: 30,
         })
       })
 
@@ -1534,8 +1533,8 @@ describe('@/components/atoms/text', () => {
             {text}
           </Text>,
         )
-        expect(screen.getByTestId(testId)).toHaveStyle({
-          lineHeight: TestPlatform.toPixels(37.5),
+        expect(screen.getByTestId(testId)).toHavePlatformStyle({
+          lineHeight: 37.5,
         })
       })
 
@@ -1551,8 +1550,8 @@ describe('@/components/atoms/text', () => {
             {text}
           </Text>,
         )
-        expect(screen.getByTestId(testId)).toHaveStyle({
-          lineHeight: TestPlatform.toPixels(41.25),
+        expect(screen.getByTestId(testId)).toHavePlatformStyle({
+          lineHeight: 41.25,
         })
       })
 
@@ -1568,8 +1567,8 @@ describe('@/components/atoms/text', () => {
             {text}
           </Text>,
         )
-        expect(screen.getByTestId(testId)).toHaveStyle({
-          lineHeight: TestPlatform.toPixels(45),
+        expect(screen.getByTestId(testId)).toHavePlatformStyle({
+          lineHeight: 45,
         })
       })
 
@@ -1585,8 +1584,8 @@ describe('@/components/atoms/text', () => {
             {text}
           </Text>,
         )
-        expect(screen.getByTestId(testId)).toHaveStyle({
-          lineHeight: TestPlatform.toPixels(48.75),
+        expect(screen.getByTestId(testId)).toHavePlatformStyle({
+          lineHeight: 48.75,
         })
       })
 
@@ -1602,8 +1601,8 @@ describe('@/components/atoms/text', () => {
             {text}
           </Text>,
         )
-        expect(screen.getByTestId(testId)).toHaveStyle({
-          lineHeight: TestPlatform.toPixels(60),
+        expect(screen.getByTestId(testId)).toHavePlatformStyle({
+          lineHeight: 60,
         })
       })
     })
@@ -1620,8 +1619,8 @@ describe('@/components/atoms/text', () => {
             {text}
           </Text>,
         )
-        expect(screen.getByTestId(testId)).toHaveStyle({
-          lineHeight: TestPlatform.toPixels(54),
+        expect(screen.getByTestId(testId)).toHavePlatformStyle({
+          lineHeight: 54,
         })
       })
 
@@ -1637,8 +1636,8 @@ describe('@/components/atoms/text', () => {
             {text}
           </Text>,
         )
-        expect(screen.getByTestId(testId)).toHaveStyle({
-          lineHeight: TestPlatform.toPixels(36),
+        expect(screen.getByTestId(testId)).toHavePlatformStyle({
+          lineHeight: 36,
         })
       })
 
@@ -1654,8 +1653,8 @@ describe('@/components/atoms/text', () => {
             {text}
           </Text>,
         )
-        expect(screen.getByTestId(testId)).toHaveStyle({
-          lineHeight: TestPlatform.toPixels(45),
+        expect(screen.getByTestId(testId)).toHavePlatformStyle({
+          lineHeight: 45,
         })
       })
 
@@ -1671,8 +1670,8 @@ describe('@/components/atoms/text', () => {
             {text}
           </Text>,
         )
-        expect(screen.getByTestId(testId)).toHaveStyle({
-          lineHeight: TestPlatform.toPixels(49.5),
+        expect(screen.getByTestId(testId)).toHavePlatformStyle({
+          lineHeight: 49.5,
         })
       })
 
@@ -1688,8 +1687,8 @@ describe('@/components/atoms/text', () => {
             {text}
           </Text>,
         )
-        expect(screen.getByTestId(testId)).toHaveStyle({
-          lineHeight: TestPlatform.toPixels(54),
+        expect(screen.getByTestId(testId)).toHavePlatformStyle({
+          lineHeight: 54,
         })
       })
 
@@ -1705,8 +1704,8 @@ describe('@/components/atoms/text', () => {
             {text}
           </Text>,
         )
-        expect(screen.getByTestId(testId)).toHaveStyle({
-          lineHeight: TestPlatform.toPixels(58.5),
+        expect(screen.getByTestId(testId)).toHavePlatformStyle({
+          lineHeight: 58.5,
         })
       })
 
@@ -1722,8 +1721,8 @@ describe('@/components/atoms/text', () => {
             {text}
           </Text>,
         )
-        expect(screen.getByTestId(testId)).toHaveStyle({
-          lineHeight: TestPlatform.toPixels(72),
+        expect(screen.getByTestId(testId)).toHavePlatformStyle({
+          lineHeight: 72,
         })
       })
     })
@@ -1740,8 +1739,8 @@ describe('@/components/atoms/text', () => {
             {text}
           </Text>,
         )
-        expect(screen.getByTestId(testId)).toHaveStyle({
-          lineHeight: TestPlatform.toPixels(72),
+        expect(screen.getByTestId(testId)).toHavePlatformStyle({
+          lineHeight: 72,
         })
       })
 
@@ -1757,8 +1756,8 @@ describe('@/components/atoms/text', () => {
             {text}
           </Text>,
         )
-        expect(screen.getByTestId(testId)).toHaveStyle({
-          lineHeight: TestPlatform.toPixels(48),
+        expect(screen.getByTestId(testId)).toHavePlatformStyle({
+          lineHeight: 48,
         })
       })
 
@@ -1774,8 +1773,8 @@ describe('@/components/atoms/text', () => {
             {text}
           </Text>,
         )
-        expect(screen.getByTestId(testId)).toHaveStyle({
-          lineHeight: TestPlatform.toPixels(60),
+        expect(screen.getByTestId(testId)).toHavePlatformStyle({
+          lineHeight: 60,
         })
       })
 
@@ -1791,8 +1790,8 @@ describe('@/components/atoms/text', () => {
             {text}
           </Text>,
         )
-        expect(screen.getByTestId(testId)).toHaveStyle({
-          lineHeight: TestPlatform.toPixels(66),
+        expect(screen.getByTestId(testId)).toHavePlatformStyle({
+          lineHeight: 66,
         })
       })
 
@@ -1808,8 +1807,8 @@ describe('@/components/atoms/text', () => {
             {text}
           </Text>,
         )
-        expect(screen.getByTestId(testId)).toHaveStyle({
-          lineHeight: TestPlatform.toPixels(72),
+        expect(screen.getByTestId(testId)).toHavePlatformStyle({
+          lineHeight: 72,
         })
       })
 
@@ -1825,8 +1824,8 @@ describe('@/components/atoms/text', () => {
             {text}
           </Text>,
         )
-        expect(screen.getByTestId(testId)).toHaveStyle({
-          lineHeight: TestPlatform.toPixels(78),
+        expect(screen.getByTestId(testId)).toHavePlatformStyle({
+          lineHeight: 78,
         })
       })
 
@@ -1842,8 +1841,8 @@ describe('@/components/atoms/text', () => {
             {text}
           </Text>,
         )
-        expect(screen.getByTestId(testId)).toHaveStyle({
-          lineHeight: TestPlatform.toPixels(96),
+        expect(screen.getByTestId(testId)).toHavePlatformStyle({
+          lineHeight: 96,
         })
       })
     })
@@ -1860,8 +1859,8 @@ describe('@/components/atoms/text', () => {
             {text}
           </Text>,
         )
-        expect(screen.getByTestId(testId)).toHaveStyle({
-          lineHeight: TestPlatform.toPixels(90),
+        expect(screen.getByTestId(testId)).toHavePlatformStyle({
+          lineHeight: 90,
         })
       })
 
@@ -1877,8 +1876,8 @@ describe('@/components/atoms/text', () => {
             {text}
           </Text>,
         )
-        expect(screen.getByTestId(testId)).toHaveStyle({
-          lineHeight: TestPlatform.toPixels(60),
+        expect(screen.getByTestId(testId)).toHavePlatformStyle({
+          lineHeight: 60,
         })
       })
 
@@ -1894,8 +1893,8 @@ describe('@/components/atoms/text', () => {
             {text}
           </Text>,
         )
-        expect(screen.getByTestId(testId)).toHaveStyle({
-          lineHeight: TestPlatform.toPixels(75),
+        expect(screen.getByTestId(testId)).toHavePlatformStyle({
+          lineHeight: 75,
         })
       })
 
@@ -1911,8 +1910,8 @@ describe('@/components/atoms/text', () => {
             {text}
           </Text>,
         )
-        expect(screen.getByTestId(testId)).toHaveStyle({
-          lineHeight: TestPlatform.toPixels(82.5),
+        expect(screen.getByTestId(testId)).toHavePlatformStyle({
+          lineHeight: 82.5,
         })
       })
 
@@ -1928,8 +1927,8 @@ describe('@/components/atoms/text', () => {
             {text}
           </Text>,
         )
-        expect(screen.getByTestId(testId)).toHaveStyle({
-          lineHeight: TestPlatform.toPixels(90),
+        expect(screen.getByTestId(testId)).toHavePlatformStyle({
+          lineHeight: 90,
         })
       })
 
@@ -1945,8 +1944,8 @@ describe('@/components/atoms/text', () => {
             {text}
           </Text>,
         )
-        expect(screen.getByTestId(testId)).toHaveStyle({
-          lineHeight: TestPlatform.toPixels(97.5),
+        expect(screen.getByTestId(testId)).toHavePlatformStyle({
+          lineHeight: 97.5,
         })
       })
 
@@ -1962,8 +1961,8 @@ describe('@/components/atoms/text', () => {
             {text}
           </Text>,
         )
-        expect(screen.getByTestId(testId)).toHaveStyle({
-          lineHeight: TestPlatform.toPixels(120),
+        expect(screen.getByTestId(testId)).toHavePlatformStyle({
+          lineHeight: 120,
         })
       })
     })

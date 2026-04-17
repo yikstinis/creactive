@@ -1,6 +1,6 @@
 {
   "name": "creactive",
-  "version": "0.0.140",
+  "version": "0.0.141",
   "main": ".storybook",
   "files": [
     "build/**"
@@ -13,7 +13,7 @@
     "test:android": "jest",
     "test:ios": "jest",
     "test:web": "jest",
-    "lint": "expo lint",
+    "lint": "tsc --noEmit --pretty false && expo lint",
     "build": "npm run build:default && npm run build:classic && npm run build:server && npm run build:types",
     "build:default": "webpack --mode production",
     "build:classic": "webpack --mode production",

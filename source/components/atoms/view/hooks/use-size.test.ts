@@ -1,7 +1,7 @@
 import { Dimension } from '@/helpers'
-import { TestPlatform } from '@/utilities'
 import { faker } from '@faker-js/faker'
 import { renderHook } from '@testing-library/react-native'
+import { DimensionValue, Platform } from 'react-native'
 import { useViewSizeValue } from './use-size'
 
 describe('@/components/atoms/view', () => {
@@ -17,7 +17,12 @@ describe('@/components/atoms/view', () => {
         const { result } = renderHook(() =>
           useViewSizeValue(new Dimension(size, Dimension.Unit.PIXEL)),
         )
-        expect(result.current).toBe(TestPlatform.toPixels(size))
+        expect(result.current).toBe(
+          Platform.select({
+            web: `${size}px` as DimensionValue,
+            default: size as DimensionValue,
+          }),
+        )
       })
 
       it('returns size value when percentage dimension provided', () => {

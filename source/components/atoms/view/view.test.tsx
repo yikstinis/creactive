@@ -1,5 +1,4 @@
 import { Dimension, Fraction } from '@/helpers'
-import { TestPlatform } from '@/utilities'
 import { faker } from '@faker-js/faker'
 import { render, screen } from '@testing-library/react-native'
 import { View } from '.'
@@ -9,7 +8,7 @@ describe('@/components/atoms/view', () => {
     it('renders with default position', () => {
       const testId = faker.string.uuid()
       render(<View testId={testId} />)
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         position: 'relative',
       })
     })
@@ -22,7 +21,7 @@ describe('@/components/atoms/view', () => {
           position={View.Position.RELATIVE}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         position: 'relative',
       })
     })
@@ -35,7 +34,7 @@ describe('@/components/atoms/view', () => {
           position={View.Position.ABSOLUTE}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         position: 'absolute',
       })
     })
@@ -51,8 +50,8 @@ describe('@/components/atoms/view', () => {
           top={new Dimension(top, Dimension.Unit.PIXEL)}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
-        top: TestPlatform.toPixels(top),
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
+        top,
       })
     })
 
@@ -68,7 +67,7 @@ describe('@/components/atoms/view', () => {
           top={new Dimension(top, Dimension.Unit.PERCENT)}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         top: `${top}%`,
       })
     })
@@ -84,8 +83,8 @@ describe('@/components/atoms/view', () => {
           left={new Dimension(left, Dimension.Unit.PIXEL)}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
-        left: TestPlatform.toPixels(left),
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
+        left,
       })
     })
 
@@ -101,7 +100,7 @@ describe('@/components/atoms/view', () => {
           left={new Dimension(left, Dimension.Unit.PERCENT)}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         left: `${left}%`,
       })
     })
@@ -117,8 +116,8 @@ describe('@/components/atoms/view', () => {
           right={new Dimension(right, Dimension.Unit.PIXEL)}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
-        right: TestPlatform.toPixels(right),
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
+        right,
       })
     })
 
@@ -134,7 +133,7 @@ describe('@/components/atoms/view', () => {
           right={new Dimension(right, Dimension.Unit.PERCENT)}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         right: `${right}%`,
       })
     })
@@ -150,8 +149,8 @@ describe('@/components/atoms/view', () => {
           bottom={new Dimension(bottom, Dimension.Unit.PIXEL)}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
-        bottom: TestPlatform.toPixels(bottom),
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
+        bottom,
       })
     })
 
@@ -167,7 +166,7 @@ describe('@/components/atoms/view', () => {
           right={new Dimension(bottom, Dimension.Unit.PERCENT)}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         right: `${bottom}%`,
       })
     })
@@ -183,7 +182,7 @@ describe('@/components/atoms/view', () => {
           opacity={new Fraction(opacity)}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         opacity,
       })
     })
@@ -193,7 +192,7 @@ describe('@/components/atoms/view', () => {
     it('renders with default overflow style', () => {
       const testId = faker.string.uuid()
       render(<View testId={testId} />)
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         overflow: 'visible',
       })
     })
@@ -206,7 +205,7 @@ describe('@/components/atoms/view', () => {
           overflow={View.Overflow.VISIBLE}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         overflow: 'visible',
       })
     })
@@ -219,7 +218,7 @@ describe('@/components/atoms/view', () => {
           overflow={View.Overflow.HIDDEN}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         overflow: 'hidden',
       })
     })
@@ -237,7 +236,7 @@ describe('@/components/atoms/view', () => {
           flexGrow={new Fraction(flexGrow)}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         flexGrow,
       })
     })
@@ -255,7 +254,7 @@ describe('@/components/atoms/view', () => {
           flexShrink={new Fraction(flexShrink)}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         flexShrink,
       })
     })
@@ -271,10 +270,10 @@ describe('@/components/atoms/view', () => {
           flexBasis={new Dimension(flexBasis, Dimension.Unit.PIXEL)}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         // Jest type for react native does not allow `${number}px` string.
         // @see https://reactnative.dev/docs/layout-props#flexbasis
-        flexBasis: TestPlatform.toPixels(flexBasis) as number,
+        flexBasis: flexBasis as number,
       })
     })
 
@@ -290,7 +289,7 @@ describe('@/components/atoms/view', () => {
           flexBasis={new Dimension(flexBasis, Dimension.Unit.PERCENT)}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         flexBasis: `${flexBasis}%`,
       })
     })
@@ -300,7 +299,7 @@ describe('@/components/atoms/view', () => {
     it('renders with default flex wrap style', () => {
       const testId = faker.string.uuid()
       render(<View testId={testId} />)
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         flexWrap: 'nowrap',
       })
     })
@@ -313,7 +312,7 @@ describe('@/components/atoms/view', () => {
           flexWrap={View.FlexWrap.NONE}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         flexWrap: 'nowrap',
       })
     })
@@ -326,7 +325,7 @@ describe('@/components/atoms/view', () => {
           flexWrap={View.FlexWrap.WRAP}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         flexWrap: 'wrap',
       })
     })
@@ -336,7 +335,7 @@ describe('@/components/atoms/view', () => {
     it('renders with default flex direction style', () => {
       const testId = faker.string.uuid()
       render(<View testId={testId} />)
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         flexDirection: 'column',
       })
     })
@@ -349,7 +348,7 @@ describe('@/components/atoms/view', () => {
           flexDirection={View.FlexDirection.COLUMN}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         flexDirection: 'column',
       })
     })
@@ -362,7 +361,7 @@ describe('@/components/atoms/view', () => {
           flexDirection={View.FlexDirection.ROW}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         flexDirection: 'row',
       })
     })
@@ -372,7 +371,7 @@ describe('@/components/atoms/view', () => {
     it('renders with default justify content style', () => {
       const testId = faker.string.uuid()
       render(<View testId={testId} />)
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         justifyContent: 'flex-start',
       })
     })
@@ -385,7 +384,7 @@ describe('@/components/atoms/view', () => {
           justifyContent={View.JustifyContent.FLEX_START}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         justifyContent: 'flex-start',
       })
     })
@@ -398,7 +397,7 @@ describe('@/components/atoms/view', () => {
           justifyContent={View.JustifyContent.FLEX_END}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         justifyContent: 'flex-end',
       })
     })
@@ -411,7 +410,7 @@ describe('@/components/atoms/view', () => {
           justifyContent={View.JustifyContent.CENTER}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         justifyContent: 'center',
       })
     })
@@ -424,7 +423,7 @@ describe('@/components/atoms/view', () => {
           justifyContent={View.JustifyContent.SPACE_BETWEEN}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         justifyContent: 'space-between',
       })
     })
@@ -437,7 +436,7 @@ describe('@/components/atoms/view', () => {
           justifyContent={View.JustifyContent.SPACE_AROUND}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         justifyContent: 'space-around',
       })
     })
@@ -450,7 +449,7 @@ describe('@/components/atoms/view', () => {
           justifyContent={View.JustifyContent.SPACE_EVENLY}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         justifyContent: 'space-evenly',
       })
     })
@@ -460,7 +459,7 @@ describe('@/components/atoms/view', () => {
     it('renders with default align items style', () => {
       const testId = faker.string.uuid()
       render(<View testId={testId} />)
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         alignItems: 'stretch',
       })
     })
@@ -473,7 +472,7 @@ describe('@/components/atoms/view', () => {
           alignItems={View.AlignItems.FLEX_START}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         alignItems: 'flex-start',
       })
     })
@@ -486,7 +485,7 @@ describe('@/components/atoms/view', () => {
           alignItems={View.AlignItems.FLEX_END}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         alignItems: 'flex-end',
       })
     })
@@ -499,7 +498,7 @@ describe('@/components/atoms/view', () => {
           alignItems={View.AlignItems.CENTER}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         alignItems: 'center',
       })
     })
@@ -512,7 +511,7 @@ describe('@/components/atoms/view', () => {
           alignItems={View.AlignItems.STRETCH}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         alignItems: 'stretch',
       })
     })
@@ -525,7 +524,7 @@ describe('@/components/atoms/view', () => {
           alignItems={View.AlignItems.BASELINE}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         alignItems: 'baseline',
       })
     })
@@ -540,7 +539,7 @@ describe('@/components/atoms/view', () => {
           alignSelf={View.AlignSelf.FLEX_START}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         alignSelf: 'flex-start',
       })
     })
@@ -553,7 +552,7 @@ describe('@/components/atoms/view', () => {
           alignSelf={View.AlignSelf.FLEX_END}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         alignSelf: 'flex-end',
       })
     })
@@ -566,7 +565,7 @@ describe('@/components/atoms/view', () => {
           alignSelf={View.AlignSelf.CENTER}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         alignSelf: 'center',
       })
     })
@@ -579,7 +578,7 @@ describe('@/components/atoms/view', () => {
           alignSelf={View.AlignSelf.STRETCH}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         alignSelf: 'stretch',
       })
     })
@@ -592,7 +591,7 @@ describe('@/components/atoms/view', () => {
           alignSelf={View.AlignSelf.BASELINE}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         alignSelf: 'baseline',
       })
     })
@@ -607,7 +606,7 @@ describe('@/components/atoms/view', () => {
           alignContent={View.AlignContent.FLEX_START}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         alignContent: 'flex-start',
       })
     })
@@ -620,7 +619,7 @@ describe('@/components/atoms/view', () => {
           alignContent={View.AlignContent.FLEX_END}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         alignContent: 'flex-end',
       })
     })
@@ -633,7 +632,7 @@ describe('@/components/atoms/view', () => {
           alignContent={View.AlignContent.CENTER}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         alignContent: 'center',
       })
     })
@@ -646,7 +645,7 @@ describe('@/components/atoms/view', () => {
           alignContent={View.AlignContent.STRETCH}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         alignContent: 'stretch',
       })
     })
@@ -659,7 +658,7 @@ describe('@/components/atoms/view', () => {
           alignContent={View.AlignContent.SPACE_BETWEEN}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         alignContent: 'space-between',
       })
     })
@@ -672,7 +671,7 @@ describe('@/components/atoms/view', () => {
           alignContent={View.AlignContent.SPACE_AROUND}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         alignContent: 'space-around',
       })
     })
@@ -685,7 +684,7 @@ describe('@/components/atoms/view', () => {
           alignContent={View.AlignContent.SPACE_EVENLY}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         alignContent: 'space-evenly',
       })
     })
@@ -700,7 +699,7 @@ describe('@/components/atoms/view', () => {
           marginTop={View.Spacing.X6S}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         marginTop: 2,
       })
     })
@@ -713,7 +712,7 @@ describe('@/components/atoms/view', () => {
           marginTop={View.Spacing.X5S}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         marginTop: 4,
       })
     })
@@ -726,7 +725,7 @@ describe('@/components/atoms/view', () => {
           marginTop={View.Spacing.X4S}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         marginTop: 6,
       })
     })
@@ -739,7 +738,7 @@ describe('@/components/atoms/view', () => {
           marginTop={View.Spacing.X3S}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         marginTop: 8,
       })
     })
@@ -752,7 +751,7 @@ describe('@/components/atoms/view', () => {
           marginTop={View.Spacing.X2S}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         marginTop: 10,
       })
     })
@@ -765,7 +764,7 @@ describe('@/components/atoms/view', () => {
           marginTop={View.Spacing.XS}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         marginTop: 12,
       })
     })
@@ -778,7 +777,7 @@ describe('@/components/atoms/view', () => {
           marginTop={View.Spacing.SM}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         marginTop: 14,
       })
     })
@@ -791,7 +790,7 @@ describe('@/components/atoms/view', () => {
           marginTop={View.Spacing.MD}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         marginTop: 16,
       })
     })
@@ -804,7 +803,7 @@ describe('@/components/atoms/view', () => {
           marginTop={View.Spacing.LG}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         marginTop: 18,
       })
     })
@@ -817,7 +816,7 @@ describe('@/components/atoms/view', () => {
           marginTop={View.Spacing.XL}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         marginTop: 20,
       })
     })
@@ -830,7 +829,7 @@ describe('@/components/atoms/view', () => {
           marginTop={View.Spacing.X2L}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         marginTop: 24,
       })
     })
@@ -843,7 +842,7 @@ describe('@/components/atoms/view', () => {
           marginTop={View.Spacing.X3L}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         marginTop: 28,
       })
     })
@@ -856,7 +855,7 @@ describe('@/components/atoms/view', () => {
           marginTop={View.Spacing.X4L}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         marginTop: 32,
       })
     })
@@ -869,7 +868,7 @@ describe('@/components/atoms/view', () => {
           marginTop={View.Spacing.X5L}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         marginTop: 36,
       })
     })
@@ -882,7 +881,7 @@ describe('@/components/atoms/view', () => {
           marginTop={View.Spacing.X6L}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         marginTop: 40,
       })
     })
@@ -897,7 +896,7 @@ describe('@/components/atoms/view', () => {
           paddingTop={View.Spacing.X6S}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         paddingTop: 2,
       })
     })
@@ -910,7 +909,7 @@ describe('@/components/atoms/view', () => {
           paddingTop={View.Spacing.X5S}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         paddingTop: 4,
       })
     })
@@ -923,7 +922,7 @@ describe('@/components/atoms/view', () => {
           paddingTop={View.Spacing.X4S}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         paddingTop: 6,
       })
     })
@@ -936,7 +935,7 @@ describe('@/components/atoms/view', () => {
           paddingTop={View.Spacing.X3S}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         paddingTop: 8,
       })
     })
@@ -949,7 +948,7 @@ describe('@/components/atoms/view', () => {
           paddingTop={View.Spacing.X2S}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         paddingTop: 10,
       })
     })
@@ -962,7 +961,7 @@ describe('@/components/atoms/view', () => {
           paddingTop={View.Spacing.XS}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         paddingTop: 12,
       })
     })
@@ -975,7 +974,7 @@ describe('@/components/atoms/view', () => {
           paddingTop={View.Spacing.SM}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         paddingTop: 14,
       })
     })
@@ -988,7 +987,7 @@ describe('@/components/atoms/view', () => {
           paddingTop={View.Spacing.MD}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         paddingTop: 16,
       })
     })
@@ -1001,7 +1000,7 @@ describe('@/components/atoms/view', () => {
           paddingTop={View.Spacing.LG}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         paddingTop: 18,
       })
     })
@@ -1014,7 +1013,7 @@ describe('@/components/atoms/view', () => {
           paddingTop={View.Spacing.XL}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         paddingTop: 20,
       })
     })
@@ -1027,7 +1026,7 @@ describe('@/components/atoms/view', () => {
           paddingTop={View.Spacing.X2L}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         paddingTop: 24,
       })
     })
@@ -1040,7 +1039,7 @@ describe('@/components/atoms/view', () => {
           paddingTop={View.Spacing.X3L}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         paddingTop: 28,
       })
     })
@@ -1053,7 +1052,7 @@ describe('@/components/atoms/view', () => {
           paddingTop={View.Spacing.X4L}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         paddingTop: 32,
       })
     })
@@ -1066,7 +1065,7 @@ describe('@/components/atoms/view', () => {
           paddingTop={View.Spacing.X5L}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         paddingTop: 36,
       })
     })
@@ -1079,7 +1078,7 @@ describe('@/components/atoms/view', () => {
           paddingTop={View.Spacing.X6L}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         paddingTop: 40,
       })
     })
@@ -1094,7 +1093,7 @@ describe('@/components/atoms/view', () => {
           marginLeft={View.Spacing.X6S}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         marginLeft: 2,
       })
     })
@@ -1107,7 +1106,7 @@ describe('@/components/atoms/view', () => {
           marginLeft={View.Spacing.X5S}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         marginLeft: 4,
       })
     })
@@ -1120,7 +1119,7 @@ describe('@/components/atoms/view', () => {
           marginLeft={View.Spacing.X4S}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         marginLeft: 6,
       })
     })
@@ -1133,7 +1132,7 @@ describe('@/components/atoms/view', () => {
           marginLeft={View.Spacing.X3S}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         marginLeft: 8,
       })
     })
@@ -1146,7 +1145,7 @@ describe('@/components/atoms/view', () => {
           marginLeft={View.Spacing.X2S}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         marginLeft: 10,
       })
     })
@@ -1159,7 +1158,7 @@ describe('@/components/atoms/view', () => {
           marginLeft={View.Spacing.XS}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         marginLeft: 12,
       })
     })
@@ -1172,7 +1171,7 @@ describe('@/components/atoms/view', () => {
           marginLeft={View.Spacing.SM}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         marginLeft: 14,
       })
     })
@@ -1185,7 +1184,7 @@ describe('@/components/atoms/view', () => {
           marginLeft={View.Spacing.MD}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         marginLeft: 16,
       })
     })
@@ -1198,7 +1197,7 @@ describe('@/components/atoms/view', () => {
           marginLeft={View.Spacing.LG}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         marginLeft: 18,
       })
     })
@@ -1211,7 +1210,7 @@ describe('@/components/atoms/view', () => {
           marginLeft={View.Spacing.XL}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         marginLeft: 20,
       })
     })
@@ -1224,7 +1223,7 @@ describe('@/components/atoms/view', () => {
           marginLeft={View.Spacing.X2L}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         marginLeft: 24,
       })
     })
@@ -1237,7 +1236,7 @@ describe('@/components/atoms/view', () => {
           marginLeft={View.Spacing.X3L}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         marginLeft: 28,
       })
     })
@@ -1250,7 +1249,7 @@ describe('@/components/atoms/view', () => {
           marginLeft={View.Spacing.X4L}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         marginLeft: 32,
       })
     })
@@ -1263,7 +1262,7 @@ describe('@/components/atoms/view', () => {
           marginLeft={View.Spacing.X5L}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         marginLeft: 36,
       })
     })
@@ -1276,7 +1275,7 @@ describe('@/components/atoms/view', () => {
           marginLeft={View.Spacing.X6L}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         marginLeft: 40,
       })
     })
@@ -1291,7 +1290,7 @@ describe('@/components/atoms/view', () => {
           paddingLeft={View.Spacing.X6S}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         paddingLeft: 2,
       })
     })
@@ -1304,7 +1303,7 @@ describe('@/components/atoms/view', () => {
           paddingLeft={View.Spacing.X5S}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         paddingLeft: 4,
       })
     })
@@ -1317,7 +1316,7 @@ describe('@/components/atoms/view', () => {
           paddingLeft={View.Spacing.X4S}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         paddingLeft: 6,
       })
     })
@@ -1330,7 +1329,7 @@ describe('@/components/atoms/view', () => {
           paddingLeft={View.Spacing.X3S}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         paddingLeft: 8,
       })
     })
@@ -1343,7 +1342,7 @@ describe('@/components/atoms/view', () => {
           paddingLeft={View.Spacing.X2S}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         paddingLeft: 10,
       })
     })
@@ -1356,7 +1355,7 @@ describe('@/components/atoms/view', () => {
           paddingLeft={View.Spacing.XS}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         paddingLeft: 12,
       })
     })
@@ -1369,7 +1368,7 @@ describe('@/components/atoms/view', () => {
           paddingLeft={View.Spacing.SM}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         paddingLeft: 14,
       })
     })
@@ -1382,7 +1381,7 @@ describe('@/components/atoms/view', () => {
           paddingLeft={View.Spacing.MD}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         paddingLeft: 16,
       })
     })
@@ -1395,7 +1394,7 @@ describe('@/components/atoms/view', () => {
           paddingLeft={View.Spacing.LG}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         paddingLeft: 18,
       })
     })
@@ -1408,7 +1407,7 @@ describe('@/components/atoms/view', () => {
           paddingLeft={View.Spacing.XL}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         paddingLeft: 20,
       })
     })
@@ -1421,7 +1420,7 @@ describe('@/components/atoms/view', () => {
           paddingLeft={View.Spacing.X2L}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         paddingLeft: 24,
       })
     })
@@ -1434,7 +1433,7 @@ describe('@/components/atoms/view', () => {
           paddingLeft={View.Spacing.X3L}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         paddingLeft: 28,
       })
     })
@@ -1447,7 +1446,7 @@ describe('@/components/atoms/view', () => {
           paddingLeft={View.Spacing.X4L}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         paddingLeft: 32,
       })
     })
@@ -1460,7 +1459,7 @@ describe('@/components/atoms/view', () => {
           paddingLeft={View.Spacing.X5L}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         paddingLeft: 36,
       })
     })
@@ -1473,7 +1472,7 @@ describe('@/components/atoms/view', () => {
           paddingLeft={View.Spacing.X6L}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         paddingLeft: 40,
       })
     })
@@ -1488,7 +1487,7 @@ describe('@/components/atoms/view', () => {
           marginRight={View.Spacing.X6S}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         marginRight: 2,
       })
     })
@@ -1501,7 +1500,7 @@ describe('@/components/atoms/view', () => {
           marginRight={View.Spacing.X5S}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         marginRight: 4,
       })
     })
@@ -1514,7 +1513,7 @@ describe('@/components/atoms/view', () => {
           marginRight={View.Spacing.X4S}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         marginRight: 6,
       })
     })
@@ -1527,7 +1526,7 @@ describe('@/components/atoms/view', () => {
           marginRight={View.Spacing.X3S}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         marginRight: 8,
       })
     })
@@ -1540,7 +1539,7 @@ describe('@/components/atoms/view', () => {
           marginRight={View.Spacing.X2S}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         marginRight: 10,
       })
     })
@@ -1553,7 +1552,7 @@ describe('@/components/atoms/view', () => {
           marginRight={View.Spacing.XS}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         marginRight: 12,
       })
     })
@@ -1566,7 +1565,7 @@ describe('@/components/atoms/view', () => {
           marginRight={View.Spacing.SM}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         marginRight: 14,
       })
     })
@@ -1579,7 +1578,7 @@ describe('@/components/atoms/view', () => {
           marginRight={View.Spacing.MD}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         marginRight: 16,
       })
     })
@@ -1592,7 +1591,7 @@ describe('@/components/atoms/view', () => {
           marginRight={View.Spacing.LG}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         marginRight: 18,
       })
     })
@@ -1605,7 +1604,7 @@ describe('@/components/atoms/view', () => {
           marginRight={View.Spacing.XL}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         marginRight: 20,
       })
     })
@@ -1618,7 +1617,7 @@ describe('@/components/atoms/view', () => {
           marginRight={View.Spacing.X2L}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         marginRight: 24,
       })
     })
@@ -1631,7 +1630,7 @@ describe('@/components/atoms/view', () => {
           marginRight={View.Spacing.X3L}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         marginRight: 28,
       })
     })
@@ -1644,7 +1643,7 @@ describe('@/components/atoms/view', () => {
           marginRight={View.Spacing.X4L}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         marginRight: 32,
       })
     })
@@ -1657,7 +1656,7 @@ describe('@/components/atoms/view', () => {
           marginRight={View.Spacing.X5L}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         marginRight: 36,
       })
     })
@@ -1670,7 +1669,7 @@ describe('@/components/atoms/view', () => {
           marginRight={View.Spacing.X6L}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         marginRight: 40,
       })
     })
@@ -1685,7 +1684,7 @@ describe('@/components/atoms/view', () => {
           paddingRight={View.Spacing.X6S}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         paddingRight: 2,
       })
     })
@@ -1698,7 +1697,7 @@ describe('@/components/atoms/view', () => {
           paddingRight={View.Spacing.X5S}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         paddingRight: 4,
       })
     })
@@ -1711,7 +1710,7 @@ describe('@/components/atoms/view', () => {
           paddingRight={View.Spacing.X4S}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         paddingRight: 6,
       })
     })
@@ -1724,7 +1723,7 @@ describe('@/components/atoms/view', () => {
           paddingRight={View.Spacing.X3S}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         paddingRight: 8,
       })
     })
@@ -1737,7 +1736,7 @@ describe('@/components/atoms/view', () => {
           paddingRight={View.Spacing.X2S}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         paddingRight: 10,
       })
     })
@@ -1750,7 +1749,7 @@ describe('@/components/atoms/view', () => {
           paddingRight={View.Spacing.XS}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         paddingRight: 12,
       })
     })
@@ -1763,7 +1762,7 @@ describe('@/components/atoms/view', () => {
           paddingRight={View.Spacing.SM}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         paddingRight: 14,
       })
     })
@@ -1776,7 +1775,7 @@ describe('@/components/atoms/view', () => {
           paddingRight={View.Spacing.MD}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         paddingRight: 16,
       })
     })
@@ -1789,7 +1788,7 @@ describe('@/components/atoms/view', () => {
           paddingRight={View.Spacing.LG}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         paddingRight: 18,
       })
     })
@@ -1802,7 +1801,7 @@ describe('@/components/atoms/view', () => {
           paddingRight={View.Spacing.XL}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         paddingRight: 20,
       })
     })
@@ -1815,7 +1814,7 @@ describe('@/components/atoms/view', () => {
           paddingRight={View.Spacing.X2L}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         paddingRight: 24,
       })
     })
@@ -1828,7 +1827,7 @@ describe('@/components/atoms/view', () => {
           paddingRight={View.Spacing.X3L}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         paddingRight: 28,
       })
     })
@@ -1841,7 +1840,7 @@ describe('@/components/atoms/view', () => {
           paddingRight={View.Spacing.X4L}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         paddingRight: 32,
       })
     })
@@ -1854,7 +1853,7 @@ describe('@/components/atoms/view', () => {
           paddingRight={View.Spacing.X5L}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         paddingRight: 36,
       })
     })
@@ -1867,7 +1866,7 @@ describe('@/components/atoms/view', () => {
           paddingRight={View.Spacing.X6L}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         paddingRight: 40,
       })
     })
@@ -1882,7 +1881,7 @@ describe('@/components/atoms/view', () => {
           marginBottom={View.Spacing.X6S}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         marginBottom: 2,
       })
     })
@@ -1895,7 +1894,7 @@ describe('@/components/atoms/view', () => {
           marginBottom={View.Spacing.X5S}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         marginBottom: 4,
       })
     })
@@ -1908,7 +1907,7 @@ describe('@/components/atoms/view', () => {
           marginBottom={View.Spacing.X4S}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         marginBottom: 6,
       })
     })
@@ -1921,7 +1920,7 @@ describe('@/components/atoms/view', () => {
           marginBottom={View.Spacing.X3S}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         marginBottom: 8,
       })
     })
@@ -1934,7 +1933,7 @@ describe('@/components/atoms/view', () => {
           marginBottom={View.Spacing.X2S}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         marginBottom: 10,
       })
     })
@@ -1947,7 +1946,7 @@ describe('@/components/atoms/view', () => {
           marginBottom={View.Spacing.XS}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         marginBottom: 12,
       })
     })
@@ -1960,7 +1959,7 @@ describe('@/components/atoms/view', () => {
           marginBottom={View.Spacing.SM}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         marginBottom: 14,
       })
     })
@@ -1973,7 +1972,7 @@ describe('@/components/atoms/view', () => {
           marginBottom={View.Spacing.MD}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         marginBottom: 16,
       })
     })
@@ -1986,7 +1985,7 @@ describe('@/components/atoms/view', () => {
           marginBottom={View.Spacing.LG}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         marginBottom: 18,
       })
     })
@@ -1999,7 +1998,7 @@ describe('@/components/atoms/view', () => {
           marginBottom={View.Spacing.XL}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         marginBottom: 20,
       })
     })
@@ -2012,7 +2011,7 @@ describe('@/components/atoms/view', () => {
           marginBottom={View.Spacing.X2L}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         marginBottom: 24,
       })
     })
@@ -2025,7 +2024,7 @@ describe('@/components/atoms/view', () => {
           marginBottom={View.Spacing.X3L}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         marginBottom: 28,
       })
     })
@@ -2038,7 +2037,7 @@ describe('@/components/atoms/view', () => {
           marginBottom={View.Spacing.X4L}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         marginBottom: 32,
       })
     })
@@ -2051,7 +2050,7 @@ describe('@/components/atoms/view', () => {
           marginBottom={View.Spacing.X5L}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         marginBottom: 36,
       })
     })
@@ -2064,7 +2063,7 @@ describe('@/components/atoms/view', () => {
           marginBottom={View.Spacing.X6L}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         marginBottom: 40,
       })
     })
@@ -2079,7 +2078,7 @@ describe('@/components/atoms/view', () => {
           paddingBottom={View.Spacing.X6S}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         paddingBottom: 2,
       })
     })
@@ -2092,7 +2091,7 @@ describe('@/components/atoms/view', () => {
           paddingBottom={View.Spacing.X5S}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         paddingBottom: 4,
       })
     })
@@ -2105,7 +2104,7 @@ describe('@/components/atoms/view', () => {
           paddingBottom={View.Spacing.X4S}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         paddingBottom: 6,
       })
     })
@@ -2118,7 +2117,7 @@ describe('@/components/atoms/view', () => {
           paddingBottom={View.Spacing.X3S}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         paddingBottom: 8,
       })
     })
@@ -2131,7 +2130,7 @@ describe('@/components/atoms/view', () => {
           paddingBottom={View.Spacing.X2S}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         paddingBottom: 10,
       })
     })
@@ -2144,7 +2143,7 @@ describe('@/components/atoms/view', () => {
           paddingBottom={View.Spacing.XS}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         paddingBottom: 12,
       })
     })
@@ -2157,7 +2156,7 @@ describe('@/components/atoms/view', () => {
           paddingBottom={View.Spacing.SM}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         paddingBottom: 14,
       })
     })
@@ -2170,7 +2169,7 @@ describe('@/components/atoms/view', () => {
           paddingBottom={View.Spacing.MD}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         paddingBottom: 16,
       })
     })
@@ -2183,7 +2182,7 @@ describe('@/components/atoms/view', () => {
           paddingBottom={View.Spacing.LG}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         paddingBottom: 18,
       })
     })
@@ -2196,7 +2195,7 @@ describe('@/components/atoms/view', () => {
           paddingBottom={View.Spacing.XL}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         paddingBottom: 20,
       })
     })
@@ -2209,7 +2208,7 @@ describe('@/components/atoms/view', () => {
           paddingBottom={View.Spacing.X2L}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         paddingBottom: 24,
       })
     })
@@ -2222,7 +2221,7 @@ describe('@/components/atoms/view', () => {
           paddingBottom={View.Spacing.X3L}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         paddingBottom: 28,
       })
     })
@@ -2235,7 +2234,7 @@ describe('@/components/atoms/view', () => {
           paddingBottom={View.Spacing.X4L}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         paddingBottom: 32,
       })
     })
@@ -2248,7 +2247,7 @@ describe('@/components/atoms/view', () => {
           paddingBottom={View.Spacing.X5L}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         paddingBottom: 36,
       })
     })
@@ -2261,7 +2260,7 @@ describe('@/components/atoms/view', () => {
           paddingBottom={View.Spacing.X6L}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         paddingBottom: 40,
       })
     })
@@ -2277,8 +2276,8 @@ describe('@/components/atoms/view', () => {
           minWidth={new Dimension(minWidth, Dimension.Unit.PIXEL)}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
-        minWidth: TestPlatform.toPixels(minWidth),
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
+        minWidth,
       })
     })
 
@@ -2291,7 +2290,7 @@ describe('@/components/atoms/view', () => {
           minWidth={new Dimension(minWidth, Dimension.Unit.PERCENT)}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         minWidth: `${minWidth}%`,
       })
     })
@@ -2307,8 +2306,8 @@ describe('@/components/atoms/view', () => {
           width={new Dimension(width, Dimension.Unit.PIXEL)}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
-        width: TestPlatform.toPixels(width),
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
+        width,
       })
     })
 
@@ -2321,7 +2320,7 @@ describe('@/components/atoms/view', () => {
           width={new Dimension(width, Dimension.Unit.PERCENT)}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         width: `${width}%`,
       })
     })
@@ -2337,8 +2336,8 @@ describe('@/components/atoms/view', () => {
           maxWidth={new Dimension(maxWidth, Dimension.Unit.PIXEL)}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
-        maxWidth: TestPlatform.toPixels(maxWidth),
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
+        maxWidth,
       })
     })
 
@@ -2351,7 +2350,7 @@ describe('@/components/atoms/view', () => {
           maxWidth={new Dimension(maxWidth, Dimension.Unit.PERCENT)}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         maxWidth: `${maxWidth}%`,
       })
     })
@@ -2367,8 +2366,8 @@ describe('@/components/atoms/view', () => {
           minHeight={new Dimension(minHeight, Dimension.Unit.PIXEL)}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
-        minHeight: TestPlatform.toPixels(minHeight),
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
+        minHeight,
       })
     })
 
@@ -2381,7 +2380,7 @@ describe('@/components/atoms/view', () => {
           minHeight={new Dimension(minHeight, Dimension.Unit.PERCENT)}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         minHeight: `${minHeight}%`,
       })
     })
@@ -2397,8 +2396,8 @@ describe('@/components/atoms/view', () => {
           height={new Dimension(height, Dimension.Unit.PIXEL)}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
-        height: TestPlatform.toPixels(height),
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
+        height,
       })
     })
 
@@ -2411,7 +2410,7 @@ describe('@/components/atoms/view', () => {
           height={new Dimension(height, Dimension.Unit.PERCENT)}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         height: `${height}%`,
       })
     })
@@ -2427,8 +2426,8 @@ describe('@/components/atoms/view', () => {
           maxHeight={new Dimension(maxHeight, Dimension.Unit.PIXEL)}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
-        maxHeight: TestPlatform.toPixels(maxHeight),
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
+        maxHeight,
       })
     })
 
@@ -2441,7 +2440,7 @@ describe('@/components/atoms/view', () => {
           maxHeight={new Dimension(maxHeight, Dimension.Unit.PERCENT)}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         maxHeight: `${maxHeight}%`,
       })
     })
@@ -2456,7 +2455,7 @@ describe('@/components/atoms/view', () => {
           boxShadow={View.BoxShadow.SM}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         boxShadow: [
           '0 1px 3px 0 rgba(0,0,0,0.1)',
           '0 1px 2px -1px rgba(0,0,0,0.1)',
@@ -2472,7 +2471,7 @@ describe('@/components/atoms/view', () => {
           boxShadow={View.BoxShadow.MD}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         boxShadow: [
           '0 4px 6px -1px rgba(0,0,0,0.1)',
           '0 2px 4px -2px rgba(0,0,0,0.1)',
@@ -2488,7 +2487,7 @@ describe('@/components/atoms/view', () => {
           boxShadow={View.BoxShadow.LG}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         boxShadow: [
           '0 10px 15px -3px rgba(0,0,0,0.1)',
           '0 4px 6px -4px rgba(0,0,0,0.1)',
@@ -2506,7 +2505,7 @@ describe('@/components/atoms/view', () => {
           borderColor={View.BorderColor.BASE_100}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         borderColor: 'rgb(235,235,240)',
       })
     })
@@ -2519,7 +2518,7 @@ describe('@/components/atoms/view', () => {
           borderColor={View.BorderColor.BASE_200}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         borderColor: 'rgb(230,230,235)',
       })
     })
@@ -2532,7 +2531,7 @@ describe('@/components/atoms/view', () => {
           borderColor={View.BorderColor.BASE_300}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         borderColor: 'rgb(225,225,230)',
       })
     })
@@ -2545,7 +2544,7 @@ describe('@/components/atoms/view', () => {
           borderColor={View.BorderColor.BASE_400}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         borderColor: 'rgb(220,220,225)',
       })
     })
@@ -2558,7 +2557,7 @@ describe('@/components/atoms/view', () => {
           borderColor={View.BorderColor.BASE_500}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         borderColor: 'rgb(215,215,220)',
       })
     })
@@ -2571,7 +2570,7 @@ describe('@/components/atoms/view', () => {
           borderColor={View.BorderColor.BASE_600}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         borderColor: 'rgb(210,210,215)',
       })
     })
@@ -2584,7 +2583,7 @@ describe('@/components/atoms/view', () => {
           borderColor={View.BorderColor.BASE_700}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         borderColor: 'rgb(205,205,210)',
       })
     })
@@ -2597,7 +2596,7 @@ describe('@/components/atoms/view', () => {
           borderColor={View.BorderColor.BASE_800}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         borderColor: 'rgb(200,200,205)',
       })
     })
@@ -2610,7 +2609,7 @@ describe('@/components/atoms/view', () => {
           borderColor={View.BorderColor.BASE_900}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         borderColor: 'rgb(195,195,200)',
       })
     })
@@ -2625,7 +2624,7 @@ describe('@/components/atoms/view', () => {
           borderWidth={View.BorderWidth.SM}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         borderWidth: 0.5,
       })
     })
@@ -2638,7 +2637,7 @@ describe('@/components/atoms/view', () => {
           borderWidth={View.BorderWidth.MD}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         borderWidth: 1,
       })
     })
@@ -2651,7 +2650,7 @@ describe('@/components/atoms/view', () => {
           borderWidth={View.BorderWidth.LG}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         borderWidth: 1.5,
       })
     })
@@ -2666,7 +2665,7 @@ describe('@/components/atoms/view', () => {
           borderWidthTop={View.BorderWidth.SM}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         borderTopWidth: 0.5,
       })
     })
@@ -2679,7 +2678,7 @@ describe('@/components/atoms/view', () => {
           borderWidthTop={View.BorderWidth.MD}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         borderTopWidth: 1,
       })
     })
@@ -2692,7 +2691,7 @@ describe('@/components/atoms/view', () => {
           borderWidthTop={View.BorderWidth.LG}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         borderTopWidth: 1.5,
       })
     })
@@ -2707,7 +2706,7 @@ describe('@/components/atoms/view', () => {
           borderWidthLeft={View.BorderWidth.SM}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         borderLeftWidth: 0.5,
       })
     })
@@ -2720,7 +2719,7 @@ describe('@/components/atoms/view', () => {
           borderWidthLeft={View.BorderWidth.MD}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         borderLeftWidth: 1,
       })
     })
@@ -2733,7 +2732,7 @@ describe('@/components/atoms/view', () => {
           borderWidthLeft={View.BorderWidth.LG}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         borderLeftWidth: 1.5,
       })
     })
@@ -2748,7 +2747,7 @@ describe('@/components/atoms/view', () => {
           borderWidthRight={View.BorderWidth.SM}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         borderRightWidth: 0.5,
       })
     })
@@ -2761,7 +2760,7 @@ describe('@/components/atoms/view', () => {
           borderWidthRight={View.BorderWidth.MD}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         borderRightWidth: 1,
       })
     })
@@ -2774,7 +2773,7 @@ describe('@/components/atoms/view', () => {
           borderWidthRight={View.BorderWidth.LG}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         borderRightWidth: 1.5,
       })
     })
@@ -2789,7 +2788,7 @@ describe('@/components/atoms/view', () => {
           borderWidthBottom={View.BorderWidth.SM}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         borderBottomWidth: 0.5,
       })
     })
@@ -2802,7 +2801,7 @@ describe('@/components/atoms/view', () => {
           borderWidthBottom={View.BorderWidth.MD}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         borderBottomWidth: 1,
       })
     })
@@ -2815,7 +2814,7 @@ describe('@/components/atoms/view', () => {
           borderWidthBottom={View.BorderWidth.LG}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         borderBottomWidth: 1.5,
       })
     })
@@ -2830,8 +2829,8 @@ describe('@/components/atoms/view', () => {
           borderRadius={View.BorderRadius.XS}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
-        borderRadius: TestPlatform.toPixels(2),
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
+        borderRadius: 2,
       })
     })
 
@@ -2843,8 +2842,8 @@ describe('@/components/atoms/view', () => {
           borderRadius={View.BorderRadius.SM}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
-        borderRadius: TestPlatform.toPixels(4),
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
+        borderRadius: 4,
       })
     })
 
@@ -2856,8 +2855,8 @@ describe('@/components/atoms/view', () => {
           borderRadius={View.BorderRadius.MD}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
-        borderRadius: TestPlatform.toPixels(6),
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
+        borderRadius: 6,
       })
     })
 
@@ -2869,8 +2868,8 @@ describe('@/components/atoms/view', () => {
           borderRadius={View.BorderRadius.LG}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
-        borderRadius: TestPlatform.toPixels(8),
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
+        borderRadius: 8,
       })
     })
 
@@ -2882,8 +2881,8 @@ describe('@/components/atoms/view', () => {
           borderRadius={View.BorderRadius.XL}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
-        borderRadius: TestPlatform.toPixels(10),
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
+        borderRadius: 10,
       })
     })
 
@@ -2895,7 +2894,7 @@ describe('@/components/atoms/view', () => {
           borderRadius={View.BorderRadius.MAX}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         borderRadius: '50%',
       })
     })
@@ -2910,8 +2909,8 @@ describe('@/components/atoms/view', () => {
           borderRadiusTopLeft={View.BorderRadius.XS}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
-        borderTopLeftRadius: TestPlatform.toPixels(2),
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
+        borderTopLeftRadius: 2,
       })
     })
 
@@ -2923,8 +2922,8 @@ describe('@/components/atoms/view', () => {
           borderRadiusTopLeft={View.BorderRadius.SM}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
-        borderTopLeftRadius: TestPlatform.toPixels(4),
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
+        borderTopLeftRadius: 4,
       })
     })
 
@@ -2936,8 +2935,8 @@ describe('@/components/atoms/view', () => {
           borderRadiusTopLeft={View.BorderRadius.MD}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
-        borderTopLeftRadius: TestPlatform.toPixels(6),
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
+        borderTopLeftRadius: 6,
       })
     })
 
@@ -2949,8 +2948,8 @@ describe('@/components/atoms/view', () => {
           borderRadiusTopLeft={View.BorderRadius.LG}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
-        borderTopLeftRadius: TestPlatform.toPixels(8),
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
+        borderTopLeftRadius: 8,
       })
     })
 
@@ -2962,8 +2961,8 @@ describe('@/components/atoms/view', () => {
           borderRadiusTopLeft={View.BorderRadius.XL}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
-        borderTopLeftRadius: TestPlatform.toPixels(10),
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
+        borderTopLeftRadius: 10,
       })
     })
 
@@ -2975,7 +2974,7 @@ describe('@/components/atoms/view', () => {
           borderRadiusTopLeft={View.BorderRadius.MAX}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         borderTopLeftRadius: '50%',
       })
     })
@@ -2990,8 +2989,8 @@ describe('@/components/atoms/view', () => {
           borderRadiusTopRight={View.BorderRadius.XS}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
-        borderTopRightRadius: TestPlatform.toPixels(2),
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
+        borderTopRightRadius: 2,
       })
     })
 
@@ -3003,8 +3002,8 @@ describe('@/components/atoms/view', () => {
           borderRadiusTopRight={View.BorderRadius.SM}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
-        borderTopRightRadius: TestPlatform.toPixels(4),
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
+        borderTopRightRadius: 4,
       })
     })
 
@@ -3016,8 +3015,8 @@ describe('@/components/atoms/view', () => {
           borderRadiusTopRight={View.BorderRadius.MD}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
-        borderTopRightRadius: TestPlatform.toPixels(6),
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
+        borderTopRightRadius: 6,
       })
     })
 
@@ -3029,8 +3028,8 @@ describe('@/components/atoms/view', () => {
           borderRadiusTopRight={View.BorderRadius.LG}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
-        borderTopRightRadius: TestPlatform.toPixels(8),
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
+        borderTopRightRadius: 8,
       })
     })
 
@@ -3042,8 +3041,8 @@ describe('@/components/atoms/view', () => {
           borderRadiusTopRight={View.BorderRadius.XL}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
-        borderTopRightRadius: TestPlatform.toPixels(10),
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
+        borderTopRightRadius: 10,
       })
     })
 
@@ -3055,7 +3054,7 @@ describe('@/components/atoms/view', () => {
           borderRadiusTopRight={View.BorderRadius.MAX}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         borderTopRightRadius: '50%',
       })
     })
@@ -3070,8 +3069,8 @@ describe('@/components/atoms/view', () => {
           borderRadiusBottomLeft={View.BorderRadius.XS}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
-        borderBottomLeftRadius: TestPlatform.toPixels(2),
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
+        borderBottomLeftRadius: 2,
       })
     })
 
@@ -3083,8 +3082,8 @@ describe('@/components/atoms/view', () => {
           borderRadiusBottomLeft={View.BorderRadius.SM}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
-        borderBottomLeftRadius: TestPlatform.toPixels(4),
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
+        borderBottomLeftRadius: 4,
       })
     })
 
@@ -3096,8 +3095,8 @@ describe('@/components/atoms/view', () => {
           borderRadiusBottomLeft={View.BorderRadius.MD}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
-        borderBottomLeftRadius: TestPlatform.toPixels(6),
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
+        borderBottomLeftRadius: 6,
       })
     })
 
@@ -3109,8 +3108,8 @@ describe('@/components/atoms/view', () => {
           borderRadiusBottomLeft={View.BorderRadius.LG}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
-        borderBottomLeftRadius: TestPlatform.toPixels(8),
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
+        borderBottomLeftRadius: 8,
       })
     })
 
@@ -3122,8 +3121,8 @@ describe('@/components/atoms/view', () => {
           borderRadiusBottomLeft={View.BorderRadius.XL}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
-        borderBottomLeftRadius: TestPlatform.toPixels(10),
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
+        borderBottomLeftRadius: 10,
       })
     })
 
@@ -3135,7 +3134,7 @@ describe('@/components/atoms/view', () => {
           borderRadiusBottomLeft={View.BorderRadius.MAX}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         borderBottomLeftRadius: '50%',
       })
     })
@@ -3150,8 +3149,8 @@ describe('@/components/atoms/view', () => {
           borderRadiusBottomRight={View.BorderRadius.XS}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
-        borderBottomRightRadius: TestPlatform.toPixels(2),
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
+        borderBottomRightRadius: 2,
       })
     })
 
@@ -3163,8 +3162,8 @@ describe('@/components/atoms/view', () => {
           borderRadiusBottomRight={View.BorderRadius.SM}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
-        borderBottomRightRadius: TestPlatform.toPixels(4),
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
+        borderBottomRightRadius: 4,
       })
     })
 
@@ -3176,8 +3175,8 @@ describe('@/components/atoms/view', () => {
           borderRadiusBottomRight={View.BorderRadius.MD}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
-        borderBottomRightRadius: TestPlatform.toPixels(6),
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
+        borderBottomRightRadius: 6,
       })
     })
 
@@ -3189,8 +3188,8 @@ describe('@/components/atoms/view', () => {
           borderRadiusBottomRight={View.BorderRadius.LG}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
-        borderBottomRightRadius: TestPlatform.toPixels(8),
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
+        borderBottomRightRadius: 8,
       })
     })
 
@@ -3202,8 +3201,8 @@ describe('@/components/atoms/view', () => {
           borderRadiusBottomRight={View.BorderRadius.XL}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
-        borderBottomRightRadius: TestPlatform.toPixels(10),
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
+        borderBottomRightRadius: 10,
       })
     })
 
@@ -3215,7 +3214,7 @@ describe('@/components/atoms/view', () => {
           borderRadiusBottomRight={View.BorderRadius.MAX}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         borderBottomRightRadius: '50%',
       })
     })
@@ -3230,7 +3229,7 @@ describe('@/components/atoms/view', () => {
           backgroundColor={View.BackgroundColor.BASE_100}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         backgroundColor: 'rgb(215,215,220)',
       })
     })
@@ -3243,7 +3242,7 @@ describe('@/components/atoms/view', () => {
           backgroundColor={View.BackgroundColor.BASE_200}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         backgroundColor: 'rgb(220,220,225)',
       })
     })
@@ -3256,7 +3255,7 @@ describe('@/components/atoms/view', () => {
           backgroundColor={View.BackgroundColor.BASE_300}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         backgroundColor: 'rgb(225,225,230)',
       })
     })
@@ -3269,7 +3268,7 @@ describe('@/components/atoms/view', () => {
           backgroundColor={View.BackgroundColor.BASE_400}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         backgroundColor: 'rgb(230,230,235)',
       })
     })
@@ -3282,7 +3281,7 @@ describe('@/components/atoms/view', () => {
           backgroundColor={View.BackgroundColor.BASE_500}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         backgroundColor: 'rgb(235,235,240)',
       })
     })
@@ -3295,7 +3294,7 @@ describe('@/components/atoms/view', () => {
           backgroundColor={View.BackgroundColor.BASE_600}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         backgroundColor: 'rgb(240,240,245)',
       })
     })
@@ -3308,7 +3307,7 @@ describe('@/components/atoms/view', () => {
           backgroundColor={View.BackgroundColor.BASE_700}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         backgroundColor: 'rgb(245,245,250)',
       })
     })
@@ -3321,7 +3320,7 @@ describe('@/components/atoms/view', () => {
           backgroundColor={View.BackgroundColor.BASE_800}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         backgroundColor: 'rgb(250,250,255)',
       })
     })
@@ -3334,7 +3333,7 @@ describe('@/components/atoms/view', () => {
           backgroundColor={View.BackgroundColor.BASE_900}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         backgroundColor: 'rgb(255,255,255)',
       })
     })
@@ -3347,7 +3346,7 @@ describe('@/components/atoms/view', () => {
           backgroundColor={View.BackgroundColor.PRIMARY_100}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         backgroundColor: 'rgb(40,40,45)',
       })
     })
@@ -3360,7 +3359,7 @@ describe('@/components/atoms/view', () => {
           backgroundColor={View.BackgroundColor.PRIMARY_200}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         backgroundColor: 'rgb(35,35,40)',
       })
     })
@@ -3373,7 +3372,7 @@ describe('@/components/atoms/view', () => {
           backgroundColor={View.BackgroundColor.PRIMARY_300}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         backgroundColor: 'rgb(30,30,35)',
       })
     })
@@ -3386,7 +3385,7 @@ describe('@/components/atoms/view', () => {
           backgroundColor={View.BackgroundColor.PRIMARY_400}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         backgroundColor: 'rgb(25,25,30)',
       })
     })
@@ -3399,7 +3398,7 @@ describe('@/components/atoms/view', () => {
           backgroundColor={View.BackgroundColor.PRIMARY_500}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         backgroundColor: 'rgb(20,20,25)',
       })
     })
@@ -3412,7 +3411,7 @@ describe('@/components/atoms/view', () => {
           backgroundColor={View.BackgroundColor.PRIMARY_600}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         backgroundColor: 'rgb(15,15,20)',
       })
     })
@@ -3425,7 +3424,7 @@ describe('@/components/atoms/view', () => {
           backgroundColor={View.BackgroundColor.PRIMARY_700}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         backgroundColor: 'rgb(10,10,15)',
       })
     })
@@ -3438,7 +3437,7 @@ describe('@/components/atoms/view', () => {
           backgroundColor={View.BackgroundColor.PRIMARY_800}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         backgroundColor: 'rgb(5,5,10)',
       })
     })
@@ -3451,7 +3450,7 @@ describe('@/components/atoms/view', () => {
           backgroundColor={View.BackgroundColor.PRIMARY_900}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
         backgroundColor: 'rgb(0,0,5)',
       })
     })

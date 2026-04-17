@@ -18,7 +18,7 @@ export class Dimension {
       return Platform.select({
         native: this.value as DimensionValue,
         web: `${this.value}px` as DimensionValue,
-      })
+      }) as DimensionValue
     }
     return `${this.value}%`
   }

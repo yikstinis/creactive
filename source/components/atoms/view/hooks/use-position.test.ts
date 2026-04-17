@@ -1,7 +1,7 @@
 import { Dimension } from '@/helpers'
-import { TestPlatform } from '@/utilities'
-import { faker } from '@faker-js/faker/.'
+import { faker } from '@faker-js/faker'
 import { renderHook } from '@testing-library/react-native'
+import { DimensionValue, Platform } from 'react-native'
 import { ViewPosition } from '../constants'
 import {
   useViewPositionDimensionValue,
@@ -70,7 +70,12 @@ describe('@/components/atoms/view', () => {
             new Dimension(positionDimension, Dimension.Unit.PIXEL),
           ),
         )
-        expect(result.current).toEqual(TestPlatform.toPixels(positionDimension))
+        expect(result.current).toEqual(
+          Platform.select({
+            web: `${positionDimension}px` as DimensionValue,
+            default: positionDimension as DimensionValue,
+          }),
+        )
       })
 
       it('returns position dimension when percent dimension provided', () => {

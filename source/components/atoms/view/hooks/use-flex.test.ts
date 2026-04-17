@@ -1,7 +1,7 @@
 import { Dimension, Fraction } from '@/helpers'
-import { TestPlatform } from '@/utilities'
 import { faker } from '@faker-js/faker'
 import { renderHook } from '@testing-library/react-native'
+import { DimensionValue, Platform } from 'react-native'
 import {
   ViewAlignContent,
   ViewAlignItems,
@@ -71,7 +71,12 @@ describe('@/components/atoms/view', () => {
         const { result } = renderHook(() =>
           useViewFlexBasisValue(new Dimension(flexBasis, Dimension.Unit.PIXEL)),
         )
-        expect(result.current).toBe(TestPlatform.toPixels(flexBasis))
+        expect(result.current).toBe(
+          Platform.select({
+            web: `${flexBasis}px` as DimensionValue,
+            default: flexBasis as DimensionValue,
+          }),
+        )
       })
 
       it('returns flex basis value when percent dimension provided', () => {

@@ -14,5 +14,6 @@ export const useMediaBreakpoint = (
     if (width >= breakpointXL) return MediaBreakpoint.XL
     if (width >= breakpointLG) return MediaBreakpoint.LG
     if (width >= breakpointMD) return MediaBreakpoint.MD
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [width >= breakpointXL, width >= breakpointLG, width >= breakpointMD])
 }

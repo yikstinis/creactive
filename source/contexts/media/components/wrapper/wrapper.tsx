@@ -9,7 +9,7 @@ export const Wrapper = Platform.select({
   // Client side effects may decide to render something different.
   // This wrapper helps us to handle this situation gracefully.
   web: function WrapperWeb({ children }: WrapperProps) {
-    const ref = useRef<HTMLDivElement>()
+    const ref = useRef<HTMLDivElement | null>(null)
     // Hydration flag, allows to detect server and first client render.
     const [isHydrated, setHydrated] = useState(false)
     // Update hydration flag after first render.

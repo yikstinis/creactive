@@ -14,4 +14,5 @@ export const renderReactNativeInitialStyle:
     // Seems fine.. calling this function on native platform makes no sence...
     const element = WebAppRegistry.getApplication(key, null).getStyleElement()
     if (isValidElement(element)) return element
+    throw new Error('Failed to render react-native initial style element!')
   }
