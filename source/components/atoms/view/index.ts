@@ -6,8 +6,8 @@ import type {
 } from './view.types'
 
 export const View: ViewComponent = Platform.select({
-  native: () => require('./view.native').default,
-  web: () => require('./view.web').default,
-})()
+  native: require('./view.native').default,
+  web: require('./view.web').default,
+})
 
 export type { ViewComponent, ViewLayoutEvent, ViewProperties }

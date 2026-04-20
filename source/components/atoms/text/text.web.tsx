@@ -33,7 +33,7 @@ import type {
 const Text = forwardRef<TextReference, TextProperties>(function Text(
   {
     testId,
-    tag,
+    tag = TextTag.SPAN,
     textAlign = TextAlign.LEFT,
     textDecoration = TextDecoration.NONE,
     fontFamily = TextFontFamily.BASE,
@@ -72,7 +72,7 @@ const Text = forwardRef<TextReference, TextProperties>(function Text(
       data-testid={testId}
       ref={elementRef}
       as={useTextTagValue(tag)}
-      values={{
+      css={{
         textAlign: useTextAlignValue(textAlign),
         textDecoration: useTextDecorationValue(textDecoration),
         fontFamily: useTextFontFamilyValue(fontFamily),

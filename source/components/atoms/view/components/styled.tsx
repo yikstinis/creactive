@@ -20,60 +20,58 @@ export const ViewStyled = styled.div<ViewStyledProperties>`
   border-style: solid;
   text-decoration: none;
   box-sizing: border-box;
-  position: ${(properties) => properties.values.position};
-  top: ${(properties) => properties.values.top};
-  left: ${(properties) => properties.values.left};
-  right: ${(properties) => properties.values.right};
-  bottom: ${(properties) => properties.values.bottom};
-  opacity: ${(properties) => properties.values.opacity};
-  overflow: ${(properties) => properties.values.overflow};
-  flex-grow: ${(properties) => properties.values.flexGrow};
-  flex-shrink: ${(properties) => properties.values.flexShrink};
-  flex-basis: ${(properties) => properties.values.flexBasis};
-  flex-wrap: ${(properties) => properties.values.flexWrap};
-  flex-direction: ${(properties) => properties.values.flexDirection};
-  justify-content: ${(properties) => properties.values.justifyContent};
-  align-items: ${(properties) => properties.values.alignItems};
-  align-self: ${(properties) => properties.values.alignSelf};
-  align-content: ${(properties) => properties.values.alignContent};
-  margin-top: ${(properties) => formatSpacing(properties.values.marginTop)};
-  padding-top: ${(properties) => formatSpacing(properties.values.paddingTop)};
-  margin-left: ${(properties) => formatSpacing(properties.values.marginLeft)};
-  padding-left: ${(properties) => formatSpacing(properties.values.paddingLeft)};
-  margin-right: ${(properties) => formatSpacing(properties.values.marginRight)};
-  padding-right: ${(properties) =>
-    formatSpacing(properties.values.paddingRight)};
-  margin-bottom: ${(properties) =>
-    formatSpacing(properties.values.marginBottom)};
+  position: ${(properties) => properties.css.position};
+  top: ${(properties) => properties.css.top};
+  left: ${(properties) => properties.css.left};
+  right: ${(properties) => properties.css.right};
+  bottom: ${(properties) => properties.css.bottom};
+  opacity: ${(properties) => properties.css.opacity};
+  overflow: ${(properties) => properties.css.overflow};
+  flex-grow: ${(properties) => properties.css.flexGrow};
+  flex-shrink: ${(properties) => properties.css.flexShrink};
+  flex-basis: ${(properties) => properties.css.flexBasis};
+  flex-wrap: ${(properties) => properties.css.flexWrap};
+  flex-direction: ${(properties) => properties.css.flexDirection};
+  justify-content: ${(properties) => properties.css.justifyContent};
+  align-items: ${(properties) => properties.css.alignItems};
+  align-self: ${(properties) => properties.css.alignSelf};
+  align-content: ${(properties) => properties.css.alignContent};
+  margin-top: ${(properties) => formatSpacing(properties.css.marginTop)};
+  padding-top: ${(properties) => formatSpacing(properties.css.paddingTop)};
+  margin-left: ${(properties) => formatSpacing(properties.css.marginLeft)};
+  padding-left: ${(properties) => formatSpacing(properties.css.paddingLeft)};
+  margin-right: ${(properties) => formatSpacing(properties.css.marginRight)};
+  padding-right: ${(properties) => formatSpacing(properties.css.paddingRight)};
+  margin-bottom: ${(properties) => formatSpacing(properties.css.marginBottom)};
   padding-bottom: ${(properties) =>
-    formatSpacing(properties.values.paddingBottom)};
-  min-width: ${(properties) => properties.values.minWidth};
-  width: ${(properties) => properties.values.width};
-  max-width: ${(properties) => properties.values.maxWidth};
-  min-height: ${(properties) => properties.values.minHeight};
-  height: ${(properties) => properties.values.height};
-  max-height: ${(properties) => properties.values.maxHeight};
-  box-shadow: ${(properties) => properties.values.boxShadow};
-  border-color: ${(properties) => properties.values.borderColor};
+    formatSpacing(properties.css.paddingBottom)};
+  min-width: ${(properties) => properties.css.minWidth};
+  width: ${(properties) => properties.css.width};
+  max-width: ${(properties) => properties.css.maxWidth};
+  min-height: ${(properties) => properties.css.minHeight};
+  height: ${(properties) => properties.css.height};
+  max-height: ${(properties) => properties.css.maxHeight};
+  box-shadow: ${(properties) => properties.css.boxShadow};
+  border-color: ${(properties) => properties.css.borderColor};
   border-width: ${(properties) =>
-    formatBorderWidth(properties.values.borderWidth)};
+    formatBorderWidth(properties.css.borderWidth)};
   border-top-width: ${(properties) =>
-    formatBorderWidth(properties.values.borderWidthTop)};
+    formatBorderWidth(properties.css.borderWidthTop)};
   border-left-width: ${(properties) =>
-    formatBorderWidth(properties.values.borderWidthLeft)};
+    formatBorderWidth(properties.css.borderWidthLeft)};
   border-right-width: ${(properties) =>
-    formatBorderWidth(properties.values.borderWidthRight)};
+    formatBorderWidth(properties.css.borderWidthRight)};
   border-bottom-width: ${(properties) =>
-    formatBorderWidth(properties.values.borderWidthBottom)};
+    formatBorderWidth(properties.css.borderWidthBottom)};
   border-radius: ${(properties) =>
-    formatBorderRadius(properties.values.borderRadius)};
+    formatBorderRadius(properties.css.borderRadius)};
   border-top-left-radius: ${(properties) =>
-    formatBorderRadius(properties.values.borderRadiusTopLeft)};
+    formatBorderRadius(properties.css.borderRadiusTopLeft)};
   border-top-right-radius: ${(properties) =>
-    formatBorderRadius(properties.values.borderRadiusTopRight)};
+    formatBorderRadius(properties.css.borderRadiusTopRight)};
   border-bottom-left-radius: ${(properties) =>
-    formatBorderRadius(properties.values.borderRadiusBottomLeft)};
+    formatBorderRadius(properties.css.borderRadiusBottomLeft)};
   border-bottom-right-radius: ${(properties) =>
-    formatBorderRadius(properties.values.borderRadiusBottomRight)};
-  background-color: ${(properties) => properties.values.backgroundColor};
+    formatBorderRadius(properties.css.borderRadiusBottomRight)};
+  background-color: ${(properties) => properties.css.backgroundColor};
 `

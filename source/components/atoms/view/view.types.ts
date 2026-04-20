@@ -348,7 +348,7 @@ export type ViewComponent = FunctionComponent<ViewProperties> & {
  * Used to render view component on web.
  */
 export type ViewStyledProperties = {
-  values: {
+  css: {
     position: 'relative' | 'absolute'
     top?: DimensionValue
     left?: DimensionValue

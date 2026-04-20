@@ -91,7 +91,7 @@ const View: ViewComponent = ({
   children,
   onLayout,
 }) => {
-  const ref = useRef<HTMLDivElement | undefined>(undefined)
+  const ref = useRef<HTMLDivElement>(null)
   const layoutCallbackRef = useRef(onLayout)
   layoutCallbackRef.current = onLayout
   // TODO: Add resize event listener and layout callback..
@@ -109,7 +109,7 @@ const View: ViewComponent = ({
       data-testid={testId}
       ref={ref}
       as={useViewTagValue(tag)}
-      values={{
+      css={{
         position: useViewPositionValue(position),
         top: useViewPositionDimensionValue(top),
         left: useViewPositionDimensionValue(left),

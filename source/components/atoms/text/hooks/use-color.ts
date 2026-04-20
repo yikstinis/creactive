@@ -60,14 +60,16 @@ const TEXT_BACKGROUND_COLOR_THEME_KEY = {
   [TextBackgroundColor.BASE_900]: 'colorBackgroundBase900' as const,
 }
 export const useTextBackgoundColorStyle = (
-  backgroundColor: TextBackgroundColor,
+  backgroundColor?: TextBackgroundColor,
 ) => {
   const themeStyleSheet = useThemeStyleSheet()
+  if (backgroundColor === undefined) return backgroundColor
   return themeStyleSheet[TEXT_BACKGROUND_COLOR_THEME_KEY[backgroundColor]]
 }
 export const useTextBackgoundColorValue = (
-  backgroundColor: TextBackgroundColor,
+  backgroundColor?: TextBackgroundColor,
 ) => {
   const themeContext = useThemeContext()
+  if (backgroundColor === undefined) return backgroundColor
   return themeContext[TEXT_BACKGROUND_COLOR_THEME_KEY[backgroundColor]]
 }

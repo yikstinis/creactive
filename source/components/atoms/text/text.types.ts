@@ -129,14 +129,14 @@ export type TextComponent = ForwardRefExoticComponent<
  * Used to render text component on web.
  */
 export type TextStyledProperties = {
-  values: {
+  css: {
     textAlign: 'left' | 'center' | 'right'
     textDecoration: 'none' | 'underline'
     fontFamily: string
     fontWeight: FontWeight
     fontSize: number
     lineHeight: number
-    maxLines: number
+    maxLines?: number
     color: Color
     backgroundColor?: Color
     opacity?: number

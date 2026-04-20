@@ -40,7 +40,6 @@ const textStyleSheet = StyleSheet.create({
     listStyle: 'none',
     borderStyle: 'solid',
     boxSizing: 'border-box',
-    textDecoration: 'none',
     whiteSpace: 'pre-wrap',
     overflowWrap: 'break-word',
     borderWidth: 0,
@@ -63,7 +62,7 @@ const Text = forwardRef<TextReference, TextProperties>(function Text(
   },
   ref,
 ) {
-  const nativeTextRef = useRef<ReactNativeText | undefined>(undefined)
+  const nativeTextRef = useRef<ReactNativeText>(null)
 
   useImperativeHandle(ref, () => ({
     measure: (callback: TextMeasureCallback) => {

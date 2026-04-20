@@ -69,7 +69,6 @@ const viewStyleSheet = StyleSheet.create({
     position: 'relative',
     listStyle: 'none',
     borderStyle: 'solid',
-    textDecoration: 'none',
     boxSizing: 'border-box',
   },
 })
