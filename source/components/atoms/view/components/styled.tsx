@@ -36,6 +36,7 @@ export const ViewStyled = styled.div<ViewStyledProperties>`
   align-items: ${(properties) => properties.css.alignItems};
   align-self: ${(properties) => properties.css.alignSelf};
   align-content: ${(properties) => properties.css.alignContent};
+  gap: ${(properties) => formatSpacing(properties.css.gap)};
   margin-top: ${(properties) => formatSpacing(properties.css.marginTop)};
   padding-top: ${(properties) => formatSpacing(properties.css.paddingTop)};
   margin-left: ${(properties) => formatSpacing(properties.css.marginLeft)};

@@ -1,6 +1,29 @@
 import { useThemeContext, useThemeStyleSheet } from '@/contexts'
 import { ViewSpacing } from '../constants'
 
+const VIEW_GAP_THEME_STYLE_KEY = {
+  [ViewSpacing.X6S]: 'gapBaseX6S' as const,
+  [ViewSpacing.X5S]: 'gapBaseX5S' as const,
+  [ViewSpacing.X4S]: 'gapBaseX4S' as const,
+  [ViewSpacing.X3S]: 'gapBaseX3S' as const,
+  [ViewSpacing.X2S]: 'gapBaseX2S' as const,
+  [ViewSpacing.XS]: 'gapBaseXS' as const,
+  [ViewSpacing.SM]: 'gapBaseSM' as const,
+  [ViewSpacing.MD]: 'gapBaseMD' as const,
+  [ViewSpacing.LG]: 'gapBaseLG' as const,
+  [ViewSpacing.XL]: 'gapBaseXL' as const,
+  [ViewSpacing.X2L]: 'gapBaseX2L' as const,
+  [ViewSpacing.X3L]: 'gapBaseX3L' as const,
+  [ViewSpacing.X4L]: 'gapBaseX4L' as const,
+  [ViewSpacing.X5L]: 'gapBaseX5L' as const,
+  [ViewSpacing.X6L]: 'gapBaseX6L' as const,
+}
+export const useViewGapStyle = (gap?: ViewSpacing) => {
+  const themeStyleSheet = useThemeStyleSheet()
+  if (gap === undefined) return undefined
+  return themeStyleSheet[VIEW_GAP_THEME_STYLE_KEY[gap]]
+}
+
 const VIEW_MARGIN_TOP_THEME_STYLE_KEY = {
   [ViewSpacing.X6S]: 'marginTopBaseX6S' as const,
   [ViewSpacing.X5S]: 'marginTopBaseX5S' as const,
@@ -18,8 +41,11 @@ const VIEW_MARGIN_TOP_THEME_STYLE_KEY = {
   [ViewSpacing.X5L]: 'marginTopBaseX5L' as const,
   [ViewSpacing.X6L]: 'marginTopBaseX6L' as const,
 }
-export const useViewMarginTopStyle = (marginTop?: ViewSpacing) =>
-  useThemeStyleSheet()[VIEW_MARGIN_TOP_THEME_STYLE_KEY[marginTop]]
+export const useViewMarginTopStyle = (marginTop?: ViewSpacing) => {
+  const themeStyleSheet = useThemeStyleSheet()
+  if (marginTop === undefined) return undefined
+  return themeStyleSheet[VIEW_MARGIN_TOP_THEME_STYLE_KEY[marginTop]]
+}
 
 const VIEW_PADDING_TOP_THEME_STYLE_KEY = {
   [ViewSpacing.X6S]: 'paddingTopBaseX6S' as const,
@@ -38,8 +64,11 @@ const VIEW_PADDING_TOP_THEME_STYLE_KEY = {
   [ViewSpacing.X5L]: 'paddingTopBaseX5L' as const,
   [ViewSpacing.X6L]: 'paddingTopBaseX6L' as const,
 }
-export const useViewPaddingTopStyle = (paddingTop?: ViewSpacing) =>
-  useThemeStyleSheet()[VIEW_PADDING_TOP_THEME_STYLE_KEY[paddingTop]]
+export const useViewPaddingTopStyle = (paddingTop?: ViewSpacing) => {
+  const themeStyleSheet = useThemeStyleSheet()
+  if (paddingTop === undefined) return undefined
+  return themeStyleSheet[VIEW_PADDING_TOP_THEME_STYLE_KEY[paddingTop]]
+}
 
 const VIEW_MARGIN_LEFT_THEME_STYLE_KEY = {
   [ViewSpacing.X6S]: 'marginLeftBaseX6S' as const,
@@ -58,8 +87,11 @@ const VIEW_MARGIN_LEFT_THEME_STYLE_KEY = {
   [ViewSpacing.X5L]: 'marginLeftBaseX5L' as const,
   [ViewSpacing.X6L]: 'marginLeftBaseX6L' as const,
 }
-export const useViewMarginLeftStyle = (marginLeft?: ViewSpacing) =>
-  useThemeStyleSheet()[VIEW_MARGIN_LEFT_THEME_STYLE_KEY[marginLeft]]
+export const useViewMarginLeftStyle = (marginLeft?: ViewSpacing) => {
+  const themeStyleSheet = useThemeStyleSheet()
+  if (marginLeft === undefined) return undefined
+  return themeStyleSheet[VIEW_MARGIN_LEFT_THEME_STYLE_KEY[marginLeft]]
+}
 
 const VIEW_PADDING_LEFT_THEME_STYLE_KEY = {
   [ViewSpacing.X6S]: 'paddingLeftBaseX6S' as const,
@@ -78,8 +110,11 @@ const VIEW_PADDING_LEFT_THEME_STYLE_KEY = {
   [ViewSpacing.X5L]: 'paddingLeftBaseX5L' as const,
   [ViewSpacing.X6L]: 'paddingLeftBaseX6L' as const,
 }
-export const useViewPaddingLeftStyle = (paddingLeft?: ViewSpacing) =>
-  useThemeStyleSheet()[VIEW_PADDING_LEFT_THEME_STYLE_KEY[paddingLeft]]
+export const useViewPaddingLeftStyle = (paddingLeft?: ViewSpacing) => {
+  const themeStyleSheet = useThemeStyleSheet()
+  if (paddingLeft === undefined) return undefined
+  return themeStyleSheet[VIEW_PADDING_LEFT_THEME_STYLE_KEY[paddingLeft]]
+}
 
 const VIEW_MARGIN_RIGHT_THEME_STYLE_KEY = {
   [ViewSpacing.X6S]: 'marginRightBaseX6S' as const,
@@ -98,8 +133,11 @@ const VIEW_MARGIN_RIGHT_THEME_STYLE_KEY = {
   [ViewSpacing.X5L]: 'marginRightBaseX5L' as const,
   [ViewSpacing.X6L]: 'marginRightBaseX6L' as const,
 }
-export const useViewMarginRightStyle = (marginRight?: ViewSpacing) =>
-  useThemeStyleSheet()[VIEW_MARGIN_RIGHT_THEME_STYLE_KEY[marginRight]]
+export const useViewMarginRightStyle = (marginRight?: ViewSpacing) => {
+  const themeStyleSheet = useThemeStyleSheet()
+  if (marginRight === undefined) return undefined
+  return themeStyleSheet[VIEW_MARGIN_RIGHT_THEME_STYLE_KEY[marginRight]]
+}
 
 const VIEW_PADDING_RIGHT_THEME_STYLE_KEY = {
   [ViewSpacing.X6S]: 'paddingRightBaseX6S' as const,
@@ -118,8 +156,11 @@ const VIEW_PADDING_RIGHT_THEME_STYLE_KEY = {
   [ViewSpacing.X5L]: 'paddingRightBaseX5L' as const,
   [ViewSpacing.X6L]: 'paddingRightBaseX6L' as const,
 }
-export const useViewPaddingRightStyle = (paddingRight?: ViewSpacing) =>
-  useThemeStyleSheet()[VIEW_PADDING_RIGHT_THEME_STYLE_KEY[paddingRight]]
+export const useViewPaddingRightStyle = (paddingRight?: ViewSpacing) => {
+  const themeStyleSheet = useThemeStyleSheet()
+  if (paddingRight === undefined) return undefined
+  return themeStyleSheet[VIEW_PADDING_RIGHT_THEME_STYLE_KEY[paddingRight]]
+}
 
 const VIEW_MARGIN_BOTTOM_THEME_STYLE_KEY = {
   [ViewSpacing.X6S]: 'marginBottomBaseX6S' as const,
@@ -138,8 +179,11 @@ const VIEW_MARGIN_BOTTOM_THEME_STYLE_KEY = {
   [ViewSpacing.X5L]: 'marginBottomBaseX5L' as const,
   [ViewSpacing.X6L]: 'marginBottomBaseX6L' as const,
 }
-export const useViewMarginBottomStyle = (marginBottom?: ViewSpacing) =>
-  useThemeStyleSheet()[VIEW_MARGIN_BOTTOM_THEME_STYLE_KEY[marginBottom]]
+export const useViewMarginBottomStyle = (marginBottom?: ViewSpacing) => {
+  const themeStyleSheet = useThemeStyleSheet()
+  if (marginBottom === undefined) return undefined
+  return themeStyleSheet[VIEW_MARGIN_BOTTOM_THEME_STYLE_KEY[marginBottom]]
+}
 
 const VIEW_PADDING_BOTTOM_THEME_STYLE_KEY = {
   [ViewSpacing.X6S]: 'paddingBottomBaseX6S' as const,
@@ -158,8 +202,11 @@ const VIEW_PADDING_BOTTOM_THEME_STYLE_KEY = {
   [ViewSpacing.X5L]: 'paddingBottomBaseX5L' as const,
   [ViewSpacing.X6L]: 'paddingBottomBaseX6L' as const,
 }
-export const useViewPaddingBottomStyle = (paddingBottom?: ViewSpacing) =>
-  useThemeStyleSheet()[VIEW_PADDING_BOTTOM_THEME_STYLE_KEY[paddingBottom]]
+export const useViewPaddingBottomStyle = (paddingBottom?: ViewSpacing) => {
+  const themeStyleSheet = useThemeStyleSheet()
+  if (paddingBottom === undefined) return undefined
+  return themeStyleSheet[VIEW_PADDING_BOTTOM_THEME_STYLE_KEY[paddingBottom]]
+}
 
 const VIEW_SPACING_THEME_TOKEN_KEY = {
   [ViewSpacing.X6S]: 'spacingBaseX6S' as const,
@@ -178,5 +225,8 @@ const VIEW_SPACING_THEME_TOKEN_KEY = {
   [ViewSpacing.X5L]: 'spacingBaseX5L' as const,
   [ViewSpacing.X6L]: 'spacingBaseX6L' as const,
 }
-export const useViewSpacingValue = (spacing?: ViewSpacing) =>
-  useThemeContext()[VIEW_SPACING_THEME_TOKEN_KEY[spacing]]
+export const useViewSpacingValue = (spacing?: ViewSpacing) => {
+  const themeContext = useThemeContext()
+  if (spacing === undefined) return undefined
+  return themeContext[VIEW_SPACING_THEME_TOKEN_KEY[spacing]]
+}

@@ -1,4 +1,5 @@
 import { useThemeContext, useThemeStyleSheet } from '@/contexts'
+import type { Color } from '@/types'
 import { StyleSheet } from 'react-native'
 import { TextBackgroundColor, TextColor } from '../constants'
 
@@ -68,8 +69,8 @@ export const useTextBackgoundColorStyle = (
 }
 export const useTextBackgoundColorValue = (
   backgroundColor?: TextBackgroundColor,
-) => {
+): undefined | Color => {
   const themeContext = useThemeContext()
-  if (backgroundColor === undefined) return backgroundColor
+  if (backgroundColor === undefined) return undefined
   return themeContext[TEXT_BACKGROUND_COLOR_THEME_KEY[backgroundColor]]
 }

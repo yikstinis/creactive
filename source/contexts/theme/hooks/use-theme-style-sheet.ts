@@ -249,6 +249,52 @@ export const useThemeStyleSheet = () => {
           fontSize: themeContext.fontSizeBaseX6L,
         },
         // Base spacings.
+        gapBaseX6S: {
+          gap: themeContext.spacingBaseX6S,
+        },
+        gapBaseX5S: {
+          gap: themeContext.spacingBaseX5S,
+        },
+        gapBaseX4S: {
+          gap: themeContext.spacingBaseX4S,
+        },
+        gapBaseX3S: {
+          gap: themeContext.spacingBaseX3S,
+        },
+        gapBaseX2S: {
+          gap: themeContext.spacingBaseX2S,
+        },
+        gapBaseXS: {
+          gap: themeContext.spacingBaseXS,
+        },
+        gapBaseSM: {
+          gap: themeContext.spacingBaseSM,
+        },
+        gapBaseMD: {
+          gap: themeContext.spacingBaseMD,
+        },
+        gapBaseLG: {
+          gap: themeContext.spacingBaseLG,
+        },
+        gapBaseXL: {
+          gap: themeContext.spacingBaseXL,
+        },
+        gapBaseX2L: {
+          gap: themeContext.spacingBaseX2L,
+        },
+        gapBaseX3L: {
+          gap: themeContext.spacingBaseX3L,
+        },
+        gapBaseX4L: {
+          gap: themeContext.spacingBaseX4L,
+        },
+        gapBaseX5L: {
+          gap: themeContext.spacingBaseX5L,
+        },
+        gapBaseX6L: {
+          gap: themeContext.spacingBaseX6L,
+        },
+
         marginTopBaseX6S: {
           marginTop: themeContext.spacingBaseX6S,
         },

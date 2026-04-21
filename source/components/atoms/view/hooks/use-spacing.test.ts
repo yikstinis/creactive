@@ -1,6 +1,7 @@
 import { renderHook } from '@testing-library/react-native'
 import { ViewSpacing } from '../constants'
 import {
+  useViewGapStyle,
   useViewMarginBottomStyle,
   useViewMarginLeftStyle,
   useViewMarginRightStyle,
@@ -14,6 +15,118 @@ import {
 
 describe('@/components/atoms/view', () => {
   describe('hooks/use-spacing', () => {
+    describe('view gap style hook', () => {
+      it('returns undefined when gap is not provided', () => {
+        const { result } = renderHook(() => useViewGapStyle())
+        expect(result.current).toBeUndefined()
+      })
+
+      it('returns 6 times extra-small gap style', () => {
+        const { result } = renderHook(() => useViewGapStyle(ViewSpacing.X6S))
+        expect(result.current).toEqual({
+          gap: 2,
+        })
+      })
+
+      it('returns 5 times extra-small gap style', () => {
+        const { result } = renderHook(() => useViewGapStyle(ViewSpacing.X5S))
+        expect(result.current).toEqual({
+          gap: 4,
+        })
+      })
+
+      it('returns 4 times extra-small gap style', () => {
+        const { result } = renderHook(() => useViewGapStyle(ViewSpacing.X4S))
+        expect(result.current).toEqual({
+          gap: 6,
+        })
+      })
+
+      it('returns 3 times extra-small gap style', () => {
+        const { result } = renderHook(() => useViewGapStyle(ViewSpacing.X3S))
+        expect(result.current).toEqual({
+          gap: 8,
+        })
+      })
+
+      it('returns 2 times extra-small gap style', () => {
+        const { result } = renderHook(() => useViewGapStyle(ViewSpacing.X2S))
+        expect(result.current).toEqual({
+          gap: 10,
+        })
+      })
+
+      it('returns extra-small gap style', () => {
+        const { result } = renderHook(() => useViewGapStyle(ViewSpacing.XS))
+        expect(result.current).toEqual({
+          gap: 12,
+        })
+      })
+
+      it('returns small gap style', () => {
+        const { result } = renderHook(() => useViewGapStyle(ViewSpacing.SM))
+        expect(result.current).toEqual({
+          gap: 14,
+        })
+      })
+
+      it('returns medium gap style', () => {
+        const { result } = renderHook(() => useViewGapStyle(ViewSpacing.MD))
+        expect(result.current).toEqual({
+          gap: 16,
+        })
+      })
+
+      it('returns large gap style', () => {
+        const { result } = renderHook(() => useViewGapStyle(ViewSpacing.LG))
+        expect(result.current).toEqual({
+          gap: 18,
+        })
+      })
+
+      it('returns extra-large gap style', () => {
+        const { result } = renderHook(() => useViewGapStyle(ViewSpacing.XL))
+        expect(result.current).toEqual({
+          gap: 20,
+        })
+      })
+
+      it('returns 2 times extra-large gap style', () => {
+        const { result } = renderHook(() => useViewGapStyle(ViewSpacing.X2L))
+        expect(result.current).toEqual({
+          gap: 24,
+        })
+      })
+
+      it('returns 3 times extra-large gap style', () => {
+        const { result } = renderHook(() => useViewGapStyle(ViewSpacing.X3L))
+        expect(result.current).toEqual({
+          gap: 28,
+        })
+      })
+
+      it('returns 4 times extra-large gap style', () => {
+        const { result } = renderHook(() => useViewGapStyle(ViewSpacing.X4L))
+        expect(result.current).toEqual({
+          gap: 32,
+        })
+      })
+
+      it('returns 5 times extra-large gap style', () => {
+        const { result } = renderHook(() => useViewGapStyle(ViewSpacing.X5L))
+        expect(result.current).toEqual({
+          gap: 36,
+        })
+      })
+
+      it('returns 6 times extra-large gap style', () => {
+        const { result } = renderHook(() => useViewGapStyle(ViewSpacing.X6L))
+        expect(result.current).toEqual({
+          gap: 40,
+        })
+      })
+    })
+
     describe('view margin top style hook', () => {
       it('returns undefined when margin top is not provided', () => {
         const { result } = renderHook(() => useViewMarginTopStyle())

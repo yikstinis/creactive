@@ -13,6 +13,7 @@ const normalizePlatformStyle = (value: unknown): unknown => {
       if (
         Platform.OS === 'web' &&
         new Set([
+          'gap',
           'top',
           'left',
           'right',

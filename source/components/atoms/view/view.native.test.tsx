@@ -103,6 +103,16 @@ describe('@/components/atoms/view', () => {
     })
   })
 
+  describe('gap property', () => {
+    it('renders with default gap style', () => {
+      const testId = faker.string.uuid()
+      render(<View testId={testId} />)
+      expect(screen.getByTestId(testId)).not.toHaveStyle({
+        gap: expect.anything(),
+      })
+    })
+  })
+
   describe('margin top property', () => {
     it('renders with default margin top style', () => {
       const testId = faker.string.uuid()

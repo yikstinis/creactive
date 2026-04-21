@@ -45,6 +45,7 @@ export {
 export { useViewBoxShadowStyle, useViewBoxShadowValue } from './use-shadow'
 export { useViewSizeValue } from './use-size'
 export {
+  useViewGapStyle,
   useViewMarginBottomStyle,
   useViewMarginLeftStyle,
   useViewMarginRightStyle,

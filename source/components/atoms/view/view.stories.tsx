@@ -22,6 +22,7 @@ const justifyContentControl = StorybookControl.fromNumericEnum(
 const alignItemsControl = StorybookControl.fromNumericEnum(View.AlignItems)
 const alignSelfControl = StorybookControl.fromNumericEnum(View.AlignSelf)
 const alignContentControl = StorybookControl.fromNumericEnum(View.AlignContent)
+const gapControl = StorybookControl.fromNumericEnum(View.Spacing)
 const marginTopControl = StorybookControl.fromNumericEnum(View.Spacing)
 const paddingTopControl = StorybookControl.fromNumericEnum(View.Spacing)
 const marginLeftControl = StorybookControl.fromNumericEnum(View.Spacing)
@@ -86,6 +87,7 @@ const meta: Meta<typeof View> = {
     alignItems: alignItemsControl,
     alignSelf: alignSelfControl,
     alignContent: alignContentControl,
+    gap: gapControl,
     marginTop: marginTopControl,
     paddingTop: paddingTopControl,
     marginLeft: marginLeftControl,
@@ -131,6 +133,7 @@ const meta: Meta<typeof View> = {
     alignItems: alignItemsControl.defaultValue,
     alignSelf: alignSelfControl.defaultValue,
     alignContent: alignContentControl.defaultValue,
+    gap: gapControl.defaultValue,
     marginTop: marginTopControl.defaultValue,
     paddingTop: paddingTopControl.defaultValue,
     marginLeft: marginLeftControl.defaultValue,

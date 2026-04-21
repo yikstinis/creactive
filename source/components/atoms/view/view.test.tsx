@@ -690,6 +690,203 @@ describe('@/components/atoms/view', () => {
     })
   })
 
+  describe('gap property', () => {
+    it('renders with 6 times extra-small gap style', () => {
+      const testId = faker.string.uuid()
+      render(
+        <View
+          testId={testId}
+          gap={View.Spacing.X6S}
+        />,
+      )
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
+        gap: 2,
+      })
+    })
+
+    it('renders with 5 times extra-small gap style', () => {
+      const testId = faker.string.uuid()
+      render(
+        <View
+          testId={testId}
+          gap={View.Spacing.X5S}
+        />,
+      )
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
+        gap: 4,
+      })
+    })
+
+    it('renders with 4 times extra-small gap style', () => {
+      const testId = faker.string.uuid()
+      render(
+        <View
+          testId={testId}
+          gap={View.Spacing.X4S}
+        />,
+      )
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
+        gap: 6,
+      })
+    })
+
+    it('renders with 3 times extra-small gap style', () => {
+      const testId = faker.string.uuid()
+      render(
+        <View
+          testId={testId}
+          gap={View.Spacing.X3S}
+        />,
+      )
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
+        gap: 8,
+      })
+    })
+
+    it('renders with 2 times extra-small gap style', () => {
+      const testId = faker.string.uuid()
+      render(
+        <View
+          testId={testId}
+          gap={View.Spacing.X2S}
+        />,
+      )
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
+        gap: 10,
+      })
+    })
+
+    it('renders with extra-small gap style', () => {
+      const testId = faker.string.uuid()
+      render(
+        <View
+          testId={testId}
+          gap={View.Spacing.XS}
+        />,
+      )
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
+        gap: 12,
+      })
+    })
+
+    it('renders with small gap style', () => {
+      const testId = faker.string.uuid()
+      render(
+        <View
+          testId={testId}
+          gap={View.Spacing.SM}
+        />,
+      )
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
+        gap: 14,
+      })
+    })
+
+    it('renders with medium gap style', () => {
+      const testId = faker.string.uuid()
+      render(
+        <View
+          testId={testId}
+          gap={View.Spacing.MD}
+        />,
+      )
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
+        gap: 16,
+      })
+    })
+
+    it('renders with large gap style', () => {
+      const testId = faker.string.uuid()
+      render(
+        <View
+          testId={testId}
+          gap={View.Spacing.LG}
+        />,
+      )
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
+        gap: 18,
+      })
+    })
+
+    it('renders with extra-large gap style', () => {
+      const testId = faker.string.uuid()
+      render(
+        <View
+          testId={testId}
+          gap={View.Spacing.XL}
+        />,
+      )
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
+        gap: 20,
+      })
+    })
+
+    it('renders with 2 times extra-large gap style', () => {
+      const testId = faker.string.uuid()
+      render(
+        <View
+          testId={testId}
+          gap={View.Spacing.X2L}
+        />,
+      )
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
+        gap: 24,
+      })
+    })
+
+    it('renders with 3 times extra-large gap style', () => {
+      const testId = faker.string.uuid()
+      render(
+        <View
+          testId={testId}
+          gap={View.Spacing.X3L}
+        />,
+      )
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
+        gap: 28,
+      })
+    })
+
+    it('renders with 4 times extra-large gap style', () => {
+      const testId = faker.string.uuid()
+      render(
+        <View
+          testId={testId}
+          gap={View.Spacing.X4L}
+        />,
+      )
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
+        gap: 32,
+      })
+    })
+
+    it('renders with 5 times extra-large gap style', () => {
+      const testId = faker.string.uuid()
+      render(
+        <View
+          testId={testId}
+          gap={View.Spacing.X5L}
+        />,
+      )
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
+        gap: 36,
+      })
+    })
+
+    it('renders with 6 times extra-large gap style', () => {
+      const testId = faker.string.uuid()
+      render(
+        <View
+          testId={testId}
+          gap={View.Spacing.X6L}
+        />,
+      )
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
+        gap: 40,
+      })
+    })
+  })
+
   describe('margin top property', () => {
     it('renders with 6 times extra-small margin top style', () => {
       const testId = faker.string.uuid()

@@ -155,6 +155,12 @@ export interface ViewProperties extends PropsWithChildren {
    */
   alignContent?: ViewAlignContent
   /**
+   * Controls the spacing between children in a flex container.
+   * @see View.Spacing
+   * @default undefined
+   */
+  gap?: ViewSpacing
+  /**
    * Top outer spacing.
    * @see View.Spacing
    * @default undefined
@@ -378,6 +384,7 @@ export type ViewStyledProperties = {
       | 'space-between'
       | 'space-around'
       | 'space-evenly'
+    gap?: number
     marginTop?: number
     paddingTop?: number
     marginLeft?: number
