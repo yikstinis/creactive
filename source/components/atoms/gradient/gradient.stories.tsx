@@ -1,6 +1,6 @@
+import { StorybookControl } from '.storybook/control'
 import { FRACTION_MAX, FRACTION_MIN } from '@/helpers'
 import { Color } from '@/types'
-import { StorybookControl } from '@/utilities'
 import { faker } from '@faker-js/faker'
 import type { Meta, StoryObj } from '@storybook/react'
 import { Gradient } from '.'

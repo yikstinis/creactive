@@ -6,6 +6,18 @@ module.exports = {
   parser: '@typescript-eslint/parser',
   extends: ['expo'],
   plugins: ['@typescript-eslint', 'prettier', 'jest'],
+  settings: {
+    'import/resolver': {
+      typescript: {
+        alwaysTryTypes: true,
+        project: 'tsconfig.json',
+      },
+      node: {
+        extensions: ['.js', '.jsx', '.ts', '.tsx'],
+        moduleDirectory: ['node_modules', '.'],
+      },
+    },
+  },
   rules: {
     'no-undef': 0,
     'linebreak-style': 2,

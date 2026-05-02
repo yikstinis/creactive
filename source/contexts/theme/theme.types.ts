@@ -415,7 +415,7 @@ export interface ThemeContextValue {
   /**
    * Base 6 times extra-large font size.
    * @see FONT_SIZE_BASE_X6L
-   * @default 60  
+   * @default 60
    */
   fontSizeBaseX6L: number
 
@@ -588,6 +588,22 @@ export interface ThemeContextValue {
    * @default 10
    */
   borderRadiusBaseXL: number
+
+  /**
+   * Small base duration token.
+   * @default 125
+   */
+  durationBaseSM: number
+  /**
+   * Medium base duration token.
+   * @default 175
+   */
+  durationBaseMD: number
+  /**
+   * Large base duration token.
+   * @default 225
+   */
+  durationBaseLG: number
 }
 export type ThemeContextProviderProps = PropsWithChildren<
   Partial<ThemeContextValue>

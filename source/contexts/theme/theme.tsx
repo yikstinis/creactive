@@ -62,6 +62,9 @@ import {
   COLOR_FOREGROUND_INVERSE_700,
   COLOR_FOREGROUND_INVERSE_800,
   COLOR_FOREGROUND_INVERSE_900,
+  DURATION_BASE_LG,
+  DURATION_BASE_MD,
+  DURATION_BASE_SM,
   FONT_FAMILY_BASE,
   FONT_FAMILY_TYPOGRAPHIC,
   FONT_SIZE_BASE_LG,
@@ -114,7 +117,6 @@ import type {
 // We can use context even outside provider.
 // This can be helpful for testing and storybook.
 const ThemeContext = createContext<ThemeContextValue>({
-  // Base background colors.
   colorBackgroundBase100: COLOR_BACKGROUND_BASE_100,
   colorBackgroundBase200: COLOR_BACKGROUND_BASE_200,
   colorBackgroundBase300: COLOR_BACKGROUND_BASE_300,
@@ -124,7 +126,7 @@ const ThemeContext = createContext<ThemeContextValue>({
   colorBackgroundBase700: COLOR_BACKGROUND_BASE_700,
   colorBackgroundBase800: COLOR_BACKGROUND_BASE_800,
   colorBackgroundBase900: COLOR_BACKGROUND_BASE_900,
-  // Primary background colors.
+
   colorBackgroundPrimary100: COLOR_BACKGROUND_PRIMARY_100,
   colorBackgroundPrimary200: COLOR_BACKGROUND_PRIMARY_200,
   colorBackgroundPrimary300: COLOR_BACKGROUND_PRIMARY_300,
@@ -134,7 +136,7 @@ const ThemeContext = createContext<ThemeContextValue>({
   colorBackgroundPrimary700: COLOR_BACKGROUND_PRIMARY_700,
   colorBackgroundPrimary800: COLOR_BACKGROUND_PRIMARY_800,
   colorBackgroundPrimary900: COLOR_BACKGROUND_PRIMARY_900,
-  // Base border colors.
+
   colorBorderBase100: COLOR_BORDER_BASE_100,
   colorBorderBase200: COLOR_BORDER_BASE_200,
   colorBorderBase300: COLOR_BORDER_BASE_300,
@@ -144,7 +146,7 @@ const ThemeContext = createContext<ThemeContextValue>({
   colorBorderBase700: COLOR_BORDER_BASE_700,
   colorBorderBase800: COLOR_BORDER_BASE_800,
   colorBorderBase900: COLOR_BORDER_BASE_900,
-  // Base foreground colors.
+
   colorForegroundBase100: COLOR_FOREGROUND_BASE_100,
   colorForegroundBase200: COLOR_FOREGROUND_BASE_200,
   colorForegroundBase300: COLOR_FOREGROUND_BASE_300,
@@ -154,7 +156,7 @@ const ThemeContext = createContext<ThemeContextValue>({
   colorForegroundBase700: COLOR_FOREGROUND_BASE_700,
   colorForegroundBase800: COLOR_FOREGROUND_BASE_800,
   colorForegroundBase900: COLOR_FOREGROUND_BASE_900,
-  // Inverse foreground colors.
+
   colorForegroundInverse100: COLOR_FOREGROUND_INVERSE_100,
   colorForegroundInverse200: COLOR_FOREGROUND_INVERSE_200,
   colorForegroundInverse300: COLOR_FOREGROUND_INVERSE_300,
@@ -164,7 +166,7 @@ const ThemeContext = createContext<ThemeContextValue>({
   colorForegroundInverse700: COLOR_FOREGROUND_INVERSE_700,
   colorForegroundInverse800: COLOR_FOREGROUND_INVERSE_800,
   colorForegroundInverse900: COLOR_FOREGROUND_INVERSE_900,
-  // Failure foreground colors.
+
   colorForegroundFailure100: COLOR_FOREGROUND_FAILURE_100,
   colorForegroundFailure200: COLOR_FOREGROUND_FAILURE_200,
   colorForegroundFailure300: COLOR_FOREGROUND_FAILURE_300,
@@ -174,10 +176,10 @@ const ThemeContext = createContext<ThemeContextValue>({
   colorForegroundFailure700: COLOR_FOREGROUND_FAILURE_700,
   colorForegroundFailure800: COLOR_FOREGROUND_FAILURE_800,
   colorForegroundFailure900: COLOR_FOREGROUND_FAILURE_900,
-  // Base font family.
+
   fontFamilyBase: FONT_FAMILY_BASE,
   fontFamilyTypographic: FONT_FAMILY_TYPOGRAPHIC,
-  // Base font weights.
+
   fontWeightBaseThin: FONT_WEIGHT_BASE_THIN,
   fontWeightBaseExtraLight: FONT_WEIGHT_BASE_EXTRALIGHT,
   fontWeightBaseLight: FONT_WEIGHT_BASE_LIGHT,
@@ -187,7 +189,7 @@ const ThemeContext = createContext<ThemeContextValue>({
   fontWeightBaseBold: FONT_WEIGHT_BASE_BOLD,
   fontWeightBaseExtraBold: FONT_WEIGHT_BASE_EXTRABOLD,
   fontWeightBaseBlack: FONT_WEIGHT_BASE_BLACK,
-  // Base font sizes.
+
   fontSizeBaseX2S: FONT_SIZE_BASE_X2S,
   fontSizeBaseXS: FONT_SIZE_BASE_XS,
   fontSizeBaseSM: FONT_SIZE_BASE_SM,
@@ -199,14 +201,14 @@ const ThemeContext = createContext<ThemeContextValue>({
   fontSizeBaseX4L: FONT_SIZE_BASE_X4L,
   fontSizeBaseX5L: FONT_SIZE_BASE_X5L,
   fontSizeBaseX6L: FONT_SIZE_BASE_X6L,
-  // Base line heights.
+
   lineHeightBaseNone: LINE_HEIGHT_BASE_NONE,
   lineHeightBaseTight: LINE_HEIGHT_BASE_TIGHT,
   lineHeightBaseSnug: LINE_HEIGHT_BASE_SNUG,
   lineHeightBaseNormal: LINE_HEIGHT_BASE_NORMAL,
   lineHeightBaseRelaxed: LINE_HEIGHT_BASE_RELAXED,
   lineHeightBaseLoose: LINE_HEIGHT_BASE_LOOSE,
-  // Base spacings.
+
   spacingBaseX6S: SPACING_BASE_X6S,
   spacingBaseX5S: SPACING_BASE_X5S,
   spacingBaseX4S: SPACING_BASE_X4S,
@@ -222,20 +224,23 @@ const ThemeContext = createContext<ThemeContextValue>({
   spacingBaseX4L: SPACING_BASE_X4L,
   spacingBaseX5L: SPACING_BASE_X5L,
   spacingBaseX6L: SPACING_BASE_X6L,
-  // Base border widths.
+
   borderWidthBaseSM: BORDER_WIDTH_BASE_SM,
   borderWidthBaseMD: BORDER_WIDTH_BASE_MD,
   borderWidthBaseLG: BORDER_WIDTH_BASE_LG,
-  // Base border radiuses.
+
   borderRadiusBaseXS: BORDER_RADIUS_BASE_XS,
   borderRadiusBaseSM: BORDER_RADIUS_BASE_SM,
   borderRadiusBaseMD: BORDER_RADIUS_BASE_MD,
   borderRadiusBaseLG: BORDER_RADIUS_BASE_LG,
   borderRadiusBaseXL: BORDER_RADIUS_BASE_XL,
+
+  durationBaseSM: DURATION_BASE_SM,
+  durationBaseMD: DURATION_BASE_MD,
+  durationBaseLG: DURATION_BASE_LG,
 })
 
 export const ThemeContextProvider: ThemeContextProviderComponent = ({
-  // Base background colors.
   colorBackgroundBase100,
   colorBackgroundBase200,
   colorBackgroundBase300,
@@ -245,7 +250,7 @@ export const ThemeContextProvider: ThemeContextProviderComponent = ({
   colorBackgroundBase700,
   colorBackgroundBase800,
   colorBackgroundBase900,
-  // Primary background colors.
+
   colorBackgroundPrimary100,
   colorBackgroundPrimary200,
   colorBackgroundPrimary300,
@@ -255,7 +260,7 @@ export const ThemeContextProvider: ThemeContextProviderComponent = ({
   colorBackgroundPrimary700,
   colorBackgroundPrimary800,
   colorBackgroundPrimary900,
-  // Base border colors.
+
   colorBorderBase100,
   colorBorderBase200,
   colorBorderBase300,
@@ -265,7 +270,7 @@ export const ThemeContextProvider: ThemeContextProviderComponent = ({
   colorBorderBase700,
   colorBorderBase800,
   colorBorderBase900,
-  // Base foreground colors.
+
   colorForegroundBase100,
   colorForegroundBase200,
   colorForegroundBase300,
@@ -275,7 +280,7 @@ export const ThemeContextProvider: ThemeContextProviderComponent = ({
   colorForegroundBase700,
   colorForegroundBase800,
   colorForegroundBase900,
-  // Inverse foreground colors.
+
   colorForegroundInverse100,
   colorForegroundInverse200,
   colorForegroundInverse300,
@@ -285,7 +290,7 @@ export const ThemeContextProvider: ThemeContextProviderComponent = ({
   colorForegroundInverse700,
   colorForegroundInverse800,
   colorForegroundInverse900,
-  // Failure foreground colors.
+
   colorForegroundFailure100,
   colorForegroundFailure200,
   colorForegroundFailure300,
@@ -295,10 +300,10 @@ export const ThemeContextProvider: ThemeContextProviderComponent = ({
   colorForegroundFailure700,
   colorForegroundFailure800,
   colorForegroundFailure900,
-  // Base font family.
+
   fontFamilyBase,
   fontFamilyTypographic,
-  // Base font weights.
+
   fontWeightBaseThin,
   fontWeightBaseExtraLight,
   fontWeightBaseLight,
@@ -308,7 +313,7 @@ export const ThemeContextProvider: ThemeContextProviderComponent = ({
   fontWeightBaseBold,
   fontWeightBaseExtraBold,
   fontWeightBaseBlack,
-  // Base font sizes.
+
   fontSizeBaseX2S,
   fontSizeBaseXS,
   fontSizeBaseSM,
@@ -320,14 +325,14 @@ export const ThemeContextProvider: ThemeContextProviderComponent = ({
   fontSizeBaseX4L,
   fontSizeBaseX5L,
   fontSizeBaseX6L,
-  // Base line heights.
+
   lineHeightBaseNone,
   lineHeightBaseTight,
   lineHeightBaseSnug,
   lineHeightBaseNormal,
   lineHeightBaseRelaxed,
   lineHeightBaseLoose,
-  // Base spacings.
+
   spacingBaseX6S,
   spacingBaseX5S,
   spacingBaseX4S,
@@ -343,25 +348,27 @@ export const ThemeContextProvider: ThemeContextProviderComponent = ({
   spacingBaseX4L,
   spacingBaseX5L,
   spacingBaseX6L,
-  // Base border widths.
+
   borderWidthBaseSM,
   borderWidthBaseMD,
   borderWidthBaseLG,
-  // Base border radiuses.
+
   borderRadiusBaseXS,
   borderRadiusBaseSM,
   borderRadiusBaseMD,
   borderRadiusBaseLG,
   borderRadiusBaseXL,
-  // And at least.. :)
+
+  durationBaseSM,
+  durationBaseMD,
+  durationBaseLG,
+
   children,
 }) => {
-  // Memorizing context value.
-  // Allows to avoid unnecessary re-renders.
-  // Context consumers will re-render only if value changes.
+  // We do support 18 React version without compiler.
+  // We have to memorize context values to avoid extra re-renders.
   const value = useMemo(
     () => ({
-      // Base background colors.
       colorBackgroundBase100:
         colorBackgroundBase100 ?? COLOR_BACKGROUND_BASE_100,
       colorBackgroundBase200:
@@ -380,7 +387,7 @@ export const ThemeContextProvider: ThemeContextProviderComponent = ({
         colorBackgroundBase800 ?? COLOR_BACKGROUND_BASE_800,
       colorBackgroundBase900:
         colorBackgroundBase900 ?? COLOR_BACKGROUND_BASE_900,
-      // Primary background colors.
+
       colorBackgroundPrimary100:
         colorBackgroundPrimary100 ?? COLOR_BACKGROUND_PRIMARY_100,
       colorBackgroundPrimary200:
@@ -399,7 +406,7 @@ export const ThemeContextProvider: ThemeContextProviderComponent = ({
         colorBackgroundPrimary800 ?? COLOR_BACKGROUND_PRIMARY_800,
       colorBackgroundPrimary900:
         colorBackgroundPrimary900 ?? COLOR_BACKGROUND_PRIMARY_900,
-      // Base border colors.
+
       colorBorderBase100: colorBorderBase100 ?? COLOR_BORDER_BASE_100,
       colorBorderBase200: colorBorderBase200 ?? COLOR_BORDER_BASE_200,
       colorBorderBase300: colorBorderBase300 ?? COLOR_BORDER_BASE_300,
@@ -409,7 +416,7 @@ export const ThemeContextProvider: ThemeContextProviderComponent = ({
       colorBorderBase700: colorBorderBase700 ?? COLOR_BORDER_BASE_700,
       colorBorderBase800: colorBorderBase800 ?? COLOR_BORDER_BASE_800,
       colorBorderBase900: colorBorderBase900 ?? COLOR_BORDER_BASE_900,
-      // Base foreground colors.
+
       colorForegroundBase100:
         colorForegroundBase100 ?? COLOR_FOREGROUND_BASE_100,
       colorForegroundBase200:
@@ -428,7 +435,7 @@ export const ThemeContextProvider: ThemeContextProviderComponent = ({
         colorForegroundBase800 ?? COLOR_FOREGROUND_BASE_800,
       colorForegroundBase900:
         colorForegroundBase900 ?? COLOR_FOREGROUND_BASE_900,
-      // Inverse foreground colors.
+
       colorForegroundInverse100:
         colorForegroundInverse100 ?? COLOR_FOREGROUND_INVERSE_100,
       colorForegroundInverse200:
@@ -447,7 +454,7 @@ export const ThemeContextProvider: ThemeContextProviderComponent = ({
         colorForegroundInverse800 ?? COLOR_FOREGROUND_INVERSE_800,
       colorForegroundInverse900:
         colorForegroundInverse900 ?? COLOR_FOREGROUND_INVERSE_900,
-      // Failure foreground colors.
+
       colorForegroundFailure100:
         colorForegroundFailure100 ?? COLOR_FOREGROUND_FAILURE_100,
       colorForegroundFailure200:
@@ -466,10 +473,10 @@ export const ThemeContextProvider: ThemeContextProviderComponent = ({
         colorForegroundFailure800 ?? COLOR_FOREGROUND_FAILURE_800,
       colorForegroundFailure900:
         colorForegroundFailure900 ?? COLOR_FOREGROUND_FAILURE_900,
-      // Base font family.
+
       fontFamilyBase: fontFamilyBase ?? FONT_FAMILY_BASE,
       fontFamilyTypographic: fontFamilyTypographic ?? FONT_FAMILY_TYPOGRAPHIC,
-      // Base font weights.
+
       fontWeightBaseThin: fontWeightBaseThin ?? FONT_WEIGHT_BASE_THIN,
       fontWeightBaseExtraLight:
         fontWeightBaseExtraLight ?? FONT_WEIGHT_BASE_EXTRALIGHT,
@@ -482,7 +489,7 @@ export const ThemeContextProvider: ThemeContextProviderComponent = ({
       fontWeightBaseExtraBold:
         fontWeightBaseExtraBold ?? FONT_WEIGHT_BASE_EXTRABOLD,
       fontWeightBaseBlack: fontWeightBaseBlack ?? FONT_WEIGHT_BASE_BLACK,
-      // Base font sizes.
+
       fontSizeBaseX2S: fontSizeBaseX2S ?? FONT_SIZE_BASE_X2S,
       fontSizeBaseXS: fontSizeBaseXS ?? FONT_SIZE_BASE_XS,
       fontSizeBaseSM: fontSizeBaseSM ?? FONT_SIZE_BASE_SM,
@@ -494,14 +501,14 @@ export const ThemeContextProvider: ThemeContextProviderComponent = ({
       fontSizeBaseX4L: fontSizeBaseX4L ?? FONT_SIZE_BASE_X4L,
       fontSizeBaseX5L: fontSizeBaseX5L ?? FONT_SIZE_BASE_X5L,
       fontSizeBaseX6L: fontSizeBaseX6L ?? FONT_SIZE_BASE_X6L,
-      // Base line heights.
+
       lineHeightBaseNone: lineHeightBaseNone ?? LINE_HEIGHT_BASE_NONE,
       lineHeightBaseTight: lineHeightBaseTight ?? LINE_HEIGHT_BASE_TIGHT,
       lineHeightBaseSnug: lineHeightBaseSnug ?? LINE_HEIGHT_BASE_SNUG,
       lineHeightBaseNormal: lineHeightBaseNormal ?? LINE_HEIGHT_BASE_NORMAL,
       lineHeightBaseRelaxed: lineHeightBaseRelaxed ?? LINE_HEIGHT_BASE_RELAXED,
       lineHeightBaseLoose: lineHeightBaseLoose ?? LINE_HEIGHT_BASE_LOOSE,
-      // Base spacings.
+
       spacingBaseX6S: spacingBaseX6S ?? SPACING_BASE_X6S,
       spacingBaseX5S: spacingBaseX5S ?? SPACING_BASE_X5S,
       spacingBaseX4S: spacingBaseX4S ?? SPACING_BASE_X4S,
@@ -517,19 +524,22 @@ export const ThemeContextProvider: ThemeContextProviderComponent = ({
       spacingBaseX4L: spacingBaseX4L ?? SPACING_BASE_X4L,
       spacingBaseX5L: spacingBaseX5L ?? SPACING_BASE_X5L,
       spacingBaseX6L: spacingBaseX6L ?? SPACING_BASE_X6L,
-      // Base border widths.
+
       borderWidthBaseSM: borderWidthBaseSM ?? BORDER_WIDTH_BASE_SM,
       borderWidthBaseMD: borderWidthBaseMD ?? BORDER_WIDTH_BASE_MD,
       borderWidthBaseLG: borderWidthBaseLG ?? BORDER_WIDTH_BASE_LG,
-      // Base border radiuses.
+
       borderRadiusBaseXS: borderRadiusBaseXS ?? BORDER_RADIUS_BASE_XS,
       borderRadiusBaseSM: borderRadiusBaseSM ?? BORDER_RADIUS_BASE_SM,
       borderRadiusBaseMD: borderRadiusBaseMD ?? BORDER_RADIUS_BASE_MD,
       borderRadiusBaseLG: borderRadiusBaseLG ?? BORDER_RADIUS_BASE_LG,
       borderRadiusBaseXL: borderRadiusBaseXL ?? BORDER_RADIUS_BASE_XL,
+
+      durationBaseSM: durationBaseSM ?? DURATION_BASE_SM,
+      durationBaseMD: durationBaseMD ?? DURATION_BASE_MD,
+      durationBaseLG: durationBaseLG ?? DURATION_BASE_LG,
     }),
     [
-      // Base background colors.
       colorBackgroundBase100,
       colorBackgroundBase200,
       colorBackgroundBase300,
@@ -539,7 +549,7 @@ export const ThemeContextProvider: ThemeContextProviderComponent = ({
       colorBackgroundBase700,
       colorBackgroundBase800,
       colorBackgroundBase900,
-      // Primary background colors.
+
       colorBackgroundPrimary100,
       colorBackgroundPrimary200,
       colorBackgroundPrimary300,
@@ -549,7 +559,7 @@ export const ThemeContextProvider: ThemeContextProviderComponent = ({
       colorBackgroundPrimary700,
       colorBackgroundPrimary800,
       colorBackgroundPrimary900,
-      // Base border colors.
+
       colorBorderBase100,
       colorBorderBase200,
       colorBorderBase300,
@@ -559,7 +569,7 @@ export const ThemeContextProvider: ThemeContextProviderComponent = ({
       colorBorderBase700,
       colorBorderBase800,
       colorBorderBase900,
-      // Base foreground colors.
+
       colorForegroundBase100,
       colorForegroundBase200,
       colorForegroundBase300,
@@ -569,7 +579,7 @@ export const ThemeContextProvider: ThemeContextProviderComponent = ({
       colorForegroundBase700,
       colorForegroundBase800,
       colorForegroundBase900,
-      // Inverse foreground colors.
+
       colorForegroundInverse100,
       colorForegroundInverse200,
       colorForegroundInverse300,
@@ -579,7 +589,7 @@ export const ThemeContextProvider: ThemeContextProviderComponent = ({
       colorForegroundInverse700,
       colorForegroundInverse800,
       colorForegroundInverse900,
-      // Failure foreground colors.
+
       colorForegroundFailure100,
       colorForegroundFailure200,
       colorForegroundFailure300,
@@ -589,10 +599,10 @@ export const ThemeContextProvider: ThemeContextProviderComponent = ({
       colorForegroundFailure700,
       colorForegroundFailure800,
       colorForegroundFailure900,
-      // Base font family.
+
       fontFamilyBase,
       fontFamilyTypographic,
-      // Base font weights.
+
       fontWeightBaseThin,
       fontWeightBaseExtraLight,
       fontWeightBaseLight,
@@ -602,7 +612,7 @@ export const ThemeContextProvider: ThemeContextProviderComponent = ({
       fontWeightBaseBold,
       fontWeightBaseExtraBold,
       fontWeightBaseBlack,
-      // Base font sizes.
+
       fontSizeBaseX2S,
       fontSizeBaseXS,
       fontSizeBaseSM,
@@ -614,14 +624,14 @@ export const ThemeContextProvider: ThemeContextProviderComponent = ({
       fontSizeBaseX4L,
       fontSizeBaseX5L,
       fontSizeBaseX6L,
-      // Base line heights.
+
       lineHeightBaseNone,
       lineHeightBaseTight,
       lineHeightBaseSnug,
       lineHeightBaseNormal,
       lineHeightBaseRelaxed,
       lineHeightBaseLoose,
-      // Base spacings.
+
       spacingBaseX6S,
       spacingBaseX5S,
       spacingBaseX4S,
@@ -637,17 +647,21 @@ export const ThemeContextProvider: ThemeContextProviderComponent = ({
       spacingBaseX4L,
       spacingBaseX5L,
       spacingBaseX6L,
-      // Base border widths.
+
       borderWidthBaseSM,
       borderWidthBaseMD,
       borderWidthBaseLG,
-      // Base border radiuses.
+
       borderRadiusBaseXS,
       borderRadiusBaseSM,
       borderRadiusBaseMD,
       borderRadiusBaseLG,
       borderRadiusBaseXL,
-    ]
+
+      durationBaseSM,
+      durationBaseMD,
+      durationBaseLG,
+    ],
   )
   return <ThemeContext.Provider value={value}>{children}</ThemeContext.Provider>
 }

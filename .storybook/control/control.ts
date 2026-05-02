@@ -74,14 +74,14 @@ export const StorybookControl = new (class {
    * @param isOptional - whether control is optional
    */
   public fromNumericEnum(target: Record<string, number>, isOptional = true) {
-    const options = Object.values(target).filter(
+    const options: (number | undefined)[] = Object.values(target).filter(
       (value) => !isNaN(Number(value)),
     )
     const keys = Object.keys(target).filter((value) => isNaN(Number(value)))
     if (isOptional) options.unshift(undefined)
-    const labels: Record<number, string> = {}
+    const labels: Record<string, string> = {}
     for (const key of keys) labels[target[key]] = key
-    labels[undefined as number] = STORYBOOK_CONTROL_UNDEFINED_OPTION
+    labels[String(undefined)] = STORYBOOK_CONTROL_UNDEFINED_OPTION
     return {
       control: {
         // Passing flag to handle numeric enum inside decorator.

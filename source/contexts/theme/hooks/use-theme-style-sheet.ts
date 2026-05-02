@@ -7,11 +7,11 @@ import { StyleSheet } from 'react-native'
 // We also export this hook outside just in case.
 export const useThemeStyleSheet = () => {
   const themeContext = useThemeContext()
-  // Re-creating style sheet only when theme context changes.
+  // We do support 18 React version without compiler.
+  // We have to memorize context values to avoid extra re-renders.
   return useMemo(
     () =>
       StyleSheet.create({
-        // Base background colors.
         colorBackgroundBase100: {
           backgroundColor: themeContext.colorBackgroundBase100,
         },
@@ -39,7 +39,7 @@ export const useThemeStyleSheet = () => {
         colorBackgroundBase900: {
           backgroundColor: themeContext.colorBackgroundBase900,
         },
-        // Primary background colors.
+
         colorBackgroundPrimary100: {
           backgroundColor: themeContext.colorBackgroundPrimary100,
         },
@@ -67,7 +67,7 @@ export const useThemeStyleSheet = () => {
         colorBackgroundPrimary900: {
           backgroundColor: themeContext.colorBackgroundPrimary900,
         },
-        // Base border colors.
+
         colorBorderBase100: {
           borderColor: themeContext.colorBorderBase100,
         },
@@ -95,7 +95,7 @@ export const useThemeStyleSheet = () => {
         colorBorderBase900: {
           borderColor: themeContext.colorBorderBase900,
         },
-        // Base foreground colors.
+
         colorForegroundBase100: {
           color: themeContext.colorForegroundBase100,
         },
@@ -123,7 +123,7 @@ export const useThemeStyleSheet = () => {
         colorForegroundBase900: {
           color: themeContext.colorForegroundBase900,
         },
-        // Inverse foreground colors.
+
         colorForegroundInverse100: {
           color: themeContext.colorForegroundInverse100,
         },
@@ -151,7 +151,7 @@ export const useThemeStyleSheet = () => {
         colorForegroundInverse900: {
           color: themeContext.colorForegroundInverse900,
         },
-        // Failure foreground colors.
+
         colorForegroundFailure100: {
           color: themeContext.colorForegroundFailure100,
         },
@@ -179,14 +179,14 @@ export const useThemeStyleSheet = () => {
         colorForegroundFailure900: {
           color: themeContext.colorForegroundFailure900,
         },
-        // Base font family.
+
         fontFamilyBase: {
           fontFamily: themeContext.fontFamilyBase,
         },
         fontFamilyTypographic: {
           fontFamily: themeContext.fontFamilyTypographic,
         },
-        // Base font weights.
+
         fontWeightBaseThin: {
           fontWeight: themeContext.fontWeightBaseThin,
         },
@@ -214,7 +214,7 @@ export const useThemeStyleSheet = () => {
         fontWeightBaseBlack: {
           fontWeight: themeContext.fontWeightBaseBlack,
         },
-        // Base font sizes.
+
         fontSizeBaseX2S: {
           fontSize: themeContext.fontSizeBaseX2S,
         },
@@ -248,7 +248,7 @@ export const useThemeStyleSheet = () => {
         fontSizeBaseX6L: {
           fontSize: themeContext.fontSizeBaseX6L,
         },
-        // Base spacings.
+
         gapBaseX6S: {
           gap: themeContext.spacingBaseX6S,
         },
@@ -655,7 +655,7 @@ export const useThemeStyleSheet = () => {
         paddingBottomBaseX6L: {
           paddingBottom: themeContext.spacingBaseX6L,
         },
-        // Base border widths.
+
         borderWidthBaseSM: {
           borderWidth: themeContext.borderWidthBaseSM,
         },
@@ -701,7 +701,7 @@ export const useThemeStyleSheet = () => {
         borderWidthBottomBaseLG: {
           borderBottomWidth: themeContext.borderWidthBaseLG,
         },
-        // Base border radiuses.
+
         borderRadiusBaseXS: {
           borderRadius: themeContext.borderRadiusBaseXS,
         },

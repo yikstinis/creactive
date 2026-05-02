@@ -1,4 +1,4 @@
-import { StorybookControl } from '@/utilities'
+import { StorybookControl } from '.storybook/control'
 import type { Meta, StoryObj } from '@storybook/react'
 import { View } from '.'
 
