@@ -1,5 +1,7 @@
 export { DIMENSION_MAX, DIMENSION_MIN, Dimension } from '@/helpers/dimension'
 export type { DimensionValue } from '@/helpers/dimension'
+export { isMetro } from '@/helpers/environment'
+export type { IsMetro } from '@/helpers/environment'
 export { FRACTION_MAX, FRACTION_MIN, Fraction } from '@/helpers/fraction'
 export type { FractionValue } from '@/helpers/fraction'
 export { renderReactNativeInitialStyle } from '@/helpers/style'

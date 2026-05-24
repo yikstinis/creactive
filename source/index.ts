@@ -37,6 +37,7 @@ export {
   FRACTION_MAX,
   FRACTION_MIN,
   Fraction,
+  isMetro,
 } from './helpers'
-export type { DimensionValue, FractionValue } from './helpers'
+export type { DimensionValue, FractionValue, IsMetro } from './helpers'
 export type { Color, FontWeight } from './types'
