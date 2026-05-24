@@ -1,7 +1,27 @@
 {
   "name": "creactive",
-  "version": "0.0.153",
+  "version": "0.0.154",
   "main": ".storybook",
+  "exports": {
+    ".": {
+      "react-native": {
+        "types": "./build/default.d.ts",
+        "default": "./build/default.js"
+      },
+      "browser": {
+        "types": "./build/classic.d.ts",
+        "default": "./build/classic.js"
+      },
+      "default": {
+        "types": "./build/classic.d.ts",
+        "default": "./build/classic.js"
+      }
+    },
+    "./server": {
+      "types": "./build/server.d.ts",
+      "default": "./build/server.js"
+    }
+  },
   "files": [
     "build/**"
   ],
