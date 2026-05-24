@@ -48,6 +48,7 @@ export const Wrapper = Platform.select({
     return (
       <div
         ref={ref}
+        id='creactive-media-wrapper'
         style={style as CSSProperties}
         // We don't want to see hydration warning on this element.
         // We'll set display none in the script below.

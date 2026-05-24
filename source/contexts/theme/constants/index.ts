@@ -93,6 +93,7 @@ export {
   FONT_WEIGHT_BASE_SEMIBOLD,
   FONT_WEIGHT_BASE_THIN,
 } from './font'
+export { ICON_SIZE_BASE_LG, ICON_SIZE_BASE_MD, ICON_SIZE_BASE_SM } from './icon'
 export {
   SPACING_BASE_LG,
   SPACING_BASE_MD,

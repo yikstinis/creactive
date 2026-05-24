@@ -87,6 +87,9 @@ import {
   FONT_WEIGHT_BASE_REGULAR,
   FONT_WEIGHT_BASE_SEMIBOLD,
   FONT_WEIGHT_BASE_THIN,
+  ICON_SIZE_BASE_LG,
+  ICON_SIZE_BASE_MD,
+  ICON_SIZE_BASE_SM,
   LINE_HEIGHT_BASE_LOOSE,
   LINE_HEIGHT_BASE_NONE,
   LINE_HEIGHT_BASE_NORMAL,
@@ -208,6 +211,10 @@ const ThemeContext = createContext<ThemeContextValue>({
   lineHeightBaseNormal: LINE_HEIGHT_BASE_NORMAL,
   lineHeightBaseRelaxed: LINE_HEIGHT_BASE_RELAXED,
   lineHeightBaseLoose: LINE_HEIGHT_BASE_LOOSE,
+
+  iconSizeBaseSM: ICON_SIZE_BASE_SM,
+  iconSizeBaseMD: ICON_SIZE_BASE_MD,
+  iconSizeBaseLG: ICON_SIZE_BASE_LG,
 
   spacingBaseX6S: SPACING_BASE_X6S,
   spacingBaseX5S: SPACING_BASE_X5S,
@@ -332,6 +339,10 @@ export const ThemeContextProvider: ThemeContextProviderComponent = ({
   lineHeightBaseNormal,
   lineHeightBaseRelaxed,
   lineHeightBaseLoose,
+
+  iconSizeBaseSM,
+  iconSizeBaseMD,
+  iconSizeBaseLG,
 
   spacingBaseX6S,
   spacingBaseX5S,
@@ -509,6 +520,10 @@ export const ThemeContextProvider: ThemeContextProviderComponent = ({
       lineHeightBaseRelaxed: lineHeightBaseRelaxed ?? LINE_HEIGHT_BASE_RELAXED,
       lineHeightBaseLoose: lineHeightBaseLoose ?? LINE_HEIGHT_BASE_LOOSE,
 
+      iconSizeBaseSM: iconSizeBaseSM ?? ICON_SIZE_BASE_SM,
+      iconSizeBaseMD: iconSizeBaseMD ?? ICON_SIZE_BASE_MD,
+      iconSizeBaseLG: iconSizeBaseLG ?? ICON_SIZE_BASE_LG,
+
       spacingBaseX6S: spacingBaseX6S ?? SPACING_BASE_X6S,
       spacingBaseX5S: spacingBaseX5S ?? SPACING_BASE_X5S,
       spacingBaseX4S: spacingBaseX4S ?? SPACING_BASE_X4S,
@@ -631,6 +646,10 @@ export const ThemeContextProvider: ThemeContextProviderComponent = ({
       lineHeightBaseNormal,
       lineHeightBaseRelaxed,
       lineHeightBaseLoose,
+
+      iconSizeBaseSM,
+      iconSizeBaseMD,
+      iconSizeBaseLG,
 
       spacingBaseX6S,
       spacingBaseX5S,

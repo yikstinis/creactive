@@ -457,6 +457,26 @@ export interface ThemeContextValue {
   lineHeightBaseLoose: number
 
   /**
+   * Base small icon size.
+   * @see ICON_SIZE_BASE_SM
+   * @default 16
+   */
+  iconSizeBaseSM: number
+  /**
+   * Base medium icon size.
+   * @see ICON_SIZE_BASE_MD
+   * @default 24
+   *
+   */
+  iconSizeBaseMD: number
+  /**
+   * Base large icon size.
+   * @see ICON_SIZE_BASE_LG
+   * @default 32
+   */
+  iconSizeBaseLG: number
+
+  /**
    * Base f spacing.
    * @see SPACING_BASE_X6S
    * @default 2
