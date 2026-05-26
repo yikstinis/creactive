@@ -1,6 +1,6 @@
 {
   "name": "creactive",
-  "version": "0.0.159",
+  "version": "0.0.160",
   "main": ".storybook",
   "exports": {
     ".": {
@@ -46,7 +46,7 @@
     "@emotion/styled": ">= 11 < 12",
     "react": ">= 18 <= 19",
     "react-dom": ">= 18 <= 19",
-    "react-native": ">= 0.76 <= 0.79",
+    "react-native": ">= 0.76 <= 0.85",
     "react-native-svg": ">= 15.8.0 < 16",
     "react-native-svg-web": ">= 1.0.0 < 2.0.0",
     "react-native-web": ">= 0.19.10"
