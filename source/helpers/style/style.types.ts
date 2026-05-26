@@ -6,12 +6,28 @@ import type { ComponentType, JSX } from 'react'
  * Return only initial and only react native styles!
  *
  * @see https://necolas.github.io/react-native-web/docs/rendering/
- * @see https://docs.expo.dev/guides/using-nextjs/
- *
  * @param component - your root component using creactive
  * @param key - identifies component in the registry if you have multiple
+ *
+ *
+ * Next.js usage example:
+ *
+ * // next.config.js
+ * const nextConfig: NextConfig = {
+ *   serverExternalPackages: ["creactive/server"],
+ * };
+ *
+ * // layout.tsx
+ * export default function Layout({ children }: PropsWithChildren) {
+ *   return (
+ *     <html lang="en">
+ *       <head>{renderReactNativeInitialStyle(() => children)}</head>
+ *       <body>{children}</body>
+ *     </html>
+ *   );
+ * }
  */
 export type RenderReactNativeInitialStyleHelper = (
   component: ComponentType,
-  key?: string
+  key?: string,
 ) => JSX.Element

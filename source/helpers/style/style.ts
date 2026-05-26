@@ -3,16 +3,12 @@ import { AppRegistry } from 'react-native'
 import type { AppRegistry as WebAppRegistryType } from 'react-native-web'
 import type { RenderReactNativeInitialStyleHelper } from './style.types'
 
-// prettier-ignore
-export const renderReactNativeInitialStyle:
-  RenderReactNativeInitialStyleHelper = (component, key = 'main') => {
-    // Converting types to be able to use web specific methods.
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+export const renderReactNativeInitialStyle: RenderReactNativeInitialStyleHelper =
+  (component, key = 'main') => {
+    AppRegistry.registerComponent(key, () => component)
     const WebAppRegistry = AppRegistry as unknown as WebAppRegistryType
-    WebAppRegistry.registerComponent(key, () => component)
-    // If someone use this function on native platform it will throw an error!
-    // Seems fine.. calling this function on native platform makes no sence...
-    const element = WebAppRegistry.getApplication(key, null).getStyleElement()
-    if (isValidElement(element)) return element
+    const application = WebAppRegistry.getApplication(key, {})
+    const styleElement = application.getStyleElement()
+    if (isValidElement(styleElement)) return styleElement
     throw new Error('Failed to render react-native initial style element!')
   }
