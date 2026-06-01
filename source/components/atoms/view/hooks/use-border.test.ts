@@ -430,6 +430,42 @@ describe('@/components/atoms/view', () => {
         })
       })
 
+      it('returns extra-2-large border radius', () => {
+        const { result } = renderHook(() =>
+          useViewBorderRadiusStyle(ViewBorderRadius.X2L),
+        )
+        expect(result.current).toEqual({
+          borderRadius: 12,
+        })
+      })
+
+      it('returns extra-3-large border radius', () => {
+        const { result } = renderHook(() =>
+          useViewBorderRadiusStyle(ViewBorderRadius.X3L),
+        )
+        expect(result.current).toEqual({
+          borderRadius: 16,
+        })
+      })
+
+      it('returns extra-4-large border radius', () => {
+        const { result } = renderHook(() =>
+          useViewBorderRadiusStyle(ViewBorderRadius.X4L),
+        )
+        expect(result.current).toEqual({
+          borderRadius: 18,
+        })
+      })
+
+      it('returns extra-5-large border radius', () => {
+        const { result } = renderHook(() =>
+          useViewBorderRadiusStyle(ViewBorderRadius.X5L),
+        )
+        expect(result.current).toEqual({
+          borderRadius: 20,
+        })
+      })
+
       it('returns extra-6-large border radius', () => {
         const { result } = renderHook(() =>
           useViewBorderRadiusStyle(ViewBorderRadius.X6L),
@@ -500,6 +536,42 @@ describe('@/components/atoms/view', () => {
         })
       })
 
+      it('returns extra-2-large border radius', () => {
+        const { result } = renderHook(() =>
+          useViewBorderTopLeftRadiusStyle(ViewBorderRadius.X2L),
+        )
+        expect(result.current).toEqual({
+          borderTopLeftRadius: 12,
+        })
+      })
+
+      it('returns extra-3-large border radius', () => {
+        const { result } = renderHook(() =>
+          useViewBorderTopLeftRadiusStyle(ViewBorderRadius.X3L),
+        )
+        expect(result.current).toEqual({
+          borderTopLeftRadius: 16,
+        })
+      })
+
+      it('returns extra-4-large border radius', () => {
+        const { result } = renderHook(() =>
+          useViewBorderTopLeftRadiusStyle(ViewBorderRadius.X4L),
+        )
+        expect(result.current).toEqual({
+          borderTopLeftRadius: 18,
+        })
+      })
+
+      it('returns extra-5-large border radius', () => {
+        const { result } = renderHook(() =>
+          useViewBorderTopLeftRadiusStyle(ViewBorderRadius.X5L),
+        )
+        expect(result.current).toEqual({
+          borderTopLeftRadius: 20,
+        })
+      })
+
       it('returns extra-6-large border radius', () => {
         const { result } = renderHook(() =>
           useViewBorderTopLeftRadiusStyle(ViewBorderRadius.X6L),
@@ -567,6 +639,42 @@ describe('@/components/atoms/view', () => {
         )
         expect(result.current).toEqual({
           borderTopRightRadius: 10,
+        })
+      })
+
+      it('returns extra-2-large border radius', () => {
+        const { result } = renderHook(() =>
+          useViewBorderTopRightRadiusStyle(ViewBorderRadius.X2L),
+        )
+        expect(result.current).toEqual({
+          borderTopRightRadius: 12,
+        })
+      })
+
+      it('returns extra-3-large border radius', () => {
+        const { result } = renderHook(() =>
+          useViewBorderTopRightRadiusStyle(ViewBorderRadius.X3L),
+        )
+        expect(result.current).toEqual({
+          borderTopRightRadius: 16,
+        })
+      })
+
+      it('returns extra-4-large border radius', () => {
+        const { result } = renderHook(() =>
+          useViewBorderTopRightRadiusStyle(ViewBorderRadius.X4L),
+        )
+        expect(result.current).toEqual({
+          borderTopRightRadius: 18,
+        })
+      })
+
+      it('returns extra-5-large border radius', () => {
+        const { result } = renderHook(() =>
+          useViewBorderTopRightRadiusStyle(ViewBorderRadius.X5L),
+        )
+        expect(result.current).toEqual({
+          borderTopRightRadius: 20,
         })
       })
 
@@ -642,6 +750,42 @@ describe('@/components/atoms/view', () => {
         })
       })
 
+      it('returns extra-2-large border radius', () => {
+        const { result } = renderHook(() =>
+          useViewBorderBottomLeftRadiusStyle(ViewBorderRadius.X2L),
+        )
+        expect(result.current).toEqual({
+          borderBottomLeftRadius: 12,
+        })
+      })
+
+      it('returns extra-3-large border radius', () => {
+        const { result } = renderHook(() =>
+          useViewBorderBottomLeftRadiusStyle(ViewBorderRadius.X3L),
+        )
+        expect(result.current).toEqual({
+          borderBottomLeftRadius: 16,
+        })
+      })
+
+      it('returns extra-4-large border radius', () => {
+        const { result } = renderHook(() =>
+          useViewBorderBottomLeftRadiusStyle(ViewBorderRadius.X4L),
+        )
+        expect(result.current).toEqual({
+          borderBottomLeftRadius: 18,
+        })
+      })
+
+      it('returns extra-5-large border radius', () => {
+        const { result } = renderHook(() =>
+          useViewBorderBottomLeftRadiusStyle(ViewBorderRadius.X5L),
+        )
+        expect(result.current).toEqual({
+          borderBottomLeftRadius: 20,
+        })
+      })
+
       it('returns extra-6-large border radius', () => {
         const { result } = renderHook(() =>
           useViewBorderBottomLeftRadiusStyle(ViewBorderRadius.X6L),
@@ -711,6 +855,42 @@ describe('@/components/atoms/view', () => {
         )
         expect(result.current).toEqual({
           borderBottomRightRadius: 10,
+        })
+      })
+
+      it('returns extra-2-large border radius', () => {
+        const { result } = renderHook(() =>
+          useViewBorderBottomRightRadiusStyle(ViewBorderRadius.X2L),
+        )
+        expect(result.current).toEqual({
+          borderBottomRightRadius: 12,
+        })
+      })
+
+      it('returns extra-3-large border radius', () => {
+        const { result } = renderHook(() =>
+          useViewBorderBottomRightRadiusStyle(ViewBorderRadius.X3L),
+        )
+        expect(result.current).toEqual({
+          borderBottomRightRadius: 16,
+        })
+      })
+
+      it('returns extra-4-large border radius', () => {
+        const { result } = renderHook(() =>
+          useViewBorderBottomRightRadiusStyle(ViewBorderRadius.X4L),
+        )
+        expect(result.current).toEqual({
+          borderBottomRightRadius: 18,
+        })
+      })
+
+      it('returns extra-5-large border radius', () => {
+        const { result } = renderHook(() =>
+          useViewBorderBottomRightRadiusStyle(ViewBorderRadius.X5L),
+        )
+        expect(result.current).toEqual({
+          borderBottomRightRadius: 20,
         })
       })
 
