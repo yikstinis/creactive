@@ -608,6 +608,31 @@ export interface ThemeContextValue {
    * @default 10
    */
   borderRadiusBaseXL: number
+  /**
+   * Extra 2 large border radius token.
+   * @default 12
+   */
+  borderRadiusBaseX2L: number
+  /**
+   * Extra 3 large border radius token.
+   * @default 16
+   */
+  borderRadiusBaseX3L: number
+  /**
+   * Extra 4 large border radius token.
+   * @default 18
+   */
+  borderRadiusBaseX4L: number
+  /**
+   * Extra 5 large border radius token.
+   * @default 20
+   */
+  borderRadiusBaseX5L: number
+  /**
+   * Extra 6 large border radius token.
+   * @default 24
+   */
+  borderRadiusBaseX6L: number
 
   /**
    * Small base duration token.
