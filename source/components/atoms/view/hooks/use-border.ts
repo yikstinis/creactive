@@ -81,6 +81,11 @@ const VIEW_BORDER_RADIUS_THEME_STYLE_KEY = {
   [ViewBorderRadius.MD]: 'borderRadiusBaseMD' as const,
   [ViewBorderRadius.LG]: 'borderRadiusBaseLG' as const,
   [ViewBorderRadius.XL]: 'borderRadiusBaseXL' as const,
+  [ViewBorderRadius.X2L]: 'borderRadiusBaseX2L' as const,
+  [ViewBorderRadius.X3L]: 'borderRadiusBaseX3L' as const,
+  [ViewBorderRadius.X4L]: 'borderRadiusBaseX4L' as const,
+  [ViewBorderRadius.X5L]: 'borderRadiusBaseX5L' as const,
+  [ViewBorderRadius.X6L]: 'borderRadiusBaseX6L' as const,
 }
 export const useViewBorderRadiusStyle = (borderRadius?: ViewBorderRadius) => {
   const themeStyleSheet = useThemeStyleSheet()
@@ -100,6 +105,11 @@ const VIEW_BORDER_TOP_LEFT_RADIUS_THEME_STYLE_KEY = {
   [ViewBorderRadius.MD]: 'borderTopLeftRadiusBaseMD' as const,
   [ViewBorderRadius.LG]: 'borderTopLeftRadiusBaseLG' as const,
   [ViewBorderRadius.XL]: 'borderTopLeftRadiusBaseXL' as const,
+  [ViewBorderRadius.X2L]: 'borderTopLeftRadiusBaseX2L' as const,
+  [ViewBorderRadius.X3L]: 'borderTopLeftRadiusBaseX3L' as const,
+  [ViewBorderRadius.X4L]: 'borderTopLeftRadiusBaseX4L' as const,
+  [ViewBorderRadius.X5L]: 'borderTopLeftRadiusBaseX5L' as const,
+  [ViewBorderRadius.X6L]: 'borderTopLeftRadiusBaseX6L' as const,
 }
 export const useViewBorderTopLeftRadiusStyle = (
   borderRadius?: ViewBorderRadius,
@@ -121,6 +131,11 @@ const VIEW_BORDER_TOP_RIGHT_RADIUS_THEME_STYLE_KEY = {
   [ViewBorderRadius.MD]: 'borderTopRightRadiusBaseMD' as const,
   [ViewBorderRadius.LG]: 'borderTopRightRadiusBaseLG' as const,
   [ViewBorderRadius.XL]: 'borderTopRightRadiusBaseXL' as const,
+  [ViewBorderRadius.X2L]: 'borderTopRightRadiusBaseX2L' as const,
+  [ViewBorderRadius.X3L]: 'borderTopRightRadiusBaseX3L' as const,
+  [ViewBorderRadius.X4L]: 'borderTopRightRadiusBaseX4L' as const,
+  [ViewBorderRadius.X5L]: 'borderTopRightRadiusBaseX5L' as const,
+  [ViewBorderRadius.X6L]: 'borderTopRightRadiusBaseX6L' as const,
 }
 export const useViewBorderTopRightRadiusStyle = (
   borderRadius?: ViewBorderRadius,
@@ -144,6 +159,11 @@ const VIEW_BORDER_BOTTOM_LEFT_RADIUS_THEME_STYLE_KEY = {
   [ViewBorderRadius.MD]: 'borderBottomLeftRadiusBaseMD' as const,
   [ViewBorderRadius.LG]: 'borderBottomLeftRadiusBaseLG' as const,
   [ViewBorderRadius.XL]: 'borderBottomLeftRadiusBaseXL' as const,
+  [ViewBorderRadius.X2L]: 'borderBottomLeftRadiusBaseX2L' as const,
+  [ViewBorderRadius.X3L]: 'borderBottomLeftRadiusBaseX3L' as const,
+  [ViewBorderRadius.X4L]: 'borderBottomLeftRadiusBaseX4L' as const,
+  [ViewBorderRadius.X5L]: 'borderBottomLeftRadiusBaseX5L' as const,
+  [ViewBorderRadius.X6L]: 'borderBottomLeftRadiusBaseX6L' as const,
 }
 export const useViewBorderBottomLeftRadiusStyle = (
   borderRadius?: ViewBorderRadius,
@@ -167,6 +187,11 @@ const VIEW_BORDER_BOTTOM_RIGHT_RADIUS_THEME_STYLE_KEY = {
   [ViewBorderRadius.MD]: 'borderBottomRightRadiusBaseMD' as const,
   [ViewBorderRadius.LG]: 'borderBottomRightRadiusBaseLG' as const,
   [ViewBorderRadius.XL]: 'borderBottomRightRadiusBaseXL' as const,
+  [ViewBorderRadius.X2L]: 'borderBottomRightRadiusBaseX2L' as const,
+  [ViewBorderRadius.X3L]: 'borderBottomRightRadiusBaseX3L' as const,
+  [ViewBorderRadius.X4L]: 'borderBottomRightRadiusBaseX4L' as const,
+  [ViewBorderRadius.X5L]: 'borderBottomRightRadiusBaseX5L' as const,
+  [ViewBorderRadius.X6L]: 'borderBottomRightRadiusBaseX6L' as const,
 }
 export const useViewBorderBottomRightRadiusStyle = (
   borderRadius?: ViewBorderRadius,
@@ -185,6 +210,11 @@ const VIEW_BORDER_RADIUS_THEME_KEY = {
   [ViewBorderRadius.MD]: 'borderRadiusBaseMD' as const,
   [ViewBorderRadius.LG]: 'borderRadiusBaseLG' as const,
   [ViewBorderRadius.XL]: 'borderRadiusBaseXL' as const,
+  [ViewBorderRadius.X2L]: 'borderRadiusBaseX2L' as const,
+  [ViewBorderRadius.X3L]: 'borderRadiusBaseX3L' as const,
+  [ViewBorderRadius.X4L]: 'borderRadiusBaseX4L' as const,
+  [ViewBorderRadius.X5L]: 'borderRadiusBaseX5L' as const,
+  [ViewBorderRadius.X6L]: 'borderRadiusBaseX6L' as const,
 }
 export const useViewBorderRadiusValue = (borderRadius?: ViewBorderRadius) => {
   const themeContext = useThemeContext()

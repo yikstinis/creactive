@@ -38,5 +38,10 @@ export enum ViewBorderRadius {
   MD,
   LG,
   XL,
+  X2L,
+  X3L,
+  X4L,
+  X5L,
+  X6L,
   MAX,
 }
