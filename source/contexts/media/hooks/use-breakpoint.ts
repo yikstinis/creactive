@@ -8,7 +8,7 @@ export const useMediaBreakpoint = (
   breakpointXL: number,
 ) => {
   const { width } = useWindowDimensions()
-  // Returning memorized breakpoint, based on current width.
+
   return useMemo(() => {
     // Mobile first breakpoint switching ierarchy.
     if (width >= breakpointXL) return MediaBreakpoint.XL
