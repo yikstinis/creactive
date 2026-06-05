@@ -95,16 +95,22 @@ const View: ViewComponent = ({
   const ref = useRef<HTMLDivElement>(null)
   const layoutCallbackRef = useRef(onLayout)
   layoutCallbackRef.current = onLayout
-  // TODO: Add resize event listener and layout callback..
+
   useLayoutEffect(() => {
-    if (ref.current && layoutCallbackRef.current) {
-      const clientRect = ref.current.getBoundingClientRect()
-      layoutCallbackRef.current({
-        width: clientRect.width,
-        height: clientRect.height,
-      })
-    }
+    if (!ref.current) return
+    const observer = new ResizeObserver(([entry]) => {
+      if (layoutCallbackRef.current) {
+        const { width, height } = entry.contentRect
+        layoutCallbackRef.current({
+          width,
+          height,
+        })
+      }
+    })
+    observer.observe(ref.current)
+    return () => observer.disconnect()
   }, [])
+
   return (
     <ViewStyled
       data-testid={testId}

@@ -21,3 +21,51 @@ console.error = (message: unknown, ...args: unknown[]) => {
 
   originalConsoleError(message, ...args)
 }
+
+class MockResizeObserver {
+  static instances: MockResizeObserver[] = []
+  private callback: ResizeObserverCallback
+  private disconnected = false
+
+  constructor(callback: ResizeObserverCallback) {
+    this.callback = callback
+    MockResizeObserver.instances.push(this)
+  }
+
+  observe(_target: Element) {
+    if (this.disconnected) return
+    this.callback(
+      [{ contentRect: { width: 0, height: 0 } } as ResizeObserverEntry],
+      this,
+    )
+  }
+
+  unobserve() {}
+
+  disconnect() {
+    this.disconnected = true
+    MockResizeObserver.instances = MockResizeObserver.instances.filter(
+      (instance) => instance !== this,
+    )
+  }
+
+  trigger(width: number, height: number) {
+    if (this.disconnected) return
+    this.callback(
+      [{ contentRect: { width, height } } as ResizeObserverEntry],
+      this,
+    )
+  }
+}
+
+global.ResizeObserver = MockResizeObserver as unknown as typeof ResizeObserver
+;(global as unknown as Record<string, unknown>).MockResizeObserver =
+  MockResizeObserver
+
+declare global {
+  var MockResizeObserver: {
+    instances: {
+      trigger(width: number, height: number): void
+    }[]
+  }
+}
