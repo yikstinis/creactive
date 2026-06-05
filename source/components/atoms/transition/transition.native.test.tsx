@@ -1,4 +1,3 @@
-import { faker } from '@faker-js/faker'
 import { render, screen } from '@testing-library/react-native'
 import { Transition } from '.'
 
@@ -13,7 +12,7 @@ afterEach(() => {
 describe('@/components/atoms/transition', () => {
   describe('opacity property', () => {
     it('renders with default opacity 1', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(<Transition testId={testId} />)
       expect(screen.getByTestId(testId)).toHaveStyle({ opacity: 1 })
     })
@@ -21,7 +20,7 @@ describe('@/components/atoms/transition', () => {
 
   describe('scale property', () => {
     it('renders with default scale 1 in transform', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(<Transition testId={testId} />)
       expect(screen.getByTestId(testId)).toHaveStyle({
         transform: [{ scale: 1 }, { translateX: 0 }, { translateY: 0 }],
@@ -29,7 +28,7 @@ describe('@/components/atoms/transition', () => {
     })
 
     it('renders with provided fraction scale', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       const fraction = randomFraction()
       render(
         <Transition
@@ -49,7 +48,7 @@ describe('@/components/atoms/transition', () => {
 
   describe('translateX property', () => {
     it('renders with provided pixel translateX', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       const dimension = randomPixelDimension()
       render(
         <Transition
@@ -69,7 +68,7 @@ describe('@/components/atoms/transition', () => {
 
   describe('translateY property', () => {
     it('renders with provided pixel translateY', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       const dimension = randomPixelDimension()
       render(
         <Transition

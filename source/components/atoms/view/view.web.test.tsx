@@ -5,13 +5,13 @@ import { View } from '.'
 describe('@/components/atoms/view', () => {
   describe('tag property', () => {
     it('renders into div element by default', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(<View testId={testId} />)
       expect(screen.getByTestId(testId).tagName).toBe('DIV')
     })
 
     it('renders into figure element', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -22,7 +22,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders into figcaption element', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -33,7 +33,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders into article element', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -44,7 +44,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders into section element', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -55,7 +55,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders into header element', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -66,7 +66,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders into main element', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -77,7 +77,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders into footer element', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -90,7 +90,7 @@ describe('@/components/atoms/view', () => {
 
   describe('top property', () => {
     it('renders with default top style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(<View testId={testId} />)
       expect(screen.getByTestId(testId)).not.toHaveStyleRule(
         'top',
@@ -101,7 +101,7 @@ describe('@/components/atoms/view', () => {
 
   describe('left property', () => {
     it('renders with default left style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(<View testId={testId} />)
       expect(screen.getByTestId(testId)).not.toHaveStyleRule(
         'left',
@@ -112,7 +112,7 @@ describe('@/components/atoms/view', () => {
 
   describe('right property', () => {
     it('renders with default right style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(<View testId={testId} />)
       expect(screen.getByTestId(testId)).not.toHaveStyleRule(
         'right',
@@ -123,7 +123,7 @@ describe('@/components/atoms/view', () => {
 
   describe('bottom property', () => {
     it('renders with default bottom style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(<View testId={testId} />)
       expect(screen.getByTestId(testId)).not.toHaveStyleRule(
         'bottom',
@@ -134,18 +134,33 @@ describe('@/components/atoms/view', () => {
 
   describe('opacity property', () => {
     it('renders with default opacity style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(<View testId={testId} />)
       expect(screen.getByTestId(testId)).not.toHaveStyleRule(
         'opacity',
         expect.anything(),
       )
     })
+
+    it('renders with provided fraction opacity style', () => {
+      const testId = randomTestId()
+      const fraction = randomFraction()
+      render(
+        <View
+          testId={testId}
+          opacity={fraction}
+        />,
+      )
+      expect(screen.getByTestId(testId)).toHaveStyleRule(
+        'opacity',
+        String(fraction.toValue()),
+      )
+    })
   })
 
   describe('flex grow property', () => {
     it('renders with default flex grow style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(<View testId={testId} />)
       expect(screen.getByTestId(testId)).not.toHaveStyleRule(
         'flex-grow',
@@ -156,7 +171,7 @@ describe('@/components/atoms/view', () => {
 
   describe('flex shrink property', () => {
     it('renders with default flex shrink style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(<View testId={testId} />)
       expect(screen.getByTestId(testId)).not.toHaveStyleRule(
         'flex-shrink',
@@ -167,7 +182,7 @@ describe('@/components/atoms/view', () => {
 
   describe('flex basis property', () => {
     it('renders with default flex basis style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(<View testId={testId} />)
       expect(screen.getByTestId(testId)).not.toHaveStyleRule(
         'flex-basis',
@@ -178,7 +193,7 @@ describe('@/components/atoms/view', () => {
 
   describe('align self property', () => {
     it('renders with default align self style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(<View testId={testId} />)
       expect(screen.getByTestId(testId)).not.toHaveStyleRule(
         'align-self',
@@ -189,7 +204,7 @@ describe('@/components/atoms/view', () => {
 
   describe('align content property', () => {
     it('renders with default align content style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(<View testId={testId} />)
       expect(screen.getByTestId(testId)).not.toHaveStyleRule(
         'align-content',
@@ -200,7 +215,7 @@ describe('@/components/atoms/view', () => {
 
   describe('gap property', () => {
     it('renders with default gap style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(<View testId={testId} />)
       expect(screen.getByTestId(testId)).not.toHaveStyleRule(
         'gap',
@@ -211,7 +226,7 @@ describe('@/components/atoms/view', () => {
 
   describe('margin top property', () => {
     it('renders with default margin top style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(<View testId={testId} />)
       expect(screen.getByTestId(testId)).not.toHaveStyleRule(
         'margin-top',
@@ -222,7 +237,7 @@ describe('@/components/atoms/view', () => {
 
   describe('padding top property', () => {
     it('renders with default padding top style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(<View testId={testId} />)
       expect(screen.getByTestId(testId)).not.toHaveStyleRule(
         'padding-top',
@@ -233,7 +248,7 @@ describe('@/components/atoms/view', () => {
 
   describe('margin left property', () => {
     it('renders with default margin left style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(<View testId={testId} />)
       expect(screen.getByTestId(testId)).not.toHaveStyleRule(
         'margin-left',
@@ -244,7 +259,7 @@ describe('@/components/atoms/view', () => {
 
   describe('padding left property', () => {
     it('renders with default padding left style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(<View testId={testId} />)
       expect(screen.getByTestId(testId)).not.toHaveStyleRule(
         'padding-left',
@@ -255,7 +270,7 @@ describe('@/components/atoms/view', () => {
 
   describe('margin right property', () => {
     it('renders with default margin right style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(<View testId={testId} />)
       expect(screen.getByTestId(testId)).not.toHaveStyleRule(
         'margin-right',
@@ -266,7 +281,7 @@ describe('@/components/atoms/view', () => {
 
   describe('padding right property', () => {
     it('renders with default padding right style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(<View testId={testId} />)
       expect(screen.getByTestId(testId)).not.toHaveStyleRule(
         'padding-right',
@@ -277,7 +292,7 @@ describe('@/components/atoms/view', () => {
 
   describe('margin bottom property', () => {
     it('renders with default margin bottom style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(<View testId={testId} />)
       expect(screen.getByTestId(testId)).not.toHaveStyleRule(
         'margin-bottom',
@@ -288,7 +303,7 @@ describe('@/components/atoms/view', () => {
 
   describe('padding bottom property', () => {
     it('renders with default padding bottom style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(<View testId={testId} />)
       expect(screen.getByTestId(testId)).not.toHaveStyleRule(
         'padding-bottom',
@@ -299,7 +314,7 @@ describe('@/components/atoms/view', () => {
 
   describe('min width property', () => {
     it('renders with default min width style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(<View testId={testId} />)
       expect(screen.getByTestId(testId)).not.toHaveStyleRule(
         'min-width',
@@ -310,7 +325,7 @@ describe('@/components/atoms/view', () => {
 
   describe('width property', () => {
     it('renders with default width style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(<View testId={testId} />)
       expect(screen.getByTestId(testId)).not.toHaveStyleRule(
         'width',
@@ -321,7 +336,7 @@ describe('@/components/atoms/view', () => {
 
   describe('max width property', () => {
     it('renders with default max width style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(<View testId={testId} />)
       expect(screen.getByTestId(testId)).not.toHaveStyleRule(
         'max-width',
@@ -332,7 +347,7 @@ describe('@/components/atoms/view', () => {
 
   describe('min height property', () => {
     it('renders with default min height style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(<View testId={testId} />)
       expect(screen.getByTestId(testId)).not.toHaveStyleRule(
         'min-height',
@@ -343,7 +358,7 @@ describe('@/components/atoms/view', () => {
 
   describe('height property', () => {
     it('renders with default height style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(<View testId={testId} />)
       expect(screen.getByTestId(testId)).not.toHaveStyleRule(
         'height',
@@ -354,7 +369,7 @@ describe('@/components/atoms/view', () => {
 
   describe('max height property', () => {
     it('renders with default max height style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(<View testId={testId} />)
       expect(screen.getByTestId(testId)).not.toHaveStyleRule(
         'max-height',
@@ -365,7 +380,7 @@ describe('@/components/atoms/view', () => {
 
   describe('box shadow property', () => {
     it('renders with default box shadow style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(<View testId={testId} />)
       expect(screen.getByTestId(testId)).not.toHaveStyleRule(
         'box-shadow',
@@ -376,7 +391,7 @@ describe('@/components/atoms/view', () => {
 
   describe('border color property', () => {
     it('renders with default border color style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(<View testId={testId} />)
       expect(screen.getByTestId(testId)).not.toHaveStyleRule(
         'border-color',
@@ -387,7 +402,7 @@ describe('@/components/atoms/view', () => {
 
   describe('border width property', () => {
     it('renders with default border width style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(<View testId={testId} />)
       expect(screen.getByTestId(testId)).toHaveStyle({
         borderWidth: 0,
@@ -397,7 +412,7 @@ describe('@/components/atoms/view', () => {
 
   describe('border width top property', () => {
     it('renders with default border width top style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(<View testId={testId} />)
       expect(screen.getByTestId(testId)).toHaveStyle({
         borderTopWidth: 0,
@@ -407,7 +422,7 @@ describe('@/components/atoms/view', () => {
 
   describe('border width left property', () => {
     it('renders with default border width left style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(<View testId={testId} />)
       expect(screen.getByTestId(testId)).toHaveStyle({
         borderLeftWidth: 0,
@@ -417,7 +432,7 @@ describe('@/components/atoms/view', () => {
 
   describe('border width right property', () => {
     it('renders with default border width right style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(<View testId={testId} />)
       expect(screen.getByTestId(testId)).toHaveStyle({
         borderRightWidth: 0,
@@ -427,7 +442,7 @@ describe('@/components/atoms/view', () => {
 
   describe('border width bottom property', () => {
     it('renders with default border width bottom style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(<View testId={testId} />)
       expect(screen.getByTestId(testId)).toHaveStyle({
         borderBottomWidth: 0,
@@ -437,7 +452,7 @@ describe('@/components/atoms/view', () => {
 
   describe('border radius property', () => {
     it('renders with default border radius style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(<View testId={testId} />)
       expect(screen.getByTestId(testId)).not.toHaveStyleRule(
         'border-radius',
@@ -448,7 +463,7 @@ describe('@/components/atoms/view', () => {
 
   describe('border radius top left property', () => {
     it('renders with default border radius top left style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(<View testId={testId} />)
       expect(screen.getByTestId(testId)).not.toHaveStyleRule(
         'border-top-left-radius',
@@ -459,7 +474,7 @@ describe('@/components/atoms/view', () => {
 
   describe('border radius top right property', () => {
     it('renders with default border radius top right style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(<View testId={testId} />)
       expect(screen.getByTestId(testId)).not.toHaveStyleRule(
         'border-top-right-radius',
@@ -470,7 +485,7 @@ describe('@/components/atoms/view', () => {
 
   describe('border radius bottom left property', () => {
     it('renders with default border radius bottom left style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(<View testId={testId} />)
       expect(screen.getByTestId(testId)).not.toHaveStyleRule(
         'border-bottom-left-radius',
@@ -481,7 +496,7 @@ describe('@/components/atoms/view', () => {
 
   describe('border radius bottom right property', () => {
     it('renders with default border radius bottom right style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(<View testId={testId} />)
       expect(screen.getByTestId(testId)).not.toHaveStyleRule(
         'border-bottom-right-radius',
@@ -492,7 +507,7 @@ describe('@/components/atoms/view', () => {
 
   describe('background color property', () => {
     it('renders with default background color style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(<View testId={testId} />)
       expect(screen.getByTestId(testId)).not.toHaveStyleRule(
         'background-color',
@@ -501,7 +516,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with transparent background color style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -515,7 +530,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with custom rgb background color style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       const backgroundColor = randomRgb()
       render(
         <View
@@ -530,7 +545,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with custom rgba background color style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       const backgroundColor = randomRgba()
       render(
         <View
@@ -551,7 +566,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('calls provided callback when component mounted', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       const handleLayout = jest.fn()
       render(
         <View

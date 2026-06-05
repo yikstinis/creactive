@@ -1,4 +1,3 @@
-import { faker } from '@faker-js/faker'
 import { render, screen } from '@testing-library/react-native'
 import { Transition } from '.'
 
@@ -13,7 +12,7 @@ afterEach(() => {
 describe('@/components/atoms/transition', () => {
   describe('test id property', () => {
     it('renders with provided test id', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(<Transition testId={testId} />)
       expect(screen.getByTestId(testId)).toBeTruthy()
     })
@@ -21,8 +20,8 @@ describe('@/components/atoms/transition', () => {
 
   describe('children property', () => {
     it('renders provided children', () => {
-      const testId = faker.string.uuid()
-      const childTestId = faker.string.uuid()
+      const testId = randomTestId()
+      const childTestId = randomTestId()
       render(
         <Transition testId={testId}>
           <Transition testId={childTestId} />
@@ -34,7 +33,7 @@ describe('@/components/atoms/transition', () => {
 
   describe('opacity property', () => {
     it('renders with provided fraction opacity', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       const fraction = randomFraction()
       render(
         <Transition

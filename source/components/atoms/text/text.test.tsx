@@ -29,7 +29,7 @@ describe('@/components/atoms/text', () => {
 
   describe('text align property', () => {
     it('renders with default text align', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       const text = faker.lorem.sentence()
       render(<Text testId={testId}>{text}</Text>)
       expect(screen.getByTestId(testId)).toHaveStyle({
@@ -38,7 +38,7 @@ describe('@/components/atoms/text', () => {
     })
 
     it('renders with left text align', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       const text = faker.lorem.sentence()
       render(
         <Text
@@ -54,7 +54,7 @@ describe('@/components/atoms/text', () => {
     })
 
     it('renders with center text align', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       const text = faker.lorem.sentence()
       render(
         <Text
@@ -70,7 +70,7 @@ describe('@/components/atoms/text', () => {
     })
 
     it('renders with right text align', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       const text = faker.lorem.sentence()
       render(
         <Text
@@ -88,7 +88,7 @@ describe('@/components/atoms/text', () => {
 
   describe('text decoration property', () => {
     it('renders with none text decoration by default', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       const text = faker.lorem.sentence()
       render(<Text testId={testId}>{text}</Text>)
       expect(screen.getByTestId(testId)).toHaveStyle({
@@ -97,7 +97,7 @@ describe('@/components/atoms/text', () => {
     })
 
     it('renders with none text decoration', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       const text = faker.lorem.sentence()
       render(
         <Text
@@ -113,7 +113,7 @@ describe('@/components/atoms/text', () => {
     })
 
     it('renders with underline text decoration', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       const text = faker.lorem.sentence()
       render(
         <Text
@@ -131,7 +131,7 @@ describe('@/components/atoms/text', () => {
 
   describe('font family property', () => {
     it('renders with base font family by default', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       const text = faker.lorem.sentence()
       render(<Text testId={testId}>{text}</Text>)
       expect(screen.getByTestId(testId)).toHaveStyle({
@@ -152,7 +152,7 @@ describe('@/components/atoms/text', () => {
     })
 
     it('renders with base font family', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       const text = faker.lorem.sentence()
       render(
         <Text
@@ -180,7 +180,7 @@ describe('@/components/atoms/text', () => {
     })
 
     it('renders with typographic font family', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       const text = faker.lorem.sentence()
       render(
         <Text
@@ -202,7 +202,7 @@ describe('@/components/atoms/text', () => {
 
   describe('font weight property', () => {
     it('renders with regular font weight by default', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       const text = faker.lorem.sentence()
       render(<Text testId={testId}>{text}</Text>)
       expect(screen.getByTestId(testId)).toHaveStyle({
@@ -211,7 +211,7 @@ describe('@/components/atoms/text', () => {
     })
 
     it('renders with thin font weight', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       const text = faker.lorem.sentence()
       render(
         <Text
@@ -227,7 +227,7 @@ describe('@/components/atoms/text', () => {
     })
 
     it('renders with extra-light font weight', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       const text = faker.lorem.sentence()
       render(
         <Text
@@ -243,7 +243,7 @@ describe('@/components/atoms/text', () => {
     })
 
     it('renders with light font weight', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       const text = faker.lorem.sentence()
       render(
         <Text
@@ -259,7 +259,7 @@ describe('@/components/atoms/text', () => {
     })
 
     it('renders with regular font weight', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       const text = faker.lorem.sentence()
       render(
         <Text
@@ -275,7 +275,7 @@ describe('@/components/atoms/text', () => {
     })
 
     it('renders with medium font weight', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       const text = faker.lorem.sentence()
       render(
         <Text
@@ -291,7 +291,7 @@ describe('@/components/atoms/text', () => {
     })
 
     it('renders with semibold font weight', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       const text = faker.lorem.sentence()
       render(
         <Text
@@ -307,7 +307,7 @@ describe('@/components/atoms/text', () => {
     })
 
     it('renders with bold font weight', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       const text = faker.lorem.sentence()
       render(
         <Text
@@ -323,7 +323,7 @@ describe('@/components/atoms/text', () => {
     })
 
     it('renders with extra-bold font weight', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       const text = faker.lorem.sentence()
       render(
         <Text
@@ -339,7 +339,7 @@ describe('@/components/atoms/text', () => {
     })
 
     it('renders with black font weight', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       const text = faker.lorem.sentence()
       render(
         <Text
@@ -357,7 +357,7 @@ describe('@/components/atoms/text', () => {
 
   describe('font size property', () => {
     it('renders with medium font size by default', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       const text = faker.lorem.sentence()
       render(<Text testId={testId}>{text}</Text>)
       expect(screen.getByTestId(testId)).toHaveStyle({
@@ -366,7 +366,7 @@ describe('@/components/atoms/text', () => {
     })
 
     it('renders with 2 times extra-small font size', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       const text = faker.lorem.sentence()
       render(
         <Text
@@ -382,7 +382,7 @@ describe('@/components/atoms/text', () => {
     })
 
     it('renders with extra-small font size', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       const text = faker.lorem.sentence()
       render(
         <Text
@@ -398,7 +398,7 @@ describe('@/components/atoms/text', () => {
     })
 
     it('renders with small font size', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       const text = faker.lorem.sentence()
       render(
         <Text
@@ -414,7 +414,7 @@ describe('@/components/atoms/text', () => {
     })
 
     it('renders with medium font size', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       const text = faker.lorem.sentence()
       render(
         <Text
@@ -430,7 +430,7 @@ describe('@/components/atoms/text', () => {
     })
 
     it('renders with large font size', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       const text = faker.lorem.sentence()
       render(
         <Text
@@ -446,7 +446,7 @@ describe('@/components/atoms/text', () => {
     })
 
     it('renders with extra-large font size', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       const text = faker.lorem.sentence()
       render(
         <Text
@@ -462,7 +462,7 @@ describe('@/components/atoms/text', () => {
     })
 
     it('renders with 2 times large font size', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       const text = faker.lorem.sentence()
       render(
         <Text
@@ -478,7 +478,7 @@ describe('@/components/atoms/text', () => {
     })
 
     it('renders with 3 times large font size', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       const text = faker.lorem.sentence()
       render(
         <Text
@@ -494,7 +494,7 @@ describe('@/components/atoms/text', () => {
     })
 
     it('renders with 4 times large font size', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       const text = faker.lorem.sentence()
       render(
         <Text
@@ -510,7 +510,7 @@ describe('@/components/atoms/text', () => {
     })
 
     it('renders with 5 times large font size', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       const text = faker.lorem.sentence()
       render(
         <Text
@@ -526,7 +526,7 @@ describe('@/components/atoms/text', () => {
     })
 
     it('renders with 6 times large font size', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       const text = faker.lorem.sentence()
       render(
         <Text
@@ -545,7 +545,7 @@ describe('@/components/atoms/text', () => {
   describe('line height property', () => {
     describe('with default font size', () => {
       it('renders with normal line height by default', () => {
-        const testId = faker.string.uuid()
+        const testId = randomTestId()
         const text = faker.lorem.sentence()
         render(<Text testId={testId}>{text}</Text>)
         expect(screen.getByTestId(testId)).toHavePlatformStyle({
@@ -554,7 +554,7 @@ describe('@/components/atoms/text', () => {
       })
 
       it('renders with none line height', () => {
-        const testId = faker.string.uuid()
+        const testId = randomTestId()
         const text = faker.lorem.sentence()
         render(
           <Text
@@ -570,7 +570,7 @@ describe('@/components/atoms/text', () => {
       })
 
       it('renders with tight line height', () => {
-        const testId = faker.string.uuid()
+        const testId = randomTestId()
         const text = faker.lorem.sentence()
         render(
           <Text
@@ -586,7 +586,7 @@ describe('@/components/atoms/text', () => {
       })
 
       it('renders with snug line height', () => {
-        const testId = faker.string.uuid()
+        const testId = randomTestId()
         const text = faker.lorem.sentence()
         render(
           <Text
@@ -602,7 +602,7 @@ describe('@/components/atoms/text', () => {
       })
 
       it('renders with normal line height', () => {
-        const testId = faker.string.uuid()
+        const testId = randomTestId()
         const text = faker.lorem.sentence()
         render(
           <Text
@@ -618,7 +618,7 @@ describe('@/components/atoms/text', () => {
       })
 
       it('renders with relaxed line height', () => {
-        const testId = faker.string.uuid()
+        const testId = randomTestId()
         const text = faker.lorem.sentence()
         render(
           <Text
@@ -634,7 +634,7 @@ describe('@/components/atoms/text', () => {
       })
 
       it('renders with loose line height', () => {
-        const testId = faker.string.uuid()
+        const testId = randomTestId()
         const text = faker.lorem.sentence()
         render(
           <Text
@@ -652,7 +652,7 @@ describe('@/components/atoms/text', () => {
 
     describe('with 2 times extra-small font size', () => {
       it('renders with normal line height by default', () => {
-        const testId = faker.string.uuid()
+        const testId = randomTestId()
         const text = faker.lorem.sentence()
         render(
           <Text
@@ -668,7 +668,7 @@ describe('@/components/atoms/text', () => {
       })
 
       it('renders with none line height', () => {
-        const testId = faker.string.uuid()
+        const testId = randomTestId()
         const text = faker.lorem.sentence()
         render(
           <Text
@@ -685,7 +685,7 @@ describe('@/components/atoms/text', () => {
       })
 
       it('renders with tight line height', () => {
-        const testId = faker.string.uuid()
+        const testId = randomTestId()
         const text = faker.lorem.sentence()
         render(
           <Text
@@ -702,7 +702,7 @@ describe('@/components/atoms/text', () => {
       })
 
       it('renders with snug line height', () => {
-        const testId = faker.string.uuid()
+        const testId = randomTestId()
         const text = faker.lorem.sentence()
         render(
           <Text
@@ -719,7 +719,7 @@ describe('@/components/atoms/text', () => {
       })
 
       it('renders with normal line height', () => {
-        const testId = faker.string.uuid()
+        const testId = randomTestId()
         const text = faker.lorem.sentence()
         render(
           <Text
@@ -733,7 +733,7 @@ describe('@/components/atoms/text', () => {
       })
 
       it('renders with relaxed line height', () => {
-        const testId = faker.string.uuid()
+        const testId = randomTestId()
         const text = faker.lorem.sentence()
         render(
           <Text
@@ -750,7 +750,7 @@ describe('@/components/atoms/text', () => {
       })
 
       it('renders with loose line height', () => {
-        const testId = faker.string.uuid()
+        const testId = randomTestId()
         const text = faker.lorem.sentence()
         render(
           <Text
@@ -769,7 +769,7 @@ describe('@/components/atoms/text', () => {
 
     describe('with extra-small font size', () => {
       it('renders with normal line height by default', () => {
-        const testId = faker.string.uuid()
+        const testId = randomTestId()
         const text = faker.lorem.sentence()
         render(
           <Text
@@ -785,7 +785,7 @@ describe('@/components/atoms/text', () => {
       })
 
       it('renders with none line height', () => {
-        const testId = faker.string.uuid()
+        const testId = randomTestId()
         const text = faker.lorem.sentence()
         render(
           <Text
@@ -802,7 +802,7 @@ describe('@/components/atoms/text', () => {
       })
 
       it('renders with tight line height', () => {
-        const testId = faker.string.uuid()
+        const testId = randomTestId()
         const text = faker.lorem.sentence()
         render(
           <Text
@@ -819,7 +819,7 @@ describe('@/components/atoms/text', () => {
       })
 
       it('renders with snug line height', () => {
-        const testId = faker.string.uuid()
+        const testId = randomTestId()
         const text = faker.lorem.sentence()
         render(
           <Text
@@ -836,7 +836,7 @@ describe('@/components/atoms/text', () => {
       })
 
       it('renders with normal line height', () => {
-        const testId = faker.string.uuid()
+        const testId = randomTestId()
         const text = faker.lorem.sentence()
         render(
           <Text
@@ -853,7 +853,7 @@ describe('@/components/atoms/text', () => {
       })
 
       it('renders with relaxed line height', () => {
-        const testId = faker.string.uuid()
+        const testId = randomTestId()
         const text = faker.lorem.sentence()
         render(
           <Text
@@ -870,7 +870,7 @@ describe('@/components/atoms/text', () => {
       })
 
       it('renders with loose line height', () => {
-        const testId = faker.string.uuid()
+        const testId = randomTestId()
         const text = faker.lorem.sentence()
         render(
           <Text
@@ -889,7 +889,7 @@ describe('@/components/atoms/text', () => {
 
     describe('with small font size', () => {
       it('renders with normal line height by default', () => {
-        const testId = faker.string.uuid()
+        const testId = randomTestId()
         const text = faker.lorem.sentence()
         render(
           <Text
@@ -905,7 +905,7 @@ describe('@/components/atoms/text', () => {
       })
 
       it('renders with none line height', () => {
-        const testId = faker.string.uuid()
+        const testId = randomTestId()
         const text = faker.lorem.sentence()
         render(
           <Text
@@ -922,7 +922,7 @@ describe('@/components/atoms/text', () => {
       })
 
       it('renders with tight line height', () => {
-        const testId = faker.string.uuid()
+        const testId = randomTestId()
         const text = faker.lorem.sentence()
         render(
           <Text
@@ -939,7 +939,7 @@ describe('@/components/atoms/text', () => {
       })
 
       it('renders with snug line height', () => {
-        const testId = faker.string.uuid()
+        const testId = randomTestId()
         const text = faker.lorem.sentence()
         render(
           <Text
@@ -956,7 +956,7 @@ describe('@/components/atoms/text', () => {
       })
 
       it('renders with normal line height', () => {
-        const testId = faker.string.uuid()
+        const testId = randomTestId()
         const text = faker.lorem.sentence()
         render(
           <Text
@@ -973,7 +973,7 @@ describe('@/components/atoms/text', () => {
       })
 
       it('renders with relaxed line height', () => {
-        const testId = faker.string.uuid()
+        const testId = randomTestId()
         const text = faker.lorem.sentence()
         render(
           <Text
@@ -990,7 +990,7 @@ describe('@/components/atoms/text', () => {
       })
 
       it('renders with loose line height', () => {
-        const testId = faker.string.uuid()
+        const testId = randomTestId()
         const text = faker.lorem.sentence()
         render(
           <Text
@@ -1009,7 +1009,7 @@ describe('@/components/atoms/text', () => {
 
     describe('with medium font size', () => {
       it('renders with normal line height by default', () => {
-        const testId = faker.string.uuid()
+        const testId = randomTestId()
         const text = faker.lorem.sentence()
         render(
           <Text
@@ -1025,7 +1025,7 @@ describe('@/components/atoms/text', () => {
       })
 
       it('renders with none line height', () => {
-        const testId = faker.string.uuid()
+        const testId = randomTestId()
         const text = faker.lorem.sentence()
         render(
           <Text
@@ -1042,7 +1042,7 @@ describe('@/components/atoms/text', () => {
       })
 
       it('renders with tight line height', () => {
-        const testId = faker.string.uuid()
+        const testId = randomTestId()
         const text = faker.lorem.sentence()
         render(
           <Text
@@ -1059,7 +1059,7 @@ describe('@/components/atoms/text', () => {
       })
 
       it('renders with snug line height', () => {
-        const testId = faker.string.uuid()
+        const testId = randomTestId()
         const text = faker.lorem.sentence()
         render(
           <Text
@@ -1076,7 +1076,7 @@ describe('@/components/atoms/text', () => {
       })
 
       it('renders with normal line height', () => {
-        const testId = faker.string.uuid()
+        const testId = randomTestId()
         const text = faker.lorem.sentence()
         render(
           <Text
@@ -1093,7 +1093,7 @@ describe('@/components/atoms/text', () => {
       })
 
       it('renders with relaxed line height', () => {
-        const testId = faker.string.uuid()
+        const testId = randomTestId()
         const text = faker.lorem.sentence()
         render(
           <Text
@@ -1110,7 +1110,7 @@ describe('@/components/atoms/text', () => {
       })
 
       it('renders with loose line height', () => {
-        const testId = faker.string.uuid()
+        const testId = randomTestId()
         const text = faker.lorem.sentence()
         render(
           <Text
@@ -1129,7 +1129,7 @@ describe('@/components/atoms/text', () => {
 
     describe('with large font size', () => {
       it('renders with normal line height by default', () => {
-        const testId = faker.string.uuid()
+        const testId = randomTestId()
         const text = faker.lorem.sentence()
         render(
           <Text
@@ -1145,7 +1145,7 @@ describe('@/components/atoms/text', () => {
       })
 
       it('renders with none line height', () => {
-        const testId = faker.string.uuid()
+        const testId = randomTestId()
         const text = faker.lorem.sentence()
         render(
           <Text
@@ -1162,7 +1162,7 @@ describe('@/components/atoms/text', () => {
       })
 
       it('renders with tight line height', () => {
-        const testId = faker.string.uuid()
+        const testId = randomTestId()
         const text = faker.lorem.sentence()
         render(
           <Text
@@ -1179,7 +1179,7 @@ describe('@/components/atoms/text', () => {
       })
 
       it('renders with snug line height', () => {
-        const testId = faker.string.uuid()
+        const testId = randomTestId()
         const text = faker.lorem.sentence()
         render(
           <Text
@@ -1196,7 +1196,7 @@ describe('@/components/atoms/text', () => {
       })
 
       it('renders with normal line height', () => {
-        const testId = faker.string.uuid()
+        const testId = randomTestId()
         const text = faker.lorem.sentence()
         render(
           <Text
@@ -1213,7 +1213,7 @@ describe('@/components/atoms/text', () => {
       })
 
       it('renders with relaxed line height', () => {
-        const testId = faker.string.uuid()
+        const testId = randomTestId()
         const text = faker.lorem.sentence()
         render(
           <Text
@@ -1230,7 +1230,7 @@ describe('@/components/atoms/text', () => {
       })
 
       it('renders with loose line height', () => {
-        const testId = faker.string.uuid()
+        const testId = randomTestId()
         const text = faker.lorem.sentence()
         render(
           <Text
@@ -1249,7 +1249,7 @@ describe('@/components/atoms/text', () => {
 
     describe('with extra-large font size', () => {
       it('renders with normal line height by default', () => {
-        const testId = faker.string.uuid()
+        const testId = randomTestId()
         const text = faker.lorem.sentence()
         render(
           <Text
@@ -1265,7 +1265,7 @@ describe('@/components/atoms/text', () => {
       })
 
       it('renders with none line height', () => {
-        const testId = faker.string.uuid()
+        const testId = randomTestId()
         const text = faker.lorem.sentence()
         render(
           <Text
@@ -1282,7 +1282,7 @@ describe('@/components/atoms/text', () => {
       })
 
       it('renders with tight line height', () => {
-        const testId = faker.string.uuid()
+        const testId = randomTestId()
         const text = faker.lorem.sentence()
         render(
           <Text
@@ -1299,7 +1299,7 @@ describe('@/components/atoms/text', () => {
       })
 
       it('renders with snug line height', () => {
-        const testId = faker.string.uuid()
+        const testId = randomTestId()
         const text = faker.lorem.sentence()
         render(
           <Text
@@ -1316,7 +1316,7 @@ describe('@/components/atoms/text', () => {
       })
 
       it('renders with normal line height', () => {
-        const testId = faker.string.uuid()
+        const testId = randomTestId()
         const text = faker.lorem.sentence()
         render(
           <Text
@@ -1333,7 +1333,7 @@ describe('@/components/atoms/text', () => {
       })
 
       it('renders with relaxed line height', () => {
-        const testId = faker.string.uuid()
+        const testId = randomTestId()
         const text = faker.lorem.sentence()
         render(
           <Text
@@ -1350,7 +1350,7 @@ describe('@/components/atoms/text', () => {
       })
 
       it('renders with loose line height', () => {
-        const testId = faker.string.uuid()
+        const testId = randomTestId()
         const text = faker.lorem.sentence()
         render(
           <Text
@@ -1369,7 +1369,7 @@ describe('@/components/atoms/text', () => {
 
     describe('with 2 times extra-large font size', () => {
       it('renders with normal line height by default', () => {
-        const testId = faker.string.uuid()
+        const testId = randomTestId()
         const text = faker.lorem.sentence()
         render(
           <Text
@@ -1385,7 +1385,7 @@ describe('@/components/atoms/text', () => {
       })
 
       it('renders with none line height', () => {
-        const testId = faker.string.uuid()
+        const testId = randomTestId()
         const text = faker.lorem.sentence()
         render(
           <Text
@@ -1402,7 +1402,7 @@ describe('@/components/atoms/text', () => {
       })
 
       it('renders with tight line height', () => {
-        const testId = faker.string.uuid()
+        const testId = randomTestId()
         const text = faker.lorem.sentence()
         render(
           <Text
@@ -1419,7 +1419,7 @@ describe('@/components/atoms/text', () => {
       })
 
       it('renders with snug line height', () => {
-        const testId = faker.string.uuid()
+        const testId = randomTestId()
         const text = faker.lorem.sentence()
         render(
           <Text
@@ -1436,7 +1436,7 @@ describe('@/components/atoms/text', () => {
       })
 
       it('renders with normal line height', () => {
-        const testId = faker.string.uuid()
+        const testId = randomTestId()
         const text = faker.lorem.sentence()
         render(
           <Text
@@ -1453,7 +1453,7 @@ describe('@/components/atoms/text', () => {
       })
 
       it('renders with relaxed line height', () => {
-        const testId = faker.string.uuid()
+        const testId = randomTestId()
         const text = faker.lorem.sentence()
         render(
           <Text
@@ -1470,7 +1470,7 @@ describe('@/components/atoms/text', () => {
       })
 
       it('renders with loose line height', () => {
-        const testId = faker.string.uuid()
+        const testId = randomTestId()
         const text = faker.lorem.sentence()
         render(
           <Text
@@ -1489,7 +1489,7 @@ describe('@/components/atoms/text', () => {
 
     describe('with 3 times extra-large font size', () => {
       it('renders with normal line height by default', () => {
-        const testId = faker.string.uuid()
+        const testId = randomTestId()
         const text = faker.lorem.sentence()
         render(
           <Text
@@ -1505,7 +1505,7 @@ describe('@/components/atoms/text', () => {
       })
 
       it('renders with none line height', () => {
-        const testId = faker.string.uuid()
+        const testId = randomTestId()
         const text = faker.lorem.sentence()
         render(
           <Text
@@ -1522,7 +1522,7 @@ describe('@/components/atoms/text', () => {
       })
 
       it('renders with tight line height', () => {
-        const testId = faker.string.uuid()
+        const testId = randomTestId()
         const text = faker.lorem.sentence()
         render(
           <Text
@@ -1539,7 +1539,7 @@ describe('@/components/atoms/text', () => {
       })
 
       it('renders with snug line height', () => {
-        const testId = faker.string.uuid()
+        const testId = randomTestId()
         const text = faker.lorem.sentence()
         render(
           <Text
@@ -1556,7 +1556,7 @@ describe('@/components/atoms/text', () => {
       })
 
       it('renders with normal line height', () => {
-        const testId = faker.string.uuid()
+        const testId = randomTestId()
         const text = faker.lorem.sentence()
         render(
           <Text
@@ -1573,7 +1573,7 @@ describe('@/components/atoms/text', () => {
       })
 
       it('renders with relaxed line height', () => {
-        const testId = faker.string.uuid()
+        const testId = randomTestId()
         const text = faker.lorem.sentence()
         render(
           <Text
@@ -1590,7 +1590,7 @@ describe('@/components/atoms/text', () => {
       })
 
       it('renders with loose line height', () => {
-        const testId = faker.string.uuid()
+        const testId = randomTestId()
         const text = faker.lorem.sentence()
         render(
           <Text
@@ -1609,7 +1609,7 @@ describe('@/components/atoms/text', () => {
 
     describe('with 4 times extra-large font size', () => {
       it('renders with normal line height by default', () => {
-        const testId = faker.string.uuid()
+        const testId = randomTestId()
         const text = faker.lorem.sentence()
         render(
           <Text
@@ -1625,7 +1625,7 @@ describe('@/components/atoms/text', () => {
       })
 
       it('renders with none line height', () => {
-        const testId = faker.string.uuid()
+        const testId = randomTestId()
         const text = faker.lorem.sentence()
         render(
           <Text
@@ -1642,7 +1642,7 @@ describe('@/components/atoms/text', () => {
       })
 
       it('renders with tight line height', () => {
-        const testId = faker.string.uuid()
+        const testId = randomTestId()
         const text = faker.lorem.sentence()
         render(
           <Text
@@ -1659,7 +1659,7 @@ describe('@/components/atoms/text', () => {
       })
 
       it('renders with snug line height', () => {
-        const testId = faker.string.uuid()
+        const testId = randomTestId()
         const text = faker.lorem.sentence()
         render(
           <Text
@@ -1676,7 +1676,7 @@ describe('@/components/atoms/text', () => {
       })
 
       it('renders with normal line height', () => {
-        const testId = faker.string.uuid()
+        const testId = randomTestId()
         const text = faker.lorem.sentence()
         render(
           <Text
@@ -1693,7 +1693,7 @@ describe('@/components/atoms/text', () => {
       })
 
       it('renders with relaxed line height', () => {
-        const testId = faker.string.uuid()
+        const testId = randomTestId()
         const text = faker.lorem.sentence()
         render(
           <Text
@@ -1710,7 +1710,7 @@ describe('@/components/atoms/text', () => {
       })
 
       it('renders with loose line height', () => {
-        const testId = faker.string.uuid()
+        const testId = randomTestId()
         const text = faker.lorem.sentence()
         render(
           <Text
@@ -1729,7 +1729,7 @@ describe('@/components/atoms/text', () => {
 
     describe('with 5 times extra-large font size', () => {
       it('renders with normal line height by default', () => {
-        const testId = faker.string.uuid()
+        const testId = randomTestId()
         const text = faker.lorem.sentence()
         render(
           <Text
@@ -1745,7 +1745,7 @@ describe('@/components/atoms/text', () => {
       })
 
       it('renders with none line height', () => {
-        const testId = faker.string.uuid()
+        const testId = randomTestId()
         const text = faker.lorem.sentence()
         render(
           <Text
@@ -1762,7 +1762,7 @@ describe('@/components/atoms/text', () => {
       })
 
       it('renders with tight line height', () => {
-        const testId = faker.string.uuid()
+        const testId = randomTestId()
         const text = faker.lorem.sentence()
         render(
           <Text
@@ -1779,7 +1779,7 @@ describe('@/components/atoms/text', () => {
       })
 
       it('renders with snug line height', () => {
-        const testId = faker.string.uuid()
+        const testId = randomTestId()
         const text = faker.lorem.sentence()
         render(
           <Text
@@ -1796,7 +1796,7 @@ describe('@/components/atoms/text', () => {
       })
 
       it('renders with normal line height', () => {
-        const testId = faker.string.uuid()
+        const testId = randomTestId()
         const text = faker.lorem.sentence()
         render(
           <Text
@@ -1813,7 +1813,7 @@ describe('@/components/atoms/text', () => {
       })
 
       it('renders with relaxed line height', () => {
-        const testId = faker.string.uuid()
+        const testId = randomTestId()
         const text = faker.lorem.sentence()
         render(
           <Text
@@ -1830,7 +1830,7 @@ describe('@/components/atoms/text', () => {
       })
 
       it('renders with loose line height', () => {
-        const testId = faker.string.uuid()
+        const testId = randomTestId()
         const text = faker.lorem.sentence()
         render(
           <Text
@@ -1849,7 +1849,7 @@ describe('@/components/atoms/text', () => {
 
     describe('with 6 times extra-large font size', () => {
       it('renders with normal line height by default', () => {
-        const testId = faker.string.uuid()
+        const testId = randomTestId()
         const text = faker.lorem.sentence()
         render(
           <Text
@@ -1865,7 +1865,7 @@ describe('@/components/atoms/text', () => {
       })
 
       it('renders with none line height', () => {
-        const testId = faker.string.uuid()
+        const testId = randomTestId()
         const text = faker.lorem.sentence()
         render(
           <Text
@@ -1882,7 +1882,7 @@ describe('@/components/atoms/text', () => {
       })
 
       it('renders with tight line height', () => {
-        const testId = faker.string.uuid()
+        const testId = randomTestId()
         const text = faker.lorem.sentence()
         render(
           <Text
@@ -1899,7 +1899,7 @@ describe('@/components/atoms/text', () => {
       })
 
       it('renders with snug line height', () => {
-        const testId = faker.string.uuid()
+        const testId = randomTestId()
         const text = faker.lorem.sentence()
         render(
           <Text
@@ -1916,7 +1916,7 @@ describe('@/components/atoms/text', () => {
       })
 
       it('renders with normal line height', () => {
-        const testId = faker.string.uuid()
+        const testId = randomTestId()
         const text = faker.lorem.sentence()
         render(
           <Text
@@ -1933,7 +1933,7 @@ describe('@/components/atoms/text', () => {
       })
 
       it('renders with relaxed line height', () => {
-        const testId = faker.string.uuid()
+        const testId = randomTestId()
         const text = faker.lorem.sentence()
         render(
           <Text
@@ -1950,7 +1950,7 @@ describe('@/components/atoms/text', () => {
       })
 
       it('renders with loose line height', () => {
-        const testId = faker.string.uuid()
+        const testId = randomTestId()
         const text = faker.lorem.sentence()
         render(
           <Text
@@ -1970,7 +1970,7 @@ describe('@/components/atoms/text', () => {
 
   describe('color property', () => {
     it('renders with base 800 color by default', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       const text = faker.lorem.sentence()
       render(
         <Text
@@ -1986,7 +1986,7 @@ describe('@/components/atoms/text', () => {
     })
 
     it('renders with transparent color', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       const text = faker.lorem.sentence()
       render(
         <Text
@@ -2004,7 +2004,7 @@ describe('@/components/atoms/text', () => {
 
     describe('base colors', () => {
       it('renders with base 100 color', () => {
-        const testId = faker.string.uuid()
+        const testId = randomTestId()
         const text = faker.lorem.sentence()
         render(
           <Text
@@ -2021,7 +2021,7 @@ describe('@/components/atoms/text', () => {
       })
 
       it('renders with base 200 color', () => {
-        const testId = faker.string.uuid()
+        const testId = randomTestId()
         const text = faker.lorem.sentence()
         render(
           <Text
@@ -2038,7 +2038,7 @@ describe('@/components/atoms/text', () => {
       })
 
       it('renders with base 300 color', () => {
-        const testId = faker.string.uuid()
+        const testId = randomTestId()
         const text = faker.lorem.sentence()
         render(
           <Text
@@ -2055,7 +2055,7 @@ describe('@/components/atoms/text', () => {
       })
 
       it('renders with base 400 color', () => {
-        const testId = faker.string.uuid()
+        const testId = randomTestId()
         const text = faker.lorem.sentence()
         render(
           <Text
@@ -2072,7 +2072,7 @@ describe('@/components/atoms/text', () => {
       })
 
       it('renders with base 500 color', () => {
-        const testId = faker.string.uuid()
+        const testId = randomTestId()
         const text = faker.lorem.sentence()
         render(
           <Text
@@ -2089,7 +2089,7 @@ describe('@/components/atoms/text', () => {
       })
 
       it('renders with base 600 color', () => {
-        const testId = faker.string.uuid()
+        const testId = randomTestId()
         const text = faker.lorem.sentence()
         render(
           <Text
@@ -2106,7 +2106,7 @@ describe('@/components/atoms/text', () => {
       })
 
       it('renders with base 700 color', () => {
-        const testId = faker.string.uuid()
+        const testId = randomTestId()
         const text = faker.lorem.sentence()
         render(
           <Text
@@ -2123,7 +2123,7 @@ describe('@/components/atoms/text', () => {
       })
 
       it('renders with base 800 color', () => {
-        const testId = faker.string.uuid()
+        const testId = randomTestId()
         const text = faker.lorem.sentence()
         render(
           <Text
@@ -2140,7 +2140,7 @@ describe('@/components/atoms/text', () => {
       })
 
       it('renders with base 900 color', () => {
-        const testId = faker.string.uuid()
+        const testId = randomTestId()
         const text = faker.lorem.sentence()
         render(
           <Text
@@ -2159,7 +2159,7 @@ describe('@/components/atoms/text', () => {
 
     describe('inverse colors', () => {
       it('renders with inverse 100 color', () => {
-        const testId = faker.string.uuid()
+        const testId = randomTestId()
         const text = faker.lorem.sentence()
         render(
           <Text
@@ -2176,7 +2176,7 @@ describe('@/components/atoms/text', () => {
       })
 
       it('renders with inverse 200 color', () => {
-        const testId = faker.string.uuid()
+        const testId = randomTestId()
         const text = faker.lorem.sentence()
         render(
           <Text
@@ -2193,7 +2193,7 @@ describe('@/components/atoms/text', () => {
       })
 
       it('renders with inverse 300 color', () => {
-        const testId = faker.string.uuid()
+        const testId = randomTestId()
         const text = faker.lorem.sentence()
         render(
           <Text
@@ -2210,7 +2210,7 @@ describe('@/components/atoms/text', () => {
       })
 
       it('renders with inverse 400 color', () => {
-        const testId = faker.string.uuid()
+        const testId = randomTestId()
         const text = faker.lorem.sentence()
         render(
           <Text
@@ -2227,7 +2227,7 @@ describe('@/components/atoms/text', () => {
       })
 
       it('renders with inverse 500 color', () => {
-        const testId = faker.string.uuid()
+        const testId = randomTestId()
         const text = faker.lorem.sentence()
         render(
           <Text
@@ -2244,7 +2244,7 @@ describe('@/components/atoms/text', () => {
       })
 
       it('renders with inverse 600 color', () => {
-        const testId = faker.string.uuid()
+        const testId = randomTestId()
         const text = faker.lorem.sentence()
         render(
           <Text
@@ -2261,7 +2261,7 @@ describe('@/components/atoms/text', () => {
       })
 
       it('renders with inverse 700 color', () => {
-        const testId = faker.string.uuid()
+        const testId = randomTestId()
         const text = faker.lorem.sentence()
         render(
           <Text
@@ -2278,7 +2278,7 @@ describe('@/components/atoms/text', () => {
       })
 
       it('renders with inverse 800 color', () => {
-        const testId = faker.string.uuid()
+        const testId = randomTestId()
         const text = faker.lorem.sentence()
         render(
           <Text
@@ -2295,7 +2295,7 @@ describe('@/components/atoms/text', () => {
       })
 
       it('renders with inverse 900 color', () => {
-        const testId = faker.string.uuid()
+        const testId = randomTestId()
         const text = faker.lorem.sentence()
         render(
           <Text
@@ -2314,7 +2314,7 @@ describe('@/components/atoms/text', () => {
 
     describe('custom colors', () => {
       it('renders with custom rgb color', () => {
-        const testId = faker.string.uuid()
+        const testId = randomTestId()
         const text = faker.lorem.sentence()
         render(
           <Text
@@ -2330,7 +2330,7 @@ describe('@/components/atoms/text', () => {
       })
 
       it('renders with custom rgba color', () => {
-        const testId = faker.string.uuid()
+        const testId = randomTestId()
         const text = faker.lorem.sentence()
         render(
           <Text
@@ -2348,7 +2348,7 @@ describe('@/components/atoms/text', () => {
 
     describe('failure colors', () => {
       it('renders with failure 100 color', () => {
-        const testId = faker.string.uuid()
+        const testId = randomTestId()
         const text = faker.lorem.sentence()
         render(
           <Text
@@ -2365,7 +2365,7 @@ describe('@/components/atoms/text', () => {
       })
 
       it('renders with failure 200 color', () => {
-        const testId = faker.string.uuid()
+        const testId = randomTestId()
         const text = faker.lorem.sentence()
         render(
           <Text
@@ -2382,7 +2382,7 @@ describe('@/components/atoms/text', () => {
       })
 
       it('renders with failure 300 color', () => {
-        const testId = faker.string.uuid()
+        const testId = randomTestId()
         const text = faker.lorem.sentence()
         render(
           <Text
@@ -2399,7 +2399,7 @@ describe('@/components/atoms/text', () => {
       })
 
       it('renders with failure 400 color', () => {
-        const testId = faker.string.uuid()
+        const testId = randomTestId()
         const text = faker.lorem.sentence()
         render(
           <Text
@@ -2416,7 +2416,7 @@ describe('@/components/atoms/text', () => {
       })
 
       it('renders with failure 500 color', () => {
-        const testId = faker.string.uuid()
+        const testId = randomTestId()
         const text = faker.lorem.sentence()
         render(
           <Text
@@ -2433,7 +2433,7 @@ describe('@/components/atoms/text', () => {
       })
 
       it('renders with failure 600 color', () => {
-        const testId = faker.string.uuid()
+        const testId = randomTestId()
         const text = faker.lorem.sentence()
         render(
           <Text
@@ -2450,7 +2450,7 @@ describe('@/components/atoms/text', () => {
       })
 
       it('renders with failure 700 color', () => {
-        const testId = faker.string.uuid()
+        const testId = randomTestId()
         const text = faker.lorem.sentence()
         render(
           <Text
@@ -2467,7 +2467,7 @@ describe('@/components/atoms/text', () => {
       })
 
       it('renders with failure 800 color', () => {
-        const testId = faker.string.uuid()
+        const testId = randomTestId()
         const text = faker.lorem.sentence()
         render(
           <Text
@@ -2484,7 +2484,7 @@ describe('@/components/atoms/text', () => {
       })
 
       it('renders with failure 900 color', () => {
-        const testId = faker.string.uuid()
+        const testId = randomTestId()
         const text = faker.lorem.sentence()
         render(
           <Text

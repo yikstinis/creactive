@@ -1,6 +1,3 @@
-import { Fraction } from '@/helpers'
-import { Color } from '@/types'
-import { faker } from '@faker-js/faker'
 import { render, screen } from '@testing-library/react-native'
 import { GradientLinear } from './linear'
 import { GradientStop } from './stop'
@@ -8,20 +5,20 @@ import { GradientStop } from './stop'
 describe('@/components/atoms/gradient', () => {
   describe('linear gradient component', () => {
     it('renders wrapper view with absolute fill styles', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <GradientLinear
           testId={testId}
           direction={GradientLinear.Direction.BOTTOM}
         >
           <GradientStop
-            offset={new Fraction(0)}
-            color={faker.color.rgb() as Color}
+            offset={randomFraction()}
+            color={randomRgb()}
           />
 
           <GradientStop
-            offset={new Fraction(1)}
-            color={faker.color.rgb() as Color}
+            offset={randomFraction()}
+            color={randomRgb()}
           />
         </GradientLinear>,
       )
@@ -36,20 +33,20 @@ describe('@/components/atoms/gradient', () => {
     })
 
     it('renders wrapper view with only svg element inside', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <GradientLinear
           testId={testId}
           direction={GradientLinear.Direction.BOTTOM}
         >
           <GradientStop
-            offset={new Fraction(0)}
-            color={faker.color.rgb() as Color}
+            offset={randomFraction()}
+            color={randomRgb()}
           />
 
           <GradientStop
-            offset={new Fraction(1)}
-            color={faker.color.rgb() as Color}
+            offset={randomFraction()}
+            color={randomRgb()}
           />
         </GradientLinear>,
       )
@@ -60,20 +57,20 @@ describe('@/components/atoms/gradient', () => {
     })
 
     it('renders linear gradient with top coordinates', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <GradientLinear
           testId={testId}
           direction={GradientLinear.Direction.TOP}
         >
           <GradientStop
-            offset={new Fraction(0)}
-            color={faker.color.rgb() as Color}
+            offset={randomFraction()}
+            color={randomRgb()}
           />
 
           <GradientStop
-            offset={new Fraction(1)}
-            color={faker.color.rgb() as Color}
+            offset={randomFraction()}
+            color={randomRgb()}
           />
         </GradientLinear>,
       )
@@ -90,20 +87,20 @@ describe('@/components/atoms/gradient', () => {
     })
 
     it('renders linear gradient with left coordinates', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <GradientLinear
           testId={testId}
           direction={GradientLinear.Direction.LEFT}
         >
           <GradientStop
-            offset={new Fraction(0)}
-            color={faker.color.rgb() as Color}
+            offset={randomFraction()}
+            color={randomRgb()}
           />
 
           <GradientStop
-            offset={new Fraction(1)}
-            color={faker.color.rgb() as Color}
+            offset={randomFraction()}
+            color={randomRgb()}
           />
         </GradientLinear>,
       )
@@ -120,20 +117,20 @@ describe('@/components/atoms/gradient', () => {
     })
 
     it('renders linear gradient with right coordinates', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <GradientLinear
           testId={testId}
           direction={GradientLinear.Direction.RIGHT}
         >
           <GradientStop
-            offset={new Fraction(0)}
-            color={faker.color.rgb() as Color}
+            offset={randomFraction()}
+            color={randomRgb()}
           />
 
           <GradientStop
-            offset={new Fraction(1)}
-            color={faker.color.rgb() as Color}
+            offset={randomFraction()}
+            color={randomRgb()}
           />
         </GradientLinear>,
       )
@@ -150,20 +147,20 @@ describe('@/components/atoms/gradient', () => {
     })
 
     it('renders linear gradient with bottom coordinates', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <GradientLinear
           testId={testId}
           direction={GradientLinear.Direction.BOTTOM}
         >
           <GradientStop
-            offset={new Fraction(0)}
-            color={faker.color.rgb() as Color}
+            offset={randomFraction()}
+            color={randomRgb()}
           />
 
           <GradientStop
-            offset={new Fraction(1)}
-            color={faker.color.rgb() as Color}
+            offset={randomFraction()}
+            color={randomRgb()}
           />
         </GradientLinear>,
       )
@@ -180,20 +177,20 @@ describe('@/components/atoms/gradient', () => {
     })
 
     it('renders full size rectangle filled with gradient', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <GradientLinear
           testId={testId}
           direction={GradientLinear.Direction.BOTTOM}
         >
           <GradientStop
-            offset={new Fraction(0)}
-            color={faker.color.rgb() as Color}
+            offset={randomFraction()}
+            color={randomRgb()}
           />
 
           <GradientStop
-            offset={new Fraction(1)}
-            color={faker.color.rgb() as Color}
+            offset={randomFraction()}
+            color={randomRgb()}
           />
         </GradientLinear>,
       )
