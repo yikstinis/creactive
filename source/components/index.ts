@@ -1,4 +1,4 @@
-export { Gradient, Text, View } from './atoms'
+export { Gradient, Text, Transition, View } from './atoms'
 export type {
   GradientLinearComponent,
   GradientLinearProperties,
@@ -9,6 +9,8 @@ export type {
   TextMeasureCallback,
   TextProperties,
   TextReference,
+  TransitionComponent,
+  TransitionProperties,
   ViewComponent,
   ViewLayoutEvent,
   ViewProperties,

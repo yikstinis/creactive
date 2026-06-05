@@ -1,0 +1,1 @@
+export { TransitionStyled } from './styled'

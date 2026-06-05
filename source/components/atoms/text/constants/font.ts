@@ -4,6 +4,7 @@
  * @see Text.FontFamily
  */
 export enum TextFontFamily {
+  // TODO: Base is bad word here. Base is used with different meaning..
   BASE,
   TYPOGRAPHIC,
 }
