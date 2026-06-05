@@ -1,4 +1,6 @@
 import { useThemeContext, useThemeStyleSheet } from '@/contexts'
+import type { Color } from '@/types'
+import { StyleSheet } from 'react-native'
 import { ViewBackgroundColor } from '../constants'
 
 const VIEW_BACKGROUND_COLOR_THEME_KEY = {
@@ -39,17 +41,26 @@ const VIEW_BACKGROUND_COLOR_THEME_KEY = {
   [ViewBackgroundColor.SUBACCENT_800]: 'colorBackgroundSubaccent800' as const,
   [ViewBackgroundColor.SUBACCENT_900]: 'colorBackgroundSubaccent900' as const,
 }
+const viewBackgroundColorStyleSheet = StyleSheet.create({
+  transparent: {
+    backgroundColor: 'transparent',
+  },
+})
 export const useViewBackgroundColorStyle = (
-  backgroundColor?: ViewBackgroundColor,
+  backgroundColor?: ViewBackgroundColor | Color,
 ) => {
   const sheet = useThemeStyleSheet()
   if (backgroundColor === undefined) return undefined
+  if (backgroundColor === 'transparent')
+    return viewBackgroundColorStyleSheet.transparent
+  if (typeof backgroundColor === 'string') return { backgroundColor }
   return sheet[VIEW_BACKGROUND_COLOR_THEME_KEY[backgroundColor]]
 }
 export const useViewBackgroundColorValue = (
-  backgroundColor?: ViewBackgroundColor,
-) => {
+  backgroundColor?: ViewBackgroundColor | Color,
+): Color | undefined => {
   const context = useThemeContext()
   if (backgroundColor === undefined) return undefined
+  if (typeof backgroundColor === 'string') return backgroundColor
   return context[VIEW_BACKGROUND_COLOR_THEME_KEY[backgroundColor]]
 }

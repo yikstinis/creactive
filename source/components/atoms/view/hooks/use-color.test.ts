@@ -336,6 +336,31 @@ describe('@/components/atoms/view', () => {
           backgroundColor: 'rgb(100,195,160)',
         })
       })
+
+      it('returns transparent background color style', () => {
+        const { result } = renderHook(() =>
+          useViewBackgroundColorStyle('transparent'),
+        )
+        expect(result.current).toEqual({
+          backgroundColor: 'transparent',
+        })
+      })
+
+      it('returns custom rgb background color style', () => {
+        const backgroundColor = randomRgb()
+        const { result } = renderHook(() =>
+          useViewBackgroundColorStyle(backgroundColor),
+        )
+        expect(result.current).toEqual({ backgroundColor })
+      })
+
+      it('returns custom rgba background color style', () => {
+        const backgroundColor = randomRgba()
+        const { result } = renderHook(() =>
+          useViewBackgroundColorStyle(backgroundColor),
+        )
+        expect(result.current).toEqual({ backgroundColor })
+      })
     })
 
     describe('view background color value hook', () => {
@@ -594,6 +619,29 @@ describe('@/components/atoms/view', () => {
           useViewBackgroundColorValue(ViewBackgroundColor.SUBACCENT_900),
         )
         expect(result.current).toEqual('rgb(100,195,160)')
+      })
+
+      it('returns transparent background color value', () => {
+        const { result } = renderHook(() =>
+          useViewBackgroundColorValue('transparent'),
+        )
+        expect(result.current).toEqual('transparent')
+      })
+
+      it('returns custom rgb background color value', () => {
+        const backgroundColor = randomRgb()
+        const { result } = renderHook(() =>
+          useViewBackgroundColorValue(backgroundColor),
+        )
+        expect(result.current).toEqual(backgroundColor)
+      })
+
+      it('returns custom rgba background color value', () => {
+        const backgroundColor = randomRgba()
+        const { result } = renderHook(() =>
+          useViewBackgroundColorValue(backgroundColor),
+        )
+        expect(result.current).toEqual(backgroundColor)
       })
     })
   })

@@ -320,11 +320,11 @@ export interface ViewProperties extends PropsWithChildren {
    */
   borderRadiusBottomRight?: ViewBorderRadius
   /**
-   * View background color.
+   * Themed or custom background color.
    * @see View.BackgroundColor
-   * @default View.BackgroundColor.TRANSPARENT
+   * @default undefined
    */
-  backgroundColor?: ViewBackgroundColor
+  backgroundColor?: ViewBackgroundColor | Color
 
   /**
    * Callback function that is called when the layout of the view changes.
