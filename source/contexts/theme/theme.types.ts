@@ -8,97 +8,95 @@ import type { FunctionComponent, PropsWithChildren } from 'react'
  * Can be accessed via theme context outside when need.
  */
 export interface ThemeContextValue {
-  // TODO: Update default colors..
-
   /**
    * Least contrast base background color.
-   * @default rgb(198,198,202)
+   * @default rgb(215,215,220)
    */
   colorBackgroundBase100: Color
   /**
    * Dim base background color.
-   * @default rgb(212,212,216)
+   * @default rgb(220,220,225)
    */
   colorBackgroundBase200: Color
   /**
    * Mix of dim and muted base background color.
-   * @default rgb(216,216,228)
+   * @default rgb(225,225,230)
    */
   colorBackgroundBase300: Color
   /**
    * Muted base background color.
-   * @default rgb(218,218,234)
+   * @default rgb(230,230,235)
    */
   colorBackgroundBase400: Color
   /**
    * Mix of muted and subtle base background color.
-   * @default rgb(224,224,238)
+   * @default rgb(235,235,240)
    */
   colorBackgroundBase500: Color
   /**
    * Subtle base background color.
-   * @default rgb(244,244,245)
+   * @default rgb(240,240,245)
    */
   colorBackgroundBase600: Color
   /**
    * Mix of subtle and default base background color.
-   * @default rgb(247,247,249)
+   * @default rgb(245,245,250)
    */
   colorBackgroundBase700: Color
   /**
    * Base default interface background color.
-   * @default rgb(249,249,250)
+   * @default rgb(250,250,255)
    */
   colorBackgroundBase800: Color
   /**
    * Most contrast base background color.
-   * @default rgb(254,254,255)
+   * @default rgb(255,255,255)
    */
   colorBackgroundBase900: Color
 
   /**
    * Least contrast primary background color.
-   * @default rgb(102,102,116)
+   * @default rgb(40,40,45)
    */
   colorBackgroundPrimary100: Color
   /**
    * Dim primary background color.
-   * @default rgb(82,82,92)
+   * @default rgb(35,35,40)
    */
   colorBackgroundPrimary200: Color
   /**
    * Mix of dim and muted primary background color.
-   * @default rgb(74,74,88)
+   * @default rgb(30,30,35)
    */
   colorBackgroundPrimary300: Color
   /**
    * Muted primary background color.
-   * @default rgb(63,63,70)
+   * @default rgb(25,25,30)
    */
   colorBackgroundPrimary400: Color
   /**
    * Mix of muted and subtle primary background color.
-   * @default rgb(49,49,56)
+   * @default rgb(20,20,25)
    */
   colorBackgroundPrimary500: Color
   /**
    * Subtle primary background color.
-   * @default rgb(39,39,42)
+   * @default rgb(15,15,20)
    */
   colorBackgroundPrimary600: Color
   /**
    * Mix of subtle and default primary background color.
-   * @default rgb(30,30,34)
+   * @default rgb(10,10,15)
    */
   colorBackgroundPrimary700: Color
   /**
    * Primary default background color.
-   * @default rgb(24,24,27)
+   * @default rgb(5,5,10)
    */
   colorBackgroundPrimary800: Color
   /**
    * Most contrast primary background color.
-   * @default rgb(6,6,14)
+   * @default rgb(0,0,5)
    */
   colorBackgroundPrimary900: Color
 
@@ -150,47 +148,47 @@ export interface ThemeContextValue {
 
   /**
    * Least contrast base border color.
-   * @default rgb(253,252,254)
+   * @default rgb(235,235,240)
    */
   colorBorderBase100: Color
   /**
    * Dim base border color.
-   * @default rgb(249,249,250)
+   * @default rgb(230,230,235)
    */
   colorBorderBase200: Color
   /**
    * Mix of dim and muted base border color.
-   * @default rgb(247,247,249)
+   * @default rgb(225,225,230)
    */
   colorBorderBase300: Color
   /**
    * Muted base border color.
-   * @default rgb(244,244,245)
+   * @default rgb(220,220,225)
    */
   colorBorderBase400: Color
   /**
    * Mix of muted and subtle base border color.
-   * @default rgb(224,224,238)
+   * @default rgb(215,215,220)
    */
   colorBorderBase500: Color
   /**
    * Subtle base border color.
-   * @default rgb(218,218,234)
+   * @default rgb(210,210,215)
    */
   colorBorderBase600: Color
   /**
    * Mix of subtle and default base border color.
-   * @default rgb(216,216,228)
+   * @default rgb(205,205,210)
    */
   colorBorderBase700: Color
   /**
    * Base default border color.
-   * @default rgb(212,212,216)
+   * @default rgb(200,200,205)
    */
   colorBorderBase800: Color
   /**
    * Most contrast base border color.
-   * @default rgb(198,198,202)
+   * @default rgb(195,195,200)
    */
   colorBorderBase900: Color
 
