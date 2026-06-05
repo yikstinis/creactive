@@ -93,11 +93,11 @@ export interface TextProperties extends PropsWithChildren {
    */
   maxLines?: number
   /**
-   * Themed or transparent color.
+   * Themed, transparent, or custom color value.
    * @see Text.Color
    * @default Text.Color.BASE_800
    */
-  color?: TextColor
+  color?: TextColor | Color
   /**
    * Themed background color.
    * @see Text.BackgroundColor

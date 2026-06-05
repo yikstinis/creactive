@@ -1992,7 +1992,7 @@ describe('@/components/atoms/text', () => {
         <Text
           testId={testId}
           fontSize={Text.FontSize.X2S}
-          color={Text.Color.TRANSPARENT}
+          color='transparent'
         >
           {text}
         </Text>,
@@ -2308,6 +2308,40 @@ describe('@/components/atoms/text', () => {
         )
         expect(screen.getByTestId(testId)).toHaveStyle({
           color: 'rgb(250,250,255)',
+        })
+      })
+    })
+
+    describe('custom colors', () => {
+      it('renders with custom rgb color', () => {
+        const testId = faker.string.uuid()
+        const text = faker.lorem.sentence()
+        render(
+          <Text
+            testId={testId}
+            color='rgb(255,0,128)'
+          >
+            {text}
+          </Text>,
+        )
+        expect(screen.getByTestId(testId)).toHaveStyle({
+          color: 'rgb(255,0,128)',
+        })
+      })
+
+      it('renders with custom rgba color', () => {
+        const testId = faker.string.uuid()
+        const text = faker.lorem.sentence()
+        render(
+          <Text
+            testId={testId}
+            color='rgba(255,0,128,0.5)'
+          >
+            {text}
+          </Text>,
+        )
+        expect(screen.getByTestId(testId)).toHaveStyle({
+          color: 'rgba(255,0,128,0.5)',
         })
       })
     })
