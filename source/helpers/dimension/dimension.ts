@@ -1,25 +1,33 @@
 import { Platform } from 'react-native'
 import { DimensionUnit } from './constants'
-import type { DimensionValue } from './dimension.types'
+import type {
+  PercentDimensionValue,
+  PixelDimensionValue,
+} from './dimension.types'
 
-export class Dimension {
+export class Dimension<U extends DimensionUnit = DimensionUnit> {
   public static readonly Unit = DimensionUnit
 
   private readonly unit: DimensionUnit
   private readonly value: number
 
-  constructor(value: number, unit: DimensionUnit = DimensionUnit.PIXEL) {
+  constructor(value: number, unit: U = DimensionUnit.PIXEL as U) {
     this.unit = unit
     this.value = value
   }
 
-  toValue(): DimensionValue {
+  toValue(): U extends DimensionUnit.PIXEL ? PixelDimensionValue : PercentDimensionValue {
+    type Result = U extends DimensionUnit.PIXEL
+      ? PixelDimensionValue
+      : PercentDimensionValue
     if (this.unit === DimensionUnit.PIXEL) {
-      return Platform.select({
-        native: this.value as DimensionValue,
-        web: `${this.value}px` as DimensionValue,
-      }) as DimensionValue
+      return (
+        Platform.OS === 'web' ? `${this.value}px` : this.value
+      ) as Result
     }
-    return `${this.value}%`
+    return `${this.value}%` as Result
   }
 }
+
+export type PixelDimension = Dimension<DimensionUnit.PIXEL>
+export type PercentDimension = Dimension<DimensionUnit.PERCENT>

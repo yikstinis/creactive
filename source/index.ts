@@ -15,7 +15,7 @@ export type {
   ThemeContextProviderProps,
   ThemeContextValue,
 } from '@/contexts/theme'
-export { Gradient, Text, View } from './components'
+export { Gradient, Text, Transition, View } from './components'
 export type {
   GradientLinearComponent,
   GradientLinearProperties,
@@ -26,6 +26,8 @@ export type {
   TextMeasureCallback,
   TextProperties,
   TextReference,
+  TransitionComponent,
+  TransitionProperties,
   ViewComponent,
   ViewLayoutEvent,
   ViewProperties,
