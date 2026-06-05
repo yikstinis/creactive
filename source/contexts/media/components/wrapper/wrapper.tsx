@@ -1,7 +1,15 @@
 import type { CSSProperties, JSX } from 'react'
-import { useEffect, useMemo, useRef, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { Platform } from 'react-native'
 import { WrapperProps } from './wrapper.types'
+
+Platform.select({
+  web: () => {
+    if (globalThis.window) {
+      // TODO: ...
+    }
+  },
+})?.()
 
 export const Wrapper = Platform.select({
   // We need a wrapper for hiding content blinking.
@@ -9,35 +17,19 @@ export const Wrapper = Platform.select({
   // Client side effects may decide to render something different.
   // This wrapper helps us to handle this situation gracefully.
   web: function WrapperWeb({ children }: WrapperProps) {
-    const ref = useRef<HTMLDivElement | null>(null)
-    // Hydration flag, allows to detect server and first client render.
     const [isHydrated, setHydrated] = useState(false)
-    // Update hydration flag after first render.
+
     useEffect(() => {
       setHydrated(true)
     }, [])
-    // Memorized wrapper style.
-    const style = useMemo(() => {
-      // Return visible wrapper styles during hydrated client render.
-      // Return visible wrapper styles during server side rendering also.
-      if (
+
+    const style = useMemo<CSSProperties>(() => {
+      const isVisible =
         isHydrated ||
         typeof window === 'undefined' ||
         typeof document === 'undefined'
-      ) {
-        return {
-          display: 'flex',
-          flexGrow: 1,
-          flexShrink: 1,
-          flexBasis: '100%',
-          flexDirection: 'column',
-        }
-      }
-      // Return hidden wrapper styles during first client render.
-      // Display style will be already modified by inline script to be onest.
-      // Anyway, we want this object to be consistent with final state later.
       return {
-        display: 'none',
+        display: isVisible ? 'flex' : 'none',
         flexGrow: 1,
         flexShrink: 1,
         flexBasis: '100%',
@@ -47,9 +39,8 @@ export const Wrapper = Platform.select({
 
     return (
       <div
-        ref={ref}
         id='creactive-media-wrapper'
-        style={style as CSSProperties}
+        style={style}
         // We don't want to see hydration warning on this element.
         // We'll set display none in the script below.
         // This will allow us to hide wrapped content during first render.

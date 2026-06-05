@@ -1,12 +1,23 @@
-// TODO: Keep an eye on react-server-dom-webpack dependency!
-// It do not supports our react version, wants react@19 at least (it is listed).
-// It is a dependency of jest-expo and is used for renderToReadableStream call.
-// Seems like react@19 is rendering for our web tests.
-// We can't update to react@19 yet, because of the react-native-web dependency.
-// It has no support for react@19 yet, but later we can update I guess!
+// NOTE: jest-expo pulls in react-server-dom-webpack as a dependency.
+// It requires react@19 and uses renderToReadableStream, so web tests run under react@19.
+// This is fine — both react and react-native-web now support react@19 in our peer dependencies.
 
-// This file is used to setup tests that run in a native environment.
 import { matchers } from '@emotion/jest'
 import '@testing-library/jest-dom'
 
 expect.extend(matchers)
+
+// We sometimes want to hide console outputs to keep things clear.
+const originalConsoleError = console.error.bind(console)
+const UNRECOGNIZED_TAG_WARNING_MESSAGE =
+  'Warning: The tag <%s> is unrecognized in this browser.'
+console.error = (message: unknown, ...args: unknown[]) => {
+  if (typeof message === 'string') {
+    if (message.includes(UNRECOGNIZED_TAG_WARNING_MESSAGE)) {
+      // Ignore the warning about unrecognized <stop> tags, which are valid in SVG and used by react-native-svg.
+      if (args[0] === 'stop') return
+    }
+  }
+
+  originalConsoleError(message, ...args)
+}
