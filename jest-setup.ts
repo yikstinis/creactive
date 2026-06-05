@@ -87,10 +87,10 @@ declare global {
       toHavePlatformStyle(style: unknown): R
     }
   }
+  function randomTestId(): string
   function randomRgb(): Color
   function randomRgba(): Color
   function randomFraction(): Fraction
   function randomPixelDimension(): PixelDimension
   function randomPercentDimension(): PercentDimension
-  function randomTestId(): string
 }

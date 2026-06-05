@@ -1,6 +1,3 @@
-import { Fraction } from '@/helpers'
-import { Color } from '@/types'
-import { faker } from '@faker-js/faker'
 import { render, screen } from '@testing-library/react-native'
 import { GradientLinear } from './linear'
 import { GradientStop } from './stop'
@@ -15,13 +12,13 @@ describe('@/components/atoms/gradient', () => {
           direction={GradientLinear.Direction.BOTTOM}
         >
           <GradientStop
-            offset={new Fraction(0)}
-            color={faker.color.rgb() as Color}
+            offset={randomFraction()}
+            color={randomRgb()}
           />
 
           <GradientStop
-            offset={new Fraction(1)}
-            color={faker.color.rgb() as Color}
+            offset={randomFraction()}
+            color={randomRgb()}
           />
         </GradientLinear>,
       )
@@ -43,13 +40,13 @@ describe('@/components/atoms/gradient', () => {
           direction={GradientLinear.Direction.BOTTOM}
         >
           <GradientStop
-            offset={new Fraction(0)}
-            color={faker.color.rgb() as Color}
+            offset={randomFraction()}
+            color={randomRgb()}
           />
 
           <GradientStop
-            offset={new Fraction(1)}
-            color={faker.color.rgb() as Color}
+            offset={randomFraction()}
+            color={randomRgb()}
           />
         </GradientLinear>,
       )
@@ -67,13 +64,13 @@ describe('@/components/atoms/gradient', () => {
           direction={GradientLinear.Direction.TOP}
         >
           <GradientStop
-            offset={new Fraction(0)}
-            color={faker.color.rgb() as Color}
+            offset={randomFraction()}
+            color={randomRgb()}
           />
 
           <GradientStop
-            offset={new Fraction(1)}
-            color={faker.color.rgb() as Color}
+            offset={randomFraction()}
+            color={randomRgb()}
           />
         </GradientLinear>,
       )
@@ -98,13 +95,13 @@ describe('@/components/atoms/gradient', () => {
           direction={GradientLinear.Direction.LEFT}
         >
           <GradientStop
-            offset={new Fraction(0)}
-            color={faker.color.rgb() as Color}
+            offset={randomFraction()}
+            color={randomRgb()}
           />
 
           <GradientStop
-            offset={new Fraction(1)}
-            color={faker.color.rgb() as Color}
+            offset={randomFraction()}
+            color={randomRgb()}
           />
         </GradientLinear>,
       )
@@ -129,13 +126,13 @@ describe('@/components/atoms/gradient', () => {
           direction={GradientLinear.Direction.RIGHT}
         >
           <GradientStop
-            offset={new Fraction(0)}
-            color={faker.color.rgb() as Color}
+            offset={randomFraction()}
+            color={randomRgb()}
           />
 
           <GradientStop
-            offset={new Fraction(1)}
-            color={faker.color.rgb() as Color}
+            offset={randomFraction()}
+            color={randomRgb()}
           />
         </GradientLinear>,
       )
@@ -160,13 +157,13 @@ describe('@/components/atoms/gradient', () => {
           direction={GradientLinear.Direction.BOTTOM}
         >
           <GradientStop
-            offset={new Fraction(0)}
-            color={faker.color.rgb() as Color}
+            offset={randomFraction()}
+            color={randomRgb()}
           />
 
           <GradientStop
-            offset={new Fraction(1)}
-            color={faker.color.rgb() as Color}
+            offset={randomFraction()}
+            color={randomRgb()}
           />
         </GradientLinear>,
       )
@@ -191,13 +188,13 @@ describe('@/components/atoms/gradient', () => {
           direction={GradientLinear.Direction.BOTTOM}
         >
           <GradientStop
-            offset={new Fraction(0)}
-            color={faker.color.rgb() as Color}
+            offset={randomFraction()}
+            color={randomRgb()}
           />
 
           <GradientStop
-            offset={new Fraction(1)}
-            color={faker.color.rgb() as Color}
+            offset={randomFraction()}
+            color={randomRgb()}
           />
         </GradientLinear>,
       )
