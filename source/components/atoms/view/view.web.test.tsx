@@ -499,6 +499,50 @@ describe('@/components/atoms/view', () => {
         expect.anything(),
       )
     })
+
+    it('renders with transparent background color style', () => {
+      const testId = faker.string.uuid()
+      render(
+        <View
+          testId={testId}
+          backgroundColor="transparent"
+        />,
+      )
+      expect(screen.getByTestId(testId)).toHaveStyleRule(
+        'background-color',
+        'transparent',
+      )
+    })
+
+    it('renders with custom rgb background color style', () => {
+      const testId = faker.string.uuid()
+      const backgroundColor = randomRgb()
+      render(
+        <View
+          testId={testId}
+          backgroundColor={backgroundColor}
+        />,
+      )
+      expect(screen.getByTestId(testId)).toHaveStyleRule(
+        'background-color',
+        backgroundColor,
+      )
+    })
+
+    it('renders with custom rgba background color style', () => {
+      const testId = faker.string.uuid()
+      const backgroundColor = randomRgba()
+      render(
+        <View
+          testId={testId}
+          backgroundColor={backgroundColor}
+        />,
+      )
+      expect(screen.getByTestId(testId)).toHaveStyleRule(
+        'background-color',
+        backgroundColor,
+      )
+    })
   })
 
   describe('layout callback property', () => {

@@ -1,14 +1,6 @@
-import type { Color } from '@/types'
-import { faker } from '@faker-js/faker'
 import { renderHook } from '@testing-library/react-native'
 import { TextColor } from '../constants'
 import { useTextColorStyle, useTextColorValue } from './use-color'
-
-const randomRgb = (): Color =>
-  `rgb(${faker.number.int({ min: 0, max: 255 })},${faker.number.int({ min: 0, max: 255 })},${faker.number.int({ min: 0, max: 255 })})`
-
-const randomRgba = (): Color =>
-  `rgba(${faker.number.int({ min: 0, max: 255 })},${faker.number.int({ min: 0, max: 255 })},${faker.number.int({ min: 0, max: 255 })},${faker.number.float({ min: 0, max: 1, fractionDigits: 2 })})`
 
 describe('@/components/atoms/text', () => {
   describe('hooks/use-color', () => {

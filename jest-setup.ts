@@ -1,6 +1,14 @@
 // This file is automatically executed before running tests.
 // You can use it to configure or set up the testing environment.
+import type { Color } from '@/types'
+import { faker } from '@faker-js/faker'
 import { Platform } from 'react-native'
+
+global.randomRgb = (): Color =>
+  `rgb(${faker.number.int({ min: 0, max: 255 })},${faker.number.int({ min: 0, max: 255 })},${faker.number.int({ min: 0, max: 255 })})`
+
+global.randomRgba = (): Color =>
+  `rgba(${faker.number.int({ min: 0, max: 255 })},${faker.number.int({ min: 0, max: 255 })},${faker.number.int({ min: 0, max: 255 })},${faker.number.float({ min: 0, max: 1, fractionDigits: 2 })})`
 
 type PlatformStyle = Record<string, unknown>
 
@@ -66,4 +74,6 @@ declare global {
       toHavePlatformStyle(style: unknown): R
     }
   }
+  function randomRgb(): Color
+  function randomRgba(): Color
 }
