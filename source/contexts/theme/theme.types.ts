@@ -103,6 +103,52 @@ export interface ThemeContextValue {
   colorBackgroundPrimary900: Color
 
   /**
+   * Least contrast accent background color.
+   * @default rgb(215,235,255)
+   */
+  colorBackgroundAccent100: Color
+  /**
+   * Dim accent background color.
+   * @default rgb(200,225,252)
+   */
+  colorBackgroundAccent200: Color
+  /**
+   * Mix of dim and muted accent background color.
+   * @default rgb(180,215,249)
+   */
+  colorBackgroundAccent300: Color
+  /**
+   * Muted accent background color.
+   * @default rgb(160,205,246)
+   */
+  colorBackgroundAccent400: Color
+  /**
+   * Mix of muted and subtle accent background color.
+   * @default rgb(140,195,243)
+   */
+  colorBackgroundAccent500: Color
+  /**
+   * Subtle accent background color.
+   * @default rgb(115,180,238)
+   */
+  colorBackgroundAccent600: Color
+  /**
+   * Mix of subtle and default accent background color.
+   * @default rgb(95,168,233)
+   */
+  colorBackgroundAccent700: Color
+  /**
+   * Accent default background color.
+   * @default rgb(75,155,225)
+   */
+  colorBackgroundAccent800: Color
+  /**
+   * Most contrast accent background color.
+   * @default rgb(50,130,200)
+   */
+  colorBackgroundAccent900: Color
+
+  /**
    * Least contrast base border color.
    * @default rgb(253,252,254)
    */

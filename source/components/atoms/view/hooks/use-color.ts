@@ -20,10 +20,27 @@ const VIEW_BACKGROUND_COLOR_THEME_KEY = {
   [ViewBackgroundColor.PRIMARY_700]: 'colorBackgroundPrimary700' as const,
   [ViewBackgroundColor.PRIMARY_800]: 'colorBackgroundPrimary800' as const,
   [ViewBackgroundColor.PRIMARY_900]: 'colorBackgroundPrimary900' as const,
+  [ViewBackgroundColor.ACCENT_100]: 'colorBackgroundAccent100' as const,
+  [ViewBackgroundColor.ACCENT_200]: 'colorBackgroundAccent200' as const,
+  [ViewBackgroundColor.ACCENT_300]: 'colorBackgroundAccent300' as const,
+  [ViewBackgroundColor.ACCENT_400]: 'colorBackgroundAccent400' as const,
+  [ViewBackgroundColor.ACCENT_500]: 'colorBackgroundAccent500' as const,
+  [ViewBackgroundColor.ACCENT_600]: 'colorBackgroundAccent600' as const,
+  [ViewBackgroundColor.ACCENT_700]: 'colorBackgroundAccent700' as const,
+  [ViewBackgroundColor.ACCENT_800]: 'colorBackgroundAccent800' as const,
+  [ViewBackgroundColor.ACCENT_900]: 'colorBackgroundAccent900' as const,
 }
 export const useViewBackgroundColorStyle = (
   backgroundColor?: ViewBackgroundColor,
-) => useThemeStyleSheet()[VIEW_BACKGROUND_COLOR_THEME_KEY[backgroundColor]]
+) => {
+  const sheet = useThemeStyleSheet()
+  if (backgroundColor === undefined) return undefined
+  return sheet[VIEW_BACKGROUND_COLOR_THEME_KEY[backgroundColor]]
+}
 export const useViewBackgroundColorValue = (
   backgroundColor?: ViewBackgroundColor,
-) => useThemeContext()[VIEW_BACKGROUND_COLOR_THEME_KEY[backgroundColor]]
+) => {
+  const context = useThemeContext()
+  if (backgroundColor === undefined) return undefined
+  return context[VIEW_BACKGROUND_COLOR_THEME_KEY[backgroundColor]]
+}

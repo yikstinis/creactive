@@ -68,6 +68,34 @@ export const useThemeStyleSheet = () => {
           backgroundColor: themeContext.colorBackgroundPrimary900,
         },
 
+        colorBackgroundAccent100: {
+          backgroundColor: themeContext.colorBackgroundAccent100,
+        },
+        colorBackgroundAccent200: {
+          backgroundColor: themeContext.colorBackgroundAccent200,
+        },
+        colorBackgroundAccent300: {
+          backgroundColor: themeContext.colorBackgroundAccent300,
+        },
+        colorBackgroundAccent400: {
+          backgroundColor: themeContext.colorBackgroundAccent400,
+        },
+        colorBackgroundAccent500: {
+          backgroundColor: themeContext.colorBackgroundAccent500,
+        },
+        colorBackgroundAccent600: {
+          backgroundColor: themeContext.colorBackgroundAccent600,
+        },
+        colorBackgroundAccent700: {
+          backgroundColor: themeContext.colorBackgroundAccent700,
+        },
+        colorBackgroundAccent800: {
+          backgroundColor: themeContext.colorBackgroundAccent800,
+        },
+        colorBackgroundAccent900: {
+          backgroundColor: themeContext.colorBackgroundAccent900,
+        },
+
         colorBorderBase100: {
           borderColor: themeContext.colorBorderBase100,
         },
