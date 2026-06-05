@@ -40,6 +40,15 @@ import {
   COLOR_BACKGROUND_PRIMARY_700,
   COLOR_BACKGROUND_PRIMARY_800,
   COLOR_BACKGROUND_PRIMARY_900,
+  COLOR_BACKGROUND_SUBACCENT_100,
+  COLOR_BACKGROUND_SUBACCENT_200,
+  COLOR_BACKGROUND_SUBACCENT_300,
+  COLOR_BACKGROUND_SUBACCENT_400,
+  COLOR_BACKGROUND_SUBACCENT_500,
+  COLOR_BACKGROUND_SUBACCENT_600,
+  COLOR_BACKGROUND_SUBACCENT_700,
+  COLOR_BACKGROUND_SUBACCENT_800,
+  COLOR_BACKGROUND_SUBACCENT_900,
   COLOR_BORDER_BASE_100,
   COLOR_BORDER_BASE_200,
   COLOR_BORDER_BASE_300,
@@ -163,6 +172,16 @@ const ThemeContext = createContext<ThemeContextValue>({
   colorBackgroundAccent700: COLOR_BACKGROUND_ACCENT_700,
   colorBackgroundAccent800: COLOR_BACKGROUND_ACCENT_800,
   colorBackgroundAccent900: COLOR_BACKGROUND_ACCENT_900,
+
+  colorBackgroundSubaccent100: COLOR_BACKGROUND_SUBACCENT_100,
+  colorBackgroundSubaccent200: COLOR_BACKGROUND_SUBACCENT_200,
+  colorBackgroundSubaccent300: COLOR_BACKGROUND_SUBACCENT_300,
+  colorBackgroundSubaccent400: COLOR_BACKGROUND_SUBACCENT_400,
+  colorBackgroundSubaccent500: COLOR_BACKGROUND_SUBACCENT_500,
+  colorBackgroundSubaccent600: COLOR_BACKGROUND_SUBACCENT_600,
+  colorBackgroundSubaccent700: COLOR_BACKGROUND_SUBACCENT_700,
+  colorBackgroundSubaccent800: COLOR_BACKGROUND_SUBACCENT_800,
+  colorBackgroundSubaccent900: COLOR_BACKGROUND_SUBACCENT_900,
 
   colorBorderBase100: COLOR_BORDER_BASE_100,
   colorBorderBase200: COLOR_BORDER_BASE_200,
@@ -306,6 +325,16 @@ export const ThemeContextProvider: ThemeContextProviderComponent = ({
   colorBackgroundAccent700,
   colorBackgroundAccent800,
   colorBackgroundAccent900,
+
+  colorBackgroundSubaccent100,
+  colorBackgroundSubaccent200,
+  colorBackgroundSubaccent300,
+  colorBackgroundSubaccent400,
+  colorBackgroundSubaccent500,
+  colorBackgroundSubaccent600,
+  colorBackgroundSubaccent700,
+  colorBackgroundSubaccent800,
+  colorBackgroundSubaccent900,
 
   colorBorderBase100,
   colorBorderBase200,
@@ -481,6 +510,25 @@ export const ThemeContextProvider: ThemeContextProviderComponent = ({
       colorBackgroundAccent900:
         colorBackgroundAccent900 ?? COLOR_BACKGROUND_ACCENT_900,
 
+      colorBackgroundSubaccent100:
+        colorBackgroundSubaccent100 ?? COLOR_BACKGROUND_SUBACCENT_100,
+      colorBackgroundSubaccent200:
+        colorBackgroundSubaccent200 ?? COLOR_BACKGROUND_SUBACCENT_200,
+      colorBackgroundSubaccent300:
+        colorBackgroundSubaccent300 ?? COLOR_BACKGROUND_SUBACCENT_300,
+      colorBackgroundSubaccent400:
+        colorBackgroundSubaccent400 ?? COLOR_BACKGROUND_SUBACCENT_400,
+      colorBackgroundSubaccent500:
+        colorBackgroundSubaccent500 ?? COLOR_BACKGROUND_SUBACCENT_500,
+      colorBackgroundSubaccent600:
+        colorBackgroundSubaccent600 ?? COLOR_BACKGROUND_SUBACCENT_600,
+      colorBackgroundSubaccent700:
+        colorBackgroundSubaccent700 ?? COLOR_BACKGROUND_SUBACCENT_700,
+      colorBackgroundSubaccent800:
+        colorBackgroundSubaccent800 ?? COLOR_BACKGROUND_SUBACCENT_800,
+      colorBackgroundSubaccent900:
+        colorBackgroundSubaccent900 ?? COLOR_BACKGROUND_SUBACCENT_900,
+
       colorBorderBase100: colorBorderBase100 ?? COLOR_BORDER_BASE_100,
       colorBorderBase200: colorBorderBase200 ?? COLOR_BORDER_BASE_200,
       colorBorderBase300: colorBorderBase300 ?? COLOR_BORDER_BASE_300,
@@ -652,6 +700,16 @@ export const ThemeContextProvider: ThemeContextProviderComponent = ({
       colorBackgroundAccent700,
       colorBackgroundAccent800,
       colorBackgroundAccent900,
+
+      colorBackgroundSubaccent100,
+      colorBackgroundSubaccent200,
+      colorBackgroundSubaccent300,
+      colorBackgroundSubaccent400,
+      colorBackgroundSubaccent500,
+      colorBackgroundSubaccent600,
+      colorBackgroundSubaccent700,
+      colorBackgroundSubaccent800,
+      colorBackgroundSubaccent900,
 
       colorBorderBase100,
       colorBorderBase200,

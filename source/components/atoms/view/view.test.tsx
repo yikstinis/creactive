@@ -3768,5 +3768,122 @@ describe('@/components/atoms/view', () => {
         backgroundColor: 'rgb(50,130,200)',
       })
     })
+
+    it('renders with subaccent 100 background color style', () => {
+      const testId = faker.string.uuid()
+      render(
+        <View
+          testId={testId}
+          backgroundColor={View.BackgroundColor.SUBACCENT_100}
+        />,
+      )
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
+        backgroundColor: 'rgb(215,245,235)',
+      })
+    })
+
+    it('renders with subaccent 200 background color style', () => {
+      const testId = faker.string.uuid()
+      render(
+        <View
+          testId={testId}
+          backgroundColor={View.BackgroundColor.SUBACCENT_200}
+        />,
+      )
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
+        backgroundColor: 'rgb(200,240,225)',
+      })
+    })
+
+    it('renders with subaccent 300 background color style', () => {
+      const testId = faker.string.uuid()
+      render(
+        <View
+          testId={testId}
+          backgroundColor={View.BackgroundColor.SUBACCENT_300}
+        />,
+      )
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
+        backgroundColor: 'rgb(185,235,215)',
+      })
+    })
+
+    it('renders with subaccent 400 background color style', () => {
+      const testId = faker.string.uuid()
+      render(
+        <View
+          testId={testId}
+          backgroundColor={View.BackgroundColor.SUBACCENT_400}
+        />,
+      )
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
+        backgroundColor: 'rgb(170,230,205)',
+      })
+    })
+
+    it('renders with subaccent 500 background color style', () => {
+      const testId = faker.string.uuid()
+      render(
+        <View
+          testId={testId}
+          backgroundColor={View.BackgroundColor.SUBACCENT_500}
+        />,
+      )
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
+        backgroundColor: 'rgb(155,225,195)',
+      })
+    })
+
+    it('renders with subaccent 600 background color style', () => {
+      const testId = faker.string.uuid()
+      render(
+        <View
+          testId={testId}
+          backgroundColor={View.BackgroundColor.SUBACCENT_600}
+        />,
+      )
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
+        backgroundColor: 'rgb(145,222,190)',
+      })
+    })
+
+    it('renders with subaccent 700 background color style', () => {
+      const testId = faker.string.uuid()
+      render(
+        <View
+          testId={testId}
+          backgroundColor={View.BackgroundColor.SUBACCENT_700}
+        />,
+      )
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
+        backgroundColor: 'rgb(135,218,185)',
+      })
+    })
+
+    it('renders with subaccent 800 background color style', () => {
+      const testId = faker.string.uuid()
+      render(
+        <View
+          testId={testId}
+          backgroundColor={View.BackgroundColor.SUBACCENT_800}
+        />,
+      )
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
+        backgroundColor: 'rgb(125,215,180)',
+      })
+    })
+
+    it('renders with subaccent 900 background color style', () => {
+      const testId = faker.string.uuid()
+      render(
+        <View
+          testId={testId}
+          backgroundColor={View.BackgroundColor.SUBACCENT_900}
+        />,
+      )
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
+        backgroundColor: 'rgb(100,195,160)',
+      })
+    })
   })
 })

@@ -29,6 +29,15 @@ const VIEW_BACKGROUND_COLOR_THEME_KEY = {
   [ViewBackgroundColor.ACCENT_700]: 'colorBackgroundAccent700' as const,
   [ViewBackgroundColor.ACCENT_800]: 'colorBackgroundAccent800' as const,
   [ViewBackgroundColor.ACCENT_900]: 'colorBackgroundAccent900' as const,
+  [ViewBackgroundColor.SUBACCENT_100]: 'colorBackgroundSubaccent100' as const,
+  [ViewBackgroundColor.SUBACCENT_200]: 'colorBackgroundSubaccent200' as const,
+  [ViewBackgroundColor.SUBACCENT_300]: 'colorBackgroundSubaccent300' as const,
+  [ViewBackgroundColor.SUBACCENT_400]: 'colorBackgroundSubaccent400' as const,
+  [ViewBackgroundColor.SUBACCENT_500]: 'colorBackgroundSubaccent500' as const,
+  [ViewBackgroundColor.SUBACCENT_600]: 'colorBackgroundSubaccent600' as const,
+  [ViewBackgroundColor.SUBACCENT_700]: 'colorBackgroundSubaccent700' as const,
+  [ViewBackgroundColor.SUBACCENT_800]: 'colorBackgroundSubaccent800' as const,
+  [ViewBackgroundColor.SUBACCENT_900]: 'colorBackgroundSubaccent900' as const,
 }
 export const useViewBackgroundColorStyle = (
   backgroundColor?: ViewBackgroundColor,
