@@ -1,7 +1,4 @@
-import { Dimension, Fraction } from '@/helpers'
-import { faker } from '@faker-js/faker'
 import { renderHook } from '@testing-library/react-native'
-import { DimensionValue, Platform } from 'react-native'
 import {
   ViewAlignContent,
   ViewAlignItems,
@@ -37,11 +34,9 @@ describe('@/components/atoms/view', () => {
       })
 
       it('returns flex grow value when fraction provided', () => {
-        const flexGrow = faker.number.int()
-        const { result } = renderHook(() =>
-          useViewFlexGrowValue(new Fraction(flexGrow)),
-        )
-        expect(result.current).toBe(flexGrow)
+        const fraction = randomFraction()
+        const { result } = renderHook(() => useViewFlexGrowValue(fraction))
+        expect(result.current).toBe(fraction.toValue())
       })
     })
 
@@ -52,11 +47,9 @@ describe('@/components/atoms/view', () => {
       })
 
       it('returns flex shrink value when fraction provided', () => {
-        const flexShrink = faker.number.int()
-        const { result } = renderHook(() =>
-          useViewFlexShrinkValue(new Fraction(flexShrink)),
-        )
-        expect(result.current).toBe(flexShrink)
+        const fraction = randomFraction()
+        const { result } = renderHook(() => useViewFlexShrinkValue(fraction))
+        expect(result.current).toBe(fraction.toValue())
       })
     })
 
@@ -67,29 +60,15 @@ describe('@/components/atoms/view', () => {
       })
 
       it('returns flex basis value when pixel dimension provided', () => {
-        const flexBasis = faker.number.int()
-        const { result } = renderHook(() =>
-          useViewFlexBasisValue(new Dimension(flexBasis, Dimension.Unit.PIXEL)),
-        )
-        expect(result.current).toBe(
-          Platform.select({
-            web: `${flexBasis}px` as DimensionValue,
-            default: flexBasis as DimensionValue,
-          }),
-        )
+        const dimension = randomPixelDimension()
+        const { result } = renderHook(() => useViewFlexBasisValue(dimension))
+        expect(result.current).toBe(dimension.toValue())
       })
 
       it('returns flex basis value when percent dimension provided', () => {
-        const flexBasis = faker.number.int({
-          min: 0,
-          max: 100,
-        })
-        const { result } = renderHook(() =>
-          useViewFlexBasisValue(
-            new Dimension(flexBasis, Dimension.Unit.PERCENT),
-          ),
-        )
-        expect(result.current).toBe(`${flexBasis}%`)
+        const dimension = randomPercentDimension()
+        const { result } = renderHook(() => useViewFlexBasisValue(dimension))
+        expect(result.current).toBe(dimension.toValue())
       })
     })
 

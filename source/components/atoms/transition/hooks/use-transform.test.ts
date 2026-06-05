@@ -1,7 +1,6 @@
-import { Dimension, Fraction } from '@/helpers'
+import { Dimension } from '@/helpers'
 import { faker } from '@faker-js/faker'
 import { renderHook } from '@testing-library/react-native'
-import { Platform } from 'react-native'
 import {
   useTransitionTransformValue,
   useTransitionTranslateNativeValue,
@@ -18,62 +17,38 @@ describe('@/components/atoms/transition', () => {
       })
 
       it('returns scale transform when scale provided', () => {
-        const scale = faker.number.float({ min: 0, max: 1 })
+        const fraction = randomFraction()
         const { result } = renderHook(() =>
-          useTransitionTransformValue(new Fraction(scale)),
+          useTransitionTransformValue(fraction),
         )
-        expect(result.current).toBe(`scale(${scale})`)
+        expect(result.current).toBe(`scale(${fraction.toValue()})`)
       })
 
       it('returns translateX transform when pixel translateX provided', () => {
-        const value = faker.number.int({ min: 1, max: 200 })
+        const dimension = randomPixelDimension()
         const { result } = renderHook(() =>
-          useTransitionTransformValue(
-            undefined,
-            new Dimension(value, Dimension.Unit.PIXEL),
-          ),
+          useTransitionTransformValue(undefined, dimension),
         )
-        expect(result.current).toBe(
-          Platform.select({
-            web: `translateX(${value}px)`,
-            default: `translateX(${value})`,
-          }),
-        )
+        expect(result.current).toBe(`translateX(${dimension.toValue()})`)
       })
 
       it('returns translateY transform when pixel translateY provided', () => {
-        const value = faker.number.int({ min: 1, max: 200 })
+        const dimension = randomPixelDimension()
         const { result } = renderHook(() =>
-          useTransitionTransformValue(
-            undefined,
-            undefined,
-            new Dimension(value, Dimension.Unit.PIXEL),
-          ),
+          useTransitionTransformValue(undefined, undefined, dimension),
         )
-        expect(result.current).toBe(
-          Platform.select({
-            web: `translateY(${value}px)`,
-            default: `translateY(${value})`,
-          }),
-        )
+        expect(result.current).toBe(`translateY(${dimension.toValue()})`)
       })
 
       it('returns combined transform when all props provided', () => {
-        const scale = faker.number.float({ min: 0, max: 1 })
-        const x = faker.number.int({ min: 1, max: 200 })
-        const y = faker.number.int({ min: 1, max: 200 })
+        const scale = randomFraction()
+        const x = randomPixelDimension()
+        const y = randomPixelDimension()
         const { result } = renderHook(() =>
-          useTransitionTransformValue(
-            new Fraction(scale),
-            new Dimension(x, Dimension.Unit.PIXEL),
-            new Dimension(y, Dimension.Unit.PIXEL),
-          ),
+          useTransitionTransformValue(scale, x, y),
         )
         expect(result.current).toBe(
-          Platform.select({
-            web: `scale(${scale}) translateX(${x}px) translateY(${y}px)`,
-            default: `scale(${scale}) translateX(${x}) translateY(${y})`,
-          }),
+          `scale(${scale.toValue()}) translateX(${x.toValue()}) translateY(${y.toValue()})`,
         )
       })
     })

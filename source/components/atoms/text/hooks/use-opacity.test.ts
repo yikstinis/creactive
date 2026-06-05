@@ -1,5 +1,3 @@
-import { Fraction } from '@/helpers'
-import { faker } from '@faker-js/faker'
 import { renderHook } from '@testing-library/react-native'
 import { useTextOpacityValue } from './use-opacity'
 
@@ -12,14 +10,9 @@ describe('@/components/atoms/text', () => {
       })
 
       it('returns opacity value when fraction provided', () => {
-        const opacity = faker.number.float({
-          min: 0,
-          max: 1,
-        })
-        const { result } = renderHook(() =>
-          useTextOpacityValue(new Fraction(opacity)),
-        )
-        expect(result.current).toBe(opacity)
+        const fraction = randomFraction()
+        const { result } = renderHook(() => useTextOpacityValue(fraction))
+        expect(result.current).toBe(fraction.toValue())
       })
     })
   })

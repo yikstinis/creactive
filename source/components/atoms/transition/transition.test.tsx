@@ -1,4 +1,3 @@
-import { Fraction } from '@/helpers'
 import { faker } from '@faker-js/faker'
 import { render, screen } from '@testing-library/react-native'
 import { Transition } from '.'
@@ -36,14 +35,14 @@ describe('@/components/atoms/transition', () => {
   describe('opacity property', () => {
     it('renders with provided fraction opacity', () => {
       const testId = faker.string.uuid()
-      const opacity = faker.number.float({ min: 0, max: 1 })
+      const fraction = randomFraction()
       render(
         <Transition
           testId={testId}
-          opacity={new Fraction(opacity)}
+          opacity={fraction}
         />,
       )
-      expect(screen.getByTestId(testId)).toHavePlatformStyle({ opacity })
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({ opacity: fraction.toValue() })
     })
   })
 })
