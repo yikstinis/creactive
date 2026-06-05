@@ -414,5 +414,56 @@ describe('@/components/atoms/view', () => {
         height,
       })
     })
+
+    it('calls provided callback with new dimensions when layout event fired again', () => {
+      const testId = faker.string.uuid()
+      const handleLayout = jest.fn()
+      const { getByTestId } = render(
+        <View
+          testId={testId}
+          onLayout={handleLayout}
+        />,
+      )
+      act(() =>
+        fireEvent(getByTestId(testId), 'onLayout', {
+          nativeEvent: {
+            layout: {
+              width: faker.number.float({ min: 0 }),
+              height: faker.number.float({ min: 0 }),
+            },
+          },
+        }),
+      )
+      const width = faker.number.float({ min: 0 })
+      const height = faker.number.float({ min: 0 })
+      act(() =>
+        fireEvent(getByTestId(testId), 'onLayout', {
+          nativeEvent: {
+            layout: {
+              width,
+              height,
+            },
+          },
+        }),
+      )
+      expect(handleLayout).toHaveBeenLastCalledWith({ width, height })
+    })
+
+    it('does not call provided callback when not provided', () => {
+      const testId = faker.string.uuid()
+      const { getByTestId } = render(<View testId={testId} />)
+      expect(() =>
+        act(() =>
+          fireEvent(getByTestId(testId), 'onLayout', {
+            nativeEvent: {
+              layout: {
+                width: faker.number.float({ min: 0 }),
+                height: faker.number.float({ min: 0 }),
+              },
+            },
+          }),
+        ),
+      ).not.toThrow()
+    })
   })
 })

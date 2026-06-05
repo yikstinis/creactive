@@ -3,14 +3,6 @@ import { useEffect, useMemo, useState } from 'react'
 import { Platform } from 'react-native'
 import { WrapperProps } from './wrapper.types'
 
-Platform.select({
-  web: () => {
-    if (globalThis.window) {
-      // TODO: ...
-    }
-  },
-})?.()
-
 export const Wrapper = Platform.select({
   // We need a wrapper for hiding content blinking.
   // Server side rendered result is allways matching mobile media.

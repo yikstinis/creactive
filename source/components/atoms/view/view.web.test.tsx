@@ -546,6 +546,10 @@ describe('@/components/atoms/view', () => {
   })
 
   describe('layout callback property', () => {
+    beforeEach(() => {
+      MockResizeObserver.instances = []
+    })
+
     it('calls provided callback when component mounted', () => {
       const testId = faker.string.uuid()
       const handleLayout = jest.fn()
@@ -556,6 +560,31 @@ describe('@/components/atoms/view', () => {
         />,
       )
       expect(handleLayout).toHaveBeenCalled()
+    })
+
+    it('calls provided callback with element dimensions on mount', () => {
+      const handleLayout = jest.fn()
+      render(<View onLayout={handleLayout} />)
+      expect(handleLayout).toHaveBeenCalledWith({ width: 0, height: 0 })
+    })
+
+    it('calls provided callback with new dimensions when element resizes', () => {
+      const handleLayout = jest.fn()
+      render(<View onLayout={handleLayout} />)
+      const width = faker.number.int({ min: 1, max: 1000 })
+      const height = faker.number.int({ min: 1, max: 1000 })
+      MockResizeObserver.instances[0].trigger(width, height)
+      expect(handleLayout).toHaveBeenLastCalledWith({ width, height })
+    })
+
+    it('does not call provided callback after component unmounts', () => {
+      const handleLayout = jest.fn()
+      const { unmount } = render(<View onLayout={handleLayout} />)
+      const observer = MockResizeObserver.instances[0]
+      unmount()
+      handleLayout.mockClear()
+      observer.trigger(100, 100)
+      expect(handleLayout).not.toHaveBeenCalled()
     })
   })
 })
