@@ -6,7 +6,7 @@ import { View } from '.'
 describe('@/components/atoms/view', () => {
   describe('position property', () => {
     it('renders with default position', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(<View testId={testId} />)
       expect(screen.getByTestId(testId)).toHavePlatformStyle({
         position: 'relative',
@@ -14,7 +14,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with relative position', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -27,7 +27,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with absolute position', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -42,7 +42,7 @@ describe('@/components/atoms/view', () => {
 
   describe('top property', () => {
     it('renders with pixel top style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       const top = faker.number.float()
       render(
         <View
@@ -56,7 +56,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with percent top style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       const top = faker.number.float({
         min: 0,
         max: 100,
@@ -75,7 +75,7 @@ describe('@/components/atoms/view', () => {
 
   describe('left property', () => {
     it('renders with pixel left style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       const left = faker.number.float()
       render(
         <View
@@ -89,7 +89,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with percent left style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       const left = faker.number.float({
         min: 0,
         max: 100,
@@ -108,7 +108,7 @@ describe('@/components/atoms/view', () => {
 
   describe('right property', () => {
     it('renders with pixel right style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       const right = faker.number.float()
       render(
         <View
@@ -122,7 +122,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with percent right style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       const right = faker.number.float({
         min: 0,
         max: 100,
@@ -141,7 +141,7 @@ describe('@/components/atoms/view', () => {
 
   describe('bottom property', () => {
     it('renders with pixel bottom style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       const bottom = faker.number.float()
       render(
         <View
@@ -155,7 +155,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with percent bottom style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       const bottom = faker.number.float({
         min: 0,
         max: 100,
@@ -174,7 +174,7 @@ describe('@/components/atoms/view', () => {
 
   describe('opacity property', () => {
     it('renders with provided fraction opacity style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       const opacity = faker.number.float({ min: 0, max: 1 })
       render(
         <View
@@ -190,7 +190,7 @@ describe('@/components/atoms/view', () => {
 
   describe('overflow property', () => {
     it('renders with default overflow style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(<View testId={testId} />)
       expect(screen.getByTestId(testId)).toHavePlatformStyle({
         overflow: 'visible',
@@ -198,7 +198,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with visible overflow style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -211,7 +211,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with hidden overflow style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -226,7 +226,7 @@ describe('@/components/atoms/view', () => {
 
   describe('flex grow property', () => {
     it('renders with provided fraction flex grow style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       const flexGrow = faker.number.float({
         min: 0,
       })
@@ -244,7 +244,7 @@ describe('@/components/atoms/view', () => {
 
   describe('flex shrink property', () => {
     it('renders with provided fraction flex shrink style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       const flexShrink = faker.number.float({
         min: 0,
       })
@@ -262,7 +262,7 @@ describe('@/components/atoms/view', () => {
 
   describe('flex basis property', () => {
     it('renders with pixel flex basis style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       const flexBasis = faker.number.float()
       render(
         <View
@@ -278,7 +278,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with percent flex basis style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       const flexBasis = faker.number.float({
         min: 0,
         max: 100,
@@ -297,7 +297,7 @@ describe('@/components/atoms/view', () => {
 
   describe('flex wrap property', () => {
     it('renders with default flex wrap style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(<View testId={testId} />)
       expect(screen.getByTestId(testId)).toHavePlatformStyle({
         flexWrap: 'nowrap',
@@ -305,7 +305,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with none flex wrap style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -318,7 +318,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with wrap flex wrap style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -333,7 +333,7 @@ describe('@/components/atoms/view', () => {
 
   describe('flex direction property', () => {
     it('renders with default flex direction style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(<View testId={testId} />)
       expect(screen.getByTestId(testId)).toHavePlatformStyle({
         flexDirection: 'column',
@@ -341,7 +341,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with column flex direction style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -354,7 +354,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with row flex direction style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -369,7 +369,7 @@ describe('@/components/atoms/view', () => {
 
   describe('justify content property', () => {
     it('renders with default justify content style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(<View testId={testId} />)
       expect(screen.getByTestId(testId)).toHavePlatformStyle({
         justifyContent: 'flex-start',
@@ -377,7 +377,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with flex start justify content style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -390,7 +390,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with flex end justify content style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -403,7 +403,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with center justify content style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -416,7 +416,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with space between justify content style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -429,7 +429,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with space around justify content style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -442,7 +442,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with space evenly justify content style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -457,7 +457,7 @@ describe('@/components/atoms/view', () => {
 
   describe('align items property', () => {
     it('renders with default align items style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(<View testId={testId} />)
       expect(screen.getByTestId(testId)).toHavePlatformStyle({
         alignItems: 'stretch',
@@ -465,7 +465,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with flex start align items style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -478,7 +478,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with flex end align items style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -491,7 +491,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with center align items style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -504,7 +504,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with stretch align items style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -517,7 +517,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with baseline align items style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -532,7 +532,7 @@ describe('@/components/atoms/view', () => {
 
   describe('align self property', () => {
     it('renders with flex start align self style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -545,7 +545,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with flex end align self style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -558,7 +558,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with center align self style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -571,7 +571,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with stretch align self style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -584,7 +584,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with baseline align self style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -599,7 +599,7 @@ describe('@/components/atoms/view', () => {
 
   describe('align content property', () => {
     it('renders with flex start align content style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -612,7 +612,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with flex end align content style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -625,7 +625,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with center align content style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -638,7 +638,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with stretch align content style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -651,7 +651,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with space between align content style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -664,7 +664,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with space around align content style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -677,7 +677,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with space evenly align content style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -692,7 +692,7 @@ describe('@/components/atoms/view', () => {
 
   describe('gap property', () => {
     it('renders with 6 times extra-small gap style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -705,7 +705,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with 5 times extra-small gap style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -718,7 +718,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with 4 times extra-small gap style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -731,7 +731,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with 3 times extra-small gap style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -744,7 +744,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with 2 times extra-small gap style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -757,7 +757,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with extra-small gap style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -770,7 +770,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with small gap style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -783,7 +783,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with medium gap style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -796,7 +796,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with large gap style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -809,7 +809,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with extra-large gap style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -822,7 +822,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with 2 times extra-large gap style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -835,7 +835,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with 3 times extra-large gap style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -848,7 +848,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with 4 times extra-large gap style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -861,7 +861,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with 5 times extra-large gap style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -874,7 +874,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with 6 times extra-large gap style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -889,7 +889,7 @@ describe('@/components/atoms/view', () => {
 
   describe('margin top property', () => {
     it('renders with 6 times extra-small margin top style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -902,7 +902,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with 5 times extra-small margin top style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -915,7 +915,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with 4 times extra-small margin top style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -928,7 +928,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with 3 times extra-small margin top style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -941,7 +941,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with 2 times extra-small margin top style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -954,7 +954,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with extra-small margin top style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -967,7 +967,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with small margin top style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -980,7 +980,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with medium margin top style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -993,7 +993,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with large margin top style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -1006,7 +1006,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with extra-large margin top style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -1019,7 +1019,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with 2 times extra-large margin top style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -1032,7 +1032,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with 3 times extra-large margin top style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -1045,7 +1045,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with 4 times extra-large margin top style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -1058,7 +1058,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with 5 times extra-large margin top style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -1071,7 +1071,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with 6 times extra-large margin top style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -1086,7 +1086,7 @@ describe('@/components/atoms/view', () => {
 
   describe('padding top property', () => {
     it('renders with 6 times extra-small margin top style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -1099,7 +1099,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with 5 times extra-small margin top style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -1112,7 +1112,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with 4 times extra-small margin top style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -1125,7 +1125,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with 3 times extra-small margin top style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -1138,7 +1138,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with 2 times extra-small margin top style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -1151,7 +1151,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with extra-small margin top style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -1164,7 +1164,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with small margin top style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -1177,7 +1177,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with medium margin top style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -1190,7 +1190,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with large margin top style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -1203,7 +1203,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with extra-large margin top style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -1216,7 +1216,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with 2 times extra-large margin top style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -1229,7 +1229,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with 3 times extra-large margin top style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -1242,7 +1242,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with 4 times extra-large margin top style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -1255,7 +1255,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with 5 times extra-large margin top style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -1268,7 +1268,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with 6 times extra-large margin top style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -1283,7 +1283,7 @@ describe('@/components/atoms/view', () => {
 
   describe('margin left property', () => {
     it('renders with 6 times extra-small margin left style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -1296,7 +1296,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with 5 times extra-small margin left style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -1309,7 +1309,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with 4 times extra-small margin left style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -1322,7 +1322,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with 3 times extra-small margin left style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -1335,7 +1335,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with 2 times extra-small margin left style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -1348,7 +1348,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with extra-small margin left style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -1361,7 +1361,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with small margin left style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -1374,7 +1374,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with medium margin left style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -1387,7 +1387,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with large margin left style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -1400,7 +1400,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with extra-large margin left style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -1413,7 +1413,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with 2 times extra-large margin left style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -1426,7 +1426,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with 3 times extra-large margin left style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -1439,7 +1439,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with 4 times extra-large margin left style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -1452,7 +1452,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with 5 times extra-large margin left style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -1465,7 +1465,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with 6 times extra-large margin left style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -1480,7 +1480,7 @@ describe('@/components/atoms/view', () => {
 
   describe('padding left property', () => {
     it('renders with 6 times extra-small padding left style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -1493,7 +1493,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with 5 times extra-small padding left style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -1506,7 +1506,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with 4 times extra-small padding left style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -1519,7 +1519,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with 3 times extra-small padding left style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -1532,7 +1532,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with 2 times extra-small padding left style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -1545,7 +1545,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with extra-small padding left style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -1558,7 +1558,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with small padding left style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -1571,7 +1571,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with medium padding left style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -1584,7 +1584,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with large padding left style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -1597,7 +1597,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with extra-large padding left style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -1610,7 +1610,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with 2 times extra-large padding left style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -1623,7 +1623,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with 3 times extra-large padding left style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -1636,7 +1636,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with 4 times extra-large padding left style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -1649,7 +1649,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with 5 times extra-large padding left style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -1662,7 +1662,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with 6 times extra-large padding left style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -1677,7 +1677,7 @@ describe('@/components/atoms/view', () => {
 
   describe('margin right property', () => {
     it('renders with 6 times extra-small margin right style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -1690,7 +1690,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with 5 times extra-small margin right style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -1703,7 +1703,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with 4 times extra-small margin right style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -1716,7 +1716,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with 3 times extra-small margin right style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -1729,7 +1729,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with 2 times extra-small margin right style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -1742,7 +1742,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with extra-small margin right style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -1755,7 +1755,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with small margin right style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -1768,7 +1768,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with medium margin right style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -1781,7 +1781,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with large margin right style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -1794,7 +1794,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with extra-large margin right style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -1807,7 +1807,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with 2 times extra-large margin right style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -1820,7 +1820,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with 3 times extra-large margin right style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -1833,7 +1833,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with 4 times extra-large margin right style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -1846,7 +1846,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with 5 times extra-large margin right style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -1859,7 +1859,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with 6 times extra-large margin right style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -1874,7 +1874,7 @@ describe('@/components/atoms/view', () => {
 
   describe('padding right property', () => {
     it('renders with 6 times extra-small padding right style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -1887,7 +1887,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with 5 times extra-small padding right style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -1900,7 +1900,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with 4 times extra-small padding right style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -1913,7 +1913,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with 3 times extra-small padding right style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -1926,7 +1926,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with 2 times extra-small padding right style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -1939,7 +1939,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with extra-small padding right style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -1952,7 +1952,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with small padding right style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -1965,7 +1965,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with medium padding right style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -1978,7 +1978,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with large padding right style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -1991,7 +1991,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with extra-large padding right style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -2004,7 +2004,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with 2 times extra-large padding right style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -2017,7 +2017,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with 3 times extra-large padding right style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -2030,7 +2030,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with 4 times extra-large padding right style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -2043,7 +2043,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with 5 times extra-large padding right style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -2056,7 +2056,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with 6 times extra-large padding right style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -2071,7 +2071,7 @@ describe('@/components/atoms/view', () => {
 
   describe('margin bottom property', () => {
     it('renders with 6 times extra-small margin bottom style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -2084,7 +2084,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with 5 times extra-small margin bottom style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -2097,7 +2097,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with 4 times extra-small margin bottom style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -2110,7 +2110,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with 3 times extra-small margin bottom style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -2123,7 +2123,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with 2 times extra-small margin bottom style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -2136,7 +2136,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with extra-small margin bottom style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -2149,7 +2149,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with small margin bottom style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -2162,7 +2162,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with medium margin bottom style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -2175,7 +2175,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with large margin bottom style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -2188,7 +2188,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with extra-large margin bottom style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -2201,7 +2201,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with 2 times extra-large margin bottom style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -2214,7 +2214,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with 3 times extra-large margin bottom style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -2227,7 +2227,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with 4 times extra-large margin bottom style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -2240,7 +2240,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with 5 times extra-large margin bottom style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -2253,7 +2253,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with 6 times extra-large margin bottom style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -2268,7 +2268,7 @@ describe('@/components/atoms/view', () => {
 
   describe('padding bottom property', () => {
     it('renders with 6 times extra-small padding bottom style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -2281,7 +2281,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with 5 times extra-small padding bottom style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -2294,7 +2294,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with 4 times extra-small padding bottom style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -2307,7 +2307,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with 3 times extra-small padding bottom style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -2320,7 +2320,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with 2 times extra-small padding bottom style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -2333,7 +2333,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with extra-small padding bottom style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -2346,7 +2346,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with small padding bottom style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -2359,7 +2359,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with medium padding bottom style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -2372,7 +2372,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with large padding bottom style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -2385,7 +2385,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with extra-large padding bottom style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -2398,7 +2398,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with 2 times extra-large padding bottom style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -2411,7 +2411,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with 3 times extra-large padding bottom style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -2424,7 +2424,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with 4 times extra-large padding bottom style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -2437,7 +2437,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with 5 times extra-large padding bottom style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -2450,7 +2450,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with 6 times extra-large padding bottom style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -2465,7 +2465,7 @@ describe('@/components/atoms/view', () => {
 
   describe('min width property', () => {
     it('renders with pixel min width style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       const minWidth = faker.number.float({ min: 0 })
       render(
         <View
@@ -2479,7 +2479,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with percent min width style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       const minWidth = faker.number.float({ min: 0, max: 100 })
       render(
         <View
@@ -2495,7 +2495,7 @@ describe('@/components/atoms/view', () => {
 
   describe('width property', () => {
     it('renders with pixel width style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       const width = faker.number.float({ min: 0 })
       render(
         <View
@@ -2509,7 +2509,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with percent width style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       const width = faker.number.float({ min: 0, max: 100 })
       render(
         <View
@@ -2525,7 +2525,7 @@ describe('@/components/atoms/view', () => {
 
   describe('max width property', () => {
     it('renders with pixel max width style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       const maxWidth = faker.number.float({ min: 0 })
       render(
         <View
@@ -2539,7 +2539,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with percent max width style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       const maxWidth = faker.number.float({ min: 0, max: 100 })
       render(
         <View
@@ -2555,7 +2555,7 @@ describe('@/components/atoms/view', () => {
 
   describe('min height property', () => {
     it('renders with pixel min height style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       const minHeight = faker.number.float({ min: 0 })
       render(
         <View
@@ -2569,7 +2569,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with percent min height style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       const minHeight = faker.number.float({ min: 0, max: 100 })
       render(
         <View
@@ -2585,7 +2585,7 @@ describe('@/components/atoms/view', () => {
 
   describe('height property', () => {
     it('renders with pixel height style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       const height = faker.number.float({ min: 0 })
       render(
         <View
@@ -2599,7 +2599,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with percent height style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       const height = faker.number.float({ min: 0, max: 100 })
       render(
         <View
@@ -2615,7 +2615,7 @@ describe('@/components/atoms/view', () => {
 
   describe('max height property', () => {
     it('renders with pixel max height style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       const maxHeight = faker.number.float({ min: 0 })
       render(
         <View
@@ -2629,7 +2629,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with percent max height style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       const maxHeight = faker.number.float({ min: 0, max: 100 })
       render(
         <View
@@ -2645,7 +2645,7 @@ describe('@/components/atoms/view', () => {
 
   describe('box shadow property', () => {
     it('renders with small box shadow style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -2661,7 +2661,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with medium box shadow style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -2677,7 +2677,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with large box shadow style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -2695,7 +2695,7 @@ describe('@/components/atoms/view', () => {
 
   describe('border color property', () => {
     it('renders with base 100 border color style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -2708,7 +2708,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with base 200 border color style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -2721,7 +2721,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with base 300 border color style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -2734,7 +2734,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with base 400 border color style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -2747,7 +2747,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with base 500 border color style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -2760,7 +2760,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with base 600 border color style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -2773,7 +2773,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with base 700 border color style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -2786,7 +2786,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with base 800 border color style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -2799,7 +2799,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with base 900 border color style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -2814,7 +2814,7 @@ describe('@/components/atoms/view', () => {
 
   describe('border width property', () => {
     it('renders with small border width style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -2827,7 +2827,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with medium border width style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -2840,7 +2840,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with large border width style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -2855,7 +2855,7 @@ describe('@/components/atoms/view', () => {
 
   describe('border width top property', () => {
     it('renders with small border width style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -2868,7 +2868,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with medium border width style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -2881,7 +2881,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with large border width style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -2896,7 +2896,7 @@ describe('@/components/atoms/view', () => {
 
   describe('border width left property', () => {
     it('renders with small border width style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -2909,7 +2909,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with medium border width style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -2922,7 +2922,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with large border width style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -2937,7 +2937,7 @@ describe('@/components/atoms/view', () => {
 
   describe('border width right property', () => {
     it('renders with small border width style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -2950,7 +2950,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with medium border width style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -2963,7 +2963,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with large border width style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -2978,7 +2978,7 @@ describe('@/components/atoms/view', () => {
 
   describe('border width bottom property', () => {
     it('renders with small border width style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -2991,7 +2991,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with medium border width style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -3004,7 +3004,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with large border width style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -3019,7 +3019,7 @@ describe('@/components/atoms/view', () => {
 
   describe('border radius property', () => {
     it('renders with extra small border radius style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -3032,7 +3032,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with small border radius style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -3045,7 +3045,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with medium border radius style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -3058,7 +3058,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with large border radius style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -3071,7 +3071,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with extra large border radius style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -3084,7 +3084,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with maximum border radius style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -3099,7 +3099,7 @@ describe('@/components/atoms/view', () => {
 
   describe('border radius top left property', () => {
     it('renders with extra small border radius style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -3112,7 +3112,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with small border radius style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -3125,7 +3125,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with medium border radius style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -3138,7 +3138,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with large border radius style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -3151,7 +3151,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with extra large border radius style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -3164,7 +3164,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with maximum border radius style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -3179,7 +3179,7 @@ describe('@/components/atoms/view', () => {
 
   describe('border radius top right property', () => {
     it('renders with extra small border radius style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -3192,7 +3192,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with small border radius style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -3205,7 +3205,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with medium border radius style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -3218,7 +3218,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with large border radius style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -3231,7 +3231,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with extra large border radius style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -3244,7 +3244,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with maximum border radius style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -3259,7 +3259,7 @@ describe('@/components/atoms/view', () => {
 
   describe('border radius bottom left property', () => {
     it('renders with extra small border radius style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -3272,7 +3272,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with small border radius style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -3285,7 +3285,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with medium border radius style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -3298,7 +3298,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with large border radius style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -3311,7 +3311,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with extra large border radius style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -3324,7 +3324,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with maximum border radius style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -3339,7 +3339,7 @@ describe('@/components/atoms/view', () => {
 
   describe('border radius bottom right property', () => {
     it('renders with extra small border radius style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -3352,7 +3352,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with small border radius style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -3365,7 +3365,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with medium border radius style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -3378,7 +3378,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with large border radius style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -3391,7 +3391,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with extra large border radius style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -3404,7 +3404,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with maximum border radius style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -3419,7 +3419,7 @@ describe('@/components/atoms/view', () => {
 
   describe('background color property', () => {
     it('renders with base 100 background color style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -3432,7 +3432,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with base 200 background color style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -3445,7 +3445,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with base 300 background color style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -3458,7 +3458,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with base 400 background color style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -3471,7 +3471,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with base 500 background color style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -3484,7 +3484,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with base 600 background color style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -3497,7 +3497,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with base 700 background color style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -3510,7 +3510,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with base 800 background color style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -3523,7 +3523,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with base 900 background color style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -3536,7 +3536,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with primary 100 background color style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -3549,7 +3549,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with primary 200 background color style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -3562,7 +3562,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with primary 300 background color style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -3575,7 +3575,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with primary 400 background color style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -3588,7 +3588,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with primary 500 background color style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -3601,7 +3601,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with primary 600 background color style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -3614,7 +3614,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with primary 700 background color style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -3627,7 +3627,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with primary 800 background color style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -3640,7 +3640,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with primary 900 background color style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -3653,7 +3653,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with accent 100 background color style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -3666,7 +3666,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with accent 200 background color style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -3679,7 +3679,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with accent 300 background color style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -3692,7 +3692,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with accent 400 background color style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -3705,7 +3705,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with accent 500 background color style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -3718,7 +3718,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with accent 600 background color style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -3731,7 +3731,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with accent 700 background color style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -3744,7 +3744,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with accent 800 background color style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -3757,7 +3757,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with accent 900 background color style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -3770,7 +3770,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with subaccent 100 background color style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -3783,7 +3783,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with subaccent 200 background color style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -3796,7 +3796,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with subaccent 300 background color style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -3809,7 +3809,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with subaccent 400 background color style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -3822,7 +3822,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with subaccent 500 background color style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -3835,7 +3835,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with subaccent 600 background color style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -3848,7 +3848,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with subaccent 700 background color style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -3861,7 +3861,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with subaccent 800 background color style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -3874,7 +3874,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with subaccent 900 background color style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -3887,7 +3887,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with transparent background color style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <View
           testId={testId}
@@ -3900,7 +3900,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with custom rgb background color style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       const backgroundColor = randomRgb()
       render(
         <View
@@ -3912,7 +3912,7 @@ describe('@/components/atoms/view', () => {
     })
 
     it('renders with custom rgba background color style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       const backgroundColor = randomRgba()
       render(
         <View

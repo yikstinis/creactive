@@ -1,22 +1,24 @@
 // This file is automatically executed before running tests.
 // You can use it to configure or set up the testing environment.
-import { Dimension, Fraction } from '@/helpers'
 import type { PercentDimension, PixelDimension } from '@/helpers'
+import { Dimension, Fraction } from '@/helpers'
 import type { Color } from '@/types'
 import { faker } from '@faker-js/faker'
 import { Platform } from 'react-native'
 
+global.randomTestId = (): string => faker.string.uuid()
+
 global.randomRgb = (): Color =>
-  `rgb(${faker.number.int({ min: 0, max: 255 })},${faker.number.int({ min: 0, max: 255 })},${faker.number.int({ min: 0, max: 255 })})`
+  faker.color.rgb({ format: 'css', includeAlpha: false }) as Color
 
 global.randomRgba = (): Color =>
-  `rgba(${faker.number.int({ min: 0, max: 255 })},${faker.number.int({ min: 0, max: 255 })},${faker.number.int({ min: 0, max: 255 })},${faker.number.float({ min: 0, max: 1, fractionDigits: 2 })})`
+  faker.color.rgb({ format: 'css', includeAlpha: true }) as Color
 
 global.randomFraction = (): Fraction =>
   new Fraction(faker.number.float({ min: 0, max: 1, fractionDigits: 2 }))
 
 global.randomPixelDimension = (): PixelDimension =>
-  new Dimension(faker.number.int({ min: 1, max: 200 }), Dimension.Unit.PIXEL)
+  new Dimension(faker.number.int(), Dimension.Unit.PIXEL)
 
 global.randomPercentDimension = (): PercentDimension =>
   new Dimension(faker.number.int({ min: 1, max: 100 }), Dimension.Unit.PERCENT)
@@ -90,4 +92,5 @@ declare global {
   function randomFraction(): Fraction
   function randomPixelDimension(): PixelDimension
   function randomPercentDimension(): PercentDimension
+  function randomTestId(): string
 }

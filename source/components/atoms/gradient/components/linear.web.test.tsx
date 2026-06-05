@@ -8,7 +8,7 @@ import { GradientStop } from './stop'
 describe('@/components/atoms/gradient', () => {
   describe('linear gradient component', () => {
     it('renders wrapper view with absolute fill styles', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <GradientLinear
           testId={testId}
@@ -36,7 +36,7 @@ describe('@/components/atoms/gradient', () => {
     })
 
     it('renders wrapper view with only svg element inside', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <GradientLinear
           testId={testId}
@@ -60,7 +60,7 @@ describe('@/components/atoms/gradient', () => {
     })
 
     it('renders linear gradient with top coordinates', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <GradientLinear
           testId={testId}
@@ -90,7 +90,7 @@ describe('@/components/atoms/gradient', () => {
     })
 
     it('renders linear gradient with left coordinates', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <GradientLinear
           testId={testId}
@@ -120,7 +120,7 @@ describe('@/components/atoms/gradient', () => {
     })
 
     it('renders linear gradient with right coordinates', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <GradientLinear
           testId={testId}
@@ -150,7 +150,7 @@ describe('@/components/atoms/gradient', () => {
     })
 
     it('renders linear gradient with bottom coordinates', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <GradientLinear
           testId={testId}
@@ -180,7 +180,7 @@ describe('@/components/atoms/gradient', () => {
     })
 
     it('renders full size rectangle filled with gradient', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <GradientLinear
           testId={testId}

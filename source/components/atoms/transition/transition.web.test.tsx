@@ -1,12 +1,11 @@
-import { faker } from '@faker-js/faker'
 import { render, screen } from '@testing-library/react'
 import { Transition } from '.'
 
 describe('@/components/atoms/transition', () => {
   describe('children property', () => {
     it('renders provided children', () => {
-      const testId = faker.string.uuid()
-      const childTestId = faker.string.uuid()
+      const testId = randomTestId()
+      const childTestId = randomTestId()
       render(
         <Transition testId={testId}>
           <Transition testId={childTestId} />
@@ -18,7 +17,7 @@ describe('@/components/atoms/transition', () => {
 
   describe('opacity property', () => {
     it('renders without opacity style by default', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(<Transition testId={testId} />)
       expect(screen.getByTestId(testId)).not.toHaveStyleRule(
         'opacity',
@@ -27,7 +26,7 @@ describe('@/components/atoms/transition', () => {
     })
 
     it('renders with provided fraction opacity style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       const fraction = randomFraction()
       render(
         <Transition
@@ -44,7 +43,7 @@ describe('@/components/atoms/transition', () => {
 
   describe('scale property', () => {
     it('renders without transform style by default', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(<Transition testId={testId} />)
       expect(screen.getByTestId(testId)).not.toHaveStyleRule(
         'transform',
@@ -53,7 +52,7 @@ describe('@/components/atoms/transition', () => {
     })
 
     it('renders with provided fraction scale transform style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       const fraction = randomFraction()
       render(
         <Transition
@@ -70,7 +69,7 @@ describe('@/components/atoms/transition', () => {
 
   describe('translateX property', () => {
     it('renders with provided pixel translateX transform style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       const dimension = randomPixelDimension()
       render(
         <Transition
@@ -87,7 +86,7 @@ describe('@/components/atoms/transition', () => {
 
   describe('translateY property', () => {
     it('renders with provided pixel translateY transform style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       const dimension = randomPixelDimension()
       render(
         <Transition
@@ -104,7 +103,7 @@ describe('@/components/atoms/transition', () => {
 
   describe('duration property', () => {
     it('renders with default medium duration transition style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(<Transition testId={testId} />)
       expect(screen.getByTestId(testId)).toHaveStyleRule(
         'transition',
@@ -113,7 +112,7 @@ describe('@/components/atoms/transition', () => {
     })
 
     it('renders with small duration transition style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <Transition
           testId={testId}
@@ -127,7 +126,7 @@ describe('@/components/atoms/transition', () => {
     })
 
     it('renders with medium duration transition style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <Transition
           testId={testId}
@@ -141,7 +140,7 @@ describe('@/components/atoms/transition', () => {
     })
 
     it('renders with large duration transition style', () => {
-      const testId = faker.string.uuid()
+      const testId = randomTestId()
       render(
         <Transition
           testId={testId}
