@@ -147,6 +147,52 @@ export interface ThemeContextValue {
   colorBackgroundAccent900: Color
 
   /**
+   * Least contrast subaccent background color.
+   * @default rgb(215,245,235)
+   */
+  colorBackgroundSubaccent100: Color
+  /**
+   * Dim subaccent background color.
+   * @default rgb(200,240,225)
+   */
+  colorBackgroundSubaccent200: Color
+  /**
+   * Mix of dim and muted subaccent background color.
+   * @default rgb(185,235,215)
+   */
+  colorBackgroundSubaccent300: Color
+  /**
+   * Muted subaccent background color.
+   * @default rgb(170,230,205)
+   */
+  colorBackgroundSubaccent400: Color
+  /**
+   * Mix of muted and subtle subaccent background color.
+   * @default rgb(155,225,195)
+   */
+  colorBackgroundSubaccent500: Color
+  /**
+   * Subtle subaccent background color.
+   * @default rgb(145,222,190)
+   */
+  colorBackgroundSubaccent600: Color
+  /**
+   * Mix of subtle and default subaccent background color.
+   * @default rgb(135,218,185)
+   */
+  colorBackgroundSubaccent700: Color
+  /**
+   * Subaccent default background color.
+   * @default rgb(125,215,180)
+   */
+  colorBackgroundSubaccent800: Color
+  /**
+   * Most contrast subaccent background color.
+   * @default rgb(100,195,160)
+   */
+  colorBackgroundSubaccent900: Color
+
+  /**
    * Least contrast base border color.
    * @default rgb(235,235,240)
    */

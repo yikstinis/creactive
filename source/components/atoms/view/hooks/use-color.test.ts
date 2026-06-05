@@ -255,6 +255,87 @@ describe('@/components/atoms/view', () => {
           backgroundColor: 'rgb(50,130,200)',
         })
       })
+
+      it('returns subaccent 100 background color style', () => {
+        const { result } = renderHook(() =>
+          useViewBackgroundColorStyle(ViewBackgroundColor.SUBACCENT_100),
+        )
+        expect(result.current).toEqual({
+          backgroundColor: 'rgb(215,245,235)',
+        })
+      })
+
+      it('returns subaccent 200 background color style', () => {
+        const { result } = renderHook(() =>
+          useViewBackgroundColorStyle(ViewBackgroundColor.SUBACCENT_200),
+        )
+        expect(result.current).toEqual({
+          backgroundColor: 'rgb(200,240,225)',
+        })
+      })
+
+      it('returns subaccent 300 background color style', () => {
+        const { result } = renderHook(() =>
+          useViewBackgroundColorStyle(ViewBackgroundColor.SUBACCENT_300),
+        )
+        expect(result.current).toEqual({
+          backgroundColor: 'rgb(185,235,215)',
+        })
+      })
+
+      it('returns subaccent 400 background color style', () => {
+        const { result } = renderHook(() =>
+          useViewBackgroundColorStyle(ViewBackgroundColor.SUBACCENT_400),
+        )
+        expect(result.current).toEqual({
+          backgroundColor: 'rgb(170,230,205)',
+        })
+      })
+
+      it('returns subaccent 500 background color style', () => {
+        const { result } = renderHook(() =>
+          useViewBackgroundColorStyle(ViewBackgroundColor.SUBACCENT_500),
+        )
+        expect(result.current).toEqual({
+          backgroundColor: 'rgb(155,225,195)',
+        })
+      })
+
+      it('returns subaccent 600 background color style', () => {
+        const { result } = renderHook(() =>
+          useViewBackgroundColorStyle(ViewBackgroundColor.SUBACCENT_600),
+        )
+        expect(result.current).toEqual({
+          backgroundColor: 'rgb(145,222,190)',
+        })
+      })
+
+      it('returns subaccent 700 background color style', () => {
+        const { result } = renderHook(() =>
+          useViewBackgroundColorStyle(ViewBackgroundColor.SUBACCENT_700),
+        )
+        expect(result.current).toEqual({
+          backgroundColor: 'rgb(135,218,185)',
+        })
+      })
+
+      it('returns subaccent 800 background color style', () => {
+        const { result } = renderHook(() =>
+          useViewBackgroundColorStyle(ViewBackgroundColor.SUBACCENT_800),
+        )
+        expect(result.current).toEqual({
+          backgroundColor: 'rgb(125,215,180)',
+        })
+      })
+
+      it('returns subaccent 900 background color style', () => {
+        const { result } = renderHook(() =>
+          useViewBackgroundColorStyle(ViewBackgroundColor.SUBACCENT_900),
+        )
+        expect(result.current).toEqual({
+          backgroundColor: 'rgb(100,195,160)',
+        })
+      })
     })
 
     describe('view background color value hook', () => {
@@ -450,6 +531,69 @@ describe('@/components/atoms/view', () => {
           useViewBackgroundColorValue(ViewBackgroundColor.ACCENT_900),
         )
         expect(result.current).toEqual('rgb(50,130,200)')
+      })
+
+      it('returns subaccent 100 background color value', () => {
+        const { result } = renderHook(() =>
+          useViewBackgroundColorValue(ViewBackgroundColor.SUBACCENT_100),
+        )
+        expect(result.current).toEqual('rgb(215,245,235)')
+      })
+
+      it('returns subaccent 200 background color value', () => {
+        const { result } = renderHook(() =>
+          useViewBackgroundColorValue(ViewBackgroundColor.SUBACCENT_200),
+        )
+        expect(result.current).toEqual('rgb(200,240,225)')
+      })
+
+      it('returns subaccent 300 background color value', () => {
+        const { result } = renderHook(() =>
+          useViewBackgroundColorValue(ViewBackgroundColor.SUBACCENT_300),
+        )
+        expect(result.current).toEqual('rgb(185,235,215)')
+      })
+
+      it('returns subaccent 400 background color value', () => {
+        const { result } = renderHook(() =>
+          useViewBackgroundColorValue(ViewBackgroundColor.SUBACCENT_400),
+        )
+        expect(result.current).toEqual('rgb(170,230,205)')
+      })
+
+      it('returns subaccent 500 background color value', () => {
+        const { result } = renderHook(() =>
+          useViewBackgroundColorValue(ViewBackgroundColor.SUBACCENT_500),
+        )
+        expect(result.current).toEqual('rgb(155,225,195)')
+      })
+
+      it('returns subaccent 600 background color value', () => {
+        const { result } = renderHook(() =>
+          useViewBackgroundColorValue(ViewBackgroundColor.SUBACCENT_600),
+        )
+        expect(result.current).toEqual('rgb(145,222,190)')
+      })
+
+      it('returns subaccent 700 background color value', () => {
+        const { result } = renderHook(() =>
+          useViewBackgroundColorValue(ViewBackgroundColor.SUBACCENT_700),
+        )
+        expect(result.current).toEqual('rgb(135,218,185)')
+      })
+
+      it('returns subaccent 800 background color value', () => {
+        const { result } = renderHook(() =>
+          useViewBackgroundColorValue(ViewBackgroundColor.SUBACCENT_800),
+        )
+        expect(result.current).toEqual('rgb(125,215,180)')
+      })
+
+      it('returns subaccent 900 background color value', () => {
+        const { result } = renderHook(() =>
+          useViewBackgroundColorValue(ViewBackgroundColor.SUBACCENT_900),
+        )
+        expect(result.current).toEqual('rgb(100,195,160)')
       })
     })
   })
