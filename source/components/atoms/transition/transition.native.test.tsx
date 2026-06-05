@@ -1,4 +1,3 @@
-import { Dimension, Fraction } from '@/helpers'
 import { faker } from '@faker-js/faker'
 import { render, screen } from '@testing-library/react-native'
 import { Transition } from '.'
@@ -31,15 +30,19 @@ describe('@/components/atoms/transition', () => {
 
     it('renders with provided fraction scale', () => {
       const testId = faker.string.uuid()
-      const scale = faker.number.float({ min: 0, max: 1 })
+      const fraction = randomFraction()
       render(
         <Transition
           testId={testId}
-          scale={new Fraction(scale)}
+          scale={fraction}
         />,
       )
       expect(screen.getByTestId(testId)).toHaveStyle({
-        transform: [{ scale }, { translateX: 0 }, { translateY: 0 }],
+        transform: [
+          { scale: fraction.toValue() },
+          { translateX: 0 },
+          { translateY: 0 },
+        ],
       })
     })
   })
@@ -47,15 +50,19 @@ describe('@/components/atoms/transition', () => {
   describe('translateX property', () => {
     it('renders with provided pixel translateX', () => {
       const testId = faker.string.uuid()
-      const value = faker.number.int({ min: 1, max: 200 })
+      const dimension = randomPixelDimension()
       render(
         <Transition
           testId={testId}
-          translateX={new Dimension(value, Dimension.Unit.PIXEL)}
+          translateX={dimension}
         />,
       )
       expect(screen.getByTestId(testId)).toHaveStyle({
-        transform: [{ scale: 1 }, { translateX: value }, { translateY: 0 }],
+        transform: [
+          { scale: 1 },
+          { translateX: dimension.toValue() as number },
+          { translateY: 0 },
+        ],
       })
     })
   })
@@ -63,15 +70,19 @@ describe('@/components/atoms/transition', () => {
   describe('translateY property', () => {
     it('renders with provided pixel translateY', () => {
       const testId = faker.string.uuid()
-      const value = faker.number.int({ min: 1, max: 200 })
+      const dimension = randomPixelDimension()
       render(
         <Transition
           testId={testId}
-          translateY={new Dimension(value, Dimension.Unit.PIXEL)}
+          translateY={dimension}
         />,
       )
       expect(screen.getByTestId(testId)).toHaveStyle({
-        transform: [{ scale: 1 }, { translateX: 0 }, { translateY: value }],
+        transform: [
+          { scale: 1 },
+          { translateX: 0 },
+          { translateY: dimension.toValue() as number },
+        ],
       })
     })
   })

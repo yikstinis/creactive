@@ -1,7 +1,4 @@
-import { Dimension } from '@/helpers'
-import { faker } from '@faker-js/faker'
 import { renderHook } from '@testing-library/react-native'
-import { DimensionValue, Platform } from 'react-native'
 import { ViewPosition } from '../constants'
 import {
   useViewPositionDimensionValue,
@@ -64,31 +61,19 @@ describe('@/components/atoms/view', () => {
       })
 
       it('returns position dimension when pixel dimension provided', () => {
-        const positionDimension = faker.number.float()
+        const dimension = randomPixelDimension()
         const { result } = renderHook(() =>
-          useViewPositionDimensionValue(
-            new Dimension(positionDimension, Dimension.Unit.PIXEL),
-          ),
+          useViewPositionDimensionValue(dimension),
         )
-        expect(result.current).toEqual(
-          Platform.select({
-            web: `${positionDimension}px` as DimensionValue,
-            default: positionDimension as DimensionValue,
-          }),
-        )
+        expect(result.current).toEqual(dimension.toValue())
       })
 
       it('returns position dimension when percent dimension provided', () => {
-        const positionDimension = faker.number.int({
-          min: 0,
-          max: 100,
-        })
+        const dimension = randomPercentDimension()
         const { result } = renderHook(() =>
-          useViewPositionDimensionValue(
-            new Dimension(positionDimension, Dimension.Unit.PERCENT),
-          ),
+          useViewPositionDimensionValue(dimension),
         )
-        expect(result.current).toEqual(`${positionDimension}%`)
+        expect(result.current).toEqual(dimension.toValue())
       })
     })
   })

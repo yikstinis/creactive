@@ -1,4 +1,3 @@
-import { Dimension, Fraction } from '@/helpers'
 import { faker } from '@faker-js/faker'
 import { render, screen } from '@testing-library/react'
 import { Transition } from '.'
@@ -29,16 +28,16 @@ describe('@/components/atoms/transition', () => {
 
     it('renders with provided fraction opacity style', () => {
       const testId = faker.string.uuid()
-      const opacity = faker.number.float({ min: 0, max: 1 })
+      const fraction = randomFraction()
       render(
         <Transition
           testId={testId}
-          opacity={new Fraction(opacity)}
+          opacity={fraction}
         />,
       )
       expect(screen.getByTestId(testId)).toHaveStyleRule(
         'opacity',
-        String(opacity),
+        String(fraction.toValue()),
       )
     })
   })
@@ -55,16 +54,16 @@ describe('@/components/atoms/transition', () => {
 
     it('renders with provided fraction scale transform style', () => {
       const testId = faker.string.uuid()
-      const scale = faker.number.float({ min: 0, max: 1 })
+      const fraction = randomFraction()
       render(
         <Transition
           testId={testId}
-          scale={new Fraction(scale)}
+          scale={fraction}
         />,
       )
       expect(screen.getByTestId(testId)).toHaveStyleRule(
         'transform',
-        `scale(${scale})`,
+        `scale(${fraction.toValue()})`,
       )
     })
   })
@@ -72,16 +71,16 @@ describe('@/components/atoms/transition', () => {
   describe('translateX property', () => {
     it('renders with provided pixel translateX transform style', () => {
       const testId = faker.string.uuid()
-      const value = faker.number.int({ min: 1, max: 200 })
+      const dimension = randomPixelDimension()
       render(
         <Transition
           testId={testId}
-          translateX={new Dimension(value, Dimension.Unit.PIXEL)}
+          translateX={dimension}
         />,
       )
       expect(screen.getByTestId(testId)).toHaveStyleRule(
         'transform',
-        `translateX(${value}px)`,
+        `translateX(${dimension.toValue()})`,
       )
     })
   })
@@ -89,16 +88,16 @@ describe('@/components/atoms/transition', () => {
   describe('translateY property', () => {
     it('renders with provided pixel translateY transform style', () => {
       const testId = faker.string.uuid()
-      const value = faker.number.int({ min: 1, max: 200 })
+      const dimension = randomPixelDimension()
       render(
         <Transition
           testId={testId}
-          translateY={new Dimension(value, Dimension.Unit.PIXEL)}
+          translateY={dimension}
         />,
       )
       expect(screen.getByTestId(testId)).toHaveStyleRule(
         'transform',
-        `translateY(${value}px)`,
+        `translateY(${dimension.toValue()})`,
       )
     })
   })
