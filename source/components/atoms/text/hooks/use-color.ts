@@ -32,20 +32,21 @@ const TEXT_THEME_COLOR_KEY = {
   [TextColor.FAILURE_800]: 'colorForegroundFailure800' as const,
   [TextColor.FAILURE_900]: 'colorForegroundFailure900' as const,
 }
-const textColorStylesheet = StyleSheet.create({
-  transparent: {
+const textColorStyleSheet = StyleSheet.create({
+  textColorTransparent: {
     color: 'transparent',
   },
 })
-export const useTextColorStyle = (color: TextColor) => {
+export const useTextColorStyle = (color: TextColor | Color) => {
   const themeStyleSheet = useThemeStyleSheet()
-  if (color === TextColor.TRANSPARENT) return textColorStylesheet.transparent
+  if (color === 'transparent') return textColorStyleSheet.textColorTransparent
+  if (typeof color === 'string') return { color }
   return themeStyleSheet[TEXT_THEME_COLOR_KEY[color]]
 }
 
-export const useTextColorValue = (color: TextColor) => {
+export const useTextColorValue = (color: TextColor | Color): Color => {
   const themeContext = useThemeContext()
-  if (color === TextColor.TRANSPARENT) return 'transparent'
+  if (typeof color === 'string') return color
   return themeContext[TEXT_THEME_COLOR_KEY[color]]
 }
 

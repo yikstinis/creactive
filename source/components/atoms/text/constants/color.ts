@@ -32,7 +32,6 @@ export enum TextColor {
   FAILURE_700,
   FAILURE_800,
   FAILURE_900,
-  TRANSPARENT,
 }
 
 /**

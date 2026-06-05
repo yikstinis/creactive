@@ -1,6 +1,14 @@
+import type { Color } from '@/types'
+import { faker } from '@faker-js/faker'
 import { renderHook } from '@testing-library/react-native'
 import { TextColor } from '../constants'
 import { useTextColorStyle, useTextColorValue } from './use-color'
+
+const randomRgb = (): Color =>
+  `rgb(${faker.number.int({ min: 0, max: 255 })},${faker.number.int({ min: 0, max: 255 })},${faker.number.int({ min: 0, max: 255 })})`
+
+const randomRgba = (): Color =>
+  `rgba(${faker.number.int({ min: 0, max: 255 })},${faker.number.int({ min: 0, max: 255 })},${faker.number.int({ min: 0, max: 255 })},${faker.number.float({ min: 0, max: 1, fractionDigits: 2 })})`
 
 describe('@/components/atoms/text', () => {
   describe('hooks/use-color', () => {
@@ -248,9 +256,21 @@ describe('@/components/atoms/text', () => {
         })
       })
 
-      it('returns transparent text color style', () => {
+      it('returns custom rgb color style', () => {
+        const color = randomRgb()
+        const { result } = renderHook(() => useTextColorStyle(color))
+        expect(result.current).toEqual({ color })
+      })
+
+      it('returns custom rgba color style', () => {
+        const color = randomRgba()
+        const { result } = renderHook(() => useTextColorStyle(color))
+        expect(result.current).toEqual({ color })
+      })
+
+      it('returns custom transparent color style', () => {
         const { result } = renderHook(() =>
-          useTextColorStyle(TextColor.TRANSPARENT)
+          useTextColorStyle('transparent')
         )
         expect(result.current).toEqual({
           color: 'transparent',
@@ -448,9 +468,21 @@ describe('@/components/atoms/text', () => {
         expect(result.current).toEqual('rgb(185,0,0)')
       })
 
-      it('returns transparent text color value', () => {
+      it('returns custom rgb color value', () => {
+        const color = randomRgb()
+        const { result } = renderHook(() => useTextColorValue(color))
+        expect(result.current).toEqual(color)
+      })
+
+      it('returns custom rgba color value', () => {
+        const color = randomRgba()
+        const { result } = renderHook(() => useTextColorValue(color))
+        expect(result.current).toEqual(color)
+      })
+
+      it('returns custom transparent color value', () => {
         const { result } = renderHook(() =>
-          useTextColorValue(TextColor.TRANSPARENT)
+          useTextColorValue('transparent')
         )
         expect(result.current).toEqual('transparent')
       })
