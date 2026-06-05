@@ -3651,5 +3651,122 @@ describe('@/components/atoms/view', () => {
         backgroundColor: 'rgb(0,0,5)',
       })
     })
+
+    it('renders with accent 100 background color style', () => {
+      const testId = faker.string.uuid()
+      render(
+        <View
+          testId={testId}
+          backgroundColor={View.BackgroundColor.ACCENT_100}
+        />,
+      )
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
+        backgroundColor: 'rgb(215,235,255)',
+      })
+    })
+
+    it('renders with accent 200 background color style', () => {
+      const testId = faker.string.uuid()
+      render(
+        <View
+          testId={testId}
+          backgroundColor={View.BackgroundColor.ACCENT_200}
+        />,
+      )
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
+        backgroundColor: 'rgb(200,225,252)',
+      })
+    })
+
+    it('renders with accent 300 background color style', () => {
+      const testId = faker.string.uuid()
+      render(
+        <View
+          testId={testId}
+          backgroundColor={View.BackgroundColor.ACCENT_300}
+        />,
+      )
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
+        backgroundColor: 'rgb(180,215,249)',
+      })
+    })
+
+    it('renders with accent 400 background color style', () => {
+      const testId = faker.string.uuid()
+      render(
+        <View
+          testId={testId}
+          backgroundColor={View.BackgroundColor.ACCENT_400}
+        />,
+      )
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
+        backgroundColor: 'rgb(160,205,246)',
+      })
+    })
+
+    it('renders with accent 500 background color style', () => {
+      const testId = faker.string.uuid()
+      render(
+        <View
+          testId={testId}
+          backgroundColor={View.BackgroundColor.ACCENT_500}
+        />,
+      )
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
+        backgroundColor: 'rgb(140,195,243)',
+      })
+    })
+
+    it('renders with accent 600 background color style', () => {
+      const testId = faker.string.uuid()
+      render(
+        <View
+          testId={testId}
+          backgroundColor={View.BackgroundColor.ACCENT_600}
+        />,
+      )
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
+        backgroundColor: 'rgb(115,180,238)',
+      })
+    })
+
+    it('renders with accent 700 background color style', () => {
+      const testId = faker.string.uuid()
+      render(
+        <View
+          testId={testId}
+          backgroundColor={View.BackgroundColor.ACCENT_700}
+        />,
+      )
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
+        backgroundColor: 'rgb(95,168,233)',
+      })
+    })
+
+    it('renders with accent 800 background color style', () => {
+      const testId = faker.string.uuid()
+      render(
+        <View
+          testId={testId}
+          backgroundColor={View.BackgroundColor.ACCENT_800}
+        />,
+      )
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
+        backgroundColor: 'rgb(75,155,225)',
+      })
+    })
+
+    it('renders with accent 900 background color style', () => {
+      const testId = faker.string.uuid()
+      render(
+        <View
+          testId={testId}
+          backgroundColor={View.BackgroundColor.ACCENT_900}
+        />,
+      )
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
+        backgroundColor: 'rgb(50,130,200)',
+      })
+    })
   })
 })
