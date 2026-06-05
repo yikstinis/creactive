@@ -1,4 +1,4 @@
-import type { Dimension, Fraction, FractionValue } from '@/helpers'
+import type { Fraction, FractionValue, PixelDimension } from '@/helpers'
 import type { FunctionComponent, PropsWithChildren } from 'react'
 import type { TransitionDuration } from './constants'
 
@@ -28,14 +28,14 @@ export interface TransitionProperties extends PropsWithChildren {
    * @see Dimension
    * @default undefined
    */
-  translateX?: Dimension
+  translateX?: PixelDimension
   /**
    * Target vertical translation of the transition.
    * Animates from the previous value to the new one.
    * @see Dimension
    * @default undefined
    */
-  translateY?: Dimension
+  translateY?: PixelDimension
   /**
    * Duration of the transition animation.
    * @see Transition.Duration

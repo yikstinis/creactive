@@ -70,7 +70,7 @@ describe('@/components/atoms/transition', () => {
   })
 
   describe('translateX property', () => {
-    it('renders with pixel translateX transform style', () => {
+    it('renders with provided pixel translateX transform style', () => {
       const testId = faker.string.uuid()
       const value = faker.number.int({ min: 1, max: 200 })
       render(
@@ -84,25 +84,10 @@ describe('@/components/atoms/transition', () => {
         `translateX(${value}px)`,
       )
     })
-
-    it('renders with percentage translateX transform style', () => {
-      const testId = faker.string.uuid()
-      const value = faker.number.int({ min: 1, max: 100 })
-      render(
-        <Transition
-          testId={testId}
-          translateX={new Dimension(value, Dimension.Unit.PERCENT)}
-        />,
-      )
-      expect(screen.getByTestId(testId)).toHaveStyleRule(
-        'transform',
-        `translateX(${value}%)`,
-      )
-    })
   })
 
   describe('translateY property', () => {
-    it('renders with pixel translateY transform style', () => {
+    it('renders with provided pixel translateY transform style', () => {
       const testId = faker.string.uuid()
       const value = faker.number.int({ min: 1, max: 200 })
       render(
@@ -114,21 +99,6 @@ describe('@/components/atoms/transition', () => {
       expect(screen.getByTestId(testId)).toHaveStyleRule(
         'transform',
         `translateY(${value}px)`,
-      )
-    })
-
-    it('renders with percentage translateY transform style', () => {
-      const testId = faker.string.uuid()
-      const value = faker.number.int({ min: 1, max: 100 })
-      render(
-        <Transition
-          testId={testId}
-          translateY={new Dimension(value, Dimension.Unit.PERCENT)}
-        />,
-      )
-      expect(screen.getByTestId(testId)).toHaveStyleRule(
-        'transform',
-        `translateY(${value}%)`,
       )
     })
   })

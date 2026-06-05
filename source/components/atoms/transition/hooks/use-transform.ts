@@ -1,9 +1,9 @@
-import type { Dimension, Fraction } from '@/helpers'
+import type { Fraction, PixelDimension } from '@/helpers'
 
 export const useTransitionTransformValue = (
   scale?: Fraction,
-  translateX?: Dimension,
-  translateY?: Dimension,
+  translateX?: PixelDimension,
+  translateY?: PixelDimension,
 ): string | undefined => {
   const parts: string[] = []
   const scaleValue = scale?.toValue()
@@ -18,7 +18,7 @@ export const useTransitionTransformValue = (
 }
 
 export const useTransitionTranslateNativeValue = (
-  translate?: Dimension,
+  translate?: PixelDimension,
 ): number => {
   if (translate === undefined) return 0
   const value = translate.toValue()

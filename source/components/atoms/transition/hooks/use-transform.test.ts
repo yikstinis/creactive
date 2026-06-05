@@ -41,17 +41,6 @@ describe('@/components/atoms/transition', () => {
         )
       })
 
-      it('returns translateX transform when percentage translateX provided', () => {
-        const value = faker.number.int({ min: 1, max: 100 })
-        const { result } = renderHook(() =>
-          useTransitionTransformValue(
-            undefined,
-            new Dimension(value, Dimension.Unit.PERCENT),
-          ),
-        )
-        expect(result.current).toBe(`translateX(${value}%)`)
-      })
-
       it('returns translateY transform when pixel translateY provided', () => {
         const value = faker.number.int({ min: 1, max: 200 })
         const { result } = renderHook(() =>
@@ -67,18 +56,6 @@ describe('@/components/atoms/transition', () => {
             default: `translateY(${value})`,
           }),
         )
-      })
-
-      it('returns translateY transform when percentage translateY provided', () => {
-        const value = faker.number.int({ min: 1, max: 100 })
-        const { result } = renderHook(() =>
-          useTransitionTransformValue(
-            undefined,
-            undefined,
-            new Dimension(value, Dimension.Unit.PERCENT),
-          ),
-        )
-        expect(result.current).toBe(`translateY(${value}%)`)
       })
 
       it('returns combined transform when all props provided', () => {
@@ -114,16 +91,6 @@ describe('@/components/atoms/transition', () => {
         const { result } = renderHook(() =>
           useTransitionTranslateNativeValue(
             new Dimension(value, Dimension.Unit.PIXEL),
-          ),
-        )
-        expect(result.current).toBe(value)
-      })
-
-      it('returns numeric value when percentage dimension provided', () => {
-        const value = faker.number.int({ min: 1, max: 100 })
-        const { result } = renderHook(() =>
-          useTransitionTranslateNativeValue(
-            new Dimension(value, Dimension.Unit.PERCENT),
           ),
         )
         expect(result.current).toBe(value)
