@@ -1,9 +1,34 @@
 import { Fraction } from '@/helpers'
 import { faker } from '@faker-js/faker'
 import { render, screen } from '@testing-library/react'
+import { createRef } from 'react'
+import { Text as RNText } from 'react-native'
 import { Text } from '.'
+import type { TextMeasureCallback, TextReference } from './text.types'
 
 describe('@/components/atoms/text', () => {
+  describe('forwarded reference object', () => {
+    it('calls measure callback with native element coordinates', () => {
+      const ref = createRef<TextReference>()
+      render(<Text ref={ref}>{faker.lorem.sentence()}</Text>)
+
+      // react-native mocks Text as a class component with measure: jest.fn().
+      // We can access the instance via UNSAFE_getByType and mock measure to call the callback.
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      const nativeTextInstance = (screen as any).UNSAFE_getByType(
+        RNText,
+      ).instance
+      nativeTextInstance.measure = jest.fn((callback: TextMeasureCallback) => {
+        callback(1, 2, 100, 50)
+      })
+
+      const callback = jest.fn()
+      ref.current?.measure(callback)
+
+      expect(callback).toHaveBeenCalledWith(1, 2, 100, 50)
+    })
+  })
+
   describe('max lines property', () => {
     it('renders without max lines limit by default', () => {
       const testId = randomTestId()

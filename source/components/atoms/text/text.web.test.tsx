@@ -1,9 +1,28 @@
 import { Fraction } from '@/helpers'
 import { faker } from '@faker-js/faker'
 import { render, screen } from '@testing-library/react'
+import { createRef } from 'react'
 import { Text } from '.'
+import type { TextReference } from './text.types'
 
 describe('@/components/atoms/text', () => {
+  describe('forwarded reference', () => {
+    it('forwards correct reference object', () => {
+      const ref = createRef<TextReference>()
+      const text = faker.lorem.sentence()
+      render(<Text ref={ref}>{text}</Text>)
+      expect(ref.current).toBeDefined()
+      expect(typeof ref.current?.measure).toBe('function')
+      expect(() => ref.current?.measure(() => {})).not.toThrow()
+      ref.current?.measure((x, y, width, height) => {
+        expect(x).toBeGreaterThanOrEqual(0)
+        expect(y).toBeGreaterThanOrEqual(0)
+        expect(width).toBeGreaterThanOrEqual(0)
+        expect(height).toBeGreaterThanOrEqual(0)
+      })
+    })
+  })
+
   describe('tag property', () => {
     it('renders into span element by default', () => {
       const testId = randomTestId()
