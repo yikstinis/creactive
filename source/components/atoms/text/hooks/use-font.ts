@@ -2,7 +2,7 @@ import { useThemeContext, useThemeStyleSheet } from '@/contexts'
 import { TextFontFamily, TextFontSize, TextFontWeight } from '../constants'
 
 const TEXT_THEME_FONT_FAMILY_KEY = {
-  [TextFontFamily.BASE]: 'fontFamilyBase' as const,
+  [TextFontFamily.DEFAULT]: 'fontFamilyDefault' as const,
   [TextFontFamily.TYPOGRAPHIC]: 'fontFamilyTypographic' as const,
 }
 export const useTextFontFamilyStyle = (fontFamily: TextFontFamily) =>

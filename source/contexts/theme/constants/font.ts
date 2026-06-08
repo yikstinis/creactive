@@ -1,7 +1,7 @@
 import { Platform } from 'react-native'
 
 // Theme base font family constant.
-export const FONT_FAMILY_BASE = Platform.select({
+export const FONT_FAMILY_DEFAULT = Platform.select({
   web: [
     'ui-sans-serif',
     '-apple-system',

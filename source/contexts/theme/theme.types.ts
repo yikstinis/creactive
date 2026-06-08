@@ -378,9 +378,9 @@ export interface ThemeContextValue {
 
   /**
    * Base font family.
-   * @see FONT_FAMILY_BASE
+   * @see FONT_FAMILY_DEFAULT
    */
-  fontFamilyBase: string
+  fontFamilyDefault: string
   /**
    * Typographic font family.
    * @see FONT_FAMILY_TYPOGRAPHIC

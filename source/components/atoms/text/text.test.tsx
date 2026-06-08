@@ -134,7 +134,7 @@ describe('@/components/atoms/text', () => {
       render(
         <Text
           testId={testId}
-          fontFamily={Text.FontFamily.BASE}
+          fontFamily={Text.FontFamily.DEFAULT}
         >
           {text}
         </Text>,

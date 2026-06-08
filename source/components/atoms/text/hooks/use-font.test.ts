@@ -15,7 +15,7 @@ describe('@/components/atoms/text', () => {
     describe('text font family style hook', () => {
       it('returns base font family style', () => {
         const { result } = renderHook(() =>
-          useTextFontFamilyStyle(TextFontFamily.BASE)
+          useTextFontFamilyStyle(TextFontFamily.DEFAULT)
         )
         expect(result.current.fontFamily).toBe(
           Platform.select({
@@ -51,7 +51,7 @@ describe('@/components/atoms/text', () => {
     describe('text font family value hook', () => {
       it('returns base font family value', () => {
         const { result } = renderHook(() =>
-          useTextFontFamilyValue(TextFontFamily.BASE)
+          useTextFontFamilyValue(TextFontFamily.DEFAULT)
         )
         expect(result.current).toBe(
           Platform.select({
