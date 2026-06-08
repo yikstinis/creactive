@@ -1,5 +1,5 @@
-import { useEffect, useRef } from 'react'
-import { Animated } from 'react-native'
+import { useLayoutEffect, useRef } from 'react'
+import { Animated, StyleSheet } from 'react-native'
 import { TransitionDuration } from './constants'
 import {
   useTransitionDurationValue,
@@ -28,7 +28,7 @@ const Transition: TransitionComponent = ({
   const animatedTranslateX = useRef(new Animated.Value(translateXTarget))
   const animatedTranslateY = useRef(new Animated.Value(translateYTarget))
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     Animated.parallel([
       Animated.timing(animatedOpacity.current, {
         toValue: opacityTarget,
@@ -51,23 +51,37 @@ const Transition: TransitionComponent = ({
         useNativeDriver: true,
       }),
     ]).start()
-  }, [opacityTarget, scaleTarget, translateXTarget, translateYTarget, durationValue])
+  }, [
+    opacityTarget,
+    scaleTarget,
+    translateXTarget,
+    translateYTarget,
+    durationValue,
+  ])
 
   return (
     <Animated.View
       testID={testId}
-      style={{
-        opacity: animatedOpacity.current,
-        transform: [
-          { scale: animatedScale.current },
-          { translateX: animatedTranslateX.current },
-          { translateY: animatedTranslateY.current },
-        ],
-      }}
+      style={[
+        styleSheet.transitionElement,
+        {
+          opacity: animatedOpacity.current,
+          transform: [
+            { scale: animatedScale.current },
+            { translateX: animatedTranslateX.current },
+            { translateY: animatedTranslateY.current },
+          ],
+        },
+      ]}
     >
       {children}
     </Animated.View>
   )
 }
+const styleSheet = StyleSheet.create({
+  transitionElement: {
+    flex: 1,
+  },
+})
 Transition.Duration = TransitionDuration
 export default Transition
