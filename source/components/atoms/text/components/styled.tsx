@@ -12,7 +12,8 @@ export const TextStyled = styled.span<TextStyledProperties>`
   box-sizing: border-box;
   text-decoration: none;
   white-space: pre-wrap;
-  overflow: hidden; // TODO: Fix overflow...
+  overflow: clip;
+  overflow-clip-margin: 0.5em;
   overflow-wrap: break-word;
   text-overflow: ellipsis;
   text-align: ${(properties) => properties.css.textAlign};
