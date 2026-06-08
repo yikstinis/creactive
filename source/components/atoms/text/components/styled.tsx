@@ -6,6 +6,7 @@ export const TextStyled = styled.span<TextStyledProperties>`
     properties.css.maxLines === undefined ? 'inline' : '-webkit-box'};
   margin: 0;
   padding: 0;
+  z-index: 0;
   position: static;
   list-style: none;
   border-style: solid;
