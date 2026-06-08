@@ -2148,7 +2148,7 @@ describe('@/components/atoms/text', () => {
           </Text>,
         )
         expect(screen.getByTestId(testId)).toHaveStyle({
-          color: 'rgb(50,50,55)',
+          color: 'rgb(75,75,80)',
         })
       })
 
@@ -2165,7 +2165,7 @@ describe('@/components/atoms/text', () => {
           </Text>,
         )
         expect(screen.getByTestId(testId)).toHaveStyle({
-          color: 'rgb(75,75,80)',
+          color: 'rgb(100,100,105)',
         })
       })
 
@@ -2182,7 +2182,7 @@ describe('@/components/atoms/text', () => {
           </Text>,
         )
         expect(screen.getByTestId(testId)).toHaveStyle({
-          color: 'rgb(100,100,105)',
+          color: 'rgb(125,125,130)',
         })
       })
 
@@ -2199,7 +2199,7 @@ describe('@/components/atoms/text', () => {
           </Text>,
         )
         expect(screen.getByTestId(testId)).toHaveStyle({
-          color: 'rgb(125,125,130)',
+          color: 'rgb(150,150,155)',
         })
       })
 
@@ -2216,7 +2216,7 @@ describe('@/components/atoms/text', () => {
           </Text>,
         )
         expect(screen.getByTestId(testId)).toHaveStyle({
-          color: 'rgb(150,150,155)',
+          color: 'rgb(175,175,180)',
         })
       })
 
@@ -2233,7 +2233,7 @@ describe('@/components/atoms/text', () => {
           </Text>,
         )
         expect(screen.getByTestId(testId)).toHaveStyle({
-          color: 'rgb(175,175,180)',
+          color: 'rgb(200,200,205)',
         })
       })
 
@@ -2250,7 +2250,7 @@ describe('@/components/atoms/text', () => {
           </Text>,
         )
         expect(screen.getByTestId(testId)).toHaveStyle({
-          color: 'rgb(200,200,205)',
+          color: 'rgb(225,225,230)',
         })
       })
 
@@ -2267,7 +2267,7 @@ describe('@/components/atoms/text', () => {
           </Text>,
         )
         expect(screen.getByTestId(testId)).toHaveStyle({
-          color: 'rgb(225,225,230)',
+          color: 'rgb(250,250,255)',
         })
       })
 
@@ -2284,7 +2284,7 @@ describe('@/components/atoms/text', () => {
           </Text>,
         )
         expect(screen.getByTestId(testId)).toHaveStyle({
-          color: 'rgb(250,250,255)',
+          color: 'rgb(255,255,255)',
         })
       })
     })
