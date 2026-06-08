@@ -88,7 +88,7 @@ import {
   DURATION_BASE_LG,
   DURATION_BASE_MD,
   DURATION_BASE_SM,
-  FONT_FAMILY_BASE,
+  FONT_FAMILY_DEFAULT,
   FONT_FAMILY_TYPOGRAPHIC,
   FONT_SIZE_BASE_LG,
   FONT_SIZE_BASE_MD,
@@ -223,7 +223,7 @@ const ThemeContext = createContext<ThemeContextValue>({
   colorForegroundFailure800: COLOR_FOREGROUND_FAILURE_800,
   colorForegroundFailure900: COLOR_FOREGROUND_FAILURE_900,
 
-  fontFamilyBase: FONT_FAMILY_BASE,
+  fontFamilyDefault: FONT_FAMILY_DEFAULT,
   fontFamilyTypographic: FONT_FAMILY_TYPOGRAPHIC,
 
   fontWeightBaseThin: FONT_WEIGHT_BASE_THIN,
@@ -376,7 +376,7 @@ export const ThemeContextProvider: ThemeContextProviderComponent = ({
   colorForegroundFailure800,
   colorForegroundFailure900,
 
-  fontFamilyBase,
+  fontFamilyDefault,
   fontFamilyTypographic,
 
   fontWeightBaseThin,
@@ -596,7 +596,7 @@ export const ThemeContextProvider: ThemeContextProviderComponent = ({
       colorForegroundFailure900:
         colorForegroundFailure900 ?? COLOR_FOREGROUND_FAILURE_900,
 
-      fontFamilyBase: fontFamilyBase ?? FONT_FAMILY_BASE,
+      fontFamilyDefault: fontFamilyDefault ?? FONT_FAMILY_DEFAULT,
       fontFamilyTypographic: fontFamilyTypographic ?? FONT_FAMILY_TYPOGRAPHIC,
 
       fontWeightBaseThin: fontWeightBaseThin ?? FONT_WEIGHT_BASE_THIN,
@@ -751,7 +751,7 @@ export const ThemeContextProvider: ThemeContextProviderComponent = ({
       colorForegroundFailure800,
       colorForegroundFailure900,
 
-      fontFamilyBase,
+      fontFamilyDefault,
       fontFamilyTypographic,
 
       fontWeightBaseThin,

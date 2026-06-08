@@ -50,7 +50,7 @@ const Text = forwardRef<TextReference, TextProperties>(function Text(
     testId,
     textAlign = TextAlign.LEFT,
     textDecoration = TextDecoration.NONE,
-    fontFamily = TextFontFamily.BASE,
+    fontFamily = TextFontFamily.DEFAULT,
     fontWeight = TextFontWeight.REGULAR,
     fontSize = TextFontSize.MD,
     lineHeight = TextLineHeight.NORMAL,

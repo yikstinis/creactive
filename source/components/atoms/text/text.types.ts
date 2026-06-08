@@ -66,7 +66,7 @@ export interface TextProperties extends PropsWithChildren {
   /**
    * Themed font family.
    * @see Text.FontFamily
-   * @default Text.FontFamily.BASE
+   * @default Text.FontFamily.DEFAULT
    */
   fontFamily?: TextFontFamily
   /**
