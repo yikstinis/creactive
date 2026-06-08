@@ -2,6 +2,14 @@ import { render, screen } from '@testing-library/react'
 import { Transition } from '.'
 
 describe('@/components/atoms/transition', () => {
+  describe('flex property', () => {
+    it('renders with flex 1 style', () => {
+      const testId = randomTestId()
+      render(<Transition testId={testId} />)
+      expect(screen.getByTestId(testId)).toHaveStyleRule('flex', '1')
+    })
+  })
+
   describe('children property', () => {
     it('renders provided children', () => {
       const testId = randomTestId()

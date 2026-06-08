@@ -3,6 +3,7 @@ import type { TransitionStyledProperties } from '../transition.types'
 
 export const TransitionStyled = styled.div<TransitionStyledProperties>`
   display: flex;
+  flex: 1;
   margin: 0;
   padding: 0;
   z-index: 0;

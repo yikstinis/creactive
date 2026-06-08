@@ -10,6 +10,14 @@ afterEach(() => {
 })
 
 describe('@/components/atoms/transition', () => {
+  describe('flex property', () => {
+    it('renders with flex 1 style', () => {
+      const testId = randomTestId()
+      render(<Transition testId={testId} />)
+      expect(screen.getByTestId(testId)).toHaveStyle({ flex: 1 })
+    })
+  })
+
   describe('opacity property', () => {
     it('renders with default opacity 1', () => {
       const testId = randomTestId()
