@@ -102,93 +102,93 @@ export interface ThemeContextValue {
 
   /**
    * Least contrast accent background color.
-   * @default rgb(215,235,255)
+   * @default rgb(200,225,252)
    */
   colorBackgroundAccent100: Color
   /**
    * Dim accent background color.
-   * @default rgb(200,225,252)
+   * @default rgb(180,215,249)
    */
   colorBackgroundAccent200: Color
   /**
    * Mix of dim and muted accent background color.
-   * @default rgb(180,215,249)
+   * @default rgb(160,205,246)
    */
   colorBackgroundAccent300: Color
   /**
    * Muted accent background color.
-   * @default rgb(160,205,246)
+   * @default rgb(140,195,243)
    */
   colorBackgroundAccent400: Color
   /**
    * Mix of muted and subtle accent background color.
-   * @default rgb(140,195,243)
+   * @default rgb(115,180,238)
    */
   colorBackgroundAccent500: Color
   /**
    * Subtle accent background color.
-   * @default rgb(115,180,238)
+   * @default rgb(95,168,233)
    */
   colorBackgroundAccent600: Color
   /**
    * Mix of subtle and default accent background color.
-   * @default rgb(95,168,233)
+   * @default rgb(75,155,225)
    */
   colorBackgroundAccent700: Color
   /**
    * Accent default background color.
-   * @default rgb(75,155,225)
+   * @default rgb(50,130,200)
    */
   colorBackgroundAccent800: Color
   /**
    * Most contrast accent background color.
-   * @default rgb(50,130,200)
+   * @default rgb(25,105,175)
    */
   colorBackgroundAccent900: Color
 
   /**
    * Least contrast subaccent background color.
-   * @default rgb(215,245,235)
+   * @default rgb(200,240,225)
    */
   colorBackgroundSubaccent100: Color
   /**
    * Dim subaccent background color.
-   * @default rgb(200,240,225)
+   * @default rgb(185,235,215)
    */
   colorBackgroundSubaccent200: Color
   /**
    * Mix of dim and muted subaccent background color.
-   * @default rgb(185,235,215)
+   * @default rgb(170,230,205)
    */
   colorBackgroundSubaccent300: Color
   /**
    * Muted subaccent background color.
-   * @default rgb(170,230,205)
+   * @default rgb(155,225,195)
    */
   colorBackgroundSubaccent400: Color
   /**
    * Mix of muted and subtle subaccent background color.
-   * @default rgb(155,225,195)
+   * @default rgb(145,222,190)
    */
   colorBackgroundSubaccent500: Color
   /**
    * Subtle subaccent background color.
-   * @default rgb(145,222,190)
+   * @default rgb(135,218,185)
    */
   colorBackgroundSubaccent600: Color
   /**
    * Mix of subtle and default subaccent background color.
-   * @default rgb(135,218,185)
+   * @default rgb(125,215,180)
    */
   colorBackgroundSubaccent700: Color
   /**
    * Subaccent default background color.
-   * @default rgb(125,215,180)
+   * @default rgb(100,195,160)
    */
   colorBackgroundSubaccent800: Color
   /**
    * Most contrast subaccent background color.
-   * @default rgb(100,195,160)
+   * @default rgb(75,175,140)
    */
   colorBackgroundSubaccent900: Color
 
@@ -286,47 +286,47 @@ export interface ThemeContextValue {
 
   /**
    * Least contrast inverse foreground color.
-   * @default rgb(50,50,55)
+   * @default rgb(75,75,80)
    */
   colorForegroundInverse100: Color
   /**
    * Dim inverse foreground color.
-   * @default rgb(75,75,80)
+   * @default rgb(100,100,105)
    */
   colorForegroundInverse200: Color
   /**
    * Mix of dim and muted inverse foreground color.
-   * @default rgb(100,100,105)
+   * @default rgb(125,125,130)
    */
   colorForegroundInverse300: Color
   /**
    * Muted inverse foreground color.
-   * @default rgb(125,125,130)
+   * @default rgb(150,150,155)
    */
   colorForegroundInverse400: Color
   /**
    * Mix of muted and subtle inverse foreground color.
-   * @default rgb(150,150,155)
+   * @default rgb(175,175,180)
    */
   colorForegroundInverse500: Color
   /**
    * Subtle inverse foreground color.
-   * @default rgb(175,175,180)
+   * @default rgb(200,200,205)
    */
   colorForegroundInverse600: Color
   /**
    * Mix of subtle and default inverse foreground color.
-   * @default rgb(200,200,205)
+   * @default rgb(225,225,230)
    */
   colorForegroundInverse700: Color
   /**
    * Inverse default foreground color.
-   * @default rgb(225,225,230)
+   * @default rgb(250,250,255)
    */
   colorForegroundInverse800: Color
   /**
    * Most contrast inverse foreground color.
-   * @default rgb(250,250,255)
+   * @default rgb(255,255,255)
    */
   colorForegroundInverse900: Color
 

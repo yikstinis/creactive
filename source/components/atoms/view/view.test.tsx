@@ -3661,7 +3661,7 @@ describe('@/components/atoms/view', () => {
         />,
       )
       expect(screen.getByTestId(testId)).toHavePlatformStyle({
-        backgroundColor: 'rgb(215,235,255)',
+        backgroundColor: 'rgb(200,225,252)',
       })
     })
 
@@ -3674,7 +3674,7 @@ describe('@/components/atoms/view', () => {
         />,
       )
       expect(screen.getByTestId(testId)).toHavePlatformStyle({
-        backgroundColor: 'rgb(200,225,252)',
+        backgroundColor: 'rgb(180,215,249)',
       })
     })
 
@@ -3687,7 +3687,7 @@ describe('@/components/atoms/view', () => {
         />,
       )
       expect(screen.getByTestId(testId)).toHavePlatformStyle({
-        backgroundColor: 'rgb(180,215,249)',
+        backgroundColor: 'rgb(160,205,246)',
       })
     })
 
@@ -3700,7 +3700,7 @@ describe('@/components/atoms/view', () => {
         />,
       )
       expect(screen.getByTestId(testId)).toHavePlatformStyle({
-        backgroundColor: 'rgb(160,205,246)',
+        backgroundColor: 'rgb(140,195,243)',
       })
     })
 
@@ -3713,7 +3713,7 @@ describe('@/components/atoms/view', () => {
         />,
       )
       expect(screen.getByTestId(testId)).toHavePlatformStyle({
-        backgroundColor: 'rgb(140,195,243)',
+        backgroundColor: 'rgb(115,180,238)',
       })
     })
 
@@ -3726,7 +3726,7 @@ describe('@/components/atoms/view', () => {
         />,
       )
       expect(screen.getByTestId(testId)).toHavePlatformStyle({
-        backgroundColor: 'rgb(115,180,238)',
+        backgroundColor: 'rgb(95,168,233)',
       })
     })
 
@@ -3739,7 +3739,7 @@ describe('@/components/atoms/view', () => {
         />,
       )
       expect(screen.getByTestId(testId)).toHavePlatformStyle({
-        backgroundColor: 'rgb(95,168,233)',
+        backgroundColor: 'rgb(75,155,225)',
       })
     })
 
@@ -3752,7 +3752,7 @@ describe('@/components/atoms/view', () => {
         />,
       )
       expect(screen.getByTestId(testId)).toHavePlatformStyle({
-        backgroundColor: 'rgb(75,155,225)',
+        backgroundColor: 'rgb(50,130,200)',
       })
     })
 
@@ -3765,7 +3765,7 @@ describe('@/components/atoms/view', () => {
         />,
       )
       expect(screen.getByTestId(testId)).toHavePlatformStyle({
-        backgroundColor: 'rgb(50,130,200)',
+        backgroundColor: 'rgb(25,105,175)',
       })
     })
 
@@ -3778,7 +3778,7 @@ describe('@/components/atoms/view', () => {
         />,
       )
       expect(screen.getByTestId(testId)).toHavePlatformStyle({
-        backgroundColor: 'rgb(215,245,235)',
+        backgroundColor: 'rgb(200,240,225)',
       })
     })
 
@@ -3791,7 +3791,7 @@ describe('@/components/atoms/view', () => {
         />,
       )
       expect(screen.getByTestId(testId)).toHavePlatformStyle({
-        backgroundColor: 'rgb(200,240,225)',
+        backgroundColor: 'rgb(185,235,215)',
       })
     })
 
@@ -3804,7 +3804,7 @@ describe('@/components/atoms/view', () => {
         />,
       )
       expect(screen.getByTestId(testId)).toHavePlatformStyle({
-        backgroundColor: 'rgb(185,235,215)',
+        backgroundColor: 'rgb(170,230,205)',
       })
     })
 
@@ -3817,7 +3817,7 @@ describe('@/components/atoms/view', () => {
         />,
       )
       expect(screen.getByTestId(testId)).toHavePlatformStyle({
-        backgroundColor: 'rgb(170,230,205)',
+        backgroundColor: 'rgb(155,225,195)',
       })
     })
 
@@ -3830,7 +3830,7 @@ describe('@/components/atoms/view', () => {
         />,
       )
       expect(screen.getByTestId(testId)).toHavePlatformStyle({
-        backgroundColor: 'rgb(155,225,195)',
+        backgroundColor: 'rgb(145,222,190)',
       })
     })
 
@@ -3843,7 +3843,7 @@ describe('@/components/atoms/view', () => {
         />,
       )
       expect(screen.getByTestId(testId)).toHavePlatformStyle({
-        backgroundColor: 'rgb(145,222,190)',
+        backgroundColor: 'rgb(135,218,185)',
       })
     })
 
@@ -3856,7 +3856,7 @@ describe('@/components/atoms/view', () => {
         />,
       )
       expect(screen.getByTestId(testId)).toHavePlatformStyle({
-        backgroundColor: 'rgb(135,218,185)',
+        backgroundColor: 'rgb(125,215,180)',
       })
     })
 
@@ -3869,7 +3869,7 @@ describe('@/components/atoms/view', () => {
         />,
       )
       expect(screen.getByTestId(testId)).toHavePlatformStyle({
-        backgroundColor: 'rgb(125,215,180)',
+        backgroundColor: 'rgb(100,195,160)',
       })
     })
 
@@ -3882,7 +3882,7 @@ describe('@/components/atoms/view', () => {
         />,
       )
       expect(screen.getByTestId(testId)).toHavePlatformStyle({
-        backgroundColor: 'rgb(100,195,160)',
+        backgroundColor: 'rgb(75,175,140)',
       })
     })
 

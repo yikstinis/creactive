@@ -180,7 +180,7 @@ describe('@/components/atoms/view', () => {
           useViewBackgroundColorStyle(ViewBackgroundColor.ACCENT_100),
         )
         expect(result.current).toEqual({
-          backgroundColor: 'rgb(215,235,255)',
+          backgroundColor: 'rgb(200,225,252)',
         })
       })
 
@@ -189,7 +189,7 @@ describe('@/components/atoms/view', () => {
           useViewBackgroundColorStyle(ViewBackgroundColor.ACCENT_200),
         )
         expect(result.current).toEqual({
-          backgroundColor: 'rgb(200,225,252)',
+          backgroundColor: 'rgb(180,215,249)',
         })
       })
 
@@ -198,7 +198,7 @@ describe('@/components/atoms/view', () => {
           useViewBackgroundColorStyle(ViewBackgroundColor.ACCENT_300),
         )
         expect(result.current).toEqual({
-          backgroundColor: 'rgb(180,215,249)',
+          backgroundColor: 'rgb(160,205,246)',
         })
       })
 
@@ -207,7 +207,7 @@ describe('@/components/atoms/view', () => {
           useViewBackgroundColorStyle(ViewBackgroundColor.ACCENT_400),
         )
         expect(result.current).toEqual({
-          backgroundColor: 'rgb(160,205,246)',
+          backgroundColor: 'rgb(140,195,243)',
         })
       })
 
@@ -216,7 +216,7 @@ describe('@/components/atoms/view', () => {
           useViewBackgroundColorStyle(ViewBackgroundColor.ACCENT_500),
         )
         expect(result.current).toEqual({
-          backgroundColor: 'rgb(140,195,243)',
+          backgroundColor: 'rgb(115,180,238)',
         })
       })
 
@@ -225,7 +225,7 @@ describe('@/components/atoms/view', () => {
           useViewBackgroundColorStyle(ViewBackgroundColor.ACCENT_600),
         )
         expect(result.current).toEqual({
-          backgroundColor: 'rgb(115,180,238)',
+          backgroundColor: 'rgb(95,168,233)',
         })
       })
 
@@ -234,7 +234,7 @@ describe('@/components/atoms/view', () => {
           useViewBackgroundColorStyle(ViewBackgroundColor.ACCENT_700),
         )
         expect(result.current).toEqual({
-          backgroundColor: 'rgb(95,168,233)',
+          backgroundColor: 'rgb(75,155,225)',
         })
       })
 
@@ -243,7 +243,7 @@ describe('@/components/atoms/view', () => {
           useViewBackgroundColorStyle(ViewBackgroundColor.ACCENT_800),
         )
         expect(result.current).toEqual({
-          backgroundColor: 'rgb(75,155,225)',
+          backgroundColor: 'rgb(50,130,200)',
         })
       })
 
@@ -252,7 +252,7 @@ describe('@/components/atoms/view', () => {
           useViewBackgroundColorStyle(ViewBackgroundColor.ACCENT_900),
         )
         expect(result.current).toEqual({
-          backgroundColor: 'rgb(50,130,200)',
+          backgroundColor: 'rgb(25,105,175)',
         })
       })
 
@@ -261,7 +261,7 @@ describe('@/components/atoms/view', () => {
           useViewBackgroundColorStyle(ViewBackgroundColor.SUBACCENT_100),
         )
         expect(result.current).toEqual({
-          backgroundColor: 'rgb(215,245,235)',
+          backgroundColor: 'rgb(200,240,225)',
         })
       })
 
@@ -270,7 +270,7 @@ describe('@/components/atoms/view', () => {
           useViewBackgroundColorStyle(ViewBackgroundColor.SUBACCENT_200),
         )
         expect(result.current).toEqual({
-          backgroundColor: 'rgb(200,240,225)',
+          backgroundColor: 'rgb(185,235,215)',
         })
       })
 
@@ -279,7 +279,7 @@ describe('@/components/atoms/view', () => {
           useViewBackgroundColorStyle(ViewBackgroundColor.SUBACCENT_300),
         )
         expect(result.current).toEqual({
-          backgroundColor: 'rgb(185,235,215)',
+          backgroundColor: 'rgb(170,230,205)',
         })
       })
 
@@ -288,7 +288,7 @@ describe('@/components/atoms/view', () => {
           useViewBackgroundColorStyle(ViewBackgroundColor.SUBACCENT_400),
         )
         expect(result.current).toEqual({
-          backgroundColor: 'rgb(170,230,205)',
+          backgroundColor: 'rgb(155,225,195)',
         })
       })
 
@@ -297,7 +297,7 @@ describe('@/components/atoms/view', () => {
           useViewBackgroundColorStyle(ViewBackgroundColor.SUBACCENT_500),
         )
         expect(result.current).toEqual({
-          backgroundColor: 'rgb(155,225,195)',
+          backgroundColor: 'rgb(145,222,190)',
         })
       })
 
@@ -306,7 +306,7 @@ describe('@/components/atoms/view', () => {
           useViewBackgroundColorStyle(ViewBackgroundColor.SUBACCENT_600),
         )
         expect(result.current).toEqual({
-          backgroundColor: 'rgb(145,222,190)',
+          backgroundColor: 'rgb(135,218,185)',
         })
       })
 
@@ -315,7 +315,7 @@ describe('@/components/atoms/view', () => {
           useViewBackgroundColorStyle(ViewBackgroundColor.SUBACCENT_700),
         )
         expect(result.current).toEqual({
-          backgroundColor: 'rgb(135,218,185)',
+          backgroundColor: 'rgb(125,215,180)',
         })
       })
 
@@ -324,7 +324,7 @@ describe('@/components/atoms/view', () => {
           useViewBackgroundColorStyle(ViewBackgroundColor.SUBACCENT_800),
         )
         expect(result.current).toEqual({
-          backgroundColor: 'rgb(125,215,180)',
+          backgroundColor: 'rgb(100,195,160)',
         })
       })
 
@@ -333,7 +333,7 @@ describe('@/components/atoms/view', () => {
           useViewBackgroundColorStyle(ViewBackgroundColor.SUBACCENT_900),
         )
         expect(result.current).toEqual({
-          backgroundColor: 'rgb(100,195,160)',
+          backgroundColor: 'rgb(75,175,140)',
         })
       })
 
@@ -499,126 +499,126 @@ describe('@/components/atoms/view', () => {
         const { result } = renderHook(() =>
           useViewBackgroundColorValue(ViewBackgroundColor.ACCENT_100),
         )
-        expect(result.current).toEqual('rgb(215,235,255)')
+        expect(result.current).toEqual('rgb(200,225,252)')
       })
 
       it('returns accent 200 background color value', () => {
         const { result } = renderHook(() =>
           useViewBackgroundColorValue(ViewBackgroundColor.ACCENT_200),
         )
-        expect(result.current).toEqual('rgb(200,225,252)')
+        expect(result.current).toEqual('rgb(180,215,249)')
       })
 
       it('returns accent 300 background color value', () => {
         const { result } = renderHook(() =>
           useViewBackgroundColorValue(ViewBackgroundColor.ACCENT_300),
         )
-        expect(result.current).toEqual('rgb(180,215,249)')
+        expect(result.current).toEqual('rgb(160,205,246)')
       })
 
       it('returns accent 400 background color value', () => {
         const { result } = renderHook(() =>
           useViewBackgroundColorValue(ViewBackgroundColor.ACCENT_400),
         )
-        expect(result.current).toEqual('rgb(160,205,246)')
+        expect(result.current).toEqual('rgb(140,195,243)')
       })
 
       it('returns accent 500 background color value', () => {
         const { result } = renderHook(() =>
           useViewBackgroundColorValue(ViewBackgroundColor.ACCENT_500),
         )
-        expect(result.current).toEqual('rgb(140,195,243)')
+        expect(result.current).toEqual('rgb(115,180,238)')
       })
 
       it('returns accent 600 background color value', () => {
         const { result } = renderHook(() =>
           useViewBackgroundColorValue(ViewBackgroundColor.ACCENT_600),
         )
-        expect(result.current).toEqual('rgb(115,180,238)')
+        expect(result.current).toEqual('rgb(95,168,233)')
       })
 
       it('returns accent 700 background color value', () => {
         const { result } = renderHook(() =>
           useViewBackgroundColorValue(ViewBackgroundColor.ACCENT_700),
         )
-        expect(result.current).toEqual('rgb(95,168,233)')
+        expect(result.current).toEqual('rgb(75,155,225)')
       })
 
       it('returns accent 800 background color value', () => {
         const { result } = renderHook(() =>
           useViewBackgroundColorValue(ViewBackgroundColor.ACCENT_800),
         )
-        expect(result.current).toEqual('rgb(75,155,225)')
+        expect(result.current).toEqual('rgb(50,130,200)')
       })
 
       it('returns accent 900 background color value', () => {
         const { result } = renderHook(() =>
           useViewBackgroundColorValue(ViewBackgroundColor.ACCENT_900),
         )
-        expect(result.current).toEqual('rgb(50,130,200)')
+        expect(result.current).toEqual('rgb(25,105,175)')
       })
 
       it('returns subaccent 100 background color value', () => {
         const { result } = renderHook(() =>
           useViewBackgroundColorValue(ViewBackgroundColor.SUBACCENT_100),
         )
-        expect(result.current).toEqual('rgb(215,245,235)')
+        expect(result.current).toEqual('rgb(200,240,225)')
       })
 
       it('returns subaccent 200 background color value', () => {
         const { result } = renderHook(() =>
           useViewBackgroundColorValue(ViewBackgroundColor.SUBACCENT_200),
         )
-        expect(result.current).toEqual('rgb(200,240,225)')
+        expect(result.current).toEqual('rgb(185,235,215)')
       })
 
       it('returns subaccent 300 background color value', () => {
         const { result } = renderHook(() =>
           useViewBackgroundColorValue(ViewBackgroundColor.SUBACCENT_300),
         )
-        expect(result.current).toEqual('rgb(185,235,215)')
+        expect(result.current).toEqual('rgb(170,230,205)')
       })
 
       it('returns subaccent 400 background color value', () => {
         const { result } = renderHook(() =>
           useViewBackgroundColorValue(ViewBackgroundColor.SUBACCENT_400),
         )
-        expect(result.current).toEqual('rgb(170,230,205)')
+        expect(result.current).toEqual('rgb(155,225,195)')
       })
 
       it('returns subaccent 500 background color value', () => {
         const { result } = renderHook(() =>
           useViewBackgroundColorValue(ViewBackgroundColor.SUBACCENT_500),
         )
-        expect(result.current).toEqual('rgb(155,225,195)')
+        expect(result.current).toEqual('rgb(145,222,190)')
       })
 
       it('returns subaccent 600 background color value', () => {
         const { result } = renderHook(() =>
           useViewBackgroundColorValue(ViewBackgroundColor.SUBACCENT_600),
         )
-        expect(result.current).toEqual('rgb(145,222,190)')
+        expect(result.current).toEqual('rgb(135,218,185)')
       })
 
       it('returns subaccent 700 background color value', () => {
         const { result } = renderHook(() =>
           useViewBackgroundColorValue(ViewBackgroundColor.SUBACCENT_700),
         )
-        expect(result.current).toEqual('rgb(135,218,185)')
+        expect(result.current).toEqual('rgb(125,215,180)')
       })
 
       it('returns subaccent 800 background color value', () => {
         const { result } = renderHook(() =>
           useViewBackgroundColorValue(ViewBackgroundColor.SUBACCENT_800),
         )
-        expect(result.current).toEqual('rgb(125,215,180)')
+        expect(result.current).toEqual('rgb(100,195,160)')
       })
 
       it('returns subaccent 900 background color value', () => {
         const { result } = renderHook(() =>
           useViewBackgroundColorValue(ViewBackgroundColor.SUBACCENT_900),
         )
-        expect(result.current).toEqual('rgb(100,195,160)')
+        expect(result.current).toEqual('rgb(75,175,140)')
       })
 
       it('returns transparent background color value', () => {

@@ -91,7 +91,7 @@ describe('@/components/atoms/text', () => {
           useTextColorStyle(TextColor.INVERSE_100)
         )
         expect(result.current).toEqual({
-          color: 'rgb(50,50,55)',
+          color: 'rgb(75,75,80)',
         })
       })
 
@@ -100,7 +100,7 @@ describe('@/components/atoms/text', () => {
           useTextColorStyle(TextColor.INVERSE_200)
         )
         expect(result.current).toEqual({
-          color: 'rgb(75,75,80)',
+          color: 'rgb(100,100,105)',
         })
       })
 
@@ -109,7 +109,7 @@ describe('@/components/atoms/text', () => {
           useTextColorStyle(TextColor.INVERSE_300)
         )
         expect(result.current).toEqual({
-          color: 'rgb(100,100,105)',
+          color: 'rgb(125,125,130)',
         })
       })
 
@@ -118,7 +118,7 @@ describe('@/components/atoms/text', () => {
           useTextColorStyle(TextColor.INVERSE_400)
         )
         expect(result.current).toEqual({
-          color: 'rgb(125,125,130)',
+          color: 'rgb(150,150,155)',
         })
       })
 
@@ -127,7 +127,7 @@ describe('@/components/atoms/text', () => {
           useTextColorStyle(TextColor.INVERSE_500)
         )
         expect(result.current).toEqual({
-          color: 'rgb(150,150,155)',
+          color: 'rgb(175,175,180)',
         })
       })
 
@@ -136,7 +136,7 @@ describe('@/components/atoms/text', () => {
           useTextColorStyle(TextColor.INVERSE_600)
         )
         expect(result.current).toEqual({
-          color: 'rgb(175,175,180)',
+          color: 'rgb(200,200,205)',
         })
       })
 
@@ -145,7 +145,7 @@ describe('@/components/atoms/text', () => {
           useTextColorStyle(TextColor.INVERSE_700)
         )
         expect(result.current).toEqual({
-          color: 'rgb(200,200,205)',
+          color: 'rgb(225,225,230)',
         })
       })
 
@@ -154,7 +154,7 @@ describe('@/components/atoms/text', () => {
           useTextColorStyle(TextColor.INVERSE_800)
         )
         expect(result.current).toEqual({
-          color: 'rgb(225,225,230)',
+          color: 'rgb(250,250,255)',
         })
       })
 
@@ -163,7 +163,7 @@ describe('@/components/atoms/text', () => {
           useTextColorStyle(TextColor.INVERSE_900)
         )
         expect(result.current).toEqual({
-          color: 'rgb(250,250,255)',
+          color: 'rgb(255,255,255)',
         })
       })
 
@@ -338,63 +338,63 @@ describe('@/components/atoms/text', () => {
         const { result } = renderHook(() =>
           useTextColorValue(TextColor.INVERSE_100)
         )
-        expect(result.current).toEqual('rgb(50,50,55)')
+        expect(result.current).toEqual('rgb(75,75,80)')
       })
 
       it('returns inverse 200 text color value', () => {
         const { result } = renderHook(() =>
           useTextColorValue(TextColor.INVERSE_200)
         )
-        expect(result.current).toEqual('rgb(75,75,80)')
+        expect(result.current).toEqual('rgb(100,100,105)')
       })
 
       it('returns inverse 300 text color value', () => {
         const { result } = renderHook(() =>
           useTextColorValue(TextColor.INVERSE_300)
         )
-        expect(result.current).toEqual('rgb(100,100,105)')
+        expect(result.current).toEqual('rgb(125,125,130)')
       })
 
       it('returns inverse 400 text color value', () => {
         const { result } = renderHook(() =>
           useTextColorValue(TextColor.INVERSE_400)
         )
-        expect(result.current).toEqual('rgb(125,125,130)')
+        expect(result.current).toEqual('rgb(150,150,155)')
       })
 
       it('returns inverse 500 text color value', () => {
         const { result } = renderHook(() =>
           useTextColorValue(TextColor.INVERSE_500)
         )
-        expect(result.current).toEqual('rgb(150,150,155)')
+        expect(result.current).toEqual('rgb(175,175,180)')
       })
 
       it('returns inverse 600 text color value', () => {
         const { result } = renderHook(() =>
           useTextColorValue(TextColor.INVERSE_600)
         )
-        expect(result.current).toEqual('rgb(175,175,180)')
+        expect(result.current).toEqual('rgb(200,200,205)')
       })
 
       it('returns inverse 700 text color value', () => {
         const { result } = renderHook(() =>
           useTextColorValue(TextColor.INVERSE_700)
         )
-        expect(result.current).toEqual('rgb(200,200,205)')
+        expect(result.current).toEqual('rgb(225,225,230)')
       })
 
       it('returns inverse 800 text color value', () => {
         const { result } = renderHook(() =>
           useTextColorValue(TextColor.INVERSE_800)
         )
-        expect(result.current).toEqual('rgb(225,225,230)')
+        expect(result.current).toEqual('rgb(250,250,255)')
       })
 
       it('returns inverse 900 text color value', () => {
         const { result } = renderHook(() =>
           useTextColorValue(TextColor.INVERSE_900)
         )
-        expect(result.current).toEqual('rgb(250,250,255)')
+        expect(result.current).toEqual('rgb(255,255,255)')
       })
 
       it('returns failure 100 text color value', () => {
