@@ -2479,7 +2479,170 @@ describe('@/components/atoms/text', () => {
     })
   })
 
-  // TODO: Add background color and opacity tests...
+  describe('background color property', () => {
+    it('renders with base 100 background color', () => {
+      const testId = randomTestId()
+      const text = faker.lorem.sentence()
+      render(
+        <Text
+          testId={testId}
+          backgroundColor={Text.BackgroundColor.BASE_100}
+        >
+          {text}
+        </Text>,
+      )
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
+        backgroundColor: 'rgb(215,215,220)',
+      })
+    })
+
+    it('renders with base 200 background color', () => {
+      const testId = randomTestId()
+      const text = faker.lorem.sentence()
+      render(
+        <Text
+          testId={testId}
+          backgroundColor={Text.BackgroundColor.BASE_200}
+        >
+          {text}
+        </Text>,
+      )
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
+        backgroundColor: 'rgb(220,220,225)',
+      })
+    })
+
+    it('renders with base 300 background color', () => {
+      const testId = randomTestId()
+      const text = faker.lorem.sentence()
+      render(
+        <Text
+          testId={testId}
+          backgroundColor={Text.BackgroundColor.BASE_300}
+        >
+          {text}
+        </Text>,
+      )
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
+        backgroundColor: 'rgb(225,225,230)',
+      })
+    })
+
+    it('renders with base 400 background color', () => {
+      const testId = randomTestId()
+      const text = faker.lorem.sentence()
+      render(
+        <Text
+          testId={testId}
+          backgroundColor={Text.BackgroundColor.BASE_400}
+        >
+          {text}
+        </Text>,
+      )
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
+        backgroundColor: 'rgb(230,230,235)',
+      })
+    })
+
+    it('renders with base 500 background color', () => {
+      const testId = randomTestId()
+      const text = faker.lorem.sentence()
+      render(
+        <Text
+          testId={testId}
+          backgroundColor={Text.BackgroundColor.BASE_500}
+        >
+          {text}
+        </Text>,
+      )
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
+        backgroundColor: 'rgb(235,235,240)',
+      })
+    })
+
+    it('renders with base 600 background color', () => {
+      const testId = randomTestId()
+      const text = faker.lorem.sentence()
+      render(
+        <Text
+          testId={testId}
+          backgroundColor={Text.BackgroundColor.BASE_600}
+        >
+          {text}
+        </Text>,
+      )
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
+        backgroundColor: 'rgb(240,240,245)',
+      })
+    })
+
+    it('renders with base 700 background color', () => {
+      const testId = randomTestId()
+      const text = faker.lorem.sentence()
+      render(
+        <Text
+          testId={testId}
+          backgroundColor={Text.BackgroundColor.BASE_700}
+        >
+          {text}
+        </Text>,
+      )
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
+        backgroundColor: 'rgb(245,245,250)',
+      })
+    })
+
+    it('renders with base 800 background color', () => {
+      const testId = randomTestId()
+      const text = faker.lorem.sentence()
+      render(
+        <Text
+          testId={testId}
+          backgroundColor={Text.BackgroundColor.BASE_800}
+        >
+          {text}
+        </Text>,
+      )
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
+        backgroundColor: 'rgb(250,250,255)',
+      })
+    })
+
+    it('renders with base 900 background color', () => {
+      const testId = randomTestId()
+      const text = faker.lorem.sentence()
+      render(
+        <Text
+          testId={testId}
+          backgroundColor={Text.BackgroundColor.BASE_900}
+        >
+          {text}
+        </Text>,
+      )
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
+        backgroundColor: 'rgb(255,255,255)',
+      })
+    })
+  })
+
+  describe('opacity property', () => {
+    it('renders with provided fraction opacity', () => {
+      const testId = randomTestId()
+      const text = faker.lorem.sentence()
+      const fraction = randomFraction()
+      render(
+        <Text
+          testId={testId}
+          opacity={fraction}
+        >
+          {text}
+        </Text>,
+      )
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
+        opacity: fraction.toValue(),
+      })
+    })
+  })
 
   describe('children property', () => {
     it('renders children as text', () => {
