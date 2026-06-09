@@ -205,14 +205,62 @@ describe('@/components/atoms/gradient', () => {
       expect(defsChild.type.displayName).toEqual('Defs')
       const linearGradientChild = defsChild.props.children
       expect(linearGradientChild.type.displayName).toEqual('LinearGradient')
-      expect(linearGradientChild.props.id).toEqual('gradient-linear')
+      const gradientId = linearGradientChild.props.id
+      expect(gradientId).toBeTruthy()
       const rectChild = svgChild.props.children[1]
       expect(rectChild.type.displayName).toEqual('Rect')
       expect(rectChild.props.x).toEqual('0')
       expect(rectChild.props.y).toEqual('0')
       expect(rectChild.props.width).toEqual('100%')
       expect(rectChild.props.height).toEqual('100%')
-      expect(rectChild.props.fill).toEqual('url(#gradient-linear)')
+      expect(rectChild.props.fill).toEqual(`url(#${gradientId})`)
+    })
+
+    it('renders different gradient ids for different instances', () => {
+      const testIdFirst = randomTestId()
+      const testIdSecond = randomTestId()
+      render(
+        <>
+          <GradientLinear
+            testId={testIdFirst}
+            direction={GradientLinear.Direction.BOTTOM}
+          >
+            <GradientStop
+              offset={randomFraction()}
+              color={randomRgb()}
+            />
+
+            <GradientStop
+              offset={randomFraction()}
+              color={randomRgb()}
+            />
+          </GradientLinear>
+
+          <GradientLinear
+            testId={testIdSecond}
+            direction={GradientLinear.Direction.BOTTOM}
+          >
+            <GradientStop
+              offset={randomFraction()}
+              color={randomRgb()}
+            />
+
+            <GradientStop
+              offset={randomFraction()}
+              color={randomRgb()}
+            />
+          </GradientLinear>
+        </>,
+      )
+      const firstSvgChild = screen.getByTestId(testIdFirst).children[0]
+      const firstLinearGradientChild =
+        firstSvgChild.props.children[0].props.children
+      const secondSvgChild = screen.getByTestId(testIdSecond).children[0]
+      const secondLinearGradientChild =
+        secondSvgChild.props.children[0].props.children
+      expect(firstLinearGradientChild.props.id).not.toEqual(
+        secondLinearGradientChild.props.id,
+      )
     })
   })
 })

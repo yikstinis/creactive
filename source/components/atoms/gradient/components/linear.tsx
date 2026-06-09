@@ -1,4 +1,4 @@
-import { isValidElement } from 'react'
+import { isValidElement, useId } from 'react'
 import { StyleSheet, View } from 'react-native'
 import Svg, { Defs, LinearGradient, Rect, Stop } from 'react-native-svg'
 import {
@@ -16,6 +16,8 @@ export const GradientLinear: GradientLinearComponent = ({
   direction,
   children,
 }) => {
+  const id = useId()
+
   return (
     <View
       testID={testId}
@@ -27,15 +29,13 @@ export const GradientLinear: GradientLinearComponent = ({
       >
         <Defs>
           <LinearGradient
-            // Lol, be careful.. Identifier 'gradient' does not work!
-            id='gradient-linear'
+            id={id}
             x1={GRADIENT_LINEAR_DIRECTION_COORDINATES[direction].x1}
             y1={GRADIENT_LINEAR_DIRECTION_COORDINATES[direction].y1}
             x2={GRADIENT_LINEAR_DIRECTION_COORDINATES[direction].x2}
             y2={GRADIENT_LINEAR_DIRECTION_COORDINATES[direction].y2}
           >
             {children
-              // eslint-disable-next-line array-callback-return
               .map((child, index) => {
                 if (isValidElement(child) && child.type === GradientStop) {
                   const props = child.props as GradientStopProperties
@@ -57,7 +57,7 @@ export const GradientLinear: GradientLinearComponent = ({
           y='0'
           width='100%'
           height='100%'
-          fill='url(#gradient-linear)'
+          fill={`url(#${id})`}
         />
       </Svg>
     </View>
