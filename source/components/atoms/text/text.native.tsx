@@ -42,6 +42,7 @@ const textStyleSheet = StyleSheet.create({
     boxSizing: 'border-box',
     whiteSpace: 'pre-wrap',
     overflowWrap: 'break-word',
+    overflow: 'visible',
     borderWidth: 0,
   },
 })

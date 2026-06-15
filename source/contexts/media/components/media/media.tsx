@@ -17,6 +17,14 @@ const isGreater = (
   otherwiseBreakpoint: MediaBreakpoint,
 ) => breakpointIndex[currentBreakpoint] > breakpointIndex[otherwiseBreakpoint]
 
+Platform.select({
+  web: () => {
+    if (globalThis.window) {
+      // TODO: ...
+    }
+  },
+})?.()
+
 const MediaBase = Platform.select({
   // Web media component with server side rendering support.
   web: function MediaBaseWeb({
