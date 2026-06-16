@@ -11,11 +11,10 @@ const TEXT_THEME_FONT_FAMILY_KEY = {
   [TextFontFamily.TYPOGRAPHIC]: 'fontFamilyTypographic' as const,
 }
 
-// Android collapses any system font's numeric weight below 700 to its
-// "normal" face, so e.g. SEMIBOLD (600) would otherwise render identically
-// to REGULAR (400). When the consumer hasn't themed away from the library's
-// default Android system font, swap in the closest distinct named system
-// family for the requested weight instead.
+// Android collapses any numeric font weight below 700 to its "normal" face.
+// So SEMIBOLD (600) would otherwise render identically to REGULAR (400).
+// This only applies when the consumer hasn't themed away from the library's default Android font.
+// In that case, swap in the closest distinct named system family for the requested weight.
 const resolveAndroidFontFamilyByWeight = (
   fontFamily: string,
   fontWeight: number,
