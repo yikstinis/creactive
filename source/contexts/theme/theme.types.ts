@@ -547,26 +547,6 @@ export interface ThemeContextValue {
   lineHeightBaseLoose: number
 
   /**
-   * Base small icon size.
-   * @see ICON_SIZE_BASE_SM
-   * @default 16
-   */
-  iconSizeBaseSM: number
-  /**
-   * Base medium icon size.
-   * @see ICON_SIZE_BASE_MD
-   * @default 24
-   *
-   */
-  iconSizeBaseMD: number
-  /**
-   * Base large icon size.
-   * @see ICON_SIZE_BASE_LG
-   * @default 32
-   */
-  iconSizeBaseLG: number
-
-  /**
    * Base f spacing.
    * @see SPACING_BASE_X6S
    * @default 2
@@ -723,6 +703,45 @@ export interface ThemeContextValue {
    * @default 24
    */
   borderRadiusBaseX6L: number
+
+  /**
+   * Small base button height token.
+   * @see BUTTON_HEIGHT_BASE_SM
+   * @default 40
+   */
+  buttonHeightBaseSM: number
+  /**
+   * Medium base button height token.
+   * @see BUTTON_HEIGHT_BASE_MD
+   * @default 48
+   */
+  buttonHeightBaseMD: number
+  /**
+   * Large base button height token.
+   * @see BUTTON_HEIGHT_BASE_LG
+   * @default 56
+   */
+  buttonHeightBaseLG: number
+
+  /**
+   * Base small icon size.
+   * @see ICON_SIZE_BASE_SM
+   * @default 16
+   */
+  iconSizeBaseSM: number
+  /**
+   * Base medium icon size.
+   * @see ICON_SIZE_BASE_MD
+   * @default 24
+   *
+   */
+  iconSizeBaseMD: number
+  /**
+   * Base large icon size.
+   * @see ICON_SIZE_BASE_LG
+   * @default 32
+   */
+  iconSizeBaseLG: number
 
   /**
    * Small base duration token.

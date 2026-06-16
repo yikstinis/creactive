@@ -13,6 +13,9 @@ import {
   BORDER_WIDTH_BASE_LG,
   BORDER_WIDTH_BASE_MD,
   BORDER_WIDTH_BASE_SM,
+  BUTTON_HEIGHT_BASE_LG,
+  BUTTON_HEIGHT_BASE_MD,
+  BUTTON_HEIGHT_BASE_SM,
   COLOR_BACKGROUND_ACCENT_100,
   COLOR_BACKGROUND_ACCENT_200,
   COLOR_BACKGROUND_ACCENT_300,
@@ -255,10 +258,6 @@ const ThemeContext = createContext<ThemeContextValue>({
   lineHeightBaseRelaxed: LINE_HEIGHT_BASE_RELAXED,
   lineHeightBaseLoose: LINE_HEIGHT_BASE_LOOSE,
 
-  iconSizeBaseSM: ICON_SIZE_BASE_SM,
-  iconSizeBaseMD: ICON_SIZE_BASE_MD,
-  iconSizeBaseLG: ICON_SIZE_BASE_LG,
-
   spacingBaseX6S: SPACING_BASE_X6S,
   spacingBaseX5S: SPACING_BASE_X5S,
   spacingBaseX4S: SPACING_BASE_X4S,
@@ -289,6 +288,14 @@ const ThemeContext = createContext<ThemeContextValue>({
   borderRadiusBaseX4L: BORDER_RADIUS_BASE_X4L,
   borderRadiusBaseX5L: BORDER_RADIUS_BASE_X5L,
   borderRadiusBaseX6L: BORDER_RADIUS_BASE_X6L,
+
+  buttonHeightBaseSM: BUTTON_HEIGHT_BASE_SM,
+  buttonHeightBaseMD: BUTTON_HEIGHT_BASE_MD,
+  buttonHeightBaseLG: BUTTON_HEIGHT_BASE_LG,
+
+  iconSizeBaseSM: ICON_SIZE_BASE_SM,
+  iconSizeBaseMD: ICON_SIZE_BASE_MD,
+  iconSizeBaseLG: ICON_SIZE_BASE_LG,
 
   durationBaseSM: DURATION_BASE_SM,
   durationBaseMD: DURATION_BASE_MD,
@@ -408,10 +415,6 @@ export const ThemeContextProvider: ThemeContextProviderComponent = ({
   lineHeightBaseRelaxed,
   lineHeightBaseLoose,
 
-  iconSizeBaseSM,
-  iconSizeBaseMD,
-  iconSizeBaseLG,
-
   spacingBaseX6S,
   spacingBaseX5S,
   spacingBaseX4S,
@@ -442,6 +445,14 @@ export const ThemeContextProvider: ThemeContextProviderComponent = ({
   borderRadiusBaseX4L,
   borderRadiusBaseX5L,
   borderRadiusBaseX6L,
+
+  buttonHeightBaseSM,
+  buttonHeightBaseMD,
+  buttonHeightBaseLG,
+
+  iconSizeBaseSM,
+  iconSizeBaseMD,
+  iconSizeBaseLG,
 
   durationBaseSM,
   durationBaseMD,
@@ -631,10 +642,6 @@ export const ThemeContextProvider: ThemeContextProviderComponent = ({
       lineHeightBaseRelaxed: lineHeightBaseRelaxed ?? LINE_HEIGHT_BASE_RELAXED,
       lineHeightBaseLoose: lineHeightBaseLoose ?? LINE_HEIGHT_BASE_LOOSE,
 
-      iconSizeBaseSM: iconSizeBaseSM ?? ICON_SIZE_BASE_SM,
-      iconSizeBaseMD: iconSizeBaseMD ?? ICON_SIZE_BASE_MD,
-      iconSizeBaseLG: iconSizeBaseLG ?? ICON_SIZE_BASE_LG,
-
       spacingBaseX6S: spacingBaseX6S ?? SPACING_BASE_X6S,
       spacingBaseX5S: spacingBaseX5S ?? SPACING_BASE_X5S,
       spacingBaseX4S: spacingBaseX4S ?? SPACING_BASE_X4S,
@@ -665,6 +672,14 @@ export const ThemeContextProvider: ThemeContextProviderComponent = ({
       borderRadiusBaseX4L: borderRadiusBaseX4L ?? BORDER_RADIUS_BASE_X4L,
       borderRadiusBaseX5L: borderRadiusBaseX5L ?? BORDER_RADIUS_BASE_X5L,
       borderRadiusBaseX6L: borderRadiusBaseX6L ?? BORDER_RADIUS_BASE_X6L,
+
+      buttonHeightBaseSM: buttonHeightBaseSM ?? BUTTON_HEIGHT_BASE_SM,
+      buttonHeightBaseMD: buttonHeightBaseMD ?? BUTTON_HEIGHT_BASE_MD,
+      buttonHeightBaseLG: buttonHeightBaseLG ?? BUTTON_HEIGHT_BASE_LG,
+
+      iconSizeBaseSM: iconSizeBaseSM ?? ICON_SIZE_BASE_SM,
+      iconSizeBaseMD: iconSizeBaseMD ?? ICON_SIZE_BASE_MD,
+      iconSizeBaseLG: iconSizeBaseLG ?? ICON_SIZE_BASE_LG,
 
       durationBaseSM: durationBaseSM ?? DURATION_BASE_SM,
       durationBaseMD: durationBaseMD ?? DURATION_BASE_MD,
@@ -783,10 +798,6 @@ export const ThemeContextProvider: ThemeContextProviderComponent = ({
       lineHeightBaseRelaxed,
       lineHeightBaseLoose,
 
-      iconSizeBaseSM,
-      iconSizeBaseMD,
-      iconSizeBaseLG,
-
       spacingBaseX6S,
       spacingBaseX5S,
       spacingBaseX4S,
@@ -817,6 +828,14 @@ export const ThemeContextProvider: ThemeContextProviderComponent = ({
       borderRadiusBaseX4L,
       borderRadiusBaseX5L,
       borderRadiusBaseX6L,
+
+      buttonHeightBaseSM,
+      buttonHeightBaseMD,
+      buttonHeightBaseLG,
+
+      iconSizeBaseSM,
+      iconSizeBaseMD,
+      iconSizeBaseLG,
 
       durationBaseSM,
       durationBaseMD,
