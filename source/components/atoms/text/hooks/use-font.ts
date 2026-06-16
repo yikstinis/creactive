@@ -1,14 +1,60 @@
 import { useThemeContext, useThemeStyleSheet } from '@/contexts'
+import {
+  FONT_FAMILY_DEFAULT,
+  FONT_FAMILY_DEFAULT_ANDROID_BY_WEIGHT,
+} from '@/contexts/theme/constants'
+import { Platform } from 'react-native'
 import { TextFontFamily, TextFontSize, TextFontWeight } from '../constants'
 
 const TEXT_THEME_FONT_FAMILY_KEY = {
   [TextFontFamily.DEFAULT]: 'fontFamilyDefault' as const,
   [TextFontFamily.TYPOGRAPHIC]: 'fontFamilyTypographic' as const,
 }
-export const useTextFontFamilyStyle = (fontFamily: TextFontFamily) =>
-  useThemeStyleSheet()[TEXT_THEME_FONT_FAMILY_KEY[fontFamily]]
-export const useTextFontFamilyValue = (fontFamily: TextFontFamily) =>
-  useThemeContext()[TEXT_THEME_FONT_FAMILY_KEY[fontFamily]]
+
+// Android collapses any system font's numeric weight below 700 to its
+// "normal" face, so e.g. SEMIBOLD (600) would otherwise render identically
+// to REGULAR (400). When the consumer hasn't themed away from the library's
+// default Android system font, swap in the closest distinct named system
+// family for the requested weight instead.
+const resolveAndroidFontFamilyByWeight = (
+  fontFamily: string,
+  fontWeight: number,
+) =>
+  fontFamily === FONT_FAMILY_DEFAULT
+    ? (FONT_FAMILY_DEFAULT_ANDROID_BY_WEIGHT[fontWeight] ?? fontFamily)
+    : fontFamily
+
+export const useTextFontFamilyStyle = (
+  fontFamily: TextFontFamily,
+  fontWeight: TextFontWeight,
+) => {
+  const themeStyleSheet = useThemeStyleSheet()
+  const fontWeightValue = useTextFontWeightValue(fontWeight)
+  const fontFamilyStyle =
+    themeStyleSheet[TEXT_THEME_FONT_FAMILY_KEY[fontFamily]]
+  if (Platform.OS !== 'android' || fontFamily !== TextFontFamily.DEFAULT) {
+    return fontFamilyStyle
+  }
+  return {
+    ...fontFamilyStyle,
+    fontFamily: resolveAndroidFontFamilyByWeight(
+      fontFamilyStyle.fontFamily,
+      fontWeightValue,
+    ),
+  }
+}
+export const useTextFontFamilyValue = (
+  fontFamily: TextFontFamily,
+  fontWeight: TextFontWeight,
+) => {
+  const themeContext = useThemeContext()
+  const fontWeightValue = useTextFontWeightValue(fontWeight)
+  const fontFamilyValue = themeContext[TEXT_THEME_FONT_FAMILY_KEY[fontFamily]]
+  if (Platform.OS !== 'android' || fontFamily !== TextFontFamily.DEFAULT) {
+    return fontFamilyValue
+  }
+  return resolveAndroidFontFamilyByWeight(fontFamilyValue, fontWeightValue)
+}
 
 export const TEXT_THEME_FONT_WEIGHT_KEY = {
   [TextFontWeight.THIN]: 'fontWeightBaseThin' as const,

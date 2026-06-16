@@ -15,7 +15,7 @@ describe('@/components/atoms/text', () => {
     describe('text font family style hook', () => {
       it('returns base font family style', () => {
         const { result } = renderHook(() =>
-          useTextFontFamilyStyle(TextFontFamily.DEFAULT)
+          useTextFontFamilyStyle(TextFontFamily.DEFAULT, TextFontWeight.REGULAR)
         )
         expect(result.current.fontFamily).toBe(
           Platform.select({
@@ -29,6 +29,29 @@ describe('@/components/atoms/text', () => {
               'Arial',
               'sans-serif',
             ].join(',') as string,
+            android: 'sans-serif' as string,
+            default: 'System' as string,
+          })
+        )
+      })
+
+      it('returns a distinct base font family style per weight on android', () => {
+        const { result } = renderHook(() =>
+          useTextFontFamilyStyle(TextFontFamily.DEFAULT, TextFontWeight.SEMIBOLD)
+        )
+        expect(result.current.fontFamily).toBe(
+          Platform.select({
+            web: [
+              'ui-sans-serif',
+              '-apple-system',
+              'BlinkMacSystemFont',
+              '"Segoe UI"',
+              'Roboto',
+              'Helvetica',
+              'Arial',
+              'sans-serif',
+            ].join(',') as string,
+            android: 'sans-serif-medium' as string,
             default: 'System' as string,
           })
         )
@@ -36,7 +59,10 @@ describe('@/components/atoms/text', () => {
 
       it('returns typographic font family style', () => {
         const { result } = renderHook(() =>
-          useTextFontFamilyStyle(TextFontFamily.TYPOGRAPHIC)
+          useTextFontFamilyStyle(
+            TextFontFamily.TYPOGRAPHIC,
+            TextFontWeight.REGULAR,
+          )
         )
         expect(result.current.fontFamily).toBe(
           Platform.select({
@@ -51,7 +77,7 @@ describe('@/components/atoms/text', () => {
     describe('text font family value hook', () => {
       it('returns base font family value', () => {
         const { result } = renderHook(() =>
-          useTextFontFamilyValue(TextFontFamily.DEFAULT)
+          useTextFontFamilyValue(TextFontFamily.DEFAULT, TextFontWeight.REGULAR)
         )
         expect(result.current).toBe(
           Platform.select({
@@ -65,6 +91,7 @@ describe('@/components/atoms/text', () => {
               'Arial',
               'sans-serif',
             ].join(','),
+            android: 'sans-serif',
             default: 'System',
           })
         )
@@ -72,7 +99,10 @@ describe('@/components/atoms/text', () => {
 
       it('returns typographic font family value', () => {
         const { result } = renderHook(() =>
-          useTextFontFamilyValue(TextFontFamily.TYPOGRAPHIC)
+          useTextFontFamilyValue(
+            TextFontFamily.TYPOGRAPHIC,
+            TextFontWeight.REGULAR,
+          )
         )
         expect(result.current).toBe(
           Platform.select({

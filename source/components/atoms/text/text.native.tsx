@@ -31,21 +31,6 @@ import type {
   TextReference,
 } from './text.types'
 
-const textStyleSheet = StyleSheet.create({
-  default: {
-    display: 'inline',
-    margin: 0,
-    padding: 0,
-    position: 'static',
-    listStyle: 'none',
-    borderStyle: 'solid',
-    boxSizing: 'border-box',
-    whiteSpace: 'pre-wrap',
-    overflowWrap: 'break-word',
-    overflow: 'visible',
-    borderWidth: 0,
-  },
-})
 const Text = forwardRef<TextReference, TextProperties>(function Text(
   {
     testId,
@@ -86,7 +71,7 @@ const Text = forwardRef<TextReference, TextProperties>(function Text(
         textStyleSheet.default,
         useTextAlignStyle(textAlign),
         useTextDecorationStyle(textDecoration),
-        useTextFontFamilyStyle(fontFamily),
+        useTextFontFamilyStyle(fontFamily, fontWeight),
         useTextFontWeightStyle(fontWeight),
         useTextFontSizeStyle(fontSize),
         lineHeightStyleSheet.textLineHeight,
@@ -101,6 +86,19 @@ const Text = forwardRef<TextReference, TextProperties>(function Text(
       {children}
     </ReactNativeText>
   )
+})
+const textStyleSheet = StyleSheet.create({
+  default: {
+    display: 'inline',
+    margin: 0,
+    padding: 0,
+    position: 'static',
+    listStyle: 'none',
+    borderStyle: 'solid',
+    boxSizing: 'border-box',
+    whiteSpace: 'pre-wrap',
+    borderWidth: 0,
+  },
 })
 ;(Text as TextComponent).Tag = TextTag
 ;(Text as TextComponent).TextAlign = TextAlign

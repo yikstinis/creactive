@@ -75,7 +75,7 @@ const Text = forwardRef<TextReference, TextProperties>(function Text(
       css={{
         textAlign: useTextAlignValue(textAlign),
         textDecoration: useTextDecorationValue(textDecoration),
-        fontFamily: useTextFontFamilyValue(fontFamily),
+        fontFamily: useTextFontFamilyValue(fontFamily, fontWeight),
         fontWeight: useTextFontWeightValue(fontWeight),
         fontSize: fontSizeValue,
         lineHeight: fontSizeValue * lineHeightValue,
