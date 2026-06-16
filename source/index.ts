@@ -35,6 +35,7 @@ export type {
 export {
   DIMENSION_MAX,
   DIMENSION_MIN,
+  DIMENSION_NONE,
   Dimension,
   FRACTION_MAX,
   FRACTION_MIN,

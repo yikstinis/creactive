@@ -1,4 +1,9 @@
-export { DIMENSION_MAX, DIMENSION_MIN, Dimension } from '@/helpers/dimension'
+export {
+  DIMENSION_MAX,
+  DIMENSION_MIN,
+  DIMENSION_NONE,
+  Dimension,
+} from '@/helpers/dimension'
 export type {
   DimensionValue,
   PercentDimension,
