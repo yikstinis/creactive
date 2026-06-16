@@ -1,10 +1,20 @@
-export { Gradient, Text, Transition, View } from './atoms'
+export {
+  Gradient,
+  Pressable,
+  Text,
+  Transition,
+  View,
+  usePressableContext,
+} from './atoms'
 export type {
   GradientLinearComponent,
   GradientLinearProperties,
   GradientObject,
   GradientStopComponent,
   GradientStopProperties,
+  PressableComponent,
+  PressableContextValue,
+  PressableProperties,
   TextComponent,
   TextMeasureCallback,
   TextProperties,

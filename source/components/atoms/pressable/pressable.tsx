@@ -27,6 +27,7 @@ export const Pressable: PressableComponent = ({
     },
     [onPressIn],
   )
+
   const handlePressOut = useCallback(
     (event: GestureResponderEvent) => {
       setPressedIn(false)

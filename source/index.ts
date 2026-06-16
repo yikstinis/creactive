@@ -15,13 +15,23 @@ export type {
   ThemeContextProviderProps,
   ThemeContextValue,
 } from '@/contexts/theme'
-export { Gradient, Text, Transition, View } from './components'
+export {
+  Gradient,
+  Pressable,
+  Text,
+  Transition,
+  usePressableContext,
+  View,
+} from './components'
 export type {
   GradientLinearComponent,
   GradientLinearProperties,
   GradientObject,
   GradientStopComponent,
   GradientStopProperties,
+  PressableComponent,
+  PressableContextValue,
+  PressableProperties,
   TextComponent,
   TextMeasureCallback,
   TextProperties,
