@@ -6,6 +6,12 @@ export type {
   GradientStopComponent,
   GradientStopProperties,
 } from './gradient'
+export { Pressable, usePressableContext } from './pressable'
+export type {
+  PressableComponent,
+  PressableContextValue,
+  PressableProperties,
+} from './pressable'
 export { Text } from './text'
 export type {
   TextComponent,
