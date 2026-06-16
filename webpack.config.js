@@ -42,6 +42,19 @@ const getExternals = () => {
     isClassicBuild || isServerBuild
       ? 'react-native-svg-web'
       : 'react-native-svg'
+  // babel-plugin-react-native-web (run by babel-preset-expo) rewrites every `react-native`
+  // import to a `react-native-web/dist/...` sub-path before webpack sees it.
+  // The `react-native` external above never matches, so react-native-web gets bundled.
+  // That creates a second Responder System with its own private responderListenersMap.
+  // Pressable registers in the bundled map; mouse events dispatch through the host map.
+  // No match → no responder granted → onPressIn never fires.
+  if (isClassicBuild || isServerBuild) {
+    return [
+      externals,
+      /^react-native-web(\/.*)?$/,
+      /^react-native-svg-web(\/.*)?$/,
+    ]
+  }
   return externals
 }
 

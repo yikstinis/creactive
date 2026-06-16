@@ -17,13 +17,14 @@ const Transition: TransitionComponent = ({
   children,
 }) => {
   const durationValue = useTransitionDurationValue(duration)
+
   return (
     <TransitionStyled
       data-testid={testId}
       css={{
         opacity: useTransitionOpacityValue(opacity),
         transform: useTransitionTransformValue(scale, translateX, translateY),
-        transition: `opacity ${durationValue}ms ease, transform ${durationValue}ms ease`,
+        transition: `opacity ${durationValue}ms linear, transform ${durationValue}ms linear`,
       }}
     >
       {children}
