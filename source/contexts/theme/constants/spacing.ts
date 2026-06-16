@@ -1,4 +1,3 @@
-// Theme base spacing constants.
 export const SPACING_BASE_X6S = 2
 export const SPACING_BASE_X5S = 4
 export const SPACING_BASE_X4S = 6
