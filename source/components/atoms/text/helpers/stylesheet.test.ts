@@ -8,6 +8,8 @@ describe('@/components/atoms/text', () => {
         expect(lineHeightStyleSheet).toEqual({
           textLineHeight: {
             lineHeight: 27,
+            paddingVertical: 9,
+            marginVertical: -9,
           },
         })
       })
@@ -16,6 +18,17 @@ describe('@/components/atoms/text', () => {
         const lineHeightStyleSheet1 = getLineHeightStyleSheet(18, 1.5)
         const lineHeightStyleSheet2 = getLineHeightStyleSheet(18, 1.5)
         expect(lineHeightStyleSheet1).toBe(lineHeightStyleSheet2)
+      })
+
+      it('returns a clip margin proportional to font size when multiplier is 1', () => {
+        const lineHeightStyleSheet = getLineHeightStyleSheet(18, 1)
+        expect(lineHeightStyleSheet).toEqual({
+          textLineHeight: {
+            lineHeight: 18,
+            paddingVertical: 9,
+            marginVertical: -9,
+          },
+        })
       })
     })
   })

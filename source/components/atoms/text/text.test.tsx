@@ -123,6 +123,7 @@ describe('@/components/atoms/text', () => {
             'Arial',
             'sans-serif',
           ].join(','),
+          android: 'sans-serif',
           default: 'System',
         }),
       })
@@ -151,6 +152,36 @@ describe('@/components/atoms/text', () => {
             'Arial',
             'sans-serif',
           ].join(','),
+          android: 'sans-serif',
+          default: 'System',
+        }),
+      })
+    })
+
+    it('renders with a distinct font family per weight on android', () => {
+      const testId = randomTestId()
+      const text = faker.lorem.sentence()
+      render(
+        <Text
+          testId={testId}
+          fontWeight={Text.FontWeight.SEMIBOLD}
+        >
+          {text}
+        </Text>,
+      )
+      expect(screen.getByTestId(testId)).toHaveStyle({
+        fontFamily: Platform.select({
+          web: [
+            'ui-sans-serif',
+            '-apple-system',
+            'BlinkMacSystemFont',
+            '"Segoe UI"',
+            'Roboto',
+            'Helvetica',
+            'Arial',
+            'sans-serif',
+          ].join(','),
+          android: 'sans-serif-medium',
           default: 'System',
         }),
       })
