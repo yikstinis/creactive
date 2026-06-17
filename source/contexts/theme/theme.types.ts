@@ -703,6 +703,11 @@ export interface ThemeContextValue {
    * @default 24
    */
   borderRadiusBaseX6L: number
+  /**
+   * Extra 7 large border radius token.
+   * @default 28
+   */
+  borderRadiusBaseX7L: number
 
   /**
    * Small base button height token.
