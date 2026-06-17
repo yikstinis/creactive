@@ -788,6 +788,9 @@ export const useThemeStyleSheet = () => {
         borderRadiusBaseX6L: {
           borderRadius: themeContext.borderRadiusBaseX6L,
         },
+        borderRadiusBaseX7L: {
+          borderRadius: themeContext.borderRadiusBaseX7L,
+        },
         borderTopLeftRadiusBaseXS: {
           borderTopLeftRadius: themeContext.borderRadiusBaseXS,
         },
@@ -817,6 +820,9 @@ export const useThemeStyleSheet = () => {
         },
         borderTopLeftRadiusBaseX6L: {
           borderTopLeftRadius: themeContext.borderRadiusBaseX6L,
+        },
+        borderTopLeftRadiusBaseX7L: {
+          borderTopLeftRadius: themeContext.borderRadiusBaseX7L,
         },
         borderTopRightRadiusBaseXS: {
           borderTopRightRadius: themeContext.borderRadiusBaseXS,
@@ -848,6 +854,9 @@ export const useThemeStyleSheet = () => {
         borderTopRightRadiusBaseX6L: {
           borderTopRightRadius: themeContext.borderRadiusBaseX6L,
         },
+        borderTopRightRadiusBaseX7L: {
+          borderTopRightRadius: themeContext.borderRadiusBaseX7L,
+        },
         borderBottomLeftRadiusBaseXS: {
           borderBottomLeftRadius: themeContext.borderRadiusBaseXS,
         },
@@ -878,6 +887,9 @@ export const useThemeStyleSheet = () => {
         borderBottomLeftRadiusBaseX6L: {
           borderBottomLeftRadius: themeContext.borderRadiusBaseX6L,
         },
+        borderBottomLeftRadiusBaseX7L: {
+          borderBottomLeftRadius: themeContext.borderRadiusBaseX7L,
+        },
         borderBottomRightRadiusBaseXS: {
           borderBottomRightRadius: themeContext.borderRadiusBaseXS,
         },
@@ -907,6 +919,9 @@ export const useThemeStyleSheet = () => {
         },
         borderBottomRightRadiusBaseX6L: {
           borderBottomRightRadius: themeContext.borderRadiusBaseX6L,
+        },
+        borderBottomRightRadiusBaseX7L: {
+          borderBottomRightRadius: themeContext.borderRadiusBaseX7L,
         },
       }),
     [themeContext],

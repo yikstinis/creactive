@@ -86,6 +86,7 @@ const VIEW_BORDER_RADIUS_THEME_STYLE_KEY = {
   [ViewBorderRadius.X4L]: 'borderRadiusBaseX4L' as const,
   [ViewBorderRadius.X5L]: 'borderRadiusBaseX5L' as const,
   [ViewBorderRadius.X6L]: 'borderRadiusBaseX6L' as const,
+  [ViewBorderRadius.X7L]: 'borderRadiusBaseX7L' as const,
 }
 export const useViewBorderRadiusStyle = (borderRadius?: ViewBorderRadius) => {
   const themeStyleSheet = useThemeStyleSheet()
@@ -110,6 +111,7 @@ const VIEW_BORDER_TOP_LEFT_RADIUS_THEME_STYLE_KEY = {
   [ViewBorderRadius.X4L]: 'borderTopLeftRadiusBaseX4L' as const,
   [ViewBorderRadius.X5L]: 'borderTopLeftRadiusBaseX5L' as const,
   [ViewBorderRadius.X6L]: 'borderTopLeftRadiusBaseX6L' as const,
+  [ViewBorderRadius.X7L]: 'borderTopLeftRadiusBaseX7L' as const,
 }
 export const useViewBorderTopLeftRadiusStyle = (
   borderRadius?: ViewBorderRadius,
@@ -136,6 +138,7 @@ const VIEW_BORDER_TOP_RIGHT_RADIUS_THEME_STYLE_KEY = {
   [ViewBorderRadius.X4L]: 'borderTopRightRadiusBaseX4L' as const,
   [ViewBorderRadius.X5L]: 'borderTopRightRadiusBaseX5L' as const,
   [ViewBorderRadius.X6L]: 'borderTopRightRadiusBaseX6L' as const,
+  [ViewBorderRadius.X7L]: 'borderTopRightRadiusBaseX7L' as const,
 }
 export const useViewBorderTopRightRadiusStyle = (
   borderRadius?: ViewBorderRadius,
@@ -164,6 +167,7 @@ const VIEW_BORDER_BOTTOM_LEFT_RADIUS_THEME_STYLE_KEY = {
   [ViewBorderRadius.X4L]: 'borderBottomLeftRadiusBaseX4L' as const,
   [ViewBorderRadius.X5L]: 'borderBottomLeftRadiusBaseX5L' as const,
   [ViewBorderRadius.X6L]: 'borderBottomLeftRadiusBaseX6L' as const,
+  [ViewBorderRadius.X7L]: 'borderBottomLeftRadiusBaseX7L' as const,
 }
 export const useViewBorderBottomLeftRadiusStyle = (
   borderRadius?: ViewBorderRadius,
@@ -192,6 +196,7 @@ const VIEW_BORDER_BOTTOM_RIGHT_RADIUS_THEME_STYLE_KEY = {
   [ViewBorderRadius.X4L]: 'borderBottomRightRadiusBaseX4L' as const,
   [ViewBorderRadius.X5L]: 'borderBottomRightRadiusBaseX5L' as const,
   [ViewBorderRadius.X6L]: 'borderBottomRightRadiusBaseX6L' as const,
+  [ViewBorderRadius.X7L]: 'borderBottomRightRadiusBaseX7L' as const,
 }
 export const useViewBorderBottomRightRadiusStyle = (
   borderRadius?: ViewBorderRadius,
@@ -215,6 +220,7 @@ const VIEW_BORDER_RADIUS_THEME_KEY = {
   [ViewBorderRadius.X4L]: 'borderRadiusBaseX4L' as const,
   [ViewBorderRadius.X5L]: 'borderRadiusBaseX5L' as const,
   [ViewBorderRadius.X6L]: 'borderRadiusBaseX6L' as const,
+  [ViewBorderRadius.X7L]: 'borderRadiusBaseX7L' as const,
 }
 export const useViewBorderRadiusValue = (borderRadius?: ViewBorderRadius) => {
   const themeContext = useThemeContext()

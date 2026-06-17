@@ -8,6 +8,7 @@ import {
   BORDER_RADIUS_BASE_X4L,
   BORDER_RADIUS_BASE_X5L,
   BORDER_RADIUS_BASE_X6L,
+  BORDER_RADIUS_BASE_X7L,
   BORDER_RADIUS_BASE_XL,
   BORDER_RADIUS_BASE_XS,
   BORDER_WIDTH_BASE_LG,
@@ -288,6 +289,7 @@ const ThemeContext = createContext<ThemeContextValue>({
   borderRadiusBaseX4L: BORDER_RADIUS_BASE_X4L,
   borderRadiusBaseX5L: BORDER_RADIUS_BASE_X5L,
   borderRadiusBaseX6L: BORDER_RADIUS_BASE_X6L,
+  borderRadiusBaseX7L: BORDER_RADIUS_BASE_X7L,
 
   buttonHeightBaseSM: BUTTON_HEIGHT_BASE_SM,
   buttonHeightBaseMD: BUTTON_HEIGHT_BASE_MD,
@@ -445,6 +447,7 @@ export const ThemeContextProvider: ThemeContextProviderComponent = ({
   borderRadiusBaseX4L,
   borderRadiusBaseX5L,
   borderRadiusBaseX6L,
+  borderRadiusBaseX7L,
 
   buttonHeightBaseSM,
   buttonHeightBaseMD,
@@ -672,6 +675,7 @@ export const ThemeContextProvider: ThemeContextProviderComponent = ({
       borderRadiusBaseX4L: borderRadiusBaseX4L ?? BORDER_RADIUS_BASE_X4L,
       borderRadiusBaseX5L: borderRadiusBaseX5L ?? BORDER_RADIUS_BASE_X5L,
       borderRadiusBaseX6L: borderRadiusBaseX6L ?? BORDER_RADIUS_BASE_X6L,
+      borderRadiusBaseX7L: borderRadiusBaseX7L ?? BORDER_RADIUS_BASE_X7L,
 
       buttonHeightBaseSM: buttonHeightBaseSM ?? BUTTON_HEIGHT_BASE_SM,
       buttonHeightBaseMD: buttonHeightBaseMD ?? BUTTON_HEIGHT_BASE_MD,
@@ -828,6 +832,7 @@ export const ThemeContextProvider: ThemeContextProviderComponent = ({
       borderRadiusBaseX4L,
       borderRadiusBaseX5L,
       borderRadiusBaseX6L,
+      borderRadiusBaseX7L,
 
       buttonHeightBaseSM,
       buttonHeightBaseMD,

@@ -475,6 +475,15 @@ describe('@/components/atoms/view', () => {
         })
       })
 
+      it('returns extra-7-large border radius', () => {
+        const { result } = renderHook(() =>
+          useViewBorderRadiusStyle(ViewBorderRadius.X7L),
+        )
+        expect(result.current).toEqual({
+          borderRadius: 28,
+        })
+      })
+
       it('returns maximum border radius', () => {
         const { result } = renderHook(() =>
           useViewBorderRadiusStyle(ViewBorderRadius.MAX),
@@ -581,6 +590,15 @@ describe('@/components/atoms/view', () => {
         })
       })
 
+      it('returns extra-7-large border radius', () => {
+        const { result } = renderHook(() =>
+          useViewBorderTopLeftRadiusStyle(ViewBorderRadius.X7L),
+        )
+        expect(result.current).toEqual({
+          borderTopLeftRadius: 28,
+        })
+      })
+
       it('returns maximum border radius', () => {
         const { result } = renderHook(() =>
           useViewBorderTopLeftRadiusStyle(ViewBorderRadius.MAX),
@@ -684,6 +702,15 @@ describe('@/components/atoms/view', () => {
         )
         expect(result.current).toEqual({
           borderTopRightRadius: 24,
+        })
+      })
+
+      it('returns extra-7-large border radius', () => {
+        const { result } = renderHook(() =>
+          useViewBorderTopRightRadiusStyle(ViewBorderRadius.X7L),
+        )
+        expect(result.current).toEqual({
+          borderTopRightRadius: 28,
         })
       })
 
@@ -795,6 +822,15 @@ describe('@/components/atoms/view', () => {
         })
       })
 
+      it('returns extra-7-large border radius', () => {
+        const { result } = renderHook(() =>
+          useViewBorderBottomLeftRadiusStyle(ViewBorderRadius.X7L),
+        )
+        expect(result.current).toEqual({
+          borderBottomLeftRadius: 28,
+        })
+      })
+
       it('returns maximum border radius', () => {
         const { result } = renderHook(() =>
           useViewBorderBottomLeftRadiusStyle(ViewBorderRadius.MAX),
@@ -903,6 +939,15 @@ describe('@/components/atoms/view', () => {
         })
       })
 
+      it('returns extra-7-large border radius', () => {
+        const { result } = renderHook(() =>
+          useViewBorderBottomRightRadiusStyle(ViewBorderRadius.X7L),
+        )
+        expect(result.current).toEqual({
+          borderBottomRightRadius: 28,
+        })
+      })
+
       it('returns maximum border radius', () => {
         const { result } = renderHook(() =>
           useViewBorderBottomRightRadiusStyle(ViewBorderRadius.MAX),
@@ -987,6 +1032,13 @@ describe('@/components/atoms/view', () => {
           useViewBorderRadiusValue(ViewBorderRadius.X6L),
         )
         expect(result.current).toEqual(24)
+      })
+
+      it('returns extra-7-large border radius', () => {
+        const { result } = renderHook(() =>
+          useViewBorderRadiusValue(ViewBorderRadius.X7L),
+        )
+        expect(result.current).toEqual(28)
       })
 
       it('returns maximum border radius', () => {

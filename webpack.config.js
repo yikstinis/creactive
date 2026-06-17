@@ -48,7 +48,7 @@ const getExternals = () => {
   // That creates a second Responder System with its own private responderListenersMap.
   // Pressable registers in the bundled map; mouse events dispatch through the host map.
   // No match → no responder granted → onPressIn never fires.
-  if (isClassicBuild || isServerBuild) {
+  if (isClassicBuild) {
     return [
       externals,
       /^react-native-web(\/.*)?$/,
