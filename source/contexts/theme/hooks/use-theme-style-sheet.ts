@@ -152,6 +152,34 @@ export const useThemeStyleSheet = () => {
           borderColor: themeContext.colorBorderBase900,
         },
 
+        outlineColorBorderBase100: {
+          outlineColor: themeContext.colorBorderBase100,
+        },
+        outlineColorBorderBase200: {
+          outlineColor: themeContext.colorBorderBase200,
+        },
+        outlineColorBorderBase300: {
+          outlineColor: themeContext.colorBorderBase300,
+        },
+        outlineColorBorderBase400: {
+          outlineColor: themeContext.colorBorderBase400,
+        },
+        outlineColorBorderBase500: {
+          outlineColor: themeContext.colorBorderBase500,
+        },
+        outlineColorBorderBase600: {
+          outlineColor: themeContext.colorBorderBase600,
+        },
+        outlineColorBorderBase700: {
+          outlineColor: themeContext.colorBorderBase700,
+        },
+        outlineColorBorderBase800: {
+          outlineColor: themeContext.colorBorderBase800,
+        },
+        outlineColorBorderBase900: {
+          outlineColor: themeContext.colorBorderBase900,
+        },
+
         colorForegroundBase100: {
           color: themeContext.colorForegroundBase100,
         },

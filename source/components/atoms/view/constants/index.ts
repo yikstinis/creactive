@@ -1,4 +1,4 @@
-export { ViewBorderColor, ViewBorderRadius, ViewBorderWidth } from './border'
+export { ViewBorderColor, ViewBorderWidth } from './border'
 export { ViewBackgroundColor } from './color'
 export {
   ViewAlignContent,

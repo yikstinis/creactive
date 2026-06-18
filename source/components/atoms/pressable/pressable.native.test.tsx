@@ -1,63 +1,127 @@
 import { fireEvent, render, screen } from '@testing-library/react-native'
-import { Text } from 'react-native'
-import { Pressable, usePressableContext } from '.'
-
-const PressableContent = ({ testId }: { testId: string }) => {
-  const pressableContext = usePressableContext()
-
-  return (
-    <Text testID={testId}>
-      {JSON.stringify({
-        isPressedIn: pressableContext.isPressedIn,
-      })}
-    </Text>
-  )
-}
+import { Pressable } from '.'
 
 describe('@/components/atoms/pressable', () => {
-  describe('isPressedIn context value', () => {
-    it('provides false by default', () => {
+  describe('is disabled property', () => {
+    it('does not call on press when disabled', () => {
       const testId = randomTestId()
-      const consumerTestId = randomTestId()
+      const onPress = jest.fn()
       render(
-        <Pressable testId={testId}>
-          <PressableContent testId={consumerTestId} />
-        </Pressable>,
+        <Pressable
+          testId={testId}
+          isDisabled={true}
+          onPress={onPress}
+        />,
       )
-      expect(screen.getByTestId(consumerTestId)).toHaveTextContent(
-        JSON.stringify({
-          isPressedIn: false,
-        }),
-      )
+      fireEvent(screen.getByTestId(testId), 'press')
+      expect(onPress).not.toHaveBeenCalled()
     })
 
-    it('provides true while pressed in', () => {
+    it('calls on press when enabled', () => {
       const testId = randomTestId()
-      const consumerTestId = randomTestId()
+      const onPress = jest.fn()
       render(
-        <Pressable testId={testId}>
-          <PressableContent testId={consumerTestId} />
-        </Pressable>,
+        <Pressable
+          testId={testId}
+          isDisabled={false}
+          onPress={onPress}
+        />,
       )
-      fireEvent(screen.getByTestId(testId), 'pressIn')
-      expect(screen.getByTestId(consumerTestId)).toHaveTextContent(
-        JSON.stringify({ isPressedIn: true }),
-      )
+      fireEvent(screen.getByTestId(testId), 'press')
+      expect(onPress).toHaveBeenCalledTimes(1)
     })
 
-    it('provides false after press out', () => {
+    it('calls on press when not provided', () => {
       const testId = randomTestId()
-      const consumerTestId = randomTestId()
+      const onPress = jest.fn()
       render(
-        <Pressable testId={testId}>
-          <PressableContent testId={consumerTestId} />
-        </Pressable>,
+        <Pressable
+          testId={testId}
+          onPress={onPress}
+        />,
       )
-      fireEvent(screen.getByTestId(testId), 'pressIn')
-      fireEvent(screen.getByTestId(testId), 'pressOut')
-      expect(screen.getByTestId(consumerTestId)).toHaveTextContent(
-        JSON.stringify({ isPressedIn: false }),
+      fireEvent(screen.getByTestId(testId), 'press')
+      expect(onPress).toHaveBeenCalledTimes(1)
+    })
+  })
+
+  describe('border radius property', () => {
+    it('renders with extra small border radius style', () => {
+      const testId = randomTestId()
+      render(
+        <Pressable
+          testId={testId}
+          borderRadius={Pressable.BorderRadius.XS}
+        />,
       )
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
+        borderRadius: 2,
+      })
+    })
+
+    it('renders with small border radius style', () => {
+      const testId = randomTestId()
+      render(
+        <Pressable
+          testId={testId}
+          borderRadius={Pressable.BorderRadius.SM}
+        />,
+      )
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
+        borderRadius: 4,
+      })
+    })
+
+    it('renders with medium border radius style', () => {
+      const testId = randomTestId()
+      render(
+        <Pressable
+          testId={testId}
+          borderRadius={Pressable.BorderRadius.MD}
+        />,
+      )
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
+        borderRadius: 6,
+      })
+    })
+
+    it('renders with large border radius style', () => {
+      const testId = randomTestId()
+      render(
+        <Pressable
+          testId={testId}
+          borderRadius={Pressable.BorderRadius.LG}
+        />,
+      )
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
+        borderRadius: 8,
+      })
+    })
+
+    it('renders with extra large border radius style', () => {
+      const testId = randomTestId()
+      render(
+        <Pressable
+          testId={testId}
+          borderRadius={Pressable.BorderRadius.XL}
+        />,
+      )
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
+        borderRadius: 10,
+      })
+    })
+
+    it('renders with maximum border radius style', () => {
+      const testId = randomTestId()
+      render(
+        <Pressable
+          testId={testId}
+          borderRadius={Pressable.BorderRadius.MAX}
+        />,
+      )
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
+        borderRadius: '50%',
+      })
     })
   })
 })

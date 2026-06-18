@@ -153,6 +153,24 @@ export const StorybookControl = new (class {
    * Keeps storybook control factory logic together.
    * Also allows to avoid faker import in every story file.
    */
+  public forText(defaultValue?: string) {
+    return {
+      control: {
+        type: StorybookControlType.TEXT,
+      },
+      defaultValue,
+    }
+  }
+
+  public forBoolean(defaultValue?: boolean) {
+    return {
+      control: {
+        type: StorybookControlType.BOOLEAN,
+      },
+      defaultValue,
+    }
+  }
+
   public forChildren() {
     return {
       control: {

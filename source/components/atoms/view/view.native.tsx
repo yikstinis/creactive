@@ -1,3 +1,11 @@
+import { BorderRadius } from '@/constants'
+import {
+  useBorderBottomLeftRadiusStyle,
+  useBorderBottomRightRadiusStyle,
+  useBorderRadiusStyle,
+  useBorderTopLeftRadiusStyle,
+  useBorderTopRightRadiusStyle,
+} from '@/hooks'
 import { useCallback } from 'react'
 import {
   LayoutChangeEvent,
@@ -10,7 +18,6 @@ import {
   ViewAlignSelf,
   ViewBackgroundColor,
   ViewBorderColor,
-  ViewBorderRadius,
   ViewBorderWidth,
   ViewBoxShadow,
   ViewFlexDirection,
@@ -26,15 +33,10 @@ import {
   useViewAlignItemsStyle,
   useViewAlignSelfStyle,
   useViewBackgroundColorStyle,
-  useViewBorderBottomLeftRadiusStyle,
-  useViewBorderBottomRightRadiusStyle,
   useViewBorderBottomWidthStyle,
   useViewBorderColorStyle,
   useViewBorderLeftWidthStyle,
-  useViewBorderRadiusStyle,
   useViewBorderRightWidthStyle,
-  useViewBorderTopLeftRadiusStyle,
-  useViewBorderTopRightRadiusStyle,
   useViewBorderTopWidthStyle,
   useViewBorderWidthStyle,
   useViewBoxShadowStyle,
@@ -190,11 +192,11 @@ const View: ViewComponent = ({
         useViewBorderLeftWidthStyle(borderWidthLeft),
         useViewBorderRightWidthStyle(borderWidthRight),
         useViewBorderBottomWidthStyle(borderWidthBottom),
-        useViewBorderRadiusStyle(borderRadius),
-        useViewBorderTopLeftRadiusStyle(borderRadiusTopLeft),
-        useViewBorderTopRightRadiusStyle(borderRadiusTopRight),
-        useViewBorderBottomLeftRadiusStyle(borderRadiusBottomLeft),
-        useViewBorderBottomRightRadiusStyle(borderRadiusBottomRight),
+        useBorderRadiusStyle(borderRadius),
+        useBorderTopLeftRadiusStyle(borderRadiusTopLeft),
+        useBorderTopRightRadiusStyle(borderRadiusTopRight),
+        useBorderBottomLeftRadiusStyle(borderRadiusBottomLeft),
+        useBorderBottomRightRadiusStyle(borderRadiusBottomRight),
         useViewBackgroundColorStyle(backgroundColor),
       ]}
       onLayout={handleLayout}
@@ -216,6 +218,6 @@ View.Spacing = ViewSpacing
 View.BoxShadow = ViewBoxShadow
 View.BorderColor = ViewBorderColor
 View.BorderWidth = ViewBorderWidth
-View.BorderRadius = ViewBorderRadius
+View.BorderRadius = BorderRadius
 View.BackgroundColor = ViewBackgroundColor
 export default View

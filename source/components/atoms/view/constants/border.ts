@@ -26,23 +26,3 @@ export enum ViewBorderWidth {
   MD,
   LG,
 }
-
-/**
- * View component supported border radius enumerated constants.
- * Includes matches for all theme base border radius tokens and maximum one.
- * @see View.BorderRadius
- */
-export enum ViewBorderRadius {
-  XS,
-  SM,
-  MD,
-  LG,
-  XL,
-  X2L,
-  X3L,
-  X4L,
-  X5L,
-  X6L,
-  X7L,
-  MAX,
-}
