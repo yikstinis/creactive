@@ -763,6 +763,22 @@ export interface ThemeContextValue {
    * @default 225
    */
   durationBaseLG: number
+
+  /**
+   * Small complex duration token.
+   * @default 500
+   */
+  durationComplexSM: number
+  /**
+   * Medium complex duration token.
+   * @default 750
+   */
+  durationComplexMD: number
+  /**
+   * Large complex duration token.
+   * @default 1000
+   */
+  durationComplexLG: number
 }
 export type ThemeContextProviderProps = PropsWithChildren<
   Partial<ThemeContextValue>

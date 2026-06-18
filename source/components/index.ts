@@ -31,3 +31,5 @@ export type {
   ViewLayoutEvent,
   ViewProperties,
 } from './atoms'
+export { Spinner } from './molecules'
+export type { SpinnerComponent, SpinnerProperties } from './molecules'

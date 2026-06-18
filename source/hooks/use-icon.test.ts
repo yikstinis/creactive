@@ -1,10 +1,10 @@
+import { IconSize } from '@/constants'
 import { renderHook } from '@testing-library/react-native'
-import { IconSize } from '../constants'
-import { useIconSizeValue } from './use-size'
+import { useIconSizeValue } from './use-icon'
 
-describe('@/components/atoms/icon', () => {
-  describe('hooks/use-size', () => {
-    describe('icon size value hook', () => {
+describe('@/hooks', () => {
+  describe('use-icon', () => {
+    describe('useIconSizeValue', () => {
       it('returns small icon size value', () => {
         const { result } = renderHook(() => useIconSizeValue(IconSize.SM))
         expect(result.current).toBe(16)

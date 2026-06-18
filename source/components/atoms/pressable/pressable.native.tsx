@@ -57,6 +57,7 @@ export const Pressable: PressableComponent = ({
     <ReactNativePressable
       testID={testId}
       style={[
+        pressableStyleSheet.displayInline,
         pressableStyleSheet.userSelectNone,
         themeStyleSheet.outlineColorBorderBase800,
         isDisabled && pressableStyleSheet.pointerEventsNone,
@@ -78,6 +79,9 @@ export const Pressable: PressableComponent = ({
   )
 }
 const pressableStyleSheet = StyleSheet.create({
+  displayInline: {
+    display: 'inline' as 'flex',
+  },
   userSelectNone: {
     userSelect: 'none',
   },

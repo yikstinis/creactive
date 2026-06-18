@@ -1,4 +1,5 @@
 import { render, screen } from '@testing-library/react-native'
+import { View } from 'react-native'
 import { Pressable } from '.'
 
 describe('@/components/atoms/pressable', () => {
@@ -336,7 +337,7 @@ describe('@/components/atoms/pressable', () => {
       const childTestId = randomTestId()
       render(
         <Pressable testId={testId}>
-          <Pressable testId={childTestId} />
+          <View testID={childTestId} />
         </Pressable>,
       )
       expect(screen.getByTestId(childTestId)).toBeTruthy()

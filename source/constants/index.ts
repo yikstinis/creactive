@@ -1,1 +1,2 @@
-export { BorderRadius } from './border-radius'
+export { BorderRadius } from './border'
+export { IconSize } from './icon'
