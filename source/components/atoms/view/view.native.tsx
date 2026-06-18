@@ -1,4 +1,5 @@
 import { BorderRadius } from '@/constants'
+import { DIMENSION_NONE } from '@/helpers'
 import {
   useBorderBottomLeftRadiusStyle,
   useBorderBottomRightRadiusStyle,
@@ -61,20 +62,8 @@ import {
   useViewPositionStyle,
   useViewSizeValue,
 } from './hooks'
-import type { ViewComponent } from './view.types'
+import type { ViewComponent, ViewProperties } from './view.types'
 
-const viewStyleSheet = StyleSheet.create({
-  default: {
-    display: 'flex',
-    margin: 0,
-    padding: 0,
-    zIndex: 0,
-    position: 'relative',
-    listStyle: 'none',
-    borderStyle: 'solid',
-    boxSizing: 'border-box',
-  },
-})
 const View: ViewComponent = ({
   testId,
   position = ViewPosition.RELATIVE,
@@ -205,6 +194,20 @@ const View: ViewComponent = ({
     </ReactNativeView>
   )
 }
+
+const viewStyleSheet = StyleSheet.create({
+  default: {
+    display: 'flex',
+    margin: 0,
+    padding: 0,
+    zIndex: 0,
+    position: 'relative',
+    listStyle: 'none',
+    borderStyle: 'solid',
+    boxSizing: 'border-box',
+  },
+})
+
 View.Tag = ViewTag
 View.Position = ViewPosition
 View.Overflow = ViewOverflow
@@ -220,4 +223,22 @@ View.BorderColor = ViewBorderColor
 View.BorderWidth = ViewBorderWidth
 View.BorderRadius = BorderRadius
 View.BackgroundColor = ViewBackgroundColor
+
+const ViewFill = ({
+  children,
+  ...rest
+}: Omit<ViewProperties, 'position' | 'top' | 'left' | 'right' | 'bottom'>) => (
+  <View
+    {...rest}
+    position={ViewPosition.ABSOLUTE}
+    top={DIMENSION_NONE}
+    left={DIMENSION_NONE}
+    right={DIMENSION_NONE}
+    bottom={DIMENSION_NONE}
+  >
+    {children}
+  </View>
+)
+View.Fill = ViewFill
+
 export default View

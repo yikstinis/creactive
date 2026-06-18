@@ -1,4 +1,5 @@
 import { BorderRadius } from '@/constants'
+import { Fraction } from '@/helpers'
 import { useBorderRadiusValue } from '@/hooks'
 import { useLayoutEffect, useRef } from 'react'
 import { ViewStyled } from './components'
@@ -40,7 +41,7 @@ import {
   useViewSpacingValue,
   useViewTagValue,
 } from './hooks'
-import type { ViewComponent } from './view.types'
+import type { ViewComponent, ViewProperties } from './view.types'
 
 const View: ViewComponent = ({
   testId,
@@ -182,4 +183,18 @@ View.BorderColor = ViewBorderColor
 View.BorderWidth = ViewBorderWidth
 View.BorderRadius = BorderRadius
 View.BackgroundColor = ViewBackgroundColor
+
+const ViewFill = ({
+  children,
+  ...rest
+}: Omit<ViewProperties, 'position' | 'top' | 'left' | 'right' | 'bottom'>) => (
+  <View
+    flexGrow={new Fraction(1)}
+    {...rest}
+  >
+    {children}
+  </View>
+)
+View.Fill = ViewFill
+
 export default View

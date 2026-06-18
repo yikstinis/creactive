@@ -22,6 +22,7 @@ const SpinnerChildren = () => {
 
 export const Spinner: SpinnerComponent = ({
   testId,
+  isDisabled = false,
   size = IconSize.MD,
   color = SpinnerColor.BASE_800,
 }: SpinnerProperties) => {
@@ -30,17 +31,19 @@ export const Spinner: SpinnerComponent = ({
   const sizeValue = useIconSizeValue(size)
 
   useEffect(() => {
-    const animation = Animated.loop(
-      Animated.timing(rotationRef.current, {
-        toValue: 1,
-        duration: themeContext.durationComplexLG,
-        easing: Easing.linear,
-        useNativeDriver: false,
-      }),
-    )
-    animation.start()
-    return () => animation.stop()
-  }, [themeContext.durationComplexLG])
+    if (!isDisabled) {
+      const animation = Animated.loop(
+        Animated.timing(rotationRef.current, {
+          toValue: 1,
+          duration: themeContext.durationComplexLG,
+          easing: Easing.linear,
+          useNativeDriver: false,
+        }),
+      )
+      animation.start()
+      return () => animation.stop()
+    }
+  }, [isDisabled, themeContext.durationComplexLG])
 
   const spinnerStyleSheet = useMemo(
     () =>
