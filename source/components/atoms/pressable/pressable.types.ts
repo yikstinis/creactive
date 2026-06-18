@@ -2,7 +2,7 @@ import type { BorderRadius } from '@/constants'
 import type { FunctionComponent, PropsWithChildren } from 'react'
 import type { PressableTag } from './constants'
 
-export interface PressEvent {
+export interface PressablePressEvent {
   preventDefault: () => void
   stopPropagation: () => void
 }
@@ -64,17 +64,17 @@ interface PressableBaseProperties extends PropsWithChildren {
    * Called when the pressable is pressed.
    * @default undefined
    */
-  onPress?: (event: PressEvent) => void
+  onPress?: (event: PressablePressEvent) => void
   /**
    * Called when the pressable is pressed in.
    * @default undefined
    */
-  onPressIn?: (event: PressEvent) => void
+  onPressIn?: (event: PressablePressEvent) => void
   /**
    * Called when the pressable is pressed out.
    * @default undefined
    */
-  onPressOut?: (event: PressEvent) => void
+  onPressOut?: (event: PressablePressEvent) => void
 }
 
 /**
