@@ -4,6 +4,7 @@ import type { SpinnerColor } from './constants'
 
 export type SpinnerProperties = {
   testId?: string
+  isDisabled?: boolean
   size?: IconSize
   color?: SpinnerColor
 }

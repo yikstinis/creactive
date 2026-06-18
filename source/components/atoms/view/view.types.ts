@@ -348,6 +348,9 @@ export type ViewComponent = FunctionComponent<ViewProperties> & {
   BorderWidth: Record<keyof typeof ViewBorderWidth, ViewBorderWidth>
   BorderRadius: Record<keyof typeof BorderRadius, BorderRadius>
   BackgroundColor: Record<keyof typeof ViewBackgroundColor, ViewBackgroundColor>
+  Fill: FunctionComponent<
+    Omit<ViewProperties, 'position' | 'top' | 'left' | 'right' | 'bottom'>
+  >
 }
 /**
  * Styled view properties type.
@@ -401,7 +404,7 @@ export type ViewStyledProperties = {
     maxHeight?: DimensionValue
     boxShadow?: string
     borderColor?: Color
-    borderWidth: number
+    borderWidth?: number
     borderWidthTop?: number
     borderWidthLeft?: number
     borderWidthRight?: number

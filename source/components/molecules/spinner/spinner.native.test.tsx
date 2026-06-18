@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react-native'
+import { act, render, screen } from '@testing-library/react-native'
 import { Path } from 'react-native-svg'
 import { Spinner } from '.'
 
@@ -171,6 +171,34 @@ describe('@/components/molecules/spinner', () => {
         <Spinner color={Spinner.Color.INVERSE_900} />,
       )
       expect(UNSAFE_getByType(Path).props.fill).toBe('rgb(255,255,255)')
+    })
+  })
+
+  describe('animating', () => {
+    beforeEach(() => {
+      jest.useFakeTimers()
+      jest.setSystemTime(0)
+    })
+    afterEach(() => jest.useRealTimers())
+
+    it('rotates when not disabled', () => {
+      const testId = randomTestId()
+      render(<Spinner testId={testId} />)
+      jest.setSystemTime(500)
+      act(() => jest.runOnlyPendingTimers())
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
+        transform: [{ rotate: '180deg' }],
+      })
+    })
+
+    it('does not rotate when disabled', () => {
+      const testId = randomTestId()
+      render(<Spinner testId={testId} isDisabled={true} />)
+      jest.setSystemTime(500)
+      act(() => jest.runOnlyPendingTimers())
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
+        transform: [{ rotate: '0deg' }],
+      })
     })
   })
 })
