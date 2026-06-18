@@ -17,9 +17,11 @@ export type {
 } from '@/contexts/theme'
 export {
   Gradient,
+  Icon,
   Pressable,
   Text,
   Transition,
+  useIconContext,
   usePressableContext,
   View,
 } from './components'
@@ -29,6 +31,9 @@ export type {
   GradientObject,
   GradientStopComponent,
   GradientStopProperties,
+  IconComponent,
+  IconContextValue,
+  IconProperties,
   PressableComponent,
   PressableContextValue,
   PressablePressEvent,

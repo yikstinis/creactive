@@ -1,3 +1,9 @@
+export { Icon, useIconContext } from './icon'
+export type {
+  IconComponent,
+  IconContextValue,
+  IconProperties,
+} from './icon'
 export { Gradient } from './gradient'
 export type {
   GradientLinearComponent,
