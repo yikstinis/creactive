@@ -1,5 +1,5 @@
 import { BorderRadius } from '@/constants'
-import { Fraction } from '@/helpers'
+import { DIMENSION_NONE } from '@/helpers'
 import { useBorderRadiusValue } from '@/hooks'
 import { useLayoutEffect, useRef } from 'react'
 import { ViewStyled } from './components'
@@ -189,8 +189,12 @@ const ViewFill = ({
   ...rest
 }: Omit<ViewProperties, 'position' | 'top' | 'left' | 'right' | 'bottom'>) => (
   <View
-    flexGrow={new Fraction(1)}
     {...rest}
+    position={ViewPosition.ABSOLUTE}
+    top={DIMENSION_NONE}
+    left={DIMENSION_NONE}
+    right={DIMENSION_NONE}
+    bottom={DIMENSION_NONE}
   >
     {children}
   </View>
