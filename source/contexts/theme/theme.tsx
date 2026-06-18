@@ -92,6 +92,9 @@ import {
   DURATION_BASE_LG,
   DURATION_BASE_MD,
   DURATION_BASE_SM,
+  DURATION_COMPLEX_LG,
+  DURATION_COMPLEX_MD,
+  DURATION_COMPLEX_SM,
   FONT_FAMILY_DEFAULT,
   FONT_FAMILY_TYPOGRAPHIC,
   FONT_SIZE_BASE_LG,
@@ -302,6 +305,10 @@ const ThemeContext = createContext<ThemeContextValue>({
   durationBaseSM: DURATION_BASE_SM,
   durationBaseMD: DURATION_BASE_MD,
   durationBaseLG: DURATION_BASE_LG,
+
+  durationComplexSM: DURATION_COMPLEX_SM,
+  durationComplexMD: DURATION_COMPLEX_MD,
+  durationComplexLG: DURATION_COMPLEX_LG,
 })
 
 export const ThemeContextProvider: ThemeContextProviderComponent = ({
@@ -460,6 +467,10 @@ export const ThemeContextProvider: ThemeContextProviderComponent = ({
   durationBaseSM,
   durationBaseMD,
   durationBaseLG,
+
+  durationComplexSM,
+  durationComplexMD,
+  durationComplexLG,
 
   children,
 }) => {
@@ -688,6 +699,10 @@ export const ThemeContextProvider: ThemeContextProviderComponent = ({
       durationBaseSM: durationBaseSM ?? DURATION_BASE_SM,
       durationBaseMD: durationBaseMD ?? DURATION_BASE_MD,
       durationBaseLG: durationBaseLG ?? DURATION_BASE_LG,
+
+      durationComplexSM: durationComplexSM ?? DURATION_COMPLEX_SM,
+      durationComplexMD: durationComplexMD ?? DURATION_COMPLEX_MD,
+      durationComplexLG: durationComplexLG ?? DURATION_COMPLEX_LG,
     }),
     [
       colorBackgroundBase100,
@@ -845,6 +860,10 @@ export const ThemeContextProvider: ThemeContextProviderComponent = ({
       durationBaseSM,
       durationBaseMD,
       durationBaseLG,
+
+      durationComplexSM,
+      durationComplexMD,
+      durationComplexLG,
     ],
   )
   return <ThemeContext.Provider value={value}>{children}</ThemeContext.Provider>

@@ -33,6 +33,7 @@ const formatBorderRadius = (value?: number | '50%') => {
 const PressableStyled = styled.button<
   PressableStyledProperties & { href?: string }
 >`
+  display: inline;
   appearance: none;
   background: none;
   border: none;

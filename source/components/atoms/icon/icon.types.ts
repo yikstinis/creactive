@@ -1,6 +1,7 @@
+import type { IconSize } from '@/constants'
 import type { Color } from '@/types/color.types'
 import type { FunctionComponent, PropsWithChildren } from 'react'
-import type { IconColor, IconSize } from './constants'
+import type { IconColor } from './constants'
 
 export type IconContextValue = {
   color: Color
