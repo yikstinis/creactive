@@ -24,7 +24,7 @@ const Transition: TransitionComponent = ({
       css={{
         opacity: useTransitionOpacityValue(opacity),
         transform: useTransitionTransformValue(scale, translateX, translateY),
-        transition: `opacity ${durationValue}ms linear, transform ${durationValue}ms linear`,
+        transition: `opacity ${durationValue}ms ease,transform ${durationValue}ms ease`,
       }}
     >
       {children}

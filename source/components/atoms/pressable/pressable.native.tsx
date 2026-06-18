@@ -1,14 +1,29 @@
+import { BorderRadius } from '@/constants'
+import {
+  useBorderBottomLeftRadiusStyle,
+  useBorderBottomRightRadiusStyle,
+  useBorderRadiusStyle,
+  useBorderTopLeftRadiusStyle,
+  useBorderTopRightRadiusStyle,
+} from '@/hooks'
 import { useCallback, useMemo, useState } from 'react'
 import {
-  GestureResponderEvent,
+  type GestureResponderEvent,
   Pressable as ReactNativePressable,
   StyleSheet,
 } from 'react-native'
+import { PressableTag } from './constants'
 import { PressableContext } from './pressable.context'
 import type { PressableComponent } from './pressable.types'
 
 export const Pressable: PressableComponent = ({
   testId,
+  borderRadius,
+  borderRadiusTopLeft,
+  borderRadiusTopRight,
+  borderRadiusBottomLeft,
+  borderRadiusBottomRight,
+  isDisabled,
   onPress,
   onPressIn,
   onPressOut,
@@ -39,7 +54,16 @@ export const Pressable: PressableComponent = ({
   return (
     <ReactNativePressable
       testID={testId}
-      style={styleSheet.pressableElement}
+      style={[
+        pressableStyleSheet.userSelectNone,
+        isDisabled && pressableStyleSheet.pointerEventsNone,
+        useBorderRadiusStyle(borderRadius),
+        useBorderTopLeftRadiusStyle(borderRadiusTopLeft),
+        useBorderTopRightRadiusStyle(borderRadiusTopRight),
+        useBorderBottomLeftRadiusStyle(borderRadiusBottomLeft),
+        useBorderBottomRightRadiusStyle(borderRadiusBottomRight),
+      ]}
+      disabled={isDisabled}
       onPress={onPress}
       onPressIn={handlePressIn}
       onPressOut={handlePressOut}
@@ -50,8 +74,13 @@ export const Pressable: PressableComponent = ({
     </ReactNativePressable>
   )
 }
-const styleSheet = StyleSheet.create({
-  pressableElement: {
+const pressableStyleSheet = StyleSheet.create({
+  userSelectNone: {
     userSelect: 'none',
   },
+  pointerEventsNone: {
+    pointerEvents: 'none',
+  },
 })
+Pressable.BorderRadius = BorderRadius
+Pressable.Tag = PressableTag

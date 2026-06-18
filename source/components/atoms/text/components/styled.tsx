@@ -29,4 +29,5 @@ export const TextStyled = styled.span<TextStyledProperties>`
   background-color: ${(properties) => properties.css.backgroundColor};
   opacity: ${(properties) => properties.css.opacity};
   border-width: 0;
+  transform: translate3d(0, 0, 0);
 `

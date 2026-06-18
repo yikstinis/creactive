@@ -1,3 +1,4 @@
+import type { BorderRadius } from '@/constants'
 import type {
   Dimension,
   DimensionValue,
@@ -12,7 +13,6 @@ import type {
   ViewAlignSelf,
   ViewBackgroundColor,
   ViewBorderColor,
-  ViewBorderRadius,
   ViewBorderWidth,
   ViewBoxShadow,
   ViewFlexDirection,
@@ -294,31 +294,31 @@ export interface ViewProperties extends PropsWithChildren {
    * @see View.BorderRadius
    * @default undefined
    */
-  borderRadius?: ViewBorderRadius
+  borderRadius?: BorderRadius
   /**
    * View border top left radius.
    * @see View.BorderRadius
    * @default undefined
    */
-  borderRadiusTopLeft?: ViewBorderRadius
+  borderRadiusTopLeft?: BorderRadius
   /**
    * View border top right radius.
    * @see View.BorderRadius
    * @default undefined
    */
-  borderRadiusTopRight?: ViewBorderRadius
+  borderRadiusTopRight?: BorderRadius
   /**
    * View border bottom left radius.
    * @see View.BorderRadius
    * @default undefined
    */
-  borderRadiusBottomLeft?: ViewBorderRadius
+  borderRadiusBottomLeft?: BorderRadius
   /**
    * View border bottom right radius.
    * @see View.BorderRadius
    * @default undefined
    */
-  borderRadiusBottomRight?: ViewBorderRadius
+  borderRadiusBottomRight?: BorderRadius
   /**
    * Themed or custom background color.
    * @see View.BackgroundColor
@@ -346,7 +346,7 @@ export type ViewComponent = FunctionComponent<ViewProperties> & {
   BoxShadow: Record<keyof typeof ViewBoxShadow, ViewBoxShadow>
   BorderColor: Record<keyof typeof ViewBorderColor, ViewBorderColor>
   BorderWidth: Record<keyof typeof ViewBorderWidth, ViewBorderWidth>
-  BorderRadius: Record<keyof typeof ViewBorderRadius, ViewBorderRadius>
+  BorderRadius: Record<keyof typeof BorderRadius, BorderRadius>
   BackgroundColor: Record<keyof typeof ViewBackgroundColor, ViewBackgroundColor>
 }
 /**

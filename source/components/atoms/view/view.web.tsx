@@ -1,3 +1,5 @@
+import { BorderRadius } from '@/constants'
+import { useBorderRadiusValue } from '@/hooks'
 import { useLayoutEffect, useRef } from 'react'
 import { ViewStyled } from './components'
 import {
@@ -6,7 +8,6 @@ import {
   ViewAlignSelf,
   ViewBackgroundColor,
   ViewBorderColor,
-  ViewBorderRadius,
   ViewBorderWidth,
   ViewBoxShadow,
   ViewFlexDirection,
@@ -23,7 +24,6 @@ import {
   useViewAlignSelfValue,
   useViewBackgroundColorValue,
   useViewBorderColorValue,
-  useViewBorderRadiusValue,
   useViewBorderWidthValue,
   useViewBoxShadowValue,
   useViewFlexBasisValue,
@@ -155,15 +155,11 @@ const View: ViewComponent = ({
         borderWidthLeft: useViewBorderWidthValue(borderWidthLeft),
         borderWidthRight: useViewBorderWidthValue(borderWidthRight),
         borderWidthBottom: useViewBorderWidthValue(borderWidthBottom),
-        borderRadius: useViewBorderRadiusValue(borderRadius),
-        borderRadiusTopLeft: useViewBorderRadiusValue(borderRadiusTopLeft),
-        borderRadiusTopRight: useViewBorderRadiusValue(borderRadiusTopRight),
-        borderRadiusBottomLeft: useViewBorderRadiusValue(
-          borderRadiusBottomLeft,
-        ),
-        borderRadiusBottomRight: useViewBorderRadiusValue(
-          borderRadiusBottomRight,
-        ),
+        borderRadius: useBorderRadiusValue(borderRadius),
+        borderRadiusTopLeft: useBorderRadiusValue(borderRadiusTopLeft),
+        borderRadiusTopRight: useBorderRadiusValue(borderRadiusTopRight),
+        borderRadiusBottomLeft: useBorderRadiusValue(borderRadiusBottomLeft),
+        borderRadiusBottomRight: useBorderRadiusValue(borderRadiusBottomRight),
         backgroundColor: useViewBackgroundColorValue(backgroundColor),
       }}
     >
@@ -184,6 +180,6 @@ View.Spacing = ViewSpacing
 View.BoxShadow = ViewBoxShadow
 View.BorderColor = ViewBorderColor
 View.BorderWidth = ViewBorderWidth
-View.BorderRadius = ViewBorderRadius
+View.BorderRadius = BorderRadius
 View.BackgroundColor = ViewBackgroundColor
 export default View
