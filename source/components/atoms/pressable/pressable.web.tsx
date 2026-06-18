@@ -1,4 +1,5 @@
 import { BorderRadius } from '@/constants'
+import { useThemeContext } from '@/contexts'
 import { useBorderRadiusValue } from '@/hooks'
 import styled from '@emotion/styled'
 import { type MouseEvent, useCallback, useMemo, useState } from 'react'
@@ -13,6 +14,7 @@ const PRESSABLE_TAG_VALUE = {
 
 type PressableStyledProperties = {
   css: {
+    outlineColor?: string
     pointerEvents?: string
     borderRadius?: number | '50%'
     borderTopLeftRadius?: number | '50%'
@@ -46,6 +48,7 @@ const PressableStyled = styled.button<
   text-align: inherit;
   user-select: none;
   touch-action: manipulation;
+  outline-color: ${({ css }) => css.outlineColor};
   pointer-events: ${({ css }) => css.pointerEvents};
   border-radius: ${({ css }) => formatBorderRadius(css.borderRadius)};
   border-top-left-radius: ${({ css }) =>
@@ -73,6 +76,7 @@ export const Pressable: PressableComponent = ({
   onPressOut,
   children,
 }) => {
+  const themeContext = useThemeContext()
   const [isPressedIn, setPressedIn] = useState(false)
   const value = useMemo(() => ({ isPressedIn }), [isPressedIn])
 
@@ -105,6 +109,7 @@ export const Pressable: PressableComponent = ({
       data-testid={testId}
       as={PRESSABLE_TAG_VALUE[tag]}
       css={{
+        outlineColor: themeContext.colorBorderBase800,
         pointerEvents: isDisabled ? 'none' : undefined,
         borderRadius: useBorderRadiusValue(borderRadius),
         borderTopLeftRadius: useBorderRadiusValue(borderRadiusTopLeft),

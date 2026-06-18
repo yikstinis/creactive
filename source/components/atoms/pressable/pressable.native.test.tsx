@@ -2,6 +2,16 @@ import { fireEvent, render, screen } from '@testing-library/react-native'
 import { Pressable } from '.'
 
 describe('@/components/atoms/pressable', () => {
+  describe('outline color style', () => {
+    it('renders with border base 800 outline color style', () => {
+      const testId = randomTestId()
+      render(<Pressable testId={testId} />)
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
+        outlineColor: 'rgb(200,200,205)',
+      })
+    })
+  })
+
   describe('is disabled property', () => {
     it('does not call on press when disabled', () => {
       const testId = randomTestId()
