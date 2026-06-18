@@ -1,4 +1,5 @@
 import { BorderRadius } from '@/constants'
+import { useThemeStyleSheet } from '@/contexts'
 import {
   useBorderBottomLeftRadiusStyle,
   useBorderBottomRightRadiusStyle,
@@ -29,6 +30,7 @@ export const Pressable: PressableComponent = ({
   onPressOut,
   children,
 }) => {
+  const themeStyleSheet = useThemeStyleSheet()
   const [isPressedIn, setPressedIn] = useState(false)
 
   // We do support 18 React version without compiler.
@@ -56,6 +58,7 @@ export const Pressable: PressableComponent = ({
       testID={testId}
       style={[
         pressableStyleSheet.userSelectNone,
+        themeStyleSheet.outlineColorBorderBase800,
         isDisabled && pressableStyleSheet.pointerEventsNone,
         useBorderRadiusStyle(borderRadius),
         useBorderTopLeftRadiusStyle(borderRadiusTopLeft),
