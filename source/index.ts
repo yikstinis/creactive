@@ -31,6 +31,7 @@ export type {
   GradientStopProperties,
   PressableComponent,
   PressableContextValue,
+  PressablePressEvent,
   PressableProperties,
   TextComponent,
   TextMeasureCallback,

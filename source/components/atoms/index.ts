@@ -10,6 +10,7 @@ export { Pressable, usePressableContext } from './pressable'
 export type {
   PressableComponent,
   PressableContextValue,
+  PressablePressEvent,
   PressableProperties,
 } from './pressable'
 export { Text } from './text'

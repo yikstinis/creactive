@@ -8,7 +8,7 @@ export const Pressable: PressableComponent = Platform.select({
 
 export { usePressableContext } from './pressable.context'
 export type {
-  PressEvent,
+  PressablePressEvent,
   PressableComponent,
   PressableContextValue,
   PressableProperties,
