@@ -2,6 +2,16 @@ import { fireEvent, render, screen } from '@testing-library/react-native'
 import { Pressable } from '.'
 
 describe('@/components/atoms/pressable', () => {
+  describe('display inline style', () => {
+    it('renders with inline display style', () => {
+      const testId = randomTestId()
+      render(<Pressable testId={testId} />)
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
+        display: 'inline',
+      })
+    })
+  })
+
   describe('outline color style', () => {
     it('renders with border base 800 outline color style', () => {
       const testId = randomTestId()

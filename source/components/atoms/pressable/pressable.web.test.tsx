@@ -25,6 +25,14 @@ afterEach(() => {
 })
 
 describe('@/components/atoms/pressable', () => {
+  describe('display inline style', () => {
+    it('renders with inline display style', () => {
+      const testId = randomTestId()
+      render(<Pressable testId={testId} />)
+      expect(screen.getByTestId(testId)).toHaveStyle({ display: 'inline' })
+    })
+  })
+
   describe('user select style', () => {
     it('renders with none user select style', () => {
       const testId = randomTestId()

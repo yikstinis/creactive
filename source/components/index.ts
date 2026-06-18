@@ -1,9 +1,11 @@
 export {
   Gradient,
+  Icon,
   Pressable,
   Text,
   Transition,
   View,
+  useIconContext,
   usePressableContext,
 } from './atoms'
 export type {
@@ -12,6 +14,9 @@ export type {
   GradientObject,
   GradientStopComponent,
   GradientStopProperties,
+  IconComponent,
+  IconContextValue,
+  IconProperties,
   PressableComponent,
   PressableContextValue,
   PressablePressEvent,
