@@ -2,6 +2,7 @@ export { Icon, useIconContext } from './icon'
 export type {
   IconComponent,
   IconContextValue,
+  IconColor,
   IconProperties,
 } from './icon'
 export { Gradient } from './gradient'

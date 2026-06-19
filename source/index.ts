@@ -32,6 +32,7 @@ export type {
   GradientObject,
   GradientStopComponent,
   GradientStopProperties,
+  IconColor,
   IconComponent,
   IconContextValue,
   IconProperties,
@@ -62,3 +63,4 @@ export {
 } from './helpers'
 export type { DimensionValue, FractionValue } from './helpers'
 export type { Color, FontWeight } from './types'
+export type { IconSize } from './constants'
