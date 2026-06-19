@@ -14,6 +14,7 @@ export type {
   GradientObject,
   GradientStopComponent,
   GradientStopProperties,
+  IconColor,
   IconComponent,
   IconContextValue,
   IconProperties,
