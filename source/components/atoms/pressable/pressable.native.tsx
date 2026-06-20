@@ -1,12 +1,3 @@
-import { BorderRadius } from '@/constants'
-import { useThemeStyleSheet } from '@/contexts'
-import {
-  useBorderBottomLeftRadiusStyle,
-  useBorderBottomRightRadiusStyle,
-  useBorderRadiusStyle,
-  useBorderTopLeftRadiusStyle,
-  useBorderTopRightRadiusStyle,
-} from '@/hooks'
 import { useCallback, useMemo, useState } from 'react'
 import {
   type GestureResponderEvent,
@@ -19,18 +10,12 @@ import type { PressableComponent } from './pressable.types'
 
 export const Pressable: PressableComponent = ({
   testId,
-  borderRadius,
-  borderRadiusTopLeft,
-  borderRadiusTopRight,
-  borderRadiusBottomLeft,
-  borderRadiusBottomRight,
   isDisabled,
   onPress,
   onPressIn,
   onPressOut,
   children,
 }) => {
-  const themeStyleSheet = useThemeStyleSheet()
   const [isPressedIn, setPressedIn] = useState(false)
 
   // We do support 18 React version without compiler.
@@ -59,13 +44,8 @@ export const Pressable: PressableComponent = ({
       style={[
         pressableStyleSheet.displayInline,
         pressableStyleSheet.userSelectNone,
-        themeStyleSheet.outlineColorBorderBase800,
+        pressableStyleSheet.outlineStyleNone,
         isDisabled && pressableStyleSheet.pointerEventsNone,
-        useBorderRadiusStyle(borderRadius),
-        useBorderTopLeftRadiusStyle(borderRadiusTopLeft),
-        useBorderTopRightRadiusStyle(borderRadiusTopRight),
-        useBorderBottomLeftRadiusStyle(borderRadiusBottomLeft),
-        useBorderBottomRightRadiusStyle(borderRadiusBottomRight),
       ]}
       disabled={isDisabled}
       onPress={onPress}
@@ -85,9 +65,11 @@ const pressableStyleSheet = StyleSheet.create({
   userSelectNone: {
     userSelect: 'none',
   },
+  outlineStyleNone: {
+    outlineStyle: 'none',
+  },
   pointerEventsNone: {
     pointerEvents: 'none',
   },
 })
-Pressable.BorderRadius = BorderRadius
 Pressable.Tag = PressableTag

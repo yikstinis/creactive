@@ -1,4 +1,3 @@
-import type { BorderRadius } from '@/constants'
 import type { FunctionComponent, PropsWithChildren } from 'react'
 import type { PressableTag } from './constants'
 
@@ -30,36 +29,6 @@ interface PressableBaseProperties extends PropsWithChildren {
    * @default undefined
    */
   isDisabled?: boolean
-  /**
-   * Pressable border radius.
-   * @see Pressable.BorderRadius
-   * @default undefined
-   */
-  borderRadius?: BorderRadius
-  /**
-   * Pressable border top left radius.
-   * @see Pressable.BorderRadius
-   * @default undefined
-   */
-  borderRadiusTopLeft?: BorderRadius
-  /**
-   * Pressable border top right radius.
-   * @see Pressable.BorderRadius
-   * @default undefined
-   */
-  borderRadiusTopRight?: BorderRadius
-  /**
-   * Pressable border bottom left radius.
-   * @see Pressable.BorderRadius
-   * @default undefined
-   */
-  borderRadiusBottomLeft?: BorderRadius
-  /**
-   * Pressable border bottom right radius.
-   * @see Pressable.BorderRadius
-   * @default undefined
-   */
-  borderRadiusBottomRight?: BorderRadius
   /**
    * Called when the pressable is pressed.
    * @default undefined
@@ -100,7 +69,12 @@ type PressableTagProperties =
 export type PressableProperties = PressableBaseProperties &
   PressableTagProperties
 
+export type PressableStyledProperties = {
+  css: {
+    pointerEvents?: string
+  }
+}
+
 export type PressableComponent = FunctionComponent<PressableProperties> & {
   Tag: Record<keyof typeof PressableTag, PressableTag>
-  BorderRadius: Record<keyof typeof BorderRadius, BorderRadius>
 }
