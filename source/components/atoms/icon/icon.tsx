@@ -22,7 +22,14 @@ export const Icon: IconComponent = ({
     () => [0, 0, boxSizeValue, boxSizeValue].join(' '),
     [boxSizeValue],
   )
-  const value = useMemo(() => ({ color: colorValue }), [colorValue])
+
+  const value = useMemo(
+    () => ({
+      size: sizeValue,
+      color: colorValue,
+    }),
+    [sizeValue, colorValue],
+  )
 
   return (
     <IconContext.Provider value={value}>

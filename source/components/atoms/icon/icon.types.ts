@@ -4,6 +4,7 @@ import type { FunctionComponent, PropsWithChildren } from 'react'
 import type { IconColor } from './constants'
 
 export type IconContextValue = {
+  size: number
   color: Color
 }
 
