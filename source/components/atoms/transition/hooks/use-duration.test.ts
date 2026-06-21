@@ -5,6 +5,13 @@ import { useTransitionDurationValue } from './use-duration'
 describe('@/components/atoms/transition', () => {
   describe('hooks/use-duration', () => {
     describe('transition duration value hook', () => {
+      it('returns none duration value', () => {
+        const { result } = renderHook(() =>
+          useTransitionDurationValue(TransitionDuration.NONE),
+        )
+        expect(result.current).toBe(0)
+      })
+
       it('returns small duration value', () => {
         const { result } = renderHook(() =>
           useTransitionDurationValue(TransitionDuration.SM),

@@ -41,7 +41,55 @@ describe('@/components/atoms/transition', () => {
           opacity={fraction}
         />,
       )
-      expect(screen.getByTestId(testId)).toHavePlatformStyle({ opacity: fraction.toValue() })
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
+        opacity: fraction.toValue(),
+      })
+    })
+  })
+
+  describe('duration property', () => {
+    it('renders with none duration', () => {
+      const testId = randomTestId()
+      render(
+        <Transition
+          testId={testId}
+          duration={Transition.Duration.NONE}
+        />,
+      )
+      expect(screen.getByTestId(testId)).toBeTruthy()
+    })
+
+    it('renders with small duration', () => {
+      const testId = randomTestId()
+      render(
+        <Transition
+          testId={testId}
+          duration={Transition.Duration.SM}
+        />,
+      )
+      expect(screen.getByTestId(testId)).toBeTruthy()
+    })
+
+    it('renders with medium duration', () => {
+      const testId = randomTestId()
+      render(
+        <Transition
+          testId={testId}
+          duration={Transition.Duration.MD}
+        />,
+      )
+      expect(screen.getByTestId(testId)).toBeTruthy()
+    })
+
+    it('renders with large duration', () => {
+      const testId = randomTestId()
+      render(
+        <Transition
+          testId={testId}
+          duration={Transition.Duration.LG}
+        />,
+      )
+      expect(screen.getByTestId(testId)).toBeTruthy()
     })
   })
 })
