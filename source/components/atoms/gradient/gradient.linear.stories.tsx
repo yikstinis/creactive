@@ -10,7 +10,7 @@ const meta: Meta<typeof Gradient.Linear> = {
   decorators: [StorybookControl.getDecorator()],
 }
 export default meta
-export const LinearTop: StoryObj<typeof Gradient.Linear> = {
+export const Top: StoryObj<typeof Gradient.Linear> = {
   render: () => (
     <Gradient.Linear direction={Gradient.Linear.Direction.TOP}>
       <Gradient.Stop
@@ -25,7 +25,7 @@ export const LinearTop: StoryObj<typeof Gradient.Linear> = {
     </Gradient.Linear>
   ),
 }
-export const LinearLeft: StoryObj<typeof Gradient.Linear> = {
+export const Left: StoryObj<typeof Gradient.Linear> = {
   render: () => (
     <Gradient.Linear direction={Gradient.Linear.Direction.LEFT}>
       <Gradient.Stop
@@ -40,7 +40,7 @@ export const LinearLeft: StoryObj<typeof Gradient.Linear> = {
     </Gradient.Linear>
   ),
 }
-export const LinearRight: StoryObj<typeof Gradient.Linear> = {
+export const Right: StoryObj<typeof Gradient.Linear> = {
   render: () => (
     <Gradient.Linear direction={Gradient.Linear.Direction.RIGHT}>
       <Gradient.Stop
@@ -55,7 +55,7 @@ export const LinearRight: StoryObj<typeof Gradient.Linear> = {
     </Gradient.Linear>
   ),
 }
-export const LinearBottom: StoryObj<typeof Gradient.Linear> = {
+export const Bottom: StoryObj<typeof Gradient.Linear> = {
   render: () => (
     <Gradient.Linear direction={Gradient.Linear.Direction.BOTTOM}>
       <Gradient.Stop

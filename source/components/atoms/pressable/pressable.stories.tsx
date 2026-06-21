@@ -13,21 +13,6 @@ const PressableContent = () => {
 const isDisabledControl = StorybookControl.forBoolean()
 const tagControl = StorybookControl.fromNumericEnum(Pressable.Tag)
 const hrefControl = StorybookControl.forText(faker.internet.url())
-const borderRadiusControl = StorybookControl.fromNumericEnum(
-  Pressable.BorderRadius,
-)
-const borderRadiusTopLeftControl = StorybookControl.fromNumericEnum(
-  Pressable.BorderRadius,
-)
-const borderRadiusTopRightControl = StorybookControl.fromNumericEnum(
-  Pressable.BorderRadius,
-)
-const borderRadiusBottomLeftControl = StorybookControl.fromNumericEnum(
-  Pressable.BorderRadius,
-)
-const borderRadiusBottomRightControl = StorybookControl.fromNumericEnum(
-  Pressable.BorderRadius,
-)
 
 const meta: Meta<typeof Pressable> = {
   component: Pressable,
@@ -36,21 +21,11 @@ const meta: Meta<typeof Pressable> = {
     isDisabled: isDisabledControl,
     tag: tagControl,
     href: hrefControl,
-    borderRadius: borderRadiusControl,
-    borderRadiusTopLeft: borderRadiusTopLeftControl,
-    borderRadiusTopRight: borderRadiusTopRightControl,
-    borderRadiusBottomLeft: borderRadiusBottomLeftControl,
-    borderRadiusBottomRight: borderRadiusBottomRightControl,
   },
   args: {
     isDisabled: isDisabledControl.defaultValue,
     tag: tagControl.defaultValue,
     href: hrefControl.defaultValue,
-    borderRadius: borderRadiusControl.defaultValue,
-    borderRadiusTopLeft: borderRadiusTopLeftControl.defaultValue,
-    borderRadiusTopRight: borderRadiusTopRightControl.defaultValue,
-    borderRadiusBottomLeft: borderRadiusBottomLeftControl.defaultValue,
-    borderRadiusBottomRight: borderRadiusBottomRightControl.defaultValue,
   },
 }
 export default meta

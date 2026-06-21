@@ -68,11 +68,51 @@ export type GradientLinearComponent =
   }
 
 /**
+ * Circular gradient component properties.
+ * Describes possible gradient component customization.
+ * @see Gradient.Circular
+ */
+export interface GradientCircularProperties {
+  /**
+   * Allows to select circular gradient component in tests.
+   * @default undefined
+   */
+  testId?: string
+  /**
+   * Horizontal center of the gradient circle as a fraction of the element width.
+   * @see Fraction
+   * @default 0.5
+   */
+  cx?: Fraction
+  /**
+   * Vertical center of the gradient circle as a fraction of the element height.
+   * @see Fraction
+   * @default 0.5
+   */
+  cy?: Fraction
+  /**
+   * Gradient children.
+   * @see Gradient.Stop
+   * @default undefined
+   */
+  children: ReactElement[]
+}
+/**
+ * Circular gradient component.
+ * Allows to render radial gradient from center outward.
+ * @see Gradient.Circular
+ */
+export type GradientCircularComponent =
+  FunctionComponent<GradientCircularProperties>
+
+/**
  * Gradient object providing access to components and constants.
  * @see Gradient.Linear
+ * @see Gradient.Circular
  * @see Gradient.Stop
  */
 export type GradientObject = {
   Linear: GradientLinearComponent
+  Circular: GradientCircularComponent
   Stop: GradientStopComponent
 }
