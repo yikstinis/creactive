@@ -41,13 +41,11 @@ describe('@/components/atoms/pressable', () => {
     })
   })
 
-  describe('outline color style', () => {
-    it('renders with border base 800 outline color style', () => {
+  describe('outline style', () => {
+    it('renders with none outline style', () => {
       const testId = randomTestId()
       render(<Pressable testId={testId} />)
-      expect(screen.getByTestId(testId)).toHaveStyle({
-        outlineColor: 'rgb(200,200,205)',
-      })
+      expect(screen.getByTestId(testId)).toHaveStyle({ outlineStyle: 'none' })
     })
   })
 

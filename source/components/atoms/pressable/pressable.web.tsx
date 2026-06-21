@@ -1,8 +1,5 @@
-import { BorderRadius } from '@/constants'
-import { useThemeContext } from '@/contexts'
-import { useBorderRadiusValue } from '@/hooks'
-import styled from '@emotion/styled'
 import { type MouseEvent, useCallback, useMemo, useState } from 'react'
+import { PressableStyled } from './components'
 import { PressableTag } from './constants'
 import { PressableContext } from './pressable.context'
 import type { PressableComponent } from './pressable.types'
@@ -12,64 +9,9 @@ const PRESSABLE_TAG_VALUE = {
   [PressableTag.ANCHOR]: 'a' as const,
 }
 
-type PressableStyledProperties = {
-  css: {
-    outlineColor?: string
-    pointerEvents?: string
-    borderRadius?: number | '50%'
-    borderTopLeftRadius?: number | '50%'
-    borderTopRightRadius?: number | '50%'
-    borderBottomLeftRadius?: number | '50%'
-    borderBottomRightRadius?: number | '50%'
-  }
-}
-
-const formatBorderRadius = (value?: number | '50%') => {
-  if (value === undefined) return undefined
-  if (value === '50%') return value
-  return `${value}px`
-}
-
-const PressableStyled = styled.button<
-  PressableStyledProperties & { href?: string }
->`
-  display: inline;
-  appearance: none;
-  background: none;
-  border: none;
-  padding: 0;
-  padding-block: 0;
-  padding-inline: 0;
-  margin: 0;
-  font: inherit;
-  color: inherit;
-  text-decoration: none;
-  box-sizing: border-box;
-  cursor: pointer;
-  text-align: inherit;
-  user-select: none;
-  touch-action: manipulation;
-  outline-color: ${({ css }) => css.outlineColor};
-  pointer-events: ${({ css }) => css.pointerEvents};
-  border-radius: ${({ css }) => formatBorderRadius(css.borderRadius)};
-  border-top-left-radius: ${({ css }) =>
-    formatBorderRadius(css.borderTopLeftRadius)};
-  border-top-right-radius: ${({ css }) =>
-    formatBorderRadius(css.borderTopRightRadius)};
-  border-bottom-left-radius: ${({ css }) =>
-    formatBorderRadius(css.borderBottomLeftRadius)};
-  border-bottom-right-radius: ${({ css }) =>
-    formatBorderRadius(css.borderBottomRightRadius)};
-`
-
 export const Pressable: PressableComponent = ({
   testId,
   tag = PressableTag.BUTTON,
-  borderRadius,
-  borderRadiusTopLeft,
-  borderRadiusTopRight,
-  borderRadiusBottomLeft,
-  borderRadiusBottomRight,
   href,
   isDisabled,
   onPress,
@@ -77,7 +19,6 @@ export const Pressable: PressableComponent = ({
   onPressOut,
   children,
 }) => {
-  const themeContext = useThemeContext()
   const [isPressedIn, setPressedIn] = useState(false)
   const value = useMemo(() => ({ isPressedIn }), [isPressedIn])
 
@@ -110,13 +51,7 @@ export const Pressable: PressableComponent = ({
       data-testid={testId}
       as={PRESSABLE_TAG_VALUE[tag]}
       css={{
-        outlineColor: themeContext.colorBorderBase800,
         pointerEvents: isDisabled ? 'none' : undefined,
-        borderRadius: useBorderRadiusValue(borderRadius),
-        borderTopLeftRadius: useBorderRadiusValue(borderRadiusTopLeft),
-        borderTopRightRadius: useBorderRadiusValue(borderRadiusTopRight),
-        borderBottomLeftRadius: useBorderRadiusValue(borderRadiusBottomLeft),
-        borderBottomRightRadius: useBorderRadiusValue(borderRadiusBottomRight),
       }}
       href={tag === PressableTag.ANCHOR ? href : undefined}
       tabIndex={0}
@@ -130,5 +65,4 @@ export const Pressable: PressableComponent = ({
     </PressableStyled>
   )
 }
-Pressable.BorderRadius = BorderRadius
 Pressable.Tag = PressableTag

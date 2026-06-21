@@ -119,6 +119,20 @@ describe('@/components/atoms/transition', () => {
       )
     })
 
+    it('renders with none duration transition style', () => {
+      const testId = randomTestId()
+      render(
+        <Transition
+          testId={testId}
+          duration={Transition.Duration.NONE}
+        />,
+      )
+      expect(screen.getByTestId(testId)).toHaveStyleRule(
+        'transition',
+        'opacity 0ms ease,transform 0ms ease',
+      )
+    })
+
     it('renders with small duration transition style', () => {
       const testId = randomTestId()
       render(

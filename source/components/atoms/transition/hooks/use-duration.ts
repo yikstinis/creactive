@@ -10,5 +10,6 @@ export const useTransitionDurationValue = (
   duration: TransitionDuration,
 ): number => {
   const context = useThemeContext()
+  if (duration === TransitionDuration.NONE) return 0
   return context[TRANSITION_DURATION_THEME_KEY[duration]]
 }
