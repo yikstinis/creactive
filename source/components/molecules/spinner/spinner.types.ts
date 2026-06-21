@@ -2,6 +2,10 @@ import type { IconSize } from '@/constants'
 import type { FunctionComponent } from 'react'
 import type { SpinnerColor } from './constants'
 
+export type SpinnerChildrenProperties = {
+  isDisabled: boolean
+}
+
 export type SpinnerProperties = {
   testId?: string
   isDisabled?: boolean
