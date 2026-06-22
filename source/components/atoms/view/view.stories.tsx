@@ -69,6 +69,9 @@ const borderRadiusBottomRightControl = StorybookControl.fromNumericEnum(
 const backgroundColorControl = StorybookControl.fromNumericEnum(
   View.BackgroundColor,
 )
+const transitionDurationControl = StorybookControl.fromNumericEnum(
+  View.TransitionDuration,
+)
 
 const meta: Meta<typeof View> = {
   component: View,
@@ -121,6 +124,7 @@ const meta: Meta<typeof View> = {
     borderRadiusBottomLeft: borderRadiusBottomLeftControl,
     borderRadiusBottomRight: borderRadiusBottomRightControl,
     backgroundColor: backgroundColorControl,
+    transitionDuration: transitionDurationControl,
   },
   args: {
     tag: tagControl.defaultValue,
@@ -170,6 +174,7 @@ const meta: Meta<typeof View> = {
     borderRadiusBottomLeft: borderRadiusBottomLeftControl.defaultValue,
     borderRadiusBottomRight: borderRadiusBottomRightControl.defaultValue,
     backgroundColor: backgroundColorControl.defaultValue,
+    transitionDuration: transitionDurationControl.defaultValue,
   },
 }
 export default meta

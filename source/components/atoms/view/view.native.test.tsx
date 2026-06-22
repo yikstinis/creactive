@@ -2,6 +2,14 @@ import { faker } from '@faker-js/faker'
 import { act, fireEvent, render, screen } from '@testing-library/react-native'
 import { View } from '.'
 
+beforeEach(() => {
+  jest.useFakeTimers()
+})
+
+afterEach(() => {
+  jest.useRealTimers()
+})
+
 describe('@/components/atoms/view', () => {
   describe('top property', () => {
     it('renders with default top style', () => {
@@ -583,6 +591,104 @@ describe('@/components/atoms/view', () => {
           }),
         ),
       ).not.toThrow()
+    })
+  })
+
+  describe('transitionDuration property', () => {
+    it('renders with default opacity 1', () => {
+      const testId = randomTestId()
+      render(
+        <View
+          testId={testId}
+          transitionDuration={View.TransitionDuration.MD}
+        />,
+      )
+      expect(screen.getByTestId(testId)).toHaveStyle({ opacity: 1 })
+    })
+
+    it('renders with provided fraction opacity', () => {
+      const testId = randomTestId()
+      const fraction = randomFraction()
+      render(
+        <View
+          testId={testId}
+          transitionDuration={View.TransitionDuration.MD}
+          opacity={fraction}
+        />,
+      )
+      expect(screen.getByTestId(testId)).toHaveStyle({
+        opacity: fraction.toValue(),
+      })
+    })
+
+    it('renders with default transform', () => {
+      const testId = randomTestId()
+      render(
+        <View
+          testId={testId}
+          transitionDuration={View.TransitionDuration.MD}
+        />,
+      )
+      expect(screen.getByTestId(testId)).toHaveStyle({
+        transform: [{ scale: 1 }, { translateX: 0 }, { translateY: 0 }],
+      })
+    })
+
+    it('renders with provided fraction scale in transform', () => {
+      const testId = randomTestId()
+      const fraction = randomFraction()
+      render(
+        <View
+          testId={testId}
+          transitionDuration={View.TransitionDuration.MD}
+          scale={fraction}
+        />,
+      )
+      expect(screen.getByTestId(testId)).toHaveStyle({
+        transform: [
+          { scale: fraction.toValue() },
+          { translateX: 0 },
+          { translateY: 0 },
+        ],
+      })
+    })
+
+    it('renders with provided pixel translateX in transform', () => {
+      const testId = randomTestId()
+      const dimension = randomPixelDimension()
+      render(
+        <View
+          testId={testId}
+          transitionDuration={View.TransitionDuration.MD}
+          translateX={dimension}
+        />,
+      )
+      expect(screen.getByTestId(testId)).toHaveStyle({
+        transform: [
+          { scale: 1 },
+          { translateX: dimension.toValue() as number },
+          { translateY: 0 },
+        ],
+      })
+    })
+
+    it('renders with provided pixel translateY in transform', () => {
+      const testId = randomTestId()
+      const dimension = randomPixelDimension()
+      render(
+        <View
+          testId={testId}
+          transitionDuration={View.TransitionDuration.MD}
+          translateY={dimension}
+        />,
+      )
+      expect(screen.getByTestId(testId)).toHaveStyle({
+        transform: [
+          { scale: 1 },
+          { translateX: 0 },
+          { translateY: dimension.toValue() as number },
+        ],
+      })
     })
   })
 })

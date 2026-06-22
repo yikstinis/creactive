@@ -27,7 +27,5 @@ export type {
   TextProperties,
   TextReference,
 } from './text'
-export { Transition } from './transition'
-export type { TransitionComponent, TransitionProperties } from './transition'
 export { View } from './view'
 export type { ViewComponent, ViewLayoutEvent, ViewProperties } from './view'

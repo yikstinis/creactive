@@ -18,6 +18,7 @@ import {
   ViewPosition,
   ViewSpacing,
   ViewTag,
+  ViewTransitionDuration,
 } from './constants'
 import {
   useViewAlignContentValue,
@@ -41,6 +42,7 @@ import {
   useViewSpacingValue,
   useViewTagValue,
   useViewTransformValue,
+  useViewTransitionValue,
 } from './hooks'
 import type { ViewComponent, ViewProperties } from './view.types'
 
@@ -94,6 +96,7 @@ const View: ViewComponent = ({
   borderRadiusBottomLeft,
   borderRadiusBottomRight,
   backgroundColor,
+  transitionDuration,
   children,
   onLayout,
 }) => {
@@ -129,6 +132,7 @@ const View: ViewComponent = ({
         bottom: useViewPositionDimensionValue(bottom),
         opacity: useViewOpacityValue(opacity),
         transform: useViewTransformValue(scale, translateX, translateY),
+        transition: useViewTransitionValue(transitionDuration),
         overflow: useViewOverflowValue(overflow),
         flexGrow: useViewFlexGrowValue(flexGrow),
         flexShrink: useViewFlexShrinkValue(flexShrink),
@@ -188,6 +192,7 @@ View.BorderColor = ViewBorderColor
 View.BorderWidth = ViewBorderWidth
 View.BorderRadius = BorderRadius
 View.BackgroundColor = ViewBackgroundColor
+View.TransitionDuration = ViewTransitionDuration
 
 const ViewFill = ({
   children,

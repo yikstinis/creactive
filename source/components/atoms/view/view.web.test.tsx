@@ -662,4 +662,71 @@ describe('@/components/atoms/view', () => {
       expect(handleLayout).not.toHaveBeenCalled()
     })
   })
+
+  describe('transitionDuration property', () => {
+    it('renders without transition style by default', () => {
+      const testId = randomTestId()
+      render(<View testId={testId} />)
+      expect(screen.getByTestId(testId)).not.toHaveStyleRule(
+        'transition',
+        expect.anything(),
+      )
+    })
+
+    it('renders with none duration transition style', () => {
+      const testId = randomTestId()
+      render(
+        <View
+          testId={testId}
+          transitionDuration={View.TransitionDuration.NONE}
+        />,
+      )
+      expect(screen.getByTestId(testId)).toHaveStyleRule(
+        'transition',
+        'opacity 0ms ease,transform 0ms ease',
+      )
+    })
+
+    it('renders with small duration transition style', () => {
+      const testId = randomTestId()
+      render(
+        <View
+          testId={testId}
+          transitionDuration={View.TransitionDuration.SM}
+        />,
+      )
+      expect(screen.getByTestId(testId)).toHaveStyleRule(
+        'transition',
+        'opacity 125ms ease,transform 125ms ease',
+      )
+    })
+
+    it('renders with medium duration transition style', () => {
+      const testId = randomTestId()
+      render(
+        <View
+          testId={testId}
+          transitionDuration={View.TransitionDuration.MD}
+        />,
+      )
+      expect(screen.getByTestId(testId)).toHaveStyleRule(
+        'transition',
+        'opacity 175ms ease,transform 175ms ease',
+      )
+    })
+
+    it('renders with large duration transition style', () => {
+      const testId = randomTestId()
+      render(
+        <View
+          testId={testId}
+          transitionDuration={View.TransitionDuration.LG}
+        />,
+      )
+      expect(screen.getByTestId(testId)).toHaveStyleRule(
+        'transition',
+        'opacity 225ms ease,transform 225ms ease',
+      )
+    })
+  })
 })

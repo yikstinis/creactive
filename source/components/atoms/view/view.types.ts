@@ -23,6 +23,7 @@ import type {
   ViewPosition,
   ViewSpacing,
   ViewTag,
+  ViewTransitionDuration,
 } from './constants'
 
 /**
@@ -344,6 +345,14 @@ export interface ViewProperties extends PropsWithChildren {
    * @default undefined
    */
   backgroundColor?: ViewBackgroundColor | Color
+  /**
+   * Transition duration for animated property changes.
+   * When set, opacity and transform changes animate on native.
+   * On web, a CSS transition is applied.
+   * @see View.TransitionDuration
+   * @default undefined
+   */
+  transitionDuration?: ViewTransitionDuration
 
   /**
    * Callback function that is called when the layout of the view changes.
@@ -367,6 +376,10 @@ export type ViewComponent = FunctionComponent<ViewProperties> & {
   BorderWidth: Record<keyof typeof ViewBorderWidth, ViewBorderWidth>
   BorderRadius: Record<keyof typeof BorderRadius, BorderRadius>
   BackgroundColor: Record<keyof typeof ViewBackgroundColor, ViewBackgroundColor>
+  TransitionDuration: Record<
+    keyof typeof ViewTransitionDuration,
+    ViewTransitionDuration
+  >
   Fill: FunctionComponent<
     Omit<ViewProperties, 'position' | 'top' | 'left' | 'right' | 'bottom'>
   >
@@ -384,6 +397,7 @@ export type ViewStyledProperties = {
     bottom?: DimensionValue
     opacity?: FractionValue
     transform?: string
+    transition?: string
     overflow: 'visible' | 'hidden'
     flexGrow?: number
     flexShrink?: number

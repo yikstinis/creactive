@@ -30,10 +30,6 @@ export {
   useViewJustifyContentValue,
 } from './use-flex'
 export { useViewOpacityValue } from './use-opacity'
-export {
-  useViewTransformValue,
-  useViewTranslateNativeValue,
-} from './use-transform'
 export { useViewOverflowStyle, useViewOverflowValue } from './use-overflow'
 export {
   useViewPositionDimensionValue,
@@ -55,3 +51,11 @@ export {
   useViewSpacingValue,
 } from './use-spacing'
 export { useViewTagValue } from './use-tag'
+export {
+  useViewTransformValue,
+  useViewTranslateNativeValue,
+} from './use-transform'
+export {
+  useViewTransitionDurationValue,
+  useViewTransitionValue,
+} from './use-transition'

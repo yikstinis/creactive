@@ -1,5 +1,3 @@
-import { BorderRadius } from '@/constants'
-import { DIMENSION_NONE } from '@/helpers'
 import {
   useBorderBottomLeftRadiusStyle,
   useBorderBottomRightRadiusStyle,
@@ -7,30 +5,17 @@ import {
   useBorderTopLeftRadiusStyle,
   useBorderTopRightRadiusStyle,
 } from '@/hooks'
-import { type FunctionComponent, useCallback } from 'react'
+import { useCallback, useLayoutEffect, useRef } from 'react'
+import { Animated, LayoutChangeEvent, StyleSheet } from 'react-native'
 import {
-  LayoutChangeEvent,
-  View as ReactNativeView,
-  StyleSheet,
-} from 'react-native'
-import { ViewAnimated } from './components/animated'
-import {
-  ViewAlignContent,
   ViewAlignItems,
-  ViewAlignSelf,
-  ViewBackgroundColor,
-  ViewBorderColor,
-  ViewBorderWidth,
-  ViewBoxShadow,
   ViewFlexDirection,
   ViewFlexWrap,
   ViewJustifyContent,
   ViewOverflow,
   ViewPosition,
-  ViewSpacing,
-  ViewTag,
-  ViewTransitionDuration,
-} from './constants'
+} from '../constants'
+import type { ViewTransitionDuration } from '../constants'
 import {
   useViewAlignContentStyle,
   useViewAlignItemsStyle,
@@ -63,11 +48,16 @@ import {
   useViewPositionDimensionValue,
   useViewPositionStyle,
   useViewSizeValue,
+  useViewTransitionDurationValue,
   useViewTranslateNativeValue,
-} from './hooks'
-import type { ViewComponent, ViewProperties } from './view.types'
+} from '../hooks'
+import type { ViewProperties } from '../view.types'
 
-const ViewNative: FunctionComponent<ViewProperties> = ({
+type ViewAnimatedProperties = ViewProperties & {
+  transitionDuration: ViewTransitionDuration
+}
+
+export const ViewAnimated = ({
   testId,
   position = ViewPosition.RELATIVE,
   top,
@@ -78,6 +68,7 @@ const ViewNative: FunctionComponent<ViewProperties> = ({
   scale,
   translateX,
   translateY,
+  transitionDuration,
   overflow = ViewOverflow.VISIBLE,
   flexGrow,
   flexShrink,
@@ -118,30 +109,59 @@ const ViewNative: FunctionComponent<ViewProperties> = ({
   backgroundColor,
   children,
   onLayout,
-}) => {
-  const scaleValue = scale?.toValue() ?? 1
-  const translateXValue = useViewTranslateNativeValue(translateX)
-  const translateYValue = useViewTranslateNativeValue(translateY)
+}: ViewAnimatedProperties) => {
+  const durationValue = useViewTransitionDurationValue(transitionDuration)
+  const opacityTarget = useViewOpacityValue(opacity) ?? 1
+  const scaleTarget = scale?.toValue() ?? 1
+  const translateXTarget = useViewTranslateNativeValue(translateX)
+  const translateYTarget = useViewTranslateNativeValue(translateY)
+
+  const animatedOpacity = useRef(new Animated.Value(opacityTarget))
+  const animatedScale = useRef(new Animated.Value(scaleTarget))
+  const animatedTranslateX = useRef(new Animated.Value(translateXTarget))
+  const animatedTranslateY = useRef(new Animated.Value(translateYTarget))
+
+  useLayoutEffect(() => {
+    Animated.parallel([
+      Animated.timing(animatedOpacity.current, {
+        toValue: opacityTarget,
+        duration: durationValue,
+        useNativeDriver: true,
+      }),
+      Animated.timing(animatedScale.current, {
+        toValue: scaleTarget,
+        duration: durationValue,
+        useNativeDriver: true,
+      }),
+      Animated.timing(animatedTranslateX.current, {
+        toValue: translateXTarget,
+        duration: durationValue,
+        useNativeDriver: true,
+      }),
+      Animated.timing(animatedTranslateY.current, {
+        toValue: translateYTarget,
+        duration: durationValue,
+        useNativeDriver: true,
+      }),
+    ]).start()
+  }, [opacityTarget, scaleTarget, translateXTarget, translateYTarget, durationValue])
 
   const handleLayout = useCallback(
     (event: LayoutChangeEvent) => {
       if (onLayout) {
         const height = event.nativeEvent.layout.height
         const width = event.nativeEvent.layout.width
-        onLayout({
-          width,
-          height,
-        })
+        onLayout({ width, height })
       }
     },
     [onLayout],
   )
 
   return (
-    <ReactNativeView
+    <Animated.View
       testID={testId}
       style={[
-        viewStyleSheet.default,
+        viewAnimatedStyleSheet.default,
         useViewPositionStyle(position),
         {
           top: useViewPositionDimensionValue(top),
@@ -150,22 +170,17 @@ const ViewNative: FunctionComponent<ViewProperties> = ({
           bottom: useViewPositionDimensionValue(bottom),
         },
         {
-          opacity: useViewOpacityValue(opacity),
-        },
-        {
+          opacity: animatedOpacity.current,
           transform: [
-            { scale: scaleValue },
-            { translateX: translateXValue },
-            { translateY: translateYValue },
+            { scale: animatedScale.current },
+            { translateX: animatedTranslateX.current },
+            { translateY: animatedTranslateY.current },
           ],
         },
         useViewOverflowStyle(overflow),
         {
           flexGrow: useViewFlexGrowValue(flexGrow),
           flexShrink: useViewFlexShrinkValue(flexShrink),
-          // This hook returns cross platform dimension value.
-          // Its return type contains web specific `${number}px` type also.
-          // To remove type check error we cast result type here - it is safe.
           flexBasis: useViewFlexBasisValue(flexBasis) as number | `${number}%`,
         },
         useViewFlexWrapStyle(flexWrap),
@@ -208,11 +223,11 @@ const ViewNative: FunctionComponent<ViewProperties> = ({
       onLayout={handleLayout}
     >
       {children}
-    </ReactNativeView>
+    </Animated.View>
   )
 }
 
-const viewStyleSheet = StyleSheet.create({
+const viewAnimatedStyleSheet = StyleSheet.create({
   default: {
     display: 'flex',
     margin: 0,
@@ -224,51 +239,3 @@ const viewStyleSheet = StyleSheet.create({
     boxSizing: 'border-box',
   },
 })
-
-const View: ViewComponent = (props) => {
-  if (props.transitionDuration !== undefined) {
-    return (
-      <ViewAnimated
-        {...props}
-        transitionDuration={props.transitionDuration}
-      />
-    )
-  }
-  return <ViewNative {...props} />
-}
-
-View.Tag = ViewTag
-View.Position = ViewPosition
-View.Overflow = ViewOverflow
-View.FlexWrap = ViewFlexWrap
-View.FlexDirection = ViewFlexDirection
-View.JustifyContent = ViewJustifyContent
-View.AlignItems = ViewAlignItems
-View.AlignSelf = ViewAlignSelf
-View.AlignContent = ViewAlignContent
-View.Spacing = ViewSpacing
-View.BoxShadow = ViewBoxShadow
-View.BorderColor = ViewBorderColor
-View.BorderWidth = ViewBorderWidth
-View.BorderRadius = BorderRadius
-View.BackgroundColor = ViewBackgroundColor
-View.TransitionDuration = ViewTransitionDuration
-
-const ViewFill = ({
-  children,
-  ...rest
-}: Omit<ViewProperties, 'position' | 'top' | 'left' | 'right' | 'bottom'>) => (
-  <View
-    {...rest}
-    position={ViewPosition.ABSOLUTE}
-    top={DIMENSION_NONE}
-    left={DIMENSION_NONE}
-    right={DIMENSION_NONE}
-    bottom={DIMENSION_NONE}
-  >
-    {children}
-  </View>
-)
-View.Fill = ViewFill
-
-export default View

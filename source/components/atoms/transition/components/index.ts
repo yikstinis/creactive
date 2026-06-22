@@ -1,1 +1,0 @@
-export { TransitionStyled } from './styled'

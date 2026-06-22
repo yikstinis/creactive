@@ -1,1 +1,0 @@
-export { TransitionDuration } from './duration'

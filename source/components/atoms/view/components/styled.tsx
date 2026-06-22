@@ -27,6 +27,7 @@ export const ViewStyled = styled.div<ViewStyledProperties>`
   bottom: ${(properties) => properties.css.bottom};
   opacity: ${(properties) => properties.css.opacity};
   transform: ${(properties) => properties.css.transform};
+  transition: ${(properties) => properties.css.transition};
   overflow: ${(properties) => properties.css.overflow};
   flex-grow: ${(properties) => properties.css.flexGrow};
   flex-shrink: ${(properties) => properties.css.flexShrink};
