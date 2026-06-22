@@ -4,6 +4,7 @@ import type {
   DimensionValue,
   Fraction,
   FractionValue,
+  PixelDimension,
 } from '@/helpers'
 import type { Color } from '@/types'
 import type { FunctionComponent, PropsWithChildren } from 'react'
@@ -84,6 +85,24 @@ export interface ViewProperties extends PropsWithChildren {
    * @default undefined
    */
   opacity?: Fraction
+  /**
+   * View scale transform.
+   * @see Fraction
+   * @default undefined
+   */
+  scale?: Fraction
+  /**
+   * Horizontal translation of the view.
+   * @see PixelDimension
+   * @default undefined
+   */
+  translateX?: PixelDimension
+  /**
+   * Vertical translation of the view.
+   * @see PixelDimension
+   * @default undefined
+   */
+  translateY?: PixelDimension
   /**
    * View overflow behavior.
    * Controls how children are measured and displayed.
@@ -364,6 +383,7 @@ export type ViewStyledProperties = {
     right?: DimensionValue
     bottom?: DimensionValue
     opacity?: FractionValue
+    transform?: string
     overflow: 'visible' | 'hidden'
     flexGrow?: number
     flexShrink?: number

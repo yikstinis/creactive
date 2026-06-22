@@ -11,11 +11,17 @@ expect.extend(matchers)
 const originalConsoleError = console.error.bind(console)
 const UNRECOGNIZED_TAG_WARNING_MESSAGE =
   'Warning: The tag <%s> is unrecognized in this browser.'
+const NON_BOOLEAN_ATTRIBUTE_WARNING_MESSAGE =
+  'Warning: Received `%s` for a non-boolean attribute `%s`.'
 console.error = (message: unknown, ...args: unknown[]) => {
   if (typeof message === 'string') {
     if (message.includes(UNRECOGNIZED_TAG_WARNING_MESSAGE)) {
       // Ignore the warning about unrecognized <stop> tags, which are valid in SVG and used by react-native-svg.
       if (args[0] === 'stop') return
+    }
+    if (message.includes(NON_BOOLEAN_ATTRIBUTE_WARNING_MESSAGE)) {
+      // Ignore the warning about collapsable passed to SVG DOM elements by react-native-web's createAnimatedComponent.
+      if (args[1] === 'collapsable') return
     }
   }
 

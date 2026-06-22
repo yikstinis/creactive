@@ -40,6 +40,7 @@ import {
   useViewSizeValue,
   useViewSpacingValue,
   useViewTagValue,
+  useViewTransformValue,
 } from './hooks'
 import type { ViewComponent, ViewProperties } from './view.types'
 
@@ -52,6 +53,9 @@ const View: ViewComponent = ({
   right,
   bottom,
   opacity,
+  scale,
+  translateX,
+  translateY,
   overflow = ViewOverflow.VISIBLE,
   flexGrow,
   flexShrink,
@@ -124,6 +128,7 @@ const View: ViewComponent = ({
         right: useViewPositionDimensionValue(right),
         bottom: useViewPositionDimensionValue(bottom),
         opacity: useViewOpacityValue(opacity),
+        transform: useViewTransformValue(scale, translateX, translateY),
         overflow: useViewOverflowValue(overflow),
         flexGrow: useViewFlexGrowValue(flexGrow),
         flexShrink: useViewFlexShrinkValue(flexShrink),

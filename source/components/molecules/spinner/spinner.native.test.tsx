@@ -3,6 +3,14 @@ import { Animated } from 'react-native'
 import { Circle } from 'react-native-svg'
 import { Spinner } from '.'
 
+beforeEach(() => {
+  jest.useFakeTimers()
+})
+
+afterEach(() => {
+  jest.useRealTimers()
+})
+
 describe('@/components/molecules/spinner', () => {
   describe('size property', () => {
     it('renders with small size', () => {
@@ -192,10 +200,8 @@ describe('@/components/molecules/spinner', () => {
 
   describe('animating', () => {
     beforeEach(() => {
-      jest.useFakeTimers()
       jest.setSystemTime(0)
     })
-    afterEach(() => jest.useRealTimers())
 
     it('rotates when not disabled', () => {
       const startSpy = jest.fn()

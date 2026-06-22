@@ -2,6 +2,14 @@ import { render, screen } from '@testing-library/react-native'
 import { Animated } from 'react-native'
 import { Spinner } from '.'
 
+beforeEach(() => {
+  jest.useFakeTimers()
+})
+
+afterEach(() => {
+  jest.useRealTimers()
+})
+
 describe('@/components/molecules/spinner', () => {
   describe('test id property', () => {
     it('renders with provided test id', () => {

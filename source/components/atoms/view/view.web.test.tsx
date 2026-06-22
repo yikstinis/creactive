@@ -158,6 +158,66 @@ describe('@/components/atoms/view', () => {
     })
   })
 
+  describe('scale property', () => {
+    it('renders without transform style by default', () => {
+      const testId = randomTestId()
+      render(<View testId={testId} />)
+      expect(screen.getByTestId(testId)).not.toHaveStyleRule(
+        'transform',
+        expect.anything(),
+      )
+    })
+
+    it('renders with provided fraction scale transform style', () => {
+      const testId = randomTestId()
+      const fraction = randomFraction()
+      render(
+        <View
+          testId={testId}
+          scale={fraction}
+        />,
+      )
+      expect(screen.getByTestId(testId)).toHaveStyleRule(
+        'transform',
+        `scale(${fraction.toValue()})`,
+      )
+    })
+  })
+
+  describe('translateX property', () => {
+    it('renders with provided pixel translateX transform style', () => {
+      const testId = randomTestId()
+      const dimension = randomPixelDimension()
+      render(
+        <View
+          testId={testId}
+          translateX={dimension}
+        />,
+      )
+      expect(screen.getByTestId(testId)).toHaveStyleRule(
+        'transform',
+        `translateX(${dimension.toValue()})`,
+      )
+    })
+  })
+
+  describe('translateY property', () => {
+    it('renders with provided pixel translateY transform style', () => {
+      const testId = randomTestId()
+      const dimension = randomPixelDimension()
+      render(
+        <View
+          testId={testId}
+          translateY={dimension}
+        />,
+      )
+      expect(screen.getByTestId(testId)).toHaveStyleRule(
+        'transform',
+        `translateY(${dimension.toValue()})`,
+      )
+    })
+  })
+
   describe('flex grow property', () => {
     it('renders with default flex grow style', () => {
       const testId = randomTestId()

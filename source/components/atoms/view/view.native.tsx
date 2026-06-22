@@ -61,6 +61,7 @@ import {
   useViewPositionDimensionValue,
   useViewPositionStyle,
   useViewSizeValue,
+  useViewTranslateNativeValue,
 } from './hooks'
 import type { ViewComponent, ViewProperties } from './view.types'
 
@@ -72,6 +73,9 @@ const View: ViewComponent = ({
   right,
   bottom,
   opacity,
+  scale,
+  translateX,
+  translateY,
   overflow = ViewOverflow.VISIBLE,
   flexGrow,
   flexShrink,
@@ -113,6 +117,10 @@ const View: ViewComponent = ({
   children,
   onLayout,
 }) => {
+  const scaleValue = scale?.toValue() ?? 1
+  const translateXValue = useViewTranslateNativeValue(translateX)
+  const translateYValue = useViewTranslateNativeValue(translateY)
+
   const handleLayout = useCallback(
     (event: LayoutChangeEvent) => {
       if (onLayout) {
@@ -141,6 +149,13 @@ const View: ViewComponent = ({
         },
         {
           opacity: useViewOpacityValue(opacity),
+        },
+        {
+          transform: [
+            { scale: scaleValue },
+            { translateX: translateXValue },
+            { translateY: translateYValue },
+          ],
         },
         useViewOverflowStyle(overflow),
         {

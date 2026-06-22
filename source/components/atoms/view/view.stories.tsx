@@ -9,6 +9,9 @@ const leftControl = StorybookControl.forPosition()
 const rightControl = StorybookControl.forPosition()
 const bottomControl = StorybookControl.forPosition()
 const opacityControl = StorybookControl.forFraction()
+const scaleControl = StorybookControl.forFraction()
+const translateXControl = StorybookControl.forPosition()
+const translateYControl = StorybookControl.forPosition()
 const overflowControl = StorybookControl.fromNumericEnum(View.Overflow)
 const flexGrowControl = StorybookControl.forFraction()
 const flexShrinkControl = StorybookControl.forFraction()
@@ -78,6 +81,9 @@ const meta: Meta<typeof View> = {
     right: rightControl,
     bottom: bottomControl,
     opacity: opacityControl,
+    scale: scaleControl,
+    translateX: translateXControl,
+    translateY: translateYControl,
     overflow: overflowControl,
     flexGrow: flexGrowControl,
     flexShrink: flexShrinkControl,
@@ -124,6 +130,9 @@ const meta: Meta<typeof View> = {
     right: rightControl.defaultValue,
     bottom: bottomControl.defaultValue,
     opacity: opacityControl.defaultValue,
+    scale: scaleControl.defaultValue,
+    translateX: translateXControl.defaultValue,
+    translateY: translateYControl.defaultValue,
     overflow: overflowControl.defaultValue,
     flexGrow: flexGrowControl.defaultValue,
     flexShrink: flexShrinkControl.defaultValue,
