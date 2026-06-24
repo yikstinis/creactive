@@ -87,6 +87,14 @@ export interface ViewProperties extends PropsWithChildren {
    */
   opacity?: Fraction
   /**
+   * Transition duration for opacity changes.
+   * When set, opacity changes animate on native.
+   * On web, a CSS transition is applied to opacity.
+   * @see View.TransitionDuration
+   * @default undefined
+   */
+  opacityTransitionDuration?: ViewTransitionDuration
+  /**
    * View scale transform.
    * @see Fraction
    * @default undefined
@@ -104,6 +112,14 @@ export interface ViewProperties extends PropsWithChildren {
    * @default undefined
    */
   translateY?: PixelDimension
+  /**
+   * Transition duration for transform changes.
+   * When set, scale and translate changes animate on native.
+   * On web, a CSS transition is applied to transform.
+   * @see View.TransitionDuration
+   * @default undefined
+   */
+  transformTransitionDuration?: ViewTransitionDuration
   /**
    * View overflow behavior.
    * Controls how children are measured and displayed.
@@ -345,15 +361,6 @@ export interface ViewProperties extends PropsWithChildren {
    * @default undefined
    */
   backgroundColor?: ViewBackgroundColor | Color
-  /**
-   * Transition duration for animated property changes.
-   * When set, opacity and transform changes animate on native.
-   * On web, a CSS transition is applied.
-   * @see View.TransitionDuration
-   * @default undefined
-   */
-  transitionDuration?: ViewTransitionDuration
-
   /**
    * Callback function that is called when the layout of the view changes.
    * @param event Event containing the width and height of the view.

@@ -3923,4 +3923,46 @@ describe('@/components/atoms/view', () => {
       expect(screen.getByTestId(testId)).toHavePlatformStyle({ backgroundColor })
     })
   })
+
+  describe('fill absolute component', () => {
+    it('renders with absolute position', () => {
+      const testId = randomTestId()
+      render(<View.Fill.Absolute testId={testId} />)
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
+        position: 'absolute',
+      })
+    })
+
+    it('renders with zero top', () => {
+      const testId = randomTestId()
+      render(<View.Fill.Absolute testId={testId} />)
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({ top: 0 })
+    })
+
+    it('renders with zero left', () => {
+      const testId = randomTestId()
+      render(<View.Fill.Absolute testId={testId} />)
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({ left: 0 })
+    })
+
+    it('renders with zero right', () => {
+      const testId = randomTestId()
+      render(<View.Fill.Absolute testId={testId} />)
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({ right: 0 })
+    })
+
+    it('renders with zero bottom', () => {
+      const testId = randomTestId()
+      render(<View.Fill.Absolute testId={testId} />)
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({ bottom: 0 })
+    })
+  })
+
+  describe('fill flex component', () => {
+    it('renders with flex grow 1', () => {
+      const testId = randomTestId()
+      render(<View.Fill.Flex testId={testId} />)
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({ flexGrow: 1 })
+    })
+  })
 })

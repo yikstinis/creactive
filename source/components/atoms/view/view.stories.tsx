@@ -9,9 +9,15 @@ const leftControl = StorybookControl.forPosition()
 const rightControl = StorybookControl.forPosition()
 const bottomControl = StorybookControl.forPosition()
 const opacityControl = StorybookControl.forFraction()
+const opacityTransitionDurationControl = StorybookControl.fromNumericEnum(
+  View.TransitionDuration,
+)
 const scaleControl = StorybookControl.forFraction()
 const translateXControl = StorybookControl.forPosition()
 const translateYControl = StorybookControl.forPosition()
+const transformTransitionDurationControl = StorybookControl.fromNumericEnum(
+  View.TransitionDuration,
+)
 const overflowControl = StorybookControl.fromNumericEnum(View.Overflow)
 const flexGrowControl = StorybookControl.forFraction()
 const flexShrinkControl = StorybookControl.forFraction()
@@ -69,9 +75,6 @@ const borderRadiusBottomRightControl = StorybookControl.fromNumericEnum(
 const backgroundColorControl = StorybookControl.fromNumericEnum(
   View.BackgroundColor,
 )
-const transitionDurationControl = StorybookControl.fromNumericEnum(
-  View.TransitionDuration,
-)
 
 const meta: Meta<typeof View> = {
   component: View,
@@ -84,9 +87,11 @@ const meta: Meta<typeof View> = {
     right: rightControl,
     bottom: bottomControl,
     opacity: opacityControl,
+    opacityTransitionDuration: opacityTransitionDurationControl,
     scale: scaleControl,
     translateX: translateXControl,
     translateY: translateYControl,
+    transformTransitionDuration: transformTransitionDurationControl,
     overflow: overflowControl,
     flexGrow: flexGrowControl,
     flexShrink: flexShrinkControl,
@@ -124,7 +129,6 @@ const meta: Meta<typeof View> = {
     borderRadiusBottomLeft: borderRadiusBottomLeftControl,
     borderRadiusBottomRight: borderRadiusBottomRightControl,
     backgroundColor: backgroundColorControl,
-    transitionDuration: transitionDurationControl,
   },
   args: {
     tag: tagControl.defaultValue,
@@ -134,9 +138,12 @@ const meta: Meta<typeof View> = {
     right: rightControl.defaultValue,
     bottom: bottomControl.defaultValue,
     opacity: opacityControl.defaultValue,
+    opacityTransitionDuration: opacityTransitionDurationControl.defaultValue,
     scale: scaleControl.defaultValue,
     translateX: translateXControl.defaultValue,
     translateY: translateYControl.defaultValue,
+    transformTransitionDuration:
+      transformTransitionDurationControl.defaultValue,
     overflow: overflowControl.defaultValue,
     flexGrow: flexGrowControl.defaultValue,
     flexShrink: flexShrinkControl.defaultValue,
@@ -174,7 +181,6 @@ const meta: Meta<typeof View> = {
     borderRadiusBottomLeft: borderRadiusBottomLeftControl.defaultValue,
     borderRadiusBottomRight: borderRadiusBottomRightControl.defaultValue,
     backgroundColor: backgroundColorControl.defaultValue,
-    transitionDuration: transitionDurationControl.defaultValue,
   },
 }
 export default meta

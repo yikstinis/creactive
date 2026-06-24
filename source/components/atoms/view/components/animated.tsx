@@ -14,8 +14,8 @@ import {
   ViewJustifyContent,
   ViewOverflow,
   ViewPosition,
+  ViewTransitionDuration,
 } from '../constants'
-import type { ViewTransitionDuration } from '../constants'
 import {
   useViewAlignContentStyle,
   useViewAlignItemsStyle,
@@ -53,9 +53,7 @@ import {
 } from '../hooks'
 import type { ViewProperties } from '../view.types'
 
-type ViewAnimatedProperties = ViewProperties & {
-  transitionDuration: ViewTransitionDuration
-}
+type ViewAnimatedProperties = ViewProperties
 
 export const ViewAnimated = ({
   testId,
@@ -65,10 +63,11 @@ export const ViewAnimated = ({
   right,
   bottom,
   opacity,
+  opacityTransitionDuration,
   scale,
   translateX,
   translateY,
-  transitionDuration,
+  transformTransitionDuration,
   overflow = ViewOverflow.VISIBLE,
   flexGrow,
   flexShrink,
@@ -110,7 +109,12 @@ export const ViewAnimated = ({
   children,
   onLayout,
 }: ViewAnimatedProperties) => {
-  const durationValue = useViewTransitionDurationValue(transitionDuration)
+  const opacityDurationValue = useViewTransitionDurationValue(
+    opacityTransitionDuration ?? ViewTransitionDuration.NONE,
+  )
+  const transformDurationValue = useViewTransitionDurationValue(
+    transformTransitionDuration ?? ViewTransitionDuration.NONE,
+  )
   const opacityTarget = useViewOpacityValue(opacity) ?? 1
   const scaleTarget = scale?.toValue() ?? 1
   const translateXTarget = useViewTranslateNativeValue(translateX)
@@ -125,26 +129,33 @@ export const ViewAnimated = ({
     Animated.parallel([
       Animated.timing(animatedOpacity.current, {
         toValue: opacityTarget,
-        duration: durationValue,
+        duration: opacityDurationValue,
         useNativeDriver: true,
       }),
       Animated.timing(animatedScale.current, {
         toValue: scaleTarget,
-        duration: durationValue,
+        duration: transformDurationValue,
         useNativeDriver: true,
       }),
       Animated.timing(animatedTranslateX.current, {
         toValue: translateXTarget,
-        duration: durationValue,
+        duration: transformDurationValue,
         useNativeDriver: true,
       }),
       Animated.timing(animatedTranslateY.current, {
         toValue: translateYTarget,
-        duration: durationValue,
+        duration: transformDurationValue,
         useNativeDriver: true,
       }),
     ]).start()
-  }, [opacityTarget, scaleTarget, translateXTarget, translateYTarget, durationValue])
+  }, [
+    opacityTarget,
+    scaleTarget,
+    translateXTarget,
+    translateYTarget,
+    opacityDurationValue,
+    transformDurationValue,
+  ])
 
   const handleLayout = useCallback(
     (event: LayoutChangeEvent) => {

@@ -226,13 +226,11 @@ const viewStyleSheet = StyleSheet.create({
 })
 
 const View: ViewComponent = (props) => {
-  if (props.transitionDuration !== undefined) {
-    return (
-      <ViewAnimated
-        {...props}
-        transitionDuration={props.transitionDuration}
-      />
-    )
+  if (
+    props.opacityTransitionDuration !== undefined ||
+    props.transformTransitionDuration !== undefined
+  ) {
+    return <ViewAnimated {...props} />
   }
   return <ViewNative {...props} />
 }

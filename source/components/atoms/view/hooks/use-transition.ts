@@ -16,13 +16,26 @@ export const useViewTransitionDurationValue = (
 }
 
 export const useViewTransitionValue = (
-  duration?: ViewTransitionDuration,
+  opacityDuration?: ViewTransitionDuration,
+  transformDuration?: ViewTransitionDuration,
 ): string | undefined => {
   const context = useThemeContext()
-  if (duration === undefined) return undefined
-  const ms =
-    duration === ViewTransitionDuration.NONE
-      ? 0
-      : context[VIEW_TRANSITION_DURATION_THEME_KEY[duration]]
-  return `opacity ${ms}ms ease,transform ${ms}ms ease`
+  if (opacityDuration === undefined && transformDuration === undefined)
+    return undefined
+  const parts: string[] = []
+  if (opacityDuration !== undefined) {
+    const ms =
+      opacityDuration === ViewTransitionDuration.NONE
+        ? 0
+        : context[VIEW_TRANSITION_DURATION_THEME_KEY[opacityDuration]]
+    parts.push(`opacity ${ms}ms ease`)
+  }
+  if (transformDuration !== undefined) {
+    const ms =
+      transformDuration === ViewTransitionDuration.NONE
+        ? 0
+        : context[VIEW_TRANSITION_DURATION_THEME_KEY[transformDuration]]
+    parts.push(`transform ${ms}ms ease`)
+  }
+  return parts.join(',')
 }

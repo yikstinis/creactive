@@ -663,7 +663,7 @@ describe('@/components/atoms/view', () => {
     })
   })
 
-  describe('transitionDuration property', () => {
+  describe('opacityTransitionDuration property', () => {
     it('renders without transition style by default', () => {
       const testId = randomTestId()
       render(<View testId={testId} />)
@@ -673,60 +673,173 @@ describe('@/components/atoms/view', () => {
       )
     })
 
-    it('renders with none duration transition style', () => {
+    it('renders with none opacity transition style', () => {
       const testId = randomTestId()
       render(
         <View
           testId={testId}
-          transitionDuration={View.TransitionDuration.NONE}
+          opacityTransitionDuration={View.TransitionDuration.NONE}
         />,
       )
       expect(screen.getByTestId(testId)).toHaveStyleRule(
         'transition',
-        'opacity 0ms ease,transform 0ms ease',
+        'opacity 0ms ease',
       )
     })
 
-    it('renders with small duration transition style', () => {
+    it('renders with small opacity transition style', () => {
       const testId = randomTestId()
       render(
         <View
           testId={testId}
-          transitionDuration={View.TransitionDuration.SM}
+          opacityTransitionDuration={View.TransitionDuration.SM}
         />,
       )
       expect(screen.getByTestId(testId)).toHaveStyleRule(
         'transition',
-        'opacity 125ms ease,transform 125ms ease',
+        'opacity 125ms ease',
       )
     })
 
-    it('renders with medium duration transition style', () => {
+    it('renders with medium opacity transition style', () => {
       const testId = randomTestId()
       render(
         <View
           testId={testId}
-          transitionDuration={View.TransitionDuration.MD}
+          opacityTransitionDuration={View.TransitionDuration.MD}
         />,
       )
       expect(screen.getByTestId(testId)).toHaveStyleRule(
         'transition',
-        'opacity 175ms ease,transform 175ms ease',
+        'opacity 175ms ease',
       )
     })
 
-    it('renders with large duration transition style', () => {
+    it('renders with large opacity transition style', () => {
       const testId = randomTestId()
       render(
         <View
           testId={testId}
-          transitionDuration={View.TransitionDuration.LG}
+          opacityTransitionDuration={View.TransitionDuration.LG}
         />,
       )
       expect(screen.getByTestId(testId)).toHaveStyleRule(
         'transition',
-        'opacity 225ms ease,transform 225ms ease',
+        'opacity 225ms ease',
       )
+    })
+  })
+
+  describe('transformTransitionDuration property', () => {
+    it('renders with none transform transition style', () => {
+      const testId = randomTestId()
+      render(
+        <View
+          testId={testId}
+          transformTransitionDuration={View.TransitionDuration.NONE}
+        />,
+      )
+      expect(screen.getByTestId(testId)).toHaveStyleRule(
+        'transition',
+        'transform 0ms ease',
+      )
+    })
+
+    it('renders with small transform transition style', () => {
+      const testId = randomTestId()
+      render(
+        <View
+          testId={testId}
+          transformTransitionDuration={View.TransitionDuration.SM}
+        />,
+      )
+      expect(screen.getByTestId(testId)).toHaveStyleRule(
+        'transition',
+        'transform 125ms ease',
+      )
+    })
+
+    it('renders with medium transform transition style', () => {
+      const testId = randomTestId()
+      render(
+        <View
+          testId={testId}
+          transformTransitionDuration={View.TransitionDuration.MD}
+        />,
+      )
+      expect(screen.getByTestId(testId)).toHaveStyleRule(
+        'transition',
+        'transform 175ms ease',
+      )
+    })
+
+    it('renders with large transform transition style', () => {
+      const testId = randomTestId()
+      render(
+        <View
+          testId={testId}
+          transformTransitionDuration={View.TransitionDuration.LG}
+        />,
+      )
+      expect(screen.getByTestId(testId)).toHaveStyleRule(
+        'transition',
+        'transform 225ms ease',
+      )
+    })
+
+    it('renders with combined opacity and transform transition style', () => {
+      const testId = randomTestId()
+      render(
+        <View
+          testId={testId}
+          opacityTransitionDuration={View.TransitionDuration.SM}
+          transformTransitionDuration={View.TransitionDuration.LG}
+        />,
+      )
+      expect(screen.getByTestId(testId)).toHaveStyleRule(
+        'transition',
+        'opacity 125ms ease,transform 225ms ease',
+      )
+    })
+  })
+
+  describe('fill absolute component', () => {
+    it('renders with absolute position', () => {
+      const testId = randomTestId()
+      render(<View.Fill.Absolute testId={testId} />)
+      expect(screen.getByTestId(testId)).toHaveStyleRule('position', 'absolute')
+    })
+
+    it('renders with zero top', () => {
+      const testId = randomTestId()
+      render(<View.Fill.Absolute testId={testId} />)
+      expect(screen.getByTestId(testId)).toHaveStyleRule('top', '0px')
+    })
+
+    it('renders with zero left', () => {
+      const testId = randomTestId()
+      render(<View.Fill.Absolute testId={testId} />)
+      expect(screen.getByTestId(testId)).toHaveStyleRule('left', '0px')
+    })
+
+    it('renders with zero right', () => {
+      const testId = randomTestId()
+      render(<View.Fill.Absolute testId={testId} />)
+      expect(screen.getByTestId(testId)).toHaveStyleRule('right', '0px')
+    })
+
+    it('renders with zero bottom', () => {
+      const testId = randomTestId()
+      render(<View.Fill.Absolute testId={testId} />)
+      expect(screen.getByTestId(testId)).toHaveStyleRule('bottom', '0px')
+    })
+  })
+
+  describe('fill flex component', () => {
+    it('renders with flex grow 1', () => {
+      const testId = randomTestId()
+      render(<View.Fill.Flex testId={testId} />)
+      expect(screen.getByTestId(testId)).toHaveStyleRule('flex-grow', '1')
     })
   })
 })

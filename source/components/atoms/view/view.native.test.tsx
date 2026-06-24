@@ -594,13 +594,13 @@ describe('@/components/atoms/view', () => {
     })
   })
 
-  describe('transitionDuration property', () => {
+  describe('opacityTransitionDuration property', () => {
     it('renders with default opacity 1', () => {
       const testId = randomTestId()
       render(
         <View
           testId={testId}
-          transitionDuration={View.TransitionDuration.MD}
+          opacityTransitionDuration={View.TransitionDuration.MD}
         />,
       )
       expect(screen.getByTestId(testId)).toHaveStyle({ opacity: 1 })
@@ -612,7 +612,7 @@ describe('@/components/atoms/view', () => {
       render(
         <View
           testId={testId}
-          transitionDuration={View.TransitionDuration.MD}
+          opacityTransitionDuration={View.TransitionDuration.MD}
           opacity={fraction}
         />,
       )
@@ -620,13 +620,15 @@ describe('@/components/atoms/view', () => {
         opacity: fraction.toValue(),
       })
     })
+  })
 
+  describe('transformTransitionDuration property', () => {
     it('renders with default transform', () => {
       const testId = randomTestId()
       render(
         <View
           testId={testId}
-          transitionDuration={View.TransitionDuration.MD}
+          transformTransitionDuration={View.TransitionDuration.MD}
         />,
       )
       expect(screen.getByTestId(testId)).toHaveStyle({
@@ -640,7 +642,7 @@ describe('@/components/atoms/view', () => {
       render(
         <View
           testId={testId}
-          transitionDuration={View.TransitionDuration.MD}
+          transformTransitionDuration={View.TransitionDuration.MD}
           scale={fraction}
         />,
       )
@@ -659,7 +661,7 @@ describe('@/components/atoms/view', () => {
       render(
         <View
           testId={testId}
-          transitionDuration={View.TransitionDuration.MD}
+          transformTransitionDuration={View.TransitionDuration.MD}
           translateX={dimension}
         />,
       )
@@ -678,7 +680,7 @@ describe('@/components/atoms/view', () => {
       render(
         <View
           testId={testId}
-          transitionDuration={View.TransitionDuration.MD}
+          transformTransitionDuration={View.TransitionDuration.MD}
           translateY={dimension}
         />,
       )
@@ -689,6 +691,46 @@ describe('@/components/atoms/view', () => {
           { translateY: dimension.toValue() as number },
         ],
       })
+    })
+  })
+
+  describe('fill absolute component', () => {
+    it('renders with absolute position', () => {
+      const testId = randomTestId()
+      render(<View.Fill.Absolute testId={testId} />)
+      expect(screen.getByTestId(testId)).toHaveStyle({ position: 'absolute' })
+    })
+
+    it('renders with zero top', () => {
+      const testId = randomTestId()
+      render(<View.Fill.Absolute testId={testId} />)
+      expect(screen.getByTestId(testId)).toHaveStyle({ top: 0 })
+    })
+
+    it('renders with zero left', () => {
+      const testId = randomTestId()
+      render(<View.Fill.Absolute testId={testId} />)
+      expect(screen.getByTestId(testId)).toHaveStyle({ left: 0 })
+    })
+
+    it('renders with zero right', () => {
+      const testId = randomTestId()
+      render(<View.Fill.Absolute testId={testId} />)
+      expect(screen.getByTestId(testId)).toHaveStyle({ right: 0 })
+    })
+
+    it('renders with zero bottom', () => {
+      const testId = randomTestId()
+      render(<View.Fill.Absolute testId={testId} />)
+      expect(screen.getByTestId(testId)).toHaveStyle({ bottom: 0 })
+    })
+  })
+
+  describe('fill flex component', () => {
+    it('renders with flex grow 1', () => {
+      const testId = randomTestId()
+      render(<View.Fill.Flex testId={testId} />)
+      expect(screen.getByTestId(testId)).toHaveStyle({ flexGrow: 1 })
     })
   })
 })
