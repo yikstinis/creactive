@@ -5,6 +5,5 @@ export type {
   GradientLinearComponent,
   GradientLinearProperties,
   GradientObject,
-  GradientStopComponent,
-  GradientStopProperties,
+  GradientStopConfig,
 } from './gradient.types'

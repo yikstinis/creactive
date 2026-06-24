@@ -1,14 +1,14 @@
+import type { ViewComponent, ViewProperties } from '@/components/atoms/view'
 import type { Fraction } from '@/helpers'
 import type { Color } from '@/types'
-import type { FunctionComponent, ReactElement } from 'react'
+import type { FunctionComponent } from 'react'
 import type { GradientLinearDirection } from './constants'
 
 /**
- * Gradient stop component properties.
- * Describes possible gradient stop component customization.
- * @see Gradient.Stop
+ * Gradient stop config.
+ * Describes a single gradient stop with offset and color.
  */
-export interface GradientStopProperties {
+export interface GradientStopConfig {
   /**
    * Should be used to control gradient stop offset.
    * @see Fraction
@@ -22,35 +22,23 @@ export interface GradientStopProperties {
    */
   color: Color
 }
-/**
- * Gradient stop component.
- * Should be used as a child of gradient component.
- * @see Gradient.Stop
- */
-export type GradientStopComponent = FunctionComponent<GradientStopProperties>
 
 /**
  * Linear gradient component properties.
  * Describes possible gradient component customization.
  * @see Gradient.Linear
  */
-export interface GradientLinearProperties {
-  /**
-   * Allows to select linear gradient component in tests.
-   * @default undefined
-   */
-  testId?: string
+export interface GradientLinearProperties extends ViewProperties {
   /**
    * One of supported gradient directions.
    * @see Gradient.Direction
    */
   direction: GradientLinearDirection
   /**
-   * Gradient children.
-   * @see Gradient.Stop
-   * @default undefined
+   * Gradient stop configs.
+   * @see GradientStopConfig
    */
-  children: ReactElement[]
+  config: GradientStopConfig[]
 }
 /**
  * Linear gradient component.
@@ -65,6 +53,15 @@ export type GradientLinearComponent =
       keyof typeof GradientLinearDirection,
       GradientLinearDirection
     >
+    Fill: {
+      Absolute: FunctionComponent<
+        Omit<
+          GradientLinearProperties,
+          'position' | 'top' | 'left' | 'right' | 'bottom'
+        >
+      >
+      Flex: FunctionComponent<Omit<GradientLinearProperties, 'flexGrow'>>
+    }
   }
 
 /**
@@ -72,12 +69,7 @@ export type GradientLinearComponent =
  * Describes possible gradient component customization.
  * @see Gradient.Circular
  */
-export interface GradientCircularProperties {
-  /**
-   * Allows to select circular gradient component in tests.
-   * @default undefined
-   */
-  testId?: string
+export interface GradientCircularProperties extends ViewProperties {
   /**
    * Horizontal center of the gradient circle as a fraction of the element width.
    * @see Fraction
@@ -91,11 +83,10 @@ export interface GradientCircularProperties {
    */
   cy?: Fraction
   /**
-   * Gradient children.
-   * @see Gradient.Stop
-   * @default undefined
+   * Gradient stop configs.
+   * @see GradientStopConfig
    */
-  children: ReactElement[]
+  config: GradientStopConfig[]
 }
 /**
  * Circular gradient component.
@@ -103,16 +94,42 @@ export interface GradientCircularProperties {
  * @see Gradient.Circular
  */
 export type GradientCircularComponent =
-  FunctionComponent<GradientCircularProperties>
+  FunctionComponent<GradientCircularProperties> & {
+    Fill: {
+      Absolute: FunctionComponent<
+        Omit<
+          GradientCircularProperties,
+          'position' | 'top' | 'left' | 'right' | 'bottom'
+        >
+      >
+      Flex: FunctionComponent<Omit<GradientCircularProperties, 'flexGrow'>>
+    }
+  }
 
 /**
  * Gradient object providing access to components and constants.
  * @see Gradient.Linear
  * @see Gradient.Circular
- * @see Gradient.Stop
  */
 export type GradientObject = {
   Linear: GradientLinearComponent
   Circular: GradientCircularComponent
-  Stop: GradientStopComponent
-}
+} & Pick<
+  ViewComponent,
+  | 'Tag'
+  | 'Position'
+  | 'Overflow'
+  | 'FlexWrap'
+  | 'FlexDirection'
+  | 'JustifyContent'
+  | 'AlignItems'
+  | 'AlignSelf'
+  | 'AlignContent'
+  | 'Spacing'
+  | 'BoxShadow'
+  | 'BorderColor'
+  | 'BorderWidth'
+  | 'BorderRadius'
+  | 'BackgroundColor'
+  | 'TransitionDuration'
+>

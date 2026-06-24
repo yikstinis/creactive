@@ -26,11 +26,12 @@ export {
   View,
 } from './components'
 export type {
+  GradientCircularComponent,
+  GradientCircularProperties,
   GradientLinearComponent,
   GradientLinearProperties,
   GradientObject,
-  GradientStopComponent,
-  GradientStopProperties,
+  GradientStopConfig,
   IconColor,
   IconComponent,
   IconContextValue,

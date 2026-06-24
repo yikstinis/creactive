@@ -1,81 +1,57 @@
+import { View } from '@/components/atoms/view'
 import { render, screen } from '@testing-library/react-native'
-import { GradientLinear } from './linear'
-import { GradientStop } from './stop'
+import { Gradient } from '..'
 
-describe('@/components/atoms/gradient', () => {
+describe('@/components/molecules/gradient', () => {
   describe('linear gradient component', () => {
-    it('renders wrapper view with absolute fill styles', () => {
+    it('renders wrapper view with two children', () => {
       const testId = randomTestId()
       render(
-        <GradientLinear
+        <Gradient.Linear
           testId={testId}
-          direction={GradientLinear.Direction.BOTTOM}
-        >
-          <GradientStop
-            offset={randomFraction()}
-            color={randomRgb()}
-          />
-
-          <GradientStop
-            offset={randomFraction()}
-            color={randomRgb()}
-          />
-        </GradientLinear>,
+          direction={Gradient.Linear.Direction.BOTTOM}
+          config={[
+            { offset: randomFraction(), color: randomRgb() },
+            { offset: randomFraction(), color: randomRgb() },
+          ]}
+        />,
       )
       expect(screen.getByTestId(testId)).toBeTruthy()
-      expect(screen.getByTestId(testId)).toHaveStyle({
-        position: 'absolute',
-        top: 0,
-        right: 0,
-        bottom: 0,
-        left: 0,
-      })
+      expect(screen.getByTestId(testId).children).toHaveLength(2)
     })
 
-    it('renders wrapper view with only svg element inside', () => {
+    it('renders svg inside absolute fill container', () => {
       const testId = randomTestId()
       render(
-        <GradientLinear
+        <Gradient.Linear
           testId={testId}
-          direction={GradientLinear.Direction.BOTTOM}
-        >
-          <GradientStop
-            offset={randomFraction()}
-            color={randomRgb()}
-          />
-
-          <GradientStop
-            offset={randomFraction()}
-            color={randomRgb()}
-          />
-        </GradientLinear>,
+          direction={Gradient.Linear.Direction.BOTTOM}
+          config={[
+            { offset: randomFraction(), color: randomRgb() },
+            { offset: randomFraction(), color: randomRgb() },
+          ]}
+        />,
       )
       expect(screen.getByTestId(testId)).toBeTruthy()
-      expect(screen.getByTestId(testId).children).toHaveLength(1)
-      const svgChild = screen.getByTestId(testId).children[0]
+      const absoluteContainer = screen.getByTestId(testId).children[0]
+      const svgChild = absoluteContainer.children[0]
       expect(svgChild.tagName).toEqual('svg')
     })
 
     it('renders linear gradient with top coordinates', () => {
       const testId = randomTestId()
       render(
-        <GradientLinear
+        <Gradient.Linear
           testId={testId}
-          direction={GradientLinear.Direction.TOP}
-        >
-          <GradientStop
-            offset={randomFraction()}
-            color={randomRgb()}
-          />
-
-          <GradientStop
-            offset={randomFraction()}
-            color={randomRgb()}
-          />
-        </GradientLinear>,
+          direction={Gradient.Linear.Direction.TOP}
+          config={[
+            { offset: randomFraction(), color: randomRgb() },
+            { offset: randomFraction(), color: randomRgb() },
+          ]}
+        />,
       )
       expect(screen.getByTestId(testId)).toBeTruthy()
-      const svgChild = screen.getByTestId(testId).children[0]
+      const svgChild = screen.getByTestId(testId).children[0].children[0]
       const defsChild = svgChild.children[0]
       expect(defsChild.tagName).toEqual('defs')
       const linearGradientChild = defsChild.children[0]
@@ -89,23 +65,17 @@ describe('@/components/atoms/gradient', () => {
     it('renders linear gradient with left coordinates', () => {
       const testId = randomTestId()
       render(
-        <GradientLinear
+        <Gradient.Linear
           testId={testId}
-          direction={GradientLinear.Direction.LEFT}
-        >
-          <GradientStop
-            offset={randomFraction()}
-            color={randomRgb()}
-          />
-
-          <GradientStop
-            offset={randomFraction()}
-            color={randomRgb()}
-          />
-        </GradientLinear>,
+          direction={Gradient.Linear.Direction.LEFT}
+          config={[
+            { offset: randomFraction(), color: randomRgb() },
+            { offset: randomFraction(), color: randomRgb() },
+          ]}
+        />,
       )
       expect(screen.getByTestId(testId)).toBeTruthy()
-      const svgChild = screen.getByTestId(testId).children[0]
+      const svgChild = screen.getByTestId(testId).children[0].children[0]
       const defsChild = svgChild.children[0]
       expect(defsChild.tagName).toEqual('defs')
       const linearGradientChild = defsChild.children[0]
@@ -119,23 +89,17 @@ describe('@/components/atoms/gradient', () => {
     it('renders linear gradient with right coordinates', () => {
       const testId = randomTestId()
       render(
-        <GradientLinear
+        <Gradient.Linear
           testId={testId}
-          direction={GradientLinear.Direction.RIGHT}
-        >
-          <GradientStop
-            offset={randomFraction()}
-            color={randomRgb()}
-          />
-
-          <GradientStop
-            offset={randomFraction()}
-            color={randomRgb()}
-          />
-        </GradientLinear>,
+          direction={Gradient.Linear.Direction.RIGHT}
+          config={[
+            { offset: randomFraction(), color: randomRgb() },
+            { offset: randomFraction(), color: randomRgb() },
+          ]}
+        />,
       )
       expect(screen.getByTestId(testId)).toBeTruthy()
-      const svgChild = screen.getByTestId(testId).children[0]
+      const svgChild = screen.getByTestId(testId).children[0].children[0]
       const defsChild = svgChild.children[0]
       expect(defsChild.tagName).toEqual('defs')
       const linearGradientChild = defsChild.children[0]
@@ -149,23 +113,17 @@ describe('@/components/atoms/gradient', () => {
     it('renders linear gradient with bottom coordinates', () => {
       const testId = randomTestId()
       render(
-        <GradientLinear
+        <Gradient.Linear
           testId={testId}
-          direction={GradientLinear.Direction.BOTTOM}
-        >
-          <GradientStop
-            offset={randomFraction()}
-            color={randomRgb()}
-          />
-
-          <GradientStop
-            offset={randomFraction()}
-            color={randomRgb()}
-          />
-        </GradientLinear>,
+          direction={Gradient.Linear.Direction.BOTTOM}
+          config={[
+            { offset: randomFraction(), color: randomRgb() },
+            { offset: randomFraction(), color: randomRgb() },
+          ]}
+        />,
       )
       expect(screen.getByTestId(testId)).toBeTruthy()
-      const svgChild = screen.getByTestId(testId).children[0]
+      const svgChild = screen.getByTestId(testId).children[0].children[0]
       const defsChild = svgChild.children[0]
       expect(defsChild.tagName).toEqual('defs')
       const linearGradientChild = defsChild.children[0]
@@ -179,23 +137,17 @@ describe('@/components/atoms/gradient', () => {
     it('renders full size rectangle filled with gradient', () => {
       const testId = randomTestId()
       render(
-        <GradientLinear
+        <Gradient.Linear
           testId={testId}
-          direction={GradientLinear.Direction.BOTTOM}
-        >
-          <GradientStop
-            offset={randomFraction()}
-            color={randomRgb()}
-          />
-
-          <GradientStop
-            offset={randomFraction()}
-            color={randomRgb()}
-          />
-        </GradientLinear>,
+          direction={Gradient.Linear.Direction.BOTTOM}
+          config={[
+            { offset: randomFraction(), color: randomRgb() },
+            { offset: randomFraction(), color: randomRgb() },
+          ]}
+        />,
       )
       expect(screen.getByTestId(testId)).toBeTruthy()
-      const svgChild = screen.getByTestId(testId).children[0]
+      const svgChild = screen.getByTestId(testId).children[0].children[0]
       expect(svgChild.children).toHaveLength(2)
       const defsChild = svgChild.children[0]
       expect(defsChild.tagName).toEqual('defs')
@@ -212,46 +164,59 @@ describe('@/components/atoms/gradient', () => {
       expect(rectChild.getAttribute('fill')).toEqual(`url(#${gradientId})`)
     })
 
+    it('renders children inside flex wrapper, not absolute fill', () => {
+      const testId = randomTestId()
+      const childTestId = randomTestId()
+      render(
+        <Gradient.Linear
+          testId={testId}
+          direction={Gradient.Linear.Direction.BOTTOM}
+          config={[
+            { offset: randomFraction(), color: randomRgb() },
+            { offset: randomFraction(), color: randomRgb() },
+          ]}
+        >
+          <View testId={childTestId} />
+        </Gradient.Linear>,
+      )
+      const outerView = screen.getByTestId(testId)
+      const childView = screen.getByTestId(childTestId)
+      expect(outerView.children[1].contains(childView)).toBe(true)
+      expect(outerView.children[0].contains(childView)).toBe(false)
+    })
+
     it('renders different gradient ids for different instances', () => {
       const testIdFirst = randomTestId()
       const testIdSecond = randomTestId()
       render(
         <>
-          <GradientLinear
+          <Gradient.Linear
             testId={testIdFirst}
-            direction={GradientLinear.Direction.BOTTOM}
-          >
-            <GradientStop
-              offset={randomFraction()}
-              color={randomRgb()}
-            />
+            direction={Gradient.Linear.Direction.BOTTOM}
+            config={[
+              { offset: randomFraction(), color: randomRgb() },
+              { offset: randomFraction(), color: randomRgb() },
+            ]}
+          />
 
-            <GradientStop
-              offset={randomFraction()}
-              color={randomRgb()}
-            />
-          </GradientLinear>
-
-          <GradientLinear
+          <Gradient.Linear
             testId={testIdSecond}
-            direction={GradientLinear.Direction.BOTTOM}
-          >
-            <GradientStop
-              offset={randomFraction()}
-              color={randomRgb()}
-            />
-
-            <GradientStop
-              offset={randomFraction()}
-              color={randomRgb()}
-            />
-          </GradientLinear>
+            direction={Gradient.Linear.Direction.BOTTOM}
+            config={[
+              { offset: randomFraction(), color: randomRgb() },
+              { offset: randomFraction(), color: randomRgb() },
+            ]}
+          />
         </>,
       )
-      const firstSvgChild = screen.getByTestId(testIdFirst).children[0]
-      const firstLinearGradientChild = firstSvgChild.children[0].children[0]
-      const secondSvgChild = screen.getByTestId(testIdSecond).children[0]
-      const secondLinearGradientChild = secondSvgChild.children[0].children[0]
+      const firstLinearGradientChild =
+        screen
+          .getByTestId(testIdFirst)
+          .children[0].children[0].children[0].children[0]
+      const secondLinearGradientChild =
+        screen
+          .getByTestId(testIdSecond)
+          .children[0].children[0].children[0].children[0]
       expect(firstLinearGradientChild.getAttribute('id')).not.toEqual(
         secondLinearGradientChild.getAttribute('id'),
       )

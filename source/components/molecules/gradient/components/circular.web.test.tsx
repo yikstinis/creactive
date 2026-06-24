@@ -1,72 +1,54 @@
+import { View } from '@/components/atoms/view'
 import { render, screen } from '@testing-library/react-native'
-import { GradientCircular } from './circular'
-import { GradientStop } from './stop'
+import { Gradient } from '..'
 
-describe('@/components/atoms/gradient', () => {
+describe('@/components/molecules/gradient', () => {
   describe('circular gradient component', () => {
-    it('renders wrapper view with absolute fill styles', () => {
+    it('renders wrapper view with two children', () => {
       const testId = randomTestId()
       render(
-        <GradientCircular testId={testId}>
-          <GradientStop
-            offset={randomFraction()}
-            color={randomRgb()}
-          />
-
-          <GradientStop
-            offset={randomFraction()}
-            color={randomRgb()}
-          />
-        </GradientCircular>,
+        <Gradient.Circular
+          testId={testId}
+          config={[
+            { offset: randomFraction(), color: randomRgb() },
+            { offset: randomFraction(), color: randomRgb() },
+          ]}
+        />,
       )
       expect(screen.getByTestId(testId)).toBeTruthy()
-      expect(screen.getByTestId(testId)).toHaveStyle({
-        position: 'absolute',
-        top: 0,
-        right: 0,
-        bottom: 0,
-        left: 0,
-      })
+      expect(screen.getByTestId(testId).children).toHaveLength(2)
     })
 
-    it('renders wrapper view with only svg element inside', () => {
+    it('renders svg inside absolute fill container', () => {
       const testId = randomTestId()
       render(
-        <GradientCircular testId={testId}>
-          <GradientStop
-            offset={randomFraction()}
-            color={randomRgb()}
-          />
-
-          <GradientStop
-            offset={randomFraction()}
-            color={randomRgb()}
-          />
-        </GradientCircular>,
+        <Gradient.Circular
+          testId={testId}
+          config={[
+            { offset: randomFraction(), color: randomRgb() },
+            { offset: randomFraction(), color: randomRgb() },
+          ]}
+        />,
       )
       expect(screen.getByTestId(testId)).toBeTruthy()
-      expect(screen.getByTestId(testId).children).toHaveLength(1)
-      const svgChild = screen.getByTestId(testId).children[0]
+      const absoluteContainer = screen.getByTestId(testId).children[0]
+      const svgChild = absoluteContainer.children[0]
       expect(svgChild.tagName).toEqual('svg')
     })
 
     it('renders radial gradient with center coordinates by default', () => {
       const testId = randomTestId()
       render(
-        <GradientCircular testId={testId}>
-          <GradientStop
-            offset={randomFraction()}
-            color={randomRgb()}
-          />
-
-          <GradientStop
-            offset={randomFraction()}
-            color={randomRgb()}
-          />
-        </GradientCircular>,
+        <Gradient.Circular
+          testId={testId}
+          config={[
+            { offset: randomFraction(), color: randomRgb() },
+            { offset: randomFraction(), color: randomRgb() },
+          ]}
+        />,
       )
       expect(screen.getByTestId(testId)).toBeTruthy()
-      const svgChild = screen.getByTestId(testId).children[0]
+      const svgChild = screen.getByTestId(testId).children[0].children[0]
       const defsChild = svgChild.children[0]
       expect(defsChild.tagName).toEqual('defs')
       const radialGradientChild = defsChild.children[0]
@@ -82,23 +64,17 @@ describe('@/components/atoms/gradient', () => {
       const testId = randomTestId()
       const cx = randomFraction()
       render(
-        <GradientCircular
+        <Gradient.Circular
           testId={testId}
           cx={cx}
-        >
-          <GradientStop
-            offset={randomFraction()}
-            color={randomRgb()}
-          />
-
-          <GradientStop
-            offset={randomFraction()}
-            color={randomRgb()}
-          />
-        </GradientCircular>,
+          config={[
+            { offset: randomFraction(), color: randomRgb() },
+            { offset: randomFraction(), color: randomRgb() },
+          ]}
+        />,
       )
       expect(screen.getByTestId(testId)).toBeTruthy()
-      const svgChild = screen.getByTestId(testId).children[0]
+      const svgChild = screen.getByTestId(testId).children[0].children[0]
       const defsChild = svgChild.children[0]
       const radialGradientChild = defsChild.children[0]
       expect(radialGradientChild.tagName).toEqual('radialGradient')
@@ -114,23 +90,17 @@ describe('@/components/atoms/gradient', () => {
       const testId = randomTestId()
       const cy = randomFraction()
       render(
-        <GradientCircular
+        <Gradient.Circular
           testId={testId}
           cy={cy}
-        >
-          <GradientStop
-            offset={randomFraction()}
-            color={randomRgb()}
-          />
-
-          <GradientStop
-            offset={randomFraction()}
-            color={randomRgb()}
-          />
-        </GradientCircular>,
+          config={[
+            { offset: randomFraction(), color: randomRgb() },
+            { offset: randomFraction(), color: randomRgb() },
+          ]}
+        />,
       )
       expect(screen.getByTestId(testId)).toBeTruthy()
-      const svgChild = screen.getByTestId(testId).children[0]
+      const svgChild = screen.getByTestId(testId).children[0].children[0]
       const defsChild = svgChild.children[0]
       const radialGradientChild = defsChild.children[0]
       expect(radialGradientChild.tagName).toEqual('radialGradient')
@@ -145,20 +115,16 @@ describe('@/components/atoms/gradient', () => {
     it('renders full size rectangle filled with gradient', () => {
       const testId = randomTestId()
       render(
-        <GradientCircular testId={testId}>
-          <GradientStop
-            offset={randomFraction()}
-            color={randomRgb()}
-          />
-
-          <GradientStop
-            offset={randomFraction()}
-            color={randomRgb()}
-          />
-        </GradientCircular>,
+        <Gradient.Circular
+          testId={testId}
+          config={[
+            { offset: randomFraction(), color: randomRgb() },
+            { offset: randomFraction(), color: randomRgb() },
+          ]}
+        />,
       )
       expect(screen.getByTestId(testId)).toBeTruthy()
-      const svgChild = screen.getByTestId(testId).children[0]
+      const svgChild = screen.getByTestId(testId).children[0].children[0]
       expect(svgChild.children).toHaveLength(2)
       const defsChild = svgChild.children[0]
       expect(defsChild.tagName).toEqual('defs')
@@ -175,40 +141,56 @@ describe('@/components/atoms/gradient', () => {
       expect(rectChild.getAttribute('fill')).toEqual(`url(#${gradientId})`)
     })
 
+    it('renders children inside flex wrapper, not absolute fill', () => {
+      const testId = randomTestId()
+      const childTestId = randomTestId()
+      render(
+        <Gradient.Circular
+          testId={testId}
+          config={[
+            { offset: randomFraction(), color: randomRgb() },
+            { offset: randomFraction(), color: randomRgb() },
+          ]}
+        >
+          <View testId={childTestId} />
+        </Gradient.Circular>,
+      )
+      const outerView = screen.getByTestId(testId)
+      const childView = screen.getByTestId(childTestId)
+      expect(outerView.children[1].contains(childView)).toBe(true)
+      expect(outerView.children[0].contains(childView)).toBe(false)
+    })
+
     it('renders different gradient ids for different instances', () => {
       const testIdFirst = randomTestId()
       const testIdSecond = randomTestId()
       render(
         <>
-          <GradientCircular testId={testIdFirst}>
-            <GradientStop
-              offset={randomFraction()}
-              color={randomRgb()}
-            />
+          <Gradient.Circular
+            testId={testIdFirst}
+            config={[
+              { offset: randomFraction(), color: randomRgb() },
+              { offset: randomFraction(), color: randomRgb() },
+            ]}
+          />
 
-            <GradientStop
-              offset={randomFraction()}
-              color={randomRgb()}
-            />
-          </GradientCircular>
-
-          <GradientCircular testId={testIdSecond}>
-            <GradientStop
-              offset={randomFraction()}
-              color={randomRgb()}
-            />
-
-            <GradientStop
-              offset={randomFraction()}
-              color={randomRgb()}
-            />
-          </GradientCircular>
+          <Gradient.Circular
+            testId={testIdSecond}
+            config={[
+              { offset: randomFraction(), color: randomRgb() },
+              { offset: randomFraction(), color: randomRgb() },
+            ]}
+          />
         </>,
       )
-      const firstSvgChild = screen.getByTestId(testIdFirst).children[0]
-      const firstRadialGradientChild = firstSvgChild.children[0].children[0]
-      const secondSvgChild = screen.getByTestId(testIdSecond).children[0]
-      const secondRadialGradientChild = secondSvgChild.children[0].children[0]
+      const firstRadialGradientChild =
+        screen
+          .getByTestId(testIdFirst)
+          .children[0].children[0].children[0].children[0]
+      const secondRadialGradientChild =
+        screen
+          .getByTestId(testIdSecond)
+          .children[0].children[0].children[0].children[0]
       expect(firstRadialGradientChild.getAttribute('id')).not.toEqual(
         secondRadialGradientChild.getAttribute('id'),
       )

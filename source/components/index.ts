@@ -1,5 +1,4 @@
 export {
-  Gradient,
   Icon,
   Pressable,
   Text,
@@ -8,11 +7,6 @@ export {
   usePressableContext,
 } from './atoms'
 export type {
-  GradientLinearComponent,
-  GradientLinearProperties,
-  GradientObject,
-  GradientStopComponent,
-  GradientStopProperties,
   IconColor,
   IconComponent,
   IconContextValue,
@@ -29,5 +23,14 @@ export type {
   ViewLayoutEvent,
   ViewProperties,
 } from './atoms'
-export { Spinner } from './molecules'
-export type { SpinnerComponent, SpinnerProperties } from './molecules'
+export { Gradient, Spinner } from './molecules'
+export type {
+  GradientCircularComponent,
+  GradientCircularProperties,
+  GradientLinearComponent,
+  GradientLinearProperties,
+  GradientObject,
+  GradientStopConfig,
+  SpinnerComponent,
+  SpinnerProperties,
+} from './molecules'

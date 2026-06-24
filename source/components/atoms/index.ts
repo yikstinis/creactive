@@ -5,14 +5,6 @@ export type {
   IconColor,
   IconProperties,
 } from './icon'
-export { Gradient } from './gradient'
-export type {
-  GradientLinearComponent,
-  GradientLinearProperties,
-  GradientObject,
-  GradientStopComponent,
-  GradientStopProperties,
-} from './gradient'
 export { Pressable, usePressableContext } from './pressable'
 export type {
   PressableComponent,
