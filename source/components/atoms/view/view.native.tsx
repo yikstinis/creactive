@@ -1,5 +1,5 @@
 import { BorderRadius } from '@/constants'
-import { DIMENSION_NONE } from '@/helpers'
+import { DIMENSION_NONE, FRACTION_MAX } from '@/helpers'
 import {
   useBorderBottomLeftRadiusStyle,
   useBorderBottomRightRadiusStyle,
@@ -254,7 +254,7 @@ View.BorderRadius = BorderRadius
 View.BackgroundColor = ViewBackgroundColor
 View.TransitionDuration = ViewTransitionDuration
 
-const ViewFill = ({
+const ViewFillAbsolute = ({
   children,
   ...rest
 }: Omit<ViewProperties, 'position' | 'top' | 'left' | 'right' | 'bottom'>) => (
@@ -269,6 +269,20 @@ const ViewFill = ({
     {children}
   </View>
 )
-View.Fill = ViewFill
+const ViewFillFlex = ({
+  children,
+  ...rest
+}: Omit<ViewProperties, 'flexGrow'>) => (
+  <View
+    {...rest}
+    flexGrow={FRACTION_MAX}
+  >
+    {children}
+  </View>
+)
+View.Fill = {
+  Absolute: ViewFillAbsolute,
+  Flex: ViewFillFlex,
+}
 
 export default View

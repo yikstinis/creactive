@@ -380,9 +380,12 @@ export type ViewComponent = FunctionComponent<ViewProperties> & {
     keyof typeof ViewTransitionDuration,
     ViewTransitionDuration
   >
-  Fill: FunctionComponent<
-    Omit<ViewProperties, 'position' | 'top' | 'left' | 'right' | 'bottom'>
-  >
+  Fill: {
+    Absolute: FunctionComponent<
+      Omit<ViewProperties, 'position' | 'top' | 'left' | 'right' | 'bottom'>
+    >
+    Flex: FunctionComponent<Omit<ViewProperties, 'flexGrow'>>
+  }
 }
 /**
  * Styled view properties type.
