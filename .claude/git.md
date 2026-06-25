@@ -1,5 +1,6 @@
 # Git
 
+- Before pushing always run `npm run lint` and `npm test` to verify the changes.
 - Commit messages must be a single sentence in past tense, starting with a verb:
   Added, Updated, Fixed, Removed, Moved, etc.
 - Examples: "Moved Gradient component to molecules." / "Added transitionDuration

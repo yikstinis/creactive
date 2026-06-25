@@ -1,3 +1,8 @@
+/**
+ * Supported spinner color constants.
+ * Part of theme foreground colors, suitable for spinner stroke coloring.
+ * @see {@link SpinnerComponent.Color}
+ */
 export enum SpinnerColor {
   BASE_100,
   BASE_200,
