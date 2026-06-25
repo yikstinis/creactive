@@ -10,7 +10,7 @@ describe('@/components/molecules/gradient', () => {
         <Gradient.Linear
           testId={testId}
           direction={Gradient.Linear.Direction.BOTTOM}
-          config={[
+          stops={[
             { offset: randomFraction(), color: randomRgb() },
             { offset: randomFraction(), color: randomRgb() },
           ]}
@@ -26,7 +26,7 @@ describe('@/components/molecules/gradient', () => {
         <Gradient.Linear
           testId={testId}
           direction={Gradient.Linear.Direction.BOTTOM}
-          config={[
+          stops={[
             { offset: randomFraction(), color: randomRgb() },
             { offset: randomFraction(), color: randomRgb() },
           ]}
@@ -44,7 +44,7 @@ describe('@/components/molecules/gradient', () => {
         <Gradient.Linear
           testId={testId}
           direction={Gradient.Linear.Direction.TOP}
-          config={[
+          stops={[
             { offset: randomFraction(), color: randomRgb() },
             { offset: randomFraction(), color: randomRgb() },
           ]}
@@ -68,7 +68,7 @@ describe('@/components/molecules/gradient', () => {
         <Gradient.Linear
           testId={testId}
           direction={Gradient.Linear.Direction.LEFT}
-          config={[
+          stops={[
             { offset: randomFraction(), color: randomRgb() },
             { offset: randomFraction(), color: randomRgb() },
           ]}
@@ -92,7 +92,7 @@ describe('@/components/molecules/gradient', () => {
         <Gradient.Linear
           testId={testId}
           direction={Gradient.Linear.Direction.RIGHT}
-          config={[
+          stops={[
             { offset: randomFraction(), color: randomRgb() },
             { offset: randomFraction(), color: randomRgb() },
           ]}
@@ -116,7 +116,7 @@ describe('@/components/molecules/gradient', () => {
         <Gradient.Linear
           testId={testId}
           direction={Gradient.Linear.Direction.BOTTOM}
-          config={[
+          stops={[
             { offset: randomFraction(), color: randomRgb() },
             { offset: randomFraction(), color: randomRgb() },
           ]}
@@ -140,7 +140,7 @@ describe('@/components/molecules/gradient', () => {
         <Gradient.Linear
           testId={testId}
           direction={Gradient.Linear.Direction.BOTTOM}
-          config={[
+          stops={[
             { offset: randomFraction(), color: randomRgb() },
             { offset: randomFraction(), color: randomRgb() },
           ]}
@@ -171,7 +171,7 @@ describe('@/components/molecules/gradient', () => {
         <Gradient.Linear
           testId={testId}
           direction={Gradient.Linear.Direction.BOTTOM}
-          config={[
+          stops={[
             { offset: randomFraction(), color: randomRgb() },
             { offset: randomFraction(), color: randomRgb() },
           ]}
@@ -193,7 +193,7 @@ describe('@/components/molecules/gradient', () => {
           <Gradient.Linear
             testId={testIdFirst}
             direction={Gradient.Linear.Direction.BOTTOM}
-            config={[
+            stops={[
               { offset: randomFraction(), color: randomRgb() },
               { offset: randomFraction(), color: randomRgb() },
             ]}
@@ -202,7 +202,7 @@ describe('@/components/molecules/gradient', () => {
           <Gradient.Linear
             testId={testIdSecond}
             direction={Gradient.Linear.Direction.BOTTOM}
-            config={[
+            stops={[
               { offset: randomFraction(), color: randomRgb() },
               { offset: randomFraction(), color: randomRgb() },
             ]}

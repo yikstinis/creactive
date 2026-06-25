@@ -5,10 +5,10 @@ import type { FunctionComponent } from 'react'
 import type { GradientLinearDirection } from './constants'
 
 /**
- * Gradient stop config.
+ * Gradient stop.
  * Describes a single gradient stop with offset and color.
  */
-export interface GradientStopConfig {
+export interface GradientStop {
   /**
    * Should be used to control gradient stop offset.
    * @see Fraction
@@ -35,10 +35,10 @@ export interface GradientLinearProperties extends ViewProperties {
    */
   direction: GradientLinearDirection
   /**
-   * Gradient stop configs.
-   * @see GradientStopConfig
+   * Gradient stops.
+   * @see GradientStop
    */
-  config: GradientStopConfig[]
+  stops: GradientStop[]
 }
 /**
  * Linear gradient component.
@@ -83,10 +83,10 @@ export interface GradientCircularProperties extends ViewProperties {
    */
   cy?: Fraction
   /**
-   * Gradient stop configs.
-   * @see GradientStopConfig
+   * Gradient stops.
+   * @see GradientStop
    */
-  config: GradientStopConfig[]
+  stops: GradientStop[]
 }
 /**
  * Circular gradient component.

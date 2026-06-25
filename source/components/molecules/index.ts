@@ -5,7 +5,7 @@ export type {
   GradientLinearComponent,
   GradientLinearProperties,
   GradientObject,
-  GradientStopConfig,
+  GradientStop,
 } from './gradient'
 export { Spinner } from './spinner'
 export type { SpinnerComponent, SpinnerProperties } from './spinner'

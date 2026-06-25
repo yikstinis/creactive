@@ -7,7 +7,7 @@ import type { GradientCircularComponent, GradientCircularProperties } from '../g
 export const GradientCircular: GradientCircularComponent = ({
   cx,
   cy,
-  config,
+  stops,
   children,
   flexWrap,
   flexDirection,
@@ -41,7 +41,7 @@ export const GradientCircular: GradientCircularComponent = ({
               fx={cxValue}
               fy={cyValue}
             >
-              {config.map((stop, index) => (
+              {stops.map((stop, index) => (
                 <Stop
                   key={[index, stop.offset.toValue(), stop.color].join()}
                   offset={stop.offset.toValue()}

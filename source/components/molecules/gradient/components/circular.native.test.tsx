@@ -12,7 +12,7 @@ afterEach(() => {
   jest.useRealTimers()
 })
 
-const defaultConfig = () => [
+const defaultStops = () => [
   { offset: randomFraction(), color: randomRgb() },
   { offset: randomFraction(), color: randomRgb() },
 ]
@@ -27,7 +27,7 @@ describe('@/components/molecules/gradient', () => {
       render(
         <Gradient.Circular
           testId={testId}
-          config={defaultConfig()}
+          stops={defaultStops()}
         />,
       )
       expect(screen.getByTestId(testId)).toBeTruthy()
@@ -39,7 +39,7 @@ describe('@/components/molecules/gradient', () => {
       const { UNSAFE_getByType } = render(
         <Gradient.Circular
           testId={testId}
-          config={defaultConfig()}
+          stops={defaultStops()}
         />,
       )
       expect(UNSAFE_getByType(Svg)).toBeTruthy()
@@ -47,7 +47,7 @@ describe('@/components/molecules/gradient', () => {
 
     it('renders radial gradient with center coordinates by default', () => {
       const { UNSAFE_getByType } = render(
-        <Gradient.Circular config={defaultConfig()} />,
+        <Gradient.Circular stops={defaultStops()} />,
       )
       const radialGradient = UNSAFE_getByType(RadialGradient)
       expect(radialGradient.props.cx).toEqual(0.5)
@@ -62,7 +62,7 @@ describe('@/components/molecules/gradient', () => {
       const { UNSAFE_getByType } = render(
         <Gradient.Circular
           cx={cx}
-          config={defaultConfig()}
+          stops={defaultStops()}
         />,
       )
       const radialGradient = UNSAFE_getByType(RadialGradient)
@@ -75,7 +75,7 @@ describe('@/components/molecules/gradient', () => {
       const { UNSAFE_getByType } = render(
         <Gradient.Circular
           cy={cy}
-          config={defaultConfig()}
+          stops={defaultStops()}
         />,
       )
       const radialGradient = UNSAFE_getByType(RadialGradient)
@@ -85,7 +85,7 @@ describe('@/components/molecules/gradient', () => {
 
     it('renders full size rectangle filled with gradient', () => {
       const { UNSAFE_getByType } = render(
-        <Gradient.Circular config={defaultConfig()} />,
+        <Gradient.Circular stops={defaultStops()} />,
       )
       const radialGradient = UNSAFE_getByType(RadialGradient)
       const gradientId = radialGradient.props.id
@@ -101,8 +101,8 @@ describe('@/components/molecules/gradient', () => {
     it('renders different gradient ids for different instances', () => {
       const { UNSAFE_getAllByType } = render(
         <>
-          <Gradient.Circular config={defaultConfig()} />
-          <Gradient.Circular config={defaultConfig()} />
+          <Gradient.Circular stops={defaultStops()} />
+          <Gradient.Circular stops={defaultStops()} />
         </>,
       )
       const [firstGradient, secondGradient] = UNSAFE_getAllByType(RadialGradient)
@@ -115,7 +115,7 @@ describe('@/components/molecules/gradient', () => {
         render(
           <Gradient.Circular
             testId={testId}
-            config={defaultConfig()}
+            stops={defaultStops()}
           />,
         )
         expect(screen.getByTestId(testId)).not.toHaveStyle({
@@ -129,7 +129,7 @@ describe('@/components/molecules/gradient', () => {
         render(
           <Gradient.Circular
             testId={testId}
-            config={defaultConfig()}
+            stops={defaultStops()}
             top={dimension}
           />,
         )
@@ -145,7 +145,7 @@ describe('@/components/molecules/gradient', () => {
         render(
           <Gradient.Circular
             testId={testId}
-            config={defaultConfig()}
+            stops={defaultStops()}
           />,
         )
         expect(screen.getByTestId(testId)).not.toHaveStyle({
@@ -159,7 +159,7 @@ describe('@/components/molecules/gradient', () => {
         render(
           <Gradient.Circular
             testId={testId}
-            config={defaultConfig()}
+            stops={defaultStops()}
             left={dimension}
           />,
         )
@@ -175,7 +175,7 @@ describe('@/components/molecules/gradient', () => {
         render(
           <Gradient.Circular
             testId={testId}
-            config={defaultConfig()}
+            stops={defaultStops()}
           />,
         )
         expect(screen.getByTestId(testId)).not.toHaveStyle({
@@ -189,7 +189,7 @@ describe('@/components/molecules/gradient', () => {
         render(
           <Gradient.Circular
             testId={testId}
-            config={defaultConfig()}
+            stops={defaultStops()}
             right={dimension}
           />,
         )
@@ -205,7 +205,7 @@ describe('@/components/molecules/gradient', () => {
         render(
           <Gradient.Circular
             testId={testId}
-            config={defaultConfig()}
+            stops={defaultStops()}
           />,
         )
         expect(screen.getByTestId(testId)).not.toHaveStyle({
@@ -219,7 +219,7 @@ describe('@/components/molecules/gradient', () => {
         render(
           <Gradient.Circular
             testId={testId}
-            config={defaultConfig()}
+            stops={defaultStops()}
             bottom={dimension}
           />,
         )
@@ -235,7 +235,7 @@ describe('@/components/molecules/gradient', () => {
         render(
           <Gradient.Circular
             testId={testId}
-            config={defaultConfig()}
+            stops={defaultStops()}
           />,
         )
         expect(screen.getByTestId(testId)).not.toHaveStyle({
@@ -249,7 +249,7 @@ describe('@/components/molecules/gradient', () => {
         render(
           <Gradient.Circular
             testId={testId}
-            config={defaultConfig()}
+            stops={defaultStops()}
             opacity={opacity}
           />,
         )
@@ -265,7 +265,7 @@ describe('@/components/molecules/gradient', () => {
         render(
           <Gradient.Circular
             testId={testId}
-            config={defaultConfig()}
+            stops={defaultStops()}
           />,
         )
         expect(screen.getByTestId(testId)).toHaveStyle({
@@ -279,7 +279,7 @@ describe('@/components/molecules/gradient', () => {
         render(
           <Gradient.Circular
             testId={testId}
-            config={defaultConfig()}
+            stops={defaultStops()}
             scale={fraction}
           />,
         )
@@ -300,7 +300,7 @@ describe('@/components/molecules/gradient', () => {
         render(
           <Gradient.Circular
             testId={testId}
-            config={defaultConfig()}
+            stops={defaultStops()}
             translateX={dimension}
           />,
         )
@@ -321,7 +321,7 @@ describe('@/components/molecules/gradient', () => {
         render(
           <Gradient.Circular
             testId={testId}
-            config={defaultConfig()}
+            stops={defaultStops()}
             translateY={dimension}
           />,
         )
@@ -341,7 +341,7 @@ describe('@/components/molecules/gradient', () => {
         render(
           <Gradient.Circular
             testId={testId}
-            config={defaultConfig()}
+            stops={defaultStops()}
           />,
         )
         expect(screen.getByTestId(testId)).not.toHaveStyle({
@@ -355,7 +355,7 @@ describe('@/components/molecules/gradient', () => {
         render(
           <Gradient.Circular
             testId={testId}
-            config={defaultConfig()}
+            stops={defaultStops()}
             flexGrow={flexGrow}
           />,
         )
@@ -371,7 +371,7 @@ describe('@/components/molecules/gradient', () => {
         render(
           <Gradient.Circular
             testId={testId}
-            config={defaultConfig()}
+            stops={defaultStops()}
           />,
         )
         expect(screen.getByTestId(testId)).not.toHaveStyle({
@@ -385,7 +385,7 @@ describe('@/components/molecules/gradient', () => {
         render(
           <Gradient.Circular
             testId={testId}
-            config={defaultConfig()}
+            stops={defaultStops()}
             flexShrink={flexShrink}
           />,
         )
@@ -401,7 +401,7 @@ describe('@/components/molecules/gradient', () => {
         render(
           <Gradient.Circular
             testId={testId}
-            config={defaultConfig()}
+            stops={defaultStops()}
           />,
         )
         expect(screen.getByTestId(testId)).not.toHaveStyle({
@@ -416,7 +416,7 @@ describe('@/components/molecules/gradient', () => {
         render(
           <Gradient.Circular
             testId={testId}
-            config={defaultConfig()}
+            stops={defaultStops()}
           />,
         )
         expect(screen.getByTestId(testId)).not.toHaveStyle({
@@ -429,7 +429,7 @@ describe('@/components/molecules/gradient', () => {
         render(
           <Gradient.Circular
             testId={testId}
-            config={defaultConfig()}
+            stops={defaultStops()}
             alignSelf={View.AlignSelf.CENTER}
           />,
         )
@@ -443,7 +443,7 @@ describe('@/components/molecules/gradient', () => {
         render(
           <Gradient.Circular
             testId={testId}
-            config={defaultConfig()}
+            stops={defaultStops()}
           />,
         )
         expect(screen.getByTestId(testId)).not.toHaveStyle({
@@ -458,7 +458,7 @@ describe('@/components/molecules/gradient', () => {
         render(
           <Gradient.Circular
             testId={testId}
-            config={defaultConfig()}
+            stops={defaultStops()}
           />,
         )
         expect(screen.getByTestId(testId)).not.toHaveStyle({
@@ -473,7 +473,7 @@ describe('@/components/molecules/gradient', () => {
         render(
           <Gradient.Circular
             testId={testId}
-            config={defaultConfig()}
+            stops={defaultStops()}
           />,
         )
         expect(screen.getByTestId(testId)).not.toHaveStyle({
@@ -488,7 +488,7 @@ describe('@/components/molecules/gradient', () => {
         render(
           <Gradient.Circular
             testId={testId}
-            config={defaultConfig()}
+            stops={defaultStops()}
           />,
         )
         expect(screen.getByTestId(testId)).not.toHaveStyle({
@@ -503,7 +503,7 @@ describe('@/components/molecules/gradient', () => {
         render(
           <Gradient.Circular
             testId={testId}
-            config={defaultConfig()}
+            stops={defaultStops()}
           />,
         )
         expect(screen.getByTestId(testId)).not.toHaveStyle({
@@ -517,7 +517,7 @@ describe('@/components/molecules/gradient', () => {
         render(
           <Gradient.Circular
             testId={testId}
-            config={defaultConfig()}
+            stops={defaultStops()}
             minWidth={dimension}
           />,
         )
@@ -533,7 +533,7 @@ describe('@/components/molecules/gradient', () => {
         render(
           <Gradient.Circular
             testId={testId}
-            config={defaultConfig()}
+            stops={defaultStops()}
           />,
         )
         expect(screen.getByTestId(testId)).not.toHaveStyle({
@@ -547,7 +547,7 @@ describe('@/components/molecules/gradient', () => {
         render(
           <Gradient.Circular
             testId={testId}
-            config={defaultConfig()}
+            stops={defaultStops()}
             width={dimension}
           />,
         )
@@ -563,7 +563,7 @@ describe('@/components/molecules/gradient', () => {
         render(
           <Gradient.Circular
             testId={testId}
-            config={defaultConfig()}
+            stops={defaultStops()}
           />,
         )
         expect(screen.getByTestId(testId)).not.toHaveStyle({
@@ -577,7 +577,7 @@ describe('@/components/molecules/gradient', () => {
         render(
           <Gradient.Circular
             testId={testId}
-            config={defaultConfig()}
+            stops={defaultStops()}
             maxWidth={dimension}
           />,
         )
@@ -593,7 +593,7 @@ describe('@/components/molecules/gradient', () => {
         render(
           <Gradient.Circular
             testId={testId}
-            config={defaultConfig()}
+            stops={defaultStops()}
           />,
         )
         expect(screen.getByTestId(testId)).not.toHaveStyle({
@@ -607,7 +607,7 @@ describe('@/components/molecules/gradient', () => {
         render(
           <Gradient.Circular
             testId={testId}
-            config={defaultConfig()}
+            stops={defaultStops()}
             minHeight={dimension}
           />,
         )
@@ -623,7 +623,7 @@ describe('@/components/molecules/gradient', () => {
         render(
           <Gradient.Circular
             testId={testId}
-            config={defaultConfig()}
+            stops={defaultStops()}
           />,
         )
         expect(screen.getByTestId(testId)).not.toHaveStyle({
@@ -637,7 +637,7 @@ describe('@/components/molecules/gradient', () => {
         render(
           <Gradient.Circular
             testId={testId}
-            config={defaultConfig()}
+            stops={defaultStops()}
             height={dimension}
           />,
         )
@@ -653,7 +653,7 @@ describe('@/components/molecules/gradient', () => {
         render(
           <Gradient.Circular
             testId={testId}
-            config={defaultConfig()}
+            stops={defaultStops()}
           />,
         )
         expect(screen.getByTestId(testId)).not.toHaveStyle({
@@ -667,7 +667,7 @@ describe('@/components/molecules/gradient', () => {
         render(
           <Gradient.Circular
             testId={testId}
-            config={defaultConfig()}
+            stops={defaultStops()}
             maxHeight={dimension}
           />,
         )
@@ -683,7 +683,7 @@ describe('@/components/molecules/gradient', () => {
         render(
           <Gradient.Circular
             testId={testId}
-            config={defaultConfig()}
+            stops={defaultStops()}
           />,
         )
         expect(screen.getByTestId(testId)).not.toHaveStyle({
@@ -698,7 +698,7 @@ describe('@/components/molecules/gradient', () => {
         render(
           <Gradient.Circular
             testId={testId}
-            config={defaultConfig()}
+            stops={defaultStops()}
           />,
         )
         expect(screen.getByTestId(testId)).not.toHaveStyle({
@@ -713,7 +713,7 @@ describe('@/components/molecules/gradient', () => {
         render(
           <Gradient.Circular
             testId={testId}
-            config={defaultConfig()}
+            stops={defaultStops()}
           />,
         )
         expect(screen.getByTestId(testId)).not.toHaveStyle({
@@ -728,7 +728,7 @@ describe('@/components/molecules/gradient', () => {
         render(
           <Gradient.Circular
             testId={testId}
-            config={defaultConfig()}
+            stops={defaultStops()}
           />,
         )
         expect(screen.getByTestId(testId)).not.toHaveStyle({
@@ -743,7 +743,7 @@ describe('@/components/molecules/gradient', () => {
         render(
           <Gradient.Circular
             testId={testId}
-            config={defaultConfig()}
+            stops={defaultStops()}
           />,
         )
         expect(screen.getByTestId(testId)).not.toHaveStyle({
@@ -758,7 +758,7 @@ describe('@/components/molecules/gradient', () => {
         render(
           <Gradient.Circular
             testId={testId}
-            config={defaultConfig()}
+            stops={defaultStops()}
           />,
         )
         expect(screen.getByTestId(testId)).not.toHaveStyle({
@@ -773,7 +773,7 @@ describe('@/components/molecules/gradient', () => {
         render(
           <Gradient.Circular
             testId={testId}
-            config={defaultConfig()}
+            stops={defaultStops()}
           />,
         )
         expect(screen.getByTestId(testId)).not.toHaveStyle({
@@ -788,7 +788,7 @@ describe('@/components/molecules/gradient', () => {
         render(
           <Gradient.Circular
             testId={testId}
-            config={defaultConfig()}
+            stops={defaultStops()}
           />,
         )
         expect(screen.getByTestId(testId)).not.toHaveStyle({
@@ -803,7 +803,7 @@ describe('@/components/molecules/gradient', () => {
         render(
           <Gradient.Circular
             testId={testId}
-            config={defaultConfig()}
+            stops={defaultStops()}
           />,
         )
         expect(screen.getByTestId(testId)).not.toHaveStyle({
@@ -818,7 +818,7 @@ describe('@/components/molecules/gradient', () => {
         render(
           <Gradient.Circular
             testId={testId}
-            config={defaultConfig()}
+            stops={defaultStops()}
           />,
         )
         expect(screen.getByTestId(testId)).not.toHaveStyle({
@@ -833,7 +833,7 @@ describe('@/components/molecules/gradient', () => {
         render(
           <Gradient.Circular
             testId={testId}
-            config={defaultConfig()}
+            stops={defaultStops()}
           />,
         )
         expect(screen.getByTestId(testId)).not.toHaveStyle({
@@ -848,7 +848,7 @@ describe('@/components/molecules/gradient', () => {
         render(
           <Gradient.Circular
             testId={testId}
-            config={defaultConfig()}
+            stops={defaultStops()}
           />,
         )
         expect(screen.getByTestId(testId)).not.toHaveStyle({
@@ -863,7 +863,7 @@ describe('@/components/molecules/gradient', () => {
         render(
           <Gradient.Circular
             testId={testId}
-            config={defaultConfig()}
+            stops={defaultStops()}
           />,
         )
         expect(screen.getByTestId(testId)).not.toHaveStyle({
@@ -877,7 +877,7 @@ describe('@/components/molecules/gradient', () => {
         render(
           <Gradient.Circular
             testId={testId}
-            config={defaultConfig()}
+            stops={defaultStops()}
             backgroundColor={backgroundColor}
           />,
         )
@@ -890,7 +890,7 @@ describe('@/components/molecules/gradient', () => {
         render(
           <Gradient.Circular
             testId={testId}
-            config={defaultConfig()}
+            stops={defaultStops()}
             backgroundColor={backgroundColor}
           />,
         )
@@ -905,7 +905,7 @@ describe('@/components/molecules/gradient', () => {
         const { getByTestId } = render(
           <Gradient.Circular
             testId={testId}
-            config={defaultConfig()}
+            stops={defaultStops()}
             onLayout={handleLayout}
           />,
         )
@@ -926,7 +926,7 @@ describe('@/components/molecules/gradient', () => {
         render(
           <Gradient.Circular
             testId={testId}
-            config={defaultConfig()}
+            stops={defaultStops()}
             opacityTransitionDuration={View.TransitionDuration.MD}
           />,
         )
@@ -939,7 +939,7 @@ describe('@/components/molecules/gradient', () => {
         render(
           <Gradient.Circular
             testId={testId}
-            config={defaultConfig()}
+            stops={defaultStops()}
             opacityTransitionDuration={View.TransitionDuration.MD}
             opacity={fraction}
           />,
@@ -956,7 +956,7 @@ describe('@/components/molecules/gradient', () => {
         render(
           <Gradient.Circular
             testId={testId}
-            config={defaultConfig()}
+            stops={defaultStops()}
             transformTransitionDuration={View.TransitionDuration.MD}
           />,
         )
@@ -971,7 +971,7 @@ describe('@/components/molecules/gradient', () => {
         render(
           <Gradient.Circular
             testId={testId}
-            config={defaultConfig()}
+            stops={defaultStops()}
             transformTransitionDuration={View.TransitionDuration.MD}
             scale={fraction}
           />,
@@ -991,7 +991,7 @@ describe('@/components/molecules/gradient', () => {
         render(
           <Gradient.Circular
             testId={testId}
-            config={defaultConfig()}
+            stops={defaultStops()}
             transformTransitionDuration={View.TransitionDuration.MD}
             translateX={dimension}
           />,
@@ -1011,7 +1011,7 @@ describe('@/components/molecules/gradient', () => {
         render(
           <Gradient.Circular
             testId={testId}
-            config={defaultConfig()}
+            stops={defaultStops()}
             transformTransitionDuration={View.TransitionDuration.MD}
             translateY={dimension}
           />,
@@ -1032,7 +1032,7 @@ describe('@/components/molecules/gradient', () => {
         render(
           <Gradient.Circular
             testId={testId}
-            config={defaultConfig()}
+            stops={defaultStops()}
             flexDirection={View.FlexDirection.ROW}
           />,
         )
@@ -1046,7 +1046,7 @@ describe('@/components/molecules/gradient', () => {
         render(
           <Gradient.Circular
             testId={testId}
-            config={defaultConfig()}
+            stops={defaultStops()}
             justifyContent={View.JustifyContent.CENTER}
           />,
         )
@@ -1060,7 +1060,7 @@ describe('@/components/molecules/gradient', () => {
         render(
           <Gradient.Circular
             testId={testId}
-            config={defaultConfig()}
+            stops={defaultStops()}
             alignItems={View.AlignItems.CENTER}
           />,
         )
@@ -1074,7 +1074,7 @@ describe('@/components/molecules/gradient', () => {
         render(
           <Gradient.Circular
             testId={testId}
-            config={defaultConfig()}
+            stops={defaultStops()}
             flexWrap={View.FlexWrap.WRAP}
           />,
         )
@@ -1088,7 +1088,7 @@ describe('@/components/molecules/gradient', () => {
         render(
           <Gradient.Circular
             testId={testId}
-            config={defaultConfig()}
+            stops={defaultStops()}
             alignContent={View.AlignContent.CENTER}
           />,
         )
@@ -1102,7 +1102,7 @@ describe('@/components/molecules/gradient', () => {
         render(
           <Gradient.Circular
             testId={testId}
-            config={defaultConfig()}
+            stops={defaultStops()}
           />,
         )
         expect(fillFlexView(testId)).not.toHaveStyle({
@@ -1117,7 +1117,7 @@ describe('@/components/molecules/gradient', () => {
         render(
           <Gradient.Circular
             testId={testId}
-            config={defaultConfig()}
+            stops={defaultStops()}
           />,
         )
         expect(fillFlexView(testId)).not.toHaveStyle({
@@ -1132,7 +1132,7 @@ describe('@/components/molecules/gradient', () => {
         render(
           <Gradient.Circular
             testId={testId}
-            config={defaultConfig()}
+            stops={defaultStops()}
           />,
         )
         expect(fillFlexView(testId)).not.toHaveStyle({
@@ -1147,7 +1147,7 @@ describe('@/components/molecules/gradient', () => {
         render(
           <Gradient.Circular
             testId={testId}
-            config={defaultConfig()}
+            stops={defaultStops()}
           />,
         )
         expect(fillFlexView(testId)).not.toHaveStyle({
@@ -1162,7 +1162,7 @@ describe('@/components/molecules/gradient', () => {
         render(
           <Gradient.Circular
             testId={testId}
-            config={defaultConfig()}
+            stops={defaultStops()}
           />,
         )
         expect(fillFlexView(testId)).not.toHaveStyle({
@@ -1177,7 +1177,7 @@ describe('@/components/molecules/gradient', () => {
         render(
           <Gradient.Circular.Fill.Absolute
             testId={testId}
-            config={defaultConfig()}
+            stops={defaultStops()}
           />,
         )
         expect(screen.getByTestId(testId)).toHaveStyle({ position: 'absolute' })
@@ -1188,7 +1188,7 @@ describe('@/components/molecules/gradient', () => {
         render(
           <Gradient.Circular.Fill.Absolute
             testId={testId}
-            config={defaultConfig()}
+            stops={defaultStops()}
           />,
         )
         expect(screen.getByTestId(testId)).toHaveStyle({ top: 0 })
@@ -1199,7 +1199,7 @@ describe('@/components/molecules/gradient', () => {
         render(
           <Gradient.Circular.Fill.Absolute
             testId={testId}
-            config={defaultConfig()}
+            stops={defaultStops()}
           />,
         )
         expect(screen.getByTestId(testId)).toHaveStyle({ left: 0 })
@@ -1210,7 +1210,7 @@ describe('@/components/molecules/gradient', () => {
         render(
           <Gradient.Circular.Fill.Absolute
             testId={testId}
-            config={defaultConfig()}
+            stops={defaultStops()}
           />,
         )
         expect(screen.getByTestId(testId)).toHaveStyle({ right: 0 })
@@ -1221,7 +1221,7 @@ describe('@/components/molecules/gradient', () => {
         render(
           <Gradient.Circular.Fill.Absolute
             testId={testId}
-            config={defaultConfig()}
+            stops={defaultStops()}
           />,
         )
         expect(screen.getByTestId(testId)).toHaveStyle({ bottom: 0 })
@@ -1234,7 +1234,7 @@ describe('@/components/molecules/gradient', () => {
         render(
           <Gradient.Circular.Fill.Flex
             testId={testId}
-            config={defaultConfig()}
+            stops={defaultStops()}
           />,
         )
         expect(screen.getByTestId(testId)).toHaveStyle({ flexGrow: 1 })

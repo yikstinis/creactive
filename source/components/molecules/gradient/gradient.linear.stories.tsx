@@ -207,7 +207,7 @@ export const DefaultState: StoryObj<typeof Gradient.Linear> = {
   render: (args) => (
     <Gradient.Linear
       {...args}
-      config={[
+      stops={[
         { offset: FRACTION_MIN, color: faker.color.rgb() as Color },
         { offset: FRACTION_MAX, color: faker.color.rgb() as Color },
       ]}

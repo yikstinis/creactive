@@ -9,7 +9,7 @@ describe('@/components/molecules/gradient', () => {
       render(
         <Gradient.Circular
           testId={testId}
-          config={[
+          stops={[
             { offset: randomFraction(), color: randomRgb() },
             { offset: randomFraction(), color: randomRgb() },
           ]}
@@ -24,7 +24,7 @@ describe('@/components/molecules/gradient', () => {
       render(
         <Gradient.Circular
           testId={testId}
-          config={[
+          stops={[
             { offset: randomFraction(), color: randomRgb() },
             { offset: randomFraction(), color: randomRgb() },
           ]}
@@ -41,7 +41,7 @@ describe('@/components/molecules/gradient', () => {
       render(
         <Gradient.Circular
           testId={testId}
-          config={[
+          stops={[
             { offset: randomFraction(), color: randomRgb() },
             { offset: randomFraction(), color: randomRgb() },
           ]}
@@ -67,7 +67,7 @@ describe('@/components/molecules/gradient', () => {
         <Gradient.Circular
           testId={testId}
           cx={cx}
-          config={[
+          stops={[
             { offset: randomFraction(), color: randomRgb() },
             { offset: randomFraction(), color: randomRgb() },
           ]}
@@ -93,7 +93,7 @@ describe('@/components/molecules/gradient', () => {
         <Gradient.Circular
           testId={testId}
           cy={cy}
-          config={[
+          stops={[
             { offset: randomFraction(), color: randomRgb() },
             { offset: randomFraction(), color: randomRgb() },
           ]}
@@ -117,7 +117,7 @@ describe('@/components/molecules/gradient', () => {
       render(
         <Gradient.Circular
           testId={testId}
-          config={[
+          stops={[
             { offset: randomFraction(), color: randomRgb() },
             { offset: randomFraction(), color: randomRgb() },
           ]}
@@ -147,7 +147,7 @@ describe('@/components/molecules/gradient', () => {
       render(
         <Gradient.Circular
           testId={testId}
-          config={[
+          stops={[
             { offset: randomFraction(), color: randomRgb() },
             { offset: randomFraction(), color: randomRgb() },
           ]}
@@ -168,7 +168,7 @@ describe('@/components/molecules/gradient', () => {
         <>
           <Gradient.Circular
             testId={testIdFirst}
-            config={[
+            stops={[
               { offset: randomFraction(), color: randomRgb() },
               { offset: randomFraction(), color: randomRgb() },
             ]}
@@ -176,7 +176,7 @@ describe('@/components/molecules/gradient', () => {
 
           <Gradient.Circular
             testId={testIdSecond}
-            config={[
+            stops={[
               { offset: randomFraction(), color: randomRgb() },
               { offset: randomFraction(), color: randomRgb() },
             ]}

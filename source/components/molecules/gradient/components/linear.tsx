@@ -10,7 +10,7 @@ import type { GradientLinearComponent, GradientLinearProperties } from '../gradi
 
 export const GradientLinear: GradientLinearComponent = ({
   direction,
-  config,
+  stops,
   children,
   flexWrap,
   flexDirection,
@@ -41,7 +41,7 @@ export const GradientLinear: GradientLinearComponent = ({
               x2={GRADIENT_LINEAR_DIRECTION_COORDINATES[direction].x2}
               y2={GRADIENT_LINEAR_DIRECTION_COORDINATES[direction].y2}
             >
-              {config.map((stop, index) => (
+              {stops.map((stop, index) => (
                 <Stop
                   key={[index, stop.offset.toValue(), stop.color].join()}
                   offset={stop.offset.toValue()}

@@ -30,7 +30,7 @@ export type {
   GradientLinearComponent,
   GradientLinearProperties,
   GradientObject,
-  GradientStopConfig,
+  GradientStop,
   SpinnerComponent,
   SpinnerProperties,
 } from './molecules'

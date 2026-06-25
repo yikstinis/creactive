@@ -31,7 +31,7 @@ export type {
   GradientLinearComponent,
   GradientLinearProperties,
   GradientObject,
-  GradientStopConfig,
+  GradientStop,
   IconColor,
   IconComponent,
   IconContextValue,
