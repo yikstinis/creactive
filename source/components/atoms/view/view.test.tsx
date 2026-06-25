@@ -163,11 +163,11 @@ describe('@/components/atoms/view', () => {
       render(
         <View
           testId={testId}
-          right={new Dimension(bottom, Dimension.Unit.PERCENT)}
+          bottom={new Dimension(bottom, Dimension.Unit.PERCENT)}
         />,
       )
       expect(screen.getByTestId(testId)).toHavePlatformStyle({
-        right: `${bottom}%`,
+        bottom: `${bottom}%`,
       })
     })
   })
@@ -363,6 +363,32 @@ describe('@/components/atoms/view', () => {
       )
       expect(screen.getByTestId(testId)).toHavePlatformStyle({
         flexDirection: 'row',
+      })
+    })
+
+    it('renders with column reverse flex direction style', () => {
+      const testId = randomTestId()
+      render(
+        <View
+          testId={testId}
+          flexDirection={View.FlexDirection.COLUMN_REVERSE}
+        />,
+      )
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
+        flexDirection: 'column-reverse',
+      })
+    })
+
+    it('renders with row reverse flex direction style', () => {
+      const testId = randomTestId()
+      render(
+        <View
+          testId={testId}
+          flexDirection={View.FlexDirection.ROW_REVERSE}
+        />,
+      )
+      expect(screen.getByTestId(testId)).toHavePlatformStyle({
+        flexDirection: 'row-reverse',
       })
     })
   })
@@ -1085,7 +1111,7 @@ describe('@/components/atoms/view', () => {
   })
 
   describe('padding top property', () => {
-    it('renders with 6 times extra-small margin top style', () => {
+    it('renders with 6 times extra-small padding top style', () => {
       const testId = randomTestId()
       render(
         <View
@@ -1098,7 +1124,7 @@ describe('@/components/atoms/view', () => {
       })
     })
 
-    it('renders with 5 times extra-small margin top style', () => {
+    it('renders with 5 times extra-small padding top style', () => {
       const testId = randomTestId()
       render(
         <View
@@ -1111,7 +1137,7 @@ describe('@/components/atoms/view', () => {
       })
     })
 
-    it('renders with 4 times extra-small margin top style', () => {
+    it('renders with 4 times extra-small padding top style', () => {
       const testId = randomTestId()
       render(
         <View
@@ -1124,7 +1150,7 @@ describe('@/components/atoms/view', () => {
       })
     })
 
-    it('renders with 3 times extra-small margin top style', () => {
+    it('renders with 3 times extra-small padding top style', () => {
       const testId = randomTestId()
       render(
         <View
@@ -1137,7 +1163,7 @@ describe('@/components/atoms/view', () => {
       })
     })
 
-    it('renders with 2 times extra-small margin top style', () => {
+    it('renders with 2 times extra-small padding top style', () => {
       const testId = randomTestId()
       render(
         <View
@@ -1150,7 +1176,7 @@ describe('@/components/atoms/view', () => {
       })
     })
 
-    it('renders with extra-small margin top style', () => {
+    it('renders with extra-small padding top style', () => {
       const testId = randomTestId()
       render(
         <View
@@ -1163,7 +1189,7 @@ describe('@/components/atoms/view', () => {
       })
     })
 
-    it('renders with small margin top style', () => {
+    it('renders with small padding top style', () => {
       const testId = randomTestId()
       render(
         <View
@@ -1176,7 +1202,7 @@ describe('@/components/atoms/view', () => {
       })
     })
 
-    it('renders with medium margin top style', () => {
+    it('renders with medium padding top style', () => {
       const testId = randomTestId()
       render(
         <View
@@ -1189,7 +1215,7 @@ describe('@/components/atoms/view', () => {
       })
     })
 
-    it('renders with large margin top style', () => {
+    it('renders with large padding top style', () => {
       const testId = randomTestId()
       render(
         <View
@@ -1202,7 +1228,7 @@ describe('@/components/atoms/view', () => {
       })
     })
 
-    it('renders with extra-large margin top style', () => {
+    it('renders with extra-large padding top style', () => {
       const testId = randomTestId()
       render(
         <View
@@ -1215,7 +1241,7 @@ describe('@/components/atoms/view', () => {
       })
     })
 
-    it('renders with 2 times extra-large margin top style', () => {
+    it('renders with 2 times extra-large padding top style', () => {
       const testId = randomTestId()
       render(
         <View
@@ -1228,7 +1254,7 @@ describe('@/components/atoms/view', () => {
       })
     })
 
-    it('renders with 3 times extra-large margin top style', () => {
+    it('renders with 3 times extra-large padding top style', () => {
       const testId = randomTestId()
       render(
         <View
@@ -1241,7 +1267,7 @@ describe('@/components/atoms/view', () => {
       })
     })
 
-    it('renders with 4 times extra-large margin top style', () => {
+    it('renders with 4 times extra-large padding top style', () => {
       const testId = randomTestId()
       render(
         <View
@@ -1254,7 +1280,7 @@ describe('@/components/atoms/view', () => {
       })
     })
 
-    it('renders with 5 times extra-large margin top style', () => {
+    it('renders with 5 times extra-large padding top style', () => {
       const testId = randomTestId()
       render(
         <View
@@ -1267,7 +1293,7 @@ describe('@/components/atoms/view', () => {
       })
     })
 
-    it('renders with 6 times extra-large margin top style', () => {
+    it('renders with 6 times extra-large padding top style', () => {
       const testId = randomTestId()
       render(
         <View

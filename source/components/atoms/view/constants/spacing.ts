@@ -1,7 +1,7 @@
 /**
- * View component spacing enumerated contstants.
+ * View component spacing enumerated constants.
  * Allows to control view margin and padding with properties.
- * @see View.Spacing
+ * @see {@link ViewComponent.Spacing}
  */
 export enum ViewSpacing {
   X6S,

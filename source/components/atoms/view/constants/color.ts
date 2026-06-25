@@ -1,7 +1,7 @@
 /**
  * View themed background color enumerated constants.
  * Allows to pass theme background colors as component property.
- * @see View.BackgroundColor
+ * @see {@link ViewComponent.BackgroundColor}
  */
 export enum ViewBackgroundColor {
   BASE_100,

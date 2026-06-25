@@ -1,7 +1,7 @@
 /**
  * View border color enumerated constants.
  * Should be used to control view border color with property.
- * @see View.BorderColor
+ * @see {@link ViewComponent.BorderColor}
  */
 export enum ViewBorderColor {
   BASE_100,
@@ -19,7 +19,7 @@ export enum ViewBorderColor {
  * Border width enumerated constants.
  * Should be used to control themed border width.
  * Includes matches for all theme base border width tokens.
- * @see View.BorderWidth
+ * @see {@link ViewComponent.BorderWidth}
  */
 export enum ViewBorderWidth {
   SM,

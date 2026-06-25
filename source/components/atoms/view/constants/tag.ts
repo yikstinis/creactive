@@ -1,7 +1,7 @@
 /**
  * Supported by view component enumerated tag constants.
  * All possible layout tags should be listed here.
- * @see View.Tag
+ * @see {@link ViewComponent.Tag}
  */
 export enum ViewTag {
   DIV,

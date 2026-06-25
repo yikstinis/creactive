@@ -494,7 +494,7 @@ describe('@/components/atoms/view', () => {
       })
     })
 
-    describe('view flex align content style hook', () => {
+    describe('view align content style hook', () => {
       it('returns undefined when align content is not provided', () => {
         const { result } = renderHook(() => useViewAlignContentStyle())
         expect(result.current).toBeUndefined()

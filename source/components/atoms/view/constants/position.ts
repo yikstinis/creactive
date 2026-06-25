@@ -1,7 +1,7 @@
 /**
  * Supported view position enumerated constants.
- * Allows to controle how view is positioned in layout.
- * @see View.Position
+ * Allows to control how view is positioned in layout.
+ * @see {@link ViewComponent.Position}
  */
 export enum ViewPosition {
   RELATIVE,

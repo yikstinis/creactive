@@ -63,6 +63,5 @@ describe('@/components/atoms/view', () => {
         expect(result.current).toBe(value)
       })
     })
-
   })
 })

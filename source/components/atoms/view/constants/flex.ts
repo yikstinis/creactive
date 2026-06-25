@@ -1,7 +1,7 @@
 /**
  * View flex wrap enumerated constants.
  * Controls how children are wrapped in the flex container.
- * @see View.FlexWrap
+ * @see {@link ViewComponent.FlexWrap}
  */
 export enum ViewFlexWrap {
   NONE,
@@ -11,7 +11,7 @@ export enum ViewFlexWrap {
 /**
  * View flex direction enumerated constants.
  * Should be used to define flex container primary axis.
- * @see View.FlexDirection
+ * @see {@link ViewComponent.FlexDirection}
  */
 export enum ViewFlexDirection {
   COLUMN,
@@ -24,7 +24,7 @@ export enum ViewFlexDirection {
  * Supported justify content values.
  * Should be used to control spacing between and around items.
  * Allows to define how children are distributed along the main axis.
- * @see Text.JustifyContent
+ * @see {@link ViewComponent.JustifyContent}
  */
 export enum ViewJustifyContent {
   FLEX_START,
@@ -39,7 +39,7 @@ export enum ViewJustifyContent {
  * View align items enumerated constants.
  * Should be used to control how children are aligned along the cross axis.
  * Affects the vertical alignment in a row and horizontal alignment in a column.
- * @see View.AlignItems
+ * @see {@link ViewComponent.AlignItems}
  */
 export enum ViewAlignItems {
   FLEX_START,
@@ -53,7 +53,7 @@ export enum ViewAlignItems {
  * View align self constants.
  * Should be used to override individual child alignment along the cross axis.
  * Takes precedence over the container's alignItems setting.
- * @see View.AlignSelf
+ * @see {@link ViewComponent.AlignSelf}
  */
 export enum ViewAlignSelf {
   FLEX_START,
@@ -67,7 +67,7 @@ export enum ViewAlignSelf {
  * Supported align content enumerated values.
  * Should be used when there are multiple lines of items.
  * Controls how lines are distributed along the cross axis.
- * @see View.AlignContent
+ * @see {@link ViewComponent.AlignContent}
  */
 export enum ViewAlignContent {
   FLEX_START,
