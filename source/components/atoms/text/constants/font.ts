@@ -1,7 +1,7 @@
 /**
  * Enumerated text font family style constants.
- * Most theme colors, suitable for text component.
- * @see Text.FontFamily
+ * Selects between available theme font stacks for the text component.
+ * @see {@link TextComponent.FontFamily}
  */
 export enum TextFontFamily {
   DEFAULT,
@@ -10,8 +10,8 @@ export enum TextFontFamily {
 
 /**
  * Supported text font weight constants.
- * All theme font weights used by text component.
- * @see Text.FontWeight
+ * Controls text stroke thickness from hairline thin to heavy black.
+ * @see {@link TextComponent.FontWeight}
  */
 export enum TextFontWeight {
   THIN,
@@ -27,8 +27,8 @@ export enum TextFontWeight {
 
 /**
  * Supported text font size constants.
- * All theme font sizes used by text component.
- * @see Text.FontSize
+ * Controls the rendered text scale across eleven size steps.
+ * @see {@link TextComponent.FontSize}
  */
 export enum TextFontSize {
   X2S,

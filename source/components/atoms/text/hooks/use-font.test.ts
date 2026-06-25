@@ -97,6 +97,28 @@ describe('@/components/atoms/text', () => {
         )
       })
 
+      it('returns a distinct base font family value per weight on android', () => {
+        const { result } = renderHook(() =>
+          useTextFontFamilyValue(TextFontFamily.DEFAULT, TextFontWeight.SEMIBOLD)
+        )
+        expect(result.current).toBe(
+          Platform.select({
+            web: [
+              'ui-sans-serif',
+              '-apple-system',
+              'BlinkMacSystemFont',
+              '"Segoe UI"',
+              'Roboto',
+              'Helvetica',
+              'Arial',
+              'sans-serif',
+            ].join(','),
+            android: 'sans-serif-medium',
+            default: 'System',
+          })
+        )
+      })
+
       it('returns typographic font family value', () => {
         const { result } = renderHook(() =>
           useTextFontFamilyValue(

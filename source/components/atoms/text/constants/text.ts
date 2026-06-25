@@ -1,7 +1,7 @@
 /**
  * Supported text alignment constants.
  * Controls horizontal text alignment within container.
- * @see Text.TextAlign
+ * @see {@link TextComponent.TextAlign}
  */
 export enum TextAlign {
   LEFT,
@@ -12,7 +12,7 @@ export enum TextAlign {
 /**
  * Supported text decoration constants.
  * Controls text styling effects like underlines.
- * @see Text.TextDecoration
+ * @see {@link TextComponent.TextDecoration}
  */
 export enum TextDecoration {
   NONE,
@@ -22,7 +22,7 @@ export enum TextDecoration {
 /**
  * Supported text line height constants.
  * Controls themed vertical spacing between text lines.
- * @see Text.LineHeight
+ * @see {@link TextComponent.LineHeight}
  */
 export enum TextLineHeight {
   NONE,

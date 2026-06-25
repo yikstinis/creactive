@@ -1,8 +1,7 @@
 /**
  * Supported text color constants.
  * Part of theme colors, suitable for text coloring.
- * Transparent extra color constant is also included.
- * @see Text.Color
+ * @see {@link TextComponent.Color}
  */
 export enum TextColor {
   BASE_100,
@@ -37,7 +36,7 @@ export enum TextColor {
 /**
  * Supported text background color constants.
  * Part of theme colors, suitable for text background.
- * @see Text.BackgroundColor
+ * @see {@link TextComponent.BackgroundColor}
  */
 export enum TextBackgroundColor {
   BASE_100,

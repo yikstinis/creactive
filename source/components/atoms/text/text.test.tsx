@@ -738,6 +738,9 @@ describe('@/components/atoms/text', () => {
             {text}
           </Text>,
         )
+        expect(screen.getByTestId(testId)).toHavePlatformStyle({
+          lineHeight: 15,
+        })
       })
 
       it('renders with relaxed line height', () => {

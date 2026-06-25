@@ -1,6 +1,11 @@
 import { renderHook } from '@testing-library/react-native'
-import { TextColor } from '../constants'
-import { useTextColorStyle, useTextColorValue } from './use-color'
+import { TextBackgroundColor, TextColor } from '../constants'
+import {
+  useTextBackgoundColorStyle,
+  useTextBackgoundColorValue,
+  useTextColorStyle,
+  useTextColorValue,
+} from './use-color'
 
 describe('@/components/atoms/text', () => {
   describe('hooks/use-color', () => {
@@ -477,6 +482,168 @@ describe('@/components/atoms/text', () => {
           useTextColorValue('transparent')
         )
         expect(result.current).toEqual('transparent')
+      })
+    })
+
+    describe('text background color style hook', () => {
+      it('returns undefined when background color is not provided', () => {
+        const { result } = renderHook(() =>
+          useTextBackgoundColorStyle(undefined)
+        )
+        expect(result.current).toBeUndefined()
+      })
+
+      it('returns base 100 background color style', () => {
+        const { result } = renderHook(() =>
+          useTextBackgoundColorStyle(TextBackgroundColor.BASE_100)
+        )
+        expect(result.current).toEqual({
+          backgroundColor: 'rgb(215,215,220)',
+        })
+      })
+
+      it('returns base 200 background color style', () => {
+        const { result } = renderHook(() =>
+          useTextBackgoundColorStyle(TextBackgroundColor.BASE_200)
+        )
+        expect(result.current).toEqual({
+          backgroundColor: 'rgb(220,220,225)',
+        })
+      })
+
+      it('returns base 300 background color style', () => {
+        const { result } = renderHook(() =>
+          useTextBackgoundColorStyle(TextBackgroundColor.BASE_300)
+        )
+        expect(result.current).toEqual({
+          backgroundColor: 'rgb(225,225,230)',
+        })
+      })
+
+      it('returns base 400 background color style', () => {
+        const { result } = renderHook(() =>
+          useTextBackgoundColorStyle(TextBackgroundColor.BASE_400)
+        )
+        expect(result.current).toEqual({
+          backgroundColor: 'rgb(230,230,235)',
+        })
+      })
+
+      it('returns base 500 background color style', () => {
+        const { result } = renderHook(() =>
+          useTextBackgoundColorStyle(TextBackgroundColor.BASE_500)
+        )
+        expect(result.current).toEqual({
+          backgroundColor: 'rgb(235,235,240)',
+        })
+      })
+
+      it('returns base 600 background color style', () => {
+        const { result } = renderHook(() =>
+          useTextBackgoundColorStyle(TextBackgroundColor.BASE_600)
+        )
+        expect(result.current).toEqual({
+          backgroundColor: 'rgb(240,240,245)',
+        })
+      })
+
+      it('returns base 700 background color style', () => {
+        const { result } = renderHook(() =>
+          useTextBackgoundColorStyle(TextBackgroundColor.BASE_700)
+        )
+        expect(result.current).toEqual({
+          backgroundColor: 'rgb(245,245,250)',
+        })
+      })
+
+      it('returns base 800 background color style', () => {
+        const { result } = renderHook(() =>
+          useTextBackgoundColorStyle(TextBackgroundColor.BASE_800)
+        )
+        expect(result.current).toEqual({
+          backgroundColor: 'rgb(250,250,255)',
+        })
+      })
+
+      it('returns base 900 background color style', () => {
+        const { result } = renderHook(() =>
+          useTextBackgoundColorStyle(TextBackgroundColor.BASE_900)
+        )
+        expect(result.current).toEqual({
+          backgroundColor: 'rgb(255,255,255)',
+        })
+      })
+    })
+
+    describe('text background color value hook', () => {
+      it('returns undefined when background color is not provided', () => {
+        const { result } = renderHook(() =>
+          useTextBackgoundColorValue(undefined)
+        )
+        expect(result.current).toBeUndefined()
+      })
+
+      it('returns base 100 background color value', () => {
+        const { result } = renderHook(() =>
+          useTextBackgoundColorValue(TextBackgroundColor.BASE_100)
+        )
+        expect(result.current).toEqual('rgb(215,215,220)')
+      })
+
+      it('returns base 200 background color value', () => {
+        const { result } = renderHook(() =>
+          useTextBackgoundColorValue(TextBackgroundColor.BASE_200)
+        )
+        expect(result.current).toEqual('rgb(220,220,225)')
+      })
+
+      it('returns base 300 background color value', () => {
+        const { result } = renderHook(() =>
+          useTextBackgoundColorValue(TextBackgroundColor.BASE_300)
+        )
+        expect(result.current).toEqual('rgb(225,225,230)')
+      })
+
+      it('returns base 400 background color value', () => {
+        const { result } = renderHook(() =>
+          useTextBackgoundColorValue(TextBackgroundColor.BASE_400)
+        )
+        expect(result.current).toEqual('rgb(230,230,235)')
+      })
+
+      it('returns base 500 background color value', () => {
+        const { result } = renderHook(() =>
+          useTextBackgoundColorValue(TextBackgroundColor.BASE_500)
+        )
+        expect(result.current).toEqual('rgb(235,235,240)')
+      })
+
+      it('returns base 600 background color value', () => {
+        const { result } = renderHook(() =>
+          useTextBackgoundColorValue(TextBackgroundColor.BASE_600)
+        )
+        expect(result.current).toEqual('rgb(240,240,245)')
+      })
+
+      it('returns base 700 background color value', () => {
+        const { result } = renderHook(() =>
+          useTextBackgoundColorValue(TextBackgroundColor.BASE_700)
+        )
+        expect(result.current).toEqual('rgb(245,245,250)')
+      })
+
+      it('returns base 800 background color value', () => {
+        const { result } = renderHook(() =>
+          useTextBackgoundColorValue(TextBackgroundColor.BASE_800)
+        )
+        expect(result.current).toEqual('rgb(250,250,255)')
+      })
+
+      it('returns base 900 background color value', () => {
+        const { result } = renderHook(() =>
+          useTextBackgoundColorValue(TextBackgroundColor.BASE_900)
+        )
+        expect(result.current).toEqual('rgb(255,255,255)')
       })
     })
   })
