@@ -73,9 +73,9 @@ export const StorybookControl = new (class {
    * @param target - target numeric enum for control
    * @param isOptional - whether control is optional
    */
-  public fromNumericEnum(target: Record<string, number>, isOptional = true) {
+  public fromNumericEnum(target: Record<string, number | string>, isOptional = true) {
     const options: (number | undefined)[] = Object.values(target).filter(
-      (value) => !isNaN(Number(value)),
+      (value): value is number => !isNaN(Number(value)),
     )
     const keys = Object.keys(target).filter((value) => isNaN(Number(value)))
     if (isOptional) options.unshift(undefined)

@@ -86,7 +86,7 @@ const SpinnerChildren = ({ isDisabled }: SpinnerChildrenProperties) => {
           cy='12'
           r='8'
           fill='none'
-          stroke={iconContext.color}
+          stroke={iconContext.colorValue}
           strokeWidth='2.5'
           strokeDasharray={strokeDasharray}
         />
@@ -102,7 +102,7 @@ const SpinnerChildren = ({ isDisabled }: SpinnerChildrenProperties) => {
           cy={0}
           r='8'
           fill='none'
-          stroke={iconContext.color}
+          stroke={iconContext.colorValue}
           strokeWidth='2.5'
           strokeDasharray={strokeDasharray}
         />

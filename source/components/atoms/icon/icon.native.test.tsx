@@ -39,4 +39,34 @@ describe('@/components/atoms/icon', () => {
       })
     })
   })
+
+  describe('box property', () => {
+    it('renders with medium view box by default', () => {
+      const testId = randomTestId()
+      render(<Icon testId={testId} />)
+      expect(screen.getByTestId(testId)).toHaveProp('vbWidth', 24)
+      expect(screen.getByTestId(testId)).toHaveProp('vbHeight', 24)
+    })
+
+    it('renders with small view box', () => {
+      const testId = randomTestId()
+      render(<Icon testId={testId} box={Icon.Size.SM} />)
+      expect(screen.getByTestId(testId)).toHaveProp('vbWidth', 16)
+      expect(screen.getByTestId(testId)).toHaveProp('vbHeight', 16)
+    })
+
+    it('renders with medium view box', () => {
+      const testId = randomTestId()
+      render(<Icon testId={testId} box={Icon.Size.MD} />)
+      expect(screen.getByTestId(testId)).toHaveProp('vbWidth', 24)
+      expect(screen.getByTestId(testId)).toHaveProp('vbHeight', 24)
+    })
+
+    it('renders with large view box', () => {
+      const testId = randomTestId()
+      render(<Icon testId={testId} box={Icon.Size.LG} />)
+      expect(screen.getByTestId(testId)).toHaveProp('vbWidth', 32)
+      expect(screen.getByTestId(testId)).toHaveProp('vbHeight', 32)
+    })
+  })
 })

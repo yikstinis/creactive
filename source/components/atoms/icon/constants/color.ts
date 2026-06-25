@@ -1,3 +1,8 @@
+/**
+ * Supported icon color constants.
+ * Part of theme foreground colors, suitable for icon fill coloring.
+ * @see Icon.Color
+ */
 export enum IconColor {
   BASE_100,
   BASE_200,

@@ -4,7 +4,7 @@ import { useIconColorValue } from './use-color'
 
 describe('@/components/atoms/icon', () => {
   describe('hooks/use-color', () => {
-    describe('icon color value hook', () => {
+    describe('useIconColorValue', () => {
       it('returns base 100 icon color value', () => {
         const { result } = renderHook(() => useIconColorValue(IconColor.BASE_100))
         expect(result.current).toBe('rgb(200,200,205)')

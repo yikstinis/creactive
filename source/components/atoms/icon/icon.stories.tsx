@@ -40,7 +40,7 @@ function IconRect() {
       y='5'
       width='14'
       height='14'
-      fill={iconContext.color}
+      fill={iconContext.colorValue}
     />
   )
 }

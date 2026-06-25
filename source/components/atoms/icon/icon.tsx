@@ -25,10 +25,9 @@ export const Icon: IconComponent = ({
 
   const value = useMemo(
     () => ({
-      size: sizeValue,
-      color: colorValue,
+      colorValue,
     }),
-    [sizeValue, colorValue],
+    [colorValue],
   )
 
   return (
