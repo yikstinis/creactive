@@ -102,7 +102,7 @@ describe('@/components/atoms/pressable', () => {
       expect(onPress).toHaveBeenCalledTimes(1)
     })
 
-    it('calls on press when not provided', () => {
+    it('calls on press by default', () => {
       const testId = randomTestId()
       const onPress = jest.fn()
       render(
