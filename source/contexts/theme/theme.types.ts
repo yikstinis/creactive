@@ -734,20 +734,19 @@ export interface ThemeContextValue {
    * @see ICON_SIZE_BASE_SM
    * @default 16
    */
-  iconSizeBaseSM: number
+  iconSizeBaseSM: PixelDimension
   /**
    * Base medium icon size.
    * @see ICON_SIZE_BASE_MD
    * @default 24
-   *
    */
-  iconSizeBaseMD: number
+  iconSizeBaseMD: PixelDimension
   /**
    * Base large icon size.
    * @see ICON_SIZE_BASE_LG
    * @default 32
    */
-  iconSizeBaseLG: number
+  iconSizeBaseLG: PixelDimension
 
   /**
    * Small base duration token.

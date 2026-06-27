@@ -1,5 +1,5 @@
 export { Icon } from './icon'
-export { IconColor } from './constants'
+export { IconColor, IconSize } from './constants'
 export { useIconContext } from './icon.context'
 export type {
   IconComponent,

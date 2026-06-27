@@ -1,7 +1,7 @@
 /**
- * Supported icon color constants.
- * Part of theme foreground colors, suitable for icon fill coloring.
- * @see Icon.Color
+ * Supported icon fill color constants.
+ * Maps to theme foreground color tokens applied to child SVG path elements.
+ * @see {@link IconComponent.Color}
  */
 export enum IconColor {
   BASE_100,

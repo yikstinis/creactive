@@ -1,4 +1,4 @@
-import type { Color } from '@/types/color.types'
+import type { RGBColorValue } from '@/helpers/color'
 import { faker } from '@faker-js/faker'
 import { renderHook } from '@testing-library/react-native'
 import type { PropsWithChildren } from 'react'
@@ -16,15 +16,15 @@ describe('@/components/atoms/icon', () => {
       })
 
       it('returns context value when inside provider', () => {
-        const colorValue =
-          `rgb(${faker.number.int({ max: 255 })},${faker.number.int({ max: 255 })},${faker.number.int({ max: 255 })})` satisfies Color
+        const color =
+          `rgb(${faker.number.int({ max: 255 })},${faker.number.int({ max: 255 })},${faker.number.int({ max: 255 })})` satisfies RGBColorValue
         const wrapper = ({ children }: PropsWithChildren) => (
-          <IconContext.Provider value={{ colorValue }}>
+          <IconContext.Provider value={{ color }}>
             {children}
           </IconContext.Provider>
         )
         const { result } = renderHook(() => useIconContext(), { wrapper })
-        expect(result.current.colorValue).toBe(colorValue)
+        expect(result.current.color).toBe(color)
       })
     })
   })

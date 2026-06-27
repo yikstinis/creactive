@@ -11,6 +11,7 @@ export type {
   IconComponent,
   IconContextValue,
   IconProperties,
+  IconSize,
   PressableComponent,
   PressableContextValue,
   PressablePressEvent,

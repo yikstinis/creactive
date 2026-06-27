@@ -1,7 +1,6 @@
-import type { IconSize } from '@/constants'
-import type { Color } from '@/types/color.types'
+import type { RGBColorValue } from '@/helpers/color'
 import type { FunctionComponent, PropsWithChildren } from 'react'
-import type { IconColor } from './constants'
+import type { IconColor, IconSize } from './constants'
 
 /**
  * Internal context value passed to child SVG path elements via React context.
@@ -9,10 +8,10 @@ import type { IconColor } from './constants'
  */
 export interface IconContextValue {
   /**
-   * Resolved CSS color string used by child path elements as their fill.
+   * Resolved RGB color string used by child path elements as their fill.
    * Set by the icon component from the {@link IconProperties.color} enum prop.
    */
-  colorValue: Color
+  color: RGBColorValue
 }
 
 /**

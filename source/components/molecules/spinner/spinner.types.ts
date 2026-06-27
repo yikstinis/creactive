@@ -1,4 +1,4 @@
-import type { IconSize } from '@/constants'
+import type { IconSize } from '@/components/atoms/icon'
 import type { FunctionComponent } from 'react'
 import type { SpinnerColor } from './constants'
 

@@ -1,9 +1,7 @@
-import { IconSize } from '@/constants'
-import { useIconSizeValue } from '@/hooks'
 import { useMemo } from 'react'
 import Svg from 'react-native-svg'
-import { IconColor } from './constants'
-import { useIconColorValue } from './hooks'
+import { IconColor, IconSize } from './constants'
+import { useIconColor, useIconSize } from './hooks'
 import { IconContext } from './icon.context'
 import type { IconComponent, IconProperties } from './icon.types'
 
@@ -14,20 +12,24 @@ export const Icon: IconComponent = ({
   color = IconColor.BASE_800,
   children,
 }: IconProperties) => {
-  const boxSizeValue = useIconSizeValue(box)
-  const sizeValue = useIconSizeValue(size)
-  const colorValue = useIconColorValue(color)
+  const boxSize = useIconSize(box)
+  const iconSize = useIconSize(size)
+  const iconColor = useIconColor(color)
+
+  // SVG coordinates and attributes require raw numbers — toValue() returns "16px" on web
+  const boxRaw = parseFloat(String(boxSize.toValue()))
+  const iconRaw = parseFloat(String(iconSize.toValue()))
 
   const viewBox = useMemo(
-    () => [0, 0, boxSizeValue, boxSizeValue].join(' '),
-    [boxSizeValue],
+    () => [0, 0, boxRaw, boxRaw].join(' '),
+    [boxRaw],
   )
 
   const value = useMemo(
     () => ({
-      colorValue,
+      color: iconColor,
     }),
-    [colorValue],
+    [iconColor],
   )
 
   return (
@@ -35,8 +37,8 @@ export const Icon: IconComponent = ({
       <Svg
         testID={testId}
         viewBox={viewBox}
-        width={sizeValue}
-        height={sizeValue}
+        width={iconRaw}
+        height={iconRaw}
       >
         {children}
       </Svg>

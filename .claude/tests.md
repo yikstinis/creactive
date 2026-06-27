@@ -18,11 +18,21 @@
 Use nested `describe` blocks: path alias → file name → function/hook name → `it` cases.
 
 ```ts
-describe('@/hooks', () => {
-  describe('use-border', () => {
-    describe('useBorderRadiusStyle', () => {
-      it('returns undefined when border radius is not provided', () => { ... })
-      it('returns small border radius', () => { ... })
+describe('@/components/atoms/icon', () => {
+  describe('test id property', () => {
+    it('renders with provided test id', () => { ... })
+  })
+
+  describe('children property', () => {
+    it('renders provided children', () => { ... })
+  })
+})
+
+describe('@/components/atoms/icon', () => {
+  describe('hooks/use-size', () => {
+    describe('useIconSize', () => {
+      it('returns small icon size value', () => { ... })
+      it('returns medium icon size value', () => { ... })
     })
   })
 })

@@ -4,6 +4,7 @@ export type {
   IconContextValue,
   IconColor,
   IconProperties,
+  IconSize,
 } from './icon'
 export { Pressable, usePressableContext } from './pressable'
 export type {

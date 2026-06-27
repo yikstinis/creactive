@@ -20,6 +20,16 @@ Value helpers live in `helpers/color/*`, `helpers/dimension/*`, `helpers/fractio
 - Call `.toValue()` only at the terminal point of use where a raw primitive is required (e.g. building a style object or setting a native attribute).
 - Never use literal values (raw strings or numbers) directly in component props and inner component constants — always go through an enum constant or a `Color`/`Dimension`/`Fraction` helper.
 
+## Naming
+
+- Name things exactly as they are — variables, functions, files, and types should describe what they actually represent, with no abbreviations, vague terms, or misleading names.
+- Never use a name that makes a false claim — e.g. don't name a function `update` if it inserts, or `get` if it mutates.
+
+### Hooks
+
+- If a hook returns a style object — name it `useSomeStyle`.
+- If a hook returns a value formatted from helpers (`Color`, `Dimension`, `Fraction`) — name it `useSomething` (no suffix).
+
 ## Comments
 
 - No implementation comments unless the WHY is non-obvious (hack, workaround, hidden constraint).

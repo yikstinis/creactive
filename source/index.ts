@@ -36,6 +36,7 @@ export type {
   IconComponent,
   IconContextValue,
   IconProperties,
+  IconSize,
   PressableComponent,
   PressableContextValue,
   PressablePressEvent,
@@ -61,4 +62,3 @@ export {
 } from './helpers'
 export type { DimensionValue, FractionValue } from './helpers'
 export type { Color, FontWeight } from './types'
-export type { IconSize } from './constants'

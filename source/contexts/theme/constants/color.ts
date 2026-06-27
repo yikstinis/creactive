@@ -60,6 +60,7 @@ export const COLOR_FOREGROUND_BASE_700 = new Color(50, 50, 55)
 export const COLOR_FOREGROUND_BASE_800 = new Color(25, 25, 30)
 export const COLOR_FOREGROUND_BASE_900 = new Color(0, 0, 5)
 
+// TODO: We need a separate color set for inverse foreground on accent/subaccent backgrounds.
 export const COLOR_FOREGROUND_INVERSE_100 = new Color(75, 75, 80)
 export const COLOR_FOREGROUND_INVERSE_200 = new Color(100, 100, 105)
 export const COLOR_FOREGROUND_INVERSE_300 = new Color(125, 125, 130)

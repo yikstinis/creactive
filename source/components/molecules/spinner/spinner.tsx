@@ -1,5 +1,4 @@
-import { Icon, useIconContext } from '@/components/atoms/icon'
-import { IconSize } from '@/constants'
+import { Icon, IconSize, useIconContext } from '@/components/atoms/icon'
 import { useThemeContext } from '@/contexts'
 import { useEffect, useMemo, useRef } from 'react'
 import { Animated, Easing, Platform } from 'react-native'
@@ -86,7 +85,7 @@ const SpinnerChildren = ({ isDisabled }: SpinnerChildrenProperties) => {
           cy='12'
           r='8'
           fill='none'
-          stroke={iconContext.colorValue}
+          stroke={iconContext.color}
           strokeWidth='2.5'
           strokeDasharray={strokeDasharray}
         />
@@ -102,7 +101,7 @@ const SpinnerChildren = ({ isDisabled }: SpinnerChildrenProperties) => {
           cy={0}
           r='8'
           fill='none'
-          stroke={iconContext.colorValue}
+          stroke={iconContext.color}
           strokeWidth='2.5'
           strokeDasharray={strokeDasharray}
         />

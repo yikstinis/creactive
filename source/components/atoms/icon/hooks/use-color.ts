@@ -1,7 +1,7 @@
 import { useThemeContext } from '@/contexts'
 import { IconColor } from '../constants'
 
-const ICON_COLOR_THEME_KEY = {
+const ICON_COLOR_KEY = {
   [IconColor.BASE_100]: 'colorForegroundBase100' as const,
   [IconColor.BASE_200]: 'colorForegroundBase200' as const,
   [IconColor.BASE_300]: 'colorForegroundBase300' as const,
@@ -30,5 +30,5 @@ const ICON_COLOR_THEME_KEY = {
   [IconColor.FAILURE_800]: 'colorForegroundFailure800' as const,
   [IconColor.FAILURE_900]: 'colorForegroundFailure900' as const,
 }
-export const useIconColorValue = (color: IconColor) =>
-  useThemeContext()[ICON_COLOR_THEME_KEY[color]].toValue()
+export const useIconColor = (color: IconColor) =>
+  useThemeContext()[ICON_COLOR_KEY[color]].toValue()
