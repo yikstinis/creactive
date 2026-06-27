@@ -20,7 +20,7 @@ export const useViewBorderColorStyle = (borderColor?: ViewBorderColor) => {
 export const useViewBorderColorValue = (borderColor?: ViewBorderColor) => {
   const themeContext = useThemeContext()
   if (borderColor === undefined) return undefined
-  return themeContext[VIEW_BORDER_COLOR_THEME_KEY[borderColor]]
+  return themeContext[VIEW_BORDER_COLOR_THEME_KEY[borderColor]].toValue()
 }
 
 const VIEW_BORDER_WIDTH_THEME_STYLE_KEY = {
@@ -86,5 +86,5 @@ const VIEW_BORDER_WIDTH_THEME_KEY = {
 export const useViewBorderWidthValue = (borderWidth?: ViewBorderWidth) => {
   const themeContext = useThemeContext()
   if (borderWidth === undefined) return undefined
-  return themeContext[VIEW_BORDER_WIDTH_THEME_KEY[borderWidth]]
+  return themeContext[VIEW_BORDER_WIDTH_THEME_KEY[borderWidth]].toValue()
 }

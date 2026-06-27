@@ -181,7 +181,7 @@ describe('@/components/atoms/view', () => {
         const { result } = renderHook(() =>
           useViewBorderWidthStyle(ViewBorderWidth.SM),
         )
-        expect(result.current).toEqual({
+        expect(result.current).toEqualPlatformStyle({
           borderWidth: 0.5,
         })
       })
@@ -190,7 +190,7 @@ describe('@/components/atoms/view', () => {
         const { result } = renderHook(() =>
           useViewBorderWidthStyle(ViewBorderWidth.MD),
         )
-        expect(result.current).toEqual({
+        expect(result.current).toEqualPlatformStyle({
           borderWidth: 1,
         })
       })
@@ -199,7 +199,7 @@ describe('@/components/atoms/view', () => {
         const { result } = renderHook(() =>
           useViewBorderWidthStyle(ViewBorderWidth.LG),
         )
-        expect(result.current).toEqual({
+        expect(result.current).toEqualPlatformStyle({
           borderWidth: 1.5,
         })
       })
@@ -215,7 +215,7 @@ describe('@/components/atoms/view', () => {
         const { result } = renderHook(() =>
           useViewBorderTopWidthStyle(ViewBorderWidth.SM),
         )
-        expect(result.current).toEqual({
+        expect(result.current).toEqualPlatformStyle({
           borderTopWidth: 0.5,
         })
       })
@@ -224,7 +224,7 @@ describe('@/components/atoms/view', () => {
         const { result } = renderHook(() =>
           useViewBorderTopWidthStyle(ViewBorderWidth.MD),
         )
-        expect(result.current).toEqual({
+        expect(result.current).toEqualPlatformStyle({
           borderTopWidth: 1,
         })
       })
@@ -233,7 +233,7 @@ describe('@/components/atoms/view', () => {
         const { result } = renderHook(() =>
           useViewBorderTopWidthStyle(ViewBorderWidth.LG),
         )
-        expect(result.current).toEqual({
+        expect(result.current).toEqualPlatformStyle({
           borderTopWidth: 1.5,
         })
       })
@@ -249,7 +249,7 @@ describe('@/components/atoms/view', () => {
         const { result } = renderHook(() =>
           useViewBorderLeftWidthStyle(ViewBorderWidth.SM),
         )
-        expect(result.current).toEqual({
+        expect(result.current).toEqualPlatformStyle({
           borderLeftWidth: 0.5,
         })
       })
@@ -258,7 +258,7 @@ describe('@/components/atoms/view', () => {
         const { result } = renderHook(() =>
           useViewBorderLeftWidthStyle(ViewBorderWidth.MD),
         )
-        expect(result.current).toEqual({
+        expect(result.current).toEqualPlatformStyle({
           borderLeftWidth: 1,
         })
       })
@@ -267,7 +267,7 @@ describe('@/components/atoms/view', () => {
         const { result } = renderHook(() =>
           useViewBorderLeftWidthStyle(ViewBorderWidth.LG),
         )
-        expect(result.current).toEqual({
+        expect(result.current).toEqualPlatformStyle({
           borderLeftWidth: 1.5,
         })
       })
@@ -283,7 +283,7 @@ describe('@/components/atoms/view', () => {
         const { result } = renderHook(() =>
           useViewBorderRightWidthStyle(ViewBorderWidth.SM),
         )
-        expect(result.current).toEqual({
+        expect(result.current).toEqualPlatformStyle({
           borderRightWidth: 0.5,
         })
       })
@@ -292,7 +292,7 @@ describe('@/components/atoms/view', () => {
         const { result } = renderHook(() =>
           useViewBorderRightWidthStyle(ViewBorderWidth.MD),
         )
-        expect(result.current).toEqual({
+        expect(result.current).toEqualPlatformStyle({
           borderRightWidth: 1,
         })
       })
@@ -301,7 +301,7 @@ describe('@/components/atoms/view', () => {
         const { result } = renderHook(() =>
           useViewBorderRightWidthStyle(ViewBorderWidth.LG),
         )
-        expect(result.current).toEqual({
+        expect(result.current).toEqualPlatformStyle({
           borderRightWidth: 1.5,
         })
       })
@@ -317,7 +317,7 @@ describe('@/components/atoms/view', () => {
         const { result } = renderHook(() =>
           useViewBorderBottomWidthStyle(ViewBorderWidth.SM),
         )
-        expect(result.current).toEqual({
+        expect(result.current).toEqualPlatformStyle({
           borderBottomWidth: 0.5,
         })
       })
@@ -326,7 +326,7 @@ describe('@/components/atoms/view', () => {
         const { result } = renderHook(() =>
           useViewBorderBottomWidthStyle(ViewBorderWidth.MD),
         )
-        expect(result.current).toEqual({
+        expect(result.current).toEqualPlatformStyle({
           borderBottomWidth: 1,
         })
       })
@@ -335,7 +335,7 @@ describe('@/components/atoms/view', () => {
         const { result } = renderHook(() =>
           useViewBorderBottomWidthStyle(ViewBorderWidth.LG),
         )
-        expect(result.current).toEqual({
+        expect(result.current).toEqualPlatformStyle({
           borderBottomWidth: 1.5,
         })
       })
@@ -351,21 +351,27 @@ describe('@/components/atoms/view', () => {
         const { result } = renderHook(() =>
           useViewBorderWidthValue(ViewBorderWidth.SM),
         )
-        expect(result.current).toEqual(0.5)
+        expect(result.current).toEqualPlatformStyle({
+          web: '0.5px',
+          default: 0.5,
+        })
       })
 
       it('returns medium border width value', () => {
         const { result } = renderHook(() =>
           useViewBorderWidthValue(ViewBorderWidth.MD),
         )
-        expect(result.current).toEqual(1)
+        expect(result.current).toEqualPlatformStyle({ web: '1px', default: 1 })
       })
 
       it('returns large border width value', () => {
         const { result } = renderHook(() =>
           useViewBorderWidthValue(ViewBorderWidth.LG),
         )
-        expect(result.current).toEqual(1.5)
+        expect(result.current).toEqualPlatformStyle({
+          web: '1.5px',
+          default: 1.5,
+        })
       })
     })
   })

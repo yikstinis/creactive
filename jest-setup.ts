@@ -25,6 +25,32 @@ global.randomPercentDimension = (): PercentDimension =>
 
 type PlatformStyle = Record<string, unknown>
 
+const PIXEL_PROPERTIES = new Set([
+  'gap',
+  'top',
+  'left',
+  'right',
+  'bottom',
+  'width',
+  'height',
+  'minWidth',
+  'maxWidth',
+  'minHeight',
+  'maxHeight',
+  'flexBasis',
+  'lineHeight',
+  'borderWidth',
+  'borderTopWidth',
+  'borderLeftWidth',
+  'borderRightWidth',
+  'borderBottomWidth',
+  'borderRadius',
+  'borderTopLeftRadius',
+  'borderTopRightRadius',
+  'borderBottomLeftRadius',
+  'borderBottomRightRadius',
+])
+
 const normalizePlatformStyle = (value: unknown): unknown => {
   if (Array.isArray(value)) return value.map(normalizePlatformStyle)
   if (value === null || typeof value !== 'object') return value
@@ -33,26 +59,7 @@ const normalizePlatformStyle = (value: unknown): unknown => {
     Object.entries(value as PlatformStyle).map(([property, propertyValue]) => {
       if (
         Platform.OS === 'web' &&
-        new Set([
-          'gap',
-          'top',
-          'left',
-          'right',
-          'bottom',
-          'width',
-          'height',
-          'minWidth',
-          'maxWidth',
-          'minHeight',
-          'maxHeight',
-          'flexBasis',
-          'lineHeight',
-          'borderRadius',
-          'borderTopLeftRadius',
-          'borderTopRightRadius',
-          'borderBottomLeftRadius',
-          'borderBottomRightRadius',
-        ]).has(property) &&
+        PIXEL_PROPERTIES.has(property) &&
         typeof propertyValue === 'number'
       ) {
         return [property, `${propertyValue}px`]
@@ -60,6 +67,24 @@ const normalizePlatformStyle = (value: unknown): unknown => {
 
       return [property, normalizePlatformStyle(propertyValue)]
     }),
+  )
+}
+
+const resolvePlatformValue = (value: unknown, property?: string): unknown => {
+  if (Array.isArray(value)) return value.map((item) => resolvePlatformValue(item))
+  if (value === null || typeof value !== 'object') {
+    if (typeof value === 'number' && property !== undefined && PIXEL_PROPERTIES.has(property)) {
+      return Platform.OS === 'web' ? `${value}px` : value
+    }
+    return value
+  }
+  if ('default' in (value as object))
+    return Platform.select(value as { default: unknown })
+  return Object.fromEntries(
+    Object.entries(value as Record<string, unknown>).map(([key, entry]) => [
+      key,
+      resolvePlatformValue(entry, key),
+    ]),
   )
 }
 
@@ -79,12 +104,28 @@ expect.extend({
       }
     }
   },
+  toEqualPlatformStyle(received: unknown, expected: unknown) {
+    try {
+      expect(received).toEqual(resolvePlatformValue(expected))
+      return {
+        pass: true,
+        message: () => 'Expected value not to equal platform style!',
+      }
+    } catch (error) {
+      const message = error instanceof Error ? error.message : String(error)
+      return {
+        pass: false,
+        message: () => message,
+      }
+    }
+  },
 })
 
 declare global {
   namespace jest {
     interface Matchers<R> {
       toHavePlatformStyle(style: unknown): R
+      toEqualPlatformStyle(value: unknown): R
     }
   }
   function randomTestId(): string

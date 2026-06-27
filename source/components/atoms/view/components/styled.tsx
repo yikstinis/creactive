@@ -1,14 +1,18 @@
+import type { DimensionValue, PixelDimensionValue } from '@/helpers'
 import styled from '@emotion/styled'
 import type { ViewStyledProperties } from '../view.types'
 
 const formatSpacing = (spacing?: number) =>
   spacing === undefined ? undefined : `${spacing}px`
-const formatBorderWidth = (borderWidth?: number) =>
-  borderWidth === undefined ? 0 : `${borderWidth}px`
-const formatBorderRadius = (borderRadius?: number | '50%') => {
-  if (borderRadius === undefined) return undefined
-  if (borderRadius === '50%') return borderRadius
-  return `${borderRadius}px`
+const formatBorderWidth = (borderWidth?: PixelDimensionValue) => {
+  if (borderWidth === undefined) return 0
+  if (typeof borderWidth === 'string') return borderWidth
+  return `${borderWidth}px`
+}
+const formatBorderRadius = (value?: DimensionValue) => {
+  if (value === undefined) return undefined
+  if (typeof value === 'string') return value
+  return `${value}px`
 }
 export const ViewStyled = styled.div<ViewStyledProperties>`
   display: flex;

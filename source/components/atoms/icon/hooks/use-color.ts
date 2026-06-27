@@ -31,4 +31,4 @@ const ICON_COLOR_THEME_KEY = {
   [IconColor.FAILURE_900]: 'colorForegroundFailure900' as const,
 }
 export const useIconColorValue = (color: IconColor) =>
-  useThemeContext()[ICON_COLOR_THEME_KEY[color]]
+  useThemeContext()[ICON_COLOR_THEME_KEY[color]].toValue()

@@ -3109,18 +3109,20 @@ describe('@/components/atoms/view', () => {
       })
     })
 
-    it('renders with maximum border radius style', () => {
+    it('renders with percent border radius style', () => {
       const testId = randomTestId()
+      const percent = faker.number.int({ min: 1, max: 100 })
       render(
         <View
           testId={testId}
-          borderRadius={View.BorderRadius.MAX}
+          borderRadius={new Dimension(percent, Dimension.Unit.PERCENT)}
         />,
       )
       expect(screen.getByTestId(testId)).toHavePlatformStyle({
-        borderRadius: '50%',
+        borderRadius: `${percent}%`,
       })
     })
+
   })
 
   describe('border radius top left property', () => {
@@ -3189,18 +3191,20 @@ describe('@/components/atoms/view', () => {
       })
     })
 
-    it('renders with maximum border radius style', () => {
+    it('renders with percent border radius top left style', () => {
       const testId = randomTestId()
+      const percent = faker.number.int({ min: 1, max: 100 })
       render(
         <View
           testId={testId}
-          borderRadiusTopLeft={View.BorderRadius.MAX}
+          borderRadiusTopLeft={new Dimension(percent, Dimension.Unit.PERCENT)}
         />,
       )
       expect(screen.getByTestId(testId)).toHavePlatformStyle({
-        borderTopLeftRadius: '50%',
+        borderTopLeftRadius: `${percent}%`,
       })
     })
+
   })
 
   describe('border radius top right property', () => {
@@ -3269,18 +3273,20 @@ describe('@/components/atoms/view', () => {
       })
     })
 
-    it('renders with maximum border radius style', () => {
+    it('renders with percent border radius top right style', () => {
       const testId = randomTestId()
+      const percent = faker.number.int({ min: 1, max: 100 })
       render(
         <View
           testId={testId}
-          borderRadiusTopRight={View.BorderRadius.MAX}
+          borderRadiusTopRight={new Dimension(percent, Dimension.Unit.PERCENT)}
         />,
       )
       expect(screen.getByTestId(testId)).toHavePlatformStyle({
-        borderTopRightRadius: '50%',
+        borderTopRightRadius: `${percent}%`,
       })
     })
+
   })
 
   describe('border radius bottom left property', () => {
@@ -3349,18 +3355,20 @@ describe('@/components/atoms/view', () => {
       })
     })
 
-    it('renders with maximum border radius style', () => {
+    it('renders with percent border radius bottom left style', () => {
       const testId = randomTestId()
+      const percent = faker.number.int({ min: 1, max: 100 })
       render(
         <View
           testId={testId}
-          borderRadiusBottomLeft={View.BorderRadius.MAX}
+          borderRadiusBottomLeft={new Dimension(percent, Dimension.Unit.PERCENT)}
         />,
       )
       expect(screen.getByTestId(testId)).toHavePlatformStyle({
-        borderBottomLeftRadius: '50%',
+        borderBottomLeftRadius: `${percent}%`,
       })
     })
+
   })
 
   describe('border radius bottom right property', () => {
@@ -3429,18 +3437,20 @@ describe('@/components/atoms/view', () => {
       })
     })
 
-    it('renders with maximum border radius style', () => {
+    it('renders with percent border radius bottom right style', () => {
       const testId = randomTestId()
+      const percent = faker.number.int({ min: 1, max: 100 })
       render(
         <View
           testId={testId}
-          borderRadiusBottomRight={View.BorderRadius.MAX}
+          borderRadiusBottomRight={new Dimension(percent, Dimension.Unit.PERCENT)}
         />,
       )
       expect(screen.getByTestId(testId)).toHavePlatformStyle({
-        borderBottomRightRadius: '50%',
+        borderBottomRightRadius: `${percent}%`,
       })
     })
+
   })
 
   describe('background color property', () => {

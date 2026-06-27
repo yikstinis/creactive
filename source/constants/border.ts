@@ -10,5 +10,4 @@ export enum BorderRadius {
   X5L,
   X6L,
   X7L,
-  MAX,
 }

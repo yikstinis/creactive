@@ -6,6 +6,5 @@ const ICON_SIZE_THEME_KEY = {
   [IconSize.MD]: 'iconSizeBaseMD' as const,
   [IconSize.LG]: 'iconSizeBaseLG' as const,
 }
-
 export const useIconSizeValue = (size: IconSize) =>
   useThemeContext()[ICON_SIZE_THEME_KEY[size]]

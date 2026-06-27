@@ -13,255 +13,255 @@ export const useThemeStyleSheet = () => {
     () =>
       StyleSheet.create({
         colorBackgroundBase100: {
-          backgroundColor: themeContext.colorBackgroundBase100,
+          backgroundColor: themeContext.colorBackgroundBase100.toValue(),
         },
         colorBackgroundBase200: {
-          backgroundColor: themeContext.colorBackgroundBase200,
+          backgroundColor: themeContext.colorBackgroundBase200.toValue(),
         },
         colorBackgroundBase300: {
-          backgroundColor: themeContext.colorBackgroundBase300,
+          backgroundColor: themeContext.colorBackgroundBase300.toValue(),
         },
         colorBackgroundBase400: {
-          backgroundColor: themeContext.colorBackgroundBase400,
+          backgroundColor: themeContext.colorBackgroundBase400.toValue(),
         },
         colorBackgroundBase500: {
-          backgroundColor: themeContext.colorBackgroundBase500,
+          backgroundColor: themeContext.colorBackgroundBase500.toValue(),
         },
         colorBackgroundBase600: {
-          backgroundColor: themeContext.colorBackgroundBase600,
+          backgroundColor: themeContext.colorBackgroundBase600.toValue(),
         },
         colorBackgroundBase700: {
-          backgroundColor: themeContext.colorBackgroundBase700,
+          backgroundColor: themeContext.colorBackgroundBase700.toValue(),
         },
         colorBackgroundBase800: {
-          backgroundColor: themeContext.colorBackgroundBase800,
+          backgroundColor: themeContext.colorBackgroundBase800.toValue(),
         },
         colorBackgroundBase900: {
-          backgroundColor: themeContext.colorBackgroundBase900,
+          backgroundColor: themeContext.colorBackgroundBase900.toValue(),
         },
 
         colorBackgroundPrimary100: {
-          backgroundColor: themeContext.colorBackgroundPrimary100,
+          backgroundColor: themeContext.colorBackgroundPrimary100.toValue(),
         },
         colorBackgroundPrimary200: {
-          backgroundColor: themeContext.colorBackgroundPrimary200,
+          backgroundColor: themeContext.colorBackgroundPrimary200.toValue(),
         },
         colorBackgroundPrimary300: {
-          backgroundColor: themeContext.colorBackgroundPrimary300,
+          backgroundColor: themeContext.colorBackgroundPrimary300.toValue(),
         },
         colorBackgroundPrimary400: {
-          backgroundColor: themeContext.colorBackgroundPrimary400,
+          backgroundColor: themeContext.colorBackgroundPrimary400.toValue(),
         },
         colorBackgroundPrimary500: {
-          backgroundColor: themeContext.colorBackgroundPrimary500,
+          backgroundColor: themeContext.colorBackgroundPrimary500.toValue(),
         },
         colorBackgroundPrimary600: {
-          backgroundColor: themeContext.colorBackgroundPrimary600,
+          backgroundColor: themeContext.colorBackgroundPrimary600.toValue(),
         },
         colorBackgroundPrimary700: {
-          backgroundColor: themeContext.colorBackgroundPrimary700,
+          backgroundColor: themeContext.colorBackgroundPrimary700.toValue(),
         },
         colorBackgroundPrimary800: {
-          backgroundColor: themeContext.colorBackgroundPrimary800,
+          backgroundColor: themeContext.colorBackgroundPrimary800.toValue(),
         },
         colorBackgroundPrimary900: {
-          backgroundColor: themeContext.colorBackgroundPrimary900,
+          backgroundColor: themeContext.colorBackgroundPrimary900.toValue(),
         },
 
         colorBackgroundAccent100: {
-          backgroundColor: themeContext.colorBackgroundAccent100,
+          backgroundColor: themeContext.colorBackgroundAccent100.toValue(),
         },
         colorBackgroundAccent200: {
-          backgroundColor: themeContext.colorBackgroundAccent200,
+          backgroundColor: themeContext.colorBackgroundAccent200.toValue(),
         },
         colorBackgroundAccent300: {
-          backgroundColor: themeContext.colorBackgroundAccent300,
+          backgroundColor: themeContext.colorBackgroundAccent300.toValue(),
         },
         colorBackgroundAccent400: {
-          backgroundColor: themeContext.colorBackgroundAccent400,
+          backgroundColor: themeContext.colorBackgroundAccent400.toValue(),
         },
         colorBackgroundAccent500: {
-          backgroundColor: themeContext.colorBackgroundAccent500,
+          backgroundColor: themeContext.colorBackgroundAccent500.toValue(),
         },
         colorBackgroundAccent600: {
-          backgroundColor: themeContext.colorBackgroundAccent600,
+          backgroundColor: themeContext.colorBackgroundAccent600.toValue(),
         },
         colorBackgroundAccent700: {
-          backgroundColor: themeContext.colorBackgroundAccent700,
+          backgroundColor: themeContext.colorBackgroundAccent700.toValue(),
         },
         colorBackgroundAccent800: {
-          backgroundColor: themeContext.colorBackgroundAccent800,
+          backgroundColor: themeContext.colorBackgroundAccent800.toValue(),
         },
         colorBackgroundAccent900: {
-          backgroundColor: themeContext.colorBackgroundAccent900,
+          backgroundColor: themeContext.colorBackgroundAccent900.toValue(),
         },
 
         colorBackgroundSubaccent100: {
-          backgroundColor: themeContext.colorBackgroundSubaccent100,
+          backgroundColor: themeContext.colorBackgroundSubaccent100.toValue(),
         },
         colorBackgroundSubaccent200: {
-          backgroundColor: themeContext.colorBackgroundSubaccent200,
+          backgroundColor: themeContext.colorBackgroundSubaccent200.toValue(),
         },
         colorBackgroundSubaccent300: {
-          backgroundColor: themeContext.colorBackgroundSubaccent300,
+          backgroundColor: themeContext.colorBackgroundSubaccent300.toValue(),
         },
         colorBackgroundSubaccent400: {
-          backgroundColor: themeContext.colorBackgroundSubaccent400,
+          backgroundColor: themeContext.colorBackgroundSubaccent400.toValue(),
         },
         colorBackgroundSubaccent500: {
-          backgroundColor: themeContext.colorBackgroundSubaccent500,
+          backgroundColor: themeContext.colorBackgroundSubaccent500.toValue(),
         },
         colorBackgroundSubaccent600: {
-          backgroundColor: themeContext.colorBackgroundSubaccent600,
+          backgroundColor: themeContext.colorBackgroundSubaccent600.toValue(),
         },
         colorBackgroundSubaccent700: {
-          backgroundColor: themeContext.colorBackgroundSubaccent700,
+          backgroundColor: themeContext.colorBackgroundSubaccent700.toValue(),
         },
         colorBackgroundSubaccent800: {
-          backgroundColor: themeContext.colorBackgroundSubaccent800,
+          backgroundColor: themeContext.colorBackgroundSubaccent800.toValue(),
         },
         colorBackgroundSubaccent900: {
-          backgroundColor: themeContext.colorBackgroundSubaccent900,
+          backgroundColor: themeContext.colorBackgroundSubaccent900.toValue(),
         },
 
         colorBorderBase100: {
-          borderColor: themeContext.colorBorderBase100,
+          borderColor: themeContext.colorBorderBase100.toValue(),
         },
         colorBorderBase200: {
-          borderColor: themeContext.colorBorderBase200,
+          borderColor: themeContext.colorBorderBase200.toValue(),
         },
         colorBorderBase300: {
-          borderColor: themeContext.colorBorderBase300,
+          borderColor: themeContext.colorBorderBase300.toValue(),
         },
         colorBorderBase400: {
-          borderColor: themeContext.colorBorderBase400,
+          borderColor: themeContext.colorBorderBase400.toValue(),
         },
         colorBorderBase500: {
-          borderColor: themeContext.colorBorderBase500,
+          borderColor: themeContext.colorBorderBase500.toValue(),
         },
         colorBorderBase600: {
-          borderColor: themeContext.colorBorderBase600,
+          borderColor: themeContext.colorBorderBase600.toValue(),
         },
         colorBorderBase700: {
-          borderColor: themeContext.colorBorderBase700,
+          borderColor: themeContext.colorBorderBase700.toValue(),
         },
         colorBorderBase800: {
-          borderColor: themeContext.colorBorderBase800,
+          borderColor: themeContext.colorBorderBase800.toValue(),
         },
         colorBorderBase900: {
-          borderColor: themeContext.colorBorderBase900,
+          borderColor: themeContext.colorBorderBase900.toValue(),
         },
 
         outlineColorBorderBase100: {
-          outlineColor: themeContext.colorBorderBase100,
+          outlineColor: themeContext.colorBorderBase100.toValue(),
         },
         outlineColorBorderBase200: {
-          outlineColor: themeContext.colorBorderBase200,
+          outlineColor: themeContext.colorBorderBase200.toValue(),
         },
         outlineColorBorderBase300: {
-          outlineColor: themeContext.colorBorderBase300,
+          outlineColor: themeContext.colorBorderBase300.toValue(),
         },
         outlineColorBorderBase400: {
-          outlineColor: themeContext.colorBorderBase400,
+          outlineColor: themeContext.colorBorderBase400.toValue(),
         },
         outlineColorBorderBase500: {
-          outlineColor: themeContext.colorBorderBase500,
+          outlineColor: themeContext.colorBorderBase500.toValue(),
         },
         outlineColorBorderBase600: {
-          outlineColor: themeContext.colorBorderBase600,
+          outlineColor: themeContext.colorBorderBase600.toValue(),
         },
         outlineColorBorderBase700: {
-          outlineColor: themeContext.colorBorderBase700,
+          outlineColor: themeContext.colorBorderBase700.toValue(),
         },
         outlineColorBorderBase800: {
-          outlineColor: themeContext.colorBorderBase800,
+          outlineColor: themeContext.colorBorderBase800.toValue(),
         },
         outlineColorBorderBase900: {
-          outlineColor: themeContext.colorBorderBase900,
+          outlineColor: themeContext.colorBorderBase900.toValue(),
         },
 
         colorForegroundBase100: {
-          color: themeContext.colorForegroundBase100,
+          color: themeContext.colorForegroundBase100.toValue(),
         },
         colorForegroundBase200: {
-          color: themeContext.colorForegroundBase200,
+          color: themeContext.colorForegroundBase200.toValue(),
         },
         colorForegroundBase300: {
-          color: themeContext.colorForegroundBase300,
+          color: themeContext.colorForegroundBase300.toValue(),
         },
         colorForegroundBase400: {
-          color: themeContext.colorForegroundBase400,
+          color: themeContext.colorForegroundBase400.toValue(),
         },
         colorForegroundBase500: {
-          color: themeContext.colorForegroundBase500,
+          color: themeContext.colorForegroundBase500.toValue(),
         },
         colorForegroundBase600: {
-          color: themeContext.colorForegroundBase600,
+          color: themeContext.colorForegroundBase600.toValue(),
         },
         colorForegroundBase700: {
-          color: themeContext.colorForegroundBase700,
+          color: themeContext.colorForegroundBase700.toValue(),
         },
         colorForegroundBase800: {
-          color: themeContext.colorForegroundBase800,
+          color: themeContext.colorForegroundBase800.toValue(),
         },
         colorForegroundBase900: {
-          color: themeContext.colorForegroundBase900,
+          color: themeContext.colorForegroundBase900.toValue(),
         },
 
         colorForegroundInverse100: {
-          color: themeContext.colorForegroundInverse100,
+          color: themeContext.colorForegroundInverse100.toValue(),
         },
         colorForegroundInverse200: {
-          color: themeContext.colorForegroundInverse200,
+          color: themeContext.colorForegroundInverse200.toValue(),
         },
         colorForegroundInverse300: {
-          color: themeContext.colorForegroundInverse300,
+          color: themeContext.colorForegroundInverse300.toValue(),
         },
         colorForegroundInverse400: {
-          color: themeContext.colorForegroundInverse400,
+          color: themeContext.colorForegroundInverse400.toValue(),
         },
         colorForegroundInverse500: {
-          color: themeContext.colorForegroundInverse500,
+          color: themeContext.colorForegroundInverse500.toValue(),
         },
         colorForegroundInverse600: {
-          color: themeContext.colorForegroundInverse600,
+          color: themeContext.colorForegroundInverse600.toValue(),
         },
         colorForegroundInverse700: {
-          color: themeContext.colorForegroundInverse700,
+          color: themeContext.colorForegroundInverse700.toValue(),
         },
         colorForegroundInverse800: {
-          color: themeContext.colorForegroundInverse800,
+          color: themeContext.colorForegroundInverse800.toValue(),
         },
         colorForegroundInverse900: {
-          color: themeContext.colorForegroundInverse900,
+          color: themeContext.colorForegroundInverse900.toValue(),
         },
 
         colorForegroundFailure100: {
-          color: themeContext.colorForegroundFailure100,
+          color: themeContext.colorForegroundFailure100.toValue(),
         },
         colorForegroundFailure200: {
-          color: themeContext.colorForegroundFailure200,
+          color: themeContext.colorForegroundFailure200.toValue(),
         },
         colorForegroundFailure300: {
-          color: themeContext.colorForegroundFailure300,
+          color: themeContext.colorForegroundFailure300.toValue(),
         },
         colorForegroundFailure400: {
-          color: themeContext.colorForegroundFailure400,
+          color: themeContext.colorForegroundFailure400.toValue(),
         },
         colorForegroundFailure500: {
-          color: themeContext.colorForegroundFailure500,
+          color: themeContext.colorForegroundFailure500.toValue(),
         },
         colorForegroundFailure600: {
-          color: themeContext.colorForegroundFailure600,
+          color: themeContext.colorForegroundFailure600.toValue(),
         },
         colorForegroundFailure700: {
-          color: themeContext.colorForegroundFailure700,
+          color: themeContext.colorForegroundFailure700.toValue(),
         },
         colorForegroundFailure800: {
-          color: themeContext.colorForegroundFailure800,
+          color: themeContext.colorForegroundFailure800.toValue(),
         },
         colorForegroundFailure900: {
-          color: themeContext.colorForegroundFailure900,
+          color: themeContext.colorForegroundFailure900.toValue(),
         },
 
         fontFamilyDefault: {
@@ -741,215 +741,215 @@ export const useThemeStyleSheet = () => {
         },
 
         borderWidthBaseSM: {
-          borderWidth: themeContext.borderWidthBaseSM,
+          borderWidth: themeContext.borderWidthBaseSM.toValue() as number,
         },
         borderWidthBaseMD: {
-          borderWidth: themeContext.borderWidthBaseMD,
+          borderWidth: themeContext.borderWidthBaseMD.toValue() as number,
         },
         borderWidthBaseLG: {
-          borderWidth: themeContext.borderWidthBaseLG,
+          borderWidth: themeContext.borderWidthBaseLG.toValue() as number,
         },
         borderWidthTopBaseSM: {
-          borderTopWidth: themeContext.borderWidthBaseSM,
+          borderTopWidth: themeContext.borderWidthBaseSM.toValue() as number,
         },
         borderWidthTopBaseMD: {
-          borderTopWidth: themeContext.borderWidthBaseMD,
+          borderTopWidth: themeContext.borderWidthBaseMD.toValue() as number,
         },
         borderWidthTopBaseLG: {
-          borderTopWidth: themeContext.borderWidthBaseLG,
+          borderTopWidth: themeContext.borderWidthBaseLG.toValue() as number,
         },
         borderWidthLeftBaseSM: {
-          borderLeftWidth: themeContext.borderWidthBaseSM,
+          borderLeftWidth: themeContext.borderWidthBaseSM.toValue() as number,
         },
         borderWidthLeftBaseMD: {
-          borderLeftWidth: themeContext.borderWidthBaseMD,
+          borderLeftWidth: themeContext.borderWidthBaseMD.toValue() as number,
         },
         borderWidthLeftBaseLG: {
-          borderLeftWidth: themeContext.borderWidthBaseLG,
+          borderLeftWidth: themeContext.borderWidthBaseLG.toValue() as number,
         },
         borderWidthRightBaseSM: {
-          borderRightWidth: themeContext.borderWidthBaseSM,
+          borderRightWidth: themeContext.borderWidthBaseSM.toValue() as number,
         },
         borderWidthRightBaseMD: {
-          borderRightWidth: themeContext.borderWidthBaseMD,
+          borderRightWidth: themeContext.borderWidthBaseMD.toValue() as number,
         },
         borderWidthRightBaseLG: {
-          borderRightWidth: themeContext.borderWidthBaseLG,
+          borderRightWidth: themeContext.borderWidthBaseLG.toValue() as number,
         },
         borderWidthBottomBaseSM: {
-          borderBottomWidth: themeContext.borderWidthBaseSM,
+          borderBottomWidth: themeContext.borderWidthBaseSM.toValue() as number,
         },
         borderWidthBottomBaseMD: {
-          borderBottomWidth: themeContext.borderWidthBaseMD,
+          borderBottomWidth: themeContext.borderWidthBaseMD.toValue() as number,
         },
         borderWidthBottomBaseLG: {
-          borderBottomWidth: themeContext.borderWidthBaseLG,
+          borderBottomWidth: themeContext.borderWidthBaseLG.toValue() as number,
         },
 
         borderRadiusBaseXS: {
-          borderRadius: themeContext.borderRadiusBaseXS,
+          borderRadius: themeContext.borderRadiusBaseXS.toValue() as number,
         },
         borderRadiusBaseSM: {
-          borderRadius: themeContext.borderRadiusBaseSM,
+          borderRadius: themeContext.borderRadiusBaseSM.toValue() as number,
         },
         borderRadiusBaseMD: {
-          borderRadius: themeContext.borderRadiusBaseMD,
+          borderRadius: themeContext.borderRadiusBaseMD.toValue() as number,
         },
         borderRadiusBaseLG: {
-          borderRadius: themeContext.borderRadiusBaseLG,
+          borderRadius: themeContext.borderRadiusBaseLG.toValue() as number,
         },
         borderRadiusBaseXL: {
-          borderRadius: themeContext.borderRadiusBaseXL,
+          borderRadius: themeContext.borderRadiusBaseXL.toValue() as number,
         },
         borderRadiusBaseX2L: {
-          borderRadius: themeContext.borderRadiusBaseX2L,
+          borderRadius: themeContext.borderRadiusBaseX2L.toValue() as number,
         },
         borderRadiusBaseX3L: {
-          borderRadius: themeContext.borderRadiusBaseX3L,
+          borderRadius: themeContext.borderRadiusBaseX3L.toValue() as number,
         },
         borderRadiusBaseX4L: {
-          borderRadius: themeContext.borderRadiusBaseX4L,
+          borderRadius: themeContext.borderRadiusBaseX4L.toValue() as number,
         },
         borderRadiusBaseX5L: {
-          borderRadius: themeContext.borderRadiusBaseX5L,
+          borderRadius: themeContext.borderRadiusBaseX5L.toValue() as number,
         },
         borderRadiusBaseX6L: {
-          borderRadius: themeContext.borderRadiusBaseX6L,
+          borderRadius: themeContext.borderRadiusBaseX6L.toValue() as number,
         },
         borderRadiusBaseX7L: {
-          borderRadius: themeContext.borderRadiusBaseX7L,
+          borderRadius: themeContext.borderRadiusBaseX7L.toValue() as number,
         },
         borderTopLeftRadiusBaseXS: {
-          borderTopLeftRadius: themeContext.borderRadiusBaseXS,
+          borderTopLeftRadius: themeContext.borderRadiusBaseXS.toValue() as number,
         },
         borderTopLeftRadiusBaseSM: {
-          borderTopLeftRadius: themeContext.borderRadiusBaseSM,
+          borderTopLeftRadius: themeContext.borderRadiusBaseSM.toValue() as number,
         },
         borderTopLeftRadiusBaseMD: {
-          borderTopLeftRadius: themeContext.borderRadiusBaseMD,
+          borderTopLeftRadius: themeContext.borderRadiusBaseMD.toValue() as number,
         },
         borderTopLeftRadiusBaseLG: {
-          borderTopLeftRadius: themeContext.borderRadiusBaseLG,
+          borderTopLeftRadius: themeContext.borderRadiusBaseLG.toValue() as number,
         },
         borderTopLeftRadiusBaseXL: {
-          borderTopLeftRadius: themeContext.borderRadiusBaseXL,
+          borderTopLeftRadius: themeContext.borderRadiusBaseXL.toValue() as number,
         },
         borderTopLeftRadiusBaseX2L: {
-          borderTopLeftRadius: themeContext.borderRadiusBaseX2L,
+          borderTopLeftRadius: themeContext.borderRadiusBaseX2L.toValue() as number,
         },
         borderTopLeftRadiusBaseX3L: {
-          borderTopLeftRadius: themeContext.borderRadiusBaseX3L,
+          borderTopLeftRadius: themeContext.borderRadiusBaseX3L.toValue() as number,
         },
         borderTopLeftRadiusBaseX4L: {
-          borderTopLeftRadius: themeContext.borderRadiusBaseX4L,
+          borderTopLeftRadius: themeContext.borderRadiusBaseX4L.toValue() as number,
         },
         borderTopLeftRadiusBaseX5L: {
-          borderTopLeftRadius: themeContext.borderRadiusBaseX5L,
+          borderTopLeftRadius: themeContext.borderRadiusBaseX5L.toValue() as number,
         },
         borderTopLeftRadiusBaseX6L: {
-          borderTopLeftRadius: themeContext.borderRadiusBaseX6L,
+          borderTopLeftRadius: themeContext.borderRadiusBaseX6L.toValue() as number,
         },
         borderTopLeftRadiusBaseX7L: {
-          borderTopLeftRadius: themeContext.borderRadiusBaseX7L,
+          borderTopLeftRadius: themeContext.borderRadiusBaseX7L.toValue() as number,
         },
         borderTopRightRadiusBaseXS: {
-          borderTopRightRadius: themeContext.borderRadiusBaseXS,
+          borderTopRightRadius: themeContext.borderRadiusBaseXS.toValue() as number,
         },
         borderTopRightRadiusBaseSM: {
-          borderTopRightRadius: themeContext.borderRadiusBaseSM,
+          borderTopRightRadius: themeContext.borderRadiusBaseSM.toValue() as number,
         },
         borderTopRightRadiusBaseMD: {
-          borderTopRightRadius: themeContext.borderRadiusBaseMD,
+          borderTopRightRadius: themeContext.borderRadiusBaseMD.toValue() as number,
         },
         borderTopRightRadiusBaseLG: {
-          borderTopRightRadius: themeContext.borderRadiusBaseLG,
+          borderTopRightRadius: themeContext.borderRadiusBaseLG.toValue() as number,
         },
         borderTopRightRadiusBaseXL: {
-          borderTopRightRadius: themeContext.borderRadiusBaseXL,
+          borderTopRightRadius: themeContext.borderRadiusBaseXL.toValue() as number,
         },
         borderTopRightRadiusBaseX2L: {
-          borderTopRightRadius: themeContext.borderRadiusBaseX2L,
+          borderTopRightRadius: themeContext.borderRadiusBaseX2L.toValue() as number,
         },
         borderTopRightRadiusBaseX3L: {
-          borderTopRightRadius: themeContext.borderRadiusBaseX3L,
+          borderTopRightRadius: themeContext.borderRadiusBaseX3L.toValue() as number,
         },
         borderTopRightRadiusBaseX4L: {
-          borderTopRightRadius: themeContext.borderRadiusBaseX4L,
+          borderTopRightRadius: themeContext.borderRadiusBaseX4L.toValue() as number,
         },
         borderTopRightRadiusBaseX5L: {
-          borderTopRightRadius: themeContext.borderRadiusBaseX5L,
+          borderTopRightRadius: themeContext.borderRadiusBaseX5L.toValue() as number,
         },
         borderTopRightRadiusBaseX6L: {
-          borderTopRightRadius: themeContext.borderRadiusBaseX6L,
+          borderTopRightRadius: themeContext.borderRadiusBaseX6L.toValue() as number,
         },
         borderTopRightRadiusBaseX7L: {
-          borderTopRightRadius: themeContext.borderRadiusBaseX7L,
+          borderTopRightRadius: themeContext.borderRadiusBaseX7L.toValue() as number,
         },
         borderBottomLeftRadiusBaseXS: {
-          borderBottomLeftRadius: themeContext.borderRadiusBaseXS,
+          borderBottomLeftRadius: themeContext.borderRadiusBaseXS.toValue() as number,
         },
         borderBottomLeftRadiusBaseSM: {
-          borderBottomLeftRadius: themeContext.borderRadiusBaseSM,
+          borderBottomLeftRadius: themeContext.borderRadiusBaseSM.toValue() as number,
         },
         borderBottomLeftRadiusBaseMD: {
-          borderBottomLeftRadius: themeContext.borderRadiusBaseMD,
+          borderBottomLeftRadius: themeContext.borderRadiusBaseMD.toValue() as number,
         },
         borderBottomLeftRadiusBaseLG: {
-          borderBottomLeftRadius: themeContext.borderRadiusBaseLG,
+          borderBottomLeftRadius: themeContext.borderRadiusBaseLG.toValue() as number,
         },
         borderBottomLeftRadiusBaseXL: {
-          borderBottomLeftRadius: themeContext.borderRadiusBaseXL,
+          borderBottomLeftRadius: themeContext.borderRadiusBaseXL.toValue() as number,
         },
         borderBottomLeftRadiusBaseX2L: {
-          borderBottomLeftRadius: themeContext.borderRadiusBaseX2L,
+          borderBottomLeftRadius: themeContext.borderRadiusBaseX2L.toValue() as number,
         },
         borderBottomLeftRadiusBaseX3L: {
-          borderBottomLeftRadius: themeContext.borderRadiusBaseX3L,
+          borderBottomLeftRadius: themeContext.borderRadiusBaseX3L.toValue() as number,
         },
         borderBottomLeftRadiusBaseX4L: {
-          borderBottomLeftRadius: themeContext.borderRadiusBaseX4L,
+          borderBottomLeftRadius: themeContext.borderRadiusBaseX4L.toValue() as number,
         },
         borderBottomLeftRadiusBaseX5L: {
-          borderBottomLeftRadius: themeContext.borderRadiusBaseX5L,
+          borderBottomLeftRadius: themeContext.borderRadiusBaseX5L.toValue() as number,
         },
         borderBottomLeftRadiusBaseX6L: {
-          borderBottomLeftRadius: themeContext.borderRadiusBaseX6L,
+          borderBottomLeftRadius: themeContext.borderRadiusBaseX6L.toValue() as number,
         },
         borderBottomLeftRadiusBaseX7L: {
-          borderBottomLeftRadius: themeContext.borderRadiusBaseX7L,
+          borderBottomLeftRadius: themeContext.borderRadiusBaseX7L.toValue() as number,
         },
         borderBottomRightRadiusBaseXS: {
-          borderBottomRightRadius: themeContext.borderRadiusBaseXS,
+          borderBottomRightRadius: themeContext.borderRadiusBaseXS.toValue() as number,
         },
         borderBottomRightRadiusBaseSM: {
-          borderBottomRightRadius: themeContext.borderRadiusBaseSM,
+          borderBottomRightRadius: themeContext.borderRadiusBaseSM.toValue() as number,
         },
         borderBottomRightRadiusBaseMD: {
-          borderBottomRightRadius: themeContext.borderRadiusBaseMD,
+          borderBottomRightRadius: themeContext.borderRadiusBaseMD.toValue() as number,
         },
         borderBottomRightRadiusBaseLG: {
-          borderBottomRightRadius: themeContext.borderRadiusBaseLG,
+          borderBottomRightRadius: themeContext.borderRadiusBaseLG.toValue() as number,
         },
         borderBottomRightRadiusBaseXL: {
-          borderBottomRightRadius: themeContext.borderRadiusBaseXL,
+          borderBottomRightRadius: themeContext.borderRadiusBaseXL.toValue() as number,
         },
         borderBottomRightRadiusBaseX2L: {
-          borderBottomRightRadius: themeContext.borderRadiusBaseX2L,
+          borderBottomRightRadius: themeContext.borderRadiusBaseX2L.toValue() as number,
         },
         borderBottomRightRadiusBaseX3L: {
-          borderBottomRightRadius: themeContext.borderRadiusBaseX3L,
+          borderBottomRightRadius: themeContext.borderRadiusBaseX3L.toValue() as number,
         },
         borderBottomRightRadiusBaseX4L: {
-          borderBottomRightRadius: themeContext.borderRadiusBaseX4L,
+          borderBottomRightRadius: themeContext.borderRadiusBaseX4L.toValue() as number,
         },
         borderBottomRightRadiusBaseX5L: {
-          borderBottomRightRadius: themeContext.borderRadiusBaseX5L,
+          borderBottomRightRadius: themeContext.borderRadiusBaseX5L.toValue() as number,
         },
         borderBottomRightRadiusBaseX6L: {
-          borderBottomRightRadius: themeContext.borderRadiusBaseX6L,
+          borderBottomRightRadius: themeContext.borderRadiusBaseX6L.toValue() as number,
         },
         borderBottomRightRadiusBaseX7L: {
-          borderBottomRightRadius: themeContext.borderRadiusBaseX7L,
+          borderBottomRightRadius: themeContext.borderRadiusBaseX7L.toValue() as number,
         },
       }),
     [themeContext],

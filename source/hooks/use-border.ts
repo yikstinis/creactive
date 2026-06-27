@@ -1,12 +1,8 @@
 import { BorderRadius } from '@/constants'
 import { useThemeContext, useThemeStyleSheet } from '@/contexts'
-import { StyleSheet } from 'react-native'
+import { Dimension } from '@/helpers'
+import type { PercentDimension } from '@/helpers'
 
-const borderRadiusStyleSheet = StyleSheet.create({
-  borderRadiusMax: {
-    borderRadius: '50%',
-  },
-})
 const BORDER_RADIUS_THEME_STYLE_KEY = {
   [BorderRadius.XS]: 'borderRadiusBaseXS' as const,
   [BorderRadius.SM]: 'borderRadiusBaseSM' as const,
@@ -20,19 +16,13 @@ const BORDER_RADIUS_THEME_STYLE_KEY = {
   [BorderRadius.X6L]: 'borderRadiusBaseX6L' as const,
   [BorderRadius.X7L]: 'borderRadiusBaseX7L' as const,
 }
-export const useBorderRadiusStyle = (borderRadius?: BorderRadius) => {
+export const useBorderRadiusStyle = (borderRadius?: BorderRadius | PercentDimension) => {
   const themeStyleSheet = useThemeStyleSheet()
   if (borderRadius === undefined) return undefined
-  return borderRadius === BorderRadius.MAX
-    ? borderRadiusStyleSheet.borderRadiusMax
-    : themeStyleSheet[BORDER_RADIUS_THEME_STYLE_KEY[borderRadius]]
+  if (borderRadius instanceof Dimension) return { borderRadius: borderRadius.toValue() }
+  return themeStyleSheet[BORDER_RADIUS_THEME_STYLE_KEY[borderRadius]]
 }
 
-const borderTopLeftRadiusStyleSheet = StyleSheet.create({
-  borderRadiusMax: {
-    borderTopLeftRadius: '50%',
-  },
-})
 const BORDER_TOP_LEFT_RADIUS_THEME_STYLE_KEY = {
   [BorderRadius.XS]: 'borderTopLeftRadiusBaseXS' as const,
   [BorderRadius.SM]: 'borderTopLeftRadiusBaseSM' as const,
@@ -46,19 +36,13 @@ const BORDER_TOP_LEFT_RADIUS_THEME_STYLE_KEY = {
   [BorderRadius.X6L]: 'borderTopLeftRadiusBaseX6L' as const,
   [BorderRadius.X7L]: 'borderTopLeftRadiusBaseX7L' as const,
 }
-export const useBorderTopLeftRadiusStyle = (borderRadius?: BorderRadius) => {
+export const useBorderTopLeftRadiusStyle = (borderRadius?: BorderRadius | PercentDimension) => {
   const themeStyleSheet = useThemeStyleSheet()
   if (borderRadius === undefined) return undefined
-  return borderRadius === BorderRadius.MAX
-    ? borderTopLeftRadiusStyleSheet.borderRadiusMax
-    : themeStyleSheet[BORDER_TOP_LEFT_RADIUS_THEME_STYLE_KEY[borderRadius]]
+  if (borderRadius instanceof Dimension) return { borderTopLeftRadius: borderRadius.toValue() }
+  return themeStyleSheet[BORDER_TOP_LEFT_RADIUS_THEME_STYLE_KEY[borderRadius]]
 }
 
-const borderTopRightRadiusStyleSheet = StyleSheet.create({
-  borderRadiusMax: {
-    borderTopRightRadius: '50%',
-  },
-})
 const BORDER_TOP_RIGHT_RADIUS_THEME_STYLE_KEY = {
   [BorderRadius.XS]: 'borderTopRightRadiusBaseXS' as const,
   [BorderRadius.SM]: 'borderTopRightRadiusBaseSM' as const,
@@ -72,19 +56,13 @@ const BORDER_TOP_RIGHT_RADIUS_THEME_STYLE_KEY = {
   [BorderRadius.X6L]: 'borderTopRightRadiusBaseX6L' as const,
   [BorderRadius.X7L]: 'borderTopRightRadiusBaseX7L' as const,
 }
-export const useBorderTopRightRadiusStyle = (borderRadius?: BorderRadius) => {
+export const useBorderTopRightRadiusStyle = (borderRadius?: BorderRadius | PercentDimension) => {
   const themeStyleSheet = useThemeStyleSheet()
   if (borderRadius === undefined) return undefined
-  return borderRadius === BorderRadius.MAX
-    ? borderTopRightRadiusStyleSheet.borderRadiusMax
-    : themeStyleSheet[BORDER_TOP_RIGHT_RADIUS_THEME_STYLE_KEY[borderRadius]]
+  if (borderRadius instanceof Dimension) return { borderTopRightRadius: borderRadius.toValue() }
+  return themeStyleSheet[BORDER_TOP_RIGHT_RADIUS_THEME_STYLE_KEY[borderRadius]]
 }
 
-const borderBottomLeftRadiusStyleSheet = StyleSheet.create({
-  borderRadiusMax: {
-    borderBottomLeftRadius: '50%',
-  },
-})
 const BORDER_BOTTOM_LEFT_RADIUS_THEME_STYLE_KEY = {
   [BorderRadius.XS]: 'borderBottomLeftRadiusBaseXS' as const,
   [BorderRadius.SM]: 'borderBottomLeftRadiusBaseSM' as const,
@@ -98,19 +76,13 @@ const BORDER_BOTTOM_LEFT_RADIUS_THEME_STYLE_KEY = {
   [BorderRadius.X6L]: 'borderBottomLeftRadiusBaseX6L' as const,
   [BorderRadius.X7L]: 'borderBottomLeftRadiusBaseX7L' as const,
 }
-export const useBorderBottomLeftRadiusStyle = (borderRadius?: BorderRadius) => {
+export const useBorderBottomLeftRadiusStyle = (borderRadius?: BorderRadius | PercentDimension) => {
   const themeStyleSheet = useThemeStyleSheet()
   if (borderRadius === undefined) return undefined
-  return borderRadius === BorderRadius.MAX
-    ? borderBottomLeftRadiusStyleSheet.borderRadiusMax
-    : themeStyleSheet[BORDER_BOTTOM_LEFT_RADIUS_THEME_STYLE_KEY[borderRadius]]
+  if (borderRadius instanceof Dimension) return { borderBottomLeftRadius: borderRadius.toValue() }
+  return themeStyleSheet[BORDER_BOTTOM_LEFT_RADIUS_THEME_STYLE_KEY[borderRadius]]
 }
 
-const borderBottomRightRadiusStyleSheet = StyleSheet.create({
-  borderRadiusMax: {
-    borderBottomRightRadius: '50%',
-  },
-})
 const BORDER_BOTTOM_RIGHT_RADIUS_THEME_STYLE_KEY = {
   [BorderRadius.XS]: 'borderBottomRightRadiusBaseXS' as const,
   [BorderRadius.SM]: 'borderBottomRightRadiusBaseSM' as const,
@@ -125,13 +97,12 @@ const BORDER_BOTTOM_RIGHT_RADIUS_THEME_STYLE_KEY = {
   [BorderRadius.X7L]: 'borderBottomRightRadiusBaseX7L' as const,
 }
 export const useBorderBottomRightRadiusStyle = (
-  borderRadius?: BorderRadius,
+  borderRadius?: BorderRadius | PercentDimension,
 ) => {
   const themeStyleSheet = useThemeStyleSheet()
   if (borderRadius === undefined) return undefined
-  return borderRadius === BorderRadius.MAX
-    ? borderBottomRightRadiusStyleSheet.borderRadiusMax
-    : themeStyleSheet[BORDER_BOTTOM_RIGHT_RADIUS_THEME_STYLE_KEY[borderRadius]]
+  if (borderRadius instanceof Dimension) return { borderBottomRightRadius: borderRadius.toValue() }
+  return themeStyleSheet[BORDER_BOTTOM_RIGHT_RADIUS_THEME_STYLE_KEY[borderRadius]]
 }
 
 const BORDER_RADIUS_THEME_KEY = {
@@ -147,9 +118,9 @@ const BORDER_RADIUS_THEME_KEY = {
   [BorderRadius.X6L]: 'borderRadiusBaseX6L' as const,
   [BorderRadius.X7L]: 'borderRadiusBaseX7L' as const,
 }
-export const useBorderRadiusValue = (borderRadius?: BorderRadius) => {
+export const useBorderRadiusValue = (borderRadius?: BorderRadius | PercentDimension) => {
   const themeContext = useThemeContext()
   if (borderRadius === undefined) return undefined
-  if (borderRadius === BorderRadius.MAX) return '50%'
-  return themeContext[BORDER_RADIUS_THEME_KEY[borderRadius]]
+  if (borderRadius instanceof Dimension) return borderRadius.toValue()
+  return themeContext[BORDER_RADIUS_THEME_KEY[borderRadius]].toValue()
 }

@@ -1,4 +1,6 @@
 import { BorderRadius } from '@/constants'
+import { Dimension } from '@/helpers'
+import { faker } from '@faker-js/faker'
 import { renderHook } from '@testing-library/react-native'
 import {
   useBorderBottomLeftRadiusStyle,
@@ -21,7 +23,7 @@ describe('@/hooks', () => {
         const { result } = renderHook(() =>
           useBorderRadiusStyle(BorderRadius.XS),
         )
-        expect(result.current).toEqual({
+        expect(result.current).toEqualPlatformStyle({
           borderRadius: 2,
         })
       })
@@ -30,7 +32,7 @@ describe('@/hooks', () => {
         const { result } = renderHook(() =>
           useBorderRadiusStyle(BorderRadius.SM),
         )
-        expect(result.current).toEqual({
+        expect(result.current).toEqualPlatformStyle({
           borderRadius: 4,
         })
       })
@@ -39,7 +41,7 @@ describe('@/hooks', () => {
         const { result } = renderHook(() =>
           useBorderRadiusStyle(BorderRadius.MD),
         )
-        expect(result.current).toEqual({
+        expect(result.current).toEqualPlatformStyle({
           borderRadius: 6,
         })
       })
@@ -48,7 +50,7 @@ describe('@/hooks', () => {
         const { result } = renderHook(() =>
           useBorderRadiusStyle(BorderRadius.LG),
         )
-        expect(result.current).toEqual({
+        expect(result.current).toEqualPlatformStyle({
           borderRadius: 8,
         })
       })
@@ -57,7 +59,7 @@ describe('@/hooks', () => {
         const { result } = renderHook(() =>
           useBorderRadiusStyle(BorderRadius.XL),
         )
-        expect(result.current).toEqual({
+        expect(result.current).toEqualPlatformStyle({
           borderRadius: 10,
         })
       })
@@ -66,7 +68,7 @@ describe('@/hooks', () => {
         const { result } = renderHook(() =>
           useBorderRadiusStyle(BorderRadius.X2L),
         )
-        expect(result.current).toEqual({
+        expect(result.current).toEqualPlatformStyle({
           borderRadius: 12,
         })
       })
@@ -75,7 +77,7 @@ describe('@/hooks', () => {
         const { result } = renderHook(() =>
           useBorderRadiusStyle(BorderRadius.X3L),
         )
-        expect(result.current).toEqual({
+        expect(result.current).toEqualPlatformStyle({
           borderRadius: 16,
         })
       })
@@ -84,7 +86,7 @@ describe('@/hooks', () => {
         const { result } = renderHook(() =>
           useBorderRadiusStyle(BorderRadius.X4L),
         )
-        expect(result.current).toEqual({
+        expect(result.current).toEqualPlatformStyle({
           borderRadius: 18,
         })
       })
@@ -93,7 +95,7 @@ describe('@/hooks', () => {
         const { result } = renderHook(() =>
           useBorderRadiusStyle(BorderRadius.X5L),
         )
-        expect(result.current).toEqual({
+        expect(result.current).toEqualPlatformStyle({
           borderRadius: 20,
         })
       })
@@ -102,7 +104,7 @@ describe('@/hooks', () => {
         const { result } = renderHook(() =>
           useBorderRadiusStyle(BorderRadius.X6L),
         )
-        expect(result.current).toEqual({
+        expect(result.current).toEqualPlatformStyle({
           borderRadius: 24,
         })
       })
@@ -111,17 +113,18 @@ describe('@/hooks', () => {
         const { result } = renderHook(() =>
           useBorderRadiusStyle(BorderRadius.X7L),
         )
-        expect(result.current).toEqual({
+        expect(result.current).toEqualPlatformStyle({
           borderRadius: 28,
         })
       })
 
-      it('returns maximum border radius', () => {
+      it('returns percent border radius', () => {
+        const percent = faker.number.int({ min: 1, max: 100 })
         const { result } = renderHook(() =>
-          useBorderRadiusStyle(BorderRadius.MAX),
+          useBorderRadiusStyle(new Dimension(percent, Dimension.Unit.PERCENT)),
         )
         expect(result.current).toEqual({
-          borderRadius: '50%',
+          borderRadius: `${percent}%`,
         })
       })
     })
@@ -136,7 +139,7 @@ describe('@/hooks', () => {
         const { result } = renderHook(() =>
           useBorderTopLeftRadiusStyle(BorderRadius.XS),
         )
-        expect(result.current).toEqual({
+        expect(result.current).toEqualPlatformStyle({
           borderTopLeftRadius: 2,
         })
       })
@@ -145,7 +148,7 @@ describe('@/hooks', () => {
         const { result } = renderHook(() =>
           useBorderTopLeftRadiusStyle(BorderRadius.SM),
         )
-        expect(result.current).toEqual({
+        expect(result.current).toEqualPlatformStyle({
           borderTopLeftRadius: 4,
         })
       })
@@ -154,7 +157,7 @@ describe('@/hooks', () => {
         const { result } = renderHook(() =>
           useBorderTopLeftRadiusStyle(BorderRadius.MD),
         )
-        expect(result.current).toEqual({
+        expect(result.current).toEqualPlatformStyle({
           borderTopLeftRadius: 6,
         })
       })
@@ -163,7 +166,7 @@ describe('@/hooks', () => {
         const { result } = renderHook(() =>
           useBorderTopLeftRadiusStyle(BorderRadius.LG),
         )
-        expect(result.current).toEqual({
+        expect(result.current).toEqualPlatformStyle({
           borderTopLeftRadius: 8,
         })
       })
@@ -172,7 +175,7 @@ describe('@/hooks', () => {
         const { result } = renderHook(() =>
           useBorderTopLeftRadiusStyle(BorderRadius.XL),
         )
-        expect(result.current).toEqual({
+        expect(result.current).toEqualPlatformStyle({
           borderTopLeftRadius: 10,
         })
       })
@@ -181,7 +184,7 @@ describe('@/hooks', () => {
         const { result } = renderHook(() =>
           useBorderTopLeftRadiusStyle(BorderRadius.X2L),
         )
-        expect(result.current).toEqual({
+        expect(result.current).toEqualPlatformStyle({
           borderTopLeftRadius: 12,
         })
       })
@@ -190,7 +193,7 @@ describe('@/hooks', () => {
         const { result } = renderHook(() =>
           useBorderTopLeftRadiusStyle(BorderRadius.X3L),
         )
-        expect(result.current).toEqual({
+        expect(result.current).toEqualPlatformStyle({
           borderTopLeftRadius: 16,
         })
       })
@@ -199,7 +202,7 @@ describe('@/hooks', () => {
         const { result } = renderHook(() =>
           useBorderTopLeftRadiusStyle(BorderRadius.X4L),
         )
-        expect(result.current).toEqual({
+        expect(result.current).toEqualPlatformStyle({
           borderTopLeftRadius: 18,
         })
       })
@@ -208,7 +211,7 @@ describe('@/hooks', () => {
         const { result } = renderHook(() =>
           useBorderTopLeftRadiusStyle(BorderRadius.X5L),
         )
-        expect(result.current).toEqual({
+        expect(result.current).toEqualPlatformStyle({
           borderTopLeftRadius: 20,
         })
       })
@@ -217,7 +220,7 @@ describe('@/hooks', () => {
         const { result } = renderHook(() =>
           useBorderTopLeftRadiusStyle(BorderRadius.X6L),
         )
-        expect(result.current).toEqual({
+        expect(result.current).toEqualPlatformStyle({
           borderTopLeftRadius: 24,
         })
       })
@@ -226,17 +229,20 @@ describe('@/hooks', () => {
         const { result } = renderHook(() =>
           useBorderTopLeftRadiusStyle(BorderRadius.X7L),
         )
-        expect(result.current).toEqual({
+        expect(result.current).toEqualPlatformStyle({
           borderTopLeftRadius: 28,
         })
       })
 
-      it('returns maximum border radius', () => {
+      it('returns percent border radius', () => {
+        const percent = faker.number.int({ min: 1, max: 100 })
         const { result } = renderHook(() =>
-          useBorderTopLeftRadiusStyle(BorderRadius.MAX),
+          useBorderTopLeftRadiusStyle(
+            new Dimension(percent, Dimension.Unit.PERCENT),
+          ),
         )
         expect(result.current).toEqual({
-          borderTopLeftRadius: '50%',
+          borderTopLeftRadius: `${percent}%`,
         })
       })
     })
@@ -251,7 +257,7 @@ describe('@/hooks', () => {
         const { result } = renderHook(() =>
           useBorderTopRightRadiusStyle(BorderRadius.XS),
         )
-        expect(result.current).toEqual({
+        expect(result.current).toEqualPlatformStyle({
           borderTopRightRadius: 2,
         })
       })
@@ -260,7 +266,7 @@ describe('@/hooks', () => {
         const { result } = renderHook(() =>
           useBorderTopRightRadiusStyle(BorderRadius.SM),
         )
-        expect(result.current).toEqual({
+        expect(result.current).toEqualPlatformStyle({
           borderTopRightRadius: 4,
         })
       })
@@ -269,7 +275,7 @@ describe('@/hooks', () => {
         const { result } = renderHook(() =>
           useBorderTopRightRadiusStyle(BorderRadius.MD),
         )
-        expect(result.current).toEqual({
+        expect(result.current).toEqualPlatformStyle({
           borderTopRightRadius: 6,
         })
       })
@@ -278,7 +284,7 @@ describe('@/hooks', () => {
         const { result } = renderHook(() =>
           useBorderTopRightRadiusStyle(BorderRadius.LG),
         )
-        expect(result.current).toEqual({
+        expect(result.current).toEqualPlatformStyle({
           borderTopRightRadius: 8,
         })
       })
@@ -287,7 +293,7 @@ describe('@/hooks', () => {
         const { result } = renderHook(() =>
           useBorderTopRightRadiusStyle(BorderRadius.XL),
         )
-        expect(result.current).toEqual({
+        expect(result.current).toEqualPlatformStyle({
           borderTopRightRadius: 10,
         })
       })
@@ -296,7 +302,7 @@ describe('@/hooks', () => {
         const { result } = renderHook(() =>
           useBorderTopRightRadiusStyle(BorderRadius.X2L),
         )
-        expect(result.current).toEqual({
+        expect(result.current).toEqualPlatformStyle({
           borderTopRightRadius: 12,
         })
       })
@@ -305,7 +311,7 @@ describe('@/hooks', () => {
         const { result } = renderHook(() =>
           useBorderTopRightRadiusStyle(BorderRadius.X3L),
         )
-        expect(result.current).toEqual({
+        expect(result.current).toEqualPlatformStyle({
           borderTopRightRadius: 16,
         })
       })
@@ -314,7 +320,7 @@ describe('@/hooks', () => {
         const { result } = renderHook(() =>
           useBorderTopRightRadiusStyle(BorderRadius.X4L),
         )
-        expect(result.current).toEqual({
+        expect(result.current).toEqualPlatformStyle({
           borderTopRightRadius: 18,
         })
       })
@@ -323,7 +329,7 @@ describe('@/hooks', () => {
         const { result } = renderHook(() =>
           useBorderTopRightRadiusStyle(BorderRadius.X5L),
         )
-        expect(result.current).toEqual({
+        expect(result.current).toEqualPlatformStyle({
           borderTopRightRadius: 20,
         })
       })
@@ -332,7 +338,7 @@ describe('@/hooks', () => {
         const { result } = renderHook(() =>
           useBorderTopRightRadiusStyle(BorderRadius.X6L),
         )
-        expect(result.current).toEqual({
+        expect(result.current).toEqualPlatformStyle({
           borderTopRightRadius: 24,
         })
       })
@@ -341,17 +347,20 @@ describe('@/hooks', () => {
         const { result } = renderHook(() =>
           useBorderTopRightRadiusStyle(BorderRadius.X7L),
         )
-        expect(result.current).toEqual({
+        expect(result.current).toEqualPlatformStyle({
           borderTopRightRadius: 28,
         })
       })
 
-      it('returns maximum border radius', () => {
+      it('returns percent border radius', () => {
+        const percent = faker.number.int({ min: 1, max: 100 })
         const { result } = renderHook(() =>
-          useBorderTopRightRadiusStyle(BorderRadius.MAX),
+          useBorderTopRightRadiusStyle(
+            new Dimension(percent, Dimension.Unit.PERCENT),
+          ),
         )
         expect(result.current).toEqual({
-          borderTopRightRadius: '50%',
+          borderTopRightRadius: `${percent}%`,
         })
       })
     })
@@ -366,7 +375,7 @@ describe('@/hooks', () => {
         const { result } = renderHook(() =>
           useBorderBottomLeftRadiusStyle(BorderRadius.XS),
         )
-        expect(result.current).toEqual({
+        expect(result.current).toEqualPlatformStyle({
           borderBottomLeftRadius: 2,
         })
       })
@@ -375,7 +384,7 @@ describe('@/hooks', () => {
         const { result } = renderHook(() =>
           useBorderBottomLeftRadiusStyle(BorderRadius.SM),
         )
-        expect(result.current).toEqual({
+        expect(result.current).toEqualPlatformStyle({
           borderBottomLeftRadius: 4,
         })
       })
@@ -384,7 +393,7 @@ describe('@/hooks', () => {
         const { result } = renderHook(() =>
           useBorderBottomLeftRadiusStyle(BorderRadius.MD),
         )
-        expect(result.current).toEqual({
+        expect(result.current).toEqualPlatformStyle({
           borderBottomLeftRadius: 6,
         })
       })
@@ -393,7 +402,7 @@ describe('@/hooks', () => {
         const { result } = renderHook(() =>
           useBorderBottomLeftRadiusStyle(BorderRadius.LG),
         )
-        expect(result.current).toEqual({
+        expect(result.current).toEqualPlatformStyle({
           borderBottomLeftRadius: 8,
         })
       })
@@ -402,7 +411,7 @@ describe('@/hooks', () => {
         const { result } = renderHook(() =>
           useBorderBottomLeftRadiusStyle(BorderRadius.XL),
         )
-        expect(result.current).toEqual({
+        expect(result.current).toEqualPlatformStyle({
           borderBottomLeftRadius: 10,
         })
       })
@@ -411,7 +420,7 @@ describe('@/hooks', () => {
         const { result } = renderHook(() =>
           useBorderBottomLeftRadiusStyle(BorderRadius.X2L),
         )
-        expect(result.current).toEqual({
+        expect(result.current).toEqualPlatformStyle({
           borderBottomLeftRadius: 12,
         })
       })
@@ -420,7 +429,7 @@ describe('@/hooks', () => {
         const { result } = renderHook(() =>
           useBorderBottomLeftRadiusStyle(BorderRadius.X3L),
         )
-        expect(result.current).toEqual({
+        expect(result.current).toEqualPlatformStyle({
           borderBottomLeftRadius: 16,
         })
       })
@@ -429,7 +438,7 @@ describe('@/hooks', () => {
         const { result } = renderHook(() =>
           useBorderBottomLeftRadiusStyle(BorderRadius.X4L),
         )
-        expect(result.current).toEqual({
+        expect(result.current).toEqualPlatformStyle({
           borderBottomLeftRadius: 18,
         })
       })
@@ -438,7 +447,7 @@ describe('@/hooks', () => {
         const { result } = renderHook(() =>
           useBorderBottomLeftRadiusStyle(BorderRadius.X5L),
         )
-        expect(result.current).toEqual({
+        expect(result.current).toEqualPlatformStyle({
           borderBottomLeftRadius: 20,
         })
       })
@@ -447,7 +456,7 @@ describe('@/hooks', () => {
         const { result } = renderHook(() =>
           useBorderBottomLeftRadiusStyle(BorderRadius.X6L),
         )
-        expect(result.current).toEqual({
+        expect(result.current).toEqualPlatformStyle({
           borderBottomLeftRadius: 24,
         })
       })
@@ -456,17 +465,20 @@ describe('@/hooks', () => {
         const { result } = renderHook(() =>
           useBorderBottomLeftRadiusStyle(BorderRadius.X7L),
         )
-        expect(result.current).toEqual({
+        expect(result.current).toEqualPlatformStyle({
           borderBottomLeftRadius: 28,
         })
       })
 
-      it('returns maximum border radius', () => {
+      it('returns percent border radius', () => {
+        const percent = faker.number.int({ min: 1, max: 100 })
         const { result } = renderHook(() =>
-          useBorderBottomLeftRadiusStyle(BorderRadius.MAX),
+          useBorderBottomLeftRadiusStyle(
+            new Dimension(percent, Dimension.Unit.PERCENT),
+          ),
         )
         expect(result.current).toEqual({
-          borderBottomLeftRadius: '50%',
+          borderBottomLeftRadius: `${percent}%`,
         })
       })
     })
@@ -481,7 +493,7 @@ describe('@/hooks', () => {
         const { result } = renderHook(() =>
           useBorderBottomRightRadiusStyle(BorderRadius.XS),
         )
-        expect(result.current).toEqual({
+        expect(result.current).toEqualPlatformStyle({
           borderBottomRightRadius: 2,
         })
       })
@@ -490,7 +502,7 @@ describe('@/hooks', () => {
         const { result } = renderHook(() =>
           useBorderBottomRightRadiusStyle(BorderRadius.SM),
         )
-        expect(result.current).toEqual({
+        expect(result.current).toEqualPlatformStyle({
           borderBottomRightRadius: 4,
         })
       })
@@ -499,7 +511,7 @@ describe('@/hooks', () => {
         const { result } = renderHook(() =>
           useBorderBottomRightRadiusStyle(BorderRadius.MD),
         )
-        expect(result.current).toEqual({
+        expect(result.current).toEqualPlatformStyle({
           borderBottomRightRadius: 6,
         })
       })
@@ -508,7 +520,7 @@ describe('@/hooks', () => {
         const { result } = renderHook(() =>
           useBorderBottomRightRadiusStyle(BorderRadius.LG),
         )
-        expect(result.current).toEqual({
+        expect(result.current).toEqualPlatformStyle({
           borderBottomRightRadius: 8,
         })
       })
@@ -517,7 +529,7 @@ describe('@/hooks', () => {
         const { result } = renderHook(() =>
           useBorderBottomRightRadiusStyle(BorderRadius.XL),
         )
-        expect(result.current).toEqual({
+        expect(result.current).toEqualPlatformStyle({
           borderBottomRightRadius: 10,
         })
       })
@@ -526,7 +538,7 @@ describe('@/hooks', () => {
         const { result } = renderHook(() =>
           useBorderBottomRightRadiusStyle(BorderRadius.X2L),
         )
-        expect(result.current).toEqual({
+        expect(result.current).toEqualPlatformStyle({
           borderBottomRightRadius: 12,
         })
       })
@@ -535,7 +547,7 @@ describe('@/hooks', () => {
         const { result } = renderHook(() =>
           useBorderBottomRightRadiusStyle(BorderRadius.X3L),
         )
-        expect(result.current).toEqual({
+        expect(result.current).toEqualPlatformStyle({
           borderBottomRightRadius: 16,
         })
       })
@@ -544,7 +556,7 @@ describe('@/hooks', () => {
         const { result } = renderHook(() =>
           useBorderBottomRightRadiusStyle(BorderRadius.X4L),
         )
-        expect(result.current).toEqual({
+        expect(result.current).toEqualPlatformStyle({
           borderBottomRightRadius: 18,
         })
       })
@@ -553,7 +565,7 @@ describe('@/hooks', () => {
         const { result } = renderHook(() =>
           useBorderBottomRightRadiusStyle(BorderRadius.X5L),
         )
-        expect(result.current).toEqual({
+        expect(result.current).toEqualPlatformStyle({
           borderBottomRightRadius: 20,
         })
       })
@@ -562,7 +574,7 @@ describe('@/hooks', () => {
         const { result } = renderHook(() =>
           useBorderBottomRightRadiusStyle(BorderRadius.X6L),
         )
-        expect(result.current).toEqual({
+        expect(result.current).toEqualPlatformStyle({
           borderBottomRightRadius: 24,
         })
       })
@@ -571,17 +583,20 @@ describe('@/hooks', () => {
         const { result } = renderHook(() =>
           useBorderBottomRightRadiusStyle(BorderRadius.X7L),
         )
-        expect(result.current).toEqual({
+        expect(result.current).toEqualPlatformStyle({
           borderBottomRightRadius: 28,
         })
       })
 
-      it('returns maximum border radius', () => {
+      it('returns percent border radius', () => {
+        const percent = faker.number.int({ min: 1, max: 100 })
         const { result } = renderHook(() =>
-          useBorderBottomRightRadiusStyle(BorderRadius.MAX),
+          useBorderBottomRightRadiusStyle(
+            new Dimension(percent, Dimension.Unit.PERCENT),
+          ),
         )
         expect(result.current).toEqual({
-          borderBottomRightRadius: '50%',
+          borderBottomRightRadius: `${percent}%`,
         })
       })
     })
@@ -596,84 +611,85 @@ describe('@/hooks', () => {
         const { result } = renderHook(() =>
           useBorderRadiusValue(BorderRadius.XS),
         )
-        expect(result.current).toEqual(2)
+        expect(result.current).toEqualPlatformStyle({ web: '2px', default: 2 })
       })
 
       it('returns small border radius', () => {
         const { result } = renderHook(() =>
           useBorderRadiusValue(BorderRadius.SM),
         )
-        expect(result.current).toEqual(4)
+        expect(result.current).toEqualPlatformStyle({ web: '4px', default: 4 })
       })
 
       it('returns medium border radius', () => {
         const { result } = renderHook(() =>
           useBorderRadiusValue(BorderRadius.MD),
         )
-        expect(result.current).toEqual(6)
+        expect(result.current).toEqualPlatformStyle({ web: '6px', default: 6 })
       })
 
       it('returns large border radius', () => {
         const { result } = renderHook(() =>
           useBorderRadiusValue(BorderRadius.LG),
         )
-        expect(result.current).toEqual(8)
+        expect(result.current).toEqualPlatformStyle({ web: '8px', default: 8 })
       })
 
       it('returns extra-large border radius', () => {
         const { result } = renderHook(() =>
           useBorderRadiusValue(BorderRadius.XL),
         )
-        expect(result.current).toEqual(10)
+        expect(result.current).toEqualPlatformStyle({ web: '10px', default: 10 })
       })
 
       it('returns extra-2-large border radius', () => {
         const { result } = renderHook(() =>
           useBorderRadiusValue(BorderRadius.X2L),
         )
-        expect(result.current).toEqual(12)
+        expect(result.current).toEqualPlatformStyle({ web: '12px', default: 12 })
       })
 
       it('returns extra-3-large border radius', () => {
         const { result } = renderHook(() =>
           useBorderRadiusValue(BorderRadius.X3L),
         )
-        expect(result.current).toEqual(16)
+        expect(result.current).toEqualPlatformStyle({ web: '16px', default: 16 })
       })
 
       it('returns extra-4-large border radius', () => {
         const { result } = renderHook(() =>
           useBorderRadiusValue(BorderRadius.X4L),
         )
-        expect(result.current).toEqual(18)
+        expect(result.current).toEqualPlatformStyle({ web: '18px', default: 18 })
       })
 
       it('returns extra-5-large border radius', () => {
         const { result } = renderHook(() =>
           useBorderRadiusValue(BorderRadius.X5L),
         )
-        expect(result.current).toEqual(20)
+        expect(result.current).toEqualPlatformStyle({ web: '20px', default: 20 })
       })
 
       it('returns extra-6-large border radius', () => {
         const { result } = renderHook(() =>
           useBorderRadiusValue(BorderRadius.X6L),
         )
-        expect(result.current).toEqual(24)
+        expect(result.current).toEqualPlatformStyle({ web: '24px', default: 24 })
       })
 
       it('returns extra-7-large border radius', () => {
         const { result } = renderHook(() =>
           useBorderRadiusValue(BorderRadius.X7L),
         )
-        expect(result.current).toEqual(28)
+        expect(result.current).toEqualPlatformStyle({ web: '28px', default: 28 })
       })
 
-      it('returns maximum border radius', () => {
+      it('returns percent border radius value', () => {
+        const percent = faker.number.int({ min: 1, max: 100 })
         const { result } = renderHook(() =>
-          useBorderRadiusValue(BorderRadius.MAX),
+          useBorderRadiusValue(new Dimension(percent, Dimension.Unit.PERCENT)),
         )
-        expect(result.current).toEqual('50%')
+        expect(result.current).toEqual(`${percent}%`)
       })
     })
   })

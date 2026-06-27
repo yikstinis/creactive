@@ -62,5 +62,5 @@ export const useViewBackgroundColorValue = (
   const context = useThemeContext()
   if (backgroundColor === undefined) return undefined
   if (typeof backgroundColor === 'string') return backgroundColor
-  return context[VIEW_BACKGROUND_COLOR_THEME_KEY[backgroundColor]]
+  return context[VIEW_BACKGROUND_COLOR_THEME_KEY[backgroundColor]].toValue()
 }

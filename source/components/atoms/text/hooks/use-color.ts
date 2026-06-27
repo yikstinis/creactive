@@ -47,7 +47,7 @@ export const useTextColorStyle = (color: TextColor | Color) => {
 export const useTextColorValue = (color: TextColor | Color): Color => {
   const themeContext = useThemeContext()
   if (typeof color === 'string') return color
-  return themeContext[TEXT_THEME_COLOR_KEY[color]]
+  return themeContext[TEXT_THEME_COLOR_KEY[color]].toValue()
 }
 
 const TEXT_BACKGROUND_COLOR_THEME_KEY = {
@@ -73,5 +73,5 @@ export const useTextBackgoundColorValue = (
 ): undefined | Color => {
   const themeContext = useThemeContext()
   if (backgroundColor === undefined) return undefined
-  return themeContext[TEXT_BACKGROUND_COLOR_THEME_KEY[backgroundColor]]
+  return themeContext[TEXT_BACKGROUND_COLOR_THEME_KEY[backgroundColor]].toValue()
 }

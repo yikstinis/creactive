@@ -4,7 +4,9 @@ import type {
   DimensionValue,
   Fraction,
   FractionValue,
+  PercentDimension,
   PixelDimension,
+  PixelDimensionValue,
 } from '@/helpers'
 import type { Color } from '@/types'
 import type { FunctionComponent, PropsWithChildren } from 'react'
@@ -330,35 +332,40 @@ export interface ViewProperties extends PropsWithChildren {
    */
   borderWidthBottom?: ViewBorderWidth
   /**
-   * View border radius.
+   * View border radius as a theme token or an arbitrary percent value.
    * @see {@link ViewComponent.BorderRadius}
+   * @see {@link PercentDimension}
    * @default undefined
    */
-  borderRadius?: BorderRadius
+  borderRadius?: BorderRadius | PercentDimension
   /**
-   * View border top left radius.
+   * View border top left radius as a theme token or an arbitrary percent value.
    * @see {@link ViewComponent.BorderRadius}
+   * @see {@link PercentDimension}
    * @default undefined
    */
-  borderRadiusTopLeft?: BorderRadius
+  borderRadiusTopLeft?: BorderRadius | PercentDimension
   /**
-   * View border top right radius.
+   * View border top right radius as a theme token or an arbitrary percent value.
    * @see {@link ViewComponent.BorderRadius}
+   * @see {@link PercentDimension}
    * @default undefined
    */
-  borderRadiusTopRight?: BorderRadius
+  borderRadiusTopRight?: BorderRadius | PercentDimension
   /**
-   * View border bottom left radius.
+   * View border bottom left radius as a theme token or an arbitrary percent value.
    * @see {@link ViewComponent.BorderRadius}
+   * @see {@link PercentDimension}
    * @default undefined
    */
-  borderRadiusBottomLeft?: BorderRadius
+  borderRadiusBottomLeft?: BorderRadius | PercentDimension
   /**
-   * View border bottom right radius.
+   * View border bottom right radius as a theme token or an arbitrary percent value.
    * @see {@link ViewComponent.BorderRadius}
+   * @see {@link PercentDimension}
    * @default undefined
    */
-  borderRadiusBottomRight?: BorderRadius
+  borderRadiusBottomRight?: BorderRadius | PercentDimension
   /**
    * Themed or custom background color.
    * @see {@link ViewComponent.BackgroundColor}
@@ -636,43 +643,48 @@ export type ViewStyledProperties = {
     /**
      * CSS border-width value in pixels, omitted when not set.
      */
-    borderWidth?: number
+    borderWidth?: PixelDimensionValue
     /**
      * CSS border-top-width value in pixels, omitted when not set.
      */
-    borderWidthTop?: number
+    borderWidthTop?: PixelDimensionValue
     /**
      * CSS border-left-width value in pixels, omitted when not set.
      */
-    borderWidthLeft?: number
+    borderWidthLeft?: PixelDimensionValue
     /**
      * CSS border-right-width value in pixels, omitted when not set.
      */
-    borderWidthRight?: number
+    borderWidthRight?: PixelDimensionValue
     /**
      * CSS border-bottom-width value in pixels, omitted when not set.
      */
-    borderWidthBottom?: number
+    borderWidthBottom?: PixelDimensionValue
     /**
-     * CSS border-radius value in pixels or '50%' for a circle, omitted when not set.
+     * Resolved CSS border radius value, omitted when not set.
+     * @see {@link ViewComponent.BorderRadius}
      */
-    borderRadius?: number | '50%'
+    borderRadius?: DimensionValue
     /**
-     * CSS border-top-left-radius value in pixels or '50%', omitted when not set.
+     * Resolved CSS top-left border radius value, omitted when not set.
+     * @see {@link ViewComponent.BorderRadius}
      */
-    borderRadiusTopLeft?: number | '50%'
+    borderRadiusTopLeft?: DimensionValue
     /**
-     * CSS border-top-right-radius value in pixels or '50%', omitted when not set.
+     * Resolved CSS top-right border radius value, omitted when not set.
+     * @see {@link ViewComponent.BorderRadius}
      */
-    borderRadiusTopRight?: number | '50%'
+    borderRadiusTopRight?: DimensionValue
     /**
-     * CSS border-bottom-left-radius value in pixels or '50%', omitted when not set.
+     * Resolved CSS bottom-left border radius value, omitted when not set.
+     * @see {@link ViewComponent.BorderRadius}
      */
-    borderRadiusBottomLeft?: number | '50%'
+    borderRadiusBottomLeft?: DimensionValue
     /**
-     * CSS border-bottom-right-radius value in pixels or '50%', omitted when not set.
+     * Resolved CSS bottom-right border radius value, omitted when not set.
+     * @see {@link ViewComponent.BorderRadius}
      */
-    borderRadiusBottomRight?: number | '50%'
+    borderRadiusBottomRight?: DimensionValue
     /**
      * CSS background-color value, omitted when not set.
      */

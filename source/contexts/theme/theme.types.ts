@@ -1,4 +1,5 @@
-import type { Color, FontWeight } from '@/types'
+import type { PixelDimension, RGBColor } from '@/helpers'
+import type { FontWeight } from '@/types'
 import type { FunctionComponent, PropsWithChildren } from 'react'
 
 /**
@@ -12,369 +13,369 @@ export interface ThemeContextValue {
    * Least contrast base background color.
    * @default rgb(215,215,220)
    */
-  colorBackgroundBase100: Color
+  colorBackgroundBase100: RGBColor
   /**
    * Dim base background color.
    * @default rgb(220,220,225)
    */
-  colorBackgroundBase200: Color
+  colorBackgroundBase200: RGBColor
   /**
    * Mix of dim and muted base background color.
    * @default rgb(225,225,230)
    */
-  colorBackgroundBase300: Color
+  colorBackgroundBase300: RGBColor
   /**
    * Muted base background color.
    * @default rgb(230,230,235)
    */
-  colorBackgroundBase400: Color
+  colorBackgroundBase400: RGBColor
   /**
    * Mix of muted and subtle base background color.
    * @default rgb(235,235,240)
    */
-  colorBackgroundBase500: Color
+  colorBackgroundBase500: RGBColor
   /**
    * Subtle base background color.
    * @default rgb(240,240,245)
    */
-  colorBackgroundBase600: Color
+  colorBackgroundBase600: RGBColor
   /**
    * Mix of subtle and default base background color.
    * @default rgb(245,245,250)
    */
-  colorBackgroundBase700: Color
+  colorBackgroundBase700: RGBColor
   /**
    * Base default interface background color.
    * @default rgb(250,250,255)
    */
-  colorBackgroundBase800: Color
+  colorBackgroundBase800: RGBColor
   /**
    * Most contrast base background color.
    * @default rgb(255,255,255)
    */
-  colorBackgroundBase900: Color
+  colorBackgroundBase900: RGBColor
 
   /**
    * Least contrast primary background color.
    * @default rgb(40,40,45)
    */
-  colorBackgroundPrimary100: Color
+  colorBackgroundPrimary100: RGBColor
   /**
    * Dim primary background color.
    * @default rgb(35,35,40)
    */
-  colorBackgroundPrimary200: Color
+  colorBackgroundPrimary200: RGBColor
   /**
    * Mix of dim and muted primary background color.
    * @default rgb(30,30,35)
    */
-  colorBackgroundPrimary300: Color
+  colorBackgroundPrimary300: RGBColor
   /**
    * Muted primary background color.
    * @default rgb(25,25,30)
    */
-  colorBackgroundPrimary400: Color
+  colorBackgroundPrimary400: RGBColor
   /**
    * Mix of muted and subtle primary background color.
    * @default rgb(20,20,25)
    */
-  colorBackgroundPrimary500: Color
+  colorBackgroundPrimary500: RGBColor
   /**
    * Subtle primary background color.
    * @default rgb(15,15,20)
    */
-  colorBackgroundPrimary600: Color
+  colorBackgroundPrimary600: RGBColor
   /**
    * Mix of subtle and default primary background color.
    * @default rgb(10,10,15)
    */
-  colorBackgroundPrimary700: Color
+  colorBackgroundPrimary700: RGBColor
   /**
    * Primary default background color.
    * @default rgb(5,5,10)
    */
-  colorBackgroundPrimary800: Color
+  colorBackgroundPrimary800: RGBColor
   /**
    * Most contrast primary background color.
    * @default rgb(0,0,5)
    */
-  colorBackgroundPrimary900: Color
+  colorBackgroundPrimary900: RGBColor
 
   /**
    * Least contrast accent background color.
    * @default rgb(200,225,252)
    */
-  colorBackgroundAccent100: Color
+  colorBackgroundAccent100: RGBColor
   /**
    * Dim accent background color.
    * @default rgb(180,215,249)
    */
-  colorBackgroundAccent200: Color
+  colorBackgroundAccent200: RGBColor
   /**
    * Mix of dim and muted accent background color.
    * @default rgb(160,205,246)
    */
-  colorBackgroundAccent300: Color
+  colorBackgroundAccent300: RGBColor
   /**
    * Muted accent background color.
    * @default rgb(140,195,243)
    */
-  colorBackgroundAccent400: Color
+  colorBackgroundAccent400: RGBColor
   /**
    * Mix of muted and subtle accent background color.
    * @default rgb(115,180,238)
    */
-  colorBackgroundAccent500: Color
+  colorBackgroundAccent500: RGBColor
   /**
    * Subtle accent background color.
    * @default rgb(95,168,233)
    */
-  colorBackgroundAccent600: Color
+  colorBackgroundAccent600: RGBColor
   /**
    * Mix of subtle and default accent background color.
    * @default rgb(75,155,225)
    */
-  colorBackgroundAccent700: Color
+  colorBackgroundAccent700: RGBColor
   /**
    * Accent default background color.
    * @default rgb(50,130,200)
    */
-  colorBackgroundAccent800: Color
+  colorBackgroundAccent800: RGBColor
   /**
    * Most contrast accent background color.
    * @default rgb(25,105,175)
    */
-  colorBackgroundAccent900: Color
+  colorBackgroundAccent900: RGBColor
 
   /**
    * Least contrast subaccent background color.
    * @default rgb(200,240,225)
    */
-  colorBackgroundSubaccent100: Color
+  colorBackgroundSubaccent100: RGBColor
   /**
    * Dim subaccent background color.
    * @default rgb(185,235,215)
    */
-  colorBackgroundSubaccent200: Color
+  colorBackgroundSubaccent200: RGBColor
   /**
    * Mix of dim and muted subaccent background color.
    * @default rgb(170,230,205)
    */
-  colorBackgroundSubaccent300: Color
+  colorBackgroundSubaccent300: RGBColor
   /**
    * Muted subaccent background color.
    * @default rgb(155,225,195)
    */
-  colorBackgroundSubaccent400: Color
+  colorBackgroundSubaccent400: RGBColor
   /**
    * Mix of muted and subtle subaccent background color.
    * @default rgb(145,222,190)
    */
-  colorBackgroundSubaccent500: Color
+  colorBackgroundSubaccent500: RGBColor
   /**
    * Subtle subaccent background color.
    * @default rgb(135,218,185)
    */
-  colorBackgroundSubaccent600: Color
+  colorBackgroundSubaccent600: RGBColor
   /**
    * Mix of subtle and default subaccent background color.
    * @default rgb(125,215,180)
    */
-  colorBackgroundSubaccent700: Color
+  colorBackgroundSubaccent700: RGBColor
   /**
    * Subaccent default background color.
    * @default rgb(100,195,160)
    */
-  colorBackgroundSubaccent800: Color
+  colorBackgroundSubaccent800: RGBColor
   /**
    * Most contrast subaccent background color.
    * @default rgb(75,175,140)
    */
-  colorBackgroundSubaccent900: Color
+  colorBackgroundSubaccent900: RGBColor
 
   /**
    * Least contrast base border color.
    * @default rgb(235,235,240)
    */
-  colorBorderBase100: Color
+  colorBorderBase100: RGBColor
   /**
    * Dim base border color.
    * @default rgb(230,230,235)
    */
-  colorBorderBase200: Color
+  colorBorderBase200: RGBColor
   /**
    * Mix of dim and muted base border color.
    * @default rgb(225,225,230)
    */
-  colorBorderBase300: Color
+  colorBorderBase300: RGBColor
   /**
    * Muted base border color.
    * @default rgb(220,220,225)
    */
-  colorBorderBase400: Color
+  colorBorderBase400: RGBColor
   /**
    * Mix of muted and subtle base border color.
    * @default rgb(215,215,220)
    */
-  colorBorderBase500: Color
+  colorBorderBase500: RGBColor
   /**
    * Subtle base border color.
    * @default rgb(210,210,215)
    */
-  colorBorderBase600: Color
+  colorBorderBase600: RGBColor
   /**
    * Mix of subtle and default base border color.
    * @default rgb(205,205,210)
    */
-  colorBorderBase700: Color
+  colorBorderBase700: RGBColor
   /**
    * Base default border color.
    * @default rgb(200,200,205)
    */
-  colorBorderBase800: Color
+  colorBorderBase800: RGBColor
   /**
    * Most contrast base border color.
    * @default rgb(195,195,200)
    */
-  colorBorderBase900: Color
+  colorBorderBase900: RGBColor
 
   /**
    * Least contrast base foreground color token.
    * @default rgb(200,200,205)
    */
-  colorForegroundBase100: Color
+  colorForegroundBase100: RGBColor
   /**
    * Dim base foreground color.
    * @default rgb(175,175,180)
    */
-  colorForegroundBase200: Color
+  colorForegroundBase200: RGBColor
   /**
    * Mix of dim and muted base foreground color.
    * @default rgb(150,150,155)
    */
-  colorForegroundBase300: Color
+  colorForegroundBase300: RGBColor
   /**
    * Muted base foreground color.
    * @default rgb(125,125,130)
    */
-  colorForegroundBase400: Color
+  colorForegroundBase400: RGBColor
   /**
    * Mix of muted and subtle base foreground color.
    * @default rgb(100,100,105)
    */
-  colorForegroundBase500: Color
+  colorForegroundBase500: RGBColor
   /**
    * Subtle base foreground color.
    * @default rgb(75,75,80)
    */
-  colorForegroundBase600: Color
+  colorForegroundBase600: RGBColor
   /**
    * Mix of subtle and default base foreground color.
    * @default rgb(50,50,55)
    */
-  colorForegroundBase700: Color
+  colorForegroundBase700: RGBColor
   /**
    * Base default foreground color.
    * @default rgb(25,25,30)
    */
-  colorForegroundBase800: Color
+  colorForegroundBase800: RGBColor
   /**
    * Most contrast base foreground color.
    * @default rgb(0,0,5)
    */
-  colorForegroundBase900: Color
+  colorForegroundBase900: RGBColor
 
   /**
    * Least contrast inverse foreground color.
    * @default rgb(75,75,80)
    */
-  colorForegroundInverse100: Color
+  colorForegroundInverse100: RGBColor
   /**
    * Dim inverse foreground color.
    * @default rgb(100,100,105)
    */
-  colorForegroundInverse200: Color
+  colorForegroundInverse200: RGBColor
   /**
    * Mix of dim and muted inverse foreground color.
    * @default rgb(125,125,130)
    */
-  colorForegroundInverse300: Color
+  colorForegroundInverse300: RGBColor
   /**
    * Muted inverse foreground color.
    * @default rgb(150,150,155)
    */
-  colorForegroundInverse400: Color
+  colorForegroundInverse400: RGBColor
   /**
    * Mix of muted and subtle inverse foreground color.
    * @default rgb(175,175,180)
    */
-  colorForegroundInverse500: Color
+  colorForegroundInverse500: RGBColor
   /**
    * Subtle inverse foreground color.
    * @default rgb(200,200,205)
    */
-  colorForegroundInverse600: Color
+  colorForegroundInverse600: RGBColor
   /**
    * Mix of subtle and default inverse foreground color.
    * @default rgb(225,225,230)
    */
-  colorForegroundInverse700: Color
+  colorForegroundInverse700: RGBColor
   /**
    * Inverse default foreground color.
    * @default rgb(250,250,255)
    */
-  colorForegroundInverse800: Color
+  colorForegroundInverse800: RGBColor
   /**
    * Most contrast inverse foreground color.
    * @default rgb(255,255,255)
    */
-  colorForegroundInverse900: Color
+  colorForegroundInverse900: RGBColor
 
   /**
    * Least contrast failure foreground color.
    * @default rgb(225,200,200)
    */
-  colorForegroundFailure100: Color
+  colorForegroundFailure100: RGBColor
   /**
    * Dim failure foreground color.
    * @default rgb(220,175,175)
    */
-  colorForegroundFailure200: Color
+  colorForegroundFailure200: RGBColor
   /**
    * Mix of dim and muted failure foreground color.
    * @default rgb(215,150,150)
    */
-  colorForegroundFailure300: Color
+  colorForegroundFailure300: RGBColor
   /**
    * Muted failure foreground color.
    * @default rgb(210,125,125)
    */
-  colorForegroundFailure400: Color
+  colorForegroundFailure400: RGBColor
   /**
    * Mix of muted and subtle failure foreground color.
    * @default rgb(205,100,100)
    */
-  colorForegroundFailure500: Color
+  colorForegroundFailure500: RGBColor
   /**
    * Subtle failure foreground color.
    * @default rgb(200,75,75)
    */
-  colorForegroundFailure600: Color
+  colorForegroundFailure600: RGBColor
   /**
    * Mix of subtle and default failure foreground color.
    * @default rgb(195,50,50)
    */
-  colorForegroundFailure700: Color
+  colorForegroundFailure700: RGBColor
   /**
    * Failure default foreground color.
    * @default rgb(190,25,25)
    */
-  colorForegroundFailure800: Color
+  colorForegroundFailure800: RGBColor
   /**
    * Most contrast failure foreground color.
    * @default rgb(185,0,0)
    */
-  colorForegroundFailure900: Color
+  colorForegroundFailure900: RGBColor
 
   /**
    * Base font family.
@@ -641,73 +642,73 @@ export interface ThemeContextValue {
    * Small base border width token.
    * @default 0.5
    */
-  borderWidthBaseSM: number
+  borderWidthBaseSM: PixelDimension
   /**
    * Medium base border width token.
    * @default 1
    */
-  borderWidthBaseMD: number
+  borderWidthBaseMD: PixelDimension
   /**
    * Large base border width token.
    * @default 1.5
    */
-  borderWidthBaseLG: number
+  borderWidthBaseLG: PixelDimension
   /**
    * Extra small border radius token.
    * @default 2
    */
-  borderRadiusBaseXS: number
+  borderRadiusBaseXS: PixelDimension
   /**
    * Small border radius token.
    * @default 4
    */
-  borderRadiusBaseSM: number
+  borderRadiusBaseSM: PixelDimension
   /**
    * Medium border radius token.
    * Default border radius when you need it.
    * @default 6
    */
-  borderRadiusBaseMD: number
+  borderRadiusBaseMD: PixelDimension
   /**
    * Large border radius token.
    * @default 8
    */
-  borderRadiusBaseLG: number
+  borderRadiusBaseLG: PixelDimension
   /**
    * Extra large border radius token.
    * @default 10
    */
-  borderRadiusBaseXL: number
+  borderRadiusBaseXL: PixelDimension
   /**
    * Extra 2 large border radius token.
    * @default 12
    */
-  borderRadiusBaseX2L: number
+  borderRadiusBaseX2L: PixelDimension
   /**
    * Extra 3 large border radius token.
    * @default 16
    */
-  borderRadiusBaseX3L: number
+  borderRadiusBaseX3L: PixelDimension
   /**
    * Extra 4 large border radius token.
    * @default 18
    */
-  borderRadiusBaseX4L: number
+  borderRadiusBaseX4L: PixelDimension
   /**
    * Extra 5 large border radius token.
    * @default 20
    */
-  borderRadiusBaseX5L: number
+  borderRadiusBaseX5L: PixelDimension
   /**
    * Extra 6 large border radius token.
    * @default 24
    */
-  borderRadiusBaseX6L: number
+  borderRadiusBaseX6L: PixelDimension
   /**
    * Extra 7 large border radius token.
    * @default 28
    */
-  borderRadiusBaseX7L: number
+  borderRadiusBaseX7L: PixelDimension
 
   /**
    * Small base button height token.
