@@ -6,6 +6,7 @@
 export enum PressableTag {
   /**
    * Renders a `<button>` element.
+   * Use for actions that do not navigate to a different URL.
    */
   BUTTON,
   /**

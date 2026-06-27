@@ -8,10 +8,12 @@ import type { PressableTag } from './constants'
 export interface PressablePressEvent {
   /**
    * Prevents the default browser action associated with the event.
+   * Use inside a press handler to stop form submission or link navigation.
    */
   preventDefault: () => void
   /**
    * Stops the event from bubbling up to ancestor elements.
+   * Use inside a press handler to isolate the interaction from parent handlers.
    */
   stopPropagation: () => void
 }
@@ -23,6 +25,7 @@ export interface PressablePressEvent {
 export interface PressableContextValue {
   /**
    * Whether a press gesture is currently active on the element.
+   * Use with {@link usePressableContext} to apply pressed state styling in children.
    */
   isPressedIn: boolean
 }
@@ -40,6 +43,7 @@ interface PressableBaseProperties extends PropsWithChildren {
   testId?: string
   /**
    * Suppresses all press events and blocks cursor interaction when true.
+   * Use when the action is unavailable to prevent unintended interactions.
    * @default false
    */
   isDisabled?: boolean
@@ -51,11 +55,13 @@ interface PressableBaseProperties extends PropsWithChildren {
   onPress?: (event: PressablePressEvent) => void
   /**
    * Called when a press gesture begins on the element.
+   * Use to start animations or visual feedback when a press starts.
    * @default undefined
    */
   onPressIn?: (event: PressablePressEvent) => void
   /**
    * Called when a press gesture ends on the element.
+   * Use to reset animations or visual feedback when a press ends.
    * @default undefined
    */
   onPressOut?: (event: PressablePressEvent) => void
@@ -63,11 +69,25 @@ interface PressableBaseProperties extends PropsWithChildren {
 
 type PressableTagProperties =
   | {
+      /**
+       * Selects the rendered HTML element type.
+       * Defaults to {@link PressableTag.BUTTON} when omitted.
+       * @default {@link PressableTag.BUTTON}
+       */
       tag?: PressableTag.BUTTON
       href?: never
     }
   | {
+      /**
+       * Selects the rendered HTML element type.
+       * Set to {@link PressableTag.ANCHOR} to render an anchor element.
+       */
       tag: PressableTag.ANCHOR
+      /**
+       * URL the anchor navigates to when clicked.
+       * Only valid when {@link PressableTag.ANCHOR} tag is used.
+       * @default undefined
+       */
       href?: string
     }
 
@@ -83,6 +103,10 @@ export type PressableProperties = PressableBaseProperties &
  * Not part of the public API — consumed only by the styled button wrapper.
  */
 export interface PressableStyledProperties {
+  /**
+   * CSS overrides applied to the underlying styled element.
+   * Contains the pointer-events value to conditionally disable cursor interaction.
+   */
   css: {
     /**
      * CSS pointer-events value applied to the rendered element.

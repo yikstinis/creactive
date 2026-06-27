@@ -18,8 +18,7 @@ export const Pressable: PressableComponent = ({
 }) => {
   const [isPressedIn, setPressedIn] = useState(false)
 
-  // We do support 18 React version without compiler.
-  // We have to memorize context values to avoid extra re-renders.
+  // Memoized for React 18 compatibility — no compiler to auto-memo context values.
   const value = useMemo(() => ({ isPressedIn }), [isPressedIn])
 
   const handlePressIn = useCallback(
