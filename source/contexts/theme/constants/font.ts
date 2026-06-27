@@ -1,4 +1,4 @@
-import { Dimension } from '@/helpers'
+import { Dimension, Font } from '@/helpers'
 import { Platform } from 'react-native'
 
 export const FONT_FAMILY_DEFAULT = Platform.select({
@@ -22,15 +22,15 @@ export const FONT_FAMILY_TYPOGRAPHIC = Platform.select({
   default: 'serif',
 })
 
-export const FONT_WEIGHT_BASE_THIN = 100
-export const FONT_WEIGHT_BASE_EXTRALIGHT = 200
-export const FONT_WEIGHT_BASE_LIGHT = 300
-export const FONT_WEIGHT_BASE_REGULAR = 400
-export const FONT_WEIGHT_BASE_MEDIUM = 500
-export const FONT_WEIGHT_BASE_SEMIBOLD = 600
-export const FONT_WEIGHT_BASE_BOLD = 700
-export const FONT_WEIGHT_BASE_EXTRABOLD = 800
-export const FONT_WEIGHT_BASE_BLACK = 900
+export const FONT_WEIGHT_BASE_THIN = Font.Weight.THIN
+export const FONT_WEIGHT_BASE_EXTRALIGHT = Font.Weight.EXTRALIGHT
+export const FONT_WEIGHT_BASE_LIGHT = Font.Weight.LIGHT
+export const FONT_WEIGHT_BASE_REGULAR = Font.Weight.REGULAR
+export const FONT_WEIGHT_BASE_MEDIUM = Font.Weight.MEDIUM
+export const FONT_WEIGHT_BASE_SEMIBOLD = Font.Weight.SEMIBOLD
+export const FONT_WEIGHT_BASE_BOLD = Font.Weight.BOLD
+export const FONT_WEIGHT_BASE_EXTRABOLD = Font.Weight.EXTRABOLD
+export const FONT_WEIGHT_BASE_BLACK = Font.Weight.BLACK
 
 // Android only resolves system fonts to a "normal" or "bold" face, with a cutoff at weight 700.
 // Numeric weights below that are silently collapsed to "normal".

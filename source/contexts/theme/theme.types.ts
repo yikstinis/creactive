@@ -1,5 +1,4 @@
-import type { Fraction, PixelDimension, RGBColor } from '@/helpers'
-import type { FontWeight } from '@/types'
+import type { FontWeight, Fraction, PixelDimension, RGBColor } from '@/helpers'
 import type { FunctionComponent, PropsWithChildren } from 'react'
 
 /**

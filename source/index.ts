@@ -59,9 +59,10 @@ export {
   DIMENSION_MIN,
   DIMENSION_NONE,
   Dimension,
+  Font,
+  FontWeight,
   FRACTION_MAX,
   FRACTION_MIN,
   Fraction,
 } from './helpers'
-export type { ColorValue, DimensionValue, FractionValue } from './helpers'
-export type { FontWeight } from './types'
+export type { ColorValue, DimensionValue, FractionValue, FontWeightValue } from './helpers'

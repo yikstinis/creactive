@@ -1,5 +1,10 @@
-import type { ColorValue, Fraction, RGBColor, TransparentColor } from '@/helpers'
-import type { FontWeight } from '@/types'
+import type {
+  ColorValue,
+  FontWeight,
+  Fraction,
+  RGBColor,
+  TransparentColor,
+} from '@/helpers'
 import type {
   ForwardRefExoticComponent,
   PropsWithChildren,
