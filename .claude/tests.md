@@ -5,6 +5,7 @@
 - Cover all cases: props, flags, and edge values.
 - Use `faker` for random test data (IDs, strings, numbers).
 - Enum props require a separate `it` for every value.
+- Read all `jest-setup.*` files before writing tests. Use the global helpers (e.g. `randomTestId`, `randomRgb`, `randomPixelDimension`) and custom matchers (e.g. `toHavePlatformStyle`, `toEqualPlatformStyle`) defined there. If a new reusable helper or matcher is needed, add it to the appropriate `jest-setup.*` file and extend the global declarations.
 
 ## File naming
 

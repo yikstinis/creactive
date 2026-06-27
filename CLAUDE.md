@@ -15,9 +15,9 @@ Value helpers live in `helpers/color/*`, `helpers/dimension/*`, `helpers/fractio
 
 ### Context values and inner component props
 
-- Pass enum constants as-is.
-- Pass already-formatted `Color`/`Dimension`/`Fraction` values as-is.
-- Convert to a raw primitive only at the point of use (e.g. building a style object or setting a native attribute).
+- Pass enum constants as-is through every layer — context values, inner components, and styled components — for as long as possible.
+- Pass already-formatted `Color`/`Dimension`/`Fraction` values as-is through every layer — context values, inner components, and styled components — for as long as possible.
+- Call `.toValue()` only at the terminal point of use where a raw primitive is required (e.g. building a style object or setting a native attribute).
 - Never use literal values (raw strings or numbers) directly in component props and inner component constants — always go through an enum constant or a `Color`/`Dimension`/`Fraction` helper.
 
 ## Comments

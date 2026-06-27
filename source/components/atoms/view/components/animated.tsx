@@ -1,10 +1,3 @@
-import {
-  useBorderBottomLeftRadiusStyle,
-  useBorderBottomRightRadiusStyle,
-  useBorderRadiusStyle,
-  useBorderTopLeftRadiusStyle,
-  useBorderTopRightRadiusStyle,
-} from '@/hooks'
 import { useCallback, useLayoutEffect, useRef } from 'react'
 import { Animated, LayoutChangeEvent, StyleSheet } from 'react-native'
 import {
@@ -17,6 +10,11 @@ import {
   ViewTransitionDuration,
 } from '../constants'
 import {
+  useBorderBottomLeftRadiusStyle,
+  useBorderBottomRightRadiusStyle,
+  useBorderRadiusStyle,
+  useBorderTopLeftRadiusStyle,
+  useBorderTopRightRadiusStyle,
   useViewAlignContentStyle,
   useViewAlignItemsStyle,
   useViewAlignSelfStyle,

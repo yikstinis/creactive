@@ -1,4 +1,23 @@
 /**
+ * Border radius enumerated constants.
+ * Should be used to control themed border radius.
+ * @see {@link ViewComponent.BorderRadius}
+ */
+export enum BorderRadius {
+  XS,
+  SM,
+  MD,
+  LG,
+  XL,
+  X2L,
+  X3L,
+  X4L,
+  X5L,
+  X6L,
+  X7L,
+}
+
+/**
  * View border color enumerated constants.
  * Should be used to control view border color with property.
  * @see {@link ViewComponent.BorderColor}

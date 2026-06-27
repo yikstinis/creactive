@@ -1,9 +1,8 @@
-import { BorderRadius } from '@/constants'
 import { DIMENSION_NONE, FRACTION_MAX } from '@/helpers'
-import { useBorderRadiusValue } from '@/hooks'
 import { useLayoutEffect, useRef } from 'react'
 import { ViewStyled } from './components'
 import {
+  BorderRadius,
   ViewAlignContent,
   ViewAlignItems,
   ViewAlignSelf,
@@ -21,6 +20,7 @@ import {
   ViewTransitionDuration,
 } from './constants'
 import {
+  useBorderRadiusValue,
   useViewAlignContentValue,
   useViewAlignItemsValue,
   useViewAlignSelfValue,

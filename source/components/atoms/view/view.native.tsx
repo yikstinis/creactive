@@ -1,12 +1,4 @@
-import { BorderRadius } from '@/constants'
 import { DIMENSION_NONE, FRACTION_MAX } from '@/helpers'
-import {
-  useBorderBottomLeftRadiusStyle,
-  useBorderBottomRightRadiusStyle,
-  useBorderRadiusStyle,
-  useBorderTopLeftRadiusStyle,
-  useBorderTopRightRadiusStyle,
-} from '@/hooks'
 import { type FunctionComponent, useCallback } from 'react'
 import {
   LayoutChangeEvent,
@@ -15,6 +7,7 @@ import {
 } from 'react-native'
 import { ViewAnimated } from './components/animated'
 import {
+  BorderRadius,
   ViewAlignContent,
   ViewAlignItems,
   ViewAlignSelf,
@@ -32,6 +25,11 @@ import {
   ViewTransitionDuration,
 } from './constants'
 import {
+  useBorderBottomLeftRadiusStyle,
+  useBorderBottomRightRadiusStyle,
+  useBorderRadiusStyle,
+  useBorderTopLeftRadiusStyle,
+  useBorderTopRightRadiusStyle,
   useViewAlignContentStyle,
   useViewAlignItemsStyle,
   useViewAlignSelfStyle,

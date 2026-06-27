@@ -1,4 +1,3 @@
-import type { BorderRadius } from '@/constants'
 import type {
   Dimension,
   DimensionValue,
@@ -11,6 +10,7 @@ import type {
 import type { Color } from '@/types'
 import type { FunctionComponent, PropsWithChildren } from 'react'
 import type {
+  BorderRadius,
   ViewAlignContent,
   ViewAlignItems,
   ViewAlignSelf,

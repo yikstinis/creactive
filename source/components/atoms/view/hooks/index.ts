@@ -1,4 +1,10 @@
 export {
+  useBorderBottomLeftRadiusStyle,
+  useBorderBottomRightRadiusStyle,
+  useBorderRadiusStyle,
+  useBorderRadiusValue,
+  useBorderTopLeftRadiusStyle,
+  useBorderTopRightRadiusStyle,
   useViewBorderBottomWidthStyle,
   useViewBorderColorStyle,
   useViewBorderColorValue,
