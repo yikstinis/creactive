@@ -7,6 +7,7 @@ export type {
   TransparentColorValue,
 } from '@/helpers/color'
 export {
+  DIMENSION_HALF,
   DIMENSION_MAX,
   DIMENSION_MIN,
   DIMENSION_NONE,

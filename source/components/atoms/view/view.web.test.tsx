@@ -1,3 +1,4 @@
+import { COLOR_TRANSPARENT } from '@/helpers'
 import { faker } from '@faker-js/faker'
 import { render, screen } from '@testing-library/react'
 import { View } from '.'
@@ -580,7 +581,7 @@ describe('@/components/atoms/view', () => {
       render(
         <View
           testId={testId}
-          backgroundColor="transparent"
+          backgroundColor={COLOR_TRANSPARENT}
         />,
       )
       expect(screen.getByTestId(testId)).toHaveStyleRule(
@@ -600,22 +601,7 @@ describe('@/components/atoms/view', () => {
       )
       expect(screen.getByTestId(testId)).toHaveStyleRule(
         'background-color',
-        backgroundColor,
-      )
-    })
-
-    it('renders with custom rgba background color style', () => {
-      const testId = randomTestId()
-      const backgroundColor = randomRgba()
-      render(
-        <View
-          testId={testId}
-          backgroundColor={backgroundColor}
-        />,
-      )
-      expect(screen.getByTestId(testId)).toHaveStyleRule(
-        'background-color',
-        backgroundColor,
+        backgroundColor.toValue(),
       )
     })
   })

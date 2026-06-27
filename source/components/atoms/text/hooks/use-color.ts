@@ -1,6 +1,6 @@
 import { useThemeContext, useThemeStyleSheet } from '@/contexts'
-import type { Color } from '@/types'
-import { StyleSheet } from 'react-native'
+import { Color } from '@/helpers'
+import type { ColorValue, RGBColor, TransparentColor } from '@/helpers'
 import { TextBackgroundColor, TextColor } from '../constants'
 
 const TEXT_THEME_COLOR_KEY = {
@@ -32,21 +32,15 @@ const TEXT_THEME_COLOR_KEY = {
   [TextColor.FAILURE_800]: 'colorForegroundFailure800' as const,
   [TextColor.FAILURE_900]: 'colorForegroundFailure900' as const,
 }
-const textColorStyleSheet = StyleSheet.create({
-  textColorTransparent: {
-    color: 'transparent',
-  },
-})
-export const useTextColorStyle = (color: TextColor | Color) => {
+export const useTextColorStyle = (color: TextColor | RGBColor | TransparentColor) => {
   const themeStyleSheet = useThemeStyleSheet()
-  if (color === 'transparent') return textColorStyleSheet.textColorTransparent
-  if (typeof color === 'string') return { color }
+  if (color instanceof Color) return { color: color.toValue() }
   return themeStyleSheet[TEXT_THEME_COLOR_KEY[color]]
 }
 
-export const useTextColorValue = (color: TextColor | Color): Color => {
+export const useTextColorValue = (color: TextColor | RGBColor | TransparentColor): ColorValue => {
   const themeContext = useThemeContext()
-  if (typeof color === 'string') return color
+  if (color instanceof Color) return color.toValue()
   return themeContext[TEXT_THEME_COLOR_KEY[color]].toValue()
 }
 
@@ -70,7 +64,7 @@ export const useTextBackgoundColorStyle = (
 }
 export const useTextBackgoundColorValue = (
   backgroundColor?: TextBackgroundColor,
-): undefined | Color => {
+): ColorValue | undefined => {
   const themeContext = useThemeContext()
   if (backgroundColor === undefined) return undefined
   return themeContext[TEXT_BACKGROUND_COLOR_THEME_KEY[backgroundColor]].toValue()

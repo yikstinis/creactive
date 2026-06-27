@@ -1,3 +1,4 @@
+import { COLOR_TRANSPARENT } from '@/helpers'
 import { renderHook } from '@testing-library/react-native'
 import { ViewBackgroundColor } from '../constants'
 import {
@@ -339,11 +340,9 @@ describe('@/components/atoms/view', () => {
 
       it('returns transparent background color style', () => {
         const { result } = renderHook(() =>
-          useViewBackgroundColorStyle('transparent'),
+          useViewBackgroundColorStyle(COLOR_TRANSPARENT),
         )
-        expect(result.current).toEqual({
-          backgroundColor: 'transparent',
-        })
+        expect(result.current).toEqual({ backgroundColor: 'transparent' })
       })
 
       it('returns custom rgb background color style', () => {
@@ -351,15 +350,7 @@ describe('@/components/atoms/view', () => {
         const { result } = renderHook(() =>
           useViewBackgroundColorStyle(backgroundColor),
         )
-        expect(result.current).toEqual({ backgroundColor })
-      })
-
-      it('returns custom rgba background color style', () => {
-        const backgroundColor = randomRgba()
-        const { result } = renderHook(() =>
-          useViewBackgroundColorStyle(backgroundColor),
-        )
-        expect(result.current).toEqual({ backgroundColor })
+        expect(result.current).toEqual({ backgroundColor: backgroundColor.toValue() })
       })
     })
 
@@ -623,7 +614,7 @@ describe('@/components/atoms/view', () => {
 
       it('returns transparent background color value', () => {
         const { result } = renderHook(() =>
-          useViewBackgroundColorValue('transparent'),
+          useViewBackgroundColorValue(COLOR_TRANSPARENT),
         )
         expect(result.current).toEqual('transparent')
       })
@@ -633,15 +624,7 @@ describe('@/components/atoms/view', () => {
         const { result } = renderHook(() =>
           useViewBackgroundColorValue(backgroundColor),
         )
-        expect(result.current).toEqual(backgroundColor)
-      })
-
-      it('returns custom rgba background color value', () => {
-        const backgroundColor = randomRgba()
-        const { result } = renderHook(() =>
-          useViewBackgroundColorValue(backgroundColor),
-        )
-        expect(result.current).toEqual(backgroundColor)
+        expect(result.current).toEqual(backgroundColor.toValue())
       })
     })
   })

@@ -1,18 +1,18 @@
 // This file is automatically executed before running tests.
 // You can use it to configure or set up the testing environment.
 import type { PercentDimension, PixelDimension } from '@/helpers'
-import { Dimension, Fraction } from '@/helpers'
-import type { Color } from '@/types'
+import { Color, Dimension, Fraction } from '@/helpers'
 import { faker } from '@faker-js/faker'
 import { Platform } from 'react-native'
 
 global.randomTestId = (): string => faker.string.uuid()
 
 global.randomRgb = (): Color =>
-  faker.color.rgb({ format: 'css', includeAlpha: false }) as Color
-
-global.randomRgba = (): Color =>
-  faker.color.rgb({ format: 'css', includeAlpha: true }) as Color
+  new Color(
+    faker.number.int({ min: 0, max: 255 }),
+    faker.number.int({ min: 0, max: 255 }),
+    faker.number.int({ min: 0, max: 255 }),
+  )
 
 global.randomFraction = (): Fraction =>
   new Fraction(faker.number.float({ min: 0, max: 1, fractionDigits: 2 }))
@@ -130,7 +130,6 @@ declare global {
   }
   function randomTestId(): string
   function randomRgb(): Color
-  function randomRgba(): Color
   function randomFraction(): Fraction
   function randomPixelDimension(): PixelDimension
   function randomPercentDimension(): PercentDimension

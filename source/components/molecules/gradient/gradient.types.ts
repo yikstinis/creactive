@@ -1,6 +1,5 @@
 import type { ViewComponent, ViewProperties } from '@/components/atoms/view'
-import type { Fraction } from '@/helpers'
-import type { Color } from '@/types'
+import type { Fraction, RGBColor, TransparentColor } from '@/helpers'
 import type { FunctionComponent } from 'react'
 import type { GradientLinearDirection } from './constants'
 
@@ -20,7 +19,7 @@ export interface GradientStop {
    * Use any valid {@link Color} token to define the visual transition target.
    * @see {@link Color}
    */
-  color: Color
+  color: RGBColor | TransparentColor
 }
 
 /**

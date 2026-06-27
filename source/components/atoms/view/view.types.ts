@@ -7,7 +7,7 @@ import type {
   PixelDimension,
   PixelDimensionValue,
 } from '@/helpers'
-import type { Color } from '@/types'
+import type { ColorValue, RGBColor, TransparentColor } from '@/helpers'
 import type { FunctionComponent, PropsWithChildren } from 'react'
 import type {
   BorderRadius,
@@ -371,7 +371,7 @@ export interface ViewProperties extends PropsWithChildren {
    * @see {@link ViewComponent.BackgroundColor}
    * @default undefined
    */
-  backgroundColor?: ViewBackgroundColor | Color
+  backgroundColor?: ViewBackgroundColor | RGBColor | TransparentColor
   /**
    * Callback function that is called when the layout of the view changes.
    * @param event Event containing the width and height of the view.
@@ -639,7 +639,7 @@ export type ViewStyledProperties = {
     /**
      * CSS border-color value, omitted when not set.
      */
-    borderColor?: Color
+    borderColor?: ColorValue
     /**
      * CSS border-width value in pixels, omitted when not set.
      */
@@ -688,6 +688,6 @@ export type ViewStyledProperties = {
     /**
      * CSS background-color value, omitted when not set.
      */
-    backgroundColor?: Color
+    backgroundColor?: ColorValue
   }
 }

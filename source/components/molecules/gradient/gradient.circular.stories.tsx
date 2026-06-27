@@ -1,6 +1,5 @@
 import { StorybookControl } from '.storybook/control'
-import { FRACTION_MAX, FRACTION_MIN } from '@/helpers'
-import { Color } from '@/types'
+import { Color, FRACTION_MAX, FRACTION_MIN } from '@/helpers'
 import { faker } from '@faker-js/faker'
 import type { Meta, StoryObj } from '@storybook/react'
 import { Gradient } from '.'
@@ -208,8 +207,8 @@ export const DefaultState: StoryObj<typeof Gradient.Circular> = {
     <Gradient.Circular
       {...args}
       stops={[
-        { offset: FRACTION_MIN, color: faker.color.rgb() as Color },
-        { offset: FRACTION_MAX, color: faker.color.rgb() as Color },
+        { offset: FRACTION_MIN, color: new Color(faker.number.int({ min: 0, max: 255 }), faker.number.int({ min: 0, max: 255 }), faker.number.int({ min: 0, max: 255 })) },
+        { offset: FRACTION_MAX, color: new Color(faker.number.int({ min: 0, max: 255 }), faker.number.int({ min: 0, max: 255 }), faker.number.int({ min: 0, max: 255 })) },
       ]}
     >
       {StorybookControl.renderLayout()}

@@ -21,9 +21,9 @@ export {
   Pressable,
   Spinner,
   Text,
+  View,
   useIconContext,
   usePressableContext,
-  View,
 } from './components'
 export type {
   GradientCircularComponent,
@@ -41,17 +41,20 @@ export type {
   PressableContextValue,
   PressablePressEvent,
   PressableProperties,
+  SpinnerComponent,
+  SpinnerProperties,
   TextComponent,
   TextMeasureCallback,
   TextProperties,
   TextReference,
-  SpinnerComponent,
-  SpinnerProperties,
   ViewComponent,
   ViewLayoutEvent,
   ViewProperties,
 } from './components'
 export {
+  COLOR_TRANSPARENT,
+  Color,
+  DIMENSION_HALF,
   DIMENSION_MAX,
   DIMENSION_MIN,
   DIMENSION_NONE,
@@ -60,5 +63,5 @@ export {
   FRACTION_MIN,
   Fraction,
 } from './helpers'
-export type { DimensionValue, FractionValue } from './helpers'
-export type { Color, FontWeight } from './types'
+export type { ColorValue, DimensionValue, FractionValue } from './helpers'
+export type { FontWeight } from './types'

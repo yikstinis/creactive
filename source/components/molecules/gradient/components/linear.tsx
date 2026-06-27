@@ -43,9 +43,9 @@ export const GradientLinear: GradientLinearComponent = ({
             >
               {stops.map((stop, index) => (
                 <Stop
-                  key={[index, stop.offset.toValue(), stop.color].join()}
+                  key={[index, stop.offset.toValue(), stop.color.toValue()].join()}
                   offset={stop.offset.toValue()}
-                  stopColor={stop.color}
+                  stopColor={stop.color.toValue()}
                 />
               ))}
             </LinearGradient>

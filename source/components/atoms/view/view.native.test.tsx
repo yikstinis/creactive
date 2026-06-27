@@ -1,3 +1,4 @@
+import { COLOR_TRANSPARENT } from '@/helpers'
 import { faker } from '@faker-js/faker'
 import { act, fireEvent, render, screen } from '@testing-library/react-native'
 import { View } from '.'
@@ -477,7 +478,7 @@ describe('@/components/atoms/view', () => {
       render(
         <View
           testId={testId}
-          backgroundColor="transparent"
+          backgroundColor={COLOR_TRANSPARENT}
         />,
       )
       expect(screen.getByTestId(testId)).toHaveStyle({
@@ -494,19 +495,7 @@ describe('@/components/atoms/view', () => {
           backgroundColor={backgroundColor}
         />,
       )
-      expect(screen.getByTestId(testId)).toHaveStyle({ backgroundColor })
-    })
-
-    it('renders with custom rgba background color style', () => {
-      const testId = randomTestId()
-      const backgroundColor = randomRgba()
-      render(
-        <View
-          testId={testId}
-          backgroundColor={backgroundColor}
-        />,
-      )
-      expect(screen.getByTestId(testId)).toHaveStyle({ backgroundColor })
+      expect(screen.getByTestId(testId)).toHaveStyle({ backgroundColor: backgroundColor.toValue() })
     })
   })
 

@@ -107,7 +107,7 @@ describe('@/components/molecules/gradient', () => {
       expect(stopElements).toHaveLength(stops.length)
       stops.forEach((stop, index) => {
         expect(stopElements[index].props.offset).toEqual(stop.offset.toValue())
-        expect(stopElements[index].props.stopColor).toEqual(stop.color)
+        expect(stopElements[index].props.stopColor).toEqual(stop.color.toValue())
       })
     })
 
@@ -909,20 +909,7 @@ describe('@/components/molecules/gradient', () => {
             backgroundColor={backgroundColor}
           />,
         )
-        expect(screen.getByTestId(testId)).toHaveStyle({ backgroundColor })
-      })
-
-      it('passes rgba background color to outer view', () => {
-        const testId = randomTestId()
-        const backgroundColor = randomRgba()
-        render(
-          <Gradient.Circular
-            testId={testId}
-            stops={defaultStops()}
-            backgroundColor={backgroundColor}
-          />,
-        )
-        expect(screen.getByTestId(testId)).toHaveStyle({ backgroundColor })
+        expect(screen.getByTestId(testId)).toHaveStyle({ backgroundColor: backgroundColor.toValue() })
       })
     })
 

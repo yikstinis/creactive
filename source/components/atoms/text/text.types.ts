@@ -1,5 +1,5 @@
-import type { Fraction } from '@/helpers'
-import type { Color, FontWeight } from '@/types'
+import type { ColorValue, Fraction, RGBColor, TransparentColor } from '@/helpers'
+import type { FontWeight } from '@/types'
 import type {
   ForwardRefExoticComponent,
   PropsWithChildren,
@@ -115,7 +115,7 @@ export interface TextProperties extends PropsWithChildren {
    * @see {@link TextComponent.Color}
    * @default {@link TextColor.BASE_800}
    */
-  color?: TextColor | Color
+  color?: TextColor | RGBColor | TransparentColor
   /**
    * Themed background color.
    * @see {@link TextComponent.BackgroundColor}
@@ -221,11 +221,11 @@ export type TextStyledProperties = {
     /**
      * Resolved foreground color string.
      */
-    color: Color
+    color: ColorValue
     /**
      * Resolved background color string, omitted when not set.
      */
-    backgroundColor?: Color
+    backgroundColor?: ColorValue
     /**
      * Opacity value between 0 and 1, omitted when not set.
      */

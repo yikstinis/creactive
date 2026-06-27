@@ -1,3 +1,4 @@
+import { Color, COLOR_TRANSPARENT } from '@/helpers'
 import { faker } from '@faker-js/faker'
 import { render, screen } from '@testing-library/react'
 import { Platform } from 'react-native'
@@ -2003,7 +2004,7 @@ describe('@/components/atoms/text', () => {
         <Text
           testId={testId}
           fontSize={Text.FontSize.X2S}
-          color='transparent'
+          color={COLOR_TRANSPARENT}
         >
           {text}
         </Text>,
@@ -2330,29 +2331,13 @@ describe('@/components/atoms/text', () => {
         render(
           <Text
             testId={testId}
-            color='rgb(255,0,128)'
+            color={new Color(255, 0, 128)}
           >
             {text}
           </Text>,
         )
         expect(screen.getByTestId(testId)).toHaveStyle({
           color: 'rgb(255,0,128)',
-        })
-      })
-
-      it('renders with custom rgba color', () => {
-        const testId = randomTestId()
-        const text = faker.lorem.sentence()
-        render(
-          <Text
-            testId={testId}
-            color='rgba(255,0,128,0.5)'
-          >
-            {text}
-          </Text>,
-        )
-        expect(screen.getByTestId(testId)).toHaveStyle({
-          color: 'rgba(255,0,128,0.5)',
         })
       })
     })
