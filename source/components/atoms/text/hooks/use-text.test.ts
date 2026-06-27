@@ -1,3 +1,4 @@
+import { Fraction } from '@/helpers'
 import { renderHook } from '@testing-library/react-native'
 import { TextAlign, TextDecoration, TextLineHeight } from '../constants'
 import {
@@ -81,42 +82,42 @@ describe('@/components/atoms/text', () => {
         const { result } = renderHook(() =>
           useTextLineHeight(TextLineHeight.NONE),
         )
-        expect(result.current).toEqual(1)
+        expect(result.current).toEqual(new Fraction(1))
       })
 
       it('returns tight line height style', () => {
         const { result } = renderHook(() =>
           useTextLineHeight(TextLineHeight.TIGHT),
         )
-        expect(result.current).toEqual(1.25)
+        expect(result.current).toEqual(new Fraction(1.25))
       })
 
       it('returns snug line height style', () => {
         const { result } = renderHook(() =>
           useTextLineHeight(TextLineHeight.SNUG),
         )
-        expect(result.current).toEqual(1.375)
+        expect(result.current).toEqual(new Fraction(1.375))
       })
 
       it('returns normal line height style', () => {
         const { result } = renderHook(() =>
           useTextLineHeight(TextLineHeight.NORMAL),
         )
-        expect(result.current).toEqual(1.5)
+        expect(result.current).toEqual(new Fraction(1.5))
       })
 
       it('returns relaxed line height style', () => {
         const { result } = renderHook(() =>
           useTextLineHeight(TextLineHeight.RELAXED),
         )
-        expect(result.current).toEqual(1.625)
+        expect(result.current).toEqual(new Fraction(1.625))
       })
 
       it('returns loose line height style', () => {
         const { result } = renderHook(() =>
           useTextLineHeight(TextLineHeight.LOOSE),
         )
-        expect(result.current).toEqual(2)
+        expect(result.current).toEqual(new Fraction(2))
       })
     })
   })

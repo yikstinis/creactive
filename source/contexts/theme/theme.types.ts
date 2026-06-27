@@ -1,4 +1,4 @@
-import type { PixelDimension, RGBColor } from '@/helpers'
+import type { Fraction, PixelDimension, RGBColor } from '@/helpers'
 import type { FontWeight } from '@/types'
 import type { FunctionComponent, PropsWithChildren } from 'react'
 
@@ -515,37 +515,37 @@ export interface ThemeContextValue {
    * @see LINE_HEIGHT_BASE_NONE
    * @default 1
    */
-  lineHeightBaseNone: number
+  lineHeightBaseNone: Fraction
   /**
    * Base tight line height.
    * @see LINE_HEIGHT_BASE_TIGHT
    * @default 1.25
    */
-  lineHeightBaseTight: number
+  lineHeightBaseTight: Fraction
   /**
    * Base snug line height.
    * @see LINE_HEIGHT_BASE_SNUG
    * @default 1.375
    */
-  lineHeightBaseSnug: number
+  lineHeightBaseSnug: Fraction
   /**
    * Base normal line height.
    * @see LINE_HEIGHT_BASE_NORMAL
    * @default 1.5
    */
-  lineHeightBaseNormal: number
+  lineHeightBaseNormal: Fraction
   /**
    * Base relaxed line height.
    * @see LINE_HEIGHT_BASE_RELAXED
    * @default 1.625
    */
-  lineHeightBaseRelaxed: number
+  lineHeightBaseRelaxed: Fraction
   /**
    * Base loose line height.
    * @see LINE_HEIGHT_BASE_LOOSE
    * @default 2
    */
-  lineHeightBaseLoose: number
+  lineHeightBaseLoose: Fraction
 
   /**
    * Base f spacing.

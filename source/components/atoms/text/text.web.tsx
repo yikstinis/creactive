@@ -79,7 +79,7 @@ const Text = forwardRef<TextReference, TextProperties>(function Text(
         fontFamily: useTextFontFamily(fontFamily, fontWeight),
         fontWeight: useTextFontWeight(fontWeight),
         fontSize: fontSizeRaw,
-        lineHeight: fontSizeRaw * lineHeightValue,
+        lineHeight: fontSizeRaw * lineHeightValue.toValue(),
         maxLines,
         color: useTextColor(color),
         backgroundColor: useTextBackgroundColor(backgroundColor),
