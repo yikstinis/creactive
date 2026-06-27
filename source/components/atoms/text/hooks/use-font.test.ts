@@ -2,12 +2,12 @@ import { renderHook } from '@testing-library/react-native'
 import { Platform } from 'react-native'
 import { TextFontFamily, TextFontSize, TextFontWeight } from '../constants'
 import {
+  useTextFontFamily,
   useTextFontFamilyStyle,
-  useTextFontFamilyValue,
+  useTextFontSize,
   useTextFontSizeStyle,
-  useTextFontSizeValue,
+  useTextFontWeight,
   useTextFontWeightStyle,
-  useTextFontWeightValue,
 } from './use-font'
 
 describe('@/components/atoms/text', () => {
@@ -77,7 +77,7 @@ describe('@/components/atoms/text', () => {
     describe('text font family value hook', () => {
       it('returns base font family value', () => {
         const { result } = renderHook(() =>
-          useTextFontFamilyValue(TextFontFamily.DEFAULT, TextFontWeight.REGULAR)
+          useTextFontFamily(TextFontFamily.DEFAULT, TextFontWeight.REGULAR)
         )
         expect(result.current).toBe(
           Platform.select({
@@ -99,7 +99,7 @@ describe('@/components/atoms/text', () => {
 
       it('returns a distinct base font family value per weight on android', () => {
         const { result } = renderHook(() =>
-          useTextFontFamilyValue(TextFontFamily.DEFAULT, TextFontWeight.SEMIBOLD)
+          useTextFontFamily(TextFontFamily.DEFAULT, TextFontWeight.SEMIBOLD)
         )
         expect(result.current).toBe(
           Platform.select({
@@ -121,7 +121,7 @@ describe('@/components/atoms/text', () => {
 
       it('returns typographic font family value', () => {
         const { result } = renderHook(() =>
-          useTextFontFamilyValue(
+          useTextFontFamily(
             TextFontFamily.TYPOGRAPHIC,
             TextFontWeight.REGULAR,
           )
@@ -204,63 +204,63 @@ describe('@/components/atoms/text', () => {
     describe('text font weight value hook', () => {
       it('returns thin font weight value', () => {
         const { result } = renderHook(() =>
-          useTextFontWeightValue(TextFontWeight.THIN)
+          useTextFontWeight(TextFontWeight.THIN)
         )
         expect(result.current).toBe(100)
       })
 
       it('returns extra light font weight value', () => {
         const { result } = renderHook(() =>
-          useTextFontWeightValue(TextFontWeight.EXTRA_LIGHT)
+          useTextFontWeight(TextFontWeight.EXTRA_LIGHT)
         )
         expect(result.current).toBe(200)
       })
 
       it('returns light font weight value', () => {
         const { result } = renderHook(() =>
-          useTextFontWeightValue(TextFontWeight.LIGHT)
+          useTextFontWeight(TextFontWeight.LIGHT)
         )
         expect(result.current).toBe(300)
       })
 
       it('returns regular font weight value', () => {
         const { result } = renderHook(() =>
-          useTextFontWeightValue(TextFontWeight.REGULAR)
+          useTextFontWeight(TextFontWeight.REGULAR)
         )
         expect(result.current).toBe(400)
       })
 
       it('returns medium font weight value', () => {
         const { result } = renderHook(() =>
-          useTextFontWeightValue(TextFontWeight.MEDIUM)
+          useTextFontWeight(TextFontWeight.MEDIUM)
         )
         expect(result.current).toBe(500)
       })
 
       it('returns semi bold font weight value', () => {
         const { result } = renderHook(() =>
-          useTextFontWeightValue(TextFontWeight.SEMIBOLD)
+          useTextFontWeight(TextFontWeight.SEMIBOLD)
         )
         expect(result.current).toBe(600)
       })
 
       it('returns bold font weight value', () => {
         const { result } = renderHook(() =>
-          useTextFontWeightValue(TextFontWeight.BOLD)
+          useTextFontWeight(TextFontWeight.BOLD)
         )
         expect(result.current).toBe(700)
       })
 
       it('returns extra bold font weight value', () => {
         const { result } = renderHook(() =>
-          useTextFontWeightValue(TextFontWeight.EXTRA_BOLD)
+          useTextFontWeight(TextFontWeight.EXTRA_BOLD)
         )
         expect(result.current).toBe(800)
       })
 
       it('returns black font weight value', () => {
         const { result } = renderHook(() =>
-          useTextFontWeightValue(TextFontWeight.BLACK)
+          useTextFontWeight(TextFontWeight.BLACK)
         )
         expect(result.current).toBe(900)
       })
@@ -348,77 +348,77 @@ describe('@/components/atoms/text', () => {
     describe('text font size value hook', () => {
       it('returns 2 times extra-small font size value', () => {
         const { result } = renderHook(() =>
-          useTextFontSizeValue(TextFontSize.X2S)
+          useTextFontSize(TextFontSize.X2S)
         )
         expect(result.current).toBe(10)
       })
 
       it('returns extra-small font size value', () => {
         const { result } = renderHook(() =>
-          useTextFontSizeValue(TextFontSize.XS)
+          useTextFontSize(TextFontSize.XS)
         )
         expect(result.current).toBe(12)
       })
 
       it('returns small font size value', () => {
         const { result } = renderHook(() =>
-          useTextFontSizeValue(TextFontSize.SM)
+          useTextFontSize(TextFontSize.SM)
         )
         expect(result.current).toBe(14)
       })
 
       it('returns medium font size value', () => {
         const { result } = renderHook(() =>
-          useTextFontSizeValue(TextFontSize.MD)
+          useTextFontSize(TextFontSize.MD)
         )
         expect(result.current).toBe(16)
       })
 
       it('returns large font size value', () => {
         const { result } = renderHook(() =>
-          useTextFontSizeValue(TextFontSize.LG)
+          useTextFontSize(TextFontSize.LG)
         )
         expect(result.current).toBe(18)
       })
 
       it('returns extra-large font size value', () => {
         const { result } = renderHook(() =>
-          useTextFontSizeValue(TextFontSize.XL)
+          useTextFontSize(TextFontSize.XL)
         )
         expect(result.current).toBe(20)
       })
 
       it('returns 2 times large font size value', () => {
         const { result } = renderHook(() =>
-          useTextFontSizeValue(TextFontSize.X2L)
+          useTextFontSize(TextFontSize.X2L)
         )
         expect(result.current).toBe(24)
       })
 
       it('returns 3 times large font size value', () => {
         const { result } = renderHook(() =>
-          useTextFontSizeValue(TextFontSize.X3L)
+          useTextFontSize(TextFontSize.X3L)
         )
         expect(result.current).toBe(30)
       })
 
       it('returns 4 times large font size value', () => {
         const { result } = renderHook(() =>
-          useTextFontSizeValue(TextFontSize.X4L)
+          useTextFontSize(TextFontSize.X4L)
         )
         expect(result.current).toBe(36)
       })
 
       it('returns 5 times large font size value', () => {
         const { result } = renderHook(() =>
-          useTextFontSizeValue(TextFontSize.X5L)
+          useTextFontSize(TextFontSize.X5L)
         )
         expect(result.current).toBe(48)
       })
 
       it('returns 6 times large font size value', () => {
         const { result } = renderHook(() =>
-          useTextFontSizeValue(TextFontSize.X6L)
+          useTextFontSize(TextFontSize.X6L)
         )
         expect(result.current).toBe(60)
       })

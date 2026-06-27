@@ -1,11 +1,11 @@
 import { renderHook } from '@testing-library/react-native'
 import { TextAlign, TextDecoration, TextLineHeight } from '../constants'
 import {
+  useTextAlign,
   useTextAlignStyle,
-  useTextAlignValue,
+  useTextDecoration,
   useTextDecorationStyle,
-  useTextDecorationValue,
-  useTextLineHeightValue,
+  useTextLineHeight,
 } from './use-text'
 
 describe('@/components/atoms/text', () => {
@@ -29,14 +29,14 @@ describe('@/components/atoms/text', () => {
     describe('text decoration value hook', () => {
       it('returns none decoration value', () => {
         const { result } = renderHook(() =>
-          useTextDecorationValue(TextDecoration.NONE),
+          useTextDecoration(TextDecoration.NONE),
         )
         expect(result.current).toEqual('none')
       })
 
       it('returns underline decoration value', () => {
         const { result } = renderHook(() =>
-          useTextDecorationValue(TextDecoration.UNDERLINE),
+          useTextDecoration(TextDecoration.UNDERLINE),
         )
         expect(result.current).toEqual('underline')
       })
@@ -44,17 +44,17 @@ describe('@/components/atoms/text', () => {
 
     describe('text align value hook', () => {
       it('returns left alignment value', () => {
-        const { result } = renderHook(() => useTextAlignValue(TextAlign.LEFT))
+        const { result } = renderHook(() => useTextAlign(TextAlign.LEFT))
         expect(result.current).toEqual('left')
       })
 
       it('returns center alignment value', () => {
-        const { result } = renderHook(() => useTextAlignValue(TextAlign.CENTER))
+        const { result } = renderHook(() => useTextAlign(TextAlign.CENTER))
         expect(result.current).toEqual('center')
       })
 
       it('returns right alignment value', () => {
-        const { result } = renderHook(() => useTextAlignValue(TextAlign.RIGHT))
+        const { result } = renderHook(() => useTextAlign(TextAlign.RIGHT))
         expect(result.current).toEqual('right')
       })
     })
@@ -79,42 +79,42 @@ describe('@/components/atoms/text', () => {
     describe('text line height value hook', () => {
       it('returns none line height style', () => {
         const { result } = renderHook(() =>
-          useTextLineHeightValue(TextLineHeight.NONE),
+          useTextLineHeight(TextLineHeight.NONE),
         )
         expect(result.current).toEqual(1)
       })
 
       it('returns tight line height style', () => {
         const { result } = renderHook(() =>
-          useTextLineHeightValue(TextLineHeight.TIGHT),
+          useTextLineHeight(TextLineHeight.TIGHT),
         )
         expect(result.current).toEqual(1.25)
       })
 
       it('returns snug line height style', () => {
         const { result } = renderHook(() =>
-          useTextLineHeightValue(TextLineHeight.SNUG),
+          useTextLineHeight(TextLineHeight.SNUG),
         )
         expect(result.current).toEqual(1.375)
       })
 
       it('returns normal line height style', () => {
         const { result } = renderHook(() =>
-          useTextLineHeightValue(TextLineHeight.NORMAL),
+          useTextLineHeight(TextLineHeight.NORMAL),
         )
         expect(result.current).toEqual(1.5)
       })
 
       it('returns relaxed line height style', () => {
         const { result } = renderHook(() =>
-          useTextLineHeightValue(TextLineHeight.RELAXED),
+          useTextLineHeight(TextLineHeight.RELAXED),
         )
         expect(result.current).toEqual(1.625)
       })
 
       it('returns loose line height style', () => {
         const { result } = renderHook(() =>
-          useTextLineHeightValue(TextLineHeight.LOOSE),
+          useTextLineHeight(TextLineHeight.LOOSE),
         )
         expect(result.current).toEqual(2)
       })

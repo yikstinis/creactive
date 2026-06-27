@@ -1,3 +1,3 @@
 import type { Fraction } from '@/helpers'
 
-export const useTextOpacityValue = (opacity?: Fraction) => opacity?.toValue()
+export const useTextOpacity = (opacity?: Fraction) => opacity?.toValue()

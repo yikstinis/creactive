@@ -3,7 +3,7 @@ import { Color } from '@/helpers'
 import type { ColorValue, RGBColor, TransparentColor } from '@/helpers'
 import { TextBackgroundColor, TextColor } from '../constants'
 
-const TEXT_THEME_COLOR_KEY = {
+const TEXT_COLOR_KEY = {
   [TextColor.BASE_100]: 'colorForegroundBase100' as const,
   [TextColor.BASE_200]: 'colorForegroundBase200' as const,
   [TextColor.BASE_300]: 'colorForegroundBase300' as const,
@@ -35,16 +35,16 @@ const TEXT_THEME_COLOR_KEY = {
 export const useTextColorStyle = (color: TextColor | RGBColor | TransparentColor) => {
   const themeStyleSheet = useThemeStyleSheet()
   if (color instanceof Color) return { color: color.toValue() }
-  return themeStyleSheet[TEXT_THEME_COLOR_KEY[color]]
+  return themeStyleSheet[TEXT_COLOR_KEY[color]]
 }
 
-export const useTextColorValue = (color: TextColor | RGBColor | TransparentColor): ColorValue => {
+export const useTextColor = (color: TextColor | RGBColor | TransparentColor): ColorValue => {
   const themeContext = useThemeContext()
   if (color instanceof Color) return color.toValue()
-  return themeContext[TEXT_THEME_COLOR_KEY[color]].toValue()
+  return themeContext[TEXT_COLOR_KEY[color]].toValue()
 }
 
-const TEXT_BACKGROUND_COLOR_THEME_KEY = {
+const TEXT_BACKGROUND_COLOR_KEY = {
   [TextBackgroundColor.BASE_100]: 'colorBackgroundBase100' as const,
   [TextBackgroundColor.BASE_200]: 'colorBackgroundBase200' as const,
   [TextBackgroundColor.BASE_300]: 'colorBackgroundBase300' as const,
@@ -55,17 +55,17 @@ const TEXT_BACKGROUND_COLOR_THEME_KEY = {
   [TextBackgroundColor.BASE_800]: 'colorBackgroundBase800' as const,
   [TextBackgroundColor.BASE_900]: 'colorBackgroundBase900' as const,
 }
-export const useTextBackgoundColorStyle = (
+export const useTextBackgroundColorStyle = (
   backgroundColor?: TextBackgroundColor,
 ) => {
   const themeStyleSheet = useThemeStyleSheet()
   if (backgroundColor === undefined) return backgroundColor
-  return themeStyleSheet[TEXT_BACKGROUND_COLOR_THEME_KEY[backgroundColor]]
+  return themeStyleSheet[TEXT_BACKGROUND_COLOR_KEY[backgroundColor]]
 }
-export const useTextBackgoundColorValue = (
+export const useTextBackgroundColor = (
   backgroundColor?: TextBackgroundColor,
 ): ColorValue | undefined => {
   const themeContext = useThemeContext()
   if (backgroundColor === undefined) return undefined
-  return themeContext[TEXT_BACKGROUND_COLOR_THEME_KEY[backgroundColor]].toValue()
+  return themeContext[TEXT_BACKGROUND_COLOR_KEY[backgroundColor]].toValue()
 }

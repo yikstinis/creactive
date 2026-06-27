@@ -14,16 +14,16 @@ import {
 import { getLineHeightStyleSheet } from './helpers'
 import {
   useTextAlignStyle,
+  useTextBackgroundColorStyle,
   useTextColorStyle,
   useTextDecorationStyle,
   useTextFontFamilyStyle,
+  useTextFontSize,
   useTextFontSizeStyle,
-  useTextFontSizeValue,
   useTextFontWeightStyle,
-  useTextLineHeightValue,
-  useTextOpacityValue,
+  useTextLineHeight,
+  useTextOpacity,
 } from './hooks'
-import { useTextBackgoundColorStyle } from './hooks/use-color'
 import type {
   TextComponent,
   TextMeasureCallback,
@@ -59,8 +59,8 @@ const Text = forwardRef<TextReference, TextProperties>(function Text(
   }))
 
   const lineHeightStyleSheet = getLineHeightStyleSheet(
-    useTextFontSizeValue(fontSize),
-    useTextLineHeightValue(lineHeight),
+    useTextFontSize(fontSize),
+    useTextLineHeight(lineHeight),
   )
 
   return (
@@ -76,9 +76,9 @@ const Text = forwardRef<TextReference, TextProperties>(function Text(
         useTextFontSizeStyle(fontSize),
         lineHeightStyleSheet.textLineHeight,
         useTextColorStyle(color),
-        useTextBackgoundColorStyle(backgroundColor),
+        useTextBackgroundColorStyle(backgroundColor),
         {
-          opacity: useTextOpacityValue(opacity),
+          opacity: useTextOpacity(opacity),
         },
       ]}
       numberOfLines={maxLines}

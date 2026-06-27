@@ -10,4 +10,4 @@ const TEXT_TAG_VALUE = {
   [TextTag.H5]: 'h5' as const,
   [TextTag.H6]: 'h6' as const,
 }
-export const useTextTagValue = (tag: TextTag) => TEXT_TAG_VALUE[tag]
+export const useTextTag = (tag: TextTag) => TEXT_TAG_VALUE[tag]

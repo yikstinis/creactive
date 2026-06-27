@@ -1,18 +1,23 @@
-export { useTextColorStyle, useTextColorValue } from './use-color'
 export {
+  useTextBackgroundColor,
+  useTextBackgroundColorStyle,
+  useTextColor,
+  useTextColorStyle,
+} from './use-color'
+export {
+  useTextFontFamily,
   useTextFontFamilyStyle,
-  useTextFontFamilyValue,
+  useTextFontSize,
   useTextFontSizeStyle,
-  useTextFontSizeValue,
+  useTextFontWeight,
   useTextFontWeightStyle,
-  useTextFontWeightValue,
 } from './use-font'
-export { useTextOpacityValue } from './use-opacity'
-export { useTextTagValue } from './use-tag'
+export { useTextOpacity } from './use-opacity'
+export { useTextTag } from './use-tag'
 export {
+  useTextAlign,
   useTextAlignStyle,
-  useTextAlignValue,
+  useTextDecoration,
   useTextDecorationStyle,
-  useTextDecorationValue,
-  useTextLineHeightValue,
+  useTextLineHeight,
 } from './use-text'

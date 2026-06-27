@@ -12,17 +12,17 @@ import {
   TextTag,
 } from './constants'
 import {
-  useTextAlignValue,
-  useTextColorValue,
-  useTextDecorationValue,
-  useTextFontFamilyValue,
-  useTextFontSizeValue,
-  useTextFontWeightValue,
-  useTextLineHeightValue,
-  useTextOpacityValue,
-  useTextTagValue,
+  useTextAlign,
+  useTextBackgroundColor,
+  useTextColor,
+  useTextDecoration,
+  useTextFontFamily,
+  useTextFontSize,
+  useTextFontWeight,
+  useTextLineHeight,
+  useTextOpacity,
+  useTextTag,
 } from './hooks'
-import { useTextBackgoundColorValue } from './hooks/use-color'
 import type {
   TextComponent,
   TextMeasureCallback,
@@ -64,25 +64,25 @@ const Text = forwardRef<TextReference, TextProperties>(function Text(
     },
   }))
 
-  const fontSizeValue = useTextFontSizeValue(fontSize)
-  const lineHeightValue = useTextLineHeightValue(lineHeight)
+  const fontSizeValue = useTextFontSize(fontSize)
+  const lineHeightValue = useTextLineHeight(lineHeight)
 
   return (
     <TextStyled
       data-testid={testId}
       ref={elementRef}
-      as={useTextTagValue(tag)}
+      as={useTextTag(tag)}
       css={{
-        textAlign: useTextAlignValue(textAlign),
-        textDecoration: useTextDecorationValue(textDecoration),
-        fontFamily: useTextFontFamilyValue(fontFamily, fontWeight),
-        fontWeight: useTextFontWeightValue(fontWeight),
+        textAlign: useTextAlign(textAlign),
+        textDecoration: useTextDecoration(textDecoration),
+        fontFamily: useTextFontFamily(fontFamily, fontWeight),
+        fontWeight: useTextFontWeight(fontWeight),
         fontSize: fontSizeValue,
         lineHeight: fontSizeValue * lineHeightValue,
         maxLines,
-        color: useTextColorValue(color),
-        backgroundColor: useTextBackgoundColorValue(backgroundColor),
-        opacity: useTextOpacityValue(opacity),
+        color: useTextColor(color),
+        backgroundColor: useTextBackgroundColor(backgroundColor),
+        opacity: useTextOpacity(opacity),
       }}
     >
       {children}

@@ -21,7 +21,7 @@ const TEXT_DECORATION_VALUE = {
   [TextDecoration.NONE]: 'none' as const,
   [TextDecoration.UNDERLINE]: 'underline' as const,
 }
-export const useTextDecorationValue = (textDecoration: TextDecoration) =>
+export const useTextDecoration = (textDecoration: TextDecoration) =>
   TEXT_DECORATION_VALUE[textDecoration]
 
 const textAlignStyleSheet = StyleSheet.create({
@@ -47,9 +47,9 @@ const TEXT_ALIGN_VALUE = {
   [TextAlign.CENTER]: 'center' as const,
   [TextAlign.RIGHT]: 'right' as const,
 }
-export const useTextAlignValue = (align: TextAlign) => TEXT_ALIGN_VALUE[align]
+export const useTextAlign = (align: TextAlign) => TEXT_ALIGN_VALUE[align]
 
-export const TEXT_THEME_LINE_HEIGHT_KEY = {
+export const TEXT_LINE_HEIGHT_KEY = {
   [TextLineHeight.NONE]: 'lineHeightBaseNone' as const,
   [TextLineHeight.TIGHT]: 'lineHeightBaseTight' as const,
   [TextLineHeight.SNUG]: 'lineHeightBaseSnug' as const,
@@ -57,5 +57,5 @@ export const TEXT_THEME_LINE_HEIGHT_KEY = {
   [TextLineHeight.RELAXED]: 'lineHeightBaseRelaxed' as const,
   [TextLineHeight.LOOSE]: 'lineHeightBaseLoose' as const,
 }
-export const useTextLineHeightValue = (lineHeight: TextLineHeight) =>
-  useThemeContext()[TEXT_THEME_LINE_HEIGHT_KEY[lineHeight]]
+export const useTextLineHeight = (lineHeight: TextLineHeight) =>
+  useThemeContext()[TEXT_LINE_HEIGHT_KEY[lineHeight]]
