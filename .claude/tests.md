@@ -14,8 +14,7 @@
 
 ## Structure
 
-Use nested `describe` blocks: path alias → file name → function/hook name → `it`
-cases.
+Use nested `describe` blocks: path alias → file name → function/hook name → `it` cases.
 
 ```ts
 describe('@/hooks', () => {
@@ -30,8 +29,7 @@ describe('@/hooks', () => {
 
 ## Imports
 
-Always import from `@testing-library/react-native` — the jest config remaps it
-to `@testing-library/react` for web automatically.
+Always import from `@testing-library/react-native` — the jest config remaps it to `@testing-library/react` for web automatically.
 
 ## Running tests
 

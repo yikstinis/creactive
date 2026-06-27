@@ -5,6 +5,10 @@ import type {
   PixelDimensionValue,
 } from './dimension.types'
 
+/**
+ * Typed dimension value in a specific unit.
+ * Use to pass sizes through component props without converting to a raw number or string until needed.
+ */
 export class Dimension<U extends DimensionUnit = DimensionUnit> {
   public static readonly Unit = DimensionUnit
 
@@ -29,5 +33,14 @@ export class Dimension<U extends DimensionUnit = DimensionUnit> {
   }
 }
 
+/**
+ * Convenience alias for a Dimension instance restricted to pixel unit.
+ * Use in type annotations where only pixel dimensions are accepted.
+ */
 export type PixelDimension = Dimension<DimensionUnit.PIXEL>
+
+/**
+ * Convenience alias for a Dimension instance restricted to percent unit.
+ * Use in type annotations where only percent dimensions are accepted.
+ */
 export type PercentDimension = Dimension<DimensionUnit.PERCENT>

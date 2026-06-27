@@ -1,3 +1,11 @@
+export { COLOR_TRANSPARENT, Color } from '@/helpers/color'
+export type {
+  ColorValue,
+  RGBColor,
+  RGBColorValue,
+  TransparentColor,
+  TransparentColorValue,
+} from '@/helpers/color'
 export {
   DIMENSION_MAX,
   DIMENSION_MIN,

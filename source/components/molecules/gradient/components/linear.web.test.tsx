@@ -2,6 +2,11 @@ import { View } from '@/components/atoms/view'
 import { render, screen } from '@testing-library/react-native'
 import { Gradient } from '..'
 
+const defaultStops = () => [
+  { offset: randomFraction(), color: randomRgb() },
+  { offset: randomFraction(), color: randomRgb() },
+]
+
 describe('@/components/molecules/gradient', () => {
   describe('linear gradient component', () => {
     it('renders wrapper view with two children', () => {
@@ -10,10 +15,7 @@ describe('@/components/molecules/gradient', () => {
         <Gradient.Linear
           testId={testId}
           direction={Gradient.Linear.Direction.BOTTOM}
-          stops={[
-            { offset: randomFraction(), color: randomRgb() },
-            { offset: randomFraction(), color: randomRgb() },
-          ]}
+          stops={defaultStops()}
         />,
       )
       expect(screen.getByTestId(testId)).toBeTruthy()
@@ -26,10 +28,7 @@ describe('@/components/molecules/gradient', () => {
         <Gradient.Linear
           testId={testId}
           direction={Gradient.Linear.Direction.BOTTOM}
-          stops={[
-            { offset: randomFraction(), color: randomRgb() },
-            { offset: randomFraction(), color: randomRgb() },
-          ]}
+          stops={defaultStops()}
         />,
       )
       expect(screen.getByTestId(testId)).toBeTruthy()
@@ -44,10 +43,7 @@ describe('@/components/molecules/gradient', () => {
         <Gradient.Linear
           testId={testId}
           direction={Gradient.Linear.Direction.TOP}
-          stops={[
-            { offset: randomFraction(), color: randomRgb() },
-            { offset: randomFraction(), color: randomRgb() },
-          ]}
+          stops={defaultStops()}
         />,
       )
       expect(screen.getByTestId(testId)).toBeTruthy()
@@ -68,10 +64,7 @@ describe('@/components/molecules/gradient', () => {
         <Gradient.Linear
           testId={testId}
           direction={Gradient.Linear.Direction.LEFT}
-          stops={[
-            { offset: randomFraction(), color: randomRgb() },
-            { offset: randomFraction(), color: randomRgb() },
-          ]}
+          stops={defaultStops()}
         />,
       )
       expect(screen.getByTestId(testId)).toBeTruthy()
@@ -92,10 +85,7 @@ describe('@/components/molecules/gradient', () => {
         <Gradient.Linear
           testId={testId}
           direction={Gradient.Linear.Direction.RIGHT}
-          stops={[
-            { offset: randomFraction(), color: randomRgb() },
-            { offset: randomFraction(), color: randomRgb() },
-          ]}
+          stops={defaultStops()}
         />,
       )
       expect(screen.getByTestId(testId)).toBeTruthy()
@@ -116,10 +106,7 @@ describe('@/components/molecules/gradient', () => {
         <Gradient.Linear
           testId={testId}
           direction={Gradient.Linear.Direction.BOTTOM}
-          stops={[
-            { offset: randomFraction(), color: randomRgb() },
-            { offset: randomFraction(), color: randomRgb() },
-          ]}
+          stops={defaultStops()}
         />,
       )
       expect(screen.getByTestId(testId)).toBeTruthy()
@@ -134,16 +121,97 @@ describe('@/components/molecules/gradient', () => {
       expect(linearGradientChild.getAttribute('y2')).toEqual('1')
     })
 
+    it('renders linear gradient with top left coordinates', () => {
+      const testId = randomTestId()
+      render(
+        <Gradient.Linear
+          testId={testId}
+          direction={Gradient.Linear.Direction.TOP_LEFT}
+          stops={defaultStops()}
+        />,
+      )
+      expect(screen.getByTestId(testId)).toBeTruthy()
+      const svgChild = screen.getByTestId(testId).children[0].children[0]
+      const defsChild = svgChild.children[0]
+      expect(defsChild.tagName).toEqual('defs')
+      const linearGradientChild = defsChild.children[0]
+      expect(linearGradientChild.tagName).toEqual('linearGradient')
+      expect(linearGradientChild.getAttribute('x1')).toEqual('1')
+      expect(linearGradientChild.getAttribute('y1')).toEqual('1')
+      expect(linearGradientChild.getAttribute('x2')).toEqual('0')
+      expect(linearGradientChild.getAttribute('y2')).toEqual('0')
+    })
+
+    it('renders linear gradient with top right coordinates', () => {
+      const testId = randomTestId()
+      render(
+        <Gradient.Linear
+          testId={testId}
+          direction={Gradient.Linear.Direction.TOP_RIGHT}
+          stops={defaultStops()}
+        />,
+      )
+      expect(screen.getByTestId(testId)).toBeTruthy()
+      const svgChild = screen.getByTestId(testId).children[0].children[0]
+      const defsChild = svgChild.children[0]
+      expect(defsChild.tagName).toEqual('defs')
+      const linearGradientChild = defsChild.children[0]
+      expect(linearGradientChild.tagName).toEqual('linearGradient')
+      expect(linearGradientChild.getAttribute('x1')).toEqual('0')
+      expect(linearGradientChild.getAttribute('y1')).toEqual('1')
+      expect(linearGradientChild.getAttribute('x2')).toEqual('1')
+      expect(linearGradientChild.getAttribute('y2')).toEqual('0')
+    })
+
+    it('renders linear gradient with bottom left coordinates', () => {
+      const testId = randomTestId()
+      render(
+        <Gradient.Linear
+          testId={testId}
+          direction={Gradient.Linear.Direction.BOTTOM_LEFT}
+          stops={defaultStops()}
+        />,
+      )
+      expect(screen.getByTestId(testId)).toBeTruthy()
+      const svgChild = screen.getByTestId(testId).children[0].children[0]
+      const defsChild = svgChild.children[0]
+      expect(defsChild.tagName).toEqual('defs')
+      const linearGradientChild = defsChild.children[0]
+      expect(linearGradientChild.tagName).toEqual('linearGradient')
+      expect(linearGradientChild.getAttribute('x1')).toEqual('1')
+      expect(linearGradientChild.getAttribute('y1')).toEqual('0')
+      expect(linearGradientChild.getAttribute('x2')).toEqual('0')
+      expect(linearGradientChild.getAttribute('y2')).toEqual('1')
+    })
+
+    it('renders linear gradient with bottom right coordinates', () => {
+      const testId = randomTestId()
+      render(
+        <Gradient.Linear
+          testId={testId}
+          direction={Gradient.Linear.Direction.BOTTOM_RIGHT}
+          stops={defaultStops()}
+        />,
+      )
+      expect(screen.getByTestId(testId)).toBeTruthy()
+      const svgChild = screen.getByTestId(testId).children[0].children[0]
+      const defsChild = svgChild.children[0]
+      expect(defsChild.tagName).toEqual('defs')
+      const linearGradientChild = defsChild.children[0]
+      expect(linearGradientChild.tagName).toEqual('linearGradient')
+      expect(linearGradientChild.getAttribute('x1')).toEqual('0')
+      expect(linearGradientChild.getAttribute('y1')).toEqual('0')
+      expect(linearGradientChild.getAttribute('x2')).toEqual('1')
+      expect(linearGradientChild.getAttribute('y2')).toEqual('1')
+    })
+
     it('renders full size rectangle filled with gradient', () => {
       const testId = randomTestId()
       render(
         <Gradient.Linear
           testId={testId}
           direction={Gradient.Linear.Direction.BOTTOM}
-          stops={[
-            { offset: randomFraction(), color: randomRgb() },
-            { offset: randomFraction(), color: randomRgb() },
-          ]}
+          stops={defaultStops()}
         />,
       )
       expect(screen.getByTestId(testId)).toBeTruthy()
@@ -171,10 +239,7 @@ describe('@/components/molecules/gradient', () => {
         <Gradient.Linear
           testId={testId}
           direction={Gradient.Linear.Direction.BOTTOM}
-          stops={[
-            { offset: randomFraction(), color: randomRgb() },
-            { offset: randomFraction(), color: randomRgb() },
-          ]}
+          stops={defaultStops()}
         >
           <View testId={childTestId} />
         </Gradient.Linear>,
@@ -193,19 +258,13 @@ describe('@/components/molecules/gradient', () => {
           <Gradient.Linear
             testId={testIdFirst}
             direction={Gradient.Linear.Direction.BOTTOM}
-            stops={[
-              { offset: randomFraction(), color: randomRgb() },
-              { offset: randomFraction(), color: randomRgb() },
-            ]}
+            stops={defaultStops()}
           />
 
           <Gradient.Linear
             testId={testIdSecond}
             direction={Gradient.Linear.Direction.BOTTOM}
-            stops={[
-              { offset: randomFraction(), color: randomRgb() },
-              { offset: randomFraction(), color: randomRgb() },
-            ]}
+            stops={defaultStops()}
           />
         </>,
       )
@@ -220,6 +279,82 @@ describe('@/components/molecules/gradient', () => {
       expect(firstLinearGradientChild.getAttribute('id')).not.toEqual(
         secondLinearGradientChild.getAttribute('id'),
       )
+    })
+
+    describe('fill absolute component', () => {
+      it('renders with absolute position', () => {
+        const testId = randomTestId()
+        render(
+          <Gradient.Linear.Fill.Absolute
+            testId={testId}
+            direction={Gradient.Linear.Direction.BOTTOM}
+            stops={defaultStops()}
+          />,
+        )
+        expect(screen.getByTestId(testId)).toHaveStyle({ position: 'absolute' })
+      })
+
+      it('renders with zero top', () => {
+        const testId = randomTestId()
+        render(
+          <Gradient.Linear.Fill.Absolute
+            testId={testId}
+            direction={Gradient.Linear.Direction.BOTTOM}
+            stops={defaultStops()}
+          />,
+        )
+        expect(screen.getByTestId(testId)).toHaveStyle({ top: 0 })
+      })
+
+      it('renders with zero left', () => {
+        const testId = randomTestId()
+        render(
+          <Gradient.Linear.Fill.Absolute
+            testId={testId}
+            direction={Gradient.Linear.Direction.BOTTOM}
+            stops={defaultStops()}
+          />,
+        )
+        expect(screen.getByTestId(testId)).toHaveStyle({ left: 0 })
+      })
+
+      it('renders with zero right', () => {
+        const testId = randomTestId()
+        render(
+          <Gradient.Linear.Fill.Absolute
+            testId={testId}
+            direction={Gradient.Linear.Direction.BOTTOM}
+            stops={defaultStops()}
+          />,
+        )
+        expect(screen.getByTestId(testId)).toHaveStyle({ right: 0 })
+      })
+
+      it('renders with zero bottom', () => {
+        const testId = randomTestId()
+        render(
+          <Gradient.Linear.Fill.Absolute
+            testId={testId}
+            direction={Gradient.Linear.Direction.BOTTOM}
+            stops={defaultStops()}
+          />,
+        )
+        expect(screen.getByTestId(testId)).toHaveStyle({ bottom: 0 })
+      })
+    })
+
+    describe('fill flex component', () => {
+      it('renders with flex grow 1', () => {
+        const testId = randomTestId()
+        render(
+          <Gradient.Linear.Fill.Flex
+            testId={testId}
+            direction={Gradient.Linear.Direction.BOTTOM}
+            stops={defaultStops()}
+          />,
+        )
+        expect(screen.getByTestId(testId)).toHaveStyle({ flexGrow: 1 })
+      })
     })
   })
 })

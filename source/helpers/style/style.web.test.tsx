@@ -2,7 +2,7 @@ import { faker } from '@faker-js/faker'
 import { renderReactNativeInitialStyle } from '.'
 
 describe('@/helpers/style', () => {
-  describe('render react native initial style', () => {
+  describe('renderReactNativeInitialStyle', () => {
     it('renders default element', () => {
       const element = renderReactNativeInitialStyle(() => faker.lorem.words(2))
       // Checking that element styles content StyleSheet.absoluteFill styles.

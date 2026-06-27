@@ -2,6 +2,11 @@ import { View } from '@/components/atoms/view'
 import { render, screen } from '@testing-library/react-native'
 import { Gradient } from '..'
 
+const defaultStops = () => [
+  { offset: randomFraction(), color: randomRgb() },
+  { offset: randomFraction(), color: randomRgb() },
+]
+
 describe('@/components/molecules/gradient', () => {
   describe('circular gradient component', () => {
     it('renders wrapper view with two children', () => {
@@ -9,10 +14,7 @@ describe('@/components/molecules/gradient', () => {
       render(
         <Gradient.Circular
           testId={testId}
-          stops={[
-            { offset: randomFraction(), color: randomRgb() },
-            { offset: randomFraction(), color: randomRgb() },
-          ]}
+          stops={defaultStops()}
         />,
       )
       expect(screen.getByTestId(testId)).toBeTruthy()
@@ -24,10 +26,7 @@ describe('@/components/molecules/gradient', () => {
       render(
         <Gradient.Circular
           testId={testId}
-          stops={[
-            { offset: randomFraction(), color: randomRgb() },
-            { offset: randomFraction(), color: randomRgb() },
-          ]}
+          stops={defaultStops()}
         />,
       )
       expect(screen.getByTestId(testId)).toBeTruthy()
@@ -41,10 +40,7 @@ describe('@/components/molecules/gradient', () => {
       render(
         <Gradient.Circular
           testId={testId}
-          stops={[
-            { offset: randomFraction(), color: randomRgb() },
-            { offset: randomFraction(), color: randomRgb() },
-          ]}
+          stops={defaultStops()}
         />,
       )
       expect(screen.getByTestId(testId)).toBeTruthy()
@@ -67,10 +63,7 @@ describe('@/components/molecules/gradient', () => {
         <Gradient.Circular
           testId={testId}
           cx={cx}
-          stops={[
-            { offset: randomFraction(), color: randomRgb() },
-            { offset: randomFraction(), color: randomRgb() },
-          ]}
+          stops={defaultStops()}
         />,
       )
       expect(screen.getByTestId(testId)).toBeTruthy()
@@ -93,10 +86,7 @@ describe('@/components/molecules/gradient', () => {
         <Gradient.Circular
           testId={testId}
           cy={cy}
-          stops={[
-            { offset: randomFraction(), color: randomRgb() },
-            { offset: randomFraction(), color: randomRgb() },
-          ]}
+          stops={defaultStops()}
         />,
       )
       expect(screen.getByTestId(testId)).toBeTruthy()
@@ -117,10 +107,7 @@ describe('@/components/molecules/gradient', () => {
       render(
         <Gradient.Circular
           testId={testId}
-          stops={[
-            { offset: randomFraction(), color: randomRgb() },
-            { offset: randomFraction(), color: randomRgb() },
-          ]}
+          stops={defaultStops()}
         />,
       )
       expect(screen.getByTestId(testId)).toBeTruthy()
@@ -147,10 +134,7 @@ describe('@/components/molecules/gradient', () => {
       render(
         <Gradient.Circular
           testId={testId}
-          stops={[
-            { offset: randomFraction(), color: randomRgb() },
-            { offset: randomFraction(), color: randomRgb() },
-          ]}
+          stops={defaultStops()}
         >
           <View testId={childTestId} />
         </Gradient.Circular>,
@@ -168,18 +152,12 @@ describe('@/components/molecules/gradient', () => {
         <>
           <Gradient.Circular
             testId={testIdFirst}
-            stops={[
-              { offset: randomFraction(), color: randomRgb() },
-              { offset: randomFraction(), color: randomRgb() },
-            ]}
+            stops={defaultStops()}
           />
 
           <Gradient.Circular
             testId={testIdSecond}
-            stops={[
-              { offset: randomFraction(), color: randomRgb() },
-              { offset: randomFraction(), color: randomRgb() },
-            ]}
+            stops={defaultStops()}
           />
         </>,
       )
@@ -194,6 +172,76 @@ describe('@/components/molecules/gradient', () => {
       expect(firstRadialGradientChild.getAttribute('id')).not.toEqual(
         secondRadialGradientChild.getAttribute('id'),
       )
+    })
+
+    describe('fill absolute component', () => {
+      it('renders with absolute position', () => {
+        const testId = randomTestId()
+        render(
+          <Gradient.Circular.Fill.Absolute
+            testId={testId}
+            stops={defaultStops()}
+          />,
+        )
+        expect(screen.getByTestId(testId)).toHaveStyle({ position: 'absolute' })
+      })
+
+      it('renders with zero top', () => {
+        const testId = randomTestId()
+        render(
+          <Gradient.Circular.Fill.Absolute
+            testId={testId}
+            stops={defaultStops()}
+          />,
+        )
+        expect(screen.getByTestId(testId)).toHaveStyle({ top: 0 })
+      })
+
+      it('renders with zero left', () => {
+        const testId = randomTestId()
+        render(
+          <Gradient.Circular.Fill.Absolute
+            testId={testId}
+            stops={defaultStops()}
+          />,
+        )
+        expect(screen.getByTestId(testId)).toHaveStyle({ left: 0 })
+      })
+
+      it('renders with zero right', () => {
+        const testId = randomTestId()
+        render(
+          <Gradient.Circular.Fill.Absolute
+            testId={testId}
+            stops={defaultStops()}
+          />,
+        )
+        expect(screen.getByTestId(testId)).toHaveStyle({ right: 0 })
+      })
+
+      it('renders with zero bottom', () => {
+        const testId = randomTestId()
+        render(
+          <Gradient.Circular.Fill.Absolute
+            testId={testId}
+            stops={defaultStops()}
+          />,
+        )
+        expect(screen.getByTestId(testId)).toHaveStyle({ bottom: 0 })
+      })
+    })
+
+    describe('fill flex component', () => {
+      it('renders with flex grow 1', () => {
+        const testId = randomTestId()
+        render(
+          <Gradient.Circular.Fill.Flex
+            testId={testId}
+            stops={defaultStops()}
+          />,
+        )
+        expect(screen.getByTestId(testId)).toHaveStyle({ flexGrow: 1 })
+      })
     })
   })
 })

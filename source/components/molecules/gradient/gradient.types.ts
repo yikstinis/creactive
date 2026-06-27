@@ -10,42 +10,41 @@ import type { GradientLinearDirection } from './constants'
  */
 export interface GradientStop {
   /**
-   * Should be used to control gradient stop offset.
-   * @see Fraction
-   * @default undefined
+   * Position of the stop along the gradient axis.
+   * Use a {@link Fraction} value between 0 and 1 where 0 is the gradient start and 1 is the end.
+   * @see {@link Fraction}
    */
   offset: Fraction
   /**
-   * Allows to control gradient stop color.
-   * @see Color
-   * @default undefined
+   * Color of the gradient at this stop position.
+   * Use any valid {@link Color} token to define the visual transition target.
+   * @see {@link Color}
    */
   color: Color
 }
 
 /**
  * Linear gradient component properties.
- * Describes possible gradient component customization.
- * @see Gradient.Linear
+ * Describes possible linear gradient component customization.
+ * @see {@link GradientLinearComponent}
  */
 export interface GradientLinearProperties extends ViewProperties {
   /**
-   * One of supported gradient directions.
-   * @see Gradient.Direction
+   * One of the supported gradient directions.
+   * Controls the axis along which the gradient transitions from the first to the last stop.
+   * @see {@link GradientLinearComponent.Direction}
    */
   direction: GradientLinearDirection
   /**
-   * Gradient stops.
-   * @see GradientStop
+   * Gradient stops defining the color transition.
+   * Defines the color and position values used to construct the gradient.
+   * @see {@link GradientStop}
    */
   stops: GradientStop[]
 }
 /**
- * Linear gradient component.
- * Allows to render linear gradient.
- * Provides access to direction constants.
- * @see Gradient.Linear
- * @see Gradient.Direction
+ * Linear gradient component with static {@link GradientLinearComponent.Direction} enum attached.
+ * Renders a linear gradient from first to last stop along the configured direction.
  */
 export type GradientLinearComponent =
   FunctionComponent<GradientLinearProperties> & {
@@ -66,32 +65,34 @@ export type GradientLinearComponent =
 
 /**
  * Circular gradient component properties.
- * Describes possible gradient component customization.
- * @see Gradient.Circular
+ * Describes possible circular gradient component customization.
+ * @see {@link GradientCircularComponent}
  */
 export interface GradientCircularProperties extends ViewProperties {
   /**
    * Horizontal center of the gradient circle as a fraction of the element width.
-   * @see Fraction
+   * Pass a {@link Fraction} value between 0 and 1 to shift the focal point horizontally.
+   * @see {@link Fraction}
    * @default 0.5
    */
   cx?: Fraction
   /**
    * Vertical center of the gradient circle as a fraction of the element height.
-   * @see Fraction
+   * Pass a {@link Fraction} value between 0 and 1 to shift the focal point vertically.
+   * @see {@link Fraction}
    * @default 0.5
    */
   cy?: Fraction
   /**
-   * Gradient stops.
-   * @see GradientStop
+   * Gradient stops defining the color transition.
+   * Defines the color and position values used to construct the radial gradient.
+   * @see {@link GradientStop}
    */
   stops: GradientStop[]
 }
 /**
  * Circular gradient component.
- * Allows to render radial gradient from center outward.
- * @see Gradient.Circular
+ * Renders a radial gradient emanating outward from the configured center point.
  */
 export type GradientCircularComponent =
   FunctionComponent<GradientCircularProperties> & {
@@ -107,9 +108,9 @@ export type GradientCircularComponent =
   }
 
 /**
- * Gradient object providing access to components and constants.
- * @see Gradient.Linear
- * @see Gradient.Circular
+ * Gradient object providing access to gradient components and View constants.
+ * @see {@link GradientLinearComponent}
+ * @see {@link GradientCircularComponent}
  */
 export type GradientObject = {
   Linear: GradientLinearComponent

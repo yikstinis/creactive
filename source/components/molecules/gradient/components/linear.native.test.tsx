@@ -1,7 +1,7 @@
 import { View } from '@/components/atoms/view'
 import { faker } from '@faker-js/faker'
 import { act, fireEvent, render, screen } from '@testing-library/react-native'
-import { LinearGradient, Rect, Svg } from 'react-native-svg'
+import { LinearGradient, Rect, Stop, Svg } from 'react-native-svg'
 import { Gradient } from '..'
 
 beforeEach(() => {
@@ -103,6 +103,62 @@ describe('@/components/molecules/gradient', () => {
       expect(linearGradient.props.y2).toEqual(1)
     })
 
+    it('renders linear gradient with top left coordinates', () => {
+      const { UNSAFE_getByType } = render(
+        <Gradient.Linear
+          direction={Gradient.Linear.Direction.TOP_LEFT}
+          stops={defaultStops()}
+        />,
+      )
+      const linearGradient = UNSAFE_getByType(LinearGradient)
+      expect(linearGradient.props.x1).toEqual(1)
+      expect(linearGradient.props.y1).toEqual(1)
+      expect(linearGradient.props.x2).toEqual(0)
+      expect(linearGradient.props.y2).toEqual(0)
+    })
+
+    it('renders linear gradient with top right coordinates', () => {
+      const { UNSAFE_getByType } = render(
+        <Gradient.Linear
+          direction={Gradient.Linear.Direction.TOP_RIGHT}
+          stops={defaultStops()}
+        />,
+      )
+      const linearGradient = UNSAFE_getByType(LinearGradient)
+      expect(linearGradient.props.x1).toEqual(0)
+      expect(linearGradient.props.y1).toEqual(1)
+      expect(linearGradient.props.x2).toEqual(1)
+      expect(linearGradient.props.y2).toEqual(0)
+    })
+
+    it('renders linear gradient with bottom left coordinates', () => {
+      const { UNSAFE_getByType } = render(
+        <Gradient.Linear
+          direction={Gradient.Linear.Direction.BOTTOM_LEFT}
+          stops={defaultStops()}
+        />,
+      )
+      const linearGradient = UNSAFE_getByType(LinearGradient)
+      expect(linearGradient.props.x1).toEqual(1)
+      expect(linearGradient.props.y1).toEqual(0)
+      expect(linearGradient.props.x2).toEqual(0)
+      expect(linearGradient.props.y2).toEqual(1)
+    })
+
+    it('renders linear gradient with bottom right coordinates', () => {
+      const { UNSAFE_getByType } = render(
+        <Gradient.Linear
+          direction={Gradient.Linear.Direction.BOTTOM_RIGHT}
+          stops={defaultStops()}
+        />,
+      )
+      const linearGradient = UNSAFE_getByType(LinearGradient)
+      expect(linearGradient.props.x1).toEqual(0)
+      expect(linearGradient.props.y1).toEqual(0)
+      expect(linearGradient.props.x2).toEqual(1)
+      expect(linearGradient.props.y2).toEqual(1)
+    })
+
     it('renders full size rectangle filled with gradient', () => {
       const { UNSAFE_getByType } = render(
         <Gradient.Linear
@@ -119,6 +175,22 @@ describe('@/components/molecules/gradient', () => {
       expect(rect.props.width).toEqual('100%')
       expect(rect.props.height).toEqual('100%')
       expect(rect.props.fill).toEqual(`url(#${gradientId})`)
+    })
+
+    it('renders gradient stops with correct offset and color', () => {
+      const stops = defaultStops()
+      const { UNSAFE_getAllByType } = render(
+        <Gradient.Linear
+          direction={Gradient.Linear.Direction.BOTTOM}
+          stops={stops}
+        />,
+      )
+      const stopElements = UNSAFE_getAllByType(Stop)
+      expect(stopElements).toHaveLength(stops.length)
+      stops.forEach((stop, index) => {
+        expect(stopElements[index].props.offset).toEqual(stop.offset.toValue())
+        expect(stopElements[index].props.stopColor).toEqual(stop.color)
+      })
     })
 
     it('renders different gradient ids for different instances', () => {
@@ -455,6 +527,22 @@ describe('@/components/molecules/gradient', () => {
         )
         expect(screen.getByTestId(testId)).not.toHaveStyle({
           flexBasis: expect.anything(),
+        })
+      })
+
+      it('passes flexBasis to outer view', () => {
+        const testId = randomTestId()
+        const dimension = randomPixelDimension()
+        render(
+          <Gradient.Linear
+            testId={testId}
+            direction={Gradient.Linear.Direction.BOTTOM}
+            stops={defaultStops()}
+            flexBasis={dimension}
+          />,
+        )
+        expect(screen.getByTestId(testId)).toHaveStyle({
+          flexBasis: dimension.toValue() as unknown as number,
         })
       })
     })
