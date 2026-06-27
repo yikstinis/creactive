@@ -1,3 +1,4 @@
+import { Dimension } from '@/helpers'
 import { Platform } from 'react-native'
 
 export const FONT_FAMILY_DEFAULT = Platform.select({
@@ -47,14 +48,14 @@ export const FONT_FAMILY_DEFAULT_ANDROID_BY_WEIGHT: Record<number, string> = {
   [FONT_WEIGHT_BASE_BLACK]: 'sans-serif-black',
 }
 
-export const FONT_SIZE_BASE_X2S = 10
-export const FONT_SIZE_BASE_XS = 12
-export const FONT_SIZE_BASE_SM = 14
-export const FONT_SIZE_BASE_MD = 16
-export const FONT_SIZE_BASE_LG = 18
-export const FONT_SIZE_BASE_XL = 20
-export const FONT_SIZE_BASE_X2L = 24
-export const FONT_SIZE_BASE_X3L = 30
-export const FONT_SIZE_BASE_X4L = 36
-export const FONT_SIZE_BASE_X5L = 48
-export const FONT_SIZE_BASE_X6L = 60
+export const FONT_SIZE_BASE_X2S = new Dimension(10)
+export const FONT_SIZE_BASE_XS = new Dimension(12)
+export const FONT_SIZE_BASE_SM = new Dimension(14)
+export const FONT_SIZE_BASE_MD = new Dimension(16)
+export const FONT_SIZE_BASE_LG = new Dimension(18)
+export const FONT_SIZE_BASE_XL = new Dimension(20)
+export const FONT_SIZE_BASE_X2L = new Dimension(24)
+export const FONT_SIZE_BASE_X3L = new Dimension(30)
+export const FONT_SIZE_BASE_X4L = new Dimension(36)
+export const FONT_SIZE_BASE_X5L = new Dimension(48)
+export const FONT_SIZE_BASE_X6L = new Dimension(60)

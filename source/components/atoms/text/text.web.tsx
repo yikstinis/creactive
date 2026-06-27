@@ -66,6 +66,7 @@ const Text = forwardRef<TextReference, TextProperties>(function Text(
 
   const fontSizeValue = useTextFontSize(fontSize)
   const lineHeightValue = useTextLineHeight(lineHeight)
+  const fontSizeRaw = parseFloat(String(fontSizeValue))
 
   return (
     <TextStyled
@@ -77,8 +78,8 @@ const Text = forwardRef<TextReference, TextProperties>(function Text(
         textDecoration: useTextDecoration(textDecoration),
         fontFamily: useTextFontFamily(fontFamily, fontWeight),
         fontWeight: useTextFontWeight(fontWeight),
-        fontSize: fontSizeValue,
-        lineHeight: fontSizeValue * lineHeightValue,
+        fontSize: fontSizeRaw,
+        lineHeight: fontSizeRaw * lineHeightValue,
         maxLines,
         color: useTextColor(color),
         backgroundColor: useTextBackgroundColor(backgroundColor),

@@ -448,67 +448,67 @@ export interface ThemeContextValue {
    * @see FONT_SIZE_BASE_X2S
    * @default 10
    */
-  fontSizeBaseX2S: number
+  fontSizeBaseX2S: PixelDimension
   /**
    * Base extra-small font size.
    * @see FONT_SIZE_BASE_XS
    * @default 12
    */
-  fontSizeBaseXS: number
+  fontSizeBaseXS: PixelDimension
   /**
    * Base small font size.
    * @see FONT_SIZE_BASE_SM
    * @default 14
    */
-  fontSizeBaseSM: number
+  fontSizeBaseSM: PixelDimension
   /**
    * Base medium font size.
    * @see FONT_SIZE_BASE_MD
    * @default 16
    */
-  fontSizeBaseMD: number
+  fontSizeBaseMD: PixelDimension
   /**
    * Base large font size.
    * @see FONT_SIZE_BASE_LG
    * @default 18
    */
-  fontSizeBaseLG: number
+  fontSizeBaseLG: PixelDimension
   /**
    * Base extra-large font size.
    * @see FONT_SIZE_BASE_XL
    * @default 20
    */
-  fontSizeBaseXL: number
+  fontSizeBaseXL: PixelDimension
   /**
    * Base 2 times extra-large font size.
    * @see FONT_SIZE_BASE_X2L
    * @default 24
    */
-  fontSizeBaseX2L: number
+  fontSizeBaseX2L: PixelDimension
   /**
    * Base 3 times extra-large font size.
    * @see FONT_SIZE_BASE_X3L
    * @default 30
    */
-  fontSizeBaseX3L: number
+  fontSizeBaseX3L: PixelDimension
   /**
    * Base 4 times extra-large font size.
    * @see FONT_SIZE_BASE_X4L
    * @default 36
    */
-  fontSizeBaseX4L: number
+  fontSizeBaseX4L: PixelDimension
   /**
    * Base 5 times extra-large font size.
    * @see FONT_SIZE_BASE_X5L
    * @default 48
    */
-  fontSizeBaseX5L: number
+  fontSizeBaseX5L: PixelDimension
   /**
    * Base 6 times extra-large font size.
    * @see FONT_SIZE_BASE_X6L
    * @default 60
    */
-  fontSizeBaseX6L: number
+  fontSizeBaseX6L: PixelDimension
 
   /**
    * Base none line height.

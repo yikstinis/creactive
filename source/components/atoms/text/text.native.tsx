@@ -59,7 +59,7 @@ const Text = forwardRef<TextReference, TextProperties>(function Text(
   }))
 
   const lineHeightStyleSheet = getLineHeightStyleSheet(
-    useTextFontSize(fontSize),
+    useTextFontSize(fontSize) as number,
     useTextLineHeight(lineHeight),
   )
 

@@ -86,4 +86,4 @@ export const TEXT_FONT_SIZE_KEY = {
 export const useTextFontSizeStyle = (fontSize: TextFontSize) =>
   useThemeStyleSheet()[TEXT_FONT_SIZE_KEY[fontSize]]
 export const useTextFontSize = (fontSize: TextFontSize) =>
-  useThemeContext()[TEXT_FONT_SIZE_KEY[fontSize]]
+  useThemeContext()[TEXT_FONT_SIZE_KEY[fontSize]].toValue()

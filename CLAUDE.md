@@ -11,7 +11,7 @@ Value helpers live in `helpers/color/*`, `helpers/dimension/*`, `helpers/fractio
 ### Component (context provider) props
 
 - Must be a component constants enum value, or a value formatted via `Color`, `Dimension`, or `Fraction`.
-- Never pass raw numbers or strings.
+- Raw values only for non-styling props (e.g. `maxLines={2}`, `placeholder="..."`); everything else must use an enum or helper.
 
 ### Context values and inner component props
 

@@ -300,37 +300,37 @@ export const useThemeStyleSheet = () => {
         },
 
         fontSizeBaseX2S: {
-          fontSize: themeContext.fontSizeBaseX2S,
+          fontSize: themeContext.fontSizeBaseX2S.toValue(),
         },
         fontSizeBaseXS: {
-          fontSize: themeContext.fontSizeBaseXS,
+          fontSize: themeContext.fontSizeBaseXS.toValue(),
         },
         fontSizeBaseSM: {
-          fontSize: themeContext.fontSizeBaseSM,
+          fontSize: themeContext.fontSizeBaseSM.toValue(),
         },
         fontSizeBaseMD: {
-          fontSize: themeContext.fontSizeBaseMD,
+          fontSize: themeContext.fontSizeBaseMD.toValue(),
         },
         fontSizeBaseLG: {
-          fontSize: themeContext.fontSizeBaseLG,
+          fontSize: themeContext.fontSizeBaseLG.toValue(),
         },
         fontSizeBaseXL: {
-          fontSize: themeContext.fontSizeBaseXL,
+          fontSize: themeContext.fontSizeBaseXL.toValue(),
         },
         fontSizeBaseX2L: {
-          fontSize: themeContext.fontSizeBaseX2L,
+          fontSize: themeContext.fontSizeBaseX2L.toValue(),
         },
         fontSizeBaseX3L: {
-          fontSize: themeContext.fontSizeBaseX3L,
+          fontSize: themeContext.fontSizeBaseX3L.toValue(),
         },
         fontSizeBaseX4L: {
-          fontSize: themeContext.fontSizeBaseX4L,
+          fontSize: themeContext.fontSizeBaseX4L.toValue(),
         },
         fontSizeBaseX5L: {
-          fontSize: themeContext.fontSizeBaseX5L,
+          fontSize: themeContext.fontSizeBaseX5L.toValue(),
         },
         fontSizeBaseX6L: {
-          fontSize: themeContext.fontSizeBaseX6L,
+          fontSize: themeContext.fontSizeBaseX6L.toValue(),
         },
 
         gapBaseX6S: {

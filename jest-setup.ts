@@ -38,6 +38,7 @@ const PIXEL_PROPERTIES = new Set([
   'minHeight',
   'maxHeight',
   'flexBasis',
+  'fontSize',
   'lineHeight',
   'borderWidth',
   'borderTopWidth',
