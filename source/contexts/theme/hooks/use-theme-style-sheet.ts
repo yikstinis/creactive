@@ -264,13 +264,6 @@ export const useThemeStyleSheet = () => {
           color: themeContext.colorForegroundFailure900.toValue(),
         },
 
-        fontFamilyDefault: {
-          fontFamily: themeContext.fontFamilyDefault,
-        },
-        fontFamilyTypographic: {
-          fontFamily: themeContext.fontFamilyTypographic,
-        },
-
         fontWeightBaseThin: {
           fontWeight: themeContext.fontWeightBaseThin,
         },
