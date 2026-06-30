@@ -1,5 +1,5 @@
 import { Font } from '@/helpers'
-import { forwardRef, useImperativeHandle, useRef } from 'react'
+import { forwardRef, useImperativeHandle, useMemo, useRef } from 'react'
 import { Text as ReactNativeText, StyleSheet } from 'react-native'
 import {
   TextAlign,
@@ -61,16 +61,22 @@ const Text = forwardRef<TextReference, TextProperties>(function Text(
     },
   }))
 
-  const font = new Font(
-    useTextFontFamily(fontFamily),
-    useTextFontWeight(fontWeight),
-    useTextFontSize(fontSize),
-    useTextLineHeight(lineHeight),
+  const themeFontFamily = useTextFontFamily(fontFamily)
+  const themeFontWeight = useTextFontWeight(fontWeight)
+  const themeFontSize = useTextFontSize(fontSize)
+  const themeLineHeight = useTextLineHeight(lineHeight)
+
+  const font = useMemo(
+    () =>
+      new Font(
+        themeFontFamily,
+        themeFontWeight,
+        themeFontSize,
+        themeLineHeight,
+      ),
+    [themeFontFamily, themeFontWeight, themeFontSize, themeLineHeight],
   )
-  const lineHeightStyleSheet = getLineHeightStyleSheet(
-    font.toSizeValue() as number,
-    font.toLineHeightValue(),
-  )
+  const lineHeightStyleSheet = getLineHeightStyleSheet(font)
 
   return (
     <ReactNativeText

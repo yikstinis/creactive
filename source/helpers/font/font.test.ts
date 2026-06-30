@@ -76,6 +76,20 @@ describe('@/helpers/font', () => {
       })
     })
 
+    describe('calculateLineHeight', () => {
+      it('returns size multiplied by line height fraction as a PixelDimensionValue', () => {
+        const size = faker.number.int({ min: 8, max: 32 })
+        const lineHeight = faker.number.float({ min: 1, max: 2, fractionDigits: 2 })
+        const font = new Font(
+          FontFamily.SANS_SERIF,
+          FontWeight.REGULAR,
+          new Dimension(size),
+          new Fraction(lineHeight),
+        )
+        expect(font.calculateLineHeight()).toBe(new Dimension(size * lineHeight).toValue())
+      })
+    })
+
     describe('toLineHeightValue', () => {
       it('resolves the configured line height', () => {
         const font = new Font(

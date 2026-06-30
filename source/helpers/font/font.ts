@@ -1,4 +1,8 @@
-import type { PixelDimension } from '@/helpers/dimension'
+import {
+  Dimension,
+  type PixelDimension,
+  PixelDimensionValue,
+} from '@/helpers/dimension'
 import type { Fraction } from '@/helpers/fraction'
 import { Platform } from 'react-native'
 import {
@@ -50,11 +54,25 @@ export class Font {
     return this.size.toValue()
   }
 
+  toSizeNumber() {
+    return this.size.toNumber()
+  }
+
   toWeightValue(): FontWeight {
     return this.weight
   }
 
   toLineHeightValue() {
     return this.lineHeight.toValue()
+  }
+
+  toLineHeightNumber() {
+    return this.lineHeight.toNumber()
+  }
+
+  calculateLineHeight(): PixelDimensionValue {
+    return new Dimension(
+      this.size.toNumber() * this.lineHeight.toNumber(),
+    ).toValue() as PixelDimensionValue
   }
 }

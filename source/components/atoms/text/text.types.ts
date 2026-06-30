@@ -2,6 +2,7 @@ import type {
   ColorValue,
   FontWeight,
   Fraction,
+  PixelDimensionValue,
   RGBColor,
   TransparentColor,
 } from '@/helpers'
@@ -236,15 +237,15 @@ export type TextStyledProperties = {
      */
     fontWeight: FontWeight
     /**
-     * Font size in pixels resolved from the theme.
-     * Used alongside lineHeight to compute the absolute line height in pixels.
+     * Font size value resolved from the theme.
+     * Passed as a {@link PixelDimensionValue} to the styled element as-is.
      */
-    fontSize: number
+    fontSize: PixelDimensionValue
     /**
-     * Line height in pixels resolved from the theme.
-     * Computed as the product of fontSize and the resolved line height multiplier.
+     * Line height value resolved from the theme.
+     * Passed as a {@link PixelDimensionValue} to the styled element as-is.
      */
-    lineHeight: number
+    lineHeight: PixelDimensionValue
     /**
      * Maximum number of lines before truncation.
      * When defined, enables webkit-line-clamp truncation on the rendered element.

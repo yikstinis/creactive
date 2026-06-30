@@ -14,4 +14,8 @@ export class Fraction {
   toValue(): FractionValue {
     return this.value
   }
+
+  toNumber(): number {
+    return this.value
+  }
 }

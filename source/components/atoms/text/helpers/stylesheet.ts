@@ -1,3 +1,4 @@
+import type { Font } from '@/helpers/font'
 import { StyleSheet } from 'react-native'
 
 // Mirrors the web TextStyled's `overflow-clip-margin: 0.5em` (see components/styled.tsx).
@@ -7,10 +8,9 @@ import { StyleSheet } from 'react-native'
 const LINE_HEIGHT_CLIP_MARGIN_FACTOR = 0.5
 
 const lineHeightStyleSheetCache = new Map()
-export const getLineHeightStyleSheet = (
-  fontSize: number,
-  lineHeight: number,
-) => {
+export const getLineHeightStyleSheet = (font: Font) => {
+  const fontSize = font.toSizeNumber()
+  const lineHeight = font.toLineHeightNumber()
   const cacheKey = [fontSize, lineHeight].join('-')
   if (lineHeightStyleSheetCache.has(cacheKey)) {
     return lineHeightStyleSheetCache.get(cacheKey)

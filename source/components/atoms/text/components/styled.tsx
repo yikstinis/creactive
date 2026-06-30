@@ -21,8 +21,8 @@ export const TextStyled = styled.span<TextStyledProperties>`
   text-decoration-line: ${(properties) => properties.css.textDecoration};
   font-family: ${(properties) => properties.css.fontFamily};
   font-weight: ${(properties) => properties.css.fontWeight};
-  font-size: ${(properties) => properties.css.fontSize}px;
-  line-height: ${(properties) => properties.css.lineHeight}px;
+  font-size: ${(properties) => properties.css.fontSize};
+  line-height: ${(properties) => properties.css.lineHeight};
   -webkit-box-orient: vertical;
   -webkit-line-clamp: ${(properties) => properties.css.maxLines};
   color: ${(properties) => properties.css.color};

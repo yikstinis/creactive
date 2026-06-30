@@ -20,16 +20,20 @@ export class Dimension<U extends DimensionUnit = DimensionUnit> {
     this.value = value
   }
 
-  toValue(): U extends DimensionUnit.PIXEL ? PixelDimensionValue : PercentDimensionValue {
+  toValue(): U extends DimensionUnit.PIXEL
+    ? PixelDimensionValue
+    : PercentDimensionValue {
     type Result = U extends DimensionUnit.PIXEL
       ? PixelDimensionValue
       : PercentDimensionValue
     if (this.unit === DimensionUnit.PIXEL) {
-      return (
-        Platform.OS === 'web' ? `${this.value}px` : this.value
-      ) as Result
+      return (Platform.OS === 'web' ? `${this.value}px` : this.value) as Result
     }
     return `${this.value}%` as Result
+  }
+
+  toNumber(): number {
+    return this.value
   }
 }
 

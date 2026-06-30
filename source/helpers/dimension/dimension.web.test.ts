@@ -14,6 +14,20 @@ describe('@/helpers/dimension', () => {
       expect(dimension.toValue()).toBe(`${value}px`)
     })
 
+    describe('toNumber', () => {
+      it('returns raw numeric value for pixel unit', () => {
+        const value = faker.number.int({ min: 1, max: 100 })
+        const dimension = new Dimension(value, DimensionUnit.PIXEL)
+        expect(dimension.toNumber()).toBe(value)
+      })
+
+      it('returns raw numeric value for percent unit', () => {
+        const value = faker.number.int({ min: 1, max: 100 })
+        const dimension = new Dimension(value, DimensionUnit.PERCENT)
+        expect(dimension.toNumber()).toBe(value)
+      })
+    })
+
     describe('pixel unit', () => {
       it('returns px string on web', () => {
         const value = faker.number.int({ min: 1, max: 100 })

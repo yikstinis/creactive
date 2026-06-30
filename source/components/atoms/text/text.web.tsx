@@ -1,5 +1,5 @@
 import { Font } from '@/helpers'
-import { forwardRef, useImperativeHandle, useRef } from 'react'
+import { forwardRef, useImperativeHandle, useMemo, useRef } from 'react'
 import { TextStyled } from './components'
 import {
   TextAlign,
@@ -65,13 +65,21 @@ const Text = forwardRef<TextReference, TextProperties>(function Text(
     },
   }))
 
-  const font = new Font(
-    useTextFontFamily(fontFamily),
-    useTextFontWeight(fontWeight),
-    useTextFontSize(fontSize),
-    useTextLineHeight(lineHeight),
+  const themeFontFamily = useTextFontFamily(fontFamily)
+  const themeFontWeight = useTextFontWeight(fontWeight)
+  const themeFontSize = useTextFontSize(fontSize)
+  const themeLineHeight = useTextLineHeight(lineHeight)
+
+  const font = useMemo(
+    () =>
+      new Font(
+        themeFontFamily,
+        themeFontWeight,
+        themeFontSize,
+        themeLineHeight,
+      ),
+    [themeFontFamily, themeFontWeight, themeFontSize, themeLineHeight],
   )
-  const fontSizeRaw = parseFloat(String(font.toSizeValue()))
 
   return (
     <TextStyled
@@ -83,8 +91,8 @@ const Text = forwardRef<TextReference, TextProperties>(function Text(
         textDecoration: useTextDecoration(textDecoration),
         fontFamily: font.toFamilyValue(),
         fontWeight: font.toWeightValue(),
-        fontSize: fontSizeRaw,
-        lineHeight: fontSizeRaw * font.toLineHeightValue(),
+        fontSize: font.toSizeValue(),
+        lineHeight: font.calculateLineHeight(),
         maxLines,
         color: useTextColor(color),
         backgroundColor: useTextBackgroundColor(backgroundColor),
