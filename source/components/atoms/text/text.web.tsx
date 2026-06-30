@@ -1,3 +1,4 @@
+import { Font } from '@/helpers'
 import { forwardRef, useImperativeHandle, useRef } from 'react'
 import { TextStyled } from './components'
 import {
@@ -64,9 +65,13 @@ const Text = forwardRef<TextReference, TextProperties>(function Text(
     },
   }))
 
-  const fontSizeValue = useTextFontSize(fontSize)
-  const lineHeightValue = useTextLineHeight(lineHeight)
-  const fontSizeRaw = parseFloat(String(fontSizeValue))
+  const font = new Font(
+    useTextFontFamily(fontFamily),
+    useTextFontWeight(fontWeight),
+    useTextFontSize(fontSize),
+    useTextLineHeight(lineHeight),
+  )
+  const fontSizeRaw = parseFloat(String(font.toSizeValue()))
 
   return (
     <TextStyled
@@ -76,10 +81,10 @@ const Text = forwardRef<TextReference, TextProperties>(function Text(
       css={{
         textAlign: useTextAlign(textAlign),
         textDecoration: useTextDecoration(textDecoration),
-        fontFamily: useTextFontFamily(fontFamily, fontWeight),
-        fontWeight: useTextFontWeight(fontWeight),
+        fontFamily: font.toFamilyValue(),
+        fontWeight: font.toWeightValue(),
         fontSize: fontSizeRaw,
-        lineHeight: fontSizeRaw * lineHeightValue.toValue(),
+        lineHeight: fontSizeRaw * font.toLineHeightValue(),
         maxLines,
         color: useTextColor(color),
         backgroundColor: useTextBackgroundColor(backgroundColor),

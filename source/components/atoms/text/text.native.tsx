@@ -1,3 +1,4 @@
+import { Font } from '@/helpers'
 import { forwardRef, useImperativeHandle, useRef } from 'react'
 import { Text as ReactNativeText, StyleSheet } from 'react-native'
 import {
@@ -17,9 +18,11 @@ import {
   useTextBackgroundColorStyle,
   useTextColorStyle,
   useTextDecorationStyle,
+  useTextFontFamily,
   useTextFontFamilyStyle,
   useTextFontSize,
   useTextFontSizeStyle,
+  useTextFontWeight,
   useTextFontWeightStyle,
   useTextLineHeight,
   useTextOpacity,
@@ -58,9 +61,15 @@ const Text = forwardRef<TextReference, TextProperties>(function Text(
     },
   }))
 
-  const lineHeightStyleSheet = getLineHeightStyleSheet(
-    useTextFontSize(fontSize) as number,
+  const font = new Font(
+    useTextFontFamily(fontFamily),
+    useTextFontWeight(fontWeight),
+    useTextFontSize(fontSize),
     useTextLineHeight(lineHeight),
+  )
+  const lineHeightStyleSheet = getLineHeightStyleSheet(
+    font.toSizeValue() as number,
+    font.toLineHeightValue(),
   )
 
   return (
@@ -71,9 +80,9 @@ const Text = forwardRef<TextReference, TextProperties>(function Text(
         textStyleSheet.default,
         useTextAlignStyle(textAlign),
         useTextDecorationStyle(textDecoration),
-        useTextFontFamilyStyle(fontFamily, fontWeight),
-        useTextFontWeightStyle(fontWeight),
-        useTextFontSizeStyle(fontSize),
+        useTextFontFamilyStyle(font),
+        useTextFontWeightStyle(font),
+        useTextFontSizeStyle(font),
         lineHeightStyleSheet.textLineHeight,
         useTextColorStyle(color),
         useTextBackgroundColorStyle(backgroundColor),

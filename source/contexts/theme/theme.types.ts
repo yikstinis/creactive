@@ -1,4 +1,10 @@
-import type { FontWeight, Fraction, PixelDimension, RGBColor } from '@/helpers'
+import type {
+  FontFamily,
+  FontWeight,
+  Fraction,
+  PixelDimension,
+  RGBColor,
+} from '@/helpers'
 import type { FunctionComponent, PropsWithChildren } from 'react'
 
 /**
@@ -376,16 +382,8 @@ export interface ThemeContextValue {
    */
   colorForegroundFailure900: RGBColor
 
-  /**
-   * Base font family.
-   * @see FONT_FAMILY_DEFAULT
-   */
-  fontFamilyDefault: string
-  /**
-   * Typographic font family.
-   * @see FONT_FAMILY_TYPOGRAPHIC
-   */
-  fontFamilyTypographic: string
+  fontFamilyDefault: FontFamily | string
+  fontFamilyTypographic: FontFamily | string
 
   /**
    * Base thin font weight.

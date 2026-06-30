@@ -20,7 +20,7 @@ export type {
   PixelDimension,
   PixelDimensionValue,
 } from '@/helpers/dimension'
+export { Font, FontFamily, FontWeight } from '@/helpers/font'
+export type { FontWeightValue } from '@/helpers/font'
 export { FRACTION_MAX, FRACTION_MIN, Fraction } from '@/helpers/fraction'
 export type { FractionValue } from '@/helpers/fraction'
-export { Font, FontWeight } from '@/helpers/font'
-export type { FontWeightValue } from '@/helpers/font'
