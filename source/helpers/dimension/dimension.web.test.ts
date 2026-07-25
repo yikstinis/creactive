@@ -28,6 +28,18 @@ describe('@/helpers/dimension', () => {
       })
     })
 
+    describe('unit', () => {
+      it('exposes pixel unit', () => {
+        const dimension = new Dimension(0, DimensionUnit.PIXEL)
+        expect(dimension.unit).toBe(DimensionUnit.PIXEL)
+      })
+
+      it('exposes percent unit', () => {
+        const dimension = new Dimension(0, DimensionUnit.PERCENT)
+        expect(dimension.unit).toBe(DimensionUnit.PERCENT)
+      })
+    })
+
     describe('pixel unit', () => {
       it('returns px string on web', () => {
         const value = faker.number.int({ min: 1, max: 100 })

@@ -10,10 +10,10 @@ import type {
  * Use to pass sizes through component props without converting to a raw number or string until needed.
  */
 export class Dimension<U extends DimensionUnit = DimensionUnit> {
-  public static readonly Unit = DimensionUnit
+  static readonly Unit = DimensionUnit
 
-  private readonly unit: DimensionUnit
-  public readonly value: number
+  readonly unit: DimensionUnit
+  readonly value: number
 
   constructor(value: number, unit: U = DimensionUnit.PIXEL as U) {
     this.unit = unit
