@@ -12,23 +12,22 @@ import {
   FontFamily,
   FontWeight,
 } from './constants'
-import type { FontFamilyValue } from './font.types'
 
 /**
  * Typed font value bundling family, weight, and optionally size and line height.
  * Use to pass font configuration through component props without serializing until needed.
  */
 export class Font {
-  public static readonly Family = FontFamily
-  public static readonly Weight = FontWeight
+  static readonly Family = FontFamily
+  static readonly Weight = FontWeight
 
-  private readonly family: FontFamilyValue
-  public readonly weight: FontWeight
-  public readonly size: PixelDimension
-  public readonly lineHeight: Fraction
+  readonly family: FontFamily
+  readonly weight: FontWeight
+  readonly size: PixelDimension
+  readonly lineHeight: Fraction
 
   constructor(
-    family: FontFamilyValue,
+    family: FontFamily,
     weight: FontWeight,
     size: PixelDimension,
     lineHeight: Fraction,
@@ -45,10 +44,7 @@ export class Font {
         ? FONT_FAMILY_SANS_SERIF_ANDROID_BY_WEIGHT[this.weight]
         : FONT_FAMILY_SANS_SERIF
     }
-    if (this.family === FontFamily.SERIF) {
-      return FONT_FAMILY_SERIF
-    }
-    return this.family as string
+    return FONT_FAMILY_SERIF
   }
 
   toSizeValue() {

@@ -39,17 +39,6 @@ describe('@/helpers/font', () => {
         )
         expect(font.toFamilyValue()).toBe(FONT_FAMILY_SERIF)
       })
-
-      it('returns custom string family as-is', () => {
-        const family = faker.lorem.word()
-        const font = new Font(
-          family,
-          FontWeight.REGULAR,
-          new Dimension(16),
-          new Fraction(1.5),
-        )
-        expect(font.toFamilyValue()).toBe(family)
-      })
     })
 
     describe('weight', () => {
