@@ -204,14 +204,26 @@ const meta: Meta<typeof Gradient.Circular> = {
 export default meta
 export const DefaultState: StoryObj<typeof Gradient.Circular> = {
   render: (args) => (
-    <Gradient.Circular
+    <Gradient.Circular.Fill.Flex
       {...args}
       stops={[
-        { offset: FRACTION_MIN, color: new Color(faker.number.int({ min: 0, max: 255 }), faker.number.int({ min: 0, max: 255 }), faker.number.int({ min: 0, max: 255 })) },
-        { offset: FRACTION_MAX, color: new Color(faker.number.int({ min: 0, max: 255 }), faker.number.int({ min: 0, max: 255 }), faker.number.int({ min: 0, max: 255 })) },
+        {
+          offset: FRACTION_MIN,
+          color: new Color(
+            faker.number.int({ min: 0, max: 255 }),
+            faker.number.int({ min: 0, max: 255 }),
+            faker.number.int({ min: 0, max: 255 }),
+          ),
+        },
+        {
+          offset: FRACTION_MAX,
+          color: new Color(
+            faker.number.int({ min: 0, max: 255 }),
+            faker.number.int({ min: 0, max: 255 }),
+            faker.number.int({ min: 0, max: 255 }),
+          ),
+        },
       ]}
-    >
-      {StorybookControl.renderLayout()}
-    </Gradient.Circular>
+    />
   ),
 }
