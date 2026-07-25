@@ -13,7 +13,7 @@ export class Dimension<U extends DimensionUnit = DimensionUnit> {
   public static readonly Unit = DimensionUnit
 
   private readonly unit: DimensionUnit
-  private readonly value: number
+  public readonly value: number
 
   constructor(value: number, unit: U = DimensionUnit.PIXEL as U) {
     this.unit = unit
@@ -30,10 +30,6 @@ export class Dimension<U extends DimensionUnit = DimensionUnit> {
       return (Platform.OS === 'web' ? `${this.value}px` : this.value) as Result
     }
     return `${this.value}%` as Result
-  }
-
-  toNumber(): number {
-    return this.value
   }
 }
 

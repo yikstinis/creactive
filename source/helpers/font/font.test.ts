@@ -52,6 +52,32 @@ describe('@/helpers/font', () => {
       })
     })
 
+    describe('size', () => {
+      it('exposes the configured size', () => {
+        const size = new Dimension(faker.number.int({ min: 8, max: 32 }))
+        const font = new Font(
+          FontFamily.SANS_SERIF,
+          FontWeight.REGULAR,
+          size,
+          new Fraction(1.5),
+        )
+        expect(font.size).toBe(size)
+      })
+    })
+
+    describe('lineHeight', () => {
+      it('exposes the configured line height', () => {
+        const lineHeight = new Fraction(faker.number.float({ min: 1, max: 2, fractionDigits: 2 }))
+        const font = new Font(
+          FontFamily.SANS_SERIF,
+          FontWeight.REGULAR,
+          new Dimension(16),
+          lineHeight,
+        )
+        expect(font.lineHeight).toBe(lineHeight)
+      })
+    })
+
     describe('toSizeValue', () => {
       it('resolves the configured size', () => {
         const font = new Font(

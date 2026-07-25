@@ -12,6 +12,7 @@ import {
   FontFamily,
   FontWeight,
 } from './constants'
+import type { FontFamilyValue } from './font.types'
 
 /**
  * Typed font value bundling family, weight, and optionally size and line height.
@@ -21,13 +22,13 @@ export class Font {
   public static readonly Family = FontFamily
   public static readonly Weight = FontWeight
 
-  private readonly family: FontFamily | string
+  private readonly family: FontFamilyValue
   private readonly weight: FontWeight
-  private readonly size: PixelDimension
-  private readonly lineHeight: Fraction
+  public readonly size: PixelDimension
+  public readonly lineHeight: Fraction
 
   constructor(
-    family: FontFamily | string,
+    family: FontFamilyValue,
     weight: FontWeight,
     size: PixelDimension,
     lineHeight: Fraction,
@@ -54,10 +55,6 @@ export class Font {
     return this.size.toValue()
   }
 
-  toSizeNumber() {
-    return this.size.toNumber()
-  }
-
   toWeightValue(): FontWeight {
     return this.weight
   }
@@ -66,13 +63,9 @@ export class Font {
     return this.lineHeight.toValue()
   }
 
-  toLineHeightNumber() {
-    return this.lineHeight.toNumber()
-  }
-
   calculateLineHeight(): PixelDimensionValue {
     return new Dimension(
-      this.size.toNumber() * this.lineHeight.toNumber(),
+      this.size.value * this.lineHeight.value,
     ).toValue() as PixelDimensionValue
   }
 }

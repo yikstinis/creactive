@@ -8,5 +8,13 @@ describe('@/helpers/fraction', () => {
       const fraction = new Fraction(value)
       expect(fraction.toValue()).toBe(value)
     })
+
+    describe('value', () => {
+      it('exposes the raw numeric value', () => {
+        const value = faker.number.float({ min: 0, max: 1 })
+        const fraction = new Fraction(value)
+        expect(fraction.value).toBe(value)
+      })
+    })
   })
 })

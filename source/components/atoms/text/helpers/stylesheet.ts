@@ -9,8 +9,8 @@ const LINE_HEIGHT_CLIP_MARGIN_FACTOR = 0.5
 
 const lineHeightStyleSheetCache = new Map()
 export const getLineHeightStyleSheet = (font: Font) => {
-  const fontSize = font.toSizeNumber()
-  const lineHeight = font.toLineHeightNumber()
+  const fontSize = font.size.value
+  const lineHeight = font.lineHeight.value
   const cacheKey = [fontSize, lineHeight].join('-')
   if (lineHeightStyleSheetCache.has(cacheKey)) {
     return lineHeightStyleSheetCache.get(cacheKey)

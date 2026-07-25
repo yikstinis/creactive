@@ -5,17 +5,13 @@ import type { FractionValue } from './fraction.types'
  * Use to pass opacity, progress, or ratio values through component props without using raw numbers.
  */
 export class Fraction {
-  private readonly value: number
+  public readonly value: number
 
   constructor(value: number) {
     this.value = value
   }
 
   toValue(): FractionValue {
-    return this.value
-  }
-
-  toNumber(): number {
     return this.value
   }
 }

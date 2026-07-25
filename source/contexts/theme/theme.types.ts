@@ -1,5 +1,5 @@
 import type {
-  FontFamily,
+  FontFamilyValue,
   FontWeight,
   Fraction,
   PixelDimension,
@@ -382,8 +382,8 @@ export interface ThemeContextValue {
    */
   colorForegroundFailure900: RGBColor
 
-  fontFamilyDefault: FontFamily | string
-  fontFamilyTypographic: FontFamily | string
+  fontFamilyDefault: FontFamilyValue
+  fontFamilyTypographic: FontFamilyValue
 
   /**
    * Base thin font weight.
