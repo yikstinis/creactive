@@ -90,7 +90,7 @@ const Text = forwardRef<TextReference, TextProperties>(function Text(
         textAlign: useTextAlign(textAlign),
         textDecoration: useTextDecoration(textDecoration),
         fontFamily: font.toFamilyValue(),
-        fontWeight: font.toWeightValue(),
+        fontWeight: font.weight,
         fontSize: font.toSizeValue(),
         lineHeight: font.calculateLineHeight(),
         maxLines,

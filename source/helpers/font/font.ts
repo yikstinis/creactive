@@ -23,7 +23,7 @@ export class Font {
   public static readonly Weight = FontWeight
 
   private readonly family: FontFamilyValue
-  private readonly weight: FontWeight
+  public readonly weight: FontWeight
   public readonly size: PixelDimension
   public readonly lineHeight: Fraction
 
@@ -53,10 +53,6 @@ export class Font {
 
   toSizeValue() {
     return this.size.toValue()
-  }
-
-  toWeightValue(): FontWeight {
-    return this.weight
   }
 
   toLineHeightValue() {

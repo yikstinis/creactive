@@ -52,6 +52,18 @@ describe('@/helpers/font', () => {
       })
     })
 
+    describe('weight', () => {
+      it('exposes the configured weight', () => {
+        const font = new Font(
+          FontFamily.SANS_SERIF,
+          FontWeight.BOLD,
+          new Dimension(16),
+          new Fraction(1.5),
+        )
+        expect(font.weight).toBe(FontWeight.BOLD)
+      })
+    })
+
     describe('size', () => {
       it('exposes the configured size', () => {
         const size = new Dimension(faker.number.int({ min: 8, max: 32 }))
@@ -87,18 +99,6 @@ describe('@/helpers/font', () => {
           new Fraction(1.5),
         )
         expect(font.toSizeValue()).toBe(new Dimension(16).toValue())
-      })
-    })
-
-    describe('toWeightValue', () => {
-      it('resolves the configured weight', () => {
-        const font = new Font(
-          FontFamily.SANS_SERIF,
-          FontWeight.BOLD,
-          new Dimension(16),
-          new Fraction(1.5),
-        )
-        expect(font.toWeightValue()).toBe(FontWeight.BOLD)
       })
     })
 

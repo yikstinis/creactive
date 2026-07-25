@@ -26,7 +26,7 @@ export const TEXT_FONT_WEIGHT_KEY = {
 export const useTextFontWeight = (fontWeight: TextFontWeight) =>
   useThemeContext()[TEXT_FONT_WEIGHT_KEY[fontWeight]]
 export const useTextFontWeightStyle = (font: Font) => ({
-  fontWeight: font.toWeightValue(),
+  fontWeight: font.weight,
 })
 
 export const TEXT_FONT_SIZE_KEY = {
