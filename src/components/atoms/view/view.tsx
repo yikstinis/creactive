@@ -1,9 +1,13 @@
 import { View as NativeView } from 'react-native'
 
-import type { ViewProps } from '@/components/atoms/view/view.types'
+import type { ViewComponent, ViewProps } from '@/components/atoms/view/view.types'
 import { DEFAULT_SPACING_VALUES } from '@/constants/spacing'
 
-export function View({ children, style, padding, margin }: ViewProps) {
+/**
+ * Cross-platform layout container, the atom other components build on for spacing and styling.
+ * Use in place of React Native's `View` wherever scale-constrained padding/margin is needed.
+ */
+export const View: ViewComponent = ({ children, style, padding, margin }: ViewProps) => {
   return (
     <NativeView
       style={[
