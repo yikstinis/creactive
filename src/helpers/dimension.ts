@@ -23,7 +23,3 @@ export class Dimension<U extends DimensionUnit = DimensionUnit> {
     this.unit = unit
   }
 }
-
-export type PixelDimension = Dimension<DimensionUnit.PIXEL>
-
-export type PercentDimension = Dimension<DimensionUnit.PERCENT>

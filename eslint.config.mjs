@@ -49,4 +49,21 @@ export default defineConfig([
       ],
     },
   },
+  {
+    files: ['**/*.{ts,tsx}'],
+    ignores: ['**/*.d.ts', '**/*.stories.tsx'],
+    rules: {
+      'no-restricted-syntax': [
+        'error',
+        {
+          selector: 'TSInterfaceDeclaration',
+          message: 'Interfaces must be declared in a colocated "*.types.d.ts" file, not alongside implementation code.',
+        },
+        {
+          selector: 'TSTypeAliasDeclaration',
+          message: 'Type aliases must be declared in a colocated "*.types.d.ts" file, not alongside implementation code.',
+        },
+      ],
+    },
+  },
 ])
