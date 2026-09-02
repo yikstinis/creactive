@@ -1,1 +1,0 @@
-export { TextStyled } from './styled'

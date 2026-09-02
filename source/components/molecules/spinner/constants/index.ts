@@ -1,1 +1,0 @@
-export { SpinnerColor } from './color'
