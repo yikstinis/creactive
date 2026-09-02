@@ -1,3 +1,3 @@
-export * from '@/components/atoms/view'
-export * from '@/constants/spacing'
-export * from '@/helpers/dimension'
+export * from '@/components'
+export * from '@/constants'
+export * from '@/helpers'
