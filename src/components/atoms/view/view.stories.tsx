@@ -1,7 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import { Text } from 'react-native'
-import { Spacing } from '@/constants/spacing'
+
 import { View } from '@/components/atoms/view/view'
+import { Spacing } from '@/constants/spacing'
 
 const meta: Meta<typeof View> = {
   title: 'Atoms/View',

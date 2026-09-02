@@ -1,5 +1,6 @@
 import js from '@eslint/js'
 import { defineConfig } from 'eslint/config'
+import importX from 'eslint-plugin-import-x'
 import react from 'eslint-plugin-react'
 import reactHooks from 'eslint-plugin-react-hooks'
 import globals from 'globals'
@@ -18,6 +19,9 @@ export default defineConfig([
     languageOptions: {
       globals: { ...globals.browser, ...globals.node },
     },
+    plugins: {
+      'import-x': importX,
+    },
     rules: {
       '@typescript-eslint/consistent-type-imports': [
         'error',
@@ -32,6 +36,15 @@ export default defineConfig([
               message: 'Use the "@/" alias instead of relative imports.',
             },
           ],
+        },
+      ],
+      'import-x/order': [
+        'error',
+        {
+          groups: ['builtin', 'external', 'internal'],
+          pathGroups: [{ pattern: '@/**', group: 'internal' }],
+          'newlines-between': 'always',
+          alphabetize: { order: 'asc', caseInsensitive: true },
         },
       ],
     },
