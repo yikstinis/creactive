@@ -2,20 +2,28 @@
   "name": "creactive",
   "version": "0.1.0",
   "private": true,
+  "workspaces": [
+    "example"
+  ],
   "scripts": {
     "start": "storybook dev -p 6006",
     "lint": "eslint . && tsc --noEmit",
-    "test": "jest"
+    "test": "jest",
+    "test:visual:web": "storybook build && playwright test",
+    "test:visual:web:update": "storybook build && playwright test --update-snapshots",
+    "test:visual:ios": "npm run --workspace example test:visual:ios",
+    "test:visual:android": "npm run --workspace example test:visual:android"
   },
   "peerDependencies": {
     "react": ">=19",
-    "react-native": ">=0.87"
+    "react-native": ">=0.86"
   },
   "devDependencies": {
     "@eslint/js": "^9.39.5",
     "@jest/globals": "^29.7.0",
-    "@react-native/babel-preset": "^0.87.1",
-    "@react-native/jest-preset": "^0.87.1",
+    "@playwright/test": "^1.56.0",
+    "@react-native/babel-preset": "^0.86.3",
+    "@react-native/jest-preset": "^0.86.3",
     "@storybook/react": "^8.6.18",
     "@storybook/react-vite": "^8.6.18",
     "@types/react": "^19.2.18",
@@ -27,12 +35,13 @@
     "eslint-plugin-react": "^7.37.5",
     "eslint-plugin-react-hooks": "^7.1.1",
     "globals": "^17.12.0",
+    "http-server": "^14.1.1",
     "jest": "^29.7.0",
-    "react": "^19.2.8",
-    "react-dom": "^19.2.8",
-    "react-native": "^0.87.1",
+    "react": "19.2.3",
+    "react-dom": "19.2.3",
+    "react-native": "^0.86.3",
     "react-native-web": "^0.21.2",
-    "react-test-renderer": "^19.2.8",
+    "react-test-renderer": "19.2.3",
     "storybook": "^8.6.18",
     "typescript": "^6.0.3",
     "typescript-eslint": "^8.69.0",

@@ -1,0 +1,16 @@
+{
+  "expo": {
+    "name": "creactive-example",
+    "slug": "creactive-example",
+    "scheme": "creactive-storybook",
+    "version": "0.1.0",
+    "orientation": "portrait",
+    "ios": {
+      "bundleIdentifier": "com.creactive.example",
+      "supportsTablet": false
+    },
+    "android": {
+      "package": "com.creactive.example"
+    }
+  }
+}

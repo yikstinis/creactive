@@ -17,6 +17,11 @@ const config: StorybookConfig = {
       '.web.ts',
       '.tsx',
       '.ts',
+      '.web.js',
+      '.js',
+      '.mjs',
+      '.jsx',
+      '.json',
       ...(config.resolve.extensions ?? []),
     ]
     return config

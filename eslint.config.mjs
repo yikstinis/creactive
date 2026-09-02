@@ -7,7 +7,7 @@ import globals from 'globals'
 import tseslint from 'typescript-eslint'
 
 export default defineConfig([
-  { ignores: ['node_modules', 'storybook-static', '**/*.cache/**'] },
+  { ignores: ['node_modules', 'storybook-static', '**/*.cache/**', 'example/**'] },
   { settings: { react: { version: 'detect' } } },
   js.configs.recommended,
   tseslint.configs.recommended,
