@@ -1,6 +1,8 @@
-import { ReactNode } from 'react'
-import { View as NativeView, ViewStyle } from 'react-native'
-import { DEFAULT_SPACING_VALUES, Spacing } from '@/constants/spacing'
+import type { ReactNode } from 'react'
+import { View as NativeView } from 'react-native'
+import type { ViewStyle } from 'react-native'
+import { DEFAULT_SPACING_VALUES } from '@/constants/spacing'
+import type { Spacing } from '@/constants/spacing'
 
 export interface ViewProps {
   children?: ReactNode

@@ -4,6 +4,10 @@ Creactive is a cross-platform component library built on React Native.
 
 This file holds the working conventions for any AI agent contributing code here. Keep it current as conventions are established — update it whenever a new rule is agreed on.
 
+## Workflow
+
+- Run `npm run lint` before committing (runs ESLint and the TypeScript typecheck).
+
 ## Naming
 
 - **Constants** — `UPPER_SNAKE_CASE` (e.g. `DEFAULT_VALUES`).
