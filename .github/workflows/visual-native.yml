@@ -1,14 +1,12 @@
 name: Visual regression (native)
 
 on:
+  push:
+    branches: [main]
   pull_request:
-    types: [labeled]
-  schedule:
-    - cron: '0 3 * * *'
 
 jobs:
   visual-ios:
-    if: github.event.label.name == 'visual-native' || github.event_name == 'schedule'
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v4
@@ -25,7 +23,6 @@ jobs:
           path: example/artifacts
 
   visual-android:
-    if: github.event.label.name == 'visual-native' || github.event_name == 'schedule'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
