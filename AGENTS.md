@@ -13,6 +13,14 @@ This file holds the working conventions for any AI agent contributing code here.
 
 All functionality must be covered by tests — every code path that's written, including edge cases, not just the happy path.
 
+Nest `describe` blocks to mirror what's under test:
+
+1. Outer `describe` — the `@/...` path alias of the file under test (e.g. `@/helpers/dimension/dimension`).
+2. Next `describe` — the name of the export from that file being tested (e.g. `Dimension`).
+3. If that export is an object, a further `describe` per property being tested.
+
+When the set of possible inputs is exhaustively enumerable (e.g. an enum), test every member rather than a sample.
+
 ## Naming
 
 - **Constants** — `UPPER_SNAKE_CASE` (e.g. `DEFAULT_VALUES`).

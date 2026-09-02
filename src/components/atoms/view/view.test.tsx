@@ -5,7 +5,7 @@ import TestRenderer from 'react-test-renderer'
 
 import { View } from '@/components/atoms/view/view'
 import type { ViewProps } from '@/components/atoms/view/view.types'
-import { DEFAULT_SPACING_MD_VALUE, DEFAULT_SPACING_SM_VALUE, Spacing } from '@/constants/spacing'
+import { DEFAULT_SPACING_MD_VALUE, DEFAULT_SPACING_SM_VALUE, DEFAULT_SPACING_VALUES, Spacing } from '@/constants/spacing'
 
 function renderNativeViewProps(props: Omit<ViewProps, 'children'> & { children?: ReactNode } = {}) {
   let testRenderer: TestRenderer.ReactTestRenderer
@@ -17,43 +17,56 @@ function renderNativeViewProps(props: Omit<ViewProps, 'children'> & { children?:
   return testRenderer!.root.findByType(NativeView).props
 }
 
-describe('View', () => {
-  it('renders its children', () => {
-    const { children } = renderNativeViewProps({ children: <Text>Hello</Text> })
+const SPACING_CASES = Object.entries(DEFAULT_SPACING_VALUES).map(([spacing, dimension]) => ({
+  spacing: Number(spacing) as Spacing,
+  pixels: dimension.value,
+}))
 
-    expect(children).toEqual(<Text>Hello</Text>)
-  })
+describe('@/components/atoms/view/view', () => {
+  describe('View', () => {
+    describe('children', () => {
+      it('renders its children', () => {
+        const { children } = renderNativeViewProps({ children: <Text>Hello</Text> })
 
-  it('applies no padding/margin style when none is given', () => {
-    const { style } = renderNativeViewProps()
-
-    expect(style).toEqual([false, false, undefined])
-  })
-
-  it('applies the padding scale value when padding is given', () => {
-    const { style } = renderNativeViewProps({ padding: Spacing.MD })
-
-    expect(style).toEqual([{ padding: DEFAULT_SPACING_MD_VALUE.value }, false, undefined])
-  })
-
-  it('applies the margin scale value when margin is given', () => {
-    const { style } = renderNativeViewProps({ margin: Spacing.SM })
-
-    expect(style).toEqual([false, { margin: DEFAULT_SPACING_SM_VALUE.value }, undefined])
-  })
-
-  it('combines padding, margin, and a custom style', () => {
-    const customStyle = { backgroundColor: 'red' }
-    const { style } = renderNativeViewProps({
-      padding: Spacing.MD,
-      margin: Spacing.SM,
-      style: customStyle,
+        expect(children).toEqual(<Text>Hello</Text>)
+      })
     })
 
-    expect(style).toEqual([
-      { padding: DEFAULT_SPACING_MD_VALUE.value },
-      { margin: DEFAULT_SPACING_SM_VALUE.value },
-      customStyle,
-    ])
+    describe('padding', () => {
+      it.each(SPACING_CASES)('applies the $pixels px scale value when padding is given', ({ spacing, pixels }) => {
+        const { style } = renderNativeViewProps({ padding: spacing })
+
+        expect(style).toEqual([{ padding: pixels }, false, undefined])
+      })
+    })
+
+    describe('margin', () => {
+      it.each(SPACING_CASES)('applies the $pixels px scale value when margin is given', ({ spacing, pixels }) => {
+        const { style } = renderNativeViewProps({ margin: spacing })
+
+        expect(style).toEqual([false, { margin: pixels }, undefined])
+      })
+    })
+
+    it('applies no padding/margin style when none is given', () => {
+      const { style } = renderNativeViewProps()
+
+      expect(style).toEqual([false, false, undefined])
+    })
+
+    it('combines padding, margin, and a custom style', () => {
+      const customStyle = { backgroundColor: 'red' }
+      const { style } = renderNativeViewProps({
+        padding: Spacing.MD,
+        margin: Spacing.SM,
+        style: customStyle,
+      })
+
+      expect(style).toEqual([
+        { padding: DEFAULT_SPACING_MD_VALUE.value },
+        { margin: DEFAULT_SPACING_SM_VALUE.value },
+        customStyle,
+      ])
+    })
   })
 })
