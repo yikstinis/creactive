@@ -7,6 +7,11 @@ This file holds the working conventions for any AI agent contributing code here.
 ## Workflow
 
 - Run `npm run lint` before committing (runs ESLint and the TypeScript typecheck).
+- Run `npm test` before committing (runs the Jest unit tests, across the `native` and `web` projects).
+
+## Testing
+
+All functionality must be covered by tests — every code path that's written, including edge cases, not just the happy path.
 
 ## Naming
 
