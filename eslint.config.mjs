@@ -23,6 +23,17 @@ export default defineConfig([
         'error',
         { fixStyle: 'separate-type-imports' },
       ],
+      'no-restricted-imports': [
+        'error',
+        {
+          patterns: [
+            {
+              group: ['./*', '../*'],
+              message: 'Use the "@/" alias instead of relative imports.',
+            },
+          ],
+        },
+      ],
     },
   },
 ])

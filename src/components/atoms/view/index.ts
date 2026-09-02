@@ -1,1 +1,1 @@
-export * from './view'
+export * from '@/components/atoms/view/view'

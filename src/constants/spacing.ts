@@ -1,5 +1,5 @@
-import { Dimension } from '../helpers/dimension'
-import type { PixelDimension } from '../helpers/dimension'
+import { Dimension } from '@/helpers/dimension'
+import type { PixelDimension } from '@/helpers/dimension'
 
 /**
  * Ordered spacing scale tokens (smallest to largest) for margin/padding/gap.
