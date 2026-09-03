@@ -12,6 +12,6 @@
     "android": {
       "package": "com.creactive.example"
     },
-    "plugins": ["./plugins/withAndroidPackagingOptions"]
+    "plugins": ["./plugins/withAndroidPackagingOptions", "./plugins/withAndroidGradleJvmArgs"]
   }
 }

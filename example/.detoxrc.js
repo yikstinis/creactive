@@ -21,8 +21,11 @@ module.exports = {
     'android.debug': {
       type: 'android.apk',
       binaryPath: 'android/app/build/outputs/apk/debug/app-debug.apk',
+      // -PreactNativeArchitectures=x86_64 matches the CI emulator's arch (visual-native.yml) and avoids
+      // dexing/packaging native libs for the other 3 architectures for nothing, which was OOM-ing the
+      // Gradle daemon. Revisit if this ever needs to build for a differently-arched local emulator.
       build:
-        'cd android && ./gradlew assembleDebug assembleAndroidTest -DtestBuildType=debug --stacktrace && cd ..',
+        'cd android && ./gradlew assembleDebug assembleAndroidTest -DtestBuildType=debug -PreactNativeArchitectures=x86_64 --stacktrace && cd ..',
     },
   },
   devices: {
