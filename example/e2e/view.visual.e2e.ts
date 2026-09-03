@@ -1,8 +1,5 @@
 import { by, device, element, waitFor } from 'detox'
 import { readFileSync } from 'fs'
-import { toMatchImageSnapshot } from 'jest-image-snapshot'
-
-expect.extend({ toMatchImageSnapshot })
 
 describe('atoms/View', () => {
   beforeAll(async () => {
