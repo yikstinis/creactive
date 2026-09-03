@@ -29,7 +29,14 @@ module.exports = function withDetoxAndroidTest(config) {
 
       config.modResults.contents = mergeContents({
         src: config.modResults.contents,
-        newSrc: `    androidTestImplementation('com.wix:detox:+')`,
+        // com.wix:detox:+ transitively pulls an old androidx.test:core/runner/rules whose
+        // InstrumentationActivityInvoker activities predate Android 12's mandatory
+        // android:exported requirement; pinning newer versions here wins Gradle's
+        // highest-version conflict resolution and fixes the manifest merge.
+        newSrc: `    androidTestImplementation('com.wix:detox:+')
+    androidTestImplementation('androidx.test:core:1.7.0')
+    androidTestImplementation('androidx.test:runner:1.7.0')
+    androidTestImplementation('androidx.test:rules:1.7.0')`,
         tag: 'detox-android-test-dependency',
         anchor: /^dependencies\s*\{/,
         offset: 1,
