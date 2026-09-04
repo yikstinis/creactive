@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
     inputs:
       update_snapshots:
-        description: Regenerate and commit the Android visual regression baselines
+        description: Regenerate and commit the web and Android visual regression baselines
         type: boolean
         default: false
 
@@ -54,6 +54,8 @@ jobs:
     name: Snapshot test (Linux Chromium)
     needs: unit-test
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -62,7 +64,7 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npx playwright install --with-deps chromium
-      - run: npm run test:visual:web
+      - run: npm run ${{ inputs.update_snapshots && 'test:visual:web:update' || 'test:visual:web' }}
         env:
           CI: true
       - if: failure()
@@ -70,6 +72,18 @@ jobs:
         with:
           name: playwright-report
           path: test-results
+      - if: ${{ inputs.update_snapshots }}
+        name: Commit updated web visual baselines
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add visual/view.visual.spec.ts-snapshots
+          if git diff --staged --quiet; then
+            echo "No baseline changes to commit"
+          else
+            git commit -m "Update web visual regression baselines"
+            git push
+          fi
 
   # visual-ios is paused for now — the iOS pipeline hasn't been validated at all yet, and
   # running it alongside every Android push/PR just adds noise while Android is being
