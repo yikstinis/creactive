@@ -12,12 +12,8 @@ on:
         default: false
 
 jobs:
-  # type-check/lint-check/unit-test/snapshot-test-web/snapshot-test-android are temporarily
-  # disabled (if: false) while debugging snapshot-test-ios, to iterate faster. Re-enable by
-  # removing the `if: false` lines and restoring snapshot-test-ios's `needs: snapshot-test-android`.
   type-check:
     name: Type check
-    if: false
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -30,7 +26,6 @@ jobs:
 
   lint-check:
     name: Lint check
-    if: false
     needs: type-check
     runs-on: ubuntu-latest
     steps:
@@ -44,7 +39,6 @@ jobs:
 
   unit-test:
     name: Unit test
-    if: false
     needs: lint-check
     runs-on: ubuntu-latest
     steps:
@@ -58,7 +52,6 @@ jobs:
 
   snapshot-test-web:
     name: Snapshot test (Linux Chrome)
-    if: false
     needs: unit-test
     runs-on: ubuntu-latest
     permissions:
@@ -95,7 +88,6 @@ jobs:
 
   snapshot-test-android:
     name: Snapshot test (Android Pixel 7)
-    if: false
     needs: snapshot-test-web
     runs-on: ubuntu-latest
     permissions:
@@ -146,6 +138,7 @@ jobs:
 
   snapshot-test-ios:
     name: Snapshot test (iOS iPhone 17)
+    needs: snapshot-test-android
     runs-on: macos-latest
     permissions:
       contents: write
@@ -161,8 +154,6 @@ jobs:
           brew tap wix/brew
           brew trust wix/brew
           brew install applesimutils
-      - name: List available simulator device types
-        run: applesimutils --list
       - run: npm run ${{ inputs.update_snapshots && 'test:visual:ios:update' || 'test:visual:ios' }}
       - if: failure()
         uses: actions/upload-artifact@v4
