@@ -82,6 +82,7 @@ jobs:
             echo "No baseline changes to commit"
           else
             git commit -m "Update web visual regression baselines"
+            git pull --rebase origin main
             git push
           fi
 
@@ -135,5 +136,6 @@ jobs:
             echo "No baseline changes to commit"
           else
             git commit -m "Update Android visual regression baselines"
+            git pull --rebase origin main
             git push
           fi
