@@ -12,7 +12,8 @@
     "test:visual:web": "storybook build && playwright test",
     "test:visual:web:update": "storybook build && playwright test --update-snapshots",
     "test:visual:ios": "npm run --workspace example test:visual:ios",
-    "test:visual:android": "npm run --workspace example test:visual:android"
+    "test:visual:android": "npm run --workspace example test:visual:android",
+    "test:visual:android:update": "npm run --workspace example test:visual:android:update"
   },
   "peerDependencies": {
     "react": ">=19",

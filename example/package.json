@@ -7,7 +7,8 @@
     "start": "expo start",
     "prebuild": "expo prebuild",
     "test:visual:ios": "expo prebuild --platform ios && detox build -c ios && detox test -c ios",
-    "test:visual:android": "expo prebuild --platform android && detox build -c android && detox test -c android"
+    "test:visual:android": "expo prebuild --platform android && detox build -c android && detox test -c android",
+    "test:visual:android:update": "expo prebuild --platform android && detox build -c android && detox test -c android -- -u"
   },
   "dependencies": {
     "expo": "57.0.19",
