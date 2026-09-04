@@ -7,7 +7,7 @@ describe('atoms/View', () => {
     await device.launchApp()
   })
 
-  it('renders the default story', async () => {
+  it('renders with padding', async () => {
     await waitFor(element(by.text('Hello, View'))).toBeVisible().withTimeout(10000)
 
     const screenshotPath = await device.takeScreenshot('view-default')

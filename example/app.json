@@ -2,7 +2,6 @@
   "expo": {
     "name": "creactive-example",
     "slug": "creactive-example",
-    "scheme": "creactive-storybook",
     "version": "0.1.0",
     "orientation": "portrait",
     "ios": {

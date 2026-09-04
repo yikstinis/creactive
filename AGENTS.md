@@ -23,10 +23,8 @@ When the set of possible inputs is exhaustively enumerable (e.g. an enum), test 
 
 ### Visual regression testing
 
-Every component's `*.stories.tsx` doubles as the source of truth for pixel screenshot coverage across web, iOS, and Android — write one before relying on it for a new component.
-
-- **Web**: `npm run test:visual:web` builds Storybook and runs Playwright (`visual/*.visual.spec.ts`) against each story's `iframe.html?id=...` URL.
-- **Native**: `example/` is a standalone Expo app (its own workspace, excluded from root ESLint/TypeScript checks) that mounts the same stories on-device via `@storybook/react-native`. `npm run test:visual:ios` / `test:visual:android` run Detox, comparing screenshots via `jest-image-snapshot`.
+- **Web**: every component's `*.stories.tsx` doubles as the source of truth for pixel screenshot coverage — write one before relying on it for a new component. `npm run test:visual:web` builds Storybook and runs Playwright (`visual/*.visual.spec.ts`) against each story's `iframe.html?id=...` URL.
+- **Native**: `example/` is a standalone Expo app (its own workspace, excluded from root ESLint/TypeScript checks) that renders components directly in `App.tsx` — not through Storybook's on-device UI, which added a whole class of native crashes (BottomSheet, gesture handling, persisted selection) unrelated to the component under test. `npm run test:visual:ios` / `test:visual:android` run Detox, comparing screenshots via `jest-image-snapshot`. Add new components to `App.tsx` following `View`'s example.
 - Baselines are committed PNGs. Regenerate them on CI, not locally — cross-machine font/anti-aliasing differences cause false-positive diffs otherwise.
 - Visual suites are opt-in and stay out of `npm test`/`npm run lint` — they're slow and environment-dependent (browser/simulator/emulator boot).
 

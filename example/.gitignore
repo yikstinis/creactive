@@ -3,4 +3,3 @@ node_modules/
 ios/
 android/
 artifacts/
-.storybook/storybook.requires.ts

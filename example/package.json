@@ -5,22 +5,14 @@
   "main": "index.js",
   "scripts": {
     "start": "expo start",
-    "storybook": "expo start",
     "prebuild": "expo prebuild",
     "test:visual:ios": "expo prebuild --platform ios && detox build -c ios && detox test -c ios",
     "test:visual:android": "expo prebuild --platform android && detox build -c android && detox test -c android"
   },
   "dependencies": {
-    "@gorhom/bottom-sheet": "^5.2.14",
-    "@storybook/addon-ondevice-actions": "8.6.4",
-    "@storybook/addon-ondevice-controls": "8.6.4",
-    "@storybook/react-native": "8.6.4",
     "expo": "57.0.19",
     "react": "19.2.3",
-    "react-native": "0.86.3",
-    "react-native-gesture-handler": "~2.32.0",
-    "react-native-reanimated": "4.5.1",
-    "react-native-safe-area-context": "~5.7.0"
+    "react-native": "0.86.3"
   },
   "devDependencies": {
     "@babel/core": "^7.25.2",
