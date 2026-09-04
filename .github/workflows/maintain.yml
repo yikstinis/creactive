@@ -50,7 +50,7 @@ jobs:
       - run: npm ci
       - run: npm run jest
 
-  snapshot-test-web:
+  snapshot-test-linux-chromium:
     name: Snapshot test (Linux Chrome)
     needs: unit-test
     runs-on: ubuntu-latest
@@ -86,9 +86,9 @@ jobs:
             git push
           fi
 
-  snapshot-test-android:
+  snapshot-test-android-pixel-7:
     name: Snapshot test (Android Pixel 7)
-    needs: snapshot-test-web
+    needs: snapshot-test-linux-chromium
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -136,9 +136,9 @@ jobs:
             git push
           fi
 
-  snapshot-test-ios:
+  snapshot-test-ios-iphone-17:
     name: Snapshot test (iOS iPhone 17)
-    needs: snapshot-test-android
+    needs: snapshot-test-android-pixel-7
     runs-on: macos-latest
     permissions:
       contents: write
