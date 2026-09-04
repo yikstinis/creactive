@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
     inputs:
       update_snapshots:
-        description: Regenerate and commit the web and Android visual regression baselines
+        description: Regenerate and commit the web, Android, and iOS visual regression baselines
         type: boolean
         default: false
 
@@ -86,10 +86,6 @@ jobs:
             git push
           fi
 
-  # visual-ios is paused for now — the iOS pipeline hasn't been validated at all yet, and
-  # running it alongside every Android push/PR just adds noise while Android is being
-  # stabilized. See git history (or npm run test:visual:ios) to bring it back once ready.
-
   snapshot-test-android:
     name: Snapshot test (Android Pixel 7)
     needs: snapshot-test-web
@@ -136,6 +132,39 @@ jobs:
             echo "No baseline changes to commit"
           else
             git commit -m "Update Android visual regression baselines"
+            git pull --rebase origin main
+            git push
+          fi
+
+  snapshot-test-ios:
+    name: Snapshot test (iOS iPhone 15)
+    needs: snapshot-test-android
+    runs-on: macos-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run ${{ inputs.update_snapshots && 'test:visual:ios:update' || 'test:visual:ios' }}
+      - if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: detox-ios-artifacts
+          path: example/artifacts
+      - if: ${{ inputs.update_snapshots }}
+        name: Commit updated iOS visual baselines
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add example/e2e/__image_snapshots__
+          if git diff --staged --quiet; then
+            echo "No baseline changes to commit"
+          else
+            git commit -m "Update iOS visual regression baselines"
             git pull --rebase origin main
             git push
           fi

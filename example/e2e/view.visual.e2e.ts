@@ -11,9 +11,10 @@ describe('atoms/View', () => {
     await waitFor(element(by.text('Hello, View'))).toBeVisible().withTimeout(10000)
 
     const screenshotPath = await device.takeScreenshot('view-default')
+    const snapshotIdentifier = `view-default-${device.getPlatform()}`
 
     expect(readFileSync(screenshotPath)).toMatchImageSnapshot({
-      customSnapshotIdentifier: 'view-default',
+      customSnapshotIdentifier: snapshotIdentifier,
     })
   })
 })

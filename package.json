@@ -12,6 +12,7 @@
     "test:visual:web": "npm run --workspace example export:web && playwright test",
     "test:visual:web:update": "npm run --workspace example export:web && playwright test --update-snapshots",
     "test:visual:ios": "npm run --workspace example test:visual:ios",
+    "test:visual:ios:update": "npm run --workspace example test:visual:ios:update",
     "test:visual:android": "npm run --workspace example test:visual:android",
     "test:visual:android:update": "npm run --workspace example test:visual:android:update"
   },

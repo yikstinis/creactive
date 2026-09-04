@@ -1,8 +1,6 @@
-/**
- * App binary paths/build commands assume `expo prebuild` has generated ios/ and android/
- * with the app name from app.json ("creactive-example"); confirm these match once prebuild
- * has actually run, as part of the RN 0.86 Detox spike.
- */
+// Binary paths/build commands assume `expo prebuild` names the generated Xcode project/scheme
+// "creactiveexample" (sanitized from app.json's "creactive-example") — confirmed for android;
+// ios is unverified (no macOS available to build/run it outside of CI).
 module.exports = {
   artifacts: {
     rootDir: 'artifacts',
