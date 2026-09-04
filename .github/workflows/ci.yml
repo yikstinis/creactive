@@ -4,9 +4,15 @@ on:
   push:
     branches: [main]
   pull_request:
+  workflow_dispatch:
+    inputs:
+      update_snapshots:
+        description: Regenerate and commit the Android visual regression baselines
+        type: boolean
+        default: false
 
 jobs:
-  lint-and-test:
+  tsc:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -15,5 +21,77 @@ jobs:
           node-version: 22
           cache: npm
       - run: npm ci
-      - run: npm run lint
-      - run: npm test
+      - run: npm run tsc
+
+  eslint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run eslint
+
+  jest:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run jest
+
+  # visual-ios is paused for now — the iOS pipeline hasn't been validated at all yet, and
+  # running it alongside every Android push/PR just adds noise while Android is being
+  # stabilized. See git history (or npm run test:visual:ios) to bring it back once ready.
+
+  visual-android:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+      - run: npm ci
+      - name: Enable KVM
+        run: |
+          echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666", OPTIONS+="static_node=kvm"' | sudo tee /etc/udev/rules.d/99-kvm4all.rules
+          sudo udevadm control --reload-rules
+          sudo udevadm trigger --name-match=kvm
+      - name: Install emulator's PulseAudio dependency
+        run: sudo apt-get update && sudo apt-get install -y libpulse0
+      - uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: 34
+          target: google_apis
+          arch: x86_64
+          avd-name: Pixel_7_API_34
+          script: npm run ${{ inputs.update_snapshots && 'test:visual:android:update' || 'test:visual:android' }}
+      - if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: detox-android-artifacts
+          path: example/artifacts
+      - if: ${{ inputs.update_snapshots }}
+        name: Commit updated Android visual baselines
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add example/e2e/__image_snapshots__
+          if git diff --staged --quiet; then
+            echo "No baseline changes to commit"
+          else
+            git commit -m "Update Android visual regression baselines"
+            git push
+          fi

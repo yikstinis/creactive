@@ -6,8 +6,9 @@
     "example"
   ],
   "scripts": {
-    "lint": "eslint . && tsc --noEmit",
-    "test": "jest",
+    "tsc": "tsc --noEmit",
+    "eslint": "eslint .",
+    "jest": "jest",
     "test:visual:web": "npm run --workspace example export:web && playwright test",
     "test:visual:web:update": "npm run --workspace example export:web && playwright test --update-snapshots",
     "test:visual:ios": "npm run --workspace example test:visual:ios",

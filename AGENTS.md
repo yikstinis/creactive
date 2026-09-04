@@ -14,8 +14,7 @@ Default to no comments — add one only for a non-obvious constraint, invariant,
 
 ## Workflow
 
-- Run `npm run lint` before committing (runs ESLint and the TypeScript typecheck).
-- Run `npm test` before committing (runs the Jest unit tests, across the `native` and `web` projects).
+- Run `npm run tsc` (TypeScript typecheck), `npm run eslint`, and `npm run jest` (unit tests, across the `native` and `web` projects) before committing.
 
 ## Testing
 
@@ -36,4 +35,4 @@ When the set of possible inputs is exhaustively enumerable (e.g. an enum), test 
 - **Web**: `npm run test:visual:web` runs `expo export -p web` and Playwright (`visual/*.visual.spec.ts`) against the exported static build.
 - **Native**: `npm run test:visual:ios` / `test:visual:android` run Detox, comparing screenshots via `jest-image-snapshot`.
 - Baselines are committed PNGs. Regenerate them on CI, not locally — cross-machine font/anti-aliasing differences cause false-positive diffs otherwise.
-- Visual suites are opt-in and stay out of `npm test`/`npm run lint` — they're slow and environment-dependent (browser/simulator/emulator boot).
+- Visual suites are opt-in and stay out of `npm run tsc`/`eslint`/`jest` — they're slow and environment-dependent (browser/simulator/emulator boot).
