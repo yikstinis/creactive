@@ -90,7 +90,7 @@ jobs:
   # stabilized. See git history (or npm run test:visual:ios) to bring it back once ready.
 
   snapshot-test-android:
-    name: Snapshot test (Android)
+    name: Snapshot test (Android Pixel 7)
     needs: snapshot-test-web
     runs-on: ubuntu-latest
     permissions:
