@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
     inputs:
       update_snapshots:
-        description: Regenerate and commit the web, Android, and iOS visual regression baselines
+        description: Update baseline snapshots
         type: boolean
         default: false
 
