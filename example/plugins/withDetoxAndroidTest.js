@@ -1,7 +1,7 @@
 const fs = require('fs')
 const path = require('path')
 
-const { withAppBuildGradle, withDangerousMod } = require('@expo/config-plugins')
+const { withAppBuildGradle, withDangerousMod, withProjectBuildGradle } = require('@expo/config-plugins')
 const { mergeContents } = require('@expo/config-plugins/build/utils/generateCode')
 
 const ANDROID_PACKAGE = 'com.creactive.example'
@@ -15,6 +15,25 @@ const ANDROID_PACKAGE = 'com.creactive.example'
  * See https://wix.github.io/Detox/docs/introduction/project-setup (Android tab).
  */
 module.exports = function withDetoxAndroidTest(config) {
+  config = withProjectBuildGradle(config, (config) => {
+    if (config.modResults.language === 'groovy') {
+      // com.wix:detox isn't on Maven Central/Google's repo — the npm package ships its own
+      // local file-based Maven repo, which needs to be added explicitly for the
+      // androidTestImplementation('com.wix:detox:+') dependency below to resolve at all.
+      config.modResults.contents = mergeContents({
+        src: config.modResults.contents,
+        newSrc: `    maven { url "\${rootDir}/../../node_modules/detox/Detox-android" }`,
+        tag: 'detox-maven-repo',
+        // anchors on the jitpack line specifically (not a bare "repositories {") since that
+        // also appears in the unrelated buildscript{} block above allprojects{}
+        anchor: /maven \{ url 'https:\/\/www\.jitpack\.io' \}/,
+        offset: 1,
+        comment: '//',
+      }).contents
+    }
+    return config
+  })
+
   config = withAppBuildGradle(config, (config) => {
     if (config.modResults.language === 'groovy') {
       config.modResults.contents = mergeContents({
