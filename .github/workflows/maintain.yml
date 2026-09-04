@@ -12,7 +12,7 @@ on:
         default: false
 
 jobs:
-  tsc:
+  type-check:
     name: Type check
     runs-on: ubuntu-latest
     steps:
@@ -24,7 +24,7 @@ jobs:
       - run: npm ci
       - run: npm run tsc
 
-  eslint:
+  lint-check:
     name: Lint check
     runs-on: ubuntu-latest
     steps:
@@ -36,7 +36,7 @@ jobs:
       - run: npm ci
       - run: npm run eslint
 
-  jest:
+  unit-test:
     name: Unit test
     runs-on: ubuntu-latest
     steps:
@@ -48,8 +48,8 @@ jobs:
       - run: npm ci
       - run: npm run jest
 
-  snapshot-web:
-    name: Snapshot (Linux Chromium)
+  snapshot-test-web:
+    name: Snapshot test (Linux Chromium)
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -72,7 +72,8 @@ jobs:
   # running it alongside every Android push/PR just adds noise while Android is being
   # stabilized. See git history (or npm run test:visual:ios) to bring it back once ready.
 
-  visual-android:
+  snapshot-test-android:
+    name: Snapshot test (Android)
     runs-on: ubuntu-latest
     permissions:
       contents: write
