@@ -159,6 +159,7 @@ jobs:
       - name: Install applesimutils
         run: |
           brew tap wix/brew
+          brew trust wix/brew
           brew install applesimutils
       - run: npm run ${{ inputs.update_snapshots && 'test:visual:ios:update' || 'test:visual:ios' }}
       - if: failure()
