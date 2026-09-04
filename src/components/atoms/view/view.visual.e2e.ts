@@ -4,7 +4,7 @@ import { join } from 'path'
 import { beforeAll, describe, expect, it } from '@jest/globals'
 import { by, device, element, waitFor } from 'detox'
 
-const SNAPSHOTS_DIR = join(__dirname, '..', 'snapshots')
+const SNAPSHOTS_DIR = join(__dirname, 'snapshots')
 
 // Matches the `snapshot-test-{platform}-{device}` job naming in maintain.yml (e.g. `android-pixel-7`).
 const DEVICE_SUFFIXES = {

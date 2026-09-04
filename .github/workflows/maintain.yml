@@ -78,7 +78,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add snapshots
+          git add src
           if git diff --staged --quiet; then
             echo "No baseline changes to commit"
           else
@@ -128,7 +128,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add snapshots
+          git add src
           if git diff --staged --quiet; then
             echo "No baseline changes to commit"
           else
@@ -166,7 +166,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add snapshots
+          git add src
           if git diff --staged --quiet; then
             echo "No baseline changes to commit"
           else
