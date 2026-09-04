@@ -6,9 +6,7 @@
   "scripts": {
     "tsc": "tsc --noEmit",
     "eslint": "eslint .",
-    "jest": "jest",
-    "export": "expo export",
-    "prebuild": "expo prebuild"
+    "jest": "jest"
   },
   "peerDependencies": {
     "react": ">=19",
