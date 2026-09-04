@@ -11,7 +11,7 @@
     "test:visual:android": "expo prebuild --platform android && detox build -c android && detox test -c android"
   },
   "dependencies": {
-    "@gorhom/bottom-sheet": "^4.6.4",
+    "@gorhom/bottom-sheet": "^5.2.14",
     "@storybook/addon-ondevice-actions": "8.6.4",
     "@storybook/addon-ondevice-controls": "8.6.4",
     "@storybook/react-native": "8.6.4",
