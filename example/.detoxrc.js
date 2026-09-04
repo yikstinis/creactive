@@ -18,11 +18,16 @@ module.exports = {
     jest: { setupTimeout: 120000 },
   },
   apps: {
-    'ios.debug': {
+    // Built as Release, not Debug: the generated AppDelegate.swift hardcodes bundleURL() to
+    // always fetch from Metro for #if DEBUG builds, regardless of whether SKIP_BUNDLING embedded
+    // a JS bundle at build time — there's no "debug build with an offline bundle" option here.
+    // Release's #else branch loads the embedded bundle directly, which is what CI needs since
+    // nothing runs Metro. No code signing is required for simulator builds either way.
+    'ios.release': {
       type: 'ios.app',
-      binaryPath: 'ios/build/Build/Products/Debug-iphonesimulator/creactiveexample.app',
+      binaryPath: 'ios/build/Build/Products/Release-iphonesimulator/creactiveexample.app',
       build:
-        'xcodebuild -workspace ios/creactiveexample.xcworkspace -scheme creactiveexample -configuration Debug -sdk iphonesimulator -derivedDataPath ios/build',
+        'xcodebuild -workspace ios/creactiveexample.xcworkspace -scheme creactiveexample -configuration Release -sdk iphonesimulator -derivedDataPath ios/build',
     },
     'android.debug': {
       type: 'android.apk',
@@ -45,7 +50,7 @@ module.exports = {
     },
   },
   configurations: {
-    ios: { device: 'simulator', app: 'ios.debug' },
+    ios: { device: 'simulator', app: 'ios.release' },
     android: { device: 'emulator', app: 'android.debug' },
   },
 }

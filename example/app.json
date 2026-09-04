@@ -14,8 +14,7 @@
     "plugins": [
       "./plugins/withAndroidPackagingOptions",
       "./plugins/withAndroidGradleJvmArgs",
-      "./plugins/withDetoxAndroidTest",
-      "./plugins/withIosForceBundling"
+      "./plugins/withDetoxAndroidTest"
     ]
   }
 }
