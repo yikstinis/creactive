@@ -25,7 +25,7 @@ describe('atoms/View', () => {
     await waitFor(element(by.id(testID))).toBeVisible().withTimeout(10000)
 
     const screenshotPath = await element(by.id(testID)).takeScreenshot(testID)
-    const snapshotIdentifier = `${testID}-${DEVICE_SUFFIXES[device.getPlatform()]}`
+    const snapshotIdentifier = `${DEVICE_SUFFIXES[device.getPlatform()]}/padding/${name}`
 
     expect(readFileSync(screenshotPath)).toMatchImageSnapshot({
       customSnapshotIdentifier: snapshotIdentifier,

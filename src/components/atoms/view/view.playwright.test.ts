@@ -7,7 +7,7 @@ test.describe('atoms/View', () => {
     test(`renders with ${name} padding`, async ({ page }) => {
       await page.goto('/')
 
-      await expect(page.getByTestId(`view-padding-${name}`)).toHaveScreenshot(`view-padding-${name}.png`)
+      await expect(page.getByTestId(`view-padding-${name}`)).toHaveScreenshot(['padding', `${name}.png`])
     })
   }
 })
