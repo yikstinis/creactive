@@ -14,5 +14,5 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["src", "App.tsx", "e2e"]
+  "include": ["src", "App.tsx", "jest.setup.detox.ts", "jest-image-snapshot.types.d.ts"]
 }

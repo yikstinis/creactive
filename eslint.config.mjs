@@ -76,7 +76,7 @@ export default defineConfig([
     // The unused `T` re-declares `expect`'s own Matchers<R, T> type parameter list, which
     // TypeScript's declaration merging requires to match in arity even though this file's
     // added matcher doesn't use it.
-    files: ['e2e/jest-image-snapshot.types.d.ts'],
+    files: ['jest-image-snapshot.types.d.ts'],
     rules: {
       '@typescript-eslint/no-unused-vars': 'off',
     },

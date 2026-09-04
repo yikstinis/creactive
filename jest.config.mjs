@@ -4,7 +4,7 @@ const rootDir = fileURLToPath(new URL('.', import.meta.url))
 
 const sharedConfig = {
   rootDir,
-  testMatch: ['<rootDir>/src/**/*.test.{ts,tsx}'],
+  testMatch: ['<rootDir>/src/**/*.jest.test.{ts,tsx}'],
   moduleNameMapper: {
     '^@/(.*)$': '<rootDir>/src/$1',
   },

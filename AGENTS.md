@@ -7,6 +7,7 @@ This file holds the working conventions for any AI agent contributing code here.
 ## Naming
 
 - **Constants** — `UPPER_SNAKE_CASE` (e.g. `DEFAULT_VALUES`).
+- **Test files** — colocated with the code under test, suffixed by runner: `*.jest.test.{ts,tsx}` (unit), `*.playwright.test.ts` (web visual regression), `*.detox.test.ts` (native visual regression).
 
 ## Comments
 
@@ -32,7 +33,7 @@ When the set of possible inputs is exhaustively enumerable (e.g. an enum), test 
 
 The root `App.tsx` is an Expo app entry point that renders components directly — the same component tree is screenshotted on every platform, so add new components to `App.tsx` following `View`'s example. It goes through the normal `tsc`/`eslint` checks like the rest of the repo.
 
-- **Web**: `npm run test:visual:web` runs `expo export -p web` and Playwright (`*.visual.spec.ts`, colocated with each component) against the exported static build.
-- **Native**: `npm run test:visual:ios` / `test:visual:android` run Detox, comparing screenshots via `jest-image-snapshot` (`*.visual.e2e.ts`, colocated with each component).
+- **Web**: `npm run test:visual:web` runs `expo export -p web` and Playwright (`*.playwright.test.ts`, colocated with each component) against the exported static build.
+- **Native**: `npm run test:visual:ios` / `test:visual:android` run Detox, comparing screenshots via `jest-image-snapshot` (`*.detox.test.ts`, colocated with each component).
 - Baselines are committed PNGs, kept in a `snapshots/` folder next to each component's visual test files. Regenerate them on CI, not locally — cross-machine font/anti-aliasing differences cause false-positive diffs otherwise.
 - Visual suites are opt-in and stay out of `npm run tsc`/`eslint`/`jest` — they're slow and environment-dependent (browser/simulator/emulator boot).
