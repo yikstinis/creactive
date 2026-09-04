@@ -26,6 +26,7 @@ jobs:
 
   lint-check:
     name: Lint check
+    needs: type-check
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -38,6 +39,7 @@ jobs:
 
   unit-test:
     name: Unit test
+    needs: lint-check
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -50,6 +52,7 @@ jobs:
 
   snapshot-test-web:
     name: Snapshot test (Linux Chromium)
+    needs: unit-test
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -74,6 +77,7 @@ jobs:
 
   snapshot-test-android:
     name: Snapshot test (Android)
+    needs: snapshot-test-web
     runs-on: ubuntu-latest
     permissions:
       contents: write
