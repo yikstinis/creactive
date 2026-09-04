@@ -1,1 +1,0 @@
-export { ColorFormat } from './format'

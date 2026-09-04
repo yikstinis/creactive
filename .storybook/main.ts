@@ -1,10 +1,31 @@
-import type { StorybookConfig } from '@storybook/react-native'
+import { fileURLToPath } from 'node:url'
 
-const storybookConfig: StorybookConfig = {
-  stories: ['../source/components/**/*.stories.tsx'],
-  addons: [
-    '@storybook/addon-ondevice-controls',
-    '@storybook/addon-ondevice-actions',
-  ],
+import type { StorybookConfig } from '@storybook/react-vite'
+
+const config: StorybookConfig = {
+  stories: ['../src/**/*.stories.@(ts|tsx)'],
+  framework: '@storybook/react-vite',
+  async viteFinal(config) {
+    config.resolve ??= {}
+    config.resolve.alias = {
+      ...config.resolve.alias,
+      'react-native': 'react-native-web',
+      '@': fileURLToPath(new URL('../src', import.meta.url)),
+    }
+    config.resolve.extensions = [
+      '.web.tsx',
+      '.web.ts',
+      '.tsx',
+      '.ts',
+      '.web.js',
+      '.js',
+      '.mjs',
+      '.jsx',
+      '.json',
+      ...(config.resolve.extensions ?? []),
+    ]
+    return config
+  },
 }
-export default storybookConfig
+
+export default config

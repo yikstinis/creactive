@@ -1,1 +1,0 @@
-export { PressableStyled } from './styled'
