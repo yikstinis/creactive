@@ -7,7 +7,7 @@ import globals from 'globals'
 import tseslint from 'typescript-eslint'
 
 export default defineConfig([
-  { ignores: ['node_modules', '**/*.cache/**', 'example/**'] },
+  { ignores: ['node_modules', '**/*.cache/**'] },
   { settings: { react: { version: 'detect' } } },
   js.configs.recommended,
   tseslint.configs.recommended,
@@ -70,6 +70,23 @@ export default defineConfig([
           message: 'Type aliases must be declared in a colocated "*.types.d.ts" file, not alongside implementation code.',
         },
       ],
+    },
+  },
+  {
+    // The unused `T` re-declares `expect`'s own Matchers<R, T> type parameter list, which
+    // TypeScript's declaration merging requires to match in arity even though this file's
+    // added matcher doesn't use it.
+    files: ['e2e/jest-image-snapshot.types.d.ts'],
+    rules: {
+      '@typescript-eslint/no-unused-vars': 'off',
+    },
+  },
+  {
+    // Metro and Expo's config-plugins system load these via Node's CommonJS require(),
+    // so they can't be converted to ESM imports.
+    files: ['metro.config.js', 'plugins/**/*.js'],
+    rules: {
+      '@typescript-eslint/no-require-imports': 'off',
     },
   },
 ])

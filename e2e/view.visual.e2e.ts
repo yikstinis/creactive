@@ -1,6 +1,7 @@
-import { expect } from '@jest/globals'
-import { by, device, element, waitFor } from 'detox'
 import { readFileSync } from 'fs'
+
+import { beforeAll, describe, expect, it } from '@jest/globals'
+import { by, device, element, waitFor } from 'detox'
 
 describe('atoms/View', () => {
   beforeAll(async () => {

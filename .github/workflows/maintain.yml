@@ -121,13 +121,13 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: detox-android-artifacts
-          path: example/artifacts
+          path: artifacts
       - if: ${{ inputs.update_snapshots }}
         name: Commit updated Android visual baselines
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add example/e2e/__image_snapshots__
+          git add e2e/__image_snapshots__
           if git diff --staged --quiet; then
             echo "No baseline changes to commit"
           else
@@ -159,13 +159,13 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: detox-ios-artifacts
-          path: example/artifacts
+          path: artifacts
       - if: ${{ inputs.update_snapshots }}
         name: Commit updated iOS visual baselines
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add example/e2e/__image_snapshots__
+          git add e2e/__image_snapshots__
           if git diff --staged --quiet; then
             echo "No baseline changes to commit"
           else
