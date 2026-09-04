@@ -1,4 +1,4 @@
-import { Text } from 'react-native'
+import { StatusBar, Text } from 'react-native'
 
 import { View } from '@/components/atoms/view/view'
 import { Spacing } from '@/constants/spacing'
@@ -12,6 +12,7 @@ import { Spacing } from '@/constants/spacing'
 export default function App() {
   return (
     <View style={{ flex: 1, backgroundColor: '#ddd' }}>
+      <StatusBar hidden />
       <View padding={Spacing.MD} style={{ backgroundColor: '#8ecae6' }}>
         <Text>Hello, View</Text>
       </View>
