@@ -25,6 +25,7 @@ jobs:
       - run: npm run tsc
 
   eslint:
+    name: Lint check
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
