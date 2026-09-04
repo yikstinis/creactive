@@ -22,7 +22,7 @@ module.exports = function withDetoxAndroidTest(config) {
       // androidTestImplementation('com.wix:detox:+') dependency below to resolve at all.
       config.modResults.contents = mergeContents({
         src: config.modResults.contents,
-        newSrc: `    maven { url "\${rootDir}/../../node_modules/detox/Detox-android" }`,
+        newSrc: `    maven { url "\${rootDir}/../node_modules/detox/Detox-android" }`,
         tag: 'detox-maven-repo',
         // anchors on the jitpack line specifically (not a bare "repositories {") since that
         // also appears in the unrelated buildscript{} block above allprojects{}

@@ -51,7 +51,7 @@ jobs:
       - run: npm run jest
 
   snapshot-test-linux-chromium:
-    name: Snapshot test (Linux Chrome)
+    name: Snapshot test (Linux Chromium)
     needs: unit-test
     runs-on: ubuntu-latest
     permissions:
@@ -64,7 +64,8 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npx playwright install --with-deps chromium
-      - run: npm run ${{ inputs.update_snapshots && 'test:visual:web:update' || 'test:visual:web' }}
+      - run: npx expo export -p web
+      - run: npx playwright test ${{ inputs.update_snapshots && '--update-snapshots' || '' }}
         env:
           CI: true
       - if: failure()
@@ -116,18 +117,18 @@ jobs:
           target: google_apis
           arch: x86_64
           avd-name: Pixel_7_API_34
-          script: npm run ${{ inputs.update_snapshots && 'test:visual:android:update' || 'test:visual:android' }}
+          script: npx expo prebuild --platform android && npx detox build -c android && npx detox test -c android ${{ inputs.update_snapshots && '-- -u' || '' }}
       - if: failure()
         uses: actions/upload-artifact@v4
         with:
           name: detox-android-artifacts
-          path: example/artifacts
+          path: artifacts
       - if: ${{ inputs.update_snapshots }}
         name: Commit updated Android visual baselines
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add example/e2e/__image_snapshots__
+          git add e2e/__image_snapshots__
           if git diff --staged --quiet; then
             echo "No baseline changes to commit"
           else
@@ -154,18 +155,18 @@ jobs:
           brew tap wix/brew
           brew trust wix/brew
           brew install applesimutils
-      - run: npm run ${{ inputs.update_snapshots && 'test:visual:ios:update' || 'test:visual:ios' }}
+      - run: npx expo prebuild --platform ios && npx detox build -c ios && npx detox test -c ios ${{ inputs.update_snapshots && '-- -u' || '' }}
       - if: failure()
         uses: actions/upload-artifact@v4
         with:
           name: detox-ios-artifacts
-          path: example/artifacts
+          path: artifacts
       - if: ${{ inputs.update_snapshots }}
         name: Commit updated iOS visual baselines
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add example/e2e/__image_snapshots__
+          git add e2e/__image_snapshots__
           if git diff --staged --quiet; then
             echo "No baseline changes to commit"
           else

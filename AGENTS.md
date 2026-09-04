@@ -30,7 +30,7 @@ When the set of possible inputs is exhaustively enumerable (e.g. an enum), test 
 
 ### Visual regression testing
 
-`example/` is a standalone Expo app (its own workspace, excluded from root ESLint/TypeScript checks) whose `App.tsx` renders components directly — the same component tree is screenshotted on every platform, so add new components to `App.tsx` following `View`'s example.
+The root `App.tsx` is an Expo app entry point that renders components directly — the same component tree is screenshotted on every platform, so add new components to `App.tsx` following `View`'s example. It goes through the normal `tsc`/`eslint` checks like the rest of the repo.
 
 - **Web**: `npm run test:visual:web` runs `expo export -p web` and Playwright (`visual/*.visual.spec.ts`) against the exported static build.
 - **Native**: `npm run test:visual:ios` / `test:visual:android` run Detox, comparing screenshots via `jest-image-snapshot`.
