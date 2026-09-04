@@ -1,4 +1,4 @@
-name: Maintain Quality
+name: Maintain Code Quality
 
 on:
   push:
