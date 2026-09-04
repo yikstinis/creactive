@@ -36,6 +36,20 @@ module.exports = function withDetoxAndroidTest(config) {
 
   config = withAppBuildGradle(config, (config) => {
     if (config.modResults.language === 'groovy') {
+      // The RN Gradle plugin skips JS bundling for any variant listed in debuggableVariants
+      // (default: ['debug']), assuming a Metro dev server will serve the bundle at runtime
+      // instead. Nothing starts Metro in CI, so the debug app has no way to get its JS — it
+      // just times out trying to reach ws://10.0.2.2:8081. Emptying this list makes the debug
+      // build embed its JS bundle like a release build would, which is what CI actually needs.
+      config.modResults.contents = mergeContents({
+        src: config.modResults.contents,
+        newSrc: `    debuggableVariants = []`,
+        tag: 'detox-bundle-debug-variant',
+        anchor: /^react\s*\{/,
+        offset: 1,
+        comment: '//',
+      }).contents
+
       config.modResults.contents = mergeContents({
         src: config.modResults.contents,
         newSrc: `        testBuildType System.getProperty('testBuildType', 'debug')
