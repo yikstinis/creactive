@@ -1,5 +1,8 @@
 module.exports = {
   testMatch: ['<rootDir>/src/**/*.detox.test.ts'],
+  moduleNameMapper: {
+    '^@/(.*)$': '<rootDir>/src/$1',
+  },
   testTimeout: 120000,
   maxWorkers: 1,
   globalSetup: 'detox/runners/jest/globalSetup',
