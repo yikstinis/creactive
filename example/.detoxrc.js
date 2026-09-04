@@ -4,6 +4,14 @@
  * has actually run, as part of the RN 0.86 Detox spike.
  */
 module.exports = {
+  artifacts: {
+    rootDir: 'artifacts',
+    plugins: {
+      log: 'failing',
+      screenshot: 'failing',
+      video: 'failing',
+    },
+  },
   testRunner: {
     args: {
       $0: 'jest',
