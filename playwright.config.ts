@@ -6,7 +6,7 @@ export default defineConfig({
   // Written to a `snapshots/` dir next to each spec file, shared with that component's Detox
   // visual test, named to match the `snapshot-test-{platform}-{browser}` job naming in
   // maintain.yml (e.g. `linux-chromium`).
-  snapshotPathTemplate: '{testFileDir}/snapshots/{arg}{-platform}{-projectName}{ext}',
+  snapshotPathTemplate: '{testDir}/{testFileDir}/snapshots/{arg}{-platform}{-projectName}{ext}',
   webServer: {
     command: 'npx http-server dist -p 6007 -s',
     url: 'http://localhost:6007',
