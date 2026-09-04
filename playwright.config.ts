@@ -4,7 +4,7 @@ export default defineConfig({
   testDir: 'visual',
   testMatch: '**/*.visual.spec.ts',
   webServer: {
-    command: 'npx http-server storybook-static -p 6007 -s',
+    command: 'npx http-server example/dist -p 6007 -s',
     url: 'http://localhost:6007',
     reuseExistingServer: !process.env.CI,
   },

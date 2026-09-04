@@ -6,6 +6,7 @@
   "scripts": {
     "start": "expo start",
     "prebuild": "expo prebuild",
+    "export:web": "expo export -p web",
     "test:visual:ios": "expo prebuild --platform ios && detox build -c ios && detox test -c ios",
     "test:visual:android": "expo prebuild --platform android && detox build -c android && detox test -c android",
     "test:visual:android:update": "expo prebuild --platform android && detox build -c android && detox test -c android -- -u"
@@ -13,7 +14,9 @@
   "dependencies": {
     "expo": "57.0.19",
     "react": "19.2.3",
-    "react-native": "0.86.3"
+    "react-dom": "19.2.3",
+    "react-native": "0.86.3",
+    "react-native-web": "^0.21.2"
   },
   "devDependencies": {
     "@babel/core": "^7.25.2",

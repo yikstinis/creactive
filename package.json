@@ -6,11 +6,10 @@
     "example"
   ],
   "scripts": {
-    "start": "storybook dev -p 6006",
     "lint": "eslint . && tsc --noEmit",
     "test": "jest",
-    "test:visual:web": "storybook build && playwright test",
-    "test:visual:web:update": "storybook build && playwright test --update-snapshots",
+    "test:visual:web": "npm run --workspace example export:web && playwright test",
+    "test:visual:web:update": "npm run --workspace example export:web && playwright test --update-snapshots",
     "test:visual:ios": "npm run --workspace example test:visual:ios",
     "test:visual:android": "npm run --workspace example test:visual:android",
     "test:visual:android:update": "npm run --workspace example test:visual:android:update"
@@ -25,8 +24,6 @@
     "@playwright/test": "^1.56.0",
     "@react-native/babel-preset": "^0.86.3",
     "@react-native/jest-preset": "^0.86.3",
-    "@storybook/react": "^8.6.18",
-    "@storybook/react-vite": "^8.6.18",
     "@types/react": "^19.2.18",
     "@types/react-dom": "^19.2.5",
     "@types/react-test-renderer": "^19.1.0",
@@ -43,9 +40,7 @@
     "react-native": "^0.86.3",
     "react-native-web": "^0.21.2",
     "react-test-renderer": "19.2.3",
-    "storybook": "^8.6.18",
     "typescript": "^6.0.3",
-    "typescript-eslint": "^8.69.0",
-    "vite": "^6.4.3"
+    "typescript-eslint": "^8.69.0"
   }
 }

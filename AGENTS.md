@@ -4,6 +4,14 @@ Creactive is a cross-platform component library built on React Native.
 
 This file holds the working conventions for any AI agent contributing code here. Keep it current as conventions are established — update it whenever a new rule is agreed on.
 
+## Naming
+
+- **Constants** — `UPPER_SNAKE_CASE` (e.g. `DEFAULT_VALUES`).
+
+## Comments
+
+Default to no comments — add one only for a non-obvious constraint, invariant, or reasoning. Format multi-sentence comments as multi-line `//` comments (one sentence per line), not a single long line.
+
 ## Workflow
 
 - Run `npm run lint` before committing (runs ESLint and the TypeScript typecheck).
@@ -23,15 +31,9 @@ When the set of possible inputs is exhaustively enumerable (e.g. an enum), test 
 
 ### Visual regression testing
 
-- **Web**: every component's `*.stories.tsx` doubles as the source of truth for pixel screenshot coverage — write one before relying on it for a new component. `npm run test:visual:web` builds Storybook and runs Playwright (`visual/*.visual.spec.ts`) against each story's `iframe.html?id=...` URL.
-- **Native**: `example/` is a standalone Expo app (its own workspace, excluded from root ESLint/TypeScript checks) that renders components directly in `App.tsx` — not through Storybook's on-device UI, which added a whole class of native crashes (BottomSheet, gesture handling, persisted selection) unrelated to the component under test. `npm run test:visual:ios` / `test:visual:android` run Detox, comparing screenshots via `jest-image-snapshot`. Add new components to `App.tsx` following `View`'s example.
+`example/` is a standalone Expo app (its own workspace, excluded from root ESLint/TypeScript checks) whose `App.tsx` renders components directly — the same component tree is screenshotted on every platform, so add new components to `App.tsx` following `View`'s example.
+
+- **Web**: `npm run test:visual:web` runs `expo export -p web` and Playwright (`visual/*.visual.spec.ts`) against the exported static build.
+- **Native**: `npm run test:visual:ios` / `test:visual:android` run Detox, comparing screenshots via `jest-image-snapshot`.
 - Baselines are committed PNGs. Regenerate them on CI, not locally — cross-machine font/anti-aliasing differences cause false-positive diffs otherwise.
 - Visual suites are opt-in and stay out of `npm test`/`npm run lint` — they're slow and environment-dependent (browser/simulator/emulator boot).
-
-## Naming
-
-- **Constants** — `UPPER_SNAKE_CASE` (e.g. `DEFAULT_VALUES`).
-
-## Comments
-
-Default to no comments — add one only for a non-obvious constraint, invariant, or reasoning. Format multi-sentence comments as multi-line `//` comments (one sentence per line), not a single long line.

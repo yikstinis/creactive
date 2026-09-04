@@ -7,7 +7,7 @@ import globals from 'globals'
 import tseslint from 'typescript-eslint'
 
 export default defineConfig([
-  { ignores: ['node_modules', 'storybook-static', '**/*.cache/**', 'example/**'] },
+  { ignores: ['node_modules', '**/*.cache/**', 'example/**'] },
   { settings: { react: { version: 'detect' } } },
   js.configs.recommended,
   tseslint.configs.recommended,
@@ -57,7 +57,7 @@ export default defineConfig([
   },
   {
     files: ['**/*.{ts,tsx}'],
-    ignores: ['**/*.d.ts', '**/*.stories.tsx'],
+    ignores: ['**/*.d.ts'],
     rules: {
       'no-restricted-syntax': [
         'error',
