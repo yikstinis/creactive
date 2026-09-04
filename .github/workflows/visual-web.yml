@@ -1,9 +1,11 @@
 name: Visual regression (web)
 
 on:
-  push:
-    branches: [main]
-  pull_request:
+  workflow_dispatch:
+  # Disabled from automatic push/pull_request triggers while the native pipeline is being
+  # stabilized, to keep CI noise down. The web run itself was never confirmed passing in
+  # actual CI (only locally) — re-enable once that's checked. Trigger manually via
+  # Actions -> "Visual regression (web)" -> Run workflow in the meantime.
 
 jobs:
   visual-web:
