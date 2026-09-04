@@ -1,9 +1,13 @@
 import { expect, test } from '@playwright/test'
 
-test.describe('atoms/View', () => {
-  test('renders with padding', async ({ page }) => {
-    await page.goto('/')
+import { VIEW_PADDING_CASES } from '@/components/atoms/view/view.visual.cases'
 
-    await expect(page.locator('#root')).toHaveScreenshot('view-default.png')
-  })
+test.describe('atoms/View', () => {
+  for (const { name } of VIEW_PADDING_CASES) {
+    test(`renders with ${name} padding`, async ({ page }) => {
+      await page.goto('/')
+
+      await expect(page.getByTestId(`view-padding-${name}`)).toHaveScreenshot(`view-padding-${name}.png`)
+    })
+  }
 })

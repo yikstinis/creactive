@@ -48,6 +48,14 @@ describe('@/components/atoms/view/view', () => {
       })
     })
 
+    describe('testID', () => {
+      it('forwards it to the native view', () => {
+        const { testID } = renderNativeViewProps({ testID: 'my-view' })
+
+        expect(testID).toEqual('my-view')
+      })
+    })
+
     it('applies no padding/margin style when none is given', () => {
       const { style } = renderNativeViewProps()
 

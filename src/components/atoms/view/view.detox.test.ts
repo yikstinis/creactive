@@ -4,6 +4,8 @@ import { join } from 'path'
 import { beforeAll, describe, expect, it } from '@jest/globals'
 import { by, device, element, waitFor } from 'detox'
 
+import { VIEW_PADDING_CASES } from '@/components/atoms/view/view.visual.cases'
+
 const SNAPSHOTS_DIR = join(__dirname, 'snapshots')
 
 // Matches the `snapshot-test-{platform}-{device}` job naming in maintain.yml (e.g. `android-pixel-7`).
@@ -17,11 +19,13 @@ describe('atoms/View', () => {
     await device.launchApp()
   })
 
-  it('renders with padding', async () => {
-    await waitFor(element(by.text('Hello, View'))).toBeVisible().withTimeout(10000)
+  it.each(VIEW_PADDING_CASES)('renders with $name padding', async ({ name }) => {
+    const testID = `view-padding-${name}`
 
-    const screenshotPath = await device.takeScreenshot('view-default')
-    const snapshotIdentifier = `view-default-${DEVICE_SUFFIXES[device.getPlatform()]}`
+    await waitFor(element(by.id(testID))).toBeVisible().withTimeout(10000)
+
+    const screenshotPath = await element(by.id(testID)).takeScreenshot(testID)
+    const snapshotIdentifier = `${testID}-${DEVICE_SUFFIXES[device.getPlatform()]}`
 
     expect(readFileSync(screenshotPath)).toMatchImageSnapshot({
       customSnapshotIdentifier: snapshotIdentifier,

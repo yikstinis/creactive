@@ -11,6 +11,7 @@ export interface ViewProps extends PropsWithChildren {
   style?: ViewStyle
   padding?: Spacing
   margin?: Spacing
+  testID?: string
 }
 
 export type ViewComponent = FunctionComponent<ViewProps>
