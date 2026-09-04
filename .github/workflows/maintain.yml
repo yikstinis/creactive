@@ -51,7 +51,7 @@ jobs:
       - run: npm run jest
 
   snapshot-test-web:
-    name: Snapshot test (Linux Chromium)
+    name: Snapshot test (Linux Chrome)
     needs: unit-test
     runs-on: ubuntu-latest
     permissions:
