@@ -145,7 +145,7 @@ jobs:
           fi
 
   snapshot-test-ios:
-    name: Snapshot test (iOS iPhone 15)
+    name: Snapshot test (iOS iPhone 17)
     runs-on: macos-latest
     permissions:
       contents: write
