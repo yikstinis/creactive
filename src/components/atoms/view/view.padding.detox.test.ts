@@ -1,16 +1,18 @@
-import { beforeAll, describe, it } from '@jest/globals'
+import { test } from '@root/detox.setup'
 
 import { VIEW_PADDING_CASES, VIEW_PADDING_SCENE_ID } from '@/components/atoms/view/view.padding.cases'
 
-describe('atoms/View', () => {
-  beforeAll(async () => {
+test.describe('atoms/View', () => {
+  test.beforeAll(async ({ initialize }) => {
     await initialize(VIEW_PADDING_SCENE_ID)
   })
 
-  it.each(VIEW_PADDING_CASES)('renders with $name padding', async ({ name }) => {
-    const testId = `view-padding-${name}`
+  for (const { name } of VIEW_PADDING_CASES) {
+    test(`renders with ${name} padding`, async ({ enable, match }) => {
+      const testId = `view-padding-${name}`
 
-    await enable(`view-padding-nav-${name}`, testId)
-    await match(testId, 'padding', name)
-  })
+      await enable(`view-padding-nav-${name}`, testId)
+      await match(testId, 'padding', name)
+    })
+  }
 })

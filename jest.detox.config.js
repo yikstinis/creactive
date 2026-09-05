@@ -3,6 +3,7 @@ module.exports = {
   testMatch: ['<rootDir>/src/**/*.detox.test.ts'],
   moduleNameMapper: {
     '^@/(.*)$': '<rootDir>/src/$1',
+    '^@root/(.*)$': '<rootDir>/$1',
   },
   testTimeout: 120000,
   maxWorkers: 1,

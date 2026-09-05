@@ -7,12 +7,7 @@ import { toMatchImageSnapshot } from 'jest-image-snapshot'
 import { PNG } from 'pngjs'
 
 import { VISUAL_SCENE_ROOT_TEST_ID } from '@/testing/scenes'
-
-declare global {
-  function initialize(sceneId: string): Promise<void>
-  function enable(navTestId: string, targetTestId: string): Promise<void>
-  function match(targetTestId: string, group: string, name: string): Promise<void>
-}
+import type { VisualDriver } from '@/testing/visual.types'
 
 /**
  * Detox overwrites the global `expect` with its own element-assertion DSL
@@ -132,6 +127,24 @@ async function match(targetTestId: string, group: string, name: string): Promise
   })
 }
 
-globalThis.initialize = initialize
-globalThis.enable = enable
-globalThis.match = match
+function getFixtures(): Pick<VisualDriver, 'initialize' | 'enable' | 'match'> {
+  return { initialize, enable, match }
+}
+
+/**
+ * Mirrors `playwright.setup.ts`'s `test` - a same-named callable with a `.describe` and a
+ * `.beforeAll` that hands `initialize`/`enable`/`match` to its callback as an object, rather than
+ * a component's `.detox.test.ts` reading them off the ambient globals `describe`/`it`/`beforeAll`
+ * already provide.
+ */
+export const test = Object.assign(
+  (name: string, fn: (fixtures: Pick<VisualDriver, 'initialize' | 'enable' | 'match'>) => Promise<void>) => {
+    it(name, () => fn(getFixtures()))
+  },
+  {
+    describe,
+    beforeAll: (fn: (fixtures: Pick<VisualDriver, 'initialize' | 'enable' | 'match'>) => Promise<void>) => {
+      beforeAll(() => fn(getFixtures()))
+    },
+  },
+)

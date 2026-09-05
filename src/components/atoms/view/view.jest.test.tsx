@@ -1,4 +1,4 @@
-import { describe, expect, it } from '@jest/globals'
+import { expect } from '@jest/globals'
 import type { ReactNode } from 'react'
 import { Text, View as NativeView } from 'react-native'
 import TestRenderer from 'react-test-renderer'

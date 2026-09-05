@@ -1,4 +1,4 @@
-import { describe, expect, it } from '@jest/globals'
+import { expect } from '@jest/globals'
 
 import { Dimension, DimensionUnit } from '@/helpers/dimension/dimension'
 
