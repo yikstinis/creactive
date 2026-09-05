@@ -1,33 +1,23 @@
-import { StatusBar, View as NativeView } from 'react-native'
-import { SafeAreaProvider, useSafeAreaInsets } from 'react-native-safe-area-context'
+import { StatusBar, StyleSheet } from 'react-native'
+import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context'
 
 import { VisualTestHost } from '@/testing/host'
 import { VISUAL_SCENE_ROOT_TEST_ID } from '@/testing/scenes'
 
-function AppContent() {
-  const insets = useSafeAreaInsets()
-
-  return (
-    <NativeView
-      testID={VISUAL_SCENE_ROOT_TEST_ID}
-      style={{
-        flex: 1,
-        paddingTop: insets.top,
-        paddingBottom: insets.bottom,
-        paddingLeft: insets.left,
-        paddingRight: insets.right,
-      }}
-    >
-      <StatusBar hidden />
-      <VisualTestHost />
-    </NativeView>
-  )
-}
-
 export default function App() {
   return (
     <SafeAreaProvider>
-      <AppContent />
+      <SafeAreaView testID={VISUAL_SCENE_ROOT_TEST_ID} style={styleSheet.mainWrapper}>
+        <StatusBar hidden />
+        <VisualTestHost />
+      </SafeAreaView>
     </SafeAreaProvider>
   )
 }
+
+const styleSheet = StyleSheet.create({
+  mainWrapper: {
+    flex: 1,
+    backgroundColor: 'rgb(255,255,255)',
+  },
+})

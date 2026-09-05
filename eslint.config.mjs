@@ -29,6 +29,9 @@ export default defineConfig([
       'import-x': importX,
     },
     rules: {
+      indent: ['error', 2, { SwitchCase: 1 }],
+      'no-trailing-spaces': 'error',
+      'no-multi-spaces': 'error',
       '@typescript-eslint/consistent-type-imports': [
         'error',
         { fixStyle: 'separate-type-imports' },
@@ -53,6 +56,17 @@ export default defineConfig([
           alphabetize: { order: 'asc', caseInsensitive: true },
         },
       ],
+    },
+  },
+  {
+    files: ['**/*.tsx'],
+    rules: {
+      'react/jsx-indent': ['error', 2],
+      'react/jsx-indent-props': ['error', 2],
+      'react/jsx-closing-bracket-location': ['error', 'tag-aligned'],
+      'react/jsx-closing-tag-location': 'error',
+      'react/jsx-first-prop-new-line': ['error', 'multiline-multiprop'],
+      'react/jsx-props-no-multi-spaces': 'error',
     },
   },
   {
