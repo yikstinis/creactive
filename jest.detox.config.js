@@ -1,4 +1,5 @@
 module.exports = {
+  preset: '@react-native/jest-preset',
   testMatch: ['<rootDir>/src/**/*.detox.test.ts'],
   moduleNameMapper: {
     '^@/(.*)$': '<rootDir>/src/$1',
