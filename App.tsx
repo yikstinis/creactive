@@ -13,7 +13,7 @@ const SQUARE_SIZE = 32
 // suites to a single app screen/launch instead of one per case.
 export default function App() {
   return (
-    <ScrollView testID={VIEW_VISUAL_CASES_SCROLL_VIEW_TEST_ID} contentContainerStyle={{ alignItems: 'flex-start', gap: 8 }}>
+    <ScrollView testID={VIEW_VISUAL_CASES_SCROLL_VIEW_TEST_ID} contentContainerStyle={{ alignItems: 'flex-start' }}>
       <StatusBar hidden />
       {VIEW_PADDING_CASES.map(({ spacing, name }) => (
         <NativeView
