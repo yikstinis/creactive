@@ -25,7 +25,7 @@ describe('atoms/View', () => {
     await element(by.id(`view-padding-nav-${name}`)).tap()
     await waitFor(element(by.id(testID))).toBeVisible().withTimeout(10000)
 
-    const screenshotPath = await element(by.id(testID)).takeScreenshot(testID)
+    const screenshotPath = await device.takeScreenshot(testID)
     const snapshotIdentifier = `padding/${name}.${DEVICE_SUFFIXES[device.getPlatform()]}`
 
     expect(readFileSync(screenshotPath)).toMatchImageSnapshot({
