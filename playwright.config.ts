@@ -3,10 +3,10 @@ import { defineConfig } from '@playwright/test'
 export default defineConfig({
   testDir: 'src',
   testMatch: '**/*.playwright.test.ts',
-  // Written to a `snapshots/{platform}-{browser}/` dir next to each spec file, shared with that
-  // component's Detox visual test, named to match the `snapshot-test-{platform}-{browser}` job
-  // naming in maintain.yml (e.g. `linux-chromium`).
-  snapshotPathTemplate: '{testDir}/{testFileDir}/snapshots/{platform}-{projectName}/{arg}{ext}',
+  // Written to a `snapshots/` dir next to each spec file, shared with that component's Detox
+  // visual test, suffixed to match the `snapshot-test-{platform}-{browser}` job naming in
+  // maintain.yml (e.g. `linux-chromium`).
+  snapshotPathTemplate: '{testDir}/{testFileDir}/snapshots/{arg}.{platform}-{projectName}{ext}',
   webServer: {
     command: 'npx http-server dist -p 6007 -s',
     url: 'http://localhost:6007',
