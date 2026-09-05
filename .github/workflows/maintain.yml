@@ -74,7 +74,7 @@ jobs:
           name: playwright-report
           path: test-results
       - if: ${{ inputs.update_snapshots }}
-        name: Commit updated web visual baselines
+        name: Commit Linux Chromium snapshots
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
@@ -82,7 +82,7 @@ jobs:
           if git diff --staged --quiet; then
             echo "No baseline changes to commit"
           else
-            git commit -m "Update web visual regression baselines"
+            git commit -m "Update Linux Chromium snapshots"
             git pull --rebase origin main
             git push
           fi
@@ -124,7 +124,7 @@ jobs:
           name: detox-android-artifacts
           path: artifacts
       - if: ${{ inputs.update_snapshots }}
-        name: Commit updated Android visual baselines
+        name: Commit Android Pixel 7 snapshots
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
@@ -132,7 +132,7 @@ jobs:
           if git diff --staged --quiet; then
             echo "No baseline changes to commit"
           else
-            git commit -m "Update Android visual regression baselines"
+            git commit -m "Update Android Pixel 7 snapshots"
             git pull --rebase origin main
             git push
           fi
@@ -162,7 +162,7 @@ jobs:
           name: detox-ios-artifacts
           path: artifacts
       - if: ${{ inputs.update_snapshots }}
-        name: Commit updated iOS visual baselines
+        name: Commit iOS iPhone 17 snapshots
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
@@ -170,7 +170,7 @@ jobs:
           if git diff --staged --quiet; then
             echo "No baseline changes to commit"
           else
-            git commit -m "Update iOS visual regression baselines"
+            git commit -m "Update iOS iPhone 17 snapshots"
             git pull --rebase origin main
             git push
           fi
