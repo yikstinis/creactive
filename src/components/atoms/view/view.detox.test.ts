@@ -1,8 +1,9 @@
+import { readFileSync } from 'fs'
 import { join } from 'path'
 
 import { beforeAll, describe, expect, it } from '@jest/globals'
 import { by, device, element, waitFor } from 'detox'
-import { Jimp } from 'jimp'
+import { PNG } from 'pngjs'
 
 import { VIEW_PADDING_CASES, VIEW_VISUAL_CASES_ROOT_TEST_ID } from '@/components/atoms/view/view.visual.cases'
 
@@ -22,6 +23,19 @@ async function getElementFrame(testID: string): Promise<{ x: number; y: number; 
   return attributes.frame
 }
 
+function cropPng(source: PNG, rect: { x: number; y: number; width: number; height: number }): Buffer {
+  const cropped = new PNG({ width: rect.width, height: rect.height })
+
+  for (let row = 0; row < rect.height; row += 1) {
+    const sourceStart = ((rect.y + row) * source.width + rect.x) * 4
+    const destStart = row * rect.width * 4
+
+    source.data.copy(cropped.data, destStart, sourceStart, sourceStart + rect.width * 4)
+  }
+
+  return PNG.sync.write(cropped)
+}
+
 describe('atoms/View', () => {
   beforeAll(async () => {
     await device.launchApp()
@@ -34,26 +48,26 @@ describe('atoms/View', () => {
     await waitFor(element(by.id(testID))).toBeVisible().withTimeout(10000)
 
     const screenshotPath = await device.takeScreenshot(testID)
-    const screenshot = await Jimp.read(screenshotPath)
+    const screenshot = PNG.sync.read(readFileSync(screenshotPath))
 
     // device.takeScreenshot() returns raw device pixels, but getAttributes().frame comes back in
     // points on iOS (and, empirically, already in pixels on Android) - deriving the scale from
     // the full-screen root's own frame works on both, rather than assuming either unit.
     const rootFrame = await getElementFrame(VIEW_VISUAL_CASES_ROOT_TEST_ID)
-    const scale = screenshot.bitmap.width / rootFrame.width
+    const scale = screenshot.width / rootFrame.width
 
     const caseFrame = await getElementFrame(testID)
 
-    screenshot.crop({
+    const croppedScreenshot = cropPng(screenshot, {
       x: Math.round(caseFrame.x * scale),
       y: Math.round(caseFrame.y * scale),
-      w: Math.round(caseFrame.width * scale),
-      h: Math.round(caseFrame.height * scale),
+      width: Math.round(caseFrame.width * scale),
+      height: Math.round(caseFrame.height * scale),
     })
 
     const snapshotIdentifier = `padding/${name}.${DEVICE_SUFFIXES[device.getPlatform()]}`
 
-    expect(await screenshot.getBuffer('image/png')).toMatchImageSnapshot({
+    expect(croppedScreenshot).toMatchImageSnapshot({
       customSnapshotIdentifier: snapshotIdentifier,
       customSnapshotsDir: SNAPSHOTS_DIR,
     })
