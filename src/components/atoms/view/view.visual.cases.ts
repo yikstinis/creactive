@@ -1,6 +1,12 @@
 import { Spacing } from '@/constants/spacing'
 
 /**
+ * testID of the ScrollView hosting the cases in App.tsx, so the Detox visual test can scroll a
+ * case into view before screenshotting it.
+ */
+export const VIEW_VISUAL_CASES_SCROLL_VIEW_TEST_ID = 'view-visual-cases-scroll-view'
+
+/**
  * Every Spacing scale member, named for use in testIDs and visual-test snapshot identifiers.
  * The visual-test host screen and the Playwright/Detox visual tests all derive their cases from
  * this list, so covering a new Spacing member is a single line here.

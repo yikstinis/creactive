@@ -4,7 +4,7 @@ import { join } from 'path'
 import { beforeAll, describe, expect, it } from '@jest/globals'
 import { by, device, element, waitFor } from 'detox'
 
-import { VIEW_PADDING_CASES } from '@/components/atoms/view/view.visual.cases'
+import { VIEW_PADDING_CASES, VIEW_VISUAL_CASES_SCROLL_VIEW_TEST_ID } from '@/components/atoms/view/view.visual.cases'
 
 const SNAPSHOTS_DIR = join(__dirname, 'snapshots')
 
@@ -22,7 +22,10 @@ describe('atoms/View', () => {
   it.each(VIEW_PADDING_CASES)('renders with $name padding', async ({ name }) => {
     const testID = `view-padding-${name}`
 
-    await waitFor(element(by.id(testID))).toBeVisible().withTimeout(10000)
+    await waitFor(element(by.id(testID)))
+      .toBeVisible()
+      .whileElement(by.id(VIEW_VISUAL_CASES_SCROLL_VIEW_TEST_ID))
+      .scroll(300, 'down')
 
     const screenshotPath = await element(by.id(testID)).takeScreenshot(testID)
     const snapshotIdentifier = `padding/${name}.${DEVICE_SUFFIXES[device.getPlatform()]}`
