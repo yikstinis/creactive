@@ -21,7 +21,7 @@ export default function App() {
   return (
     <NativeView testID={VIEW_VISUAL_CASES_ROOT_TEST_ID} style={{ flex: 1, alignItems: 'flex-start' }}>
       <StatusBar hidden />
-      <NativeView style={{ flexDirection: 'row', flexWrap: 'wrap', gap: 4 }}>
+      <NativeView style={{ flexDirection: 'row', flexWrap: 'wrap' }}>
         {VIEW_PADDING_CASES.map(({ name }) => (
           <Pressable key={name} testID={`view-padding-nav-${name}`} onPress={() => setSelectedName(name)}>
             <Text>{name}</Text>
@@ -30,7 +30,7 @@ export default function App() {
       </NativeView>
       <NativeView
         testID={`view-padding-${selectedCase.name}`}
-        style={{ backgroundColor: 'white', padding: CONTAINER_PADDING }}
+        style={{ alignSelf: 'flex-start', backgroundColor: 'white', padding: CONTAINER_PADDING }}
       >
         <View padding={selectedCase.spacing} style={{ backgroundColor: 'black' }}>
           <NativeView style={{ flexDirection: 'row' }}>
