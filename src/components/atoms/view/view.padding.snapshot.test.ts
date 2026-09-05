@@ -1,9 +1,9 @@
-import { test } from '@root/detox.setup'
+import { test } from '@root/snapshot.setup'
 
 import { VIEW_PADDING_CASES, VIEW_PADDING_SCENE_ID } from '@/components/atoms/view/view.padding.cases'
 
 test.describe('atoms/View', () => {
-  test.beforeAll(async ({ initialize }) => {
+  test.setup(async ({ initialize }) => {
     await initialize(VIEW_PADDING_SCENE_ID)
   })
 

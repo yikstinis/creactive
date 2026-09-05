@@ -27,6 +27,7 @@
     "App.tsx",
     "detox.setup.ts",
     "playwright.setup.ts",
+    "snapshot.setup.ts",
     "jest-image-snapshot.types.d.ts"
   ],
   "extends": "expo/tsconfig.base"

@@ -2,7 +2,7 @@ import { defineConfig } from '@playwright/test'
 
 export default defineConfig({
   testDir: 'src',
-  testMatch: '**/*.playwright.test.ts',
+  testMatch: '**/*.snapshot.test.ts',
   // Written to a `snapshots/` dir next to each spec file, shared with that component's Detox
   // visual test, suffixed to match the `snapshot-test-{platform}-{browser}` job naming in
   // maintain.yml (e.g. `linux-chromium`).

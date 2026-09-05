@@ -7,7 +7,7 @@ import { toMatchImageSnapshot } from 'jest-image-snapshot'
 import { PNG } from 'pngjs'
 
 import { VISUAL_SCENE_ROOT_TEST_ID } from '@/testing/scenes'
-import type { VisualDriver } from '@/testing/visual.types'
+import type { SnapshotTest, VisualDriver } from '@/testing/visual.types'
 
 /**
  * Detox overwrites the global `expect` with its own element-assertion DSL
@@ -131,19 +131,16 @@ function getFixtures(): Pick<VisualDriver, 'initialize' | 'enable' | 'match'> {
   return { initialize, enable, match }
 }
 
-/**
- * Mirrors `playwright.setup.ts`'s `test` - a same-named callable with a `.describe` and a
- * `.beforeAll` that hands `initialize`/`enable`/`match` to its callback as an object, rather than
- * a component's `.detox.test.ts` reading them off the ambient globals `describe`/`it`/`beforeAll`
- * already provide.
- */
-export const test = Object.assign(
+// `setup` runs once per `describe` (Jest's `beforeAll`), not per test - relaunching the app
+// (`device.launchApp()`, inside `initialize`) before every case would be far slower than the
+// single `beforeEach` fresh-page cost `playwright.setup.ts`'s `test.setup` pays instead.
+export const test: SnapshotTest = Object.assign(
   (name: string, fn: (fixtures: Pick<VisualDriver, 'initialize' | 'enable' | 'match'>) => Promise<void>) => {
     it(name, () => fn(getFixtures()))
   },
   {
     describe,
-    beforeAll: (fn: (fixtures: Pick<VisualDriver, 'initialize' | 'enable' | 'match'>) => Promise<void>) => {
+    setup: (fn: (fixtures: Pick<VisualDriver, 'initialize' | 'enable' | 'match'>) => Promise<void>) => {
       beforeAll(() => fn(getFixtures()))
     },
   },
