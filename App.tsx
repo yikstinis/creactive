@@ -12,21 +12,21 @@ function VisualTestCases() {
   const insets = useSafeAreaInsets()
 
   return (
-    <ScrollView testID={VIEW_VISUAL_CASES_SCROLL_VIEW_TEST_ID} contentContainerStyle={{ gap: 8 }}>
+    <ScrollView testID={VIEW_VISUAL_CASES_SCROLL_VIEW_TEST_ID} contentContainerStyle={{ alignItems: 'flex-start', gap: 8 }}>
       <StatusBar hidden />
       {VIEW_PADDING_CASES.map(({ spacing, name }) => (
         <NativeView
           key={name}
           testID={`view-padding-${name}`}
           style={{
-            backgroundColor: '#ddd',
+            backgroundColor: 'black',
             paddingTop: CONTAINER_PADDING + insets.top,
             paddingBottom: CONTAINER_PADDING + insets.bottom,
             paddingLeft: CONTAINER_PADDING + insets.left,
             paddingRight: CONTAINER_PADDING + insets.right,
           }}
         >
-          <View padding={spacing}>
+          <View padding={spacing} style={{ backgroundColor: 'white' }}>
             <NativeView style={{ flexDirection: 'row' }}>
               {SQUARE_COLORS.map((color) => (
                 <NativeView key={color} style={{ width: SQUARE_SIZE, height: SQUARE_SIZE, backgroundColor: color }} />
