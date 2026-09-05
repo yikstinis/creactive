@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { Pressable, StatusBar, Text, View as NativeView } from 'react-native'
 
 import { View } from '@/components/atoms/view/view'
-import { VIEW_PADDING_CASES } from '@/components/atoms/view/view.visual.cases'
+import { VIEW_PADDING_CASES, VIEW_VISUAL_CASES_ROOT_TEST_ID } from '@/components/atoms/view/view.visual.cases'
 
 const CONTAINER_PADDING = 80
 const SQUARE_COLORS = ['red', 'green', 'blue'] as const
@@ -19,7 +19,7 @@ export default function App() {
   const selectedCase = VIEW_PADDING_CASES.find(({ name }) => name === selectedName)!
 
   return (
-    <NativeView style={{ flex: 1, alignItems: 'flex-start' }}>
+    <NativeView testID={VIEW_VISUAL_CASES_ROOT_TEST_ID} style={{ flex: 1, alignItems: 'flex-start' }}>
       <StatusBar hidden />
       <NativeView style={{ flexDirection: 'row', flexWrap: 'wrap', gap: 4 }}>
         {VIEW_PADDING_CASES.map(({ name }) => (

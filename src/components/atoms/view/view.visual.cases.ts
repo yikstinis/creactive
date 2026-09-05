@@ -1,6 +1,14 @@
 import { Spacing } from '@/constants/spacing'
 
 /**
+ * testID of the root view in App.tsx, spanning the full screen. The Detox visual test measures
+ * it via getAttributes() to derive the screen's point-to-pixel scale (`device.takeScreenshot()`
+ * returns raw pixels, but element frames come back in points on iOS), needed to crop a case's
+ * device-wide screenshot down to just its own element.
+ */
+export const VIEW_VISUAL_CASES_ROOT_TEST_ID = 'view-visual-cases-root'
+
+/**
  * Every Spacing scale member, named for use in testIDs and visual-test snapshot identifiers.
  * The visual-test host screen and the Playwright/Detox visual tests all derive their cases from
  * this list, so covering a new Spacing member is a single line here.
