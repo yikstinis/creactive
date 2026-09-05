@@ -1,18 +1,18 @@
-import { expect, test } from '@playwright/test'
+import { test } from '@root/playwright.setup'
 
 import { VIEW_PADDING_CASES, VIEW_PADDING_SCENE_ID } from '@/components/atoms/view/view.padding.cases'
 
 test.describe('atoms/View', () => {
-  test.beforeEach(async ({ page }) => {
-    await page.goto('/')
-    await page.getByTestId(`scene-nav-${VIEW_PADDING_SCENE_ID}`).click()
+  test.beforeEach(async ({ initialize }) => {
+    await initialize(VIEW_PADDING_SCENE_ID)
   })
 
   for (const { name } of VIEW_PADDING_CASES) {
-    test(`renders with ${name} padding`, async ({ page }) => {
-      await page.getByTestId(`view-padding-nav-${name}`).click()
+    test(`renders with ${name} padding`, async ({ enable, match }) => {
+      const testId = `view-padding-${name}`
 
-      await expect(page.getByTestId(`view-padding-${name}`)).toHaveScreenshot(['padding', `${name}.png`])
+      await enable(`view-padding-nav-${name}`, testId)
+      await match(testId, 'padding', name)
     })
   }
 })

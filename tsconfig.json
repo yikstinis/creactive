@@ -16,13 +16,17 @@
     "paths": {
       "@/*": [
         "./src/*"
+      ],
+      "@root/*": [
+        "./*"
       ]
     }
   },
   "include": [
     "src",
     "App.tsx",
-    "jest.setup.detox.ts",
+    "detox.setup.ts",
+    "playwright.setup.ts",
     "jest-image-snapshot.types.d.ts"
   ],
   "extends": "expo/tsconfig.base"

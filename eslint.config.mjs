@@ -51,7 +51,10 @@ export default defineConfig([
         'error',
         {
           groups: ['builtin', 'external', 'internal'],
-          pathGroups: [{ pattern: '@/**', group: 'internal' }],
+          pathGroups: [
+            { pattern: '@/**', group: 'internal' },
+            { pattern: '@root/**', group: 'internal' },
+          ],
           'newlines-between': 'always',
           alphabetize: { order: 'asc', caseInsensitive: true },
         },
