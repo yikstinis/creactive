@@ -1,17 +1,16 @@
 import { Spacing } from '@/constants/spacing'
 
 /**
- * testID of the root view in App.tsx, spanning the full screen. The Detox visual test measures
- * it via getAttributes() to derive the screen's point-to-pixel scale (`device.takeScreenshot()`
- * returns raw pixels, but element frames come back in points on iOS), needed to crop a case's
- * device-wide screenshot down to just its own element.
+ * `scene-nav-<id>` testID of this component's scene, tapped once by a Playwright/Detox test
+ * before it drives the scene's own cases below.
  */
-export const VIEW_VISUAL_CASES_ROOT_TEST_ID = 'view-visual-cases-root'
+export const VIEW_PADDING_SCENE_ID = 'view-padding'
 
 /**
  * Every Spacing scale member, named for use in testIDs and visual-test snapshot identifiers.
- * The visual-test host screen and the Playwright/Detox visual tests all derive their cases from
- * this list, so covering a new Spacing member is a single line here.
+ * The scene and the Playwright/Detox visual tests all derive their cases from this list, so
+ * covering a new Spacing member is a single line here. Kept free of react-native/JSX imports so
+ * Playwright's Node test runner (which can't transform react-native's own source) can import it.
  */
 export const VIEW_PADDING_CASES = [
   { spacing: Spacing.X6S, name: 'x6s' },

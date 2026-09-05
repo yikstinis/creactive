@@ -5,7 +5,8 @@ import { beforeAll, describe, expect, it } from '@jest/globals'
 import { by, device, element, waitFor } from 'detox'
 import { PNG } from 'pngjs'
 
-import { VIEW_PADDING_CASES, VIEW_VISUAL_CASES_ROOT_TEST_ID } from '@/components/atoms/view/view.visual.cases'
+import { VIEW_PADDING_CASES, VIEW_PADDING_SCENE_ID } from '@/components/atoms/view/view.padding.cases'
+import { VISUAL_SCENE_ROOT_TEST_ID } from '@/testing/scenes'
 
 const SNAPSHOTS_DIR = join(__dirname, 'snapshots')
 
@@ -39,6 +40,10 @@ function cropPng(source: PNG, rect: { x: number; y: number; width: number; heigh
 describe('atoms/View', () => {
   beforeAll(async () => {
     await device.launchApp()
+
+    const sceneNav = element(by.id(`scene-nav-${VIEW_PADDING_SCENE_ID}`))
+    await waitFor(sceneNav).toBeVisible().withTimeout(10000)
+    await sceneNav.tap()
   })
 
   it.each(VIEW_PADDING_CASES)('renders with $name padding', async ({ name }) => {
@@ -53,7 +58,7 @@ describe('atoms/View', () => {
     // device.takeScreenshot() returns raw device pixels, but getAttributes().frame comes back in
     // points on iOS (and, empirically, already in pixels on Android) - deriving the scale from
     // the full-screen root's own frame works on both, rather than assuming either unit.
-    const rootFrame = await getElementFrame(VIEW_VISUAL_CASES_ROOT_TEST_ID)
+    const rootFrame = await getElementFrame(VISUAL_SCENE_ROOT_TEST_ID)
     const scale = screenshot.width / rootFrame.width
 
     const caseFrame = await getElementFrame(testID)
