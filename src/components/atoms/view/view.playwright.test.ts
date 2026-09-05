@@ -6,6 +6,7 @@ test.describe('atoms/View', () => {
   for (const { name } of VIEW_PADDING_CASES) {
     test(`renders with ${name} padding`, async ({ page }) => {
       await page.goto('/')
+      await page.getByTestId(`view-padding-nav-${name}`).click()
 
       await expect(page.getByTestId(`view-padding-${name}`)).toHaveScreenshot(['padding', `${name}.png`])
     })
