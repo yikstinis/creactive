@@ -1,6 +1,6 @@
 import { test } from '@root/snapshot.setup'
 
-import { VIEW_PADDING_CASES, VIEW_PADDING_SCENE_ID } from '@/components/atoms/view/view.padding.cases'
+import { VIEW_PADDING_CASES, VIEW_PADDING_SCENE_ID } from '@/components/atoms/view/view.padding.snapshot.scene'
 
 test.describe('atoms/View', () => {
   test.setup(async ({ initialize }) => {

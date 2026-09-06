@@ -106,4 +106,14 @@ export default defineConfig([
       '@typescript-eslint/no-require-imports': 'off',
     },
   },
+  {
+    // A scene's react-native/JSX-dependent imports are require()'d inside its Scene component
+    // instead of imported at module top level, so Playwright's Node test runner - which can't
+    // parse react-native's own source - can still load the file for its RN-free exports (an
+    // enumerable case list, a scene id). See AGENTS.md.
+    files: ['**/*.snapshot.scene.tsx'],
+    rules: {
+      '@typescript-eslint/no-require-imports': 'off',
+    },
+  },
 ])

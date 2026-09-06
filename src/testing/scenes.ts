@@ -1,4 +1,4 @@
-import { VIEW_PADDING_SCENE } from '@/components/atoms/view/view.padding.scene'
+import { VIEW_PADDING_SCENE } from '@/components/atoms/view/view.padding.snapshot.scene'
 import type { VisualScene } from '@/testing/scenes.types'
 
 /**
