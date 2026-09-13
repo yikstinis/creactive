@@ -6,6 +6,7 @@ This file holds the working conventions for any AI agent contributing code here.
 
 ## Naming
 
+- **Files** — kebab-case (e.g. `kebab-case.ts`).
 - **Constants** — `UPPER_SNAKE_CASE` (e.g. `DEFAULT_VALUES`).
 
 ## Comments

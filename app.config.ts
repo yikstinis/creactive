@@ -13,7 +13,11 @@ const config: ExpoConfig = {
   android: {
     package: 'com.creactive',
   },
-  plugins: ['./plugins/withAndroidPackagingOptions', './plugins/withAndroidGradleJvmArgs', './plugins/withDetoxAndroidTest'],
+  plugins: [
+    './plugins/with-android-packaging-options',
+    './plugins/with-android-gradle-jvm-args',
+    './plugins/with-detox-android-test',
+  ],
 }
 
 export default config

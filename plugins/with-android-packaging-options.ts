@@ -1,5 +1,6 @@
-const { withAppBuildGradle } = require('@expo/config-plugins')
-const { mergeContents } = require('@expo/config-plugins/build/utils/generateCode')
+import type { ConfigPlugin } from '@expo/config-plugins'
+import { withAppBuildGradle } from '@expo/config-plugins'
+import { mergeContents } from '@expo/config-plugins/build/utils/generateCode'
 
 /**
  * Detox's Espresso test APK and the app's own native libs both bundle
@@ -7,7 +8,7 @@ const { mergeContents } = require('@expo/config-plugins/build/utils/generateCode
  * `assembleAndroidTest` packaging unless the first one found is picked.
  * See Detox's own test app: https://github.com/wix/Detox/blob/master/detox/test/android/app/build.gradle
  */
-module.exports = function withAndroidPackagingOptions(config) {
+const withAndroidPackagingOptions: ConfigPlugin = (config) => {
   return withAppBuildGradle(config, (config) => {
     if (config.modResults.language === 'groovy') {
       config.modResults.contents = mergeContents({
@@ -29,3 +30,5 @@ module.exports = function withAndroidPackagingOptions(config) {
     return config
   })
 }
+
+export default withAndroidPackagingOptions

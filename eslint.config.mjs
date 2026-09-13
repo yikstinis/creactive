@@ -99,9 +99,8 @@ export default defineConfig([
     },
   },
   {
-    // Metro and Expo's config-plugins system load these via Node's CommonJS require(),
-    // so they can't be converted to ESM imports.
-    files: ['metro.config.js', 'plugins/**/*.js'],
+    // Metro loads this via Node's CommonJS require(), so it can't be converted to an ESM import.
+    files: ['metro.config.js'],
     rules: {
       '@typescript-eslint/no-require-imports': 'off',
     },

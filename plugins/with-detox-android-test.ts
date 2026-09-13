@@ -1,8 +1,9 @@
-const fs = require('fs')
-const path = require('path')
+import { writeFileSync, mkdirSync } from 'fs'
+import { join } from 'path'
 
-const { withAppBuildGradle, withDangerousMod, withProjectBuildGradle } = require('@expo/config-plugins')
-const { mergeContents } = require('@expo/config-plugins/build/utils/generateCode')
+import type { ConfigPlugin } from '@expo/config-plugins'
+import { withAppBuildGradle, withDangerousMod, withProjectBuildGradle } from '@expo/config-plugins'
+import { mergeContents } from '@expo/config-plugins/build/utils/generateCode'
 
 const ANDROID_PACKAGE = 'com.creactive'
 
@@ -14,7 +15,7 @@ const ANDROID_PACKAGE = 'com.creactive'
  * which is what "Detox can't seem to connect to the test app(s)!" actually means.
  * See https://wix.github.io/Detox/docs/introduction/project-setup (Android tab).
  */
-module.exports = function withDetoxAndroidTest(config) {
+const withDetoxAndroidTest: ConfigPlugin = (config) => {
   config = withProjectBuildGradle(config, (config) => {
     if (config.modResults.language === 'groovy') {
       // com.wix:detox isn't on Maven Central/Google's repo — the npm package ships its own
@@ -83,10 +84,10 @@ module.exports = function withDetoxAndroidTest(config) {
     'android',
     (config) => {
       const packagePath = ANDROID_PACKAGE.split('.').join('/')
-      const dir = path.join(config.modRequest.platformProjectRoot, 'app/src/androidTest/java', packagePath)
-      fs.mkdirSync(dir, { recursive: true })
-      fs.writeFileSync(
-        path.join(dir, 'DetoxTest.java'),
+      const dir = join(config.modRequest.platformProjectRoot, 'app/src/androidTest/java', packagePath)
+      mkdirSync(dir, { recursive: true })
+      writeFileSync(
+        join(dir, 'DetoxTest.java'),
         `package ${ANDROID_PACKAGE};
 
 import androidx.test.filters.LargeTest;
@@ -116,3 +117,5 @@ public class DetoxTest {
     },
   ])
 }
+
+export default withDetoxAndroidTest

@@ -26,6 +26,7 @@
     "src",
     "App.tsx",
     "app.config.ts",
+    "plugins",
     "detox.setup.ts",
     "playwright.setup.ts",
     "playwright.config.ts",
