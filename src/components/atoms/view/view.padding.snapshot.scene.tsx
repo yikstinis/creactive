@@ -4,7 +4,6 @@ import type { Pressable as PressableComponent, Text as TextComponent, View as Na
 import type { View as ViewComponent } from '@/components/atoms/view/view'
 import { Spacing } from '@/constants/spacing'
 import type { VisualScene } from '@/testing/scenes.types'
-import type { SnapshotTest } from '@/testing/visual.types'
 
 /**
  * `scene-nav-<id>` testID of this component's scene, tapped once by a Playwright/Detox test
@@ -74,29 +73,4 @@ function ViewPaddingScene() {
 export const VIEW_PADDING_SCENE: VisualScene = {
   id: VIEW_PADDING_SCENE_ID,
   Scene: ViewPaddingScene,
-}
-
-// This file is imported both by the real app (scenes.ts -> App.tsx, bundled by Metro for native
-// and web) and, as a `*.snapshot.test.tsx` file, required directly by Playwright/Detox's Node
-// process. Only the latter has no `navigator` global - React Native sets `navigator.product`,
-// and a real browser has its own - so this guard keeps the test registration below (and its
-// `@root/snapshot.setup` import, which pulls in Playwright/Detox) from ever running inside the
-// app itself.
-if (typeof navigator === 'undefined') {
-  const { test } = require('@root/snapshot.setup') as { test: SnapshotTest }
-
-  test.describe('atoms/View', () => {
-    test.setup(async ({ initialize }) => {
-      await initialize(VIEW_PADDING_SCENE_ID)
-    })
-
-    for (const { name } of VIEW_PADDING_CASES) {
-      test(`renders with ${name} padding`, async ({ enable, match }) => {
-        const testId = `view-padding-${name}`
-
-        await enable(`view-padding-nav-${name}`, testId)
-        await match(testId, 'padding', name)
-      })
-    }
-  })
 }

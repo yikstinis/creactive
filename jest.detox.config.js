@@ -1,6 +1,6 @@
 module.exports = {
   preset: '@react-native/jest-preset',
-  testMatch: ['<rootDir>/src/**/*.snapshot.test.{ts,tsx}'],
+  testMatch: ['<rootDir>/src/**/*.snapshot.test.ts'],
   moduleNameMapper: {
     '^@/(.*)$': '<rootDir>/src/$1',
     '^@root/(.*)$': '<rootDir>/$1',
