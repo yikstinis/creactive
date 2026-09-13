@@ -6,7 +6,7 @@ import { by, device, element, waitFor } from 'detox'
 import { toMatchImageSnapshot } from 'jest-image-snapshot'
 import { PNG } from 'pngjs'
 
-import { VISUAL_SCENE_ROOT_TEST_ID } from '@/testing/scenes'
+import { VISUAL_SCENE_ROOT_TEST_ID } from '@/testing/scene-root'
 import type { SnapshotTest, VisualDriver } from '@/testing/visual.types'
 
 /**

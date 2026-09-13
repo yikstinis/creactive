@@ -2,7 +2,7 @@ import { StatusBar, StyleSheet } from 'react-native'
 import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context'
 
 import { VisualTestHost } from '@/testing/host'
-import { VISUAL_SCENE_ROOT_TEST_ID } from '@/testing/scenes'
+import { VISUAL_SCENE_ROOT_TEST_ID } from '@/testing/scene-root'
 
 export default function App() {
   return (
