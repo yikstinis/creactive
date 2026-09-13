@@ -13,7 +13,11 @@ export default defineConfig({
   // maintain.yml (e.g. `linux-chromium`).
   snapshotPathTemplate: '{testDir}/{testFileDir}/snapshots/{arg}.{platform}-{projectName}{ext}',
   webServer: {
-    command: 'npx http-server dist -p 6007 -s',
+    // The trailing `?` on the proxy target truncates the original request path before it's
+    // forwarded, so any unmatched route (e.g. `/component/view/padding/x6s`, which has no
+    // matching file in `dist/`) falls back to `index.html` at `/` instead of 404ing - needed now
+    // that tests navigate straight to a scene/case's own path rather than always starting at `/`.
+    command: 'npx http-server dist -p 6007 -s -P http://localhost:6007?',
     url: 'http://localhost:6007',
     reuseExistingServer: !process.env.CI,
   },

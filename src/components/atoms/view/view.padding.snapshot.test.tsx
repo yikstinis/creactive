@@ -3,13 +3,13 @@ import type { Pressable as PressableComponent, Text as TextComponent, View as Na
 
 import type { View as ViewComponent } from '@/components/atoms/view/view'
 import { Spacing } from '@/constants/spacing'
-import type { VisualScene } from '@/testing/scenes.types'
+import type { VisualScene, VisualSceneProps } from '@/testing/scenes.types'
 
 /**
- * `scene-nav-<id>` testID of this component's scene, tapped once by a Playwright/Detox test
- * before it drives the scene's own cases below.
+ * Route (`/component/view/padding`, or `/component/view/padding/<name>` for one case) identifying
+ * this component's scene, opened directly by a Playwright/Detox test for each of its cases below.
  */
-export const VIEW_PADDING_SCENE_ID = 'view-padding'
+export const VIEW_PADDING_SCENE_ID = 'component/view/padding'
 
 /**
  * Every Spacing scale member, named for use in testIDs and visual-test snapshot identifiers.
@@ -29,7 +29,7 @@ const CONTAINER_PADDING = 80
 const SQUARE_COLORS = ['red', 'green', 'blue'] as const
 const SQUARE_SIZE = 32
 
-function ViewPaddingScene() {
+function ViewPaddingScene({ initialCaseName }: VisualSceneProps) {
   // require()'d rather than imported at module top level, so this file can still be loaded for
   // just VIEW_PADDING_CASES/SCENE_ID by Playwright's Node test runner, which can't parse
   // react-native's own source.
@@ -41,7 +41,7 @@ function ViewPaddingScene() {
   const { View } = require('@/components/atoms/view/view') as { View: typeof ViewComponent }
 
   const [selectedName, setSelectedName] = useState<(typeof VIEW_PADDING_CASES)[number]['name']>(
-    VIEW_PADDING_CASES[0].name,
+    VIEW_PADDING_CASES.find(({ name }) => name === initialCaseName)?.name ?? VIEW_PADDING_CASES[0].name,
   )
   const selectedCase = VIEW_PADDING_CASES.find(({ name }) => name === selectedName)!
 
@@ -84,15 +84,15 @@ export const VIEW_PADDING_SCENE: VisualScene = {
 // `require('@root/snapshot.setup')` call, which Metro bundled regardless of the runtime guard.
 if (typeof test !== 'undefined') {
   test.describe('atoms/View', () => {
-    test.setup(async (driver) => {
-      await driver.initialize(VIEW_PADDING_SCENE_ID)
+    test.setup(async ({ launch }) => {
+      await launch()
     })
 
     for (const { name } of VIEW_PADDING_CASES) {
-      test(`renders with ${name} padding`, async ({ enable, match }) => {
+      test(`renders with ${name} padding`, async ({ open, match }) => {
         const testId = `view-padding-${name}`
 
-        await enable(`view-padding-nav-${name}`, testId)
+        await open(VIEW_PADDING_SCENE_ID, name, testId)
         await match(testId, 'padding', name)
       })
     }

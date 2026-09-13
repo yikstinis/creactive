@@ -24,6 +24,10 @@ const DEVICE_SUFFIXES = {
   ios: 'ios-iphone-17',
 }
 
+// Must match app.json's `expo.scheme` - that's what `expo prebuild` registers as this app's
+// deep-link URL scheme on both platforms.
+const SCENE_URL_SCHEME = 'creactive-example'
+
 async function getElementFrame(testId: string): Promise<{ x: number; y: number; width: number; height: number }> {
   const attributes = (await element(by.id(testId)).getAttributes()) as {
     frame: { x: number; y: number; width: number; height: number }
@@ -83,16 +87,14 @@ function downsamplePng(source: PNG, factor: number): PNG {
   return downsampled
 }
 
-async function initialize(sceneId: string): Promise<void> {
+async function launch(): Promise<void> {
   await device.launchApp()
-
-  const sceneNav = element(by.id(`scene-nav-${sceneId}`))
-  await waitFor(sceneNav).toBeVisible().withTimeout(10000)
-  await sceneNav.tap()
 }
 
-async function enable(navTestId: string, targetTestId: string): Promise<void> {
-  await element(by.id(navTestId)).tap()
+async function open(sceneId: string, caseName: string, targetTestId: string): Promise<void> {
+  // `openURL` (not `launchApp({ url })`) - the app is already running from `launch()`, so this
+  // deep-links into it warm rather than relaunching for every case.
+  await device.openURL({ url: `${SCENE_URL_SCHEME}://${sceneId}/${caseName}` })
   await waitFor(element(by.id(targetTestId))).toBeVisible().withTimeout(10000)
 }
 
@@ -127,20 +129,20 @@ async function match(targetTestId: string, group: string, name: string): Promise
   })
 }
 
-function getFixtures(): Pick<VisualDriver, 'initialize' | 'enable' | 'match'> {
-  return { initialize, enable, match }
+function getFixtures(): Pick<VisualDriver, 'launch' | 'open' | 'match'> {
+  return { launch, open, match }
 }
 
 // `setup` runs once per `describe` (Jest's `beforeAll`), not per test - relaunching the app
-// (`device.launchApp()`, inside `initialize`) before every case would be far slower than the
-// single `beforeEach` fresh-page cost `playwright.setup.ts`'s `test.setup` pays instead.
+// (`device.launchApp()`, inside `launch`) before every case would be far slower than the single
+// `beforeEach` fresh-page cost `playwright.setup.ts`'s `test.setup` pays instead.
 const snapshotTest: SnapshotTest = Object.assign(
-  (name: string, fn: (fixtures: Pick<VisualDriver, 'initialize' | 'enable' | 'match'>) => Promise<void>) => {
+  (name: string, fn: (fixtures: Pick<VisualDriver, 'launch' | 'open' | 'match'>) => Promise<void>) => {
     it(name, () => fn(getFixtures()))
   },
   {
     describe,
-    setup: (fn: (fixtures: Pick<VisualDriver, 'initialize' | 'enable' | 'match'>) => Promise<void>) => {
+    setup: (fn: (fixtures: Pick<VisualDriver, 'launch' | 'open' | 'match'>) => Promise<void>) => {
       beforeAll(() => fn(getFixtures()))
     },
   },
