@@ -4,6 +4,7 @@ import type { Pressable as PressableComponent, Text as TextComponent, View as Na
 import type { View as ViewComponent } from '@/components/atoms/view/view'
 import { Spacing } from '@/constants/spacing'
 import type { VisualScene } from '@/testing/scenes.types'
+import type { SnapshotTest } from '@/testing/visual.types'
 
 /**
  * `scene-nav-<id>` testID of this component's scene, tapped once by a Playwright/Detox test
@@ -19,17 +20,8 @@ export const VIEW_PADDING_SCENE_ID = 'view-padding'
 export const VIEW_PADDING_CASES = [
   { spacing: Spacing.X6S, name: 'x6s' },
   { spacing: Spacing.X5S, name: 'x5s' },
-  { spacing: Spacing.X4S, name: 'x4s' },
-  { spacing: Spacing.X3S, name: 'x3s' },
-  { spacing: Spacing.X2S, name: 'x2s' },
-  { spacing: Spacing.XS, name: 'xs' },
-  { spacing: Spacing.SM, name: 'sm' },
   { spacing: Spacing.MD, name: 'md' },
   { spacing: Spacing.LG, name: 'lg' },
-  { spacing: Spacing.XL, name: 'xl' },
-  { spacing: Spacing.X2L, name: 'x2l' },
-  { spacing: Spacing.X3L, name: 'x3l' },
-  { spacing: Spacing.X4L, name: 'x4l' },
   { spacing: Spacing.X5L, name: 'x5l' },
   { spacing: Spacing.X6L, name: 'x6l' },
 ] as const
@@ -41,7 +33,7 @@ const SQUARE_SIZE = 32
 function ViewPaddingScene() {
   // require()'d rather than imported at module top level, so this file can still be loaded for
   // just VIEW_PADDING_CASES/SCENE_ID by Playwright's Node test runner, which can't parse
-  // react-native's own source - see AGENTS.md.
+  // react-native's own source.
   const { Pressable, Text, View: NativeView } = require('react-native') as {
     Pressable: typeof PressableComponent
     Text: typeof TextComponent
@@ -82,4 +74,29 @@ function ViewPaddingScene() {
 export const VIEW_PADDING_SCENE: VisualScene = {
   id: VIEW_PADDING_SCENE_ID,
   Scene: ViewPaddingScene,
+}
+
+// This file is imported both by the real app (scenes.ts -> App.tsx, bundled by Metro for native
+// and web) and, as a `*.snapshot.test.tsx` file, required directly by Playwright/Detox's Node
+// process. Only the latter has no `navigator` global - React Native sets `navigator.product`,
+// and a real browser has its own - so this guard keeps the test registration below (and its
+// `@root/snapshot.setup` import, which pulls in Playwright/Detox) from ever running inside the
+// app itself.
+if (typeof navigator === 'undefined') {
+  const { test } = require('@root/snapshot.setup') as { test: SnapshotTest }
+
+  test.describe('atoms/View', () => {
+    test.setup(async ({ initialize }) => {
+      await initialize(VIEW_PADDING_SCENE_ID)
+    })
+
+    for (const { name } of VIEW_PADDING_CASES) {
+      test(`renders with ${name} padding`, async ({ enable, match }) => {
+        const testId = `view-padding-${name}`
+
+        await enable(`view-padding-nav-${name}`, testId)
+        await match(testId, 'padding', name)
+      })
+    }
+  })
 }
