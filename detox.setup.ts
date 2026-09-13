@@ -2,12 +2,12 @@ import { readFileSync } from 'fs'
 import { dirname, join } from 'path'
 
 import { expect } from '@jest/globals'
+import type { SnapshotTest, VisualDriver } from '@root/snapshot.types'
 import { by, device, element, waitFor } from 'detox'
 import { toMatchImageSnapshot } from 'jest-image-snapshot'
 import { PNG } from 'pngjs'
 
 import { VISUAL_SCENE_ROOT_TEST_ID } from '@/testing/scene-root'
-import type { SnapshotTest, VisualDriver } from '@/testing/visual.types'
 
 /**
  * Detox overwrites the global `expect` with its own element-assertion DSL
@@ -149,5 +149,5 @@ const snapshotTest: SnapshotTest = Object.assign(
 )
 
 // Assigned onto the global object (rather than exported) so a `*.snapshot.test.tsx` file can
-// reference `test` as a bare identifier - see visual.types.d.ts.
+// reference `test` as a bare identifier - see snapshot.types.d.ts.
 ;(globalThis as unknown as { test: SnapshotTest }).test = snapshotTest

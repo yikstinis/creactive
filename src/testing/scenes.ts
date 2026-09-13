@@ -1,5 +1,6 @@
+import type { VisualScene } from '@root/snapshot.types'
+
 import { VIEW_PADDING_SCENE } from '@/components/atoms/view/view.padding.snapshot.test'
-import type { VisualScene } from '@/testing/scenes.types'
 
 /**
  * Every visual-test scene, opened directly by its `/<id>/<caseName>` route by a Playwright/Detox

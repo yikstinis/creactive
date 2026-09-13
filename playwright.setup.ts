@@ -1,6 +1,5 @@
 import { expect, test as base } from '@playwright/test'
-
-import type { SnapshotTest, VisualDriver } from '@/testing/visual.types'
+import type { SnapshotTest, VisualDriver } from '@root/snapshot.types'
 
 const extended = base.extend<{
   launch: VisualDriver['launch']
@@ -40,7 +39,7 @@ const snapshotTest: SnapshotTest = Object.assign(extended, {
 })
 
 // Assigned onto the global object (rather than exported) so a `*.snapshot.test.tsx` file can
-// reference `test` as a bare identifier - see visual.types.d.ts. This file is imported purely for
+// reference `test` as a bare identifier - see snapshot.types.d.ts. This file is imported purely for
 // this side effect, at the top of playwright.config.ts, which runs before Playwright requires any
 // spec file in a worker process.
 ;(globalThis as unknown as { test: SnapshotTest }).test = snapshotTest

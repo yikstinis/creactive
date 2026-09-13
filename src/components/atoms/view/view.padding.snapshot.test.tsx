@@ -1,9 +1,9 @@
+import type { VisualScene, VisualSceneProps } from '@root/snapshot.types'
 import { useState } from 'react'
 import type { Pressable as PressableComponent, Text as TextComponent, View as NativeViewComponent } from 'react-native'
 
 import type { View as ViewComponent } from '@/components/atoms/view/view'
 import { Spacing } from '@/constants/spacing'
-import type { VisualScene, VisualSceneProps } from '@/testing/scenes.types'
 
 /**
  * Route (`/component/view/padding`, or `/component/view/padding/<name>` for one case) identifying
@@ -77,7 +77,7 @@ export const VIEW_PADDING_SCENE: VisualScene = {
 
 // This file is imported both by the real app (scenes.ts -> App.tsx, bundled by Metro for native
 // and web) and, as a `*.snapshot.test.tsx` file, required directly by Playwright/Detox. `test` is
-// a bare global (see visual.types.d.ts) assigned only by playwright.config.ts/detox.setup.ts,
+// a bare global (see snapshot.types.d.ts) assigned only by playwright.config.ts/detox.setup.ts,
 // before either runner requires this file - it's undefined in the real app, where neither setup
 // script ever runs. Crucially, referencing a global identifier isn't a require()/import, so Metro
 // has nothing to resolve here - unlike an earlier attempt that guarded an actual

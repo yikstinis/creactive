@@ -1,7 +1,7 @@
 import { defineConfig } from '@playwright/test'
 
 // Imported for its side effect: assigns the global `test` a *.snapshot.test.tsx file references
-// as a bare identifier (see visual.types.d.ts). Playwright requires this config before requiring
+// as a bare identifier (see snapshot.types.d.ts). Playwright requires this config before requiring
 // any spec file in a worker process, so the assignment is always in place first.
 import '@root/playwright.setup'
 
