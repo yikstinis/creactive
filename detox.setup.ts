@@ -24,7 +24,7 @@ const DEVICE_SUFFIXES = {
   ios: 'ios-iphone-17',
 }
 
-// Must match app.json's `expo.scheme` - that's what `expo prebuild` registers as this app's
+// Must match app.config.ts's `expo.scheme` - that's what `expo prebuild` registers as this app's
 // deep-link URL scheme on both platforms.
 const SCENE_URL_SCHEME = 'creactive'
 

@@ -1,5 +1,5 @@
 // Binary paths/build commands assume `expo prebuild` names the generated Xcode project/scheme
-// "creactive" (from app.json's slug) — confirmed for android; ios is unverified (no macOS
+// "creactive" (from app.config.ts's slug) — confirmed for android; ios is unverified (no macOS
 // available to build/run it outside of CI).
 module.exports = {
   artifacts: {
