@@ -9,10 +9,9 @@ export interface VisualSceneProps {
 }
 
 /**
- * A self-contained visual-test screen, selectable by `id` - either tapped in the example app's
- * scene nav (`scene-nav-<id>`), or opened directly via its `/<id>` (or `/<id>/<caseName>`) route -
- * so a Playwright/Detox test can drive it without App.tsx knowing anything about the component
- * under test.
+ * A self-contained visual-test screen, selectable by `id` and opened directly via its `/<id>` (or
+ * `/<id>/<caseName>`) route, so a Playwright/Detox test can drive it without App.tsx knowing
+ * anything about the component under test.
  */
 export interface VisualScene {
   id: string
