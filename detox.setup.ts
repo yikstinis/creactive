@@ -134,7 +134,7 @@ function getFixtures(): Pick<VisualDriver, 'initialize' | 'enable' | 'match'> {
 // `setup` runs once per `describe` (Jest's `beforeAll`), not per test - relaunching the app
 // (`device.launchApp()`, inside `initialize`) before every case would be far slower than the
 // single `beforeEach` fresh-page cost `playwright.setup.ts`'s `test.setup` pays instead.
-export const test: SnapshotTest = Object.assign(
+const snapshotTest: SnapshotTest = Object.assign(
   (name: string, fn: (fixtures: Pick<VisualDriver, 'initialize' | 'enable' | 'match'>) => Promise<void>) => {
     it(name, () => fn(getFixtures()))
   },
@@ -145,3 +145,7 @@ export const test: SnapshotTest = Object.assign(
     },
   },
 )
+
+// Assigned onto the global object (rather than exported) so a `*.snapshot.test.tsx` file can
+// reference `test` as a bare identifier - see visual.types.d.ts.
+;(globalThis as unknown as { test: SnapshotTest }).test = snapshotTest

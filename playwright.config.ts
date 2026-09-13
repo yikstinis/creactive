@@ -1,8 +1,13 @@
 import { defineConfig } from '@playwright/test'
 
+// Imported for its side effect: assigns the global `test` a *.snapshot.test.tsx file references
+// as a bare identifier (see visual.types.d.ts). Playwright requires this config before requiring
+// any spec file in a worker process, so the assignment is always in place first.
+import '@root/playwright.setup'
+
 export default defineConfig({
   testDir: 'src',
-  testMatch: '**/*.snapshot.test.ts',
+  testMatch: '**/*.snapshot.test.{ts,tsx}',
   // Written to a `snapshots/` dir next to each spec file, shared with that component's Detox
   // visual test, suffixed to match the `snapshot-test-{platform}-{browser}` job naming in
   // maintain.yml (e.g. `linux-chromium`).

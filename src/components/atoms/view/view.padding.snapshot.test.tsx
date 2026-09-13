@@ -74,3 +74,27 @@ export const VIEW_PADDING_SCENE: VisualScene = {
   id: VIEW_PADDING_SCENE_ID,
   Scene: ViewPaddingScene,
 }
+
+// This file is imported both by the real app (scenes.ts -> App.tsx, bundled by Metro for native
+// and web) and, as a `*.snapshot.test.tsx` file, required directly by Playwright/Detox. `test` is
+// a bare global (see visual.types.d.ts) assigned only by playwright.config.ts/detox.setup.ts,
+// before either runner requires this file - it's undefined in the real app, where neither setup
+// script ever runs. Crucially, referencing a global identifier isn't a require()/import, so Metro
+// has nothing to resolve here - unlike an earlier attempt that guarded an actual
+// `require('@root/snapshot.setup')` call, which Metro bundled regardless of the runtime guard.
+if (typeof test !== 'undefined') {
+  test.describe('atoms/View', () => {
+    test.setup(async (driver) => {
+      await driver.initialize(VIEW_PADDING_SCENE_ID)
+    })
+
+    for (const { name } of VIEW_PADDING_CASES) {
+      test(`renders with ${name} padding`, async ({ enable, match }) => {
+        const testId = `view-padding-${name}`
+
+        await enable(`view-padding-nav-${name}`, testId)
+        await match(testId, 'padding', name)
+      })
+    }
+  })
+}

@@ -7,7 +7,7 @@ import globals from 'globals'
 import tseslint from 'typescript-eslint'
 
 export default defineConfig([
-  { ignores: ['node_modules', '**/*.cache/**'] },
+  { ignores: ['node_modules', 'dist', '**/*.cache/**'] },
   { settings: { react: { version: 'detect' } } },
   js.configs.recommended,
   tseslint.configs.recommended,
@@ -111,7 +111,7 @@ export default defineConfig([
     // instead of imported at module top level, so Playwright's Node test runner - which can't
     // parse react-native's own source - can still load the file for its RN-free exports (an
     // enumerable case list, a scene id).
-    files: ['**/*.snapshot.scene.tsx'],
+    files: ['**/*.snapshot.test.tsx'],
     rules: {
       '@typescript-eslint/no-require-imports': 'off',
     },
