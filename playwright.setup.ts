@@ -8,8 +8,11 @@ const extended = base.extend<{
   match: VisualDriver['match']
 }>({
   // No-op: Playwright already starts every test on a fresh page, unlike Detox's `launch`, which
-  // has a real app process to start up front.
-  launch: async (fixtures, provide) => {
+  // has a real app process to start up front. Playwright parses a fixture function's source to
+  // find its dependencies, so the first argument must be an (empty) destructuring pattern, not a
+  // plain identifier.
+  // eslint-disable-next-line no-empty-pattern
+  launch: async ({}, provide) => {
     await provide(async () => {})
   },
   open: async ({ page }, provide) => {
