@@ -1,6 +1,6 @@
 // Binary paths/build commands assume `expo prebuild` names the generated Xcode project/scheme
-// "creactiveexample" (sanitized from app.json's "creactive-example") — confirmed for android;
-// ios is unverified (no macOS available to build/run it outside of CI).
+// "creactive" (from app.json's slug) — confirmed for android; ios is unverified (no macOS
+// available to build/run it outside of CI).
 module.exports = {
   artifacts: {
     rootDir: 'artifacts',
@@ -25,9 +25,9 @@ module.exports = {
     // nothing runs Metro. No code signing is required for simulator builds either way.
     'ios.release': {
       type: 'ios.app',
-      binaryPath: 'ios/build/Build/Products/Release-iphonesimulator/creactiveexample.app',
+      binaryPath: 'ios/build/Build/Products/Release-iphonesimulator/creactive.app',
       build:
-        'xcodebuild -workspace ios/creactiveexample.xcworkspace -scheme creactiveexample -configuration Release -sdk iphonesimulator -derivedDataPath ios/build',
+        'xcodebuild -workspace ios/creactive.xcworkspace -scheme creactive -configuration Release -sdk iphonesimulator -derivedDataPath ios/build',
     },
     'android.debug': {
       type: 'android.apk',

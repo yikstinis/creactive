@@ -26,7 +26,7 @@ const DEVICE_SUFFIXES = {
 
 // Must match app.json's `expo.scheme` - that's what `expo prebuild` registers as this app's
 // deep-link URL scheme on both platforms.
-const SCENE_URL_SCHEME = 'creactive-example'
+const SCENE_URL_SCHEME = 'creactive'
 
 async function getElementFrame(testId: string): Promise<{ x: number; y: number; width: number; height: number }> {
   const attributes = (await element(by.id(testId)).getAttributes()) as {

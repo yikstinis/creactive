@@ -1,16 +1,16 @@
 {
   "expo": {
-    "name": "creactive-example",
-    "slug": "creactive-example",
-    "scheme": "creactive-example",
-    "version": "0.1.0",
+    "name": "creactive",
+    "slug": "creactive",
+    "scheme": "creactive",
+    "version": "0.0.1",
     "orientation": "portrait",
     "ios": {
-      "bundleIdentifier": "com.creactive.example",
+      "bundleIdentifier": "com.creactive",
       "supportsTablet": false
     },
     "android": {
-      "package": "com.creactive.example"
+      "package": "com.creactive"
     },
     "plugins": [
       "./plugins/withAndroidPackagingOptions",

@@ -4,7 +4,7 @@ const path = require('path')
 const { withAppBuildGradle, withDangerousMod, withProjectBuildGradle } = require('@expo/config-plugins')
 const { mergeContents } = require('@expo/config-plugins/build/utils/generateCode')
 
-const ANDROID_PACKAGE = 'com.creactive.example'
+const ANDROID_PACKAGE = 'com.creactive'
 
 /**
  * Wires up Detox's Android instrumentation test entry point, which
@@ -55,7 +55,7 @@ module.exports = function withDetoxAndroidTest(config) {
         newSrc: `        testBuildType System.getProperty('testBuildType', 'debug')
         testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'`,
         tag: 'detox-instrumentation-runner',
-        anchor: /applicationId 'com\.creactive\.example'/,
+        anchor: /applicationId 'com\.creactive'/,
         offset: 1,
         comment: '//',
       }).contents

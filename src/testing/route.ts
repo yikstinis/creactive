@@ -4,7 +4,7 @@
  * last segment).
  *
  * A native deep link puts the first segment in the URL's host
- * (`creactive-example://component/view/padding/x6s`), while the web dev server's URL puts it in
+ * (`creactive://component/view/padding/x6s`), while the web dev server's URL puts it in
  * the path (`http://localhost:6007/component/view/padding/x6s`) - so `http(s)` URLs have their
  * scheme and host stripped first, but any other scheme only has the `scheme://` prefix stripped,
  * leaving its host as the leading path segment. This is done with plain string ops rather than
