@@ -7,8 +7,6 @@ import { by, device, element, waitFor } from 'detox'
 import { toMatchImageSnapshot } from 'jest-image-snapshot'
 import { PNG } from 'pngjs'
 
-import { VISUAL_SCENE_ROOT_TEST_ID } from '@/testing/scene-root'
-
 /**
  * Detox overwrites the global `expect` with its own element-assertion DSL
  * (`expect(element(...)).toBeVisible()`), so Jest's own value-matcher
@@ -105,7 +103,7 @@ async function match(targetTestId: string, group: string, name: string): Promise
   // device.takeScreenshot() returns raw device pixels, but getAttributes().frame comes back in
   // points on iOS (and, empirically, already in pixels on Android) - deriving the scale from
   // the full-screen root's own frame works on both, rather than assuming either unit.
-  const rootFrame = await getElementFrame(VISUAL_SCENE_ROOT_TEST_ID)
+  const rootFrame = await getElementFrame('root')
   const scale = screenshot.width / rootFrame.width
 
   const targetFrame = await getElementFrame(targetTestId)
