@@ -7,7 +7,7 @@ import globals from 'globals'
 import tseslint from 'typescript-eslint'
 
 export default defineConfig([
-  { ignores: ['node_modules', 'dist', '**/*.cache/**'] },
+  { ignores: ['node_modules', 'dist', '**/*.cache/**', 'snapshot.scenes.ts'] },
   { settings: { react: { version: 'detect' } } },
   js.configs.recommended,
   tseslint.configs.recommended,
@@ -99,8 +99,10 @@ export default defineConfig([
     },
   },
   {
-    // Metro loads this via Node's CommonJS require(), so it can't be converted to an ESM import.
-    files: ['metro.config.js'],
+    // Metro loads metro.config.js via Node's CommonJS require() (which is also how it, in turn,
+    // requires generate-scenes.js to regenerate snapshot.scenes.ts on every Metro startup) - neither can be
+    // converted to an ESM import.
+    files: ['metro.config.js', 'scripts/**/*.js'],
     rules: {
       '@typescript-eslint/no-require-imports': 'off',
     },
