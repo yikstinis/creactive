@@ -9,6 +9,17 @@ This file holds the working conventions for any AI agent contributing code here.
 - **Files** — kebab-case (e.g. `kebab-case.ts`).
 - **Constants** — `UPPER_SNAKE_CASE` (e.g. `DEFAULT_VALUES`).
 
+## Structure
+
+Each unit (component, helper) lives in its own kebab-case directory, colocating:
+
+- `name.ts` — implementation.
+- `name.jest.test.ts(x)` — unit tests.
+- `name.types.d.ts` — interfaces and type aliases.
+- `index.ts` — barrel, re-exporting the unit as `export * from '@/.../name'` and `export type * from '@/.../name.types'`.
+
+Every directory, including parent directories (e.g. `helpers/`, `components/`), has its own `index.ts` that re-exports its children, chaining barrels up to `src/index.ts`.
+
 ## Comments
 
 Default to no comments — add one only for a non-obvious constraint, invariant, or reasoning. Format multi-sentence comments as multi-line `//` comments (one sentence per line), not a single long line.

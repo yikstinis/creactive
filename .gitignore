@@ -6,3 +6,4 @@ ios/
 android/
 artifacts/
 dist/
+/snapshot.scenes.ts

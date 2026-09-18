@@ -1,8 +1,7 @@
+import { VISUAL_SCENES } from '@root/snapshot.scenes'
 import { useEffect, useState } from 'react'
 import { Linking, StatusBar, StyleSheet } from 'react-native'
 import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context'
-
-import { VISUAL_SCENES } from '@/testing/scenes'
 
 /**
  * Splits a scene URL into a `sceneId` (every path segment but the last, rejoined with `/` - a
@@ -39,8 +38,8 @@ function parseSceneRoute(url: string): { sceneId?: string; caseName?: string } {
  * the URL that launched the app (`Linking.getInitialURL()`, covering a fresh app/page load) or was
  * later sent to it while already running (the `url` event, covering Detox's `device.openURL()`
  * against a warm app) is parsed into `{ sceneId, caseName }` and used to pick the render. Generic
- * over every component under visual test - adding a component's scene to VISUAL_SCENES is the only
- * change needed here.
+ * over every component under visual test - `VISUAL_SCENES` (`snapshot.scenes.ts`, gitignored) is generated
+ * from every `*.snapshot.test.tsx` file's exported scene, so a new component needs no change here.
  */
 export default function App() {
   const [route, setRoute] = useState<{ sceneId?: string; caseName?: string } | null>(null)
