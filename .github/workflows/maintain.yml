@@ -57,7 +57,12 @@ jobs:
     permissions:
       contents: write
     steps:
+      # Full history, not the default shallow depth-1 clone: the commit step below rebases onto
+      # `origin/$GITHUB_REF_NAME`, which needs a real merge-base to avoid spurious
+      # add/add conflicts when the two are otherwise identical.
       - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
       - uses: actions/setup-node@v5
         with:
           node-version: 22
@@ -83,7 +88,7 @@ jobs:
             echo "No baseline changes to commit"
           else
             git commit -m "Update Linux Chromium snapshots"
-            git pull --rebase origin main
+            git pull --rebase origin "$GITHUB_REF_NAME"
             git push
           fi
 
@@ -94,7 +99,12 @@ jobs:
     permissions:
       contents: write
     steps:
+      # Full history, not the default shallow depth-1 clone: the commit step below rebases onto
+      # `origin/$GITHUB_REF_NAME`, which needs a real merge-base to avoid spurious
+      # add/add conflicts when the two are otherwise identical.
       - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
       - uses: actions/setup-node@v5
         with:
           node-version: 22
@@ -137,7 +147,7 @@ jobs:
             echo "No baseline changes to commit"
           else
             git commit -m "Update Android Pixel 7 snapshots"
-            git pull --rebase origin main
+            git pull --rebase origin "$GITHUB_REF_NAME"
             git push
           fi
 
@@ -148,7 +158,12 @@ jobs:
     permissions:
       contents: write
     steps:
+      # Full history, not the default shallow depth-1 clone: the commit step below rebases onto
+      # `origin/$GITHUB_REF_NAME`, which needs a real merge-base to avoid spurious
+      # add/add conflicts when the two are otherwise identical.
       - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
       - uses: actions/setup-node@v5
         with:
           node-version: 22
@@ -175,6 +190,6 @@ jobs:
             echo "No baseline changes to commit"
           else
             git commit -m "Update iOS iPhone 17 snapshots"
-            git pull --rebase origin main
+            git pull --rebase origin "$GITHUB_REF_NAME"
             git push
           fi
