@@ -13,7 +13,7 @@ module.exports = {
   testRunner: {
     args: {
       $0: 'jest',
-      config: 'jest.detox.config.js',
+      config: 'snapshot.detox.config.js',
     },
     jest: { setupTimeout: 120000 },
   },

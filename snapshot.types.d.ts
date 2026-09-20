@@ -11,8 +11,8 @@ declare global {
  * The steps a scene's visual-regression test drives it through: `launch` starts the app once,
  * `open` navigates straight to one case's own `/<sceneId>/<caseName>` route, `match` screenshots
  * it against the baseline. Called directly by name in every test (`launch()`, `open(...)`,
- * `match(...)`) - Detox's `detox.setup.ts` and Playwright's `playwright.setup.ts` each hand them
- * to the test/hook callback as an object, in the shape of `SnapshotTest` below.
+ * `match(...)`) - Detox's `snapshot.detox.setup.ts` and Playwright's `snapshot.playwright.setup.ts`
+ * each hand them to the test/hook callback as an object, in the shape of `SnapshotTest` below.
  */
 export interface VisualDriver {
   launch(): Promise<void>
@@ -34,10 +34,11 @@ export interface SnapshotTest {
 }
 
 /**
- * `detox.setup.ts` and `playwright.setup.ts` each assign their own implementation to this global
- * before any `*.snapshot.test.tsx` file loads - Jest injects `setupFilesAfterEnv` scripts into the
- * same realm as the test file, and `playwright.config.ts`'s top-level side-effect import of
- * `@root/playwright.setup` runs before Playwright requires any spec file in that worker. A
+ * `snapshot.detox.setup.ts` and `snapshot.playwright.setup.ts` each assign their own implementation
+ * to this global before any `*.snapshot.test.tsx` file loads - Jest injects `setupFilesAfterEnv`
+ * scripts into the same realm as the test file, and `snapshot.playwright.config.ts`'s top-level
+ * side-effect import of `@root/snapshot.playwright.setup` runs before Playwright requires any spec
+ * file in that worker. A
  * component's scene/test file references this as a bare identifier (never imported), so it's
  * undefined - and its test registration a no-op - when the same file loads inside the real app
  * instead, which Metro bundles and where neither setup script ever runs.

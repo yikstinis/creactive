@@ -133,7 +133,7 @@ function getFixtures(): Pick<VisualDriver, 'launch' | 'open' | 'match'> {
 
 // `setup` runs once per `describe` (Jest's `beforeAll`), not per test - relaunching the app
 // (`device.launchApp()`, inside `launch`) before every case would be far slower than the single
-// `beforeEach` fresh-page cost `playwright.setup.ts`'s `test.setup` pays instead.
+// `beforeEach` fresh-page cost `snapshot.playwright.setup.ts`'s `test.setup` pays instead.
 const snapshotTest: SnapshotTest = Object.assign(
   (name: string, fn: (fixtures: Pick<VisualDriver, 'launch' | 'open' | 'match'>) => Promise<void>) => {
     it(name, () => fn(getFixtures()))

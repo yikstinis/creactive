@@ -4,7 +4,7 @@ const rootDir = fileURLToPath(new URL('.', import.meta.url))
 
 const sharedConfig = {
   rootDir,
-  testMatch: ['<rootDir>/src/**/*.jest.test.{ts,tsx}'],
+  testMatch: ['<rootDir>/src/**/*.unit.test.{ts,tsx}'],
   moduleNameMapper: {
     '^@/(.*)$': '<rootDir>/src/$1',
   },
@@ -21,7 +21,7 @@ export default {
       ...sharedConfig,
       displayName: 'web',
       testEnvironment: 'node',
-      setupFiles: ['<rootDir>/jest.setup.web.js'],
+      setupFiles: ['<rootDir>/unit.jest.setup.web.ts'],
       transform: {
         '^.+\\.(js|ts|tsx)$': 'babel-jest',
       },

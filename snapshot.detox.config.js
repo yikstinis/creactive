@@ -11,7 +11,7 @@ module.exports = {
   globalTeardown: 'detox/runners/jest/globalTeardown',
   testEnvironment: 'detox/runners/jest/testEnvironment',
   testRunner: 'jest-circus/runner',
-  setupFilesAfterEnv: ['<rootDir>/detox.setup.ts'],
+  setupFilesAfterEnv: ['<rootDir>/snapshot.detox.setup.ts'],
   reporters: ['detox/runners/jest/reporter'],
   verbose: true,
 }
