@@ -65,7 +65,7 @@ jobs:
       - run: npm ci
       - run: npx playwright install --with-deps chromium
       - run: npx expo export -p web
-      - run: npx playwright test ${{ inputs.update_snapshots && '--update-snapshots' || '' }}
+      - run: npm run playwright -- ${{ inputs.update_snapshots && '--update-snapshots' || '' }}
         env:
           CI: true
       - if: failure()

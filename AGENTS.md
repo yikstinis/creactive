@@ -14,7 +14,7 @@ This file holds the working conventions for any AI agent contributing code here.
 Each unit (component, helper) lives in its own kebab-case directory, colocating:
 
 - `name.ts` — implementation.
-- `name.jest.test.ts(x)` — unit tests.
+- `name.unit.test.ts(x)` — unit tests.
 - `name.types.d.ts` — interfaces and type aliases.
 - `index.ts` — barrel, re-exporting the unit as `export * from '@/.../name'` and `export type * from '@/.../name.types'`.
 

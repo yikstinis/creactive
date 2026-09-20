@@ -28,8 +28,8 @@ const extended = base.extend<{
 })
 
 // `setup` runs once per test (Playwright's `beforeEach`) - a fresh page per test is cheap, unlike
-// Detox's `detox.setup.ts`'s `test.setup`, which relaunches the whole app so it only runs once per
-// `describe` instead.
+// Detox's `snapshot.detox.setup.ts`'s `test.setup`, which relaunches the whole app so it only runs
+// once per `describe` instead.
 const snapshotTest: SnapshotTest = Object.assign(extended, {
   setup: (fn: (fixtures: Pick<VisualDriver, 'launch' | 'open' | 'match'>) => Promise<void>) => {
     extended.beforeEach(async ({ launch, open, match }) => {
@@ -40,6 +40,6 @@ const snapshotTest: SnapshotTest = Object.assign(extended, {
 
 // Assigned onto the global object (rather than exported) so a `*.snapshot.test.tsx` file can
 // reference `test` as a bare identifier - see snapshot.types.d.ts. This file is imported purely for
-// this side effect, at the top of playwright.config.ts, which runs before Playwright requires any
-// spec file in a worker process.
+// this side effect, at the top of snapshot.playwright.config.ts, which runs before Playwright
+// requires any spec file in a worker process.
 ;(globalThis as unknown as { test: SnapshotTest }).test = snapshotTest
