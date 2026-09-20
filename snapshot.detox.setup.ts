@@ -147,5 +147,8 @@ const snapshotTest: SnapshotTest = Object.assign(
 )
 
 // Assigned onto the global object (rather than exported) so a `*.snapshot.test.tsx` file can
-// reference `test` as a bare identifier - see snapshot.types.d.ts.
+// reference `test` as a bare identifier - see snapshot.types.d.ts. Jest runs this
+// `setupFilesAfterEnv` script before any test file, so this always overwrites
+// snapshot.testable.ts's no-op default before any scene file's own import of it could install
+// that default instead.
 ;(globalThis as unknown as { test: SnapshotTest }).test = snapshotTest

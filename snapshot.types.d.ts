@@ -38,13 +38,13 @@ export interface SnapshotTest {
  * to this global before any `*.snapshot.test.tsx` file loads - Jest injects `setupFilesAfterEnv`
  * scripts into the same realm as the test file, and `snapshot.playwright.config.ts`'s top-level
  * side-effect import of `@root/snapshot.playwright.setup` runs before Playwright requires any spec
- * file in that worker. A
- * component's scene/test file references this as a bare identifier (never imported), so it's
- * undefined - and its test registration a no-op - when the same file loads inside the real app
- * instead, which Metro bundles and where neither setup script ever runs.
+ * file in that worker. A component's scene/test file references this as a bare identifier (never
+ * imported) and, since it always imports `@root/snapshot.testable` for its own side effect first,
+ * always finds it already assigned - to a no-op implementation when the same file loads inside the
+ * real app instead, which Metro bundles and where neither setup script ever runs.
  */
 declare global {
-  const test: SnapshotTest | undefined
+  const test: SnapshotTest
 }
 
 /**
