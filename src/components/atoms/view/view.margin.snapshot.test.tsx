@@ -6,17 +6,17 @@ import type { View as ViewComponent } from '@/components/atoms/view/view'
 import { Spacing } from '@/constants/spacing'
 
 /**
- * Route (`/component/view/padding`, or `/component/view/padding/<name>` for one case) identifying
+ * Route (`/component/view/margin`, or `/component/view/margin/<name>` for one case) identifying
  * this component's scene, opened directly by a Playwright/Detox test for each of its cases below.
  */
-export const VIEW_PADDING_SCENE_ID = 'component/view/padding'
+export const VIEW_MARGIN_SCENE_ID = 'component/view/margin'
 
 /**
  * Every Spacing scale member, named for use in testIDs and visual-test snapshot identifiers.
  * The scene and the Playwright/Detox visual tests all derive their cases from this list, so
  * covering a new Spacing member is a single line here.
  */
-export const VIEW_PADDING_CASES = [
+export const VIEW_MARGIN_CASES = [
   { spacing: Spacing.X6S, name: 'x6s' },
   { spacing: Spacing.X5S, name: 'x5s' },
   { spacing: Spacing.X4S, name: 'x4s' },
@@ -38,9 +38,9 @@ const CONTAINER_PADDING = 80
 const SQUARE_COLORS = ['red', 'green', 'blue'] as const
 const SQUARE_SIZE = 32
 
-function ViewPaddingScene({ initialCaseName }: VisualSceneProps) {
+function ViewMarginScene({ initialCaseName }: VisualSceneProps) {
   // require()'d rather than imported at module top level, so this file can still be loaded for
-  // just VIEW_PADDING_CASES/SCENE_ID by Playwright's Node test runner, which can't parse
+  // just VIEW_MARGIN_CASES/SCENE_ID by Playwright's Node test runner, which can't parse
   // react-native's own source.
   const { Pressable, Text, View: NativeView } = require('react-native') as {
     Pressable: typeof PressableComponent
@@ -49,25 +49,25 @@ function ViewPaddingScene({ initialCaseName }: VisualSceneProps) {
   }
   const { View } = require('@/components/atoms/view/view') as { View: typeof ViewComponent }
 
-  const [selectedName, setSelectedName] = useState<(typeof VIEW_PADDING_CASES)[number]['name']>(
-    VIEW_PADDING_CASES.find(({ name }) => name === initialCaseName)?.name ?? VIEW_PADDING_CASES[0].name,
+  const [selectedName, setSelectedName] = useState<(typeof VIEW_MARGIN_CASES)[number]['name']>(
+    VIEW_MARGIN_CASES.find(({ name }) => name === initialCaseName)?.name ?? VIEW_MARGIN_CASES[0].name,
   )
-  const selectedCase = VIEW_PADDING_CASES.find(({ name }) => name === selectedName)!
+  const selectedCase = VIEW_MARGIN_CASES.find(({ name }) => name === selectedName)!
 
   return (
     <>
       <NativeView style={{ flexDirection: 'row', flexWrap: 'wrap' }}>
-        {VIEW_PADDING_CASES.map(({ name }) => (
-          <Pressable key={name} testID={`view-padding-nav-${name}`} onPress={() => setSelectedName(name)}>
+        {VIEW_MARGIN_CASES.map(({ name }) => (
+          <Pressable key={name} testID={`view-margin-nav-${name}`} onPress={() => setSelectedName(name)}>
             <Text>{name}</Text>
           </Pressable>
         ))}
       </NativeView>
       <NativeView
-        testID={`view-padding-${selectedCase.name}`}
+        testID={`view-margin-${selectedCase.name}`}
         style={{ alignSelf: 'flex-start', backgroundColor: 'white', padding: CONTAINER_PADDING }}
       >
-        <View padding={selectedCase.spacing} style={{ backgroundColor: 'black' }}>
+        <View margin={selectedCase.spacing} style={{ backgroundColor: 'black' }}>
           <NativeView style={{ flexDirection: 'row' }}>
             {SQUARE_COLORS.map((color) => (
               <NativeView key={color} style={{ width: SQUARE_SIZE, height: SQUARE_SIZE, backgroundColor: color }} />
@@ -79,9 +79,9 @@ function ViewPaddingScene({ initialCaseName }: VisualSceneProps) {
   )
 }
 
-export const VIEW_PADDING_SCENE: VisualScene = {
-  id: VIEW_PADDING_SCENE_ID,
-  Scene: ViewPaddingScene,
+export const VIEW_MARGIN_SCENE: VisualScene = {
+  id: VIEW_MARGIN_SCENE_ID,
+  Scene: ViewMarginScene,
 }
 
 // This file is imported both by the real app (scenes.ts -> App.tsx, bundled by Metro for native
@@ -98,12 +98,12 @@ if (typeof test !== 'undefined') {
       await launch()
     })
 
-    for (const { name } of VIEW_PADDING_CASES) {
-      test(`renders with ${name} padding`, async ({ open, match }) => {
-        const testId = `view-padding-${name}`
+    for (const { name } of VIEW_MARGIN_CASES) {
+      test(`renders with ${name} margin`, async ({ open, match }) => {
+        const testId = `view-margin-${name}`
 
-        await open(VIEW_PADDING_SCENE_ID, name, testId)
-        await match(testId, 'padding', name)
+        await open(VIEW_MARGIN_SCENE_ID, name, testId)
+        await match(testId, 'margin', name)
       })
     }
   })
