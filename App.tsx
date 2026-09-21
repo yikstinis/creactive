@@ -30,11 +30,9 @@ function parseSceneId(url: string): string | undefined {
   return segments.length === 0 ? undefined : segments.join('/')
 }
 
-const CASE_CONTAINER_PADDING = 80
-
 /**
  * The example app's only screen: whichever case its route names, rendered directly inside the
- * frame (white background, padding, testID) every case shares - the URL that launched the app
+ * frame (padding, testID) every case shares - the URL that launched the app
  * (`Linking.getInitialURL()`, covering a fresh app/page load) or was later sent to it while
  * already running (the `url` event, covering Detox's `device.openURL()` against a warm app) is
  * parsed into a scene id and used to pick the case. Generic over every component under visual
@@ -86,7 +84,6 @@ const styleSheet = StyleSheet.create({
   },
   caseFrame: {
     alignSelf: 'flex-start',
-    backgroundColor: 'white',
-    padding: CASE_CONTAINER_PADDING,
+    padding: 80,
   },
 })
