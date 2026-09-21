@@ -1,5 +1,5 @@
+import { deriveTestId } from '@root/snapshot.helpers'
 import { VISUAL_SCENES } from '@root/snapshot.scenes'
-import { deriveTestId } from '@root/snapshot.testable'
 import { useEffect, useState } from 'react'
 import { Linking, StatusBar, StyleSheet, View } from 'react-native'
 import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context'
@@ -82,7 +82,7 @@ export default function App() {
 const styleSheet = StyleSheet.create({
   mainWrapper: {
     flex: 1,
-    backgroundColor: 'rgb(255,255,255)',
+    backgroundColor: 'rgb(0,0,0)',
   },
   caseFrame: {
     alignSelf: 'flex-start',

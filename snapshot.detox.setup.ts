@@ -2,7 +2,7 @@ import { readFileSync } from 'fs'
 import { dirname, join } from 'path'
 
 import { expect } from '@jest/globals'
-import { renderLayoutProbe } from '@root/snapshot.testable'
+import { renderLayoutProbe } from '@root/snapshot.helpers'
 import type { SnapshotTest, VisualDriver } from '@root/snapshot.types'
 import { by, device, element, waitFor } from 'detox'
 import { toMatchImageSnapshot } from 'jest-image-snapshot'
@@ -151,6 +151,6 @@ const snapshotTest: SnapshotTest = Object.assign(
 // Assigned onto the global object (rather than exported) so a `*.snapshot.test.tsx` file can
 // reference `test` as a bare identifier - see snapshot.types.d.ts. Jest runs this
 // `setupFilesAfterEnv` script before any test file, so this always overwrites
-// snapshot.testable.tsx's no-op default before any scene file's own import of it could install
+// snapshot.helpers.tsx's no-op default before any scene file's own import of it could install
 // that default instead.
 ;(globalThis as unknown as { test: SnapshotTest }).test = snapshotTest

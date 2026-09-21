@@ -1,5 +1,5 @@
 import { expect, test as base } from '@playwright/test'
-import { renderLayoutProbe } from '@root/snapshot.testable'
+import { renderLayoutProbe } from '@root/snapshot.helpers'
 import type { SnapshotTest, VisualDriver } from '@root/snapshot.types'
 
 const extended = base.extend<{
@@ -43,6 +43,6 @@ const snapshotTest: SnapshotTest = Object.assign(extended, {
 // Assigned onto the global object (rather than exported) so a `*.snapshot.test.tsx` file can
 // reference `test` as a bare identifier - see snapshot.types.d.ts. This file is imported purely for
 // this side effect, at the top of snapshot.playwright.config.ts, which runs before Playwright
-// requires any spec file in a worker process - so this always overwrites snapshot.testable.tsx's
+// requires any spec file in a worker process - so this always overwrites snapshot.helpers.tsx's
 // no-op default before any scene file's own import of it could install that default instead.
 ;(globalThis as unknown as { test: SnapshotTest }).test = snapshotTest

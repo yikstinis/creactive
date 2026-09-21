@@ -26,7 +26,7 @@ export interface VisualDriver {
  * just how it's spelled: Detox's `launch` starts the real app (`device.launchApp()`), so it's
  * wired to run once per `describe` (Jest's `beforeAll`); Playwright's spins up a fresh page per
  * test (nothing to start up front), so it's wired to `beforeEach`. `renderLayoutProbe` is
- * identical everywhere (see `snapshot.testable.tsx`) - a layout-testing component (a small row of
+ * identical everywhere (see `snapshot.helpers.tsx`) - a layout-testing component (a small row of
  * colored squares) a case renders as neutral content, so its visual diff is driven purely by the
  * layout prop under test.
  */
@@ -43,7 +43,7 @@ export interface SnapshotTest {
  * scripts into the same realm as the test file, and `snapshot.playwright.config.ts`'s top-level
  * side-effect import of `@root/snapshot.playwright.setup` runs before Playwright requires any spec
  * file in that worker. A component's scene/test file references this as a bare identifier (never
- * imported) and, since it always imports `@root/snapshot.testable` for its own side effect first,
+ * imported) and, since it always imports `@root/snapshot.helpers` for its own side effect first,
  * always finds it already assigned - to a no-op implementation when the same file loads inside the
  * real app instead, which Metro bundles and where neither setup script ever runs.
  */

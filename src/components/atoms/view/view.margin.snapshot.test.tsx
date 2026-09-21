@@ -1,7 +1,6 @@
-import { deriveTestId } from '@root/snapshot.testable'
+import { deriveTestId } from '@root/snapshot.helpers'
 import type { SnapshotCase } from '@root/snapshot.types'
 
-import type { View as ViewComponent } from '@/components/atoms/view/view'
 import { Spacing } from '@/constants/spacing'
 
 /**
@@ -10,20 +9,15 @@ import { Spacing } from '@/constants/spacing'
  */
 export const id = 'component/view/margin'
 
-// require()'d rather than imported at module top level, so this file can still be loaded for just
-// `id`/its case names by Playwright's Node test runner, which can't parse react-native's own
-// source - see snapshot.testable.tsx.
-function requireView() {
-  const { View } = require('@/components/atoms/view/view') as { View: typeof ViewComponent }
-  return View
-}
-
+// Every case below require()s `View` rather than importing it at module top level, so this file
+// can still be loaded for just `id`/its case names by Playwright's Node test runner, which can't
+// parse react-native's own source - see snapshot.helpers.tsx.
 export const X6S: SnapshotCase = [
   'renders with X6S margin',
   () => {
-    const View = requireView()
+    const { View } = require('@/components/atoms/view/view') as typeof import('@/components/atoms/view/view')
     return (
-      <View margin={Spacing.X6S} style={{ backgroundColor: 'black' }}>
+      <View margin={Spacing.X6S} style={{ backgroundColor: 'black', flexDirection: 'row' }}>
         {test.renderLayoutProbe()}
       </View>
     )
@@ -33,9 +27,9 @@ export const X6S: SnapshotCase = [
 export const X5S: SnapshotCase = [
   'renders with X5S margin',
   () => {
-    const View = requireView()
+    const { View } = require('@/components/atoms/view/view') as typeof import('@/components/atoms/view/view')
     return (
-      <View margin={Spacing.X5S} style={{ backgroundColor: 'black' }}>
+      <View margin={Spacing.X5S} style={{ backgroundColor: 'black', flexDirection: 'row' }}>
         {test.renderLayoutProbe()}
       </View>
     )
@@ -45,9 +39,9 @@ export const X5S: SnapshotCase = [
 export const X4S: SnapshotCase = [
   'renders with X4S margin',
   () => {
-    const View = requireView()
+    const { View } = require('@/components/atoms/view/view') as typeof import('@/components/atoms/view/view')
     return (
-      <View margin={Spacing.X4S} style={{ backgroundColor: 'black' }}>
+      <View margin={Spacing.X4S} style={{ backgroundColor: 'black', flexDirection: 'row' }}>
         {test.renderLayoutProbe()}
       </View>
     )
@@ -57,9 +51,9 @@ export const X4S: SnapshotCase = [
 export const X3S: SnapshotCase = [
   'renders with X3S margin',
   () => {
-    const View = requireView()
+    const { View } = require('@/components/atoms/view/view') as typeof import('@/components/atoms/view/view')
     return (
-      <View margin={Spacing.X3S} style={{ backgroundColor: 'black' }}>
+      <View margin={Spacing.X3S} style={{ backgroundColor: 'black', flexDirection: 'row' }}>
         {test.renderLayoutProbe()}
       </View>
     )
@@ -69,9 +63,9 @@ export const X3S: SnapshotCase = [
 export const X2S: SnapshotCase = [
   'renders with X2S margin',
   () => {
-    const View = requireView()
+    const { View } = require('@/components/atoms/view/view') as typeof import('@/components/atoms/view/view')
     return (
-      <View margin={Spacing.X2S} style={{ backgroundColor: 'black' }}>
+      <View margin={Spacing.X2S} style={{ backgroundColor: 'black', flexDirection: 'row' }}>
         {test.renderLayoutProbe()}
       </View>
     )
@@ -81,9 +75,9 @@ export const X2S: SnapshotCase = [
 export const XS: SnapshotCase = [
   'renders with XS margin',
   () => {
-    const View = requireView()
+    const { View } = require('@/components/atoms/view/view') as typeof import('@/components/atoms/view/view')
     return (
-      <View margin={Spacing.XS} style={{ backgroundColor: 'black' }}>
+      <View margin={Spacing.XS} style={{ backgroundColor: 'black', flexDirection: 'row' }}>
         {test.renderLayoutProbe()}
       </View>
     )
@@ -93,9 +87,9 @@ export const XS: SnapshotCase = [
 export const SM: SnapshotCase = [
   'renders with SM margin',
   () => {
-    const View = requireView()
+    const { View } = require('@/components/atoms/view/view') as typeof import('@/components/atoms/view/view')
     return (
-      <View margin={Spacing.SM} style={{ backgroundColor: 'black' }}>
+      <View margin={Spacing.SM} style={{ backgroundColor: 'black', flexDirection: 'row' }}>
         {test.renderLayoutProbe()}
       </View>
     )
@@ -105,9 +99,9 @@ export const SM: SnapshotCase = [
 export const MD: SnapshotCase = [
   'renders with MD margin',
   () => {
-    const View = requireView()
+    const { View } = require('@/components/atoms/view/view') as typeof import('@/components/atoms/view/view')
     return (
-      <View margin={Spacing.MD} style={{ backgroundColor: 'black' }}>
+      <View margin={Spacing.MD} style={{ backgroundColor: 'black', flexDirection: 'row' }}>
         {test.renderLayoutProbe()}
       </View>
     )
@@ -117,9 +111,9 @@ export const MD: SnapshotCase = [
 export const LG: SnapshotCase = [
   'renders with LG margin',
   () => {
-    const View = requireView()
+    const { View } = require('@/components/atoms/view/view') as typeof import('@/components/atoms/view/view')
     return (
-      <View margin={Spacing.LG} style={{ backgroundColor: 'black' }}>
+      <View margin={Spacing.LG} style={{ backgroundColor: 'black', flexDirection: 'row' }}>
         {test.renderLayoutProbe()}
       </View>
     )
@@ -129,9 +123,9 @@ export const LG: SnapshotCase = [
 export const XL: SnapshotCase = [
   'renders with XL margin',
   () => {
-    const View = requireView()
+    const { View } = require('@/components/atoms/view/view') as typeof import('@/components/atoms/view/view')
     return (
-      <View margin={Spacing.XL} style={{ backgroundColor: 'black' }}>
+      <View margin={Spacing.XL} style={{ backgroundColor: 'black', flexDirection: 'row' }}>
         {test.renderLayoutProbe()}
       </View>
     )
@@ -141,9 +135,9 @@ export const XL: SnapshotCase = [
 export const X2L: SnapshotCase = [
   'renders with X2L margin',
   () => {
-    const View = requireView()
+    const { View } = require('@/components/atoms/view/view') as typeof import('@/components/atoms/view/view')
     return (
-      <View margin={Spacing.X2L} style={{ backgroundColor: 'black' }}>
+      <View margin={Spacing.X2L} style={{ backgroundColor: 'black', flexDirection: 'row' }}>
         {test.renderLayoutProbe()}
       </View>
     )
@@ -153,9 +147,9 @@ export const X2L: SnapshotCase = [
 export const X3L: SnapshotCase = [
   'renders with X3L margin',
   () => {
-    const View = requireView()
+    const { View } = require('@/components/atoms/view/view') as typeof import('@/components/atoms/view/view')
     return (
-      <View margin={Spacing.X3L} style={{ backgroundColor: 'black' }}>
+      <View margin={Spacing.X3L} style={{ backgroundColor: 'black', flexDirection: 'row' }}>
         {test.renderLayoutProbe()}
       </View>
     )
@@ -165,9 +159,9 @@ export const X3L: SnapshotCase = [
 export const X4L: SnapshotCase = [
   'renders with X4L margin',
   () => {
-    const View = requireView()
+    const { View } = require('@/components/atoms/view/view') as typeof import('@/components/atoms/view/view')
     return (
-      <View margin={Spacing.X4L} style={{ backgroundColor: 'black' }}>
+      <View margin={Spacing.X4L} style={{ backgroundColor: 'black', flexDirection: 'row' }}>
         {test.renderLayoutProbe()}
       </View>
     )
@@ -177,9 +171,9 @@ export const X4L: SnapshotCase = [
 export const X5L: SnapshotCase = [
   'renders with X5L margin',
   () => {
-    const View = requireView()
+    const { View } = require('@/components/atoms/view/view') as typeof import('@/components/atoms/view/view')
     return (
-      <View margin={Spacing.X5L} style={{ backgroundColor: 'black' }}>
+      <View margin={Spacing.X5L} style={{ backgroundColor: 'black', flexDirection: 'row' }}>
         {test.renderLayoutProbe()}
       </View>
     )
@@ -189,9 +183,9 @@ export const X5L: SnapshotCase = [
 export const X6L: SnapshotCase = [
   'renders with X6L margin',
   () => {
-    const View = requireView()
+    const { View } = require('@/components/atoms/view/view') as typeof import('@/components/atoms/view/view')
     return (
-      <View margin={Spacing.X6L} style={{ backgroundColor: 'black' }}>
+      <View margin={Spacing.X6L} style={{ backgroundColor: 'black', flexDirection: 'row' }}>
         {test.renderLayoutProbe()}
       </View>
     )
