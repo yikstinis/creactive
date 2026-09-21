@@ -3,33 +3,23 @@ import type { SnapshotTest } from '@root/snapshot.types'
 /**
  * Neutral content for a layout-affecting case (padding, margin, ...) to render around, so its
  * visual diff is driven purely by the prop under test rather than by children every test file
- * would otherwise have to invent for itself. Each square is numbered by its own index, so a diff
- * also reveals reordering, not just size/position. Returns the three squares bare (no wrapping
+ * would otherwise have to invent for itself. Returns the three squares bare (no wrapping
  * container of its own), so whichever `View` a case renders them into stays in control of their
  * arrangement via its own `style` (e.g. `flexDirection`). require()'d rather than imported at
  * module top level, so a `*.snapshot.test.tsx` file calling `test.renderLayoutProbe()` stays
  * loadable by Playwright's Node test runner, which can't parse react-native's own source.
  */
 export function renderLayoutProbe(): ReturnType<SnapshotTest['renderLayoutProbe']> {
-  const { StyleSheet, Text, View } = require('react-native') as typeof import('react-native')
+  const { StyleSheet, View } = require('react-native') as typeof import('react-native')
   const styles = StyleSheet.create({
     square: {
       width: 32,
       height: 32,
-      alignItems: 'center',
-      justifyContent: 'center',
-    },
-    number: {
-      color: 'rgb(255, 255, 255)',
-      fontSize: 18,
-      fontWeight: 'bold',
     },
   })
 
-  return ['rgb(255, 0, 0)', 'rgb(0, 255, 0)', 'rgb(0, 0, 255)'].map((color, index) => (
-    <View key={color} style={[styles.square, { backgroundColor: color }]}>
-      <Text style={styles.number}>{index}</Text>
-    </View>
+  return ['rgb(255, 0, 0)', 'rgb(0, 255, 0)', 'rgb(0, 0, 255)'].map((color) => (
+    <View key={color} style={[styles.square, { backgroundColor: color }]} />
   ))
 }
 

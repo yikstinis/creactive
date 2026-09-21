@@ -17,7 +17,7 @@ export const X6S: SnapshotCase = [
   () => {
     const { View } = require('@/components/atoms/view/view') as typeof import('@/components/atoms/view/view')
     return (
-      <View padding={Spacing.X6S} style={{ backgroundColor: 'black', flexDirection: 'row' }}>
+      <View padding={Spacing.X6S}>
         {test.renderLayoutProbe()}
       </View>
     )
@@ -29,7 +29,7 @@ export const X5S: SnapshotCase = [
   () => {
     const { View } = require('@/components/atoms/view/view') as typeof import('@/components/atoms/view/view')
     return (
-      <View padding={Spacing.X5S} style={{ backgroundColor: 'black', flexDirection: 'row' }}>
+      <View padding={Spacing.X5S}>
         {test.renderLayoutProbe()}
       </View>
     )
@@ -41,7 +41,7 @@ export const X4S: SnapshotCase = [
   () => {
     const { View } = require('@/components/atoms/view/view') as typeof import('@/components/atoms/view/view')
     return (
-      <View padding={Spacing.X4S} style={{ backgroundColor: 'black', flexDirection: 'row' }}>
+      <View padding={Spacing.X4S}>
         {test.renderLayoutProbe()}
       </View>
     )
@@ -53,7 +53,7 @@ export const X3S: SnapshotCase = [
   () => {
     const { View } = require('@/components/atoms/view/view') as typeof import('@/components/atoms/view/view')
     return (
-      <View padding={Spacing.X3S} style={{ backgroundColor: 'black', flexDirection: 'row' }}>
+      <View padding={Spacing.X3S}>
         {test.renderLayoutProbe()}
       </View>
     )
@@ -65,7 +65,7 @@ export const X2S: SnapshotCase = [
   () => {
     const { View } = require('@/components/atoms/view/view') as typeof import('@/components/atoms/view/view')
     return (
-      <View padding={Spacing.X2S} style={{ backgroundColor: 'black', flexDirection: 'row' }}>
+      <View padding={Spacing.X2S}>
         {test.renderLayoutProbe()}
       </View>
     )
@@ -77,7 +77,7 @@ export const XS: SnapshotCase = [
   () => {
     const { View } = require('@/components/atoms/view/view') as typeof import('@/components/atoms/view/view')
     return (
-      <View padding={Spacing.XS} style={{ backgroundColor: 'black', flexDirection: 'row' }}>
+      <View padding={Spacing.XS}>
         {test.renderLayoutProbe()}
       </View>
     )
@@ -89,7 +89,7 @@ export const SM: SnapshotCase = [
   () => {
     const { View } = require('@/components/atoms/view/view') as typeof import('@/components/atoms/view/view')
     return (
-      <View padding={Spacing.SM} style={{ backgroundColor: 'black', flexDirection: 'row' }}>
+      <View padding={Spacing.SM}>
         {test.renderLayoutProbe()}
       </View>
     )
@@ -101,7 +101,7 @@ export const MD: SnapshotCase = [
   () => {
     const { View } = require('@/components/atoms/view/view') as typeof import('@/components/atoms/view/view')
     return (
-      <View padding={Spacing.MD} style={{ backgroundColor: 'black', flexDirection: 'row' }}>
+      <View padding={Spacing.MD}>
         {test.renderLayoutProbe()}
       </View>
     )
@@ -113,7 +113,7 @@ export const LG: SnapshotCase = [
   () => {
     const { View } = require('@/components/atoms/view/view') as typeof import('@/components/atoms/view/view')
     return (
-      <View padding={Spacing.LG} style={{ backgroundColor: 'black', flexDirection: 'row' }}>
+      <View padding={Spacing.LG}>
         {test.renderLayoutProbe()}
       </View>
     )
@@ -125,7 +125,7 @@ export const XL: SnapshotCase = [
   () => {
     const { View } = require('@/components/atoms/view/view') as typeof import('@/components/atoms/view/view')
     return (
-      <View padding={Spacing.XL} style={{ backgroundColor: 'black', flexDirection: 'row' }}>
+      <View padding={Spacing.XL}>
         {test.renderLayoutProbe()}
       </View>
     )
@@ -137,7 +137,7 @@ export const X2L: SnapshotCase = [
   () => {
     const { View } = require('@/components/atoms/view/view') as typeof import('@/components/atoms/view/view')
     return (
-      <View padding={Spacing.X2L} style={{ backgroundColor: 'black', flexDirection: 'row' }}>
+      <View padding={Spacing.X2L}>
         {test.renderLayoutProbe()}
       </View>
     )
@@ -149,7 +149,7 @@ export const X3L: SnapshotCase = [
   () => {
     const { View } = require('@/components/atoms/view/view') as typeof import('@/components/atoms/view/view')
     return (
-      <View padding={Spacing.X3L} style={{ backgroundColor: 'black', flexDirection: 'row' }}>
+      <View padding={Spacing.X3L}>
         {test.renderLayoutProbe()}
       </View>
     )
@@ -161,7 +161,7 @@ export const X4L: SnapshotCase = [
   () => {
     const { View } = require('@/components/atoms/view/view') as typeof import('@/components/atoms/view/view')
     return (
-      <View padding={Spacing.X4L} style={{ backgroundColor: 'black', flexDirection: 'row' }}>
+      <View padding={Spacing.X4L}>
         {test.renderLayoutProbe()}
       </View>
     )
@@ -173,7 +173,7 @@ export const X5L: SnapshotCase = [
   () => {
     const { View } = require('@/components/atoms/view/view') as typeof import('@/components/atoms/view/view')
     return (
-      <View padding={Spacing.X5L} style={{ backgroundColor: 'black', flexDirection: 'row' }}>
+      <View padding={Spacing.X5L}>
         {test.renderLayoutProbe()}
       </View>
     )
@@ -185,7 +185,7 @@ export const X6L: SnapshotCase = [
   () => {
     const { View } = require('@/components/atoms/view/view') as typeof import('@/components/atoms/view/view')
     return (
-      <View padding={Spacing.X6L} style={{ backgroundColor: 'black', flexDirection: 'row' }}>
+      <View padding={Spacing.X6L}>
         {test.renderLayoutProbe()}
       </View>
     )
