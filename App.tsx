@@ -1,12 +1,12 @@
 import { VISUAL_SCENES } from '@root/snapshot.scenes'
+import { deriveTestId } from '@root/snapshot.testable'
 import { useEffect, useState } from 'react'
-import { Linking, StatusBar, StyleSheet } from 'react-native'
+import { Linking, StatusBar, StyleSheet, View } from 'react-native'
 import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context'
 
 /**
- * Splits a scene URL into a `sceneId` (every path segment but the last, rejoined with `/` - a
- * scene's own id is itself slash-separated, e.g. `component/view/padding`) and a `caseName` (the
- * last segment).
+ * A scene URL's full slash-separated path, e.g. `component/view/padding/x6s` - always one
+ * `VisualScene.id` in full, since every case has its own route (see `snapshot.scenes.ts`).
  *
  * A native deep link puts the first segment in the URL's host
  * (`creactive://component/view/padding/x6s`), while the web dev server's URL puts it in
@@ -17,7 +17,7 @@ import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context'
  * `http(s)` in its `hostname`/`pathname` getters, silently returning empty values for a
  * custom-scheme deep link instead of throwing.
  */
-function parseSceneRoute(url: string): { sceneId?: string; caseName?: string } {
+function parseSceneId(url: string): string | undefined {
   const schemeEnd = url.indexOf('://')
   const isHttp = url.startsWith('http://') || url.startsWith('https://')
   const afterScheme = schemeEnd === -1 ? '' : url.slice(schemeEnd + 3)
@@ -27,22 +27,22 @@ function parseSceneRoute(url: string): { sceneId?: string; caseName?: string } {
   const path = pathAndQuery.split(/[?#]/)[0]
 
   const segments = path.split('/').filter(Boolean)
-  if (segments.length === 0) return {}
-  if (segments.length === 1) return { sceneId: segments[0] }
-
-  return { sceneId: segments.slice(0, -1).join('/'), caseName: segments[segments.length - 1] }
+  return segments.length === 0 ? undefined : segments.join('/')
 }
 
+const CASE_CONTAINER_PADDING = 80
+
 /**
- * The example app's only screen: whichever registered scene its route names, rendered directly -
- * the URL that launched the app (`Linking.getInitialURL()`, covering a fresh app/page load) or was
- * later sent to it while already running (the `url` event, covering Detox's `device.openURL()`
- * against a warm app) is parsed into `{ sceneId, caseName }` and used to pick the render. Generic
- * over every component under visual test - `VISUAL_SCENES` (`snapshot.scenes.ts`, gitignored) is generated
- * from every `*.snapshot.test.tsx` file's exported scene, so a new component needs no change here.
+ * The example app's only screen: whichever case its route names, rendered directly inside the
+ * frame (white background, padding, testID) every case shares - the URL that launched the app
+ * (`Linking.getInitialURL()`, covering a fresh app/page load) or was later sent to it while
+ * already running (the `url` event, covering Detox's `device.openURL()` against a warm app) is
+ * parsed into a scene id and used to pick the case. Generic over every component under visual
+ * test - `VISUAL_SCENES` (`snapshot.scenes.ts`, gitignored) is generated from every
+ * `*.snapshot.test.tsx` file's exported cases, so a new component needs no change here.
  */
 export default function App() {
-  const [route, setRoute] = useState<{ sceneId?: string; caseName?: string } | null>(null)
+  const [sceneId, setSceneId] = useState<string | undefined | null>(null)
 
   useEffect(() => {
     // A `url` event fired before `getInitialURL()` resolves means the app was already running
@@ -52,30 +52,28 @@ export default function App() {
 
     const subscription = Linking.addEventListener('url', ({ url }) => {
       receivedUrlEvent = true
-      setRoute(parseSceneRoute(url))
+      setSceneId(parseSceneId(url))
     })
 
     Linking.getInitialURL().then((url) => {
-      if (!receivedUrlEvent) setRoute(url ? parseSceneRoute(url) : {})
+      if (!receivedUrlEvent) setSceneId(url ? parseSceneId(url) : undefined)
     })
 
     return () => subscription.remove()
   }, [])
 
-  const selectedScene = VISUAL_SCENES.find(({ id }) => id === route?.sceneId) ?? VISUAL_SCENES[0]
-  const SelectedScene = selectedScene.Scene
+  const selectedScene = VISUAL_SCENES.find(({ id }) => id === sceneId) ?? VISUAL_SCENES[0]
 
   return (
     <SafeAreaProvider>
       <SafeAreaView testID="root" style={styleSheet.mainWrapper}>
         <StatusBar hidden />
 
-        {/*
-          Keyed on the route so opening a *different* case of the same already-mounted scene
-          (Detox's `device.openURL()` reaching a warm app, several times per `describe`) remounts
-          it - otherwise `initialCaseName` would only ever seed its useState once, on first mount.
-        */}
-        {route === null ? null : <SelectedScene key={route.caseName} initialCaseName={route.caseName} />}
+        {sceneId === null ? null : (
+          <View testID={deriveTestId(selectedScene.id)} style={styleSheet.caseFrame}>
+            {selectedScene.render()}
+          </View>
+        )}
       </SafeAreaView>
     </SafeAreaProvider>
   )
@@ -85,5 +83,10 @@ const styleSheet = StyleSheet.create({
   mainWrapper: {
     flex: 1,
     backgroundColor: 'rgb(255,255,255)',
+  },
+  caseFrame: {
+    alignSelf: 'flex-start',
+    backgroundColor: 'white',
+    padding: CASE_CONTAINER_PADDING,
   },
 })

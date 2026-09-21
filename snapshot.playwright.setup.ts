@@ -1,4 +1,5 @@
 import { expect, test as base } from '@playwright/test'
+import { renderLayoutProbe } from '@root/snapshot.testable'
 import type { SnapshotTest, VisualDriver } from '@root/snapshot.types'
 
 const extended = base.extend<{
@@ -15,8 +16,8 @@ const extended = base.extend<{
     await provide(async () => {})
   },
   open: async ({ page }, provide) => {
-    await provide(async (sceneId, caseName, targetTestId) => {
-      await page.goto(`/${sceneId}/${caseName}`)
+    await provide(async (sceneId, targetTestId) => {
+      await page.goto(`/${sceneId}`)
       await page.getByTestId(targetTestId).waitFor({ state: 'visible' })
     })
   },
@@ -36,11 +37,12 @@ const snapshotTest: SnapshotTest = Object.assign(extended, {
       await fn({ launch, open, match })
     })
   },
+  renderLayoutProbe,
 })
 
 // Assigned onto the global object (rather than exported) so a `*.snapshot.test.tsx` file can
 // reference `test` as a bare identifier - see snapshot.types.d.ts. This file is imported purely for
 // this side effect, at the top of snapshot.playwright.config.ts, which runs before Playwright
-// requires any spec file in a worker process - so this always overwrites snapshot.testable.ts's
+// requires any spec file in a worker process - so this always overwrites snapshot.testable.tsx's
 // no-op default before any scene file's own import of it could install that default instead.
 ;(globalThis as unknown as { test: SnapshotTest }).test = snapshotTest
