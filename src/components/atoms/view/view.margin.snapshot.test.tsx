@@ -1,97 +1,212 @@
-import '@root/snapshot.testable'
+import { deriveTestId } from '@root/snapshot.helpers'
+import type { SnapshotCase } from '@root/snapshot.types'
 
-import type { VisualSceneProps } from '@root/snapshot.types'
-import { useState } from 'react'
-import type { Pressable as PressableComponent, Text as TextComponent, View as NativeViewComponent } from 'react-native'
-
-import type { View as ViewComponent } from '@/components/atoms/view/view'
 import { Spacing } from '@/constants/spacing'
 
 /**
- * Route (`/component/view/margin`, or `/component/view/margin/<name>` for one case) identifying
- * this component's scene, opened directly by a Playwright/Detox test for each of its cases below.
+ * Route prefix (`component/view/margin`) identifying this component's scenes - each case below
+ * gets its own full route, `${id}/<its own export name, lowercased>`.
  */
 export const id = 'component/view/margin'
 
-/**
- * Every Spacing scale member, named for use in testIDs and visual-test snapshot identifiers.
- * The scene and the Playwright/Detox visual tests all derive their cases from this list, so
- * covering a new Spacing member is a single line here.
- */
-export const VIEW_MARGIN_CASES = [
-  { spacing: Spacing.X6S, name: 'x6s' },
-  { spacing: Spacing.X5S, name: 'x5s' },
-  { spacing: Spacing.X4S, name: 'x4s' },
-  { spacing: Spacing.X3S, name: 'x3s' },
-  { spacing: Spacing.X2S, name: 'x2s' },
-  { spacing: Spacing.XS, name: 'xs' },
-  { spacing: Spacing.SM, name: 'sm' },
-  { spacing: Spacing.MD, name: 'md' },
-  { spacing: Spacing.LG, name: 'lg' },
-  { spacing: Spacing.XL, name: 'xl' },
-  { spacing: Spacing.X2L, name: 'x2l' },
-  { spacing: Spacing.X3L, name: 'x3l' },
-  { spacing: Spacing.X4L, name: 'x4l' },
-  { spacing: Spacing.X5L, name: 'x5l' },
-  { spacing: Spacing.X6L, name: 'x6l' },
-] as const
+// Every case below require()s `View` rather than importing it at module top level, so this file
+// can still be loaded for just `id`/its case names by Playwright's Node test runner, which can't
+// parse react-native's own source - see snapshot.helpers.tsx.
+export const X6S: SnapshotCase = [
+  'renders with X6S margin',
+  () => {
+    const { View } = require('@/components/atoms/view/view') as typeof import('@/components/atoms/view/view')
+    return (
+      <View margin={Spacing.X6S}>
+        {test.renderLayoutProbe()}
+      </View>
+    )
+  },
+]
 
-const CONTAINER_PADDING = 80
-const SQUARE_COLORS = ['red', 'green', 'blue'] as const
-const SQUARE_SIZE = 32
+export const X5S: SnapshotCase = [
+  'renders with X5S margin',
+  () => {
+    const { View } = require('@/components/atoms/view/view') as typeof import('@/components/atoms/view/view')
+    return (
+      <View margin={Spacing.X5S}>
+        {test.renderLayoutProbe()}
+      </View>
+    )
+  },
+]
 
-export function Scene({ initialCaseName }: VisualSceneProps) {
-  // require()'d rather than imported at module top level, so this file can still be loaded for
-  // just VIEW_MARGIN_CASES/id by Playwright's Node test runner, which can't parse react-native's
-  // own source.
-  const { Pressable, Text, View: NativeView } = require('react-native') as {
-    Pressable: typeof PressableComponent
-    Text: typeof TextComponent
-    View: typeof NativeViewComponent
-  }
-  const { View } = require('@/components/atoms/view/view') as { View: typeof ViewComponent }
+export const X4S: SnapshotCase = [
+  'renders with X4S margin',
+  () => {
+    const { View } = require('@/components/atoms/view/view') as typeof import('@/components/atoms/view/view')
+    return (
+      <View margin={Spacing.X4S}>
+        {test.renderLayoutProbe()}
+      </View>
+    )
+  },
+]
 
-  const [selectedName, setSelectedName] = useState<(typeof VIEW_MARGIN_CASES)[number]['name']>(
-    VIEW_MARGIN_CASES.find(({ name }) => name === initialCaseName)?.name ?? VIEW_MARGIN_CASES[0].name,
-  )
-  const selectedCase = VIEW_MARGIN_CASES.find(({ name }) => name === selectedName)!
+export const X3S: SnapshotCase = [
+  'renders with X3S margin',
+  () => {
+    const { View } = require('@/components/atoms/view/view') as typeof import('@/components/atoms/view/view')
+    return (
+      <View margin={Spacing.X3S}>
+        {test.renderLayoutProbe()}
+      </View>
+    )
+  },
+]
 
-  return (
-    <>
-      <NativeView style={{ flexDirection: 'row', flexWrap: 'wrap' }}>
-        {VIEW_MARGIN_CASES.map(({ name }) => (
-          <Pressable key={name} testID={`view-margin-nav-${name}`} onPress={() => setSelectedName(name)}>
-            <Text>{name}</Text>
-          </Pressable>
-        ))}
-      </NativeView>
-      <NativeView
-        testID={`view-margin-${selectedCase.name}`}
-        style={{ alignSelf: 'flex-start', backgroundColor: 'white', padding: CONTAINER_PADDING }}
-      >
-        <View margin={selectedCase.spacing} style={{ backgroundColor: 'black' }}>
-          <NativeView style={{ flexDirection: 'row' }}>
-            {SQUARE_COLORS.map((color) => (
-              <NativeView key={color} style={{ width: SQUARE_SIZE, height: SQUARE_SIZE, backgroundColor: color }} />
-            ))}
-          </NativeView>
-        </View>
-      </NativeView>
-    </>
-  )
-}
+export const X2S: SnapshotCase = [
+  'renders with X2S margin',
+  () => {
+    const { View } = require('@/components/atoms/view/view') as typeof import('@/components/atoms/view/view')
+    return (
+      <View margin={Spacing.X2S}>
+        {test.renderLayoutProbe()}
+      </View>
+    )
+  },
+]
+
+export const XS: SnapshotCase = [
+  'renders with XS margin',
+  () => {
+    const { View } = require('@/components/atoms/view/view') as typeof import('@/components/atoms/view/view')
+    return (
+      <View margin={Spacing.XS}>
+        {test.renderLayoutProbe()}
+      </View>
+    )
+  },
+]
+
+export const SM: SnapshotCase = [
+  'renders with SM margin',
+  () => {
+    const { View } = require('@/components/atoms/view/view') as typeof import('@/components/atoms/view/view')
+    return (
+      <View margin={Spacing.SM}>
+        {test.renderLayoutProbe()}
+      </View>
+    )
+  },
+]
+
+export const MD: SnapshotCase = [
+  'renders with MD margin',
+  () => {
+    const { View } = require('@/components/atoms/view/view') as typeof import('@/components/atoms/view/view')
+    return (
+      <View margin={Spacing.MD}>
+        {test.renderLayoutProbe()}
+      </View>
+    )
+  },
+]
+
+export const LG: SnapshotCase = [
+  'renders with LG margin',
+  () => {
+    const { View } = require('@/components/atoms/view/view') as typeof import('@/components/atoms/view/view')
+    return (
+      <View margin={Spacing.LG}>
+        {test.renderLayoutProbe()}
+      </View>
+    )
+  },
+]
+
+export const XL: SnapshotCase = [
+  'renders with XL margin',
+  () => {
+    const { View } = require('@/components/atoms/view/view') as typeof import('@/components/atoms/view/view')
+    return (
+      <View margin={Spacing.XL}>
+        {test.renderLayoutProbe()}
+      </View>
+    )
+  },
+]
+
+export const X2L: SnapshotCase = [
+  'renders with X2L margin',
+  () => {
+    const { View } = require('@/components/atoms/view/view') as typeof import('@/components/atoms/view/view')
+    return (
+      <View margin={Spacing.X2L}>
+        {test.renderLayoutProbe()}
+      </View>
+    )
+  },
+]
+
+export const X3L: SnapshotCase = [
+  'renders with X3L margin',
+  () => {
+    const { View } = require('@/components/atoms/view/view') as typeof import('@/components/atoms/view/view')
+    return (
+      <View margin={Spacing.X3L}>
+        {test.renderLayoutProbe()}
+      </View>
+    )
+  },
+]
+
+export const X4L: SnapshotCase = [
+  'renders with X4L margin',
+  () => {
+    const { View } = require('@/components/atoms/view/view') as typeof import('@/components/atoms/view/view')
+    return (
+      <View margin={Spacing.X4L}>
+        {test.renderLayoutProbe()}
+      </View>
+    )
+  },
+]
+
+export const X5L: SnapshotCase = [
+  'renders with X5L margin',
+  () => {
+    const { View } = require('@/components/atoms/view/view') as typeof import('@/components/atoms/view/view')
+    return (
+      <View margin={Spacing.X5L}>
+        {test.renderLayoutProbe()}
+      </View>
+    )
+  },
+]
+
+export const X6L: SnapshotCase = [
+  'renders with X6L margin',
+  () => {
+    const { View } = require('@/components/atoms/view/view') as typeof import('@/components/atoms/view/view')
+    return (
+      <View margin={Spacing.X6L}>
+        {test.renderLayoutProbe()}
+      </View>
+    )
+  },
+]
+
+const CASES = { X6S, X5S, X4S, X3S, X2S, XS, SM, MD, LG, XL, X2L, X3L, X4L, X5L, X6L }
 
 test.describe('atoms/View', () => {
   test.setup(async ({ launch }) => {
     await launch()
   })
 
-  for (const { name } of VIEW_MARGIN_CASES) {
-    test(`renders with ${name} margin`, async ({ open, match }) => {
-      const testId = `view-margin-${name}`
+  for (const [key, [name]] of Object.entries(CASES)) {
+    test(name, async ({ open, match }) => {
+      const caseName = key.toLowerCase()
+      const sceneId = `${id}/${caseName}`
+      const testId = deriveTestId(sceneId)
 
-      await open(id, name, testId)
-      await match(testId, 'margin', name)
+      await open(sceneId, testId)
+      await match(testId, 'margin', caseName)
     })
   }
 })

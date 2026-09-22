@@ -31,7 +31,7 @@
     "snapshot.detox.setup.ts",
     "snapshot.playwright.setup.ts",
     "snapshot.playwright.config.ts",
-    "snapshot.testable.ts",
+    "snapshot.helpers.tsx",
     "snapshot.types.d.ts",
     "snapshot.jest.types.d.ts"
   ],

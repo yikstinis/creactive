@@ -108,13 +108,17 @@ export default defineConfig([
     },
   },
   {
-    // A scene's react-native/JSX-dependent imports are require()'d inside its Scene component
+    // A case's react-native/JSX-dependent imports are require()'d inside its own render function
     // instead of imported at module top level, so Playwright's Node test runner - which can't
     // parse react-native's own source - can still load the file for its RN-free exports (an
-    // enumerable case list, a scene id).
-    files: ['**/*.snapshot.test.tsx'],
+    // enumerable case list, a scene id). `snapshot.helpers.tsx`'s `renderLayoutProbe` is called
+    // from inside those same render functions, so it require()s react-native the same way.
+    // `typeof import(...)` types the require()'d value inline, without a top-level `import type`
+    // that would otherwise duplicate the module specifier require() already names.
+    files: ['**/*.snapshot.test.tsx', 'snapshot.helpers.tsx'],
     rules: {
       '@typescript-eslint/no-require-imports': 'off',
+      '@typescript-eslint/consistent-type-imports': 'off',
     },
   },
 ])

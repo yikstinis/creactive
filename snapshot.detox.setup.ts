@@ -2,6 +2,7 @@ import { readFileSync } from 'fs'
 import { dirname, join } from 'path'
 
 import { expect } from '@jest/globals'
+import { renderLayoutProbe } from '@root/snapshot.helpers'
 import type { SnapshotTest, VisualDriver } from '@root/snapshot.types'
 import { by, device, element, waitFor } from 'detox'
 import { toMatchImageSnapshot } from 'jest-image-snapshot'
@@ -89,10 +90,10 @@ async function launch(): Promise<void> {
   await device.launchApp()
 }
 
-async function open(sceneId: string, caseName: string, targetTestId: string): Promise<void> {
+async function open(sceneId: string, targetTestId: string): Promise<void> {
   // `openURL` (not `launchApp({ url })`) - the app is already running from `launch()`, so this
   // deep-links into it warm rather than relaunching for every case.
-  await device.openURL({ url: `${SCENE_URL_SCHEME}://${sceneId}/${caseName}` })
+  await device.openURL({ url: `${SCENE_URL_SCHEME}://${sceneId}` })
   await waitFor(element(by.id(targetTestId))).toBeVisible().withTimeout(10000)
 }
 
@@ -143,12 +144,13 @@ const snapshotTest: SnapshotTest = Object.assign(
     setup: (fn: (fixtures: Pick<VisualDriver, 'launch' | 'open' | 'match'>) => Promise<void>) => {
       beforeAll(() => fn(getFixtures()))
     },
+    renderLayoutProbe,
   },
 )
 
 // Assigned onto the global object (rather than exported) so a `*.snapshot.test.tsx` file can
 // reference `test` as a bare identifier - see snapshot.types.d.ts. Jest runs this
 // `setupFilesAfterEnv` script before any test file, so this always overwrites
-// snapshot.testable.ts's no-op default before any scene file's own import of it could install
+// snapshot.helpers.tsx's no-op default before any scene file's own import of it could install
 // that default instead.
 ;(globalThis as unknown as { test: SnapshotTest }).test = snapshotTest
