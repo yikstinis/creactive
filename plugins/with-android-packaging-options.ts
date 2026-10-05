@@ -2,12 +2,8 @@ import type { ConfigPlugin } from '@expo/config-plugins'
 import { withAppBuildGradle } from '@expo/config-plugins'
 import { mergeContents } from '@expo/config-plugins/build/utils/generateCode'
 
-/**
- * Detox's Espresso test APK and the app's own native libs both bundle
- * libc++_shared.so and duplicate META-INF license files, which fails
- * `assembleAndroidTest` packaging unless the first one found is picked.
- * See Detox's own test app: https://github.com/wix/Detox/blob/master/detox/test/android/app/build.gradle
- */
+// Detox's test APK and the app both bundle libc++_shared.so and the same META-INF files, which breaks `assembleAndroidTest` packaging.
+// Same setup as Detox's own test app: https://github.com/wix/Detox/blob/master/detox/test/android/app/build.gradle
 const withAndroidPackagingOptions: ConfigPlugin = (config) => {
   return withAppBuildGradle(config, (config) => {
     if (config.modResults.language === 'groovy') {

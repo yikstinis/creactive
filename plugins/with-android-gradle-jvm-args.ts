@@ -2,12 +2,8 @@ import type { ConfigPlugin } from '@expo/config-plugins'
 import { withGradleProperties } from '@expo/config-plugins'
 import type { PropertiesItem } from '@expo/config-plugins/build/android/Properties'
 
-/**
- * The default -Xmx2048m OOM'd the Gradle daemon merging dex archives for
- * assembleAndroidTest on a GitHub Actions runner. Bumped as a safety margin
- * alongside restricting the build to a single ABI in .detoxrc.js (the bigger
- * factor — see the comment there).
- */
+// The default -Xmx2048m OOM'd the Gradle daemon while merging dex archives on GitHub Actions.
+// The single-ABI build in .detoxrc.js is the main fix; this is an extra safety margin.
 const withAndroidGradleJvmArgs: ConfigPlugin = (config) => {
   return withGradleProperties(config, (config) => {
     const jvmArgs = config.modResults.find(

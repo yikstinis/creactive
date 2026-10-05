@@ -1,10 +1,6 @@
 import { Dimension } from '@/helpers/dimension/dimension'
 import type { PixelDimension } from '@/helpers/dimension/dimension.types'
 
-/**
- * Ordered spacing scale tokens (smallest to largest) for margin/padding/gap.
- * Use as keys into the theme's resolved values, not as literal pixel numbers.
- */
 export const enum Spacing {
   X6S,
   X5S,

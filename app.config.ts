@@ -4,7 +4,6 @@ const config: ExpoConfig = {
   name: 'creactive',
   slug: 'creactive',
   scheme: 'creactive',
-  version: '0.0.1',
   orientation: 'portrait',
   ios: {
     bundleIdentifier: 'com.creactive',

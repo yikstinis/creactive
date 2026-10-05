@@ -7,10 +7,8 @@ const extended = base.extend<{
   open: VisualDriver['open']
   match: VisualDriver['match']
 }>({
-  // No-op: Playwright already starts every test on a fresh page, unlike Detox's `launch`, which
-  // has a real app process to start up front. Playwright parses a fixture function's source to
-  // find its dependencies, so the first argument must be an (empty) destructuring pattern, not a
-  // plain identifier.
+  // No-op: Playwright already starts every test on a fresh page.
+  // Playwright parses fixture sources for dependencies, so the first argument must be an empty destructuring pattern.
   // eslint-disable-next-line no-empty-pattern
   launch: async ({}, provide) => {
     await provide(async () => {})
@@ -28,9 +26,7 @@ const extended = base.extend<{
   },
 })
 
-// `setup` runs once per test (Playwright's `beforeEach`) - a fresh page per test is cheap, unlike
-// Detox's `snapshot.detox.setup.ts`'s `test.setup`, which relaunches the whole app so it only runs
-// once per `describe` instead.
+// `setup` runs per test (`beforeEach`), since a fresh page is cheap, unlike Detox's app relaunch.
 const snapshotTest: SnapshotRunner & SnapshotTest = Object.assign(extended, {
   setup: (fn: (fixtures: Pick<VisualDriver, 'launch' | 'open' | 'match'>) => Promise<void>) => {
     extended.beforeEach(async ({ launch, open, match }) => {
@@ -41,9 +37,6 @@ const snapshotTest: SnapshotRunner & SnapshotTest = Object.assign(extended, {
   renderLayout: renderLayoutProbe,
 })
 
-// Assigned onto the global object (rather than exported) so a `*.snapshot.test.tsx` file can
-// reference `test` as a bare identifier - see snapshot.types.d.ts. This file is imported purely for
-// this side effect, at the top of snapshot.playwright.config.ts, which runs before Playwright
-// requires any spec file in a worker process - so this always overwrites snapshot.helpers.tsx's
-// no-op default before any scene file's own import of it could install that default instead.
+// Assigned globally so scene files can reference `test` without importing it (see snapshot.types.d.ts).
+// snapshot.playwright.config.ts imports this before Playwright loads any spec file, so it always wins over snapshot.helpers.tsx's no-op fallback.
 ;(globalThis as unknown as { test: SnapshotTest }).test = snapshotTest
