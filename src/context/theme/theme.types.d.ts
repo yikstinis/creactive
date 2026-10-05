@@ -8,9 +8,23 @@ export interface Theme {
   spacing: Record<Spacing, PixelDimension>
 }
 
-export type ThemeStyleName = `padding${Spacing}` | `margin${Spacing}`
+export interface ThemeOverride {
+  spacing?: Partial<Record<Spacing, PixelDimension>>
+}
 
-export type ThemeStyleSheet = Record<ThemeStyleName, ViewStyle>
+export type ThemeStyleProperty =
+  | 'padding'
+  | 'paddingTop'
+  | 'paddingRight'
+  | 'paddingBottom'
+  | 'paddingLeft'
+  | 'margin'
+  | 'marginTop'
+  | 'marginRight'
+  | 'marginBottom'
+  | 'marginLeft'
+
+export type ThemeStyleSheet = Record<ThemeStyleProperty, Record<Spacing, ViewStyle>>
 
 export interface ThemeContextValue {
   theme: Theme
@@ -18,7 +32,7 @@ export interface ThemeContextValue {
 }
 
 export interface ThemeContextProviderProps extends PropsWithChildren {
-  theme: Theme
+  theme?: ThemeOverride
 }
 
 export type ThemeContextProviderComponent = FunctionComponent<ThemeContextProviderProps>

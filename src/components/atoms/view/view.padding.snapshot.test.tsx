@@ -50,4 +50,40 @@ export const X6L: SnapshotCase = [
   },
 ]
 
-test.create('components/atoms/View', { X6S, SM, LG, X6L })
+export const SM_MD: SnapshotCase = [
+  'renders with [SM, MD] padding',
+  () => {
+    const { View } = require('@/components/atoms/view/view') as typeof import('@/components/atoms/view/view')
+    return (
+      <View padding={[Spacing.SM, Spacing.MD]}>
+        {test.renderLayout()}
+      </View>
+    )
+  },
+]
+
+export const SM_MD_LG: SnapshotCase = [
+  'renders with [SM, MD, LG] padding',
+  () => {
+    const { View } = require('@/components/atoms/view/view') as typeof import('@/components/atoms/view/view')
+    return (
+      <View padding={[Spacing.SM, Spacing.MD, Spacing.LG]}>
+        {test.renderLayout()}
+      </View>
+    )
+  },
+]
+
+export const SM_MD_LG_XL: SnapshotCase = [
+  'renders with [SM, MD, LG, XL] padding',
+  () => {
+    const { View } = require('@/components/atoms/view/view') as typeof import('@/components/atoms/view/view')
+    return (
+      <View padding={[Spacing.SM, Spacing.MD, Spacing.LG, Spacing.XL]}>
+        {test.renderLayout()}
+      </View>
+    )
+  },
+]
+
+test.create('components/atoms/View', { X6S, SM, LG, X6L, SM_MD, SM_MD_LG, SM_MD_LG_XL })

@@ -1,22 +1,22 @@
 import { Dimension } from '@/helpers/dimension/dimension'
 import type { PixelDimension } from '@/helpers/dimension/dimension.types'
 
-export const enum Spacing {
-  X6S,
-  X5S,
-  X4S,
-  X3S,
-  X2S,
-  XS,
-  SM,
-  MD,
-  LG,
-  XL,
-  X2L,
-  X3L,
-  X4L,
-  X5L,
-  X6L,
+export enum Spacing {
+  X6S = 'X6S',
+  X5S = 'X5S',
+  X4S = 'X4S',
+  X3S = 'X3S',
+  X2S = 'X2S',
+  XS = 'XS',
+  SM = 'SM',
+  MD = 'MD',
+  LG = 'LG',
+  XL = 'XL',
+  X2L = 'X2L',
+  X3L = 'X3L',
+  X4L = 'X4L',
+  X5L = 'X5L',
+  X6L = 'X6L',
 }
 
 export const DEFAULT_SPACING_X6S: PixelDimension = new Dimension(2)

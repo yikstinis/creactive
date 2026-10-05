@@ -3,6 +3,7 @@ export type {
   Theme,
   ThemeContextProviderComponent,
   ThemeContextProviderProps,
-  ThemeStyleName,
+  ThemeOverride,
+  ThemeStyleProperty,
   ThemeStyleSheet,
 } from '@/context/theme/theme.types'
