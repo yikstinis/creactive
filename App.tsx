@@ -1,4 +1,8 @@
-import { deriveTestId } from '@root/snapshot.helpers'
+// Side-effect only: installs the no-op `test` global every scene's `render()` calls
+// (`test.renderLayout()`) reference - nothing else in App.tsx's import graph pulls this module in,
+// so without it the global stays unassigned and every case throws `ReferenceError: test is not
+// defined` the moment it renders. See snapshot.helpers.tsx.
+import '@root/snapshot.helpers'
 import { VISUAL_SCENES } from '@root/snapshot.scenes'
 import { useEffect, useState } from 'react'
 import { Linking, StatusBar, StyleSheet, View } from 'react-native'
@@ -68,7 +72,7 @@ export default function App() {
         <StatusBar hidden />
 
         {sceneId === null ? null : (
-          <View testID={deriveTestId(selectedScene.id)} style={styleSheet.caseFrame}>
+          <View testID={selectedScene.id} style={styleSheet.caseFrame}>
             {selectedScene.render()}
           </View>
         )}
