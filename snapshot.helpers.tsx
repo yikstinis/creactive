@@ -1,5 +1,3 @@
-import { basename, dirname } from 'path'
-
 import type { SnapshotCase, SnapshotRunner, SnapshotTest } from '@root/snapshot.types'
 
 /**
@@ -63,13 +61,19 @@ function resolveCallingTestFile(): string {
  * test file has to declare its own route/id by hand, and a case's export name (`X6S`) is spelled
  * the same way everywhere it shows up - route, testID, snapshot filename. All of this (including
  * `resolveCallingTestFile`) stays inside the `describe` callback rather than running eagerly, so the
- * real app's no-op `describe` (which never calls its callback) never pays for or breaks on it.
+ * real app's no-op `describe` (which never calls its callback) never pays for or breaks on it. Split
+ * on `/`/`\` by hand rather than via Node's `path` module - unlike `resolveCallingTestFile`'s own
+ * call, an *import* of `path` is static, so Metro would try to resolve and bundle it into the real
+ * app regardless of whether this callback ever runs, and native Metro bundles (unlike the web one)
+ * have no polyfill for it.
  */
 export function createSnapshotSuite(this: SnapshotRunner, name: string, cases: Record<string, SnapshotCase>): void {
   this.describe(name, () => {
     const callingFile = resolveCallingTestFile()
-    const component = basename(dirname(callingFile))
-    const groupMatch = /^(.+)\.snapshot\.test\.tsx?$/.exec(basename(callingFile))
+    const pathSegments = callingFile.split(/[/\\]/)
+    const fileName = pathSegments[pathSegments.length - 1]
+    const component = pathSegments[pathSegments.length - 2]
+    const groupMatch = /^(.+)\.snapshot\.test\.tsx?$/.exec(fileName)
     if (!groupMatch) throw new Error(`createSnapshotSuite: ${callingFile} isn't a *.snapshot.test.tsx file`)
 
     const group = groupMatch[1].split('.').pop() as string
