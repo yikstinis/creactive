@@ -90,31 +90,22 @@ export default defineConfig([
     },
   },
   {
-    // The unused `T` re-declares `expect`'s own Matchers<R, T> type parameter list, which
-    // TypeScript's declaration merging requires to match in arity even though this file's
-    // added matcher doesn't use it.
+    // `T` is unused but required, because declaration merging needs the same type parameters as `expect`'s `Matchers<R, T>`.
     files: ['snapshot.jest.types.d.ts'],
     rules: {
       '@typescript-eslint/no-unused-vars': 'off',
     },
   },
   {
-    // Metro loads metro.config.js via Node's CommonJS require() (which is also how it, in turn,
-    // requires generate-scenes.js to regenerate snapshot.scenes.ts on every Metro startup) - neither can be
-    // converted to an ESM import.
+    // Metro loads these files via CommonJS `require()`, so they can't use ESM imports.
     files: ['metro.config.js', 'scripts/**/*.js'],
     rules: {
       '@typescript-eslint/no-require-imports': 'off',
     },
   },
   {
-    // A case's react-native/JSX-dependent imports are require()'d inside its own render function
-    // instead of imported at module top level, so Playwright's Node test runner - which can't
-    // parse react-native's own source - can still load the file for its RN-free exports (an
-    // enumerable case list, a scene id). `snapshot.helpers.tsx`'s `renderLayoutProbe` is called
-    // from inside those same render functions, so it require()s react-native the same way.
-    // `typeof import(...)` types the require()'d value inline, without a top-level `import type`
-    // that would otherwise duplicate the module specifier require() already names.
+    // Scene files and `renderLayoutProbe` require() react-native inside render functions, so Playwright's Node runner, which can't parse react-native, can load them.
+    // `typeof import(...)` types those require() calls inline instead of a separate `import type`.
     files: ['**/*.snapshot.test.tsx', 'snapshot.helpers.tsx'],
     rules: {
       '@typescript-eslint/no-require-imports': 'off',

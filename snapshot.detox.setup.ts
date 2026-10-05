@@ -8,13 +8,7 @@ import { by, device, element, waitFor } from 'detox'
 import { toMatchImageSnapshot } from 'jest-image-snapshot'
 import { PNG } from 'pngjs'
 
-/**
- * Detox overwrites the global `expect` with its own element-assertion DSL
- * (`expect(element(...)).toBeVisible()`), so Jest's own value-matcher
- * `expect` — the one `.extend()` and `toMatchImageSnapshot` need — has to
- * be imported explicitly from `@jest/globals` rather than relying on the
- * ambient global.
- */
+// Detox replaces the global `expect` with its element-assertion DSL, so Jest's `expect` is imported from `@jest/globals`.
 expect.extend({ toMatchImageSnapshot })
 
 // Matches the `snapshot-test-{platform}-{device}` job naming in maintain.yml (e.g. `android-pixel-7`).
@@ -23,8 +17,7 @@ const DEVICE_SUFFIXES = {
   ios: 'ios-iphone-17',
 }
 
-// Must match app.config.ts's `expo.scheme` - that's what `expo prebuild` registers as this app's
-// deep-link URL scheme on both platforms.
+// Must match app.config.ts's `expo.scheme`, which `expo prebuild` registers as the deep-link scheme.
 const SCENE_URL_SCHEME = 'creactive'
 
 async function getElementFrame(testId: string): Promise<{ x: number; y: number; width: number; height: number }> {
@@ -48,9 +41,7 @@ function cropPng(source: PNG, rect: { x: number; y: number; width: number; heigh
   return cropped
 }
 
-// Averages each `factor`x`factor` block of source pixels into one destination pixel, downsampling
-// a retina simulator's crop (e.g. 3x on the iPhone 17) back to the same point-resolution Android
-// and Playwright already produce, so all three platforms' baselines are directly comparable in size.
+// Downsamples retina crops (e.g. 3x on iPhone 17) to point resolution, so baselines match Android and Playwright in size.
 function downsamplePng(source: PNG, factor: number): PNG {
   const width = Math.floor(source.width / factor)
   const height = Math.floor(source.height / factor)
@@ -91,8 +82,7 @@ async function launch(): Promise<void> {
 }
 
 async function open(sceneId: string, targetTestId: string): Promise<void> {
-  // `openURL` (not `launchApp({ url })`) - the app is already running from `launch()`, so this
-  // deep-links into it warm rather than relaunching for every case.
+  // `openURL` deep-links into the already running app instead of relaunching it for every case.
   await device.openURL({ url: `${SCENE_URL_SCHEME}://${sceneId}` })
   await waitFor(element(by.id(targetTestId))).toBeVisible().withTimeout(10000)
 }
@@ -101,9 +91,8 @@ async function match(targetTestId: string, group: string, name: string): Promise
   const screenshotPath = await device.takeScreenshot(targetTestId)
   const screenshot = PNG.sync.read(readFileSync(screenshotPath))
 
-  // device.takeScreenshot() returns raw device pixels, but getAttributes().frame comes back in
-  // points on iOS (and, empirically, already in pixels on Android) - deriving the scale from
-  // the full-screen root's own frame works on both, rather than assuming either unit.
+  // `takeScreenshot()` returns device pixels, but `frame` is in points on iOS and in pixels on Android.
+  // Deriving the scale from the full-screen root's frame works on both.
   const rootFrame = await getElementFrame('root')
   const scale = screenshot.width / rootFrame.width
 
@@ -132,9 +121,7 @@ function getFixtures(): Pick<VisualDriver, 'launch' | 'open' | 'match'> {
   return { launch, open, match }
 }
 
-// `setup` runs once per `describe` (Jest's `beforeAll`), not per test - relaunching the app
-// (`device.launchApp()`, inside `launch`) before every case would be far slower than the single
-// `beforeEach` fresh-page cost `snapshot.playwright.setup.ts`'s `test.setup` pays instead.
+// `setup` runs once per `describe` (`beforeAll`), because relaunching the app before every case is too slow.
 const snapshotTest: SnapshotRunner & SnapshotTest = Object.assign(
   (name: string, fn: (fixtures: Pick<VisualDriver, 'launch' | 'open' | 'match'>) => Promise<void>) => {
     it(name, () => fn(getFixtures()))
@@ -149,9 +136,6 @@ const snapshotTest: SnapshotRunner & SnapshotTest = Object.assign(
   },
 )
 
-// Assigned onto the global object (rather than exported) so a `*.snapshot.test.tsx` file can
-// reference `test` as a bare identifier - see snapshot.types.d.ts. Jest runs this
-// `setupFilesAfterEnv` script before any test file, so this always overwrites
-// snapshot.helpers.tsx's no-op default before any scene file's own import of it could install
-// that default instead.
+// Assigned globally so scene files can reference `test` without importing it (see snapshot.types.d.ts).
+// Jest runs this setup file before any test file, so it always wins over snapshot.helpers.tsx's no-op fallback.
 ;(globalThis as unknown as { test: SnapshotTest }).test = snapshotTest

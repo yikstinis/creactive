@@ -23,6 +23,7 @@ Each unit (component, helper) lives in its own kebab-case directory, colocating:
 
 - `name.ts(x)` — implementation.
 - `name.unit.test.ts(x)` — unit tests.
+- `name.property.snapshot.test.ts(x)` — snapshot tests, one file per prop.
 - `name.types.d.ts` — interfaces and type aliases.
 - `index.ts` — barrel (see [Exports](#exports)).
 

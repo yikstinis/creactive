@@ -1,6 +1,5 @@
-// Binary paths/build commands assume `expo prebuild` names the generated Xcode project/scheme
-// "creactive" (from app.config.ts's slug) — confirmed for android; ios is unverified (no macOS
-// available to build/run it outside of CI).
+// Assumes `expo prebuild` names the Xcode project and scheme "creactive" (from app.config.ts's slug).
+// Verified on Android only; iOS can't be built locally without macOS.
 module.exports = {
   artifacts: {
     rootDir: 'artifacts',
@@ -18,11 +17,8 @@ module.exports = {
     jest: { setupTimeout: 120000 },
   },
   apps: {
-    // Built as Release, not Debug: the generated AppDelegate.swift hardcodes bundleURL() to
-    // always fetch from Metro for #if DEBUG builds, regardless of whether SKIP_BUNDLING embedded
-    // a JS bundle at build time — there's no "debug build with an offline bundle" option here.
-    // Release's #else branch loads the embedded bundle directly, which is what CI needs since
-    // nothing runs Metro. No code signing is required for simulator builds either way.
+    // Built as Release because the generated AppDelegate.swift always loads the bundle from Metro in Debug, even when one is embedded.
+    // CI runs no Metro, and simulator builds need no code signing either way.
     'ios.release': {
       type: 'ios.app',
       binaryPath: 'ios/build/Build/Products/Release-iphonesimulator/creactive.app',
@@ -32,9 +28,7 @@ module.exports = {
     'android.debug': {
       type: 'android.apk',
       binaryPath: 'android/app/build/outputs/apk/debug/app-debug.apk',
-      // -PreactNativeArchitectures=x86_64 matches the CI emulator's arch (visual-native.yml) and avoids
-      // dexing/packaging native libs for the other 3 architectures for nothing, which was OOM-ing the
-      // Gradle daemon. Revisit if this ever needs to build for a differently-arched local emulator.
+      // Builds only x86_64 to match the CI emulator (visual-native.yml), since building all four architectures OOM'd the Gradle daemon.
       build:
         'cd android && ./gradlew assembleDebug assembleAndroidTest -DtestBuildType=debug -PreactNativeArchitectures=x86_64 --stacktrace && cd ..',
     },
