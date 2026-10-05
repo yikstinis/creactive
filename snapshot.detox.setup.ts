@@ -2,8 +2,8 @@ import { readFileSync } from 'fs'
 import { dirname, join } from 'path'
 
 import { expect } from '@jest/globals'
-import { renderLayoutProbe } from '@root/snapshot.helpers'
-import type { SnapshotTest, VisualDriver } from '@root/snapshot.types'
+import { createSnapshotSuite, renderLayoutProbe } from '@root/snapshot.helpers'
+import type { SnapshotRunner, SnapshotTest, VisualDriver } from '@root/snapshot.types'
 import { by, device, element, waitFor } from 'detox'
 import { toMatchImageSnapshot } from 'jest-image-snapshot'
 import { PNG } from 'pngjs'
@@ -135,7 +135,7 @@ function getFixtures(): Pick<VisualDriver, 'launch' | 'open' | 'match'> {
 // `setup` runs once per `describe` (Jest's `beforeAll`), not per test - relaunching the app
 // (`device.launchApp()`, inside `launch`) before every case would be far slower than the single
 // `beforeEach` fresh-page cost `snapshot.playwright.setup.ts`'s `test.setup` pays instead.
-const snapshotTest: SnapshotTest = Object.assign(
+const snapshotTest: SnapshotRunner & SnapshotTest = Object.assign(
   (name: string, fn: (fixtures: Pick<VisualDriver, 'launch' | 'open' | 'match'>) => Promise<void>) => {
     it(name, () => fn(getFixtures()))
   },
@@ -144,7 +144,8 @@ const snapshotTest: SnapshotTest = Object.assign(
     setup: (fn: (fixtures: Pick<VisualDriver, 'launch' | 'open' | 'match'>) => Promise<void>) => {
       beforeAll(() => fn(getFixtures()))
     },
-    renderLayoutProbe,
+    create: createSnapshotSuite,
+    renderLayout: renderLayoutProbe,
   },
 )
 

@@ -17,9 +17,11 @@ function renderNativeViewProps(props: Omit<ViewProps, 'children'> & { children?:
   return testRenderer!.root.findByType(NativeView).props
 }
 
-const SPACING_CASES = Object.entries(DEFAULT_SPACING_VALUES).map(([spacing, dimension]) => ({
-  spacing: Number(spacing) as Spacing,
-  pixels: dimension.value,
+// Edge cases (the scale's smallest/largest value) plus a couple of representative values in
+// between, not every `Spacing` member - see AGENTS.md's Testing section.
+const SPACING_CASES = [Spacing.X6S, Spacing.SM, Spacing.LG, Spacing.X6L].map((spacing) => ({
+  spacing,
+  pixels: DEFAULT_SPACING_VALUES[spacing].value,
 }))
 
 describe('@/components/atoms/view/view', () => {

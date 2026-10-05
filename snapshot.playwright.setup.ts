@@ -1,6 +1,6 @@
 import { expect, test as base } from '@playwright/test'
-import { renderLayoutProbe } from '@root/snapshot.helpers'
-import type { SnapshotTest, VisualDriver } from '@root/snapshot.types'
+import { createSnapshotSuite, renderLayoutProbe } from '@root/snapshot.helpers'
+import type { SnapshotRunner, SnapshotTest, VisualDriver } from '@root/snapshot.types'
 
 const extended = base.extend<{
   launch: VisualDriver['launch']
@@ -31,13 +31,14 @@ const extended = base.extend<{
 // `setup` runs once per test (Playwright's `beforeEach`) - a fresh page per test is cheap, unlike
 // Detox's `snapshot.detox.setup.ts`'s `test.setup`, which relaunches the whole app so it only runs
 // once per `describe` instead.
-const snapshotTest: SnapshotTest = Object.assign(extended, {
+const snapshotTest: SnapshotRunner & SnapshotTest = Object.assign(extended, {
   setup: (fn: (fixtures: Pick<VisualDriver, 'launch' | 'open' | 'match'>) => Promise<void>) => {
     extended.beforeEach(async ({ launch, open, match }) => {
       await fn({ launch, open, match })
     })
   },
-  renderLayoutProbe,
+  create: createSnapshotSuite,
+  renderLayout: renderLayoutProbe,
 })
 
 // Assigned onto the global object (rather than exported) so a `*.snapshot.test.tsx` file can

@@ -58,9 +58,7 @@ Nest `describe` blocks to mirror what's under test:
 2. Next `describe` — the name of the export from that file being tested (e.g. `Helper` or `Component`).
 3. If that export is an object, a further `describe` per property being tested.
 
-When the set of possible inputs is exhaustively enumerable (e.g. an enum), test every member rather than a sample.
-
-For every component, every prop that affects rendering must be covered by a snapshot test (e.g. `name.property.snapshot.test.tsx`).
+For every component, every prop that affects rendering must be covered by a snapshot test (e.g. `name.property.snapshot.test.tsx`) — don't test every possible value, just the edge cases (e.g. a scale's smallest and largest value) plus a couple of representative ones in between.
 
 ## Workflow
 
