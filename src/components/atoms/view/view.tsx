@@ -1,15 +1,17 @@
 import { View as NativeView } from 'react-native'
 
 import type { ViewComponent, ViewProps } from '@/components/atoms/view/view.types'
-import { DEFAULT_SPACING_VALUES } from '@/constants/spacing'
+import { useThemeStyleSheet } from '@/context/theme/theme.context'
 
 export const View: ViewComponent = ({ children, style, padding, margin, testID }: ViewProps) => {
+  const styleSheet = useThemeStyleSheet()
+
   return (
     <NativeView
       testID={testID}
       style={[
-        padding !== undefined && { padding: DEFAULT_SPACING_VALUES[padding].value },
-        margin !== undefined && { margin: DEFAULT_SPACING_VALUES[margin].value },
+        padding !== undefined && styleSheet[`padding${padding}`],
+        margin !== undefined && styleSheet[`margin${margin}`],
         style,
       ]}
     >

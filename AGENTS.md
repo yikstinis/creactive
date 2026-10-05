@@ -8,10 +8,11 @@ This file holds the working conventions for any AI agent contributing code here.
 
 ### Directories
 
-- `constants/` — shared constant values and enums (e.g. the spacing scale) used across the library.
-- `helpers/` — framework-agnostic utility logic (e.g. `Dimension`), with no React/React Native dependency.
 - `components/atoms/` — smallest UI building blocks, typically a thin wrapper around a single React Native primitive (e.g. `View`).
 - `components/molecules/` — compositions of atoms (and other molecules) into a reusable higher-level component.
+- `constants/` — shared constant values and enums (e.g. the spacing scale) used across the library.
+- `context/` — React contexts shared across the library (e.g. `ThemeContext`).
+- `helpers/` — framework-agnostic utility logic (e.g. `Dimension`), with no React/React Native dependency.
 
 ### Files and folders
 
@@ -19,9 +20,10 @@ Kebab-case only, for every file and directory (e.g. `kebab-case.ts`, `some-helpe
 
 ### Units
 
-Each unit (component, helper) lives in its own kebab-case directory, colocating:
+Each unit (component, context, helper) lives in its own kebab-case directory, colocating:
 
 - `name.ts(x)` — implementation.
+- `name.context.tsx` — implementation, for a context unit (the context, its default value, and its provider component).
 - `name.unit.test.ts(x)` — unit tests.
 - `name.property.snapshot.test.ts(x)` — snapshot tests, one file per prop.
 - `name.types.d.ts` — interfaces and type aliases.

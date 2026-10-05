@@ -5,22 +5,40 @@ import TestRenderer from 'react-test-renderer'
 
 import { View } from '@/components/atoms/view/view'
 import type { ViewProps } from '@/components/atoms/view/view.types'
-import { DEFAULT_SPACING_MD_VALUE, DEFAULT_SPACING_SM_VALUE, DEFAULT_SPACING_VALUES, Spacing } from '@/constants/spacing'
+import {
+  DEFAULT_SPACING,
+  DEFAULT_SPACING_LG,
+  DEFAULT_SPACING_MD,
+  DEFAULT_SPACING_SM,
+  DEFAULT_SPACING_X6L,
+  DEFAULT_SPACING_X6S,
+  Spacing,
+} from '@/constants/spacing'
+import { ThemeContextProvider } from '@/context/theme/theme.context'
+import type { Theme } from '@/context/theme/theme.types'
+import { Dimension } from '@/helpers/dimension/dimension'
 
-function renderNativeViewProps(props: Omit<ViewProps, 'children'> & { children?: ReactNode } = {}) {
+const CUSTOM_THEME: Theme = {
+  spacing: { ...DEFAULT_SPACING, [Spacing.MD]: new Dimension(100) },
+}
+
+function renderNativeViewProps(props: Omit<ViewProps, 'children'> & { children?: ReactNode } = {}, theme?: Theme) {
   let testRenderer: TestRenderer.ReactTestRenderer
 
   TestRenderer.act(() => {
-    testRenderer = TestRenderer.create(<View {...props} />)
+    testRenderer = TestRenderer.create(
+      theme === undefined ? (
+        <View {...props} />
+      ) : (
+        <ThemeContextProvider theme={theme}>
+          <View {...props} />
+        </ThemeContextProvider>
+      ),
+    )
   })
 
   return testRenderer!.root.findByType(NativeView).props
 }
-
-const SPACING_CASES = [Spacing.X6S, Spacing.SM, Spacing.LG, Spacing.X6L].map((spacing) => ({
-  spacing,
-  pixels: DEFAULT_SPACING_VALUES[spacing].value,
-}))
 
 describe('@/components/atoms/view/view', () => {
   describe('View', () => {
@@ -33,18 +51,54 @@ describe('@/components/atoms/view/view', () => {
     })
 
     describe('padding', () => {
-      it.each(SPACING_CASES)('applies the $pixels px scale value when padding is given', ({ spacing, pixels }) => {
-        const { style } = renderNativeViewProps({ padding: spacing })
+      it('applies the X6S scale value when padding is given', () => {
+        const { style } = renderNativeViewProps({ padding: Spacing.X6S })
 
-        expect(style).toEqual([{ padding: pixels }, false, undefined])
+        expect(style).toEqual([{ padding: DEFAULT_SPACING_X6S.value }, false, undefined])
+      })
+
+      it('applies the SM scale value when padding is given', () => {
+        const { style } = renderNativeViewProps({ padding: Spacing.SM })
+
+        expect(style).toEqual([{ padding: DEFAULT_SPACING_SM.value }, false, undefined])
+      })
+
+      it('applies the LG scale value when padding is given', () => {
+        const { style } = renderNativeViewProps({ padding: Spacing.LG })
+
+        expect(style).toEqual([{ padding: DEFAULT_SPACING_LG.value }, false, undefined])
+      })
+
+      it('applies the X6L scale value when padding is given', () => {
+        const { style } = renderNativeViewProps({ padding: Spacing.X6L })
+
+        expect(style).toEqual([{ padding: DEFAULT_SPACING_X6L.value }, false, undefined])
       })
     })
 
     describe('margin', () => {
-      it.each(SPACING_CASES)('applies the $pixels px scale value when margin is given', ({ spacing, pixels }) => {
-        const { style } = renderNativeViewProps({ margin: spacing })
+      it('applies the X6S scale value when margin is given', () => {
+        const { style } = renderNativeViewProps({ margin: Spacing.X6S })
 
-        expect(style).toEqual([false, { margin: pixels }, undefined])
+        expect(style).toEqual([false, { margin: DEFAULT_SPACING_X6S.value }, undefined])
+      })
+
+      it('applies the SM scale value when margin is given', () => {
+        const { style } = renderNativeViewProps({ margin: Spacing.SM })
+
+        expect(style).toEqual([false, { margin: DEFAULT_SPACING_SM.value }, undefined])
+      })
+
+      it('applies the LG scale value when margin is given', () => {
+        const { style } = renderNativeViewProps({ margin: Spacing.LG })
+
+        expect(style).toEqual([false, { margin: DEFAULT_SPACING_LG.value }, undefined])
+      })
+
+      it('applies the X6L scale value when margin is given', () => {
+        const { style } = renderNativeViewProps({ margin: Spacing.X6L })
+
+        expect(style).toEqual([false, { margin: DEFAULT_SPACING_X6L.value }, undefined])
       })
     })
 
@@ -71,10 +125,16 @@ describe('@/components/atoms/view/view', () => {
       })
 
       expect(style).toEqual([
-        { padding: DEFAULT_SPACING_MD_VALUE.value },
-        { margin: DEFAULT_SPACING_SM_VALUE.value },
+        { padding: DEFAULT_SPACING_MD.value },
+        { margin: DEFAULT_SPACING_SM.value },
         customStyle,
       ])
+    })
+
+    it('takes padding and margin values from the provided theme', () => {
+      const { style } = renderNativeViewProps({ padding: Spacing.MD, margin: Spacing.MD }, CUSTOM_THEME)
+
+      expect(style).toEqual([{ padding: 100 }, { margin: 100 }, undefined])
     })
   })
 })
