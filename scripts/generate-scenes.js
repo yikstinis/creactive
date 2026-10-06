@@ -26,7 +26,7 @@ function findSceneFiles(dir) {
 // Namespace-import alias in the generated file, since every scene file exports its cases under the same names.
 function toCamelCase(basename) {
   return basename
-    .split('.')
+    .split(/[.-]/)
     .map((part, index) => (index === 0 ? part : part.charAt(0).toUpperCase() + part.slice(1)))
     .join('')
 }

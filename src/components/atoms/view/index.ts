@@ -1,2 +1,13 @@
 export { View } from '@/components/atoms/view/view'
-export type { ViewComponent, ViewProps } from '@/components/atoms/view/view.types'
+export type {
+  ViewBaseProps,
+  ViewComponent,
+  ViewMarginProps,
+  ViewMarginShorthandProps,
+  ViewMarginSideProps,
+  ViewPaddingProps,
+  ViewPaddingShorthandProps,
+  ViewPaddingSideProps,
+  ViewProps,
+  ViewSpacingShorthand,
+} from '@/components/atoms/view/view.types'
